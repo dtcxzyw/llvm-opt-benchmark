@@ -131,291 +131,326 @@ define i32 @zueci_utf8_to_eci(i32 noundef %0, ptr noundef %1, i32 noundef %2, pt
   %16 = alloca ptr, align 8
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
-  store i32 %0, ptr %7, align 4
-  store ptr %1, ptr %8, align 8
-  store i32 %2, ptr %9, align 4
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  store i32 0, ptr %12, align 4
-  %19 = load ptr, ptr %8, align 8
-  store ptr %19, ptr %13, align 8
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i32, ptr %9, align 4
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  store ptr %23, ptr %14, align 8
-  %24 = load ptr, ptr %10, align 8
-  store ptr %24, ptr %15, align 8
-  %25 = load i32, ptr %7, align 4
-  %26 = call i32 @zueci_is_valid_eci(i32 noundef %25)
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %29, label %28
-
-28:                                               ; preds = %5
-  store i32 7, ptr %6, align 4
-  br label %173
+  %19 = alloca i32, align 4
+  store i32 %0, ptr %7, align 4, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !7
+  store i32 %2, ptr %9, align 4, !tbaa !3
+  store ptr %3, ptr %10, align 8, !tbaa !7
+  store ptr %4, ptr %11, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  store i32 0, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #3
+  %20 = load ptr, ptr %8, align 8, !tbaa !7
+  store ptr %20, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %21 = load ptr, ptr %8, align 8, !tbaa !7
+  %22 = load i32, ptr %9, align 4, !tbaa !3
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i8, ptr %21, i64 %23
+  store ptr %24, ptr %14, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %25 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr %25, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %26 = load i32, ptr %7, align 4, !tbaa !3
+  %27 = call i32 @zueci_is_valid_eci(i32 noundef %26)
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %30, label %29
 
 29:                                               ; preds = %5
-  %30 = load ptr, ptr %8, align 8
-  %31 = icmp ne ptr %30, null
-  br i1 %31, label %32, label %38
+  store i32 7, ptr %6, align 4
+  store i32 1, ptr %18, align 4
+  br label %177
 
-32:                                               ; preds = %29
-  %33 = load ptr, ptr %10, align 8
-  %34 = icmp ne ptr %33, null
-  br i1 %34, label %35, label %38
+30:                                               ; preds = %5
+  %31 = load ptr, ptr %8, align 8, !tbaa !7
+  %32 = icmp ne ptr %31, null
+  br i1 %32, label %33, label %39
 
-35:                                               ; preds = %32
-  %36 = load ptr, ptr %11, align 8
-  %37 = icmp ne ptr %36, null
-  br i1 %37, label %39, label %38
+33:                                               ; preds = %30
+  %34 = load ptr, ptr %10, align 8, !tbaa !7
+  %35 = icmp ne ptr %34, null
+  br i1 %35, label %36, label %39
 
-38:                                               ; preds = %35, %32, %29
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %11, align 8, !tbaa !10
+  %38 = icmp ne ptr %37, null
+  br i1 %38, label %40, label %39
+
+39:                                               ; preds = %36, %33, %30
   store i32 8, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-39:                                               ; preds = %35
-  %40 = load i32, ptr %7, align 4
-  %41 = icmp eq i32 %40, 1
-  br i1 %41, label %45, label %42
+40:                                               ; preds = %36
+  %41 = load i32, ptr %7, align 4, !tbaa !3
+  %42 = icmp eq i32 %41, 1
+  br i1 %42, label %46, label %43
 
-42:                                               ; preds = %39
-  %43 = load i32, ptr %7, align 4
-  %44 = icmp eq i32 %43, 3
-  br i1 %44, label %45, label %95
+43:                                               ; preds = %40
+  %44 = load i32, ptr %7, align 4, !tbaa !3
+  %45 = icmp eq i32 %44, 3
+  br i1 %45, label %46, label %96
 
-45:                                               ; preds = %42, %39
-  br label %46
+46:                                               ; preds = %43, %40
+  br label %47
 
-46:                                               ; preds = %82, %45
-  %47 = load ptr, ptr %13, align 8
-  %48 = load ptr, ptr %14, align 8
-  %49 = icmp ult ptr %47, %48
-  br i1 %49, label %50, label %87
+47:                                               ; preds = %83, %46
+  %48 = load ptr, ptr %13, align 8, !tbaa !7
+  %49 = load ptr, ptr %14, align 8, !tbaa !7
+  %50 = icmp ult ptr %48, %49
+  br i1 %50, label %51, label %88
 
-50:                                               ; preds = %46
-  br label %51
+51:                                               ; preds = %47
+  br label %52
 
-51:                                               ; preds = %66, %50
-  %52 = load ptr, ptr %13, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i32 1
-  store ptr %53, ptr %13, align 8
-  %54 = load i8, ptr %52, align 1
-  %55 = call i32 @zueci_decode_utf8(ptr noundef %12, ptr noundef %17, i8 noundef zeroext %54)
-  br label %56
+52:                                               ; preds = %67, %51
+  %53 = load ptr, ptr %13, align 8, !tbaa !7
+  %54 = getelementptr inbounds nuw i8, ptr %53, i32 1
+  store ptr %54, ptr %13, align 8, !tbaa !7
+  %55 = load i8, ptr %53, align 1, !tbaa !12
+  %56 = call i32 @zueci_decode_utf8(ptr noundef %12, ptr noundef %17, i8 noundef zeroext %55)
+  br label %57
 
-56:                                               ; preds = %51
-  %57 = load ptr, ptr %13, align 8
-  %58 = load ptr, ptr %14, align 8
-  %59 = icmp ult ptr %57, %58
-  br i1 %59, label %60, label %66
+57:                                               ; preds = %52
+  %58 = load ptr, ptr %13, align 8, !tbaa !7
+  %59 = load ptr, ptr %14, align 8, !tbaa !7
+  %60 = icmp ult ptr %58, %59
+  br i1 %60, label %61, label %67
 
-60:                                               ; preds = %56
-  %61 = load i32, ptr %12, align 4
-  %62 = icmp ne i32 %61, 0
-  br i1 %62, label %63, label %66
+61:                                               ; preds = %57
+  %62 = load i32, ptr %12, align 4, !tbaa !3
+  %63 = icmp ne i32 %62, 0
+  br i1 %63, label %64, label %67
 
-63:                                               ; preds = %60
-  %64 = load i32, ptr %12, align 4
-  %65 = icmp ne i32 %64, 12
-  br label %66
+64:                                               ; preds = %61
+  %65 = load i32, ptr %12, align 4, !tbaa !3
+  %66 = icmp ne i32 %65, 12
+  br label %67
 
-66:                                               ; preds = %63, %60, %56
-  %67 = phi i1 [ false, %60 ], [ false, %56 ], [ %65, %63 ]
-  br i1 %67, label %51, label %68, !llvm.loop !4
+67:                                               ; preds = %64, %61, %57
+  %68 = phi i1 [ false, %61 ], [ false, %57 ], [ %66, %64 ]
+  br i1 %68, label %52, label %69, !llvm.loop !13
 
-68:                                               ; preds = %66
-  %69 = load i32, ptr %12, align 4
-  %70 = icmp ne i32 %69, 0
-  br i1 %70, label %71, label %72
+69:                                               ; preds = %67
+  %70 = load i32, ptr %12, align 4, !tbaa !3
+  %71 = icmp ne i32 %70, 0
+  br i1 %71, label %72, label %73
 
-71:                                               ; preds = %68
+72:                                               ; preds = %69
   store i32 9, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-72:                                               ; preds = %68
-  %73 = load i32, ptr %17, align 4
-  %74 = icmp uge i32 %73, 128
-  br i1 %74, label %75, label %82
+73:                                               ; preds = %69
+  %74 = load i32, ptr %17, align 4, !tbaa !3
+  %75 = icmp uge i32 %74, 128
+  br i1 %75, label %76, label %83
 
-75:                                               ; preds = %72
-  %76 = load i32, ptr %17, align 4
-  %77 = icmp ult i32 %76, 160
-  br i1 %77, label %81, label %78
+76:                                               ; preds = %73
+  %77 = load i32, ptr %17, align 4, !tbaa !3
+  %78 = icmp ult i32 %77, 160
+  br i1 %78, label %82, label %79
 
-78:                                               ; preds = %75
-  %79 = load i32, ptr %17, align 4
-  %80 = icmp uge i32 %79, 256
-  br i1 %80, label %81, label %82
+79:                                               ; preds = %76
+  %80 = load i32, ptr %17, align 4, !tbaa !3
+  %81 = icmp uge i32 %80, 256
+  br i1 %81, label %82, label %83
 
-81:                                               ; preds = %78, %75
+82:                                               ; preds = %79, %76
   store i32 6, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-82:                                               ; preds = %78, %72
-  %83 = load i32, ptr %17, align 4
-  %84 = trunc i32 %83 to i8
-  %85 = load ptr, ptr %15, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i32 1
-  store ptr %86, ptr %15, align 8
-  store i8 %84, ptr %85, align 1
-  br label %46, !llvm.loop !6
+83:                                               ; preds = %79, %73
+  %84 = load i32, ptr %17, align 4, !tbaa !3
+  %85 = trunc i32 %84 to i8
+  %86 = load ptr, ptr %15, align 8, !tbaa !7
+  %87 = getelementptr inbounds nuw i8, ptr %86, i32 1
+  store ptr %87, ptr %15, align 8, !tbaa !7
+  store i8 %85, ptr %86, align 1, !tbaa !12
+  br label %47, !llvm.loop !15
 
-87:                                               ; preds = %46
-  %88 = load ptr, ptr %15, align 8
-  %89 = load ptr, ptr %10, align 8
-  %90 = ptrtoint ptr %88 to i64
+88:                                               ; preds = %47
+  %89 = load ptr, ptr %15, align 8, !tbaa !7
+  %90 = load ptr, ptr %10, align 8, !tbaa !7
   %91 = ptrtoint ptr %89 to i64
-  %92 = sub i64 %90, %91
-  %93 = trunc i64 %92 to i32
-  %94 = load ptr, ptr %11, align 8
-  store i32 %93, ptr %94, align 4
+  %92 = ptrtoint ptr %90 to i64
+  %93 = sub i64 %91, %92
+  %94 = trunc i64 %93 to i32
+  %95 = load ptr, ptr %11, align 8, !tbaa !10
+  store i32 %94, ptr %95, align 4, !tbaa !3
   store i32 0, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-95:                                               ; preds = %42
-  %96 = load i32, ptr %7, align 4
-  %97 = icmp eq i32 %96, 26
-  br i1 %97, label %98, label %111
+96:                                               ; preds = %43
+  %97 = load i32, ptr %7, align 4, !tbaa !3
+  %98 = icmp eq i32 %97, 26
+  br i1 %98, label %99, label %112
 
-98:                                               ; preds = %95
-  %99 = load ptr, ptr %8, align 8
-  %100 = load i32, ptr %9, align 4
-  %101 = call i32 @zueci_is_valid_utf8(ptr noundef %99, i32 noundef %100)
-  %102 = icmp ne i32 %101, 0
-  br i1 %102, label %104, label %103
+99:                                               ; preds = %96
+  %100 = load ptr, ptr %8, align 8, !tbaa !7
+  %101 = load i32, ptr %9, align 4, !tbaa !3
+  %102 = call i32 @zueci_is_valid_utf8(ptr noundef %100, i32 noundef %101)
+  %103 = icmp ne i32 %102, 0
+  br i1 %103, label %105, label %104
 
-103:                                              ; preds = %98
+104:                                              ; preds = %99
   store i32 9, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-104:                                              ; preds = %98
-  %105 = load ptr, ptr %10, align 8
-  %106 = load ptr, ptr %8, align 8
-  %107 = load i32, ptr %9, align 4
-  %108 = sext i32 %107 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %106, i64 %108, i1 false)
-  %109 = load i32, ptr %9, align 4
-  %110 = load ptr, ptr %11, align 8
-  store i32 %109, ptr %110, align 4
+105:                                              ; preds = %99
+  %106 = load ptr, ptr %10, align 8, !tbaa !7
+  %107 = load ptr, ptr %8, align 8, !tbaa !7
+  %108 = load i32, ptr %9, align 4, !tbaa !3
+  %109 = sext i32 %108 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %107, i64 %109, i1 false)
+  %110 = load i32, ptr %9, align 4, !tbaa !3
+  %111 = load ptr, ptr %11, align 8, !tbaa !10
+  store i32 %110, ptr %111, align 4, !tbaa !3
   store i32 0, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-111:                                              ; preds = %95
-  %112 = load i32, ptr %7, align 4
-  %113 = icmp eq i32 %112, 170
-  br i1 %113, label %114, label %115
+112:                                              ; preds = %96
+  %113 = load i32, ptr %7, align 4, !tbaa !3
+  %114 = icmp eq i32 %113, 170
+  br i1 %114, label %115, label %116
 
-114:                                              ; preds = %111
-  store ptr @zueci_u_ascii_inv, ptr %16, align 8
-  br label %125
-
-115:                                              ; preds = %111
-  %116 = load i32, ptr %7, align 4
-  %117 = icmp eq i32 %116, 899
-  br i1 %117, label %118, label %119
-
-118:                                              ; preds = %115
-  store ptr @zueci_u_binary, ptr %16, align 8
-  br label %124
-
-119:                                              ; preds = %115
-  %120 = load i32, ptr %7, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [36 x ptr], ptr @zueci_utf8_to_eci.zueci_eci_funcs, i64 0, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  store ptr %123, ptr %16, align 8
-  br label %124
-
-124:                                              ; preds = %119, %118
-  br label %125
-
-125:                                              ; preds = %124, %114
+115:                                              ; preds = %112
+  store ptr @zueci_u_ascii_inv, ptr %16, align 8, !tbaa !16
   br label %126
 
-126:                                              ; preds = %160, %125
-  %127 = load ptr, ptr %13, align 8
-  %128 = load ptr, ptr %14, align 8
-  %129 = icmp ult ptr %127, %128
-  br i1 %129, label %130, label %165
+116:                                              ; preds = %112
+  %117 = load i32, ptr %7, align 4, !tbaa !3
+  %118 = icmp eq i32 %117, 899
+  br i1 %118, label %119, label %120
 
-130:                                              ; preds = %126
-  br label %131
+119:                                              ; preds = %116
+  store ptr @zueci_u_binary, ptr %16, align 8, !tbaa !16
+  br label %125
 
-131:                                              ; preds = %146, %130
-  %132 = load ptr, ptr %13, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i32 1
-  store ptr %133, ptr %13, align 8
-  %134 = load i8, ptr %132, align 1
-  %135 = call i32 @zueci_decode_utf8(ptr noundef %12, ptr noundef %17, i8 noundef zeroext %134)
-  br label %136
+120:                                              ; preds = %116
+  %121 = load i32, ptr %7, align 4, !tbaa !3
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds [36 x ptr], ptr @zueci_utf8_to_eci.zueci_eci_funcs, i64 0, i64 %122
+  %124 = load ptr, ptr %123, align 8, !tbaa !16
+  store ptr %124, ptr %16, align 8, !tbaa !16
+  br label %125
 
-136:                                              ; preds = %131
-  %137 = load ptr, ptr %13, align 8
-  %138 = load ptr, ptr %14, align 8
-  %139 = icmp ult ptr %137, %138
-  br i1 %139, label %140, label %146
+125:                                              ; preds = %120, %119
+  br label %126
 
-140:                                              ; preds = %136
-  %141 = load i32, ptr %12, align 4
-  %142 = icmp ne i32 %141, 0
-  br i1 %142, label %143, label %146
+126:                                              ; preds = %125, %115
+  br label %127
 
-143:                                              ; preds = %140
-  %144 = load i32, ptr %12, align 4
-  %145 = icmp ne i32 %144, 12
-  br label %146
+127:                                              ; preds = %168, %126
+  %128 = load ptr, ptr %13, align 8, !tbaa !7
+  %129 = load ptr, ptr %14, align 8, !tbaa !7
+  %130 = icmp ult ptr %128, %129
+  br i1 %130, label %131, label %169
 
-146:                                              ; preds = %143, %140, %136
-  %147 = phi i1 [ false, %140 ], [ false, %136 ], [ %145, %143 ]
-  br i1 %147, label %131, label %148, !llvm.loop !7
+131:                                              ; preds = %127
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  br label %132
 
-148:                                              ; preds = %146
-  %149 = load i32, ptr %12, align 4
-  %150 = icmp ne i32 %149, 0
-  br i1 %150, label %151, label %152
+132:                                              ; preds = %147, %131
+  %133 = load ptr, ptr %13, align 8, !tbaa !7
+  %134 = getelementptr inbounds nuw i8, ptr %133, i32 1
+  store ptr %134, ptr %13, align 8, !tbaa !7
+  %135 = load i8, ptr %133, align 1, !tbaa !12
+  %136 = call i32 @zueci_decode_utf8(ptr noundef %12, ptr noundef %17, i8 noundef zeroext %135)
+  br label %137
 
-151:                                              ; preds = %148
+137:                                              ; preds = %132
+  %138 = load ptr, ptr %13, align 8, !tbaa !7
+  %139 = load ptr, ptr %14, align 8, !tbaa !7
+  %140 = icmp ult ptr %138, %139
+  br i1 %140, label %141, label %147
+
+141:                                              ; preds = %137
+  %142 = load i32, ptr %12, align 4, !tbaa !3
+  %143 = icmp ne i32 %142, 0
+  br i1 %143, label %144, label %147
+
+144:                                              ; preds = %141
+  %145 = load i32, ptr %12, align 4, !tbaa !3
+  %146 = icmp ne i32 %145, 12
+  br label %147
+
+147:                                              ; preds = %144, %141, %137
+  %148 = phi i1 [ false, %141 ], [ false, %137 ], [ %146, %144 ]
+  br i1 %148, label %132, label %149, !llvm.loop !17
+
+149:                                              ; preds = %147
+  %150 = load i32, ptr %12, align 4, !tbaa !3
+  %151 = icmp ne i32 %150, 0
+  br i1 %151, label %152, label %153
+
+152:                                              ; preds = %149
   store i32 9, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %166
 
-152:                                              ; preds = %148
-  %153 = load ptr, ptr %16, align 8
-  %154 = load i32, ptr %17, align 4
-  %155 = load ptr, ptr %15, align 8
-  %156 = call i32 %153(i32 noundef %154, ptr noundef %155)
-  store i32 %156, ptr %18, align 4
-  %157 = load i32, ptr %18, align 4
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %159, label %160
+153:                                              ; preds = %149
+  %154 = load ptr, ptr %16, align 8, !tbaa !16
+  %155 = load i32, ptr %17, align 4, !tbaa !3
+  %156 = load ptr, ptr %15, align 8, !tbaa !7
+  %157 = call i32 %154(i32 noundef %155, ptr noundef %156)
+  store i32 %157, ptr %19, align 4, !tbaa !3
+  %158 = load i32, ptr %19, align 4, !tbaa !3
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %161
 
-159:                                              ; preds = %152
+160:                                              ; preds = %153
   store i32 6, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %166
 
-160:                                              ; preds = %152
-  %161 = load i32, ptr %18, align 4
-  %162 = load ptr, ptr %15, align 8
-  %163 = sext i32 %161 to i64
-  %164 = getelementptr inbounds i8, ptr %162, i64 %163
-  store ptr %164, ptr %15, align 8
-  br label %126, !llvm.loop !8
+161:                                              ; preds = %153
+  %162 = load i32, ptr %19, align 4, !tbaa !3
+  %163 = load ptr, ptr %15, align 8, !tbaa !7
+  %164 = sext i32 %162 to i64
+  %165 = getelementptr inbounds i8, ptr %163, i64 %164
+  store ptr %165, ptr %15, align 8, !tbaa !7
+  store i32 0, ptr %18, align 4
+  br label %166
 
-165:                                              ; preds = %126
-  %166 = load ptr, ptr %15, align 8
-  %167 = load ptr, ptr %10, align 8
-  %168 = ptrtoint ptr %166 to i64
-  %169 = ptrtoint ptr %167 to i64
-  %170 = sub i64 %168, %169
-  %171 = trunc i64 %170 to i32
-  %172 = load ptr, ptr %11, align 8
-  store i32 %171, ptr %172, align 4
+166:                                              ; preds = %161, %160, %152
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  %167 = load i32, ptr %18, align 4
+  switch i32 %167, label %177 [
+    i32 0, label %168
+  ]
+
+168:                                              ; preds = %166
+  br label %127, !llvm.loop !18
+
+169:                                              ; preds = %127
+  %170 = load ptr, ptr %15, align 8, !tbaa !7
+  %171 = load ptr, ptr %10, align 8, !tbaa !7
+  %172 = ptrtoint ptr %170 to i64
+  %173 = ptrtoint ptr %171 to i64
+  %174 = sub i64 %172, %173
+  %175 = trunc i64 %174 to i32
+  %176 = load ptr, ptr %11, align 8, !tbaa !10
+  store i32 %175, ptr %176, align 4, !tbaa !3
   store i32 0, ptr %6, align 4
-  br label %173
+  store i32 1, ptr %18, align 4
+  br label %177
 
-173:                                              ; preds = %165, %159, %151, %104, %103, %87, %81, %71, %38, %28
-  %174 = load i32, ptr %6, align 4
-  ret i32 %174
+177:                                              ; preds = %169, %166, %105, %104, %88, %82, %72, %39, %29
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %178 = load i32, ptr %6, align 4
+  ret i32 %178
 }
 
 ; Function Attrs: nounwind uwtable
@@ -426,101 +461,121 @@ define internal i32 @zueci_u_cp437(i32 noundef %0, ptr noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %9 = load i32, ptr %4, align 4
-  %10 = icmp ult i32 %9, 128
-  br i1 %10, label %11, label %15
+  %9 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %10 = load i32, ptr %4, align 4, !tbaa !3
+  %11 = icmp ult i32 %10, 128
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %2
-  %12 = load i32, ptr %4, align 4
-  %13 = trunc i32 %12 to i8
-  %14 = load ptr, ptr %5, align 8
-  store i8 %13, ptr %14, align 1
+12:                                               ; preds = %2
+  %13 = load i32, ptr %4, align 4, !tbaa !3
+  %14 = trunc i32 %13 to i8
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %14, ptr %15, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %55
+  store i32 1, ptr %8, align 4
+  br label %59
 
-15:                                               ; preds = %2
-  store i32 0, ptr %6, align 4
-  store i32 127, ptr %7, align 4
-  br label %16
+16:                                               ; preds = %2
+  store i32 0, ptr %6, align 4, !tbaa !3
+  store i32 127, ptr %7, align 4, !tbaa !3
+  br label %17
 
-16:                                               ; preds = %53, %15
-  %17 = load i32, ptr %6, align 4
-  %18 = load i32, ptr %7, align 4
-  %19 = icmp sle i32 %17, %18
-  br i1 %19, label %20, label %54
+17:                                               ; preds = %57, %16
+  %18 = load i32, ptr %6, align 4, !tbaa !3
+  %19 = load i32, ptr %7, align 4, !tbaa !3
+  %20 = icmp sle i32 %18, %19
+  br i1 %20, label %21, label %58
 
-20:                                               ; preds = %16
-  %21 = load i32, ptr %6, align 4
-  %22 = load i32, ptr %7, align 4
-  %23 = add nsw i32 %21, %22
-  %24 = ashr i32 %23, 1
-  store i32 %24, ptr %8, align 4
-  %25 = load i32, ptr %8, align 4
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %26
-  %28 = load i16, ptr %27, align 2
-  %29 = zext i16 %28 to i32
-  %30 = load i32, ptr %4, align 4
-  %31 = icmp ult i32 %29, %30
-  br i1 %31, label %32, label %35
+21:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %22 = load i32, ptr %6, align 4, !tbaa !3
+  %23 = load i32, ptr %7, align 4, !tbaa !3
+  %24 = add nsw i32 %22, %23
+  %25 = ashr i32 %24, 1
+  store i32 %25, ptr %9, align 4, !tbaa !3
+  %26 = load i32, ptr %9, align 4, !tbaa !3
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %27
+  %29 = load i16, ptr %28, align 2, !tbaa !19
+  %30 = zext i16 %29 to i32
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  %32 = icmp ult i32 %30, %31
+  br i1 %32, label %33, label %36
 
-32:                                               ; preds = %20
-  %33 = load i32, ptr %8, align 4
-  %34 = add nsw i32 %33, 1
-  store i32 %34, ptr %6, align 4
+33:                                               ; preds = %21
+  %34 = load i32, ptr %9, align 4, !tbaa !3
+  %35 = add nsw i32 %34, 1
+  store i32 %35, ptr %6, align 4, !tbaa !3
+  br label %54
+
+36:                                               ; preds = %21
+  %37 = load i32, ptr %9, align 4, !tbaa !3
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %38
+  %40 = load i16, ptr %39, align 2, !tbaa !19
+  %41 = zext i16 %40 to i32
+  %42 = load i32, ptr %4, align 4, !tbaa !3
+  %43 = icmp ugt i32 %41, %42
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %36
+  %45 = load i32, ptr %9, align 4, !tbaa !3
+  %46 = sub nsw i32 %45, 1
+  store i32 %46, ptr %7, align 4, !tbaa !3
   br label %53
 
-35:                                               ; preds = %20
-  %36 = load i32, ptr %8, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2
-  %40 = zext i16 %39 to i32
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp ugt i32 %40, %41
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %35
-  %44 = load i32, ptr %8, align 4
-  %45 = sub nsw i32 %44, 1
-  store i32 %45, ptr %7, align 4
-  br label %52
-
-46:                                               ; preds = %35
-  %47 = load i32, ptr %8, align 4
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [128 x i8], ptr @zueci_cp437_u_sb, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1
-  %51 = load ptr, ptr %5, align 8
-  store i8 %50, ptr %51, align 1
+47:                                               ; preds = %36
+  %48 = load i32, ptr %9, align 4, !tbaa !3
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds [128 x i8], ptr @zueci_cp437_u_sb, i64 0, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %52 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %51, ptr %52, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
+  store i32 1, ptr %8, align 4
   br label %55
 
-52:                                               ; preds = %43
-  br label %53
+53:                                               ; preds = %44
+  br label %54
 
-53:                                               ; preds = %52, %32
-  br label %16, !llvm.loop !9
+54:                                               ; preds = %53, %33
+  store i32 0, ptr %8, align 4
+  br label %55
 
-54:                                               ; preds = %16
+55:                                               ; preds = %54, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %56 = load i32, ptr %8, align 4
+  switch i32 %56, label %59 [
+    i32 0, label %57
+  ]
+
+57:                                               ; preds = %55
+  br label %17, !llvm.loop !21
+
+58:                                               ; preds = %17
   store i32 0, ptr %3, align 4
-  br label %55
+  store i32 1, ptr %8, align 4
+  br label %59
 
-55:                                               ; preds = %54, %46, %11
-  %56 = load i32, ptr %3, align 4
-  ret i32 %56
+59:                                               ; preds = %58, %55, %12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %60 = load i32, ptr %3, align 4
+  ret i32 %60
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zueci_u_iso8859_2(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_2_s, ptr noundef @zueci_iso8859_2_u_u, ptr noundef @zueci_iso8859_2_u_sb, i32 noundef 56, ptr noundef %6)
   ret i32 %7
 }
@@ -529,10 +584,10 @@ define internal i32 @zueci_u_iso8859_2(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_3(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_3_s, ptr noundef @zueci_iso8859_3_u_u, ptr noundef @zueci_iso8859_3_u_sb, i32 noundef 27, ptr noundef %6)
   ret i32 %7
 }
@@ -541,10 +596,10 @@ define internal i32 @zueci_u_iso8859_3(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_4(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_4_s, ptr noundef @zueci_iso8859_4_u_u, ptr noundef @zueci_iso8859_4_u_sb, i32 noundef 49, ptr noundef %6)
   ret i32 %7
 }
@@ -553,10 +608,10 @@ define internal i32 @zueci_u_iso8859_4(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_5(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_5_s, ptr noundef @zueci_iso8859_5_u_u, ptr noundef @zueci_iso8859_5_u_sb, i32 noundef 93, ptr noundef %6)
   ret i32 %7
 }
@@ -565,10 +620,10 @@ define internal i32 @zueci_u_iso8859_5(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_6(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_6_s, ptr noundef @zueci_iso8859_6_u_u, ptr noundef @zueci_iso8859_6_u_sb, i32 noundef 47, ptr noundef %6)
   ret i32 %7
 }
@@ -577,10 +632,10 @@ define internal i32 @zueci_u_iso8859_6(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_7(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_7_s, ptr noundef @zueci_iso8859_7_u_u, ptr noundef @zueci_iso8859_7_u_sb, i32 noundef 76, ptr noundef %6)
   ret i32 %7
 }
@@ -589,10 +644,10 @@ define internal i32 @zueci_u_iso8859_7(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_8(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_8_s, ptr noundef @zueci_iso8859_8_u_u, ptr noundef @zueci_iso8859_8_u_sb, i32 noundef 31, ptr noundef %6)
   ret i32 %7
 }
@@ -601,10 +656,10 @@ define internal i32 @zueci_u_iso8859_8(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_9(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_9_s, ptr noundef @zueci_iso8859_9_u_u, ptr noundef @zueci_iso8859_9_u_sb, i32 noundef 5, ptr noundef %6)
   ret i32 %7
 }
@@ -613,10 +668,10 @@ define internal i32 @zueci_u_iso8859_9(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_10_s, ptr noundef @zueci_iso8859_10_u_u, ptr noundef @zueci_iso8859_10_u_sb, i32 noundef 45, ptr noundef %6)
   ret i32 %7
 }
@@ -625,10 +680,10 @@ define internal i32 @zueci_u_iso8859_10(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_11_s, ptr noundef @zueci_iso8859_11_u_u, ptr noundef @zueci_iso8859_11_u_sb, i32 noundef 86, ptr noundef %6)
   ret i32 %7
 }
@@ -637,10 +692,10 @@ define internal i32 @zueci_u_iso8859_11(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_13_s, ptr noundef @zueci_iso8859_13_u_u, ptr noundef @zueci_iso8859_13_u_sb, i32 noundef 55, ptr noundef %6)
   ret i32 %7
 }
@@ -649,10 +704,10 @@ define internal i32 @zueci_u_iso8859_13(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_14_s, ptr noundef @zueci_iso8859_14_u_u, ptr noundef @zueci_iso8859_14_u_sb, i32 noundef 30, ptr noundef %6)
   ret i32 %7
 }
@@ -661,10 +716,10 @@ define internal i32 @zueci_u_iso8859_14(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_15_s, ptr noundef @zueci_iso8859_15_u_u, ptr noundef @zueci_iso8859_15_u_sb, i32 noundef 7, ptr noundef %6)
   ret i32 %7
 }
@@ -673,10 +728,10 @@ define internal i32 @zueci_u_iso8859_15(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_iso8859_16(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_iso8859(i32 noundef %5, ptr noundef @zueci_iso8859_16_s, ptr noundef @zueci_iso8859_16_u_u, ptr noundef @zueci_iso8859_16_u_sb, i32 noundef 39, ptr noundef %6)
   ret i32 %7
 }
@@ -693,243 +748,286 @@ define internal i32 @zueci_u_sjis(i32 noundef %0, ptr noundef %1) #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i16, align 2
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %13 = load i32, ptr %4, align 4
-  %14 = icmp ult i32 %13, 128
-  br i1 %14, label %15, label %26
+  %13 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = icmp ult i32 %14, 128
+  br i1 %15, label %16, label %27
 
-15:                                               ; preds = %2
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp ne i32 %16, 92
-  br i1 %17, label %18, label %26
+16:                                               ; preds = %2
+  %17 = load i32, ptr %4, align 4, !tbaa !3
+  %18 = icmp ne i32 %17, 92
+  br i1 %18, label %19, label %27
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %4, align 4
-  %20 = icmp ne i32 %19, 126
-  br i1 %20, label %21, label %26
+19:                                               ; preds = %16
+  %20 = load i32, ptr %4, align 4, !tbaa !3
+  %21 = icmp ne i32 %20, 126
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %4, align 4
-  %23 = trunc i32 %22 to i8
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 0
-  store i8 %23, ptr %25, align 1
+22:                                               ; preds = %19
+  %23 = load i32, ptr %4, align 4, !tbaa !3
+  %24 = trunc i32 %23 to i8
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = getelementptr inbounds i8, ptr %25, i64 0
+  store i8 %24, ptr %26, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %153
+  br label %160
 
-26:                                               ; preds = %18, %15, %2
-  %27 = load i32, ptr %4, align 4
-  %28 = icmp uge i32 %27, 19968
-  br i1 %28, label %29, label %40
+27:                                               ; preds = %19, %16, %2
+  %28 = load i32, ptr %4, align 4, !tbaa !3
+  %29 = icmp uge i32 %28, 19968
+  br i1 %29, label %30, label %41
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %4, align 4
-  %31 = icmp ult i32 %30, 57344
-  br i1 %31, label %32, label %40
+30:                                               ; preds = %27
+  %31 = load i32, ptr %4, align 4, !tbaa !3
+  %32 = icmp ult i32 %31, 57344
+  br i1 %32, label %33, label %41
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %4, align 4
-  %34 = icmp ugt i32 %33, 40864
-  br i1 %34, label %35, label %36
+33:                                               ; preds = %30
+  %34 = load i32, ptr %4, align 4, !tbaa !3
+  %35 = icmp ugt i32 %34, 40864
+  br i1 %35, label %36, label %37
 
-35:                                               ; preds = %32
+36:                                               ; preds = %33
   store i32 0, ptr %3, align 4
-  br label %153
+  br label %160
 
-36:                                               ; preds = %32
-  %37 = load i32, ptr %4, align 4
-  %38 = load ptr, ptr %5, align 8
-  %39 = call i32 @zueci_u_lookup_uro(i32 noundef %37, ptr noundef @zueci_sjis_uro_u, ptr noundef @zueci_sjis_uro_mb_ind, ptr noundef @zueci_sjis_u_mb, ptr noundef %38)
-  store i32 %39, ptr %3, align 4
-  br label %153
+37:                                               ; preds = %33
+  %38 = load i32, ptr %4, align 4, !tbaa !3
+  %39 = load ptr, ptr %5, align 8, !tbaa !7
+  %40 = call i32 @zueci_u_lookup_uro(i32 noundef %38, ptr noundef @zueci_sjis_uro_u, ptr noundef @zueci_sjis_uro_mb_ind, ptr noundef @zueci_sjis_u_mb, ptr noundef %39)
+  store i32 %40, ptr %3, align 4
+  br label %160
 
-40:                                               ; preds = %29, %26
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp uge i32 %41, 57344
-  br i1 %42, label %43, label %75
+41:                                               ; preds = %30, %27
+  %42 = load i32, ptr %4, align 4, !tbaa !3
+  %43 = icmp uge i32 %42, 57344
+  br i1 %43, label %44, label %76
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %4, align 4
-  %45 = icmp ule i32 %44, 59223
-  br i1 %45, label %46, label %75
+44:                                               ; preds = %41
+  %45 = load i32, ptr %4, align 4, !tbaa !3
+  %46 = icmp ule i32 %45, 59223
+  br i1 %46, label %47, label %76
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %4, align 4
-  %48 = sub i32 %47, 57344
-  store i32 %48, ptr %6, align 4
-  %49 = load i32, ptr %6, align 4
-  %50 = udiv i32 %49, 188
-  %51 = trunc i32 %50 to i8
-  store i8 %51, ptr %7, align 1
-  %52 = load i32, ptr %6, align 4
-  %53 = load i8, ptr %7, align 1
-  %54 = zext i8 %53 to i32
-  %55 = mul nsw i32 %54, 188
-  %56 = sub i32 %52, %55
-  %57 = trunc i32 %56 to i8
-  store i8 %57, ptr %8, align 1
-  %58 = load i8, ptr %7, align 1
-  %59 = zext i8 %58 to i32
-  %60 = add nsw i32 %59, 240
-  %61 = trunc i32 %60 to i8
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 0
-  store i8 %61, ptr %63, align 1
-  %64 = load i8, ptr %8, align 1
-  %65 = zext i8 %64 to i32
-  %66 = add nsw i32 %65, 64
-  %67 = load i8, ptr %8, align 1
-  %68 = zext i8 %67 to i32
-  %69 = icmp sge i32 %68, 63
-  %70 = zext i1 %69 to i32
-  %71 = add nsw i32 %66, %70
-  %72 = trunc i32 %71 to i8
-  %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1
-  store i8 %72, ptr %74, align 1
+47:                                               ; preds = %44
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %48 = load i32, ptr %4, align 4, !tbaa !3
+  %49 = sub i32 %48, 57344
+  store i32 %49, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  %50 = load i32, ptr %6, align 4, !tbaa !3
+  %51 = udiv i32 %50, 188
+  %52 = trunc i32 %51 to i8
+  store i8 %52, ptr %7, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  %53 = load i32, ptr %6, align 4, !tbaa !3
+  %54 = load i8, ptr %7, align 1, !tbaa !12
+  %55 = zext i8 %54 to i32
+  %56 = mul nsw i32 %55, 188
+  %57 = sub i32 %53, %56
+  %58 = trunc i32 %57 to i8
+  store i8 %58, ptr %8, align 1, !tbaa !12
+  %59 = load i8, ptr %7, align 1, !tbaa !12
+  %60 = zext i8 %59 to i32
+  %61 = add nsw i32 %60, 240
+  %62 = trunc i32 %61 to i8
+  %63 = load ptr, ptr %5, align 8, !tbaa !7
+  %64 = getelementptr inbounds i8, ptr %63, i64 0
+  store i8 %62, ptr %64, align 1, !tbaa !12
+  %65 = load i8, ptr %8, align 1, !tbaa !12
+  %66 = zext i8 %65 to i32
+  %67 = add nsw i32 %66, 64
+  %68 = load i8, ptr %8, align 1, !tbaa !12
+  %69 = zext i8 %68 to i32
+  %70 = icmp sge i32 %69, 63
+  %71 = zext i1 %70 to i32
+  %72 = add nsw i32 %67, %71
+  %73 = trunc i32 %72 to i8
+  %74 = load ptr, ptr %5, align 8, !tbaa !7
+  %75 = getelementptr inbounds i8, ptr %74, i64 1
+  store i8 %73, ptr %75, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %153
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  br label %160
 
-75:                                               ; preds = %43, %40
-  %76 = load i32, ptr %4, align 4
-  %77 = load i16, ptr @zueci_sjis_u_u, align 16
-  %78 = zext i16 %77 to i32
-  %79 = icmp uge i32 %76, %78
-  br i1 %79, label %80, label %152
+76:                                               ; preds = %44, %41
+  %77 = load i32, ptr %4, align 4, !tbaa !3
+  %78 = load i16, ptr @zueci_sjis_u_u, align 16, !tbaa !19
+  %79 = zext i16 %78 to i32
+  %80 = icmp uge i32 %77, %79
+  br i1 %80, label %81, label %159
 
-80:                                               ; preds = %75
-  %81 = load i32, ptr %4, align 4
-  %82 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 587
-  %83 = load i16, ptr %82, align 2
+81:                                               ; preds = %76
+  %82 = load i32, ptr %4, align 4, !tbaa !3
+  %83 = load i16, ptr getelementptr inbounds ([588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 587), align 2, !tbaa !19
   %84 = zext i16 %83 to i32
-  %85 = icmp ule i32 %81, %84
-  br i1 %85, label %86, label %152
+  %85 = icmp ule i32 %82, %84
+  br i1 %85, label %86, label %159
 
-86:                                               ; preds = %80
-  store i32 0, ptr %9, align 4
-  store i32 587, ptr %10, align 4
+86:                                               ; preds = %81
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  store i32 0, ptr %9, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  store i32 587, ptr %10, align 4, !tbaa !3
   br label %87
 
-87:                                               ; preds = %150, %86
-  %88 = load i32, ptr %9, align 4
-  %89 = load i32, ptr %10, align 4
+87:                                               ; preds = %154, %86
+  %88 = load i32, ptr %9, align 4, !tbaa !3
+  %89 = load i32, ptr %10, align 4, !tbaa !3
   %90 = icmp sle i32 %88, %89
-  br i1 %90, label %91, label %151
+  br i1 %90, label %91, label %155
 
 91:                                               ; preds = %87
-  %92 = load i32, ptr %9, align 4
-  %93 = load i32, ptr %10, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %92 = load i32, ptr %9, align 4, !tbaa !3
+  %93 = load i32, ptr %10, align 4, !tbaa !3
   %94 = add nsw i32 %92, %93
   %95 = ashr i32 %94, 1
-  store i32 %95, ptr %11, align 4
-  %96 = load i32, ptr %11, align 4
+  store i32 %95, ptr %11, align 4, !tbaa !3
+  %96 = load i32, ptr %11, align 4, !tbaa !3
   %97 = sext i32 %96 to i64
   %98 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 %97
-  %99 = load i16, ptr %98, align 2
+  %99 = load i16, ptr %98, align 2, !tbaa !19
   %100 = zext i16 %99 to i32
-  %101 = load i32, ptr %4, align 4
+  %101 = load i32, ptr %4, align 4, !tbaa !3
   %102 = icmp ult i32 %100, %101
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %91
-  %104 = load i32, ptr %11, align 4
+  %104 = load i32, ptr %11, align 4, !tbaa !3
   %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %9, align 4
-  br label %150
+  store i32 %105, ptr %9, align 4, !tbaa !3
+  br label %151
 
 106:                                              ; preds = %91
-  %107 = load i32, ptr %11, align 4
+  %107 = load i32, ptr %11, align 4, !tbaa !3
   %108 = sext i32 %107 to i64
   %109 = getelementptr inbounds [588 x i16], ptr @zueci_sjis_u_u, i64 0, i64 %108
-  %110 = load i16, ptr %109, align 2
+  %110 = load i16, ptr %109, align 2, !tbaa !19
   %111 = zext i16 %110 to i32
-  %112 = load i32, ptr %4, align 4
+  %112 = load i32, ptr %4, align 4, !tbaa !3
   %113 = icmp ugt i32 %111, %112
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %106
-  %115 = load i32, ptr %11, align 4
+  %115 = load i32, ptr %11, align 4, !tbaa !3
   %116 = sub nsw i32 %115, 1
-  store i32 %116, ptr %10, align 4
-  br label %149
+  store i32 %116, ptr %10, align 4, !tbaa !3
+  br label %150
 
 117:                                              ; preds = %106
-  %118 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %12) #3
+  %118 = load i32, ptr %4, align 4, !tbaa !3
   %119 = icmp uge i32 %118, 19968
   br i1 %119, label %120, label %123
 
 120:                                              ; preds = %117
-  %121 = load i32, ptr %11, align 4
+  %121 = load i32, ptr %11, align 4, !tbaa !3
   %122 = add nsw i32 %121, 6356
   br label %125
 
 123:                                              ; preds = %117
-  %124 = load i32, ptr %11, align 4
+  %124 = load i32, ptr %11, align 4, !tbaa !3
   br label %125
 
 125:                                              ; preds = %123, %120
   %126 = phi i32 [ %122, %120 ], [ %124, %123 ]
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds [6944 x i16], ptr @zueci_sjis_u_mb, i64 0, i64 %127
-  %129 = load i16, ptr %128, align 2
-  store i16 %129, ptr %12, align 2
-  %130 = load i16, ptr %12, align 2
+  %129 = load i16, ptr %128, align 2, !tbaa !19
+  store i16 %129, ptr %12, align 2, !tbaa !19
+  %130 = load i16, ptr %12, align 2, !tbaa !19
   %131 = zext i16 %130 to i32
   %132 = icmp sgt i32 %131, 255
   br i1 %132, label %133, label %144
 
 133:                                              ; preds = %125
-  %134 = load i16, ptr %12, align 2
+  %134 = load i16, ptr %12, align 2, !tbaa !19
   %135 = zext i16 %134 to i32
   %136 = ashr i32 %135, 8
   %137 = trunc i32 %136 to i8
-  %138 = load ptr, ptr %5, align 8
+  %138 = load ptr, ptr %5, align 8, !tbaa !7
   %139 = getelementptr inbounds i8, ptr %138, i64 0
-  store i8 %137, ptr %139, align 1
-  %140 = load i16, ptr %12, align 2
+  store i8 %137, ptr %139, align 1, !tbaa !12
+  %140 = load i16, ptr %12, align 2, !tbaa !19
   %141 = trunc i16 %140 to i8
-  %142 = load ptr, ptr %5, align 8
+  %142 = load ptr, ptr %5, align 8, !tbaa !7
   %143 = getelementptr inbounds i8, ptr %142, i64 1
-  store i8 %141, ptr %143, align 1
+  store i8 %141, ptr %143, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %153
+  store i32 1, ptr %13, align 4
+  br label %149
 
 144:                                              ; preds = %125
-  %145 = load i16, ptr %12, align 2
+  %145 = load i16, ptr %12, align 2, !tbaa !19
   %146 = trunc i16 %145 to i8
-  %147 = load ptr, ptr %5, align 8
+  %147 = load ptr, ptr %5, align 8, !tbaa !7
   %148 = getelementptr inbounds i8, ptr %147, i64 0
-  store i8 %146, ptr %148, align 1
+  store i8 %146, ptr %148, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %153
+  store i32 1, ptr %13, align 4
+  br label %149
 
-149:                                              ; preds = %114
-  br label %150
-
-150:                                              ; preds = %149, %103
-  br label %87, !llvm.loop !10
-
-151:                                              ; preds = %87
+149:                                              ; preds = %144, %133
+  call void @llvm.lifetime.end.p0(i64 2, ptr %12) #3
   br label %152
 
-152:                                              ; preds = %151, %80, %75
-  store i32 0, ptr %3, align 4
-  br label %153
+150:                                              ; preds = %114
+  br label %151
 
-153:                                              ; preds = %152, %144, %133, %46, %36, %35, %21
-  %154 = load i32, ptr %3, align 4
-  ret i32 %154
+151:                                              ; preds = %150, %103
+  store i32 0, ptr %13, align 4
+  br label %152
+
+152:                                              ; preds = %151, %149
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  %153 = load i32, ptr %13, align 4
+  switch i32 %153, label %156 [
+    i32 0, label %154
+  ]
+
+154:                                              ; preds = %152
+  br label %87, !llvm.loop !22
+
+155:                                              ; preds = %87
+  store i32 0, ptr %13, align 4
+  br label %156
+
+156:                                              ; preds = %155, %152
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %157 = load i32, ptr %13, align 4
+  switch i32 %157, label %162 [
+    i32 0, label %158
+    i32 1, label %160
+  ]
+
+158:                                              ; preds = %156
+  br label %159
+
+159:                                              ; preds = %158, %81, %76
+  store i32 0, ptr %3, align 4
+  br label %160
+
+160:                                              ; preds = %159, %156, %47, %37, %36, %22
+  %161 = load i32, ptr %3, align 4
+  ret i32 %161
+
+162:                                              ; preds = %156
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zueci_u_cp1250(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_cp125x(i32 noundef %5, ptr noundef @zueci_cp1250_s, ptr noundef @zueci_cp1250_u_u, ptr noundef @zueci_cp1250_u_sb, i32 noundef 73, ptr noundef %6)
   ret i32 %7
 }
@@ -938,10 +1036,10 @@ define internal i32 @zueci_u_cp1250(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_cp1251(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_cp125x(i32 noundef %5, ptr noundef @zueci_cp1251_s, ptr noundef @zueci_cp1251_u_u, ptr noundef @zueci_cp1251_u_sb, i32 noundef 111, ptr noundef %6)
   ret i32 %7
 }
@@ -950,10 +1048,10 @@ define internal i32 @zueci_u_cp1251(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_cp1252(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_cp125x(i32 noundef %5, ptr noundef @zueci_cp1252_s, ptr noundef @zueci_cp1252_u_u, ptr noundef @zueci_cp1252_u_sb, i32 noundef 26, ptr noundef %6)
   ret i32 %7
 }
@@ -962,10 +1060,10 @@ define internal i32 @zueci_u_cp1252(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_cp1256(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
-  %6 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !7
   %7 = call i32 @zueci_u_cp125x(i32 noundef %5, ptr noundef @zueci_cp1256_s, ptr noundef @zueci_cp1256_u_u, ptr noundef @zueci_cp1256_u_sb, i32 noundef 84, ptr noundef %6)
   ret i32 %7
 }
@@ -977,67 +1075,74 @@ define internal i32 @zueci_u_utf16be(i32 noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp ult i32 %8, 65536
-  br i1 %9, label %10, label %20
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = icmp ult i32 %9, 65536
+  br i1 %10, label %11, label %21
 
-10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
-  %12 = lshr i32 %11, 8
-  %13 = trunc i32 %12 to i8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  store i8 %13, ptr %15, align 1
-  %16 = load i32, ptr %4, align 4
-  %17 = trunc i32 %16 to i8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
-  store i8 %17, ptr %19, align 1
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !3
+  %13 = lshr i32 %12, 8
+  %14 = trunc i32 %13 to i8
+  %15 = load ptr, ptr %5, align 8, !tbaa !7
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  store i8 %14, ptr %16, align 1, !tbaa !12
+  %17 = load i32, ptr %4, align 4, !tbaa !3
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  store i8 %18, ptr %20, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %47
+  store i32 1, ptr %8, align 4
+  br label %48
 
-20:                                               ; preds = %2
-  %21 = load i32, ptr %4, align 4
-  %22 = sub i32 %21, 65536
-  store i32 %22, ptr %6, align 4
-  %23 = load i32, ptr %6, align 4
-  %24 = lshr i32 %23, 10
-  store i32 %24, ptr %7, align 4
-  %25 = load i32, ptr %7, align 4
-  %26 = lshr i32 %25, 8
-  %27 = add i32 216, %26
-  %28 = trunc i32 %27 to i8
-  %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 0
-  store i8 %28, ptr %30, align 1
-  %31 = load i32, ptr %7, align 4
-  %32 = trunc i32 %31 to i8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
-  store i8 %32, ptr %34, align 1
-  %35 = load i32, ptr %6, align 4
-  %36 = and i32 %35, 1023
-  store i32 %36, ptr %7, align 4
-  %37 = load i32, ptr %7, align 4
-  %38 = lshr i32 %37, 8
-  %39 = add i32 220, %38
-  %40 = trunc i32 %39 to i8
-  %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 2
-  store i8 %40, ptr %42, align 1
-  %43 = load i32, ptr %7, align 4
-  %44 = trunc i32 %43 to i8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 3
-  store i8 %44, ptr %46, align 1
+21:                                               ; preds = %2
+  %22 = load i32, ptr %4, align 4, !tbaa !3
+  %23 = sub i32 %22, 65536
+  store i32 %23, ptr %6, align 4, !tbaa !3
+  %24 = load i32, ptr %6, align 4, !tbaa !3
+  %25 = lshr i32 %24, 10
+  store i32 %25, ptr %7, align 4, !tbaa !3
+  %26 = load i32, ptr %7, align 4, !tbaa !3
+  %27 = lshr i32 %26, 8
+  %28 = add i32 216, %27
+  %29 = trunc i32 %28 to i8
+  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %31 = getelementptr inbounds i8, ptr %30, i64 0
+  store i8 %29, ptr %31, align 1, !tbaa !12
+  %32 = load i32, ptr %7, align 4, !tbaa !3
+  %33 = trunc i32 %32 to i8
+  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  store i8 %33, ptr %35, align 1, !tbaa !12
+  %36 = load i32, ptr %6, align 4, !tbaa !3
+  %37 = and i32 %36, 1023
+  store i32 %37, ptr %7, align 4, !tbaa !3
+  %38 = load i32, ptr %7, align 4, !tbaa !3
+  %39 = lshr i32 %38, 8
+  %40 = add i32 220, %39
+  %41 = trunc i32 %40 to i8
+  %42 = load ptr, ptr %5, align 8, !tbaa !7
+  %43 = getelementptr inbounds i8, ptr %42, i64 2
+  store i8 %41, ptr %43, align 1, !tbaa !12
+  %44 = load i32, ptr %7, align 4, !tbaa !3
+  %45 = trunc i32 %44 to i8
+  %46 = load ptr, ptr %5, align 8, !tbaa !7
+  %47 = getelementptr inbounds i8, ptr %46, i64 3
+  store i8 %45, ptr %47, align 1, !tbaa !12
   store i32 4, ptr %3, align 4
-  br label %47
+  store i32 1, ptr %8, align 4
+  br label %48
 
-47:                                               ; preds = %20, %10
-  %48 = load i32, ptr %3, align 4
-  ret i32 %48
+48:                                               ; preds = %21, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %49 = load i32, ptr %3, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1045,17 +1150,17 @@ define internal i32 @zueci_u_ascii(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load i32, ptr %4, align 4, !tbaa !3
   %7 = icmp ult i32 %6, 128
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4, !tbaa !3
   %10 = trunc i32 %9 to i8
-  %11 = load ptr, ptr %5, align 8
-  store i8 %10, ptr %11, align 1
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %10, ptr %11, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
   br label %13
 
@@ -1076,161 +1181,184 @@ define internal i32 @zueci_u_big5(i32 noundef %0, ptr noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = alloca i16, align 2
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ult i32 %10, 128
-  br i1 %11, label %12, label %16
+  %9 = alloca i32, align 4
+  %10 = alloca i16, align 2
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = icmp ult i32 %11, 128
+  br i1 %12, label %13, label %17
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %5, align 8
-  store i8 %14, ptr %15, align 1
+13:                                               ; preds = %2
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = trunc i32 %14 to i8
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %15, ptr %16, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %99
+  store i32 1, ptr %8, align 4
+  br label %102
 
-16:                                               ; preds = %2
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp uge i32 %17, 19968
-  br i1 %18, label %19, label %30
+17:                                               ; preds = %2
+  %18 = load i32, ptr %4, align 4, !tbaa !3
+  %19 = icmp uge i32 %18, 19968
+  br i1 %19, label %20, label %31
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr %4, align 4
-  %21 = icmp ult i32 %20, 64012
-  br i1 %21, label %22, label %30
+20:                                               ; preds = %17
+  %21 = load i32, ptr %4, align 4, !tbaa !3
+  %22 = icmp ult i32 %21, 64012
+  br i1 %22, label %23, label %31
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp uge i32 %23, 40880
-  br i1 %24, label %25, label %26
+23:                                               ; preds = %20
+  %24 = load i32, ptr %4, align 4, !tbaa !3
+  %25 = icmp uge i32 %24, 40880
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   store i32 0, ptr %3, align 4
-  br label %99
+  store i32 1, ptr %8, align 4
+  br label %102
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = call i32 @zueci_u_lookup_uro(i32 noundef %27, ptr noundef @zueci_big5_uro_u, ptr noundef @zueci_big5_uro_mb_ind, ptr noundef @zueci_big5_u_mb, ptr noundef %28)
-  store i32 %29, ptr %3, align 4
-  br label %99
+27:                                               ; preds = %23
+  %28 = load i32, ptr %4, align 4, !tbaa !3
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = call i32 @zueci_u_lookup_uro(i32 noundef %28, ptr noundef @zueci_big5_uro_u, ptr noundef @zueci_big5_uro_mb_ind, ptr noundef @zueci_big5_u_mb, ptr noundef %29)
+  store i32 %30, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %102
 
-30:                                               ; preds = %19, %16
-  %31 = load i32, ptr %4, align 4
-  %32 = load i16, ptr @zueci_big5_u_u, align 16
-  %33 = zext i16 %32 to i32
-  %34 = icmp uge i32 %31, %33
-  br i1 %34, label %35, label %98
+31:                                               ; preds = %20, %17
+  %32 = load i32, ptr %4, align 4, !tbaa !3
+  %33 = load i16, ptr @zueci_big5_u_u, align 16, !tbaa !19
+  %34 = zext i16 %33 to i32
+  %35 = icmp uge i32 %32, %34
+  br i1 %35, label %36, label %101
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %4, align 4
-  %37 = getelementptr inbounds [642 x i16], ptr @zueci_big5_u_u, i64 0, i64 641
-  %38 = load i16, ptr %37, align 2
+36:                                               ; preds = %31
+  %37 = load i32, ptr %4, align 4, !tbaa !3
+  %38 = load i16, ptr getelementptr inbounds ([642 x i16], ptr @zueci_big5_u_u, i64 0, i64 641), align 2, !tbaa !19
   %39 = zext i16 %38 to i32
-  %40 = icmp ule i32 %36, %39
-  br i1 %40, label %41, label %98
+  %40 = icmp ule i32 %37, %39
+  br i1 %40, label %41, label %101
 
-41:                                               ; preds = %35
-  store i32 0, ptr %6, align 4
-  store i32 641, ptr %7, align 4
+41:                                               ; preds = %36
+  store i32 0, ptr %6, align 4, !tbaa !3
+  store i32 641, ptr %7, align 4, !tbaa !3
   br label %42
 
-42:                                               ; preds = %96, %41
-  %43 = load i32, ptr %6, align 4
-  %44 = load i32, ptr %7, align 4
+42:                                               ; preds = %99, %41
+  %43 = load i32, ptr %6, align 4, !tbaa !3
+  %44 = load i32, ptr %7, align 4, !tbaa !3
   %45 = icmp sle i32 %43, %44
-  br i1 %45, label %46, label %97
+  br i1 %45, label %46, label %100
 
 46:                                               ; preds = %42
-  %47 = load i32, ptr %6, align 4
-  %48 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %47 = load i32, ptr %6, align 4, !tbaa !3
+  %48 = load i32, ptr %7, align 4, !tbaa !3
   %49 = add nsw i32 %47, %48
   %50 = ashr i32 %49, 1
-  store i32 %50, ptr %8, align 4
-  %51 = load i32, ptr %8, align 4
+  store i32 %50, ptr %9, align 4, !tbaa !3
+  %51 = load i32, ptr %9, align 4, !tbaa !3
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds [642 x i16], ptr @zueci_big5_u_u, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2
+  %54 = load i16, ptr %53, align 2, !tbaa !19
   %55 = zext i16 %54 to i32
-  %56 = load i32, ptr %4, align 4
+  %56 = load i32, ptr %4, align 4, !tbaa !3
   %57 = icmp ult i32 %55, %56
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %46
-  %59 = load i32, ptr %8, align 4
+  %59 = load i32, ptr %9, align 4, !tbaa !3
   %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %6, align 4
+  store i32 %60, ptr %6, align 4, !tbaa !3
   br label %96
 
 61:                                               ; preds = %46
-  %62 = load i32, ptr %8, align 4
+  %62 = load i32, ptr %9, align 4, !tbaa !3
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds [642 x i16], ptr @zueci_big5_u_u, i64 0, i64 %63
-  %65 = load i16, ptr %64, align 2
+  %65 = load i16, ptr %64, align 2, !tbaa !19
   %66 = zext i16 %65 to i32
-  %67 = load i32, ptr %4, align 4
+  %67 = load i32, ptr %4, align 4, !tbaa !3
   %68 = icmp ugt i32 %66, %67
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %61
-  %70 = load i32, ptr %8, align 4
+  %70 = load i32, ptr %9, align 4, !tbaa !3
   %71 = sub nsw i32 %70, 1
-  store i32 %71, ptr %7, align 4
+  store i32 %71, ptr %7, align 4, !tbaa !3
   br label %95
 
 72:                                               ; preds = %61
-  %73 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #3
+  %73 = load i32, ptr %4, align 4, !tbaa !3
   %74 = icmp uge i32 %73, 19968
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %72
-  %76 = load i32, ptr %8, align 4
+  %76 = load i32, ptr %9, align 4, !tbaa !3
   %77 = add nsw i32 %76, 13061
   br label %80
 
 78:                                               ; preds = %72
-  %79 = load i32, ptr %8, align 4
+  %79 = load i32, ptr %9, align 4, !tbaa !3
   br label %80
 
 80:                                               ; preds = %78, %75
   %81 = phi i32 [ %77, %75 ], [ %79, %78 ]
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds [13703 x i16], ptr @zueci_big5_u_mb, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2
-  store i16 %84, ptr %9, align 2
-  %85 = load i16, ptr %9, align 2
+  %84 = load i16, ptr %83, align 2, !tbaa !19
+  store i16 %84, ptr %10, align 2, !tbaa !19
+  %85 = load i16, ptr %10, align 2, !tbaa !19
   %86 = zext i16 %85 to i32
   %87 = ashr i32 %86, 8
   %88 = trunc i32 %87 to i8
-  %89 = load ptr, ptr %5, align 8
+  %89 = load ptr, ptr %5, align 8, !tbaa !7
   %90 = getelementptr inbounds i8, ptr %89, i64 0
-  store i8 %88, ptr %90, align 1
-  %91 = load i16, ptr %9, align 2
+  store i8 %88, ptr %90, align 1, !tbaa !12
+  %91 = load i16, ptr %10, align 2, !tbaa !19
   %92 = trunc i16 %91 to i8
-  %93 = load ptr, ptr %5, align 8
+  %93 = load ptr, ptr %5, align 8, !tbaa !7
   %94 = getelementptr inbounds i8, ptr %93, i64 1
-  store i8 %92, ptr %94, align 1
+  store i8 %92, ptr %94, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %99
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #3
+  br label %97
 
 95:                                               ; preds = %69
   br label %96
 
 96:                                               ; preds = %95, %58
-  br label %42, !llvm.loop !11
+  store i32 0, ptr %8, align 4
+  br label %97
 
-97:                                               ; preds = %42
-  br label %98
+97:                                               ; preds = %96, %80
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %98 = load i32, ptr %8, align 4
+  switch i32 %98, label %102 [
+    i32 0, label %99
+  ]
 
-98:                                               ; preds = %97, %35, %30
+99:                                               ; preds = %97
+  br label %42, !llvm.loop !23
+
+100:                                              ; preds = %42
+  br label %101
+
+101:                                              ; preds = %100, %36, %31
   store i32 0, ptr %3, align 4
-  br label %99
+  store i32 1, ptr %8, align 4
+  br label %102
 
-99:                                               ; preds = %98, %80, %26, %25, %12
-  %100 = load i32, ptr %3, align 4
-  ret i32 %100
+102:                                              ; preds = %101, %97, %27, %26, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %103 = load i32, ptr %3, align 4
+  ret i32 %103
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1242,80 +1370,82 @@ define internal i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef %1) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ult i32 %10, 128
-  br i1 %11, label %12, label %17
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = icmp ult i32 %11, 128
+  br i1 %12, label %13, label %18
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 0
-  store i8 %14, ptr %16, align 1
+13:                                               ; preds = %2
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = trunc i32 %14 to i8
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  store i8 %15, ptr %17, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %119
+  br label %125
 
-17:                                               ; preds = %2
-  %18 = load i32, ptr %4, align 4
-  %19 = icmp uge i32 %18, 19968
-  br i1 %19, label %20, label %31
+18:                                               ; preds = %2
+  %19 = load i32, ptr %4, align 4, !tbaa !3
+  %20 = icmp uge i32 %19, 19968
+  br i1 %20, label %21, label %32
 
-20:                                               ; preds = %17
-  %21 = load i32, ptr %4, align 4
-  %22 = icmp ult i32 %21, 40479
-  br i1 %22, label %23, label %31
+21:                                               ; preds = %18
+  %22 = load i32, ptr %4, align 4, !tbaa !3
+  %23 = icmp ult i32 %22, 40479
+  br i1 %23, label %24, label %32
 
-23:                                               ; preds = %20
-  %24 = load i32, ptr %4, align 4
-  %25 = icmp uge i32 %24, 40176
-  br i1 %25, label %26, label %27
+24:                                               ; preds = %21
+  %25 = load i32, ptr %4, align 4, !tbaa !3
+  %26 = icmp uge i32 %25, 40176
+  br i1 %26, label %27, label %28
 
-26:                                               ; preds = %23
+27:                                               ; preds = %24
   store i32 0, ptr %3, align 4
-  br label %119
+  br label %125
 
-27:                                               ; preds = %23
-  %28 = load i32, ptr %4, align 4
-  %29 = load ptr, ptr %5, align 8
-  %30 = call i32 @zueci_u_lookup_uro(i32 noundef %28, ptr noundef @zueci_gb2312_uro_u, ptr noundef @zueci_gb2312_uro_mb_ind, ptr noundef @zueci_gb2312_u_mb, ptr noundef %29)
-  store i32 %30, ptr %3, align 4
-  br label %119
+28:                                               ; preds = %24
+  %29 = load i32, ptr %4, align 4, !tbaa !3
+  %30 = load ptr, ptr %5, align 8, !tbaa !7
+  %31 = call i32 @zueci_u_lookup_uro(i32 noundef %29, ptr noundef @zueci_gb2312_uro_u, ptr noundef @zueci_gb2312_uro_mb_ind, ptr noundef @zueci_gb2312_u_mb, ptr noundef %30)
+  store i32 %31, ptr %3, align 4
+  br label %125
 
-31:                                               ; preds = %20, %17
-  %32 = load i32, ptr %4, align 4
-  %33 = load i16, ptr @zueci_gb2312_u_u, align 16
-  %34 = zext i16 %33 to i32
-  %35 = icmp uge i32 %32, %34
-  br i1 %35, label %36, label %118
+32:                                               ; preds = %21, %18
+  %33 = load i32, ptr %4, align 4, !tbaa !3
+  %34 = load i16, ptr @zueci_gb2312_u_u, align 16, !tbaa !19
+  %35 = zext i16 %34 to i32
+  %36 = icmp uge i32 %33, %35
+  br i1 %36, label %37, label %124
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %4, align 4
-  %38 = getelementptr inbounds [818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 817
-  %39 = load i16, ptr %38, align 2
+37:                                               ; preds = %32
+  %38 = load i32, ptr %4, align 4, !tbaa !3
+  %39 = load i16, ptr getelementptr inbounds ([818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 817), align 2, !tbaa !19
   %40 = zext i16 %39 to i32
-  %41 = icmp ule i32 %37, %40
-  br i1 %41, label %42, label %118
+  %41 = icmp ule i32 %38, %40
+  br i1 %41, label %42, label %124
 
-42:                                               ; preds = %36
-  %43 = load i32, ptr %4, align 4
-  %44 = load i16, ptr @zueci_gb2312_u_u, align 16
+42:                                               ; preds = %37
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  %43 = load i32, ptr %4, align 4, !tbaa !3
+  %44 = load i16, ptr @zueci_gb2312_u_u, align 16, !tbaa !19
   %45 = zext i16 %44 to i32
   %46 = sub i32 %43, %45
   %47 = lshr i32 %46, 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds [256 x i16], ptr @zueci_gb2312_u_ind, i64 0, i64 %48
-  %50 = load i16, ptr %49, align 2
+  %49 = getelementptr inbounds nuw [256 x i16], ptr @zueci_gb2312_u_ind, i64 0, i64 %48
+  %50 = load i16, ptr %49, align 2, !tbaa !19
   %51 = zext i16 %50 to i32
-  store i32 %51, ptr %6, align 4
-  %52 = load i32, ptr %6, align 4
+  store i32 %51, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %52 = load i32, ptr %6, align 4, !tbaa !3
   %53 = add nsw i32 %52, 256
   %54 = icmp slt i32 %53, 818
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %42
-  %56 = load i32, ptr %6, align 4
+  %56 = load i32, ptr %6, align 4, !tbaa !3
   %57 = add nsw i32 %56, 256
   br label %59
 
@@ -1325,103 +1455,134 @@ define internal i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef %1) #0 {
 59:                                               ; preds = %58, %55
   %60 = phi i32 [ %57, %55 ], [ 818, %58 ]
   %61 = sub nsw i32 %60, 1
-  store i32 %61, ptr %7, align 4
+  store i32 %61, ptr %7, align 4, !tbaa !3
   br label %62
 
-62:                                               ; preds = %116, %59
-  %63 = load i32, ptr %6, align 4
-  %64 = load i32, ptr %7, align 4
+62:                                               ; preds = %119, %59
+  %63 = load i32, ptr %6, align 4, !tbaa !3
+  %64 = load i32, ptr %7, align 4, !tbaa !3
   %65 = icmp sle i32 %63, %64
-  br i1 %65, label %66, label %117
+  br i1 %65, label %66, label %120
 
 66:                                               ; preds = %62
-  %67 = load i32, ptr %6, align 4
-  %68 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %67 = load i32, ptr %6, align 4, !tbaa !3
+  %68 = load i32, ptr %7, align 4, !tbaa !3
   %69 = add nsw i32 %67, %68
   %70 = ashr i32 %69, 1
-  store i32 %70, ptr %8, align 4
-  %71 = load i32, ptr %8, align 4
+  store i32 %70, ptr %8, align 4, !tbaa !3
+  %71 = load i32, ptr %8, align 4, !tbaa !3
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds [818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2
+  %74 = load i16, ptr %73, align 2, !tbaa !19
   %75 = zext i16 %74 to i32
-  %76 = load i32, ptr %4, align 4
+  %76 = load i32, ptr %4, align 4, !tbaa !3
   %77 = icmp ult i32 %75, %76
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %66
-  %79 = load i32, ptr %8, align 4
+  %79 = load i32, ptr %8, align 4, !tbaa !3
   %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %6, align 4
+  store i32 %80, ptr %6, align 4, !tbaa !3
   br label %116
 
 81:                                               ; preds = %66
-  %82 = load i32, ptr %8, align 4
+  %82 = load i32, ptr %8, align 4, !tbaa !3
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [818 x i16], ptr @zueci_gb2312_u_u, i64 0, i64 %83
-  %85 = load i16, ptr %84, align 2
+  %85 = load i16, ptr %84, align 2, !tbaa !19
   %86 = zext i16 %85 to i32
-  %87 = load i32, ptr %4, align 4
+  %87 = load i32, ptr %4, align 4, !tbaa !3
   %88 = icmp ugt i32 %86, %87
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %81
-  %90 = load i32, ptr %8, align 4
+  %90 = load i32, ptr %8, align 4, !tbaa !3
   %91 = sub nsw i32 %90, 1
-  store i32 %91, ptr %7, align 4
+  store i32 %91, ptr %7, align 4, !tbaa !3
   br label %115
 
 92:                                               ; preds = %81
-  %93 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
+  %93 = load i32, ptr %4, align 4, !tbaa !3
   %94 = icmp ugt i32 %93, 19968
   br i1 %94, label %95, label %98
 
 95:                                               ; preds = %92
-  %96 = load i32, ptr %8, align 4
+  %96 = load i32, ptr %8, align 4, !tbaa !3
   %97 = add nsw i32 %96, 6627
   br label %100
 
 98:                                               ; preds = %92
-  %99 = load i32, ptr %8, align 4
+  %99 = load i32, ptr %8, align 4, !tbaa !3
   br label %100
 
 100:                                              ; preds = %98, %95
   %101 = phi i32 [ %97, %95 ], [ %99, %98 ]
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds [7445 x i16], ptr @zueci_gb2312_u_mb, i64 0, i64 %102
-  %104 = load i16, ptr %103, align 2
-  store i16 %104, ptr %9, align 2
-  %105 = load i16, ptr %9, align 2
+  %104 = load i16, ptr %103, align 2, !tbaa !19
+  store i16 %104, ptr %9, align 2, !tbaa !19
+  %105 = load i16, ptr %9, align 2, !tbaa !19
   %106 = zext i16 %105 to i32
   %107 = ashr i32 %106, 8
   %108 = trunc i32 %107 to i8
-  %109 = load ptr, ptr %5, align 8
+  %109 = load ptr, ptr %5, align 8, !tbaa !7
   %110 = getelementptr inbounds i8, ptr %109, i64 0
-  store i8 %108, ptr %110, align 1
-  %111 = load i16, ptr %9, align 2
+  store i8 %108, ptr %110, align 1, !tbaa !12
+  %111 = load i16, ptr %9, align 2, !tbaa !19
   %112 = trunc i16 %111 to i8
-  %113 = load ptr, ptr %5, align 8
+  %113 = load ptr, ptr %5, align 8, !tbaa !7
   %114 = getelementptr inbounds i8, ptr %113, i64 1
-  store i8 %112, ptr %114, align 1
+  store i8 %112, ptr %114, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %119
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
+  br label %117
 
 115:                                              ; preds = %89
   br label %116
 
 116:                                              ; preds = %115, %78
-  br label %62, !llvm.loop !12
+  store i32 0, ptr %10, align 4
+  br label %117
 
-117:                                              ; preds = %62
-  br label %118
+117:                                              ; preds = %116, %100
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %118 = load i32, ptr %10, align 4
+  switch i32 %118, label %121 [
+    i32 0, label %119
+  ]
 
-118:                                              ; preds = %117, %36, %31
+119:                                              ; preds = %117
+  br label %62, !llvm.loop !24
+
+120:                                              ; preds = %62
+  store i32 0, ptr %10, align 4
+  br label %121
+
+121:                                              ; preds = %120, %117
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %122 = load i32, ptr %10, align 4
+  switch i32 %122, label %127 [
+    i32 0, label %123
+    i32 1, label %125
+  ]
+
+123:                                              ; preds = %121
+  br label %124
+
+124:                                              ; preds = %123, %37, %32
   store i32 0, ptr %3, align 4
-  br label %119
+  br label %125
 
-119:                                              ; preds = %118, %100, %27, %26, %12
-  %120 = load i32, ptr %3, align 4
-  ret i32 %120
+125:                                              ; preds = %124, %121, %28, %27, %13
+  %126 = load i32, ptr %3, align 4
+  ret i32 %126
+
+127:                                              ; preds = %121
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1432,80 +1593,85 @@ define internal i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef %1) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = alloca i16, align 2
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ult i32 %10, 128
-  br i1 %11, label %12, label %16
+  %9 = alloca i32, align 4
+  %10 = alloca i16, align 2
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = icmp ult i32 %11, 128
+  br i1 %12, label %13, label %17
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %5, align 8
-  store i8 %14, ptr %15, align 1
+13:                                               ; preds = %2
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = trunc i32 %14 to i8
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %15, ptr %16, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %118
+  store i32 1, ptr %8, align 4
+  br label %121
 
-16:                                               ; preds = %2
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp uge i32 %17, 19968
-  br i1 %18, label %19, label %30
+17:                                               ; preds = %2
+  %18 = load i32, ptr %4, align 4, !tbaa !3
+  %19 = icmp uge i32 %18, 19968
+  br i1 %19, label %20, label %31
 
-19:                                               ; preds = %16
-  %20 = load i32, ptr %4, align 4
-  %21 = icmp ult i32 %20, 44032
-  br i1 %21, label %22, label %30
+20:                                               ; preds = %17
+  %21 = load i32, ptr %4, align 4, !tbaa !3
+  %22 = icmp ult i32 %21, 44032
+  br i1 %22, label %23, label %31
 
-22:                                               ; preds = %19
-  %23 = load i32, ptr %4, align 4
-  %24 = icmp uge i32 %23, 40864
-  br i1 %24, label %25, label %26
+23:                                               ; preds = %20
+  %24 = load i32, ptr %4, align 4, !tbaa !3
+  %25 = icmp uge i32 %24, 40864
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   store i32 0, ptr %3, align 4
-  br label %118
+  store i32 1, ptr %8, align 4
+  br label %121
 
-26:                                               ; preds = %22
-  %27 = load i32, ptr %4, align 4
-  %28 = load ptr, ptr %5, align 8
-  %29 = call i32 @zueci_u_lookup_uro(i32 noundef %27, ptr noundef @zueci_ksx1001_uro_u, ptr noundef @zueci_ksx1001_uro_mb_ind, ptr noundef @zueci_ksx1001_u_mb, ptr noundef %28)
-  store i32 %29, ptr %3, align 4
-  br label %118
+27:                                               ; preds = %23
+  %28 = load i32, ptr %4, align 4, !tbaa !3
+  %29 = load ptr, ptr %5, align 8, !tbaa !7
+  %30 = call i32 @zueci_u_lookup_uro(i32 noundef %28, ptr noundef @zueci_ksx1001_uro_u, ptr noundef @zueci_ksx1001_uro_mb_ind, ptr noundef @zueci_ksx1001_u_mb, ptr noundef %29)
+  store i32 %30, ptr %3, align 4
+  store i32 1, ptr %8, align 4
+  br label %121
 
-30:                                               ; preds = %19, %16
-  %31 = load i32, ptr %4, align 4
-  %32 = load i16, ptr @zueci_ksx1001_u_u, align 16
-  %33 = zext i16 %32 to i32
-  %34 = icmp uge i32 %31, %33
-  br i1 %34, label %35, label %117
+31:                                               ; preds = %20, %17
+  %32 = load i32, ptr %4, align 4, !tbaa !3
+  %33 = load i16, ptr @zueci_ksx1001_u_u, align 16, !tbaa !19
+  %34 = zext i16 %33 to i32
+  %35 = icmp uge i32 %32, %34
+  br i1 %35, label %36, label %120
 
-35:                                               ; preds = %30
-  %36 = load i32, ptr %4, align 4
-  %37 = getelementptr inbounds [3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 3606
-  %38 = load i16, ptr %37, align 4
+36:                                               ; preds = %31
+  %37 = load i32, ptr %4, align 4, !tbaa !3
+  %38 = load i16, ptr getelementptr inbounds ([3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 3606), align 4, !tbaa !19
   %39 = zext i16 %38 to i32
-  %40 = icmp ule i32 %36, %39
-  br i1 %40, label %41, label %117
+  %40 = icmp ule i32 %37, %39
+  br i1 %40, label %41, label %120
 
-41:                                               ; preds = %35
-  %42 = load i32, ptr %4, align 4
-  %43 = load i16, ptr @zueci_ksx1001_u_u, align 16
+41:                                               ; preds = %36
+  %42 = load i32, ptr %4, align 4, !tbaa !3
+  %43 = load i16, ptr @zueci_ksx1001_u_u, align 16, !tbaa !19
   %44 = zext i16 %43 to i32
   %45 = sub i32 %42, %44
   %46 = lshr i32 %45, 8
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds [256 x i16], ptr @zueci_ksx1001_u_ind, i64 0, i64 %47
-  %49 = load i16, ptr %48, align 2
+  %48 = getelementptr inbounds nuw [256 x i16], ptr @zueci_ksx1001_u_ind, i64 0, i64 %47
+  %49 = load i16, ptr %48, align 2, !tbaa !19
   %50 = zext i16 %49 to i32
-  store i32 %50, ptr %6, align 4
-  %51 = load i32, ptr %6, align 4
+  store i32 %50, ptr %6, align 4, !tbaa !3
+  %51 = load i32, ptr %6, align 4, !tbaa !3
   %52 = add nsw i32 %51, 256
   %53 = icmp slt i32 %52, 3607
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %41
-  %55 = load i32, ptr %6, align 4
+  %55 = load i32, ptr %6, align 4, !tbaa !3
   %56 = add nsw i32 %55, 256
   br label %58
 
@@ -1515,103 +1681,121 @@ define internal i32 @zueci_u_ksx1001(i32 noundef %0, ptr noundef %1) #0 {
 58:                                               ; preds = %57, %54
   %59 = phi i32 [ %56, %54 ], [ 3607, %57 ]
   %60 = sub nsw i32 %59, 1
-  store i32 %60, ptr %7, align 4
+  store i32 %60, ptr %7, align 4, !tbaa !3
   br label %61
 
-61:                                               ; preds = %115, %58
-  %62 = load i32, ptr %6, align 4
-  %63 = load i32, ptr %7, align 4
+61:                                               ; preds = %118, %58
+  %62 = load i32, ptr %6, align 4, !tbaa !3
+  %63 = load i32, ptr %7, align 4, !tbaa !3
   %64 = icmp sle i32 %62, %63
-  br i1 %64, label %65, label %116
+  br i1 %64, label %65, label %119
 
 65:                                               ; preds = %61
-  %66 = load i32, ptr %6, align 4
-  %67 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %66 = load i32, ptr %6, align 4, !tbaa !3
+  %67 = load i32, ptr %7, align 4, !tbaa !3
   %68 = add nsw i32 %66, %67
   %69 = ashr i32 %68, 1
-  store i32 %69, ptr %8, align 4
-  %70 = load i32, ptr %8, align 4
+  store i32 %69, ptr %9, align 4, !tbaa !3
+  %70 = load i32, ptr %9, align 4, !tbaa !3
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds [3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 %71
-  %73 = load i16, ptr %72, align 2
+  %73 = load i16, ptr %72, align 2, !tbaa !19
   %74 = zext i16 %73 to i32
-  %75 = load i32, ptr %4, align 4
+  %75 = load i32, ptr %4, align 4, !tbaa !3
   %76 = icmp ult i32 %74, %75
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %65
-  %78 = load i32, ptr %8, align 4
+  %78 = load i32, ptr %9, align 4, !tbaa !3
   %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %6, align 4
+  store i32 %79, ptr %6, align 4, !tbaa !3
   br label %115
 
 80:                                               ; preds = %65
-  %81 = load i32, ptr %8, align 4
+  %81 = load i32, ptr %9, align 4, !tbaa !3
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds [3607 x i16], ptr @zueci_ksx1001_u_u, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2
+  %84 = load i16, ptr %83, align 2, !tbaa !19
   %85 = zext i16 %84 to i32
-  %86 = load i32, ptr %4, align 4
+  %86 = load i32, ptr %4, align 4, !tbaa !3
   %87 = icmp ugt i32 %85, %86
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %80
-  %89 = load i32, ptr %8, align 4
+  %89 = load i32, ptr %9, align 4, !tbaa !3
   %90 = sub nsw i32 %89, 1
-  store i32 %90, ptr %7, align 4
+  store i32 %90, ptr %7, align 4, !tbaa !3
   br label %114
 
 91:                                               ; preds = %80
-  %92 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #3
+  %92 = load i32, ptr %4, align 4, !tbaa !3
   %93 = icmp uge i32 %92, 19968
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %91
-  %95 = load i32, ptr %8, align 4
+  %95 = load i32, ptr %9, align 4, !tbaa !3
   %96 = add nsw i32 %95, 4620
   br label %99
 
 97:                                               ; preds = %91
-  %98 = load i32, ptr %8, align 4
+  %98 = load i32, ptr %9, align 4, !tbaa !3
   br label %99
 
 99:                                               ; preds = %97, %94
   %100 = phi i32 [ %96, %94 ], [ %98, %97 ]
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds [8227 x i16], ptr @zueci_ksx1001_u_mb, i64 0, i64 %101
-  %103 = load i16, ptr %102, align 2
-  store i16 %103, ptr %9, align 2
-  %104 = load i16, ptr %9, align 2
+  %103 = load i16, ptr %102, align 2, !tbaa !19
+  store i16 %103, ptr %10, align 2, !tbaa !19
+  %104 = load i16, ptr %10, align 2, !tbaa !19
   %105 = zext i16 %104 to i32
   %106 = ashr i32 %105, 8
   %107 = trunc i32 %106 to i8
-  %108 = load ptr, ptr %5, align 8
+  %108 = load ptr, ptr %5, align 8, !tbaa !7
   %109 = getelementptr inbounds i8, ptr %108, i64 0
-  store i8 %107, ptr %109, align 1
-  %110 = load i16, ptr %9, align 2
+  store i8 %107, ptr %109, align 1, !tbaa !12
+  %110 = load i16, ptr %10, align 2, !tbaa !19
   %111 = trunc i16 %110 to i8
-  %112 = load ptr, ptr %5, align 8
+  %112 = load ptr, ptr %5, align 8, !tbaa !7
   %113 = getelementptr inbounds i8, ptr %112, i64 1
-  store i8 %111, ptr %113, align 1
+  store i8 %111, ptr %113, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %118
+  store i32 1, ptr %8, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #3
+  br label %116
 
 114:                                              ; preds = %88
   br label %115
 
 115:                                              ; preds = %114, %77
-  br label %61, !llvm.loop !13
+  store i32 0, ptr %8, align 4
+  br label %116
 
-116:                                              ; preds = %61
-  br label %117
+116:                                              ; preds = %115, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  %117 = load i32, ptr %8, align 4
+  switch i32 %117, label %121 [
+    i32 0, label %118
+  ]
 
-117:                                              ; preds = %116, %35, %30
+118:                                              ; preds = %116
+  br label %61, !llvm.loop !25
+
+119:                                              ; preds = %61
+  br label %120
+
+120:                                              ; preds = %119, %36, %31
   store i32 0, ptr %3, align 4
-  br label %118
+  store i32 1, ptr %8, align 4
+  br label %121
 
-118:                                              ; preds = %117, %99, %26, %25, %12
-  %119 = load i32, ptr %3, align 4
-  ret i32 %119
+121:                                              ; preds = %120, %116, %27, %26, %13
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %122 = load i32, ptr %3, align 4
+  ret i32 %122
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1623,195 +1807,228 @@ define internal i32 @zueci_u_gbk(i32 noundef %0, ptr noundef %1) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i16, align 2
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %10 = load i32, ptr %4, align 4
-  %11 = icmp ult i32 %10, 128
-  br i1 %11, label %12, label %16
+  %10 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %11 = load i32, ptr %4, align 4, !tbaa !3
+  %12 = icmp ult i32 %11, 128
+  br i1 %12, label %13, label %17
 
-12:                                               ; preds = %2
-  %13 = load i32, ptr %4, align 4
-  %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %5, align 8
-  store i8 %14, ptr %15, align 1
+13:                                               ; preds = %2
+  %14 = load i32, ptr %4, align 4, !tbaa !3
+  %15 = trunc i32 %14 to i8
+  %16 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %15, ptr %16, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %117
+  br label %123
 
-16:                                               ; preds = %2
-  %17 = load i32, ptr %4, align 4
-  %18 = icmp eq i32 %17, 12539
-  br i1 %18, label %19, label %20
+17:                                               ; preds = %2
+  %18 = load i32, ptr %4, align 4, !tbaa !3
+  %19 = icmp eq i32 %18, 12539
+  br i1 %19, label %20, label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %123
 
-20:                                               ; preds = %16
-  %21 = load i32, ptr %4, align 4
-  %22 = icmp eq i32 %21, 8213
-  br i1 %22, label %23, label %28
+21:                                               ; preds = %17
+  %22 = load i32, ptr %4, align 4, !tbaa !3
+  %23 = icmp eq i32 %22, 8213
+  br i1 %23, label %24, label %29
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 0
-  store i8 -88, ptr %25, align 1
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
-  store i8 68, ptr %27, align 1
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = getelementptr inbounds i8, ptr %25, i64 0
+  store i8 -88, ptr %26, align 1, !tbaa !12
+  %27 = load ptr, ptr %5, align 8, !tbaa !7
+  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  store i8 68, ptr %28, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %117
+  br label %123
 
-28:                                               ; preds = %20
-  %29 = load i32, ptr %4, align 4
-  %30 = load ptr, ptr %5, align 8
-  %31 = call i32 @zueci_u_gb2312(i32 noundef %29, ptr noundef %30)
-  %32 = icmp ne i32 %31, 0
-  br i1 %32, label %33, label %34
+29:                                               ; preds = %21
+  %30 = load i32, ptr %4, align 4, !tbaa !3
+  %31 = load ptr, ptr %5, align 8, !tbaa !7
+  %32 = call i32 @zueci_u_gb2312(i32 noundef %30, ptr noundef %31)
+  %33 = icmp ne i32 %32, 0
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %28
+34:                                               ; preds = %29
   store i32 2, ptr %3, align 4
-  br label %117
+  br label %123
 
-34:                                               ; preds = %28
-  %35 = load i32, ptr %4, align 4
-  %36 = icmp uge i32 %35, 19968
-  br i1 %36, label %37, label %48
+35:                                               ; preds = %29
+  %36 = load i32, ptr %4, align 4, !tbaa !3
+  %37 = icmp uge i32 %36, 19968
+  br i1 %37, label %38, label %49
 
-37:                                               ; preds = %34
-  %38 = load i32, ptr %4, align 4
-  %39 = icmp ult i32 %38, 63788
-  br i1 %39, label %40, label %48
+38:                                               ; preds = %35
+  %39 = load i32, ptr %4, align 4, !tbaa !3
+  %40 = icmp ult i32 %39, 63788
+  br i1 %40, label %41, label %49
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %4, align 4
-  %42 = icmp uge i32 %41, 40880
-  br i1 %42, label %43, label %44
+41:                                               ; preds = %38
+  %42 = load i32, ptr %4, align 4, !tbaa !3
+  %43 = icmp uge i32 %42, 40880
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %40
+44:                                               ; preds = %41
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %123
 
-44:                                               ; preds = %40
-  %45 = load i32, ptr %4, align 4
-  %46 = load ptr, ptr %5, align 8
-  %47 = call i32 @zueci_u_lookup_uro(i32 noundef %45, ptr noundef @zueci_gbk_uro_u, ptr noundef @zueci_gbk_uro_mb_ind, ptr noundef @zueci_gbk_u_mb, ptr noundef %46)
-  store i32 %47, ptr %3, align 4
-  br label %117
+45:                                               ; preds = %41
+  %46 = load i32, ptr %4, align 4, !tbaa !3
+  %47 = load ptr, ptr %5, align 8, !tbaa !7
+  %48 = call i32 @zueci_u_lookup_uro(i32 noundef %46, ptr noundef @zueci_gbk_uro_u, ptr noundef @zueci_gbk_uro_mb_ind, ptr noundef @zueci_gbk_u_mb, ptr noundef %47)
+  store i32 %48, ptr %3, align 4
+  br label %123
 
-48:                                               ; preds = %37, %34
-  %49 = load i32, ptr %4, align 4
-  %50 = load i16, ptr @zueci_gbk_u_u, align 16
-  %51 = zext i16 %50 to i32
-  %52 = icmp uge i32 %49, %51
-  br i1 %52, label %53, label %116
+49:                                               ; preds = %38, %35
+  %50 = load i32, ptr %4, align 4, !tbaa !3
+  %51 = load i16, ptr @zueci_gbk_u_u, align 16, !tbaa !19
+  %52 = zext i16 %51 to i32
+  %53 = icmp uge i32 %50, %52
+  br i1 %53, label %54, label %122
 
-53:                                               ; preds = %48
-  %54 = load i32, ptr %4, align 4
-  %55 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_u_u, i64 0, i64 208
-  %56 = load i16, ptr %55, align 16
+54:                                               ; preds = %49
+  %55 = load i32, ptr %4, align 4, !tbaa !3
+  %56 = load i16, ptr getelementptr inbounds ([209 x i16], ptr @zueci_gbk_u_u, i64 0, i64 208), align 16, !tbaa !19
   %57 = zext i16 %56 to i32
-  %58 = icmp ule i32 %54, %57
-  br i1 %58, label %59, label %116
+  %58 = icmp ule i32 %55, %57
+  br i1 %58, label %59, label %122
 
-59:                                               ; preds = %53
-  store i32 0, ptr %6, align 4
-  store i32 208, ptr %7, align 4
+59:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  store i32 0, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 208, ptr %7, align 4, !tbaa !3
   br label %60
 
-60:                                               ; preds = %114, %59
-  %61 = load i32, ptr %6, align 4
-  %62 = load i32, ptr %7, align 4
+60:                                               ; preds = %117, %59
+  %61 = load i32, ptr %6, align 4, !tbaa !3
+  %62 = load i32, ptr %7, align 4, !tbaa !3
   %63 = icmp sle i32 %61, %62
-  br i1 %63, label %64, label %115
+  br i1 %63, label %64, label %118
 
 64:                                               ; preds = %60
-  %65 = load i32, ptr %6, align 4
-  %66 = load i32, ptr %7, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %65 = load i32, ptr %6, align 4, !tbaa !3
+  %66 = load i32, ptr %7, align 4, !tbaa !3
   %67 = add nsw i32 %65, %66
   %68 = ashr i32 %67, 1
-  store i32 %68, ptr %8, align 4
-  %69 = load i32, ptr %8, align 4
+  store i32 %68, ptr %8, align 4, !tbaa !3
+  %69 = load i32, ptr %8, align 4, !tbaa !3
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_u_u, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2
+  %72 = load i16, ptr %71, align 2, !tbaa !19
   %73 = zext i16 %72 to i32
-  %74 = load i32, ptr %4, align 4
+  %74 = load i32, ptr %4, align 4, !tbaa !3
   %75 = icmp ult i32 %73, %74
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %64
-  %77 = load i32, ptr %8, align 4
+  %77 = load i32, ptr %8, align 4, !tbaa !3
   %78 = add nsw i32 %77, 1
-  store i32 %78, ptr %6, align 4
+  store i32 %78, ptr %6, align 4, !tbaa !3
   br label %114
 
 79:                                               ; preds = %64
-  %80 = load i32, ptr %8, align 4
+  %80 = load i32, ptr %8, align 4, !tbaa !3
   %81 = sext i32 %80 to i64
   %82 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_u_u, i64 0, i64 %81
-  %83 = load i16, ptr %82, align 2
+  %83 = load i16, ptr %82, align 2, !tbaa !19
   %84 = zext i16 %83 to i32
-  %85 = load i32, ptr %4, align 4
+  %85 = load i32, ptr %4, align 4, !tbaa !3
   %86 = icmp ugt i32 %84, %85
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %79
-  %88 = load i32, ptr %8, align 4
+  %88 = load i32, ptr %8, align 4, !tbaa !3
   %89 = sub nsw i32 %88, 1
-  store i32 %89, ptr %7, align 4
+  store i32 %89, ptr %7, align 4, !tbaa !3
   br label %113
 
 90:                                               ; preds = %79
-  %91 = load i32, ptr %4, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %9) #3
+  %91 = load i32, ptr %4, align 4, !tbaa !3
   %92 = icmp uge i32 %91, 19968
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %90
-  %94 = load i32, ptr %8, align 4
+  %94 = load i32, ptr %8, align 4, !tbaa !3
   %95 = add nsw i32 %94, 14139
   br label %98
 
 96:                                               ; preds = %90
-  %97 = load i32, ptr %8, align 4
+  %97 = load i32, ptr %8, align 4, !tbaa !3
   br label %98
 
 98:                                               ; preds = %96, %93
   %99 = phi i32 [ %95, %93 ], [ %97, %96 ]
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds [14348 x i16], ptr @zueci_gbk_u_mb, i64 0, i64 %100
-  %102 = load i16, ptr %101, align 2
-  store i16 %102, ptr %9, align 2
-  %103 = load i16, ptr %9, align 2
+  %102 = load i16, ptr %101, align 2, !tbaa !19
+  store i16 %102, ptr %9, align 2, !tbaa !19
+  %103 = load i16, ptr %9, align 2, !tbaa !19
   %104 = zext i16 %103 to i32
   %105 = ashr i32 %104, 8
   %106 = trunc i32 %105 to i8
-  %107 = load ptr, ptr %5, align 8
+  %107 = load ptr, ptr %5, align 8, !tbaa !7
   %108 = getelementptr inbounds i8, ptr %107, i64 0
-  store i8 %106, ptr %108, align 1
-  %109 = load i16, ptr %9, align 2
+  store i8 %106, ptr %108, align 1, !tbaa !12
+  %109 = load i16, ptr %9, align 2, !tbaa !19
   %110 = trunc i16 %109 to i8
-  %111 = load ptr, ptr %5, align 8
+  %111 = load ptr, ptr %5, align 8, !tbaa !7
   %112 = getelementptr inbounds i8, ptr %111, i64 1
-  store i8 %110, ptr %112, align 1
+  store i8 %110, ptr %112, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %117
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %9) #3
+  br label %115
 
 113:                                              ; preds = %87
   br label %114
 
 114:                                              ; preds = %113, %76
-  br label %60, !llvm.loop !14
+  store i32 0, ptr %10, align 4
+  br label %115
 
-115:                                              ; preds = %60
-  br label %116
+115:                                              ; preds = %114, %98
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %116 = load i32, ptr %10, align 4
+  switch i32 %116, label %119 [
+    i32 0, label %117
+  ]
 
-116:                                              ; preds = %115, %53, %48
+117:                                              ; preds = %115
+  br label %60, !llvm.loop !26
+
+118:                                              ; preds = %60
+  store i32 0, ptr %10, align 4
+  br label %119
+
+119:                                              ; preds = %118, %115
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %120 = load i32, ptr %10, align 4
+  switch i32 %120, label %125 [
+    i32 0, label %121
+    i32 1, label %123
+  ]
+
+121:                                              ; preds = %119
+  br label %122
+
+122:                                              ; preds = %121, %54, %49
   store i32 0, ptr %3, align 4
-  br label %117
+  br label %123
 
-117:                                              ; preds = %116, %98, %44, %43, %33, %23, %19, %12
-  %118 = load i32, ptr %3, align 4
-  ret i32 %118
+123:                                              ; preds = %122, %119, %45, %44, %34, %24, %20, %13
+  %124 = load i32, ptr %3, align 4
+  ret i32 %124
+
+125:                                              ; preds = %119
+  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1827,383 +2044,436 @@ define internal i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef %1) #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  %14 = alloca i16, align 2
-  %15 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %16 = load i32, ptr %4, align 4
-  %17 = icmp ult i32 %16, 128
-  br i1 %17, label %18, label %22
+  %14 = alloca i32, align 4
+  %15 = alloca i16, align 2
+  %16 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  %17 = load i32, ptr %4, align 4, !tbaa !3
+  %18 = icmp ult i32 %17, 128
+  br i1 %18, label %19, label %23
 
-18:                                               ; preds = %2
-  %19 = load i32, ptr %4, align 4
-  %20 = trunc i32 %19 to i8
-  %21 = load ptr, ptr %5, align 8
-  store i8 %20, ptr %21, align 1
+19:                                               ; preds = %2
+  %20 = load i32, ptr %4, align 4, !tbaa !3
+  %21 = trunc i32 %20 to i8
+  %22 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %21, ptr %22, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-22:                                               ; preds = %2
-  %23 = load i32, ptr %4, align 4
-  %24 = load ptr, ptr %5, align 8
-  %25 = call i32 @zueci_u_gbk(i32 noundef %23, ptr noundef %24)
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %28
+23:                                               ; preds = %2
+  %24 = load i32, ptr %4, align 4, !tbaa !3
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = call i32 @zueci_u_gbk(i32 noundef %24, ptr noundef %25)
+  %27 = icmp ne i32 %26, 0
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %22
+28:                                               ; preds = %23
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-28:                                               ; preds = %22
-  %29 = load i32, ptr %4, align 4
-  %30 = icmp uge i32 %29, 65536
-  br i1 %30, label %31, label %84
+29:                                               ; preds = %23
+  %30 = load i32, ptr %4, align 4, !tbaa !3
+  %31 = icmp uge i32 %30, 65536
+  br i1 %31, label %32, label %85
 
-31:                                               ; preds = %28
-  %32 = load i32, ptr %4, align 4
-  %33 = icmp eq i32 %32, 131207
-  br i1 %33, label %34, label %39
+32:                                               ; preds = %29
+  %33 = load i32, ptr %4, align 4, !tbaa !3
+  %34 = icmp eq i32 %33, 131207
+  br i1 %34, label %35, label %40
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 0
-  store i8 -2, ptr %36, align 1
-  %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
-  store i8 81, ptr %38, align 1
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %5, align 8, !tbaa !7
+  %37 = getelementptr inbounds i8, ptr %36, i64 0
+  store i8 -2, ptr %37, align 1, !tbaa !12
+  %38 = load ptr, ptr %5, align 8, !tbaa !7
+  %39 = getelementptr inbounds i8, ptr %38, i64 1
+  store i8 81, ptr %39, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-39:                                               ; preds = %31
-  %40 = load i32, ptr %4, align 4
-  %41 = icmp eq i32 %40, 131209
-  br i1 %41, label %42, label %47
+40:                                               ; preds = %32
+  %41 = load i32, ptr %4, align 4, !tbaa !3
+  %42 = icmp eq i32 %41, 131209
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 0
-  store i8 -2, ptr %44, align 1
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  store i8 82, ptr %46, align 1
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %5, align 8, !tbaa !7
+  %45 = getelementptr inbounds i8, ptr %44, i64 0
+  store i8 -2, ptr %45, align 1, !tbaa !12
+  %46 = load ptr, ptr %5, align 8, !tbaa !7
+  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  store i8 82, ptr %47, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-47:                                               ; preds = %39
-  %48 = load i32, ptr %4, align 4
-  %49 = icmp eq i32 %48, 131276
-  br i1 %49, label %50, label %55
+48:                                               ; preds = %40
+  %49 = load i32, ptr %4, align 4, !tbaa !3
+  %50 = icmp eq i32 %49, 131276
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 0
-  store i8 -2, ptr %52, align 1
-  %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
-  store i8 83, ptr %54, align 1
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %5, align 8, !tbaa !7
+  %53 = getelementptr inbounds i8, ptr %52, i64 0
+  store i8 -2, ptr %53, align 1, !tbaa !12
+  %54 = load ptr, ptr %5, align 8, !tbaa !7
+  %55 = getelementptr inbounds i8, ptr %54, i64 1
+  store i8 83, ptr %55, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-55:                                               ; preds = %47
-  %56 = load i32, ptr %4, align 4
-  %57 = icmp eq i32 %56, 136663
-  br i1 %57, label %58, label %63
+56:                                               ; preds = %48
+  %57 = load i32, ptr %4, align 4, !tbaa !3
+  %58 = icmp eq i32 %57, 136663
+  br i1 %58, label %59, label %64
 
-58:                                               ; preds = %55
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 0
-  store i8 -2, ptr %60, align 1
-  %61 = load ptr, ptr %5, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1
-  store i8 108, ptr %62, align 1
+59:                                               ; preds = %56
+  %60 = load ptr, ptr %5, align 8, !tbaa !7
+  %61 = getelementptr inbounds i8, ptr %60, i64 0
+  store i8 -2, ptr %61, align 1, !tbaa !12
+  %62 = load ptr, ptr %5, align 8, !tbaa !7
+  %63 = getelementptr inbounds i8, ptr %62, i64 1
+  store i8 108, ptr %63, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-63:                                               ; preds = %55
-  %64 = load i32, ptr %4, align 4
-  %65 = icmp eq i32 %64, 141711
-  br i1 %65, label %66, label %71
+64:                                               ; preds = %56
+  %65 = load i32, ptr %4, align 4, !tbaa !3
+  %66 = icmp eq i32 %65, 141711
+  br i1 %66, label %67, label %72
 
-66:                                               ; preds = %63
-  %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 0
-  store i8 -2, ptr %68, align 1
-  %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 1
-  store i8 118, ptr %70, align 1
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %5, align 8, !tbaa !7
+  %69 = getelementptr inbounds i8, ptr %68, i64 0
+  store i8 -2, ptr %69, align 1, !tbaa !12
+  %70 = load ptr, ptr %5, align 8, !tbaa !7
+  %71 = getelementptr inbounds i8, ptr %70, i64 1
+  store i8 118, ptr %71, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-71:                                               ; preds = %63
-  %72 = load i32, ptr %4, align 4
-  %73 = icmp eq i32 %72, 147966
-  br i1 %73, label %74, label %79
+72:                                               ; preds = %64
+  %73 = load i32, ptr %4, align 4, !tbaa !3
+  %74 = icmp eq i32 %73, 147966
+  br i1 %74, label %75, label %80
 
-74:                                               ; preds = %71
-  %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 0
-  store i8 -2, ptr %76, align 1
-  %77 = load ptr, ptr %5, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 1
-  store i8 -111, ptr %78, align 1
+75:                                               ; preds = %72
+  %76 = load ptr, ptr %5, align 8, !tbaa !7
+  %77 = getelementptr inbounds i8, ptr %76, i64 0
+  store i8 -2, ptr %77, align 1, !tbaa !12
+  %78 = load ptr, ptr %5, align 8, !tbaa !7
+  %79 = getelementptr inbounds i8, ptr %78, i64 1
+  store i8 -111, ptr %79, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-79:                                               ; preds = %71
-  %80 = load i32, ptr %4, align 4
-  %81 = sub i32 %80, 65536
-  %82 = load ptr, ptr %5, align 8
-  %83 = call i32 @zueci_u_gb18030_4_sequential(i32 noundef %81, i32 noundef 144, ptr noundef %82)
-  store i32 %83, ptr %3, align 4
-  br label %244
+80:                                               ; preds = %72
+  %81 = load i32, ptr %4, align 4, !tbaa !3
+  %82 = sub i32 %81, 65536
+  %83 = load ptr, ptr %5, align 8, !tbaa !7
+  %84 = call i32 @zueci_u_gb18030_4_sequential(i32 noundef %82, i32 noundef 144, ptr noundef %83)
+  store i32 %84, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-84:                                               ; preds = %28
-  %85 = load i32, ptr %4, align 4
-  %86 = icmp uge i32 %85, 57344
-  br i1 %86, label %87, label %138
+85:                                               ; preds = %29
+  %86 = load i32, ptr %4, align 4, !tbaa !3
+  %87 = icmp uge i32 %86, 57344
+  br i1 %87, label %88, label %139
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %4, align 4
-  %89 = icmp ule i32 %88, 59237
-  br i1 %89, label %90, label %138
+88:                                               ; preds = %85
+  %89 = load i32, ptr %4, align 4, !tbaa !3
+  %90 = icmp ule i32 %89, 59237
+  br i1 %90, label %91, label %139
 
-90:                                               ; preds = %87
-  %91 = load i32, ptr %4, align 4
-  %92 = icmp ule i32 %91, 58565
-  br i1 %92, label %93, label %114
+91:                                               ; preds = %88
+  %92 = load i32, ptr %4, align 4, !tbaa !3
+  %93 = icmp ule i32 %92, 58565
+  br i1 %93, label %94, label %115
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %4, align 4
-  %95 = sub i32 %94, 57344
-  store i32 %95, ptr %6, align 4
-  %96 = load i32, ptr %6, align 4
-  %97 = udiv i32 %96, 94
-  store i32 %97, ptr %7, align 4
-  %98 = load i32, ptr %7, align 4
-  %99 = load i32, ptr %7, align 4
-  %100 = icmp ult i32 %99, 6
-  %101 = select i1 %100, i32 170, i32 242
-  %102 = add i32 %98, %101
-  %103 = trunc i32 %102 to i8
-  %104 = load ptr, ptr %5, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 0
-  store i8 %103, ptr %105, align 1
-  %106 = load i32, ptr %6, align 4
-  %107 = load i32, ptr %7, align 4
-  %108 = mul i32 %107, 94
-  %109 = sub i32 %106, %108
-  %110 = add i32 %109, 161
-  %111 = trunc i32 %110 to i8
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 1
-  store i8 %111, ptr %113, align 1
-  br label %137
+94:                                               ; preds = %91
+  %95 = load i32, ptr %4, align 4, !tbaa !3
+  %96 = sub i32 %95, 57344
+  store i32 %96, ptr %6, align 4, !tbaa !3
+  %97 = load i32, ptr %6, align 4, !tbaa !3
+  %98 = udiv i32 %97, 94
+  store i32 %98, ptr %7, align 4, !tbaa !3
+  %99 = load i32, ptr %7, align 4, !tbaa !3
+  %100 = load i32, ptr %7, align 4, !tbaa !3
+  %101 = icmp ult i32 %100, 6
+  %102 = select i1 %101, i32 170, i32 242
+  %103 = add i32 %99, %102
+  %104 = trunc i32 %103 to i8
+  %105 = load ptr, ptr %5, align 8, !tbaa !7
+  %106 = getelementptr inbounds i8, ptr %105, i64 0
+  store i8 %104, ptr %106, align 1, !tbaa !12
+  %107 = load i32, ptr %6, align 4, !tbaa !3
+  %108 = load i32, ptr %7, align 4, !tbaa !3
+  %109 = mul i32 %108, 94
+  %110 = sub i32 %107, %109
+  %111 = add i32 %110, 161
+  %112 = trunc i32 %111 to i8
+  %113 = load ptr, ptr %5, align 8, !tbaa !7
+  %114 = getelementptr inbounds i8, ptr %113, i64 1
+  store i8 %112, ptr %114, align 1, !tbaa !12
+  br label %138
 
-114:                                              ; preds = %90
-  %115 = load i32, ptr %4, align 4
-  %116 = sub i32 %115, 58566
-  store i32 %116, ptr %6, align 4
-  %117 = load i32, ptr %6, align 4
-  %118 = udiv i32 %117, 96
-  store i32 %118, ptr %7, align 4
-  %119 = load i32, ptr %6, align 4
-  %120 = load i32, ptr %7, align 4
-  %121 = mul i32 %120, 96
-  %122 = sub i32 %119, %121
-  store i32 %122, ptr %10, align 4
-  %123 = load i32, ptr %7, align 4
-  %124 = add i32 %123, 161
-  %125 = trunc i32 %124 to i8
-  %126 = load ptr, ptr %5, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 0
-  store i8 %125, ptr %127, align 1
-  %128 = load i32, ptr %10, align 4
-  %129 = add i32 %128, 64
-  %130 = load i32, ptr %10, align 4
-  %131 = icmp uge i32 %130, 63
-  %132 = zext i1 %131 to i32
-  %133 = add i32 %129, %132
-  %134 = trunc i32 %133 to i8
-  %135 = load ptr, ptr %5, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 1
-  store i8 %134, ptr %136, align 1
-  br label %137
+115:                                              ; preds = %91
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #3
+  %116 = load i32, ptr %4, align 4, !tbaa !3
+  %117 = sub i32 %116, 58566
+  store i32 %117, ptr %6, align 4, !tbaa !3
+  %118 = load i32, ptr %6, align 4, !tbaa !3
+  %119 = udiv i32 %118, 96
+  store i32 %119, ptr %7, align 4, !tbaa !3
+  %120 = load i32, ptr %6, align 4, !tbaa !3
+  %121 = load i32, ptr %7, align 4, !tbaa !3
+  %122 = mul i32 %121, 96
+  %123 = sub i32 %120, %122
+  store i32 %123, ptr %11, align 4, !tbaa !3
+  %124 = load i32, ptr %7, align 4, !tbaa !3
+  %125 = add i32 %124, 161
+  %126 = trunc i32 %125 to i8
+  %127 = load ptr, ptr %5, align 8, !tbaa !7
+  %128 = getelementptr inbounds i8, ptr %127, i64 0
+  store i8 %126, ptr %128, align 1, !tbaa !12
+  %129 = load i32, ptr %11, align 4, !tbaa !3
+  %130 = add i32 %129, 64
+  %131 = load i32, ptr %11, align 4, !tbaa !3
+  %132 = icmp uge i32 %131, 63
+  %133 = zext i1 %132 to i32
+  %134 = add i32 %130, %133
+  %135 = trunc i32 %134 to i8
+  %136 = load ptr, ptr %5, align 8, !tbaa !7
+  %137 = getelementptr inbounds i8, ptr %136, i64 1
+  store i8 %135, ptr %137, align 1, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #3
+  br label %138
 
-137:                                              ; preds = %114, %93
+138:                                              ; preds = %115, %94
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-138:                                              ; preds = %87, %84
-  %139 = load i32, ptr %4, align 4
-  %140 = load i16, ptr @zueci_gb18030_2_u_u, align 16
-  %141 = zext i16 %140 to i32
-  %142 = icmp uge i32 %139, %141
-  br i1 %142, label %143, label %198
+139:                                              ; preds = %88, %85
+  %140 = load i32, ptr %4, align 4, !tbaa !3
+  %141 = load i16, ptr @zueci_gb18030_2_u_u, align 16, !tbaa !19
+  %142 = zext i16 %141 to i32
+  %143 = icmp uge i32 %140, %142
+  br i1 %143, label %144, label %204
 
-143:                                              ; preds = %138
-  %144 = load i32, ptr %4, align 4
-  %145 = getelementptr inbounds [273 x i16], ptr @zueci_gb18030_2_u_u, i64 0, i64 272
-  %146 = load i16, ptr %145, align 16
+144:                                              ; preds = %139
+  %145 = load i32, ptr %4, align 4, !tbaa !3
+  %146 = load i16, ptr getelementptr inbounds ([273 x i16], ptr @zueci_gb18030_2_u_u, i64 0, i64 272), align 16, !tbaa !19
   %147 = zext i16 %146 to i32
-  %148 = icmp ule i32 %144, %147
-  br i1 %148, label %149, label %198
+  %148 = icmp ule i32 %145, %147
+  br i1 %148, label %149, label %204
 
-149:                                              ; preds = %143
-  store i32 0, ptr %11, align 4
-  store i32 272, ptr %12, align 4
+149:                                              ; preds = %144
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  store i32 0, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  store i32 272, ptr %13, align 4, !tbaa !3
   br label %150
 
-150:                                              ; preds = %196, %149
-  %151 = load i32, ptr %11, align 4
-  %152 = load i32, ptr %12, align 4
+150:                                              ; preds = %199, %149
+  %151 = load i32, ptr %12, align 4, !tbaa !3
+  %152 = load i32, ptr %13, align 4, !tbaa !3
   %153 = icmp sle i32 %151, %152
-  br i1 %153, label %154, label %197
+  br i1 %153, label %154, label %200
 
 154:                                              ; preds = %150
-  %155 = load i32, ptr %11, align 4
-  %156 = load i32, ptr %12, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %155 = load i32, ptr %12, align 4, !tbaa !3
+  %156 = load i32, ptr %13, align 4, !tbaa !3
   %157 = add nsw i32 %155, %156
   %158 = ashr i32 %157, 1
-  store i32 %158, ptr %13, align 4
-  %159 = load i32, ptr %13, align 4
+  store i32 %158, ptr %14, align 4, !tbaa !3
+  %159 = load i32, ptr %14, align 4, !tbaa !3
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds [273 x i16], ptr @zueci_gb18030_2_u_u, i64 0, i64 %160
-  %162 = load i16, ptr %161, align 2
+  %162 = load i16, ptr %161, align 2, !tbaa !19
   %163 = zext i16 %162 to i32
-  %164 = load i32, ptr %4, align 4
+  %164 = load i32, ptr %4, align 4, !tbaa !3
   %165 = icmp ult i32 %163, %164
   br i1 %165, label %166, label %169
 
 166:                                              ; preds = %154
-  %167 = load i32, ptr %13, align 4
+  %167 = load i32, ptr %14, align 4, !tbaa !3
   %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %11, align 4
+  store i32 %168, ptr %12, align 4, !tbaa !3
   br label %196
 
 169:                                              ; preds = %154
-  %170 = load i32, ptr %13, align 4
+  %170 = load i32, ptr %14, align 4, !tbaa !3
   %171 = sext i32 %170 to i64
   %172 = getelementptr inbounds [273 x i16], ptr @zueci_gb18030_2_u_u, i64 0, i64 %171
-  %173 = load i16, ptr %172, align 2
+  %173 = load i16, ptr %172, align 2, !tbaa !19
   %174 = zext i16 %173 to i32
-  %175 = load i32, ptr %4, align 4
+  %175 = load i32, ptr %4, align 4, !tbaa !3
   %176 = icmp ugt i32 %174, %175
   br i1 %176, label %177, label %180
 
 177:                                              ; preds = %169
-  %178 = load i32, ptr %13, align 4
+  %178 = load i32, ptr %14, align 4, !tbaa !3
   %179 = sub nsw i32 %178, 1
-  store i32 %179, ptr %12, align 4
+  store i32 %179, ptr %13, align 4, !tbaa !3
   br label %195
 
 180:                                              ; preds = %169
-  %181 = load i32, ptr %13, align 4
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  %181 = load i32, ptr %14, align 4, !tbaa !3
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds [273 x i16], ptr @zueci_gb18030_2_u_mb, i64 0, i64 %182
-  %184 = load i16, ptr %183, align 2
-  store i16 %184, ptr %14, align 2
-  %185 = load i16, ptr %14, align 2
+  %184 = load i16, ptr %183, align 2, !tbaa !19
+  store i16 %184, ptr %15, align 2, !tbaa !19
+  %185 = load i16, ptr %15, align 2, !tbaa !19
   %186 = zext i16 %185 to i32
   %187 = ashr i32 %186, 8
   %188 = trunc i32 %187 to i8
-  %189 = load ptr, ptr %5, align 8
+  %189 = load ptr, ptr %5, align 8, !tbaa !7
   %190 = getelementptr inbounds i8, ptr %189, i64 0
-  store i8 %188, ptr %190, align 1
-  %191 = load i16, ptr %14, align 2
+  store i8 %188, ptr %190, align 1, !tbaa !12
+  %191 = load i16, ptr %15, align 2, !tbaa !19
   %192 = trunc i16 %191 to i8
-  %193 = load ptr, ptr %5, align 8
+  %193 = load ptr, ptr %5, align 8, !tbaa !7
   %194 = getelementptr inbounds i8, ptr %193, i64 1
-  store i8 %192, ptr %194, align 1
+  store i8 %192, ptr %194, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  br label %197
 
 195:                                              ; preds = %177
   br label %196
 
 196:                                              ; preds = %195, %166
-  br label %150, !llvm.loop !15
+  store i32 0, ptr %10, align 4
+  br label %197
 
-197:                                              ; preds = %150
-  br label %198
+197:                                              ; preds = %196, %180
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %198 = load i32, ptr %10, align 4
+  switch i32 %198, label %201 [
+    i32 0, label %199
+  ]
 
-198:                                              ; preds = %197, %143, %138
-  %199 = load i32, ptr %4, align 4
-  %200 = icmp eq i32 %199, 59335
-  br i1 %200, label %201, label %210
+199:                                              ; preds = %197
+  br label %150, !llvm.loop !27
 
-201:                                              ; preds = %198
-  %202 = load ptr, ptr %5, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 0
-  store i8 -127, ptr %203, align 1
-  %204 = load ptr, ptr %5, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 1
-  store i8 53, ptr %205, align 1
-  %206 = load ptr, ptr %5, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 2
-  store i8 -12, ptr %207, align 1
-  %208 = load ptr, ptr %5, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 3
-  store i8 55, ptr %209, align 1
+200:                                              ; preds = %150
+  store i32 0, ptr %10, align 4
+  br label %201
+
+201:                                              ; preds = %200, %197
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %202 = load i32, ptr %10, align 4
+  switch i32 %202, label %250 [
+    i32 0, label %203
+  ]
+
+203:                                              ; preds = %201
+  br label %204
+
+204:                                              ; preds = %203, %144, %139
+  %205 = load i32, ptr %4, align 4, !tbaa !3
+  %206 = icmp eq i32 %205, 59335
+  br i1 %206, label %207, label %216
+
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %5, align 8, !tbaa !7
+  %209 = getelementptr inbounds i8, ptr %208, i64 0
+  store i8 -127, ptr %209, align 1, !tbaa !12
+  %210 = load ptr, ptr %5, align 8, !tbaa !7
+  %211 = getelementptr inbounds i8, ptr %210, i64 1
+  store i8 53, ptr %211, align 1, !tbaa !12
+  %212 = load ptr, ptr %5, align 8, !tbaa !7
+  %213 = getelementptr inbounds i8, ptr %212, i64 2
+  store i8 -12, ptr %213, align 1, !tbaa !12
+  %214 = load ptr, ptr %5, align 8, !tbaa !7
+  %215 = getelementptr inbounds i8, ptr %214, i64 3
+  store i8 55, ptr %215, align 1, !tbaa !12
   store i32 4, ptr %3, align 4
-  br label %244
+  store i32 1, ptr %10, align 4
+  br label %250
 
-210:                                              ; preds = %198
-  store i32 0, ptr %8, align 4
-  store i32 205, ptr %9, align 4
-  br label %211
+216:                                              ; preds = %204
+  store i32 0, ptr %8, align 4, !tbaa !3
+  store i32 205, ptr %9, align 4, !tbaa !3
+  br label %217
 
-211:                                              ; preds = %232, %210
-  %212 = load i32, ptr %8, align 4
-  %213 = load i32, ptr %9, align 4
-  %214 = icmp slt i32 %212, %213
-  br i1 %214, label %215, label %233
+217:                                              ; preds = %238, %216
+  %218 = load i32, ptr %8, align 4, !tbaa !3
+  %219 = load i32, ptr %9, align 4, !tbaa !3
+  %220 = icmp slt i32 %218, %219
+  br i1 %220, label %221, label %239
 
-215:                                              ; preds = %211
-  %216 = load i32, ptr %8, align 4
-  %217 = load i32, ptr %9, align 4
-  %218 = add nsw i32 %216, %217
-  %219 = ashr i32 %218, 1
-  store i32 %219, ptr %15, align 4
-  %220 = load i32, ptr %15, align 4
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %221
-  %223 = load i16, ptr %222, align 2
-  %224 = zext i16 %223 to i32
-  %225 = load i32, ptr %4, align 4
-  %226 = icmp ult i32 %224, %225
-  br i1 %226, label %227, label %230
+221:                                              ; preds = %217
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %222 = load i32, ptr %8, align 4, !tbaa !3
+  %223 = load i32, ptr %9, align 4, !tbaa !3
+  %224 = add nsw i32 %222, %223
+  %225 = ashr i32 %224, 1
+  store i32 %225, ptr %16, align 4, !tbaa !3
+  %226 = load i32, ptr %16, align 4, !tbaa !3
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %227
+  %229 = load i16, ptr %228, align 2, !tbaa !19
+  %230 = zext i16 %229 to i32
+  %231 = load i32, ptr %4, align 4, !tbaa !3
+  %232 = icmp ult i32 %230, %231
+  br i1 %232, label %233, label %236
 
-227:                                              ; preds = %215
-  %228 = load i32, ptr %15, align 4
-  %229 = add nsw i32 %228, 1
-  store i32 %229, ptr %8, align 4
-  br label %232
+233:                                              ; preds = %221
+  %234 = load i32, ptr %16, align 4, !tbaa !3
+  %235 = add nsw i32 %234, 1
+  store i32 %235, ptr %8, align 4, !tbaa !3
+  br label %238
 
-230:                                              ; preds = %215
-  %231 = load i32, ptr %15, align 4
-  store i32 %231, ptr %9, align 4
-  br label %232
+236:                                              ; preds = %221
+  %237 = load i32, ptr %16, align 4, !tbaa !3
+  store i32 %237, ptr %9, align 4, !tbaa !3
+  br label %238
 
-232:                                              ; preds = %230, %227
-  br label %211, !llvm.loop !16
+238:                                              ; preds = %236, %233
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  br label %217, !llvm.loop !28
 
-233:                                              ; preds = %211
-  %234 = load i32, ptr %4, align 4
-  %235 = load i32, ptr %8, align 4
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_mb_o, i64 0, i64 %236
-  %238 = load i16, ptr %237, align 2
-  %239 = zext i16 %238 to i32
-  %240 = sub i32 %234, %239
-  %241 = sub i32 %240, 128
-  %242 = load ptr, ptr %5, align 8
-  %243 = call i32 @zueci_u_gb18030_4_sequential(i32 noundef %241, i32 noundef 129, ptr noundef %242)
-  store i32 %243, ptr %3, align 4
-  br label %244
+239:                                              ; preds = %217
+  %240 = load i32, ptr %4, align 4, !tbaa !3
+  %241 = load i32, ptr %8, align 4, !tbaa !3
+  %242 = sext i32 %241 to i64
+  %243 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_mb_o, i64 0, i64 %242
+  %244 = load i16, ptr %243, align 2, !tbaa !19
+  %245 = zext i16 %244 to i32
+  %246 = sub i32 %240, %245
+  %247 = sub i32 %246, 128
+  %248 = load ptr, ptr %5, align 8, !tbaa !7
+  %249 = call i32 @zueci_u_gb18030_4_sequential(i32 noundef %247, i32 noundef 129, ptr noundef %248)
+  store i32 %249, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %250
 
-244:                                              ; preds = %233, %201, %180, %137, %79, %74, %66, %58, %50, %42, %34, %27, %18
-  %245 = load i32, ptr %3, align 4
-  ret i32 %245
+250:                                              ; preds = %239, %207, %201, %138, %80, %75, %67, %59, %51, %43, %35, %28, %19
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %251 = load i32, ptr %3, align 4
+  ret i32 %251
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2213,95 +2483,102 @@ define internal i32 @zueci_u_utf16le(i32 noundef %0, ptr noundef %1) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %8 = load i32, ptr %4, align 4
-  %9 = icmp ult i32 %8, 65536
-  br i1 %9, label %10, label %20
+  %8 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %9 = load i32, ptr %4, align 4, !tbaa !3
+  %10 = icmp ult i32 %9, 65536
+  br i1 %10, label %11, label %21
 
-10:                                               ; preds = %2
-  %11 = load i32, ptr %4, align 4
-  %12 = trunc i32 %11 to i8
-  %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 0
-  store i8 %12, ptr %14, align 1
-  %15 = load i32, ptr %4, align 4
-  %16 = lshr i32 %15, 8
-  %17 = trunc i32 %16 to i8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
-  store i8 %17, ptr %19, align 1
+11:                                               ; preds = %2
+  %12 = load i32, ptr %4, align 4, !tbaa !3
+  %13 = trunc i32 %12 to i8
+  %14 = load ptr, ptr %5, align 8, !tbaa !7
+  %15 = getelementptr inbounds i8, ptr %14, i64 0
+  store i8 %13, ptr %15, align 1, !tbaa !12
+  %16 = load i32, ptr %4, align 4, !tbaa !3
+  %17 = lshr i32 %16, 8
+  %18 = trunc i32 %17 to i8
+  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  store i8 %18, ptr %20, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
-  br label %47
+  store i32 1, ptr %8, align 4
+  br label %48
 
-20:                                               ; preds = %2
-  %21 = load i32, ptr %4, align 4
-  %22 = sub i32 %21, 65536
-  store i32 %22, ptr %6, align 4
-  %23 = load i32, ptr %6, align 4
-  %24 = lshr i32 %23, 10
-  store i32 %24, ptr %7, align 4
-  %25 = load i32, ptr %7, align 4
-  %26 = trunc i32 %25 to i8
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 0
-  store i8 %26, ptr %28, align 1
-  %29 = load i32, ptr %7, align 4
-  %30 = lshr i32 %29, 8
-  %31 = add i32 216, %30
-  %32 = trunc i32 %31 to i8
-  %33 = load ptr, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
-  store i8 %32, ptr %34, align 1
-  %35 = load i32, ptr %6, align 4
-  %36 = and i32 %35, 1023
-  store i32 %36, ptr %7, align 4
-  %37 = load i32, ptr %7, align 4
-  %38 = trunc i32 %37 to i8
-  %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 2
-  store i8 %38, ptr %40, align 1
-  %41 = load i32, ptr %7, align 4
-  %42 = lshr i32 %41, 8
-  %43 = add i32 220, %42
-  %44 = trunc i32 %43 to i8
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 3
-  store i8 %44, ptr %46, align 1
+21:                                               ; preds = %2
+  %22 = load i32, ptr %4, align 4, !tbaa !3
+  %23 = sub i32 %22, 65536
+  store i32 %23, ptr %6, align 4, !tbaa !3
+  %24 = load i32, ptr %6, align 4, !tbaa !3
+  %25 = lshr i32 %24, 10
+  store i32 %25, ptr %7, align 4, !tbaa !3
+  %26 = load i32, ptr %7, align 4, !tbaa !3
+  %27 = trunc i32 %26 to i8
+  %28 = load ptr, ptr %5, align 8, !tbaa !7
+  %29 = getelementptr inbounds i8, ptr %28, i64 0
+  store i8 %27, ptr %29, align 1, !tbaa !12
+  %30 = load i32, ptr %7, align 4, !tbaa !3
+  %31 = lshr i32 %30, 8
+  %32 = add i32 216, %31
+  %33 = trunc i32 %32 to i8
+  %34 = load ptr, ptr %5, align 8, !tbaa !7
+  %35 = getelementptr inbounds i8, ptr %34, i64 1
+  store i8 %33, ptr %35, align 1, !tbaa !12
+  %36 = load i32, ptr %6, align 4, !tbaa !3
+  %37 = and i32 %36, 1023
+  store i32 %37, ptr %7, align 4, !tbaa !3
+  %38 = load i32, ptr %7, align 4, !tbaa !3
+  %39 = trunc i32 %38 to i8
+  %40 = load ptr, ptr %5, align 8, !tbaa !7
+  %41 = getelementptr inbounds i8, ptr %40, i64 2
+  store i8 %39, ptr %41, align 1, !tbaa !12
+  %42 = load i32, ptr %7, align 4, !tbaa !3
+  %43 = lshr i32 %42, 8
+  %44 = add i32 220, %43
+  %45 = trunc i32 %44 to i8
+  %46 = load ptr, ptr %5, align 8, !tbaa !7
+  %47 = getelementptr inbounds i8, ptr %46, i64 3
+  store i8 %45, ptr %47, align 1, !tbaa !12
   store i32 4, ptr %3, align 4
-  br label %47
+  store i32 1, ptr %8, align 4
+  br label %48
 
-47:                                               ; preds = %20, %10
-  %48 = load i32, ptr %3, align 4
-  ret i32 %48
+48:                                               ; preds = %21, %11
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %49 = load i32, ptr %3, align 4
+  ret i32 %49
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zueci_u_utf32be(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load ptr, ptr %4, align 8
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = getelementptr inbounds i8, ptr %5, i64 0
-  store i8 0, ptr %6, align 1
-  %7 = load i32, ptr %3, align 4
+  store i8 0, ptr %6, align 1, !tbaa !12
+  %7 = load i32, ptr %3, align 4, !tbaa !3
   %8 = lshr i32 %7, 16
   %9 = trunc i32 %8 to i8
-  %10 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
   %11 = getelementptr inbounds i8, ptr %10, i64 1
-  store i8 %9, ptr %11, align 1
-  %12 = load i32, ptr %3, align 4
+  store i8 %9, ptr %11, align 1, !tbaa !12
+  %12 = load i32, ptr %3, align 4, !tbaa !3
   %13 = lshr i32 %12, 8
   %14 = trunc i32 %13 to i8
-  %15 = load ptr, ptr %4, align 8
+  %15 = load ptr, ptr %4, align 8, !tbaa !7
   %16 = getelementptr inbounds i8, ptr %15, i64 2
-  store i8 %14, ptr %16, align 1
-  %17 = load i32, ptr %3, align 4
+  store i8 %14, ptr %16, align 1, !tbaa !12
+  %17 = load i32, ptr %3, align 4, !tbaa !3
   %18 = trunc i32 %17 to i8
-  %19 = load ptr, ptr %4, align 8
+  %19 = load ptr, ptr %4, align 8, !tbaa !7
   %20 = getelementptr inbounds i8, ptr %19, i64 3
-  store i8 %18, ptr %20, align 1
+  store i8 %18, ptr %20, align 1, !tbaa !12
   ret i32 4
 }
 
@@ -2309,61 +2586,64 @@ define internal i32 @zueci_u_utf32be(i32 noundef %0, ptr noundef %1) #0 {
 define internal i32 @zueci_u_utf32le(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
-  store i32 %0, ptr %3, align 4
-  store ptr %1, ptr %4, align 8
-  %5 = load i32, ptr %3, align 4
+  store i32 %0, ptr %3, align 4, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load i32, ptr %3, align 4, !tbaa !3
   %6 = trunc i32 %5 to i8
-  %7 = load ptr, ptr %4, align 8
+  %7 = load ptr, ptr %4, align 8, !tbaa !7
   %8 = getelementptr inbounds i8, ptr %7, i64 0
-  store i8 %6, ptr %8, align 1
-  %9 = load i32, ptr %3, align 4
+  store i8 %6, ptr %8, align 1, !tbaa !12
+  %9 = load i32, ptr %3, align 4, !tbaa !3
   %10 = lshr i32 %9, 8
   %11 = trunc i32 %10 to i8
-  %12 = load ptr, ptr %4, align 8
+  %12 = load ptr, ptr %4, align 8, !tbaa !7
   %13 = getelementptr inbounds i8, ptr %12, i64 1
-  store i8 %11, ptr %13, align 1
-  %14 = load i32, ptr %3, align 4
+  store i8 %11, ptr %13, align 1, !tbaa !12
+  %14 = load i32, ptr %3, align 4, !tbaa !3
   %15 = lshr i32 %14, 16
   %16 = trunc i32 %15 to i8
-  %17 = load ptr, ptr %4, align 8
+  %17 = load ptr, ptr %4, align 8, !tbaa !7
   %18 = getelementptr inbounds i8, ptr %17, i64 2
-  store i8 %16, ptr %18, align 1
-  %19 = load ptr, ptr %4, align 8
+  store i8 %16, ptr %18, align 1, !tbaa !12
+  %19 = load ptr, ptr %4, align 8, !tbaa !7
   %20 = getelementptr inbounds i8, ptr %19, i64 3
-  store i8 0, ptr %20, align 1
+  store i8 0, ptr %20, align 1, !tbaa !12
   ret i32 4
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zueci_is_valid_eci(i32 noundef %0) #0 {
   %2 = alloca i32, align 4
-  store i32 %0, ptr %2, align 4
-  %3 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = icmp sle i32 %3, 35
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr %2, align 4
+  %6 = load i32, ptr %2, align 4, !tbaa !3
   %7 = icmp sge i32 %6, 0
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = load i32, ptr %2, align 4
+  %9 = load i32, ptr %2, align 4, !tbaa !3
   %10 = icmp ne i32 %9, 14
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr %2, align 4
+  %12 = load i32, ptr %2, align 4, !tbaa !3
   %13 = icmp ne i32 %12, 19
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %11, %8, %5, %1
-  %15 = load i32, ptr %2, align 4
+  %15 = load i32, ptr %2, align 4, !tbaa !3
   %16 = icmp eq i32 %15, 170
   br i1 %16, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %2, align 4
+  %18 = load i32, ptr %2, align 4, !tbaa !3
   %19 = icmp eq i32 %18, 899
   br label %20
 
@@ -2379,55 +2659,57 @@ define internal i32 @zueci_decode_utf8(ptr noundef %0, ptr noundef %1, i8 nounde
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store ptr %1, ptr %5, align 8
-  store i8 %2, ptr %6, align 1
-  %8 = load i8, ptr %6, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !10
+  store ptr %1, ptr %5, align 8, !tbaa !10
+  store i8 %2, ptr %6, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %8 = load i8, ptr %6, align 1, !tbaa !12
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 1
+  %10 = getelementptr inbounds nuw [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = zext i8 %11 to i32
-  store i32 %12, ptr %7, align 4
-  %13 = load ptr, ptr %4, align 8
-  %14 = load i32, ptr %13, align 4
+  store i32 %12, ptr %7, align 4, !tbaa !3
+  %13 = load ptr, ptr %4, align 8, !tbaa !10
+  %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = icmp ne i32 %14, 0
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %3
-  %17 = load i8, ptr %6, align 1
+  %17 = load i8, ptr %6, align 1, !tbaa !12
   %18 = zext i8 %17 to i32
   %19 = and i32 %18, 63
-  %20 = load ptr, ptr %5, align 8
-  %21 = load i32, ptr %20, align 4
+  %20 = load ptr, ptr %5, align 8, !tbaa !10
+  %21 = load i32, ptr %20, align 4, !tbaa !3
   %22 = shl i32 %21, 6
   %23 = or i32 %19, %22
   br label %30
 
 24:                                               ; preds = %3
-  %25 = load i32, ptr %7, align 4
+  %25 = load i32, ptr %7, align 4, !tbaa !3
   %26 = ashr i32 255, %25
-  %27 = load i8, ptr %6, align 1
+  %27 = load i8, ptr %6, align 1, !tbaa !12
   %28 = zext i8 %27 to i32
   %29 = and i32 %26, %28
   br label %30
 
 30:                                               ; preds = %24, %16
   %31 = phi i32 [ %23, %16 ], [ %29, %24 ]
-  %32 = load ptr, ptr %5, align 8
-  store i32 %31, ptr %32, align 4
-  %33 = load ptr, ptr %4, align 8
-  %34 = load i32, ptr %33, align 4
+  %32 = load ptr, ptr %5, align 8, !tbaa !10
+  store i32 %31, ptr %32, align 4, !tbaa !3
+  %33 = load ptr, ptr %4, align 8, !tbaa !10
+  %34 = load i32, ptr %33, align 4, !tbaa !3
   %35 = add i32 256, %34
-  %36 = load i32, ptr %7, align 4
+  %36 = load i32, ptr %7, align 4, !tbaa !3
   %37 = add i32 %35, %36
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1
+  %39 = getelementptr inbounds nuw [364 x i8], ptr @zueci_decode_utf8.utf8d, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !12
   %41 = zext i8 %40 to i32
-  %42 = load ptr, ptr %4, align 8
-  store i32 %41, ptr %42, align 4
-  %43 = load ptr, ptr %4, align 8
-  %44 = load i32, ptr %43, align 4
+  %42 = load ptr, ptr %4, align 8, !tbaa !10
+  store i32 %41, ptr %42, align 4, !tbaa !3
+  %43 = load ptr, ptr %4, align 8, !tbaa !10
+  %44 = load i32, ptr %43, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %44
 }
 
@@ -2440,106 +2722,117 @@ define internal i32 @zueci_is_valid_utf8(ptr noundef %0, i32 noundef %1) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  %10 = load ptr, ptr %4, align 8
-  store ptr %10, ptr %7, align 8
-  %11 = load ptr, ptr %4, align 8
-  %12 = load i32, ptr %5, align 4
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
-  store ptr %14, ptr %8, align 8
-  br label %15
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #3
+  store i32 0, ptr %6, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr %11, ptr %7, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %12 = load ptr, ptr %4, align 8, !tbaa !7
+  %13 = load i32, ptr %5, align 4, !tbaa !3
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %12, i64 %14
+  store ptr %15, ptr %8, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #3
+  br label %16
 
-15:                                               ; preds = %26, %2
-  %16 = load ptr, ptr %7, align 8
-  %17 = load ptr, ptr %8, align 8
-  %18 = icmp ult ptr %16, %17
-  br i1 %18, label %19, label %27
+16:                                               ; preds = %27, %2
+  %17 = load ptr, ptr %7, align 8, !tbaa !7
+  %18 = load ptr, ptr %8, align 8, !tbaa !7
+  %19 = icmp ult ptr %17, %18
+  br i1 %19, label %20, label %28
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %21, ptr %7, align 8
-  %22 = load i8, ptr %20, align 1
-  %23 = call i32 @zueci_decode_utf8(ptr noundef %6, ptr noundef %9, i8 noundef zeroext %22)
-  %24 = icmp eq i32 %23, 12
-  br i1 %24, label %25, label %26
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8, !tbaa !7
+  %22 = getelementptr inbounds nuw i8, ptr %21, i32 1
+  store ptr %22, ptr %7, align 8, !tbaa !7
+  %23 = load i8, ptr %21, align 1, !tbaa !12
+  %24 = call i32 @zueci_decode_utf8(ptr noundef %6, ptr noundef %9, i8 noundef zeroext %23)
+  %25 = icmp eq i32 %24, 12
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %19
+26:                                               ; preds = %20
   store i32 0, ptr %3, align 4
-  br label %31
+  store i32 1, ptr %10, align 4
+  br label %32
 
-26:                                               ; preds = %19
-  br label %15, !llvm.loop !17
+27:                                               ; preds = %20
+  br label %16, !llvm.loop !29
 
-27:                                               ; preds = %15
-  %28 = load i32, ptr %6, align 4
-  %29 = icmp eq i32 %28, 0
-  %30 = zext i1 %29 to i32
-  store i32 %30, ptr %3, align 4
-  br label %31
+28:                                               ; preds = %16
+  %29 = load i32, ptr %6, align 4, !tbaa !3
+  %30 = icmp eq i32 %29, 0
+  %31 = zext i1 %30 to i32
+  store i32 %31, ptr %3, align 4
+  store i32 1, ptr %10, align 4
+  br label %32
 
-31:                                               ; preds = %27, %25
-  %32 = load i32, ptr %3, align 4
-  ret i32 %32
+32:                                               ; preds = %28, %26
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #3
+  %33 = load i32, ptr %3, align 4
+  ret i32 %33
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @zueci_u_ascii_inv(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load i32, ptr %4, align 4, !tbaa !3
   %7 = icmp eq i32 %6, 127
   br i1 %7, label %29, label %8
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4, !tbaa !3
   %10 = icmp ule i32 %9, 122
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr %4, align 4
+  %12 = load i32, ptr %4, align 4, !tbaa !3
   %13 = icmp ne i32 %12, 35
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %4, align 4
+  %15 = load i32, ptr %4, align 4, !tbaa !3
   %16 = icmp ne i32 %15, 36
   br i1 %16, label %17, label %33
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %4, align 4
+  %18 = load i32, ptr %4, align 4, !tbaa !3
   %19 = icmp ne i32 %18, 64
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr %4, align 4
+  %21 = load i32, ptr %4, align 4, !tbaa !3
   %22 = icmp ule i32 %21, 90
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr %4, align 4
+  %24 = load i32, ptr %4, align 4, !tbaa !3
   %25 = icmp eq i32 %24, 95
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %23
-  %27 = load i32, ptr %4, align 4
+  %27 = load i32, ptr %4, align 4, !tbaa !3
   %28 = icmp uge i32 %27, 97
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %26, %23, %20, %2
-  %30 = load i32, ptr %4, align 4
+  %30 = load i32, ptr %4, align 4, !tbaa !3
   %31 = trunc i32 %30 to i8
-  %32 = load ptr, ptr %5, align 8
-  store i8 %31, ptr %32, align 1
+  %32 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %31, ptr %32, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
   br label %34
 
@@ -2557,17 +2850,17 @@ define internal i32 @zueci_u_binary(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load i32, ptr %4, align 4, !tbaa !3
   %7 = icmp ule i32 %6, 255
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4, !tbaa !3
   %10 = trunc i32 %9 to i8
-  %11 = load ptr, ptr %5, align 8
-  store i8 %10, ptr %11, align 1
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
+  store i8 %10, ptr %11, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
   br label %13
 
@@ -2580,6 +2873,9 @@ define internal i32 @zueci_u_binary(i32 noundef %0, ptr noundef %1) #0 {
   ret i32 %14
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nounwind uwtable
 define i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
@@ -2588,120 +2884,126 @@ define i32 @zueci_dest_len_eci(i32 noundef %0, ptr noundef %1, i32 noundef %2, p
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store i32 %0, ptr %6, align 4
-  store ptr %1, ptr %7, align 8
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %11 = load i32, ptr %8, align 4
-  store i32 %11, ptr %10, align 4
-  %12 = load i32, ptr %6, align 4
-  %13 = call i32 @zueci_is_valid_eci(i32 noundef %12)
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %16, label %15
-
-15:                                               ; preds = %4
-  store i32 7, ptr %5, align 4
-  br label %71
+  %11 = alloca i32, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !7
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load i32, ptr %8, align 4, !tbaa !3
+  store i32 %12, ptr %10, align 4, !tbaa !3
+  %13 = load i32, ptr %6, align 4, !tbaa !3
+  %14 = call i32 @zueci_is_valid_eci(i32 noundef %13)
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %17, label %16
 
 16:                                               ; preds = %4
-  %17 = load ptr, ptr %7, align 8
-  %18 = icmp ne ptr %17, null
-  br i1 %18, label %19, label %22
+  store i32 7, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %72
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr %9, align 8
-  %21 = icmp ne ptr %20, null
-  br i1 %21, label %23, label %22
+17:                                               ; preds = %4
+  %18 = load ptr, ptr %7, align 8, !tbaa !7
+  %19 = icmp ne ptr %18, null
+  br i1 %19, label %20, label %23
 
-22:                                               ; preds = %19, %16
+20:                                               ; preds = %17
+  %21 = load ptr, ptr %9, align 8, !tbaa !10
+  %22 = icmp ne ptr %21, null
+  br i1 %22, label %24, label %23
+
+23:                                               ; preds = %20, %17
   store i32 8, ptr %5, align 4
-  br label %71
+  store i32 1, ptr %11, align 4
+  br label %72
 
-23:                                               ; preds = %19
-  %24 = load i32, ptr %6, align 4
-  %25 = icmp eq i32 %24, 20
-  br i1 %25, label %26, label %32
+24:                                               ; preds = %20
+  %25 = load i32, ptr %6, align 4, !tbaa !3
+  %26 = icmp eq i32 %25, 20
+  br i1 %26, label %27, label %33
 
-26:                                               ; preds = %23
-  %27 = load ptr, ptr %7, align 8
-  %28 = load i32, ptr %8, align 4
-  %29 = call i32 @zueci_chr_cnt(ptr noundef %27, i32 noundef %28, i8 noundef zeroext 92)
-  %30 = load i32, ptr %10, align 4
-  %31 = add nsw i32 %30, %29
-  store i32 %31, ptr %10, align 4
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %7, align 8, !tbaa !7
+  %29 = load i32, ptr %8, align 4, !tbaa !3
+  %30 = call i32 @zueci_chr_cnt(ptr noundef %28, i32 noundef %29, i8 noundef zeroext 92)
+  %31 = load i32, ptr %10, align 4, !tbaa !3
+  %32 = add nsw i32 %31, %30
+  store i32 %32, ptr %10, align 4, !tbaa !3
+  br label %69
+
+33:                                               ; preds = %24
+  %34 = load i32, ptr %6, align 4, !tbaa !3
+  %35 = icmp eq i32 %34, 25
+  br i1 %35, label %39, label %36
+
+36:                                               ; preds = %33
+  %37 = load i32, ptr %6, align 4, !tbaa !3
+  %38 = icmp eq i32 %37, 33
+  br i1 %38, label %39, label %45
+
+39:                                               ; preds = %36, %33
+  %40 = load ptr, ptr %7, align 8, !tbaa !7
+  %41 = load i32, ptr %8, align 4, !tbaa !3
+  %42 = call i32 @zueci_chr_lte_cnt(ptr noundef %40, i32 noundef %41, i8 noundef zeroext 127)
+  %43 = load i32, ptr %10, align 4, !tbaa !3
+  %44 = add nsw i32 %43, %42
+  store i32 %44, ptr %10, align 4, !tbaa !3
   br label %68
 
-32:                                               ; preds = %23
-  %33 = load i32, ptr %6, align 4
-  %34 = icmp eq i32 %33, 25
-  br i1 %34, label %38, label %35
+45:                                               ; preds = %36
+  %46 = load i32, ptr %6, align 4, !tbaa !3
+  %47 = icmp eq i32 %46, 32
+  br i1 %47, label %48, label %51
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %6, align 4
-  %37 = icmp eq i32 %36, 33
-  br i1 %37, label %38, label %44
-
-38:                                               ; preds = %35, %32
-  %39 = load ptr, ptr %7, align 8
-  %40 = load i32, ptr %8, align 4
-  %41 = call i32 @zueci_chr_lte_cnt(ptr noundef %39, i32 noundef %40, i8 noundef zeroext 127)
-  %42 = load i32, ptr %10, align 4
-  %43 = add nsw i32 %42, %41
-  store i32 %43, ptr %10, align 4
+48:                                               ; preds = %45
+  %49 = load i32, ptr %10, align 4, !tbaa !3
+  %50 = mul nsw i32 %49, 2
+  store i32 %50, ptr %10, align 4, !tbaa !3
   br label %67
 
-44:                                               ; preds = %35
-  %45 = load i32, ptr %6, align 4
-  %46 = icmp eq i32 %45, 32
-  br i1 %46, label %47, label %50
+51:                                               ; preds = %45
+  %52 = load i32, ptr %6, align 4, !tbaa !3
+  %53 = icmp eq i32 %52, 34
+  br i1 %53, label %57, label %54
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr %10, align 4
-  %49 = mul nsw i32 %48, 2
-  store i32 %49, ptr %10, align 4
+54:                                               ; preds = %51
+  %55 = load i32, ptr %6, align 4, !tbaa !3
+  %56 = icmp eq i32 %55, 35
+  br i1 %56, label %57, label %66
+
+57:                                               ; preds = %54, %51
+  %58 = load ptr, ptr %7, align 8, !tbaa !7
+  %59 = load i32, ptr %8, align 4, !tbaa !3
+  %60 = call i32 @zueci_chr_lte_cnt(ptr noundef %58, i32 noundef %59, i8 noundef zeroext 127)
+  %61 = mul nsw i32 %60, 2
+  %62 = load i32, ptr %8, align 4, !tbaa !3
+  %63 = add nsw i32 %61, %62
+  %64 = load i32, ptr %10, align 4, !tbaa !3
+  %65 = add nsw i32 %64, %63
+  store i32 %65, ptr %10, align 4, !tbaa !3
   br label %66
 
-50:                                               ; preds = %44
-  %51 = load i32, ptr %6, align 4
-  %52 = icmp eq i32 %51, 34
-  br i1 %52, label %56, label %53
-
-53:                                               ; preds = %50
-  %54 = load i32, ptr %6, align 4
-  %55 = icmp eq i32 %54, 35
-  br i1 %55, label %56, label %65
-
-56:                                               ; preds = %53, %50
-  %57 = load ptr, ptr %7, align 8
-  %58 = load i32, ptr %8, align 4
-  %59 = call i32 @zueci_chr_lte_cnt(ptr noundef %57, i32 noundef %58, i8 noundef zeroext 127)
-  %60 = mul nsw i32 %59, 2
-  %61 = load i32, ptr %8, align 4
-  %62 = add nsw i32 %60, %61
-  %63 = load i32, ptr %10, align 4
-  %64 = add nsw i32 %63, %62
-  store i32 %64, ptr %10, align 4
-  br label %65
-
-65:                                               ; preds = %56, %53
-  br label %66
-
-66:                                               ; preds = %65, %47
+66:                                               ; preds = %57, %54
   br label %67
 
-67:                                               ; preds = %66, %38
+67:                                               ; preds = %66, %48
   br label %68
 
-68:                                               ; preds = %67, %26
-  %69 = load i32, ptr %10, align 4
-  %70 = load ptr, ptr %9, align 8
-  store i32 %69, ptr %70, align 4
+68:                                               ; preds = %67, %39
+  br label %69
+
+69:                                               ; preds = %68, %27
+  %70 = load i32, ptr %10, align 4, !tbaa !3
+  %71 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %70, ptr %71, align 4, !tbaa !3
   store i32 0, ptr %5, align 4
-  br label %71
+  store i32 1, ptr %11, align 4
+  br label %72
 
-71:                                               ; preds = %68, %22, %15
-  %72 = load i32, ptr %5, align 4
-  ret i32 %72
+72:                                               ; preds = %69, %23, %16
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %73 = load i32, ptr %5, align 4
+  ret i32 %73
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2712,47 +3014,53 @@ define internal i32 @zueci_chr_cnt(ptr noundef %0, i32 noundef %1, i8 noundef ze
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i8 %2, ptr %6, align 1
-  store i32 0, ptr %7, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i8 %2, ptr %6, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
+  %11 = load i32, ptr %5, align 4, !tbaa !3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %13, ptr %8, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr %14, ptr %9, align 8, !tbaa !7
   br label %15
 
 15:                                               ; preds = %30, %3
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %9, align 8, !tbaa !7
+  %17 = load ptr, ptr %8, align 8, !tbaa !7
   %18 = icmp ult ptr %16, %17
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %21, ptr %9, align 8
-  %22 = load i8, ptr %20, align 1
+  %20 = load ptr, ptr %9, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %9, align 8, !tbaa !7
+  %22 = load i8, ptr %20, align 1, !tbaa !12
   %23 = zext i8 %22 to i32
-  %24 = load i8, ptr %6, align 1
+  %24 = load i8, ptr %6, align 1, !tbaa !12
   %25 = zext i8 %24 to i32
   %26 = icmp eq i32 %23, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %19
-  %28 = load i32, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4, !tbaa !3
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %7, align 4
+  store i32 %29, ptr %7, align 4, !tbaa !3
   br label %30
 
 30:                                               ; preds = %27, %19
-  br label %15, !llvm.loop !18
+  br label %15, !llvm.loop !30
 
 31:                                               ; preds = %15
-  %32 = load i32, ptr %7, align 4
+  %32 = load i32, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %32
 }
 
@@ -2764,47 +3072,53 @@ define internal i32 @zueci_chr_lte_cnt(ptr noundef %0, i32 noundef %1, i8 nounde
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %4, align 8
-  store i32 %1, ptr %5, align 4
-  store i8 %2, ptr %6, align 1
-  store i32 0, ptr %7, align 4
-  %10 = load ptr, ptr %4, align 8
-  %11 = load i32, ptr %5, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !7
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store i8 %2, ptr %6, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  store i32 0, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %10 = load ptr, ptr %4, align 8, !tbaa !7
+  %11 = load i32, ptr %5, align 4, !tbaa !3
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
-  store ptr %13, ptr %8, align 8
-  %14 = load ptr, ptr %4, align 8
-  store ptr %14, ptr %9, align 8
+  store ptr %13, ptr %8, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %14 = load ptr, ptr %4, align 8, !tbaa !7
+  store ptr %14, ptr %9, align 8, !tbaa !7
   br label %15
 
 15:                                               ; preds = %30, %3
-  %16 = load ptr, ptr %9, align 8
-  %17 = load ptr, ptr %8, align 8
+  %16 = load ptr, ptr %9, align 8, !tbaa !7
+  %17 = load ptr, ptr %8, align 8, !tbaa !7
   %18 = icmp ult ptr %16, %17
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i32 1
-  store ptr %21, ptr %9, align 8
-  %22 = load i8, ptr %20, align 1
+  %20 = load ptr, ptr %9, align 8, !tbaa !7
+  %21 = getelementptr inbounds nuw i8, ptr %20, i32 1
+  store ptr %21, ptr %9, align 8, !tbaa !7
+  %22 = load i8, ptr %20, align 1, !tbaa !12
   %23 = zext i8 %22 to i32
-  %24 = load i8, ptr %6, align 1
+  %24 = load i8, ptr %6, align 1, !tbaa !12
   %25 = zext i8 %24 to i32
   %26 = icmp sle i32 %23, %25
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %19
-  %28 = load i32, ptr %7, align 4
+  %28 = load i32, ptr %7, align 4, !tbaa !3
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %7, align 4
+  store i32 %29, ptr %7, align 4, !tbaa !3
   br label %30
 
 30:                                               ; preds = %27, %19
-  br label %15, !llvm.loop !19
+  br label %15, !llvm.loop !31
 
 31:                                               ; preds = %15
-  %32 = load i32, ptr %7, align 4
+  %32 = load i32, ptr %7, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 %32
 }
 
@@ -2828,519 +3142,551 @@ define i32 @zueci_eci_to_utf8(i32 noundef %0, ptr noundef %1, i32 noundef %2, i3
   %23 = alloca i32, align 4
   %24 = alloca i32, align 4
   %25 = alloca i32, align 4
-  store i32 %0, ptr %9, align 4
-  store ptr %1, ptr %10, align 8
-  store i32 %2, ptr %11, align 4
-  store i32 %3, ptr %12, align 4
-  store i32 %4, ptr %13, align 4
-  store ptr %5, ptr %14, align 8
-  store ptr %6, ptr %15, align 8
-  %26 = load ptr, ptr %10, align 8
-  store ptr %26, ptr %16, align 8
-  %27 = load ptr, ptr %10, align 8
-  %28 = load i32, ptr %11, align 4
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
-  store ptr %30, ptr %17, align 8
-  %31 = load ptr, ptr %14, align 8
-  store ptr %31, ptr %18, align 8
-  store i32 0, ptr %23, align 4
-  store i32 0, ptr %24, align 4
-  %32 = load i32, ptr %9, align 4
-  %33 = call i32 @zueci_is_valid_eci(i32 noundef %32)
-  %34 = icmp ne i32 %33, 0
-  br i1 %34, label %36, label %35
-
-35:                                               ; preds = %7
-  store i32 7, ptr %8, align 4
-  br label %333
+  %26 = alloca i32, align 4
+  store i32 %0, ptr %9, align 4, !tbaa !3
+  store ptr %1, ptr %10, align 8, !tbaa !7
+  store i32 %2, ptr %11, align 4, !tbaa !3
+  store i32 %3, ptr %12, align 4, !tbaa !3
+  store i32 %4, ptr %13, align 4, !tbaa !3
+  store ptr %5, ptr %14, align 8, !tbaa !7
+  store ptr %6, ptr %15, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  %27 = load ptr, ptr %10, align 8, !tbaa !7
+  store ptr %27, ptr %16, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #3
+  %28 = load ptr, ptr %10, align 8, !tbaa !7
+  %29 = load i32, ptr %11, align 4, !tbaa !3
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds i8, ptr %28, i64 %30
+  store ptr %31, ptr %17, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %18) #3
+  %32 = load ptr, ptr %14, align 8, !tbaa !7
+  store ptr %32, ptr %18, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.start.p0(i64 5, ptr %22) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  store i32 0, ptr %23, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  store i32 0, ptr %24, align 4, !tbaa !3
+  %33 = load i32, ptr %9, align 4, !tbaa !3
+  %34 = call i32 @zueci_is_valid_eci(i32 noundef %33)
+  %35 = icmp ne i32 %34, 0
+  br i1 %35, label %37, label %36
 
 36:                                               ; preds = %7
-  %37 = load ptr, ptr %10, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %39, label %45
+  store i32 7, ptr %8, align 4
+  store i32 1, ptr %25, align 4
+  br label %334
 
-39:                                               ; preds = %36
-  %40 = load ptr, ptr %14, align 8
-  %41 = icmp ne ptr %40, null
-  br i1 %41, label %42, label %45
+37:                                               ; preds = %7
+  %38 = load ptr, ptr %10, align 8, !tbaa !7
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %40, label %46
 
-42:                                               ; preds = %39
-  %43 = load ptr, ptr %15, align 8
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %46, label %45
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %14, align 8, !tbaa !7
+  %42 = icmp ne ptr %41, null
+  br i1 %42, label %43, label %46
 
-45:                                               ; preds = %42, %39, %36
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %15, align 8, !tbaa !10
+  %45 = icmp ne ptr %44, null
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %43, %40, %37
   store i32 8, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-46:                                               ; preds = %42
-  %47 = load i32, ptr %9, align 4
-  %48 = icmp eq i32 %47, 899
-  br i1 %48, label %65, label %49
+47:                                               ; preds = %43
+  %48 = load i32, ptr %9, align 4, !tbaa !3
+  %49 = icmp eq i32 %48, 899
+  br i1 %49, label %66, label %50
 
-49:                                               ; preds = %46
-  %50 = load i32, ptr %13, align 4
-  %51 = and i32 %50, 1
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %88
+50:                                               ; preds = %47
+  %51 = load i32, ptr %13, align 4, !tbaa !3
+  %52 = and i32 %51, 1
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %89
 
-53:                                               ; preds = %49
-  %54 = load i32, ptr %9, align 4
-  %55 = icmp eq i32 %54, 1
-  br i1 %55, label %65, label %56
+54:                                               ; preds = %50
+  %55 = load i32, ptr %9, align 4, !tbaa !3
+  %56 = icmp eq i32 %55, 1
+  br i1 %56, label %66, label %57
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %9, align 4
-  %58 = icmp eq i32 %57, 3
-  br i1 %58, label %65, label %59
+57:                                               ; preds = %54
+  %58 = load i32, ptr %9, align 4, !tbaa !3
+  %59 = icmp eq i32 %58, 3
+  br i1 %59, label %66, label %60
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %9, align 4
-  %61 = icmp eq i32 %60, 27
-  br i1 %61, label %65, label %62
+60:                                               ; preds = %57
+  %61 = load i32, ptr %9, align 4, !tbaa !3
+  %62 = icmp eq i32 %61, 27
+  br i1 %62, label %66, label %63
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %9, align 4
-  %64 = icmp eq i32 %63, 170
-  br i1 %64, label %65, label %88
+63:                                               ; preds = %60
+  %64 = load i32, ptr %9, align 4, !tbaa !3
+  %65 = icmp eq i32 %64, 170
+  br i1 %65, label %66, label %89
 
-65:                                               ; preds = %62, %59, %56, %53, %46
-  br label %66
+66:                                               ; preds = %63, %60, %57, %54, %47
+  br label %67
 
-66:                                               ; preds = %70, %65
-  %67 = load ptr, ptr %16, align 8
-  %68 = load ptr, ptr %17, align 8
-  %69 = icmp ult ptr %67, %68
-  br i1 %69, label %70, label %80
+67:                                               ; preds = %71, %66
+  %68 = load ptr, ptr %16, align 8, !tbaa !7
+  %69 = load ptr, ptr %17, align 8, !tbaa !7
+  %70 = icmp ult ptr %68, %69
+  br i1 %70, label %71, label %81
 
-70:                                               ; preds = %66
-  %71 = load ptr, ptr %16, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i32 1
-  store ptr %72, ptr %16, align 8
-  %73 = load i8, ptr %71, align 1
-  %74 = zext i8 %73 to i32
-  %75 = load ptr, ptr %18, align 8
-  %76 = call i32 @zueci_encode_utf8(i32 noundef %74, ptr noundef %75)
-  %77 = load ptr, ptr %18, align 8
-  %78 = sext i32 %76 to i64
-  %79 = getelementptr inbounds i8, ptr %77, i64 %78
-  store ptr %79, ptr %18, align 8
-  br label %66, !llvm.loop !20
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %16, align 8, !tbaa !7
+  %73 = getelementptr inbounds nuw i8, ptr %72, i32 1
+  store ptr %73, ptr %16, align 8, !tbaa !7
+  %74 = load i8, ptr %72, align 1, !tbaa !12
+  %75 = zext i8 %74 to i32
+  %76 = load ptr, ptr %18, align 8, !tbaa !7
+  %77 = call i32 @zueci_encode_utf8(i32 noundef %75, ptr noundef %76)
+  %78 = load ptr, ptr %18, align 8, !tbaa !7
+  %79 = sext i32 %77 to i64
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  store ptr %80, ptr %18, align 8, !tbaa !7
+  br label %67, !llvm.loop !32
 
-80:                                               ; preds = %66
-  %81 = load ptr, ptr %18, align 8
-  %82 = load ptr, ptr %14, align 8
-  %83 = ptrtoint ptr %81 to i64
+81:                                               ; preds = %67
+  %82 = load ptr, ptr %18, align 8, !tbaa !7
+  %83 = load ptr, ptr %14, align 8, !tbaa !7
   %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = trunc i64 %85 to i32
-  %87 = load ptr, ptr %15, align 8
-  store i32 %86, ptr %87, align 4
+  %85 = ptrtoint ptr %83 to i64
+  %86 = sub i64 %84, %85
+  %87 = trunc i64 %86 to i32
+  %88 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %87, ptr %88, align 4, !tbaa !3
   store i32 0, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-88:                                               ; preds = %62, %49
-  %89 = load i32, ptr %12, align 4
-  %90 = icmp ne i32 %89, 0
-  br i1 %90, label %91, label %108
+89:                                               ; preds = %63, %50
+  %90 = load i32, ptr %12, align 4, !tbaa !3
+  %91 = icmp ne i32 %90, 0
+  br i1 %91, label %92, label %109
 
-91:                                               ; preds = %88
-  %92 = load i32, ptr %12, align 4
-  %93 = icmp ult i32 %92, 55296
-  br i1 %93, label %100, label %94
+92:                                               ; preds = %89
+  %93 = load i32, ptr %12, align 4, !tbaa !3
+  %94 = icmp ult i32 %93, 55296
+  br i1 %94, label %101, label %95
 
-94:                                               ; preds = %91
-  %95 = load i32, ptr %12, align 4
-  %96 = icmp uge i32 %95, 57344
-  br i1 %96, label %97, label %103
+95:                                               ; preds = %92
+  %96 = load i32, ptr %12, align 4, !tbaa !3
+  %97 = icmp uge i32 %96, 57344
+  br i1 %97, label %98, label %104
 
-97:                                               ; preds = %94
-  %98 = load i32, ptr %12, align 4
-  %99 = icmp ule i32 %98, 1114111
-  br i1 %99, label %100, label %103
+98:                                               ; preds = %95
+  %99 = load i32, ptr %12, align 4, !tbaa !3
+  %100 = icmp ule i32 %99, 1114111
+  br i1 %100, label %101, label %104
 
-100:                                              ; preds = %97, %91
-  %101 = load i32, ptr %12, align 4
-  %102 = icmp ugt i32 %101, 65535
-  br i1 %102, label %103, label %104
+101:                                              ; preds = %98, %92
+  %102 = load i32, ptr %12, align 4, !tbaa !3
+  %103 = icmp ugt i32 %102, 65535
+  br i1 %103, label %104, label %105
 
-103:                                              ; preds = %100, %97, %94
+104:                                              ; preds = %101, %98, %95
   store i32 8, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-104:                                              ; preds = %100
-  %105 = load i32, ptr %12, align 4
-  %106 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
-  %107 = call i32 @zueci_encode_utf8(i32 noundef %105, ptr noundef %106)
-  store i32 %107, ptr %23, align 4
-  br label %108
+105:                                              ; preds = %101
+  %106 = load i32, ptr %12, align 4, !tbaa !3
+  %107 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
+  %108 = call i32 @zueci_encode_utf8(i32 noundef %106, ptr noundef %107)
+  store i32 %108, ptr %23, align 4, !tbaa !3
+  br label %109
 
-108:                                              ; preds = %104, %88
-  %109 = load i32, ptr %9, align 4
-  %110 = icmp eq i32 %109, 1
-  br i1 %110, label %114, label %111
+109:                                              ; preds = %105, %89
+  %110 = load i32, ptr %9, align 4, !tbaa !3
+  %111 = icmp eq i32 %110, 1
+  br i1 %111, label %115, label %112
 
-111:                                              ; preds = %108
-  %112 = load i32, ptr %9, align 4
-  %113 = icmp eq i32 %112, 3
-  br i1 %113, label %114, label %164
+112:                                              ; preds = %109
+  %113 = load i32, ptr %9, align 4, !tbaa !3
+  %114 = icmp eq i32 %113, 3
+  br i1 %114, label %115, label %165
 
-114:                                              ; preds = %111, %108
-  br label %115
+115:                                              ; preds = %112, %109
+  br label %116
 
-115:                                              ; preds = %152, %114
-  %116 = load ptr, ptr %16, align 8
-  %117 = load ptr, ptr %17, align 8
-  %118 = icmp ult ptr %116, %117
-  br i1 %118, label %119, label %155
+116:                                              ; preds = %153, %115
+  %117 = load ptr, ptr %16, align 8, !tbaa !7
+  %118 = load ptr, ptr %17, align 8, !tbaa !7
+  %119 = icmp ult ptr %117, %118
+  br i1 %119, label %120, label %156
 
-119:                                              ; preds = %115
-  %120 = load ptr, ptr %16, align 8
-  %121 = load i8, ptr %120, align 1
-  %122 = zext i8 %121 to i32
-  %123 = icmp sge i32 %122, 128
-  br i1 %123, label %124, label %142
+120:                                              ; preds = %116
+  %121 = load ptr, ptr %16, align 8, !tbaa !7
+  %122 = load i8, ptr %121, align 1, !tbaa !12
+  %123 = zext i8 %122 to i32
+  %124 = icmp sge i32 %123, 128
+  br i1 %124, label %125, label %143
 
-124:                                              ; preds = %119
-  %125 = load ptr, ptr %16, align 8
-  %126 = load i8, ptr %125, align 1
-  %127 = zext i8 %126 to i32
-  %128 = icmp slt i32 %127, 160
-  br i1 %128, label %129, label %142
+125:                                              ; preds = %120
+  %126 = load ptr, ptr %16, align 8, !tbaa !7
+  %127 = load i8, ptr %126, align 1, !tbaa !12
+  %128 = zext i8 %127 to i32
+  %129 = icmp slt i32 %128, 160
+  br i1 %129, label %130, label %143
 
-129:                                              ; preds = %124
-  %130 = load i32, ptr %12, align 4
-  %131 = icmp ne i32 %130, 0
-  br i1 %131, label %133, label %132
+130:                                              ; preds = %125
+  %131 = load i32, ptr %12, align 4, !tbaa !3
+  %132 = icmp ne i32 %131, 0
+  br i1 %132, label %134, label %133
 
-132:                                              ; preds = %129
+133:                                              ; preds = %130
   store i32 6, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-133:                                              ; preds = %129
-  %134 = load ptr, ptr %18, align 8
-  %135 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
-  %136 = load i32, ptr %23, align 4
-  %137 = sext i32 %136 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %134, ptr align 1 %135, i64 %137, i1 false)
-  %138 = load i32, ptr %23, align 4
-  %139 = load ptr, ptr %18, align 8
-  %140 = sext i32 %138 to i64
-  %141 = getelementptr inbounds i8, ptr %139, i64 %140
-  store ptr %141, ptr %18, align 8
-  store i32 1, ptr %24, align 4
-  br label %151
-
-142:                                              ; preds = %124, %119
-  %143 = load ptr, ptr %16, align 8
-  %144 = load i8, ptr %143, align 1
-  %145 = zext i8 %144 to i32
-  %146 = load ptr, ptr %18, align 8
-  %147 = call i32 @zueci_encode_utf8(i32 noundef %145, ptr noundef %146)
-  %148 = load ptr, ptr %18, align 8
-  %149 = sext i32 %147 to i64
-  %150 = getelementptr inbounds i8, ptr %148, i64 %149
-  store ptr %150, ptr %18, align 8
-  br label %151
-
-151:                                              ; preds = %142, %133
+134:                                              ; preds = %130
+  %135 = load ptr, ptr %18, align 8, !tbaa !7
+  %136 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
+  %137 = load i32, ptr %23, align 4, !tbaa !3
+  %138 = sext i32 %137 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %135, ptr align 1 %136, i64 %138, i1 false)
+  %139 = load i32, ptr %23, align 4, !tbaa !3
+  %140 = load ptr, ptr %18, align 8, !tbaa !7
+  %141 = sext i32 %139 to i64
+  %142 = getelementptr inbounds i8, ptr %140, i64 %141
+  store ptr %142, ptr %18, align 8, !tbaa !7
+  store i32 1, ptr %24, align 4, !tbaa !3
   br label %152
 
-152:                                              ; preds = %151
-  %153 = load ptr, ptr %16, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i32 1
-  store ptr %154, ptr %16, align 8
-  br label %115, !llvm.loop !21
+143:                                              ; preds = %125, %120
+  %144 = load ptr, ptr %16, align 8, !tbaa !7
+  %145 = load i8, ptr %144, align 1, !tbaa !12
+  %146 = zext i8 %145 to i32
+  %147 = load ptr, ptr %18, align 8, !tbaa !7
+  %148 = call i32 @zueci_encode_utf8(i32 noundef %146, ptr noundef %147)
+  %149 = load ptr, ptr %18, align 8, !tbaa !7
+  %150 = sext i32 %148 to i64
+  %151 = getelementptr inbounds i8, ptr %149, i64 %150
+  store ptr %151, ptr %18, align 8, !tbaa !7
+  br label %152
 
-155:                                              ; preds = %115
-  %156 = load ptr, ptr %18, align 8
-  %157 = load ptr, ptr %14, align 8
-  %158 = ptrtoint ptr %156 to i64
+152:                                              ; preds = %143, %134
+  br label %153
+
+153:                                              ; preds = %152
+  %154 = load ptr, ptr %16, align 8, !tbaa !7
+  %155 = getelementptr inbounds nuw i8, ptr %154, i32 1
+  store ptr %155, ptr %16, align 8, !tbaa !7
+  br label %116, !llvm.loop !33
+
+156:                                              ; preds = %116
+  %157 = load ptr, ptr %18, align 8, !tbaa !7
+  %158 = load ptr, ptr %14, align 8, !tbaa !7
   %159 = ptrtoint ptr %157 to i64
-  %160 = sub i64 %158, %159
-  %161 = trunc i64 %160 to i32
-  %162 = load ptr, ptr %15, align 8
-  store i32 %161, ptr %162, align 4
-  %163 = load i32, ptr %24, align 4
-  store i32 %163, ptr %8, align 4
-  br label %333
+  %160 = ptrtoint ptr %158 to i64
+  %161 = sub i64 %159, %160
+  %162 = trunc i64 %161 to i32
+  %163 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %162, ptr %163, align 4, !tbaa !3
+  %164 = load i32, ptr %24, align 4, !tbaa !3
+  store i32 %164, ptr %8, align 4
+  store i32 1, ptr %25, align 4
+  br label %334
 
-164:                                              ; preds = %111
-  %165 = load i32, ptr %9, align 4
-  %166 = icmp eq i32 %165, 26
-  br i1 %166, label %167, label %261
+165:                                              ; preds = %112
+  %166 = load i32, ptr %9, align 4, !tbaa !3
+  %167 = icmp eq i32 %166, 26
+  br i1 %167, label %168, label %262
 
-167:                                              ; preds = %164
-  %168 = load i32, ptr %12, align 4
-  %169 = icmp ne i32 %168, 0
-  br i1 %169, label %170, label %248
+168:                                              ; preds = %165
+  %169 = load i32, ptr %12, align 4, !tbaa !3
+  %170 = icmp ne i32 %169, 0
+  br i1 %170, label %171, label %249
 
-170:                                              ; preds = %167
-  store i32 0, ptr %25, align 4
-  br label %171
+171:                                              ; preds = %168
+  call void @llvm.lifetime.start.p0(i64 4, ptr %26) #3
+  store i32 0, ptr %26, align 4, !tbaa !3
+  br label %172
 
-171:                                              ; preds = %238, %170
-  %172 = load ptr, ptr %16, align 8
-  %173 = load ptr, ptr %17, align 8
-  %174 = icmp ult ptr %172, %173
-  br i1 %174, label %175, label %239
+172:                                              ; preds = %239, %171
+  %173 = load ptr, ptr %16, align 8, !tbaa !7
+  %174 = load ptr, ptr %17, align 8, !tbaa !7
+  %175 = icmp ult ptr %173, %174
+  br i1 %175, label %176, label %240
 
-175:                                              ; preds = %171
-  br label %176
+176:                                              ; preds = %172
+  br label %177
 
-176:                                              ; preds = %191, %175
-  %177 = load ptr, ptr %16, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i32 1
-  store ptr %178, ptr %16, align 8
-  %179 = load i8, ptr %177, align 1
-  %180 = call i32 @zueci_decode_utf8(ptr noundef %25, ptr noundef %20, i8 noundef zeroext %179)
-  br label %181
+177:                                              ; preds = %192, %176
+  %178 = load ptr, ptr %16, align 8, !tbaa !7
+  %179 = getelementptr inbounds nuw i8, ptr %178, i32 1
+  store ptr %179, ptr %16, align 8, !tbaa !7
+  %180 = load i8, ptr %178, align 1, !tbaa !12
+  %181 = call i32 @zueci_decode_utf8(ptr noundef %26, ptr noundef %20, i8 noundef zeroext %180)
+  br label %182
 
-181:                                              ; preds = %176
-  %182 = load ptr, ptr %16, align 8
-  %183 = load ptr, ptr %17, align 8
-  %184 = icmp ult ptr %182, %183
-  br i1 %184, label %185, label %191
+182:                                              ; preds = %177
+  %183 = load ptr, ptr %16, align 8, !tbaa !7
+  %184 = load ptr, ptr %17, align 8, !tbaa !7
+  %185 = icmp ult ptr %183, %184
+  br i1 %185, label %186, label %192
 
-185:                                              ; preds = %181
-  %186 = load i32, ptr %25, align 4
-  %187 = icmp ne i32 %186, 0
-  br i1 %187, label %188, label %191
+186:                                              ; preds = %182
+  %187 = load i32, ptr %26, align 4, !tbaa !3
+  %188 = icmp ne i32 %187, 0
+  br i1 %188, label %189, label %192
 
-188:                                              ; preds = %185
-  %189 = load i32, ptr %25, align 4
-  %190 = icmp ne i32 %189, 12
-  br label %191
+189:                                              ; preds = %186
+  %190 = load i32, ptr %26, align 4, !tbaa !3
+  %191 = icmp ne i32 %190, 12
+  br label %192
 
-191:                                              ; preds = %188, %185, %181
-  %192 = phi i1 [ false, %185 ], [ false, %181 ], [ %190, %188 ]
-  br i1 %192, label %176, label %193, !llvm.loop !22
+192:                                              ; preds = %189, %186, %182
+  %193 = phi i1 [ false, %186 ], [ false, %182 ], [ %191, %189 ]
+  br i1 %193, label %177, label %194, !llvm.loop !34
 
-193:                                              ; preds = %191
-  %194 = load i32, ptr %25, align 4
-  %195 = icmp ne i32 %194, 0
-  br i1 %195, label %196, label %231
+194:                                              ; preds = %192
+  %195 = load i32, ptr %26, align 4, !tbaa !3
+  %196 = icmp ne i32 %195, 0
+  br i1 %196, label %197, label %232
 
-196:                                              ; preds = %193
-  %197 = load ptr, ptr %16, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 -1
-  %199 = load i8, ptr %198, align 1
-  %200 = zext i8 %199 to i32
-  %201 = icmp slt i32 %200, 128
-  br i1 %201, label %202, label %205
+197:                                              ; preds = %194
+  %198 = load ptr, ptr %16, align 8, !tbaa !7
+  %199 = getelementptr inbounds i8, ptr %198, i64 -1
+  %200 = load i8, ptr %199, align 1, !tbaa !12
+  %201 = zext i8 %200 to i32
+  %202 = icmp slt i32 %201, 128
+  br i1 %202, label %203, label %206
 
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %16, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i32 -1
-  store ptr %204, ptr %16, align 8
-  br label %222
+203:                                              ; preds = %197
+  %204 = load ptr, ptr %16, align 8, !tbaa !7
+  %205 = getelementptr inbounds i8, ptr %204, i32 -1
+  store ptr %205, ptr %16, align 8, !tbaa !7
+  br label %223
 
-205:                                              ; preds = %196
-  br label %206
+206:                                              ; preds = %197
+  br label %207
 
-206:                                              ; preds = %218, %205
-  %207 = load ptr, ptr %16, align 8
-  %208 = load ptr, ptr %17, align 8
-  %209 = icmp ult ptr %207, %208
-  br i1 %209, label %210, label %216
+207:                                              ; preds = %219, %206
+  %208 = load ptr, ptr %16, align 8, !tbaa !7
+  %209 = load ptr, ptr %17, align 8, !tbaa !7
+  %210 = icmp ult ptr %208, %209
+  br i1 %210, label %211, label %217
 
-210:                                              ; preds = %206
-  %211 = load ptr, ptr %16, align 8
-  %212 = load i8, ptr %211, align 1
-  %213 = zext i8 %212 to i32
-  %214 = and i32 %213, 192
-  %215 = icmp eq i32 %214, 128
-  br label %216
+211:                                              ; preds = %207
+  %212 = load ptr, ptr %16, align 8, !tbaa !7
+  %213 = load i8, ptr %212, align 1, !tbaa !12
+  %214 = zext i8 %213 to i32
+  %215 = and i32 %214, 192
+  %216 = icmp eq i32 %215, 128
+  br label %217
 
-216:                                              ; preds = %210, %206
-  %217 = phi i1 [ false, %206 ], [ %215, %210 ]
-  br i1 %217, label %218, label %221
+217:                                              ; preds = %211, %207
+  %218 = phi i1 [ false, %207 ], [ %216, %211 ]
+  br i1 %218, label %219, label %222
 
-218:                                              ; preds = %216
-  %219 = load ptr, ptr %16, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i32 1
-  store ptr %220, ptr %16, align 8
-  br label %206, !llvm.loop !23
+219:                                              ; preds = %217
+  %220 = load ptr, ptr %16, align 8, !tbaa !7
+  %221 = getelementptr inbounds nuw i8, ptr %220, i32 1
+  store ptr %221, ptr %16, align 8, !tbaa !7
+  br label %207, !llvm.loop !35
 
-221:                                              ; preds = %216
-  br label %222
+222:                                              ; preds = %217
+  br label %223
 
-222:                                              ; preds = %221, %202
-  %223 = load ptr, ptr %18, align 8
-  %224 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
-  %225 = load i32, ptr %23, align 4
-  %226 = sext i32 %225 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %223, ptr align 1 %224, i64 %226, i1 false)
-  %227 = load i32, ptr %23, align 4
-  %228 = load ptr, ptr %18, align 8
-  %229 = sext i32 %227 to i64
-  %230 = getelementptr inbounds i8, ptr %228, i64 %229
-  store ptr %230, ptr %18, align 8
-  store i32 1, ptr %24, align 4
-  store i32 0, ptr %25, align 4
-  br label %238
+223:                                              ; preds = %222, %203
+  %224 = load ptr, ptr %18, align 8, !tbaa !7
+  %225 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
+  %226 = load i32, ptr %23, align 4, !tbaa !3
+  %227 = sext i32 %226 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %224, ptr align 1 %225, i64 %227, i1 false)
+  %228 = load i32, ptr %23, align 4, !tbaa !3
+  %229 = load ptr, ptr %18, align 8, !tbaa !7
+  %230 = sext i32 %228 to i64
+  %231 = getelementptr inbounds i8, ptr %229, i64 %230
+  store ptr %231, ptr %18, align 8, !tbaa !7
+  store i32 1, ptr %24, align 4, !tbaa !3
+  store i32 0, ptr %26, align 4, !tbaa !3
+  br label %239
 
-231:                                              ; preds = %193
-  %232 = load i32, ptr %20, align 4
-  %233 = load ptr, ptr %18, align 8
-  %234 = call i32 @zueci_encode_utf8(i32 noundef %232, ptr noundef %233)
-  %235 = load ptr, ptr %18, align 8
-  %236 = sext i32 %234 to i64
-  %237 = getelementptr inbounds i8, ptr %235, i64 %236
-  store ptr %237, ptr %18, align 8
-  br label %238
+232:                                              ; preds = %194
+  %233 = load i32, ptr %20, align 4, !tbaa !3
+  %234 = load ptr, ptr %18, align 8, !tbaa !7
+  %235 = call i32 @zueci_encode_utf8(i32 noundef %233, ptr noundef %234)
+  %236 = load ptr, ptr %18, align 8, !tbaa !7
+  %237 = sext i32 %235 to i64
+  %238 = getelementptr inbounds i8, ptr %236, i64 %237
+  store ptr %238, ptr %18, align 8, !tbaa !7
+  br label %239
 
-238:                                              ; preds = %231, %222
-  br label %171, !llvm.loop !24
+239:                                              ; preds = %232, %223
+  br label %172, !llvm.loop !36
 
-239:                                              ; preds = %171
-  %240 = load ptr, ptr %18, align 8
-  %241 = load ptr, ptr %14, align 8
-  %242 = ptrtoint ptr %240 to i64
+240:                                              ; preds = %172
+  %241 = load ptr, ptr %18, align 8, !tbaa !7
+  %242 = load ptr, ptr %14, align 8, !tbaa !7
   %243 = ptrtoint ptr %241 to i64
-  %244 = sub i64 %242, %243
-  %245 = trunc i64 %244 to i32
-  %246 = load ptr, ptr %15, align 8
-  store i32 %245, ptr %246, align 4
-  %247 = load i32, ptr %24, align 4
-  store i32 %247, ptr %8, align 4
-  br label %333
+  %244 = ptrtoint ptr %242 to i64
+  %245 = sub i64 %243, %244
+  %246 = trunc i64 %245 to i32
+  %247 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %246, ptr %247, align 4, !tbaa !3
+  %248 = load i32, ptr %24, align 4, !tbaa !3
+  store i32 %248, ptr %8, align 4
+  store i32 1, ptr %25, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %26) #3
+  br label %334
 
-248:                                              ; preds = %167
-  %249 = load ptr, ptr %10, align 8
-  %250 = load i32, ptr %11, align 4
-  %251 = call i32 @zueci_is_valid_utf8(ptr noundef %249, i32 noundef %250)
-  %252 = icmp ne i32 %251, 0
-  br i1 %252, label %254, label %253
+249:                                              ; preds = %168
+  %250 = load ptr, ptr %10, align 8, !tbaa !7
+  %251 = load i32, ptr %11, align 4, !tbaa !3
+  %252 = call i32 @zueci_is_valid_utf8(ptr noundef %250, i32 noundef %251)
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %255, label %254
 
-253:                                              ; preds = %248
+254:                                              ; preds = %249
   store i32 9, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-254:                                              ; preds = %248
-  %255 = load ptr, ptr %14, align 8
-  %256 = load ptr, ptr %10, align 8
-  %257 = load i32, ptr %11, align 4
-  %258 = sext i32 %257 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %255, ptr align 1 %256, i64 %258, i1 false)
-  %259 = load i32, ptr %11, align 4
-  %260 = load ptr, ptr %15, align 8
-  store i32 %259, ptr %260, align 4
+255:                                              ; preds = %249
+  %256 = load ptr, ptr %14, align 8, !tbaa !7
+  %257 = load ptr, ptr %10, align 8, !tbaa !7
+  %258 = load i32, ptr %11, align 4, !tbaa !3
+  %259 = sext i32 %258 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %256, ptr align 1 %257, i64 %259, i1 false)
+  %260 = load i32, ptr %11, align 4, !tbaa !3
+  %261 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %260, ptr %261, align 4, !tbaa !3
   store i32 0, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-261:                                              ; preds = %164
-  %262 = load i32, ptr %9, align 4
-  %263 = icmp eq i32 %262, 170
-  br i1 %263, label %264, label %265
+262:                                              ; preds = %165
+  %263 = load i32, ptr %9, align 4, !tbaa !3
+  %264 = icmp eq i32 %263, 170
+  br i1 %264, label %265, label %266
 
-264:                                              ; preds = %261
-  store ptr @zueci_ascii_inv_u, ptr %19, align 8
-  br label %270
-
-265:                                              ; preds = %261
-  %266 = load i32, ptr %9, align 4
-  %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds [36 x ptr], ptr @zueci_utf8_funcs, i64 0, i64 %267
-  %269 = load ptr, ptr %268, align 8
-  store ptr %269, ptr %19, align 8
-  br label %270
-
-270:                                              ; preds = %265, %264
+265:                                              ; preds = %262
+  store ptr @zueci_ascii_inv_u, ptr %19, align 8, !tbaa !16
   br label %271
 
-271:                                              ; preds = %323, %270
-  %272 = load ptr, ptr %16, align 8
-  %273 = load ptr, ptr %17, align 8
-  %274 = icmp ult ptr %272, %273
-  br i1 %274, label %275, label %324
+266:                                              ; preds = %262
+  %267 = load i32, ptr %9, align 4, !tbaa !3
+  %268 = sext i32 %267 to i64
+  %269 = getelementptr inbounds [36 x ptr], ptr @zueci_utf8_funcs, i64 0, i64 %268
+  %270 = load ptr, ptr %269, align 8, !tbaa !16
+  store ptr %270, ptr %19, align 8, !tbaa !16
+  br label %271
 
-275:                                              ; preds = %271
-  %276 = load ptr, ptr %19, align 8
-  %277 = load ptr, ptr %16, align 8
-  %278 = load ptr, ptr %17, align 8
-  %279 = load ptr, ptr %16, align 8
-  %280 = ptrtoint ptr %278 to i64
+271:                                              ; preds = %266, %265
+  br label %272
+
+272:                                              ; preds = %324, %271
+  %273 = load ptr, ptr %16, align 8, !tbaa !7
+  %274 = load ptr, ptr %17, align 8, !tbaa !7
+  %275 = icmp ult ptr %273, %274
+  br i1 %275, label %276, label %325
+
+276:                                              ; preds = %272
+  %277 = load ptr, ptr %19, align 8, !tbaa !16
+  %278 = load ptr, ptr %16, align 8, !tbaa !7
+  %279 = load ptr, ptr %17, align 8, !tbaa !7
+  %280 = load ptr, ptr %16, align 8, !tbaa !7
   %281 = ptrtoint ptr %279 to i64
-  %282 = sub i64 %280, %281
-  %283 = trunc i64 %282 to i32
-  %284 = load i32, ptr %13, align 4
-  %285 = call i32 %276(ptr noundef %277, i32 noundef %283, i32 noundef %284, ptr noundef %20)
-  store i32 %285, ptr %21, align 4
-  %286 = icmp ne i32 %285, 0
-  br i1 %286, label %312, label %287
+  %282 = ptrtoint ptr %280 to i64
+  %283 = sub i64 %281, %282
+  %284 = trunc i64 %283 to i32
+  %285 = load i32, ptr %13, align 4, !tbaa !3
+  %286 = call i32 %277(ptr noundef %278, i32 noundef %284, i32 noundef %285, ptr noundef %20)
+  store i32 %286, ptr %21, align 4, !tbaa !3
+  %287 = icmp ne i32 %286, 0
+  br i1 %287, label %313, label %288
 
-287:                                              ; preds = %275
-  %288 = load i32, ptr %12, align 4
-  %289 = icmp ne i32 %288, 0
-  br i1 %289, label %291, label %290
+288:                                              ; preds = %276
+  %289 = load i32, ptr %12, align 4, !tbaa !3
+  %290 = icmp ne i32 %289, 0
+  br i1 %290, label %292, label %291
 
-290:                                              ; preds = %287
+291:                                              ; preds = %288
   store i32 6, ptr %8, align 4
-  br label %333
+  store i32 1, ptr %25, align 4
+  br label %334
 
-291:                                              ; preds = %287
-  %292 = load ptr, ptr %18, align 8
-  %293 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
-  %294 = load i32, ptr %23, align 4
-  %295 = sext i32 %294 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %292, ptr align 1 %293, i64 %295, i1 false)
-  %296 = load i32, ptr %9, align 4
-  %297 = load ptr, ptr %16, align 8
-  %298 = load ptr, ptr %17, align 8
-  %299 = load ptr, ptr %16, align 8
-  %300 = ptrtoint ptr %298 to i64
+292:                                              ; preds = %288
+  %293 = load ptr, ptr %18, align 8, !tbaa !7
+  %294 = getelementptr inbounds [5 x i8], ptr %22, i64 0, i64 0
+  %295 = load i32, ptr %23, align 4, !tbaa !3
+  %296 = sext i32 %295 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %293, ptr align 1 %294, i64 %296, i1 false)
+  %297 = load i32, ptr %9, align 4, !tbaa !3
+  %298 = load ptr, ptr %16, align 8, !tbaa !7
+  %299 = load ptr, ptr %17, align 8, !tbaa !7
+  %300 = load ptr, ptr %16, align 8, !tbaa !7
   %301 = ptrtoint ptr %299 to i64
-  %302 = sub i64 %300, %301
-  %303 = trunc i64 %302 to i32
-  %304 = call i32 @zueci_replacement_incr(i32 noundef %296, ptr noundef %297, i32 noundef %303)
-  %305 = load ptr, ptr %16, align 8
-  %306 = sext i32 %304 to i64
-  %307 = getelementptr inbounds i8, ptr %305, i64 %306
-  store ptr %307, ptr %16, align 8
-  %308 = load i32, ptr %23, align 4
-  %309 = load ptr, ptr %18, align 8
-  %310 = sext i32 %308 to i64
-  %311 = getelementptr inbounds i8, ptr %309, i64 %310
-  store ptr %311, ptr %18, align 8
-  store i32 1, ptr %24, align 4
-  br label %323
+  %302 = ptrtoint ptr %300 to i64
+  %303 = sub i64 %301, %302
+  %304 = trunc i64 %303 to i32
+  %305 = call i32 @zueci_replacement_incr(i32 noundef %297, ptr noundef %298, i32 noundef %304)
+  %306 = load ptr, ptr %16, align 8, !tbaa !7
+  %307 = sext i32 %305 to i64
+  %308 = getelementptr inbounds i8, ptr %306, i64 %307
+  store ptr %308, ptr %16, align 8, !tbaa !7
+  %309 = load i32, ptr %23, align 4, !tbaa !3
+  %310 = load ptr, ptr %18, align 8, !tbaa !7
+  %311 = sext i32 %309 to i64
+  %312 = getelementptr inbounds i8, ptr %310, i64 %311
+  store ptr %312, ptr %18, align 8, !tbaa !7
+  store i32 1, ptr %24, align 4, !tbaa !3
+  br label %324
 
-312:                                              ; preds = %275
-  %313 = load i32, ptr %21, align 4
-  %314 = load ptr, ptr %16, align 8
-  %315 = sext i32 %313 to i64
-  %316 = getelementptr inbounds i8, ptr %314, i64 %315
-  store ptr %316, ptr %16, align 8
-  %317 = load i32, ptr %20, align 4
-  %318 = load ptr, ptr %18, align 8
-  %319 = call i32 @zueci_encode_utf8(i32 noundef %317, ptr noundef %318)
-  %320 = load ptr, ptr %18, align 8
-  %321 = sext i32 %319 to i64
-  %322 = getelementptr inbounds i8, ptr %320, i64 %321
-  store ptr %322, ptr %18, align 8
-  br label %323
+313:                                              ; preds = %276
+  %314 = load i32, ptr %21, align 4, !tbaa !3
+  %315 = load ptr, ptr %16, align 8, !tbaa !7
+  %316 = sext i32 %314 to i64
+  %317 = getelementptr inbounds i8, ptr %315, i64 %316
+  store ptr %317, ptr %16, align 8, !tbaa !7
+  %318 = load i32, ptr %20, align 4, !tbaa !3
+  %319 = load ptr, ptr %18, align 8, !tbaa !7
+  %320 = call i32 @zueci_encode_utf8(i32 noundef %318, ptr noundef %319)
+  %321 = load ptr, ptr %18, align 8, !tbaa !7
+  %322 = sext i32 %320 to i64
+  %323 = getelementptr inbounds i8, ptr %321, i64 %322
+  store ptr %323, ptr %18, align 8, !tbaa !7
+  br label %324
 
-323:                                              ; preds = %312, %291
-  br label %271, !llvm.loop !25
+324:                                              ; preds = %313, %292
+  br label %272, !llvm.loop !37
 
-324:                                              ; preds = %271
-  %325 = load ptr, ptr %18, align 8
-  %326 = load ptr, ptr %14, align 8
-  %327 = ptrtoint ptr %325 to i64
+325:                                              ; preds = %272
+  %326 = load ptr, ptr %18, align 8, !tbaa !7
+  %327 = load ptr, ptr %14, align 8, !tbaa !7
   %328 = ptrtoint ptr %326 to i64
-  %329 = sub i64 %327, %328
-  %330 = trunc i64 %329 to i32
-  %331 = load ptr, ptr %15, align 8
-  store i32 %330, ptr %331, align 4
-  %332 = load i32, ptr %24, align 4
-  store i32 %332, ptr %8, align 4
-  br label %333
+  %329 = ptrtoint ptr %327 to i64
+  %330 = sub i64 %328, %329
+  %331 = trunc i64 %330 to i32
+  %332 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %331, ptr %332, align 4, !tbaa !3
+  %333 = load i32, ptr %24, align 4, !tbaa !3
+  store i32 %333, ptr %8, align 4
+  store i32 1, ptr %25, align 4
+  br label %334
 
-333:                                              ; preds = %324, %290, %254, %253, %239, %155, %132, %103, %80, %45, %35
-  %334 = load i32, ptr %8, align 4
-  ret i32 %334
+334:                                              ; preds = %325, %291, %255, %254, %240, %156, %133, %104, %81, %46, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 5, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  %335 = load i32, ptr %8, align 4
+  ret i32 %335
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3348,106 +3694,106 @@ define internal i32 @zueci_encode_utf8(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %6 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  %6 = load i32, ptr %4, align 4, !tbaa !3
   %7 = icmp ult i32 %6, 128
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = load i32, ptr %4, align 4
+  %9 = load i32, ptr %4, align 4, !tbaa !3
   %10 = trunc i32 %9 to i8
-  %11 = load ptr, ptr %5, align 8
+  %11 = load ptr, ptr %5, align 8, !tbaa !7
   %12 = getelementptr inbounds i8, ptr %11, i64 0
-  store i8 %10, ptr %12, align 1
+  store i8 %10, ptr %12, align 1, !tbaa !12
   store i32 1, ptr %3, align 4
   br label %79
 
 13:                                               ; preds = %2
-  %14 = load i32, ptr %4, align 4
+  %14 = load i32, ptr %4, align 4, !tbaa !3
   %15 = icmp ult i32 %14, 2048
   br i1 %15, label %16, label %29
 
 16:                                               ; preds = %13
-  %17 = load i32, ptr %4, align 4
+  %17 = load i32, ptr %4, align 4, !tbaa !3
   %18 = lshr i32 %17, 6
   %19 = or i32 192, %18
   %20 = trunc i32 %19 to i8
-  %21 = load ptr, ptr %5, align 8
+  %21 = load ptr, ptr %5, align 8, !tbaa !7
   %22 = getelementptr inbounds i8, ptr %21, i64 0
-  store i8 %20, ptr %22, align 1
-  %23 = load i32, ptr %4, align 4
+  store i8 %20, ptr %22, align 1, !tbaa !12
+  %23 = load i32, ptr %4, align 4, !tbaa !3
   %24 = and i32 %23, 63
   %25 = or i32 128, %24
   %26 = trunc i32 %25 to i8
-  %27 = load ptr, ptr %5, align 8
+  %27 = load ptr, ptr %5, align 8, !tbaa !7
   %28 = getelementptr inbounds i8, ptr %27, i64 1
-  store i8 %26, ptr %28, align 1
+  store i8 %26, ptr %28, align 1, !tbaa !12
   store i32 2, ptr %3, align 4
   br label %79
 
 29:                                               ; preds = %13
-  %30 = load i32, ptr %4, align 4
+  %30 = load i32, ptr %4, align 4, !tbaa !3
   %31 = icmp ult i32 %30, 65536
   br i1 %31, label %32, label %52
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr %4, align 4
+  %33 = load i32, ptr %4, align 4, !tbaa !3
   %34 = lshr i32 %33, 12
   %35 = or i32 224, %34
   %36 = trunc i32 %35 to i8
-  %37 = load ptr, ptr %5, align 8
+  %37 = load ptr, ptr %5, align 8, !tbaa !7
   %38 = getelementptr inbounds i8, ptr %37, i64 0
-  store i8 %36, ptr %38, align 1
-  %39 = load i32, ptr %4, align 4
+  store i8 %36, ptr %38, align 1, !tbaa !12
+  %39 = load i32, ptr %4, align 4, !tbaa !3
   %40 = lshr i32 %39, 6
   %41 = and i32 %40, 63
   %42 = or i32 128, %41
   %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr %5, align 8
+  %44 = load ptr, ptr %5, align 8, !tbaa !7
   %45 = getelementptr inbounds i8, ptr %44, i64 1
-  store i8 %43, ptr %45, align 1
-  %46 = load i32, ptr %4, align 4
+  store i8 %43, ptr %45, align 1, !tbaa !12
+  %46 = load i32, ptr %4, align 4, !tbaa !3
   %47 = and i32 %46, 63
   %48 = or i32 128, %47
   %49 = trunc i32 %48 to i8
-  %50 = load ptr, ptr %5, align 8
+  %50 = load ptr, ptr %5, align 8, !tbaa !7
   %51 = getelementptr inbounds i8, ptr %50, i64 2
-  store i8 %49, ptr %51, align 1
+  store i8 %49, ptr %51, align 1, !tbaa !12
   store i32 3, ptr %3, align 4
   br label %79
 
 52:                                               ; preds = %29
-  %53 = load i32, ptr %4, align 4
+  %53 = load i32, ptr %4, align 4, !tbaa !3
   %54 = lshr i32 %53, 18
   %55 = or i32 240, %54
   %56 = trunc i32 %55 to i8
-  %57 = load ptr, ptr %5, align 8
+  %57 = load ptr, ptr %5, align 8, !tbaa !7
   %58 = getelementptr inbounds i8, ptr %57, i64 0
-  store i8 %56, ptr %58, align 1
-  %59 = load i32, ptr %4, align 4
+  store i8 %56, ptr %58, align 1, !tbaa !12
+  %59 = load i32, ptr %4, align 4, !tbaa !3
   %60 = lshr i32 %59, 12
   %61 = and i32 %60, 63
   %62 = or i32 128, %61
   %63 = trunc i32 %62 to i8
-  %64 = load ptr, ptr %5, align 8
+  %64 = load ptr, ptr %5, align 8, !tbaa !7
   %65 = getelementptr inbounds i8, ptr %64, i64 1
-  store i8 %63, ptr %65, align 1
-  %66 = load i32, ptr %4, align 4
+  store i8 %63, ptr %65, align 1, !tbaa !12
+  %66 = load i32, ptr %4, align 4, !tbaa !3
   %67 = lshr i32 %66, 6
   %68 = and i32 %67, 63
   %69 = or i32 128, %68
   %70 = trunc i32 %69 to i8
-  %71 = load ptr, ptr %5, align 8
+  %71 = load ptr, ptr %5, align 8, !tbaa !7
   %72 = getelementptr inbounds i8, ptr %71, i64 2
-  store i8 %70, ptr %72, align 1
-  %73 = load i32, ptr %4, align 4
+  store i8 %70, ptr %72, align 1, !tbaa !12
+  %73 = load i32, ptr %4, align 4, !tbaa !3
   %74 = and i32 %73, 63
   %75 = or i32 128, %74
   %76 = trunc i32 %75 to i8
-  %77 = load ptr, ptr %5, align 8
+  %77 = load ptr, ptr %5, align 8, !tbaa !7
   %78 = getelementptr inbounds i8, ptr %77, i64 3
-  store i8 %76, ptr %78, align 1
+  store i8 %76, ptr %78, align 1, !tbaa !12
   store i32 4, ptr %3, align 4
   br label %79
 
@@ -3464,81 +3810,86 @@ define internal i32 @zueci_ascii_inv_u(ptr noundef %0, i32 noundef %1, i32 nound
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i8, ptr %11, align 1
-  store i8 %12, ptr %10, align 1
-  %13 = load i32, ptr %8, align 4
-  %14 = and i32 %13, 1
-  %15 = icmp ne i32 %14, 0
-  br i1 %15, label %48, label %16
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %13 = load i8, ptr %12, align 1, !tbaa !12
+  store i8 %13, ptr %10, align 1, !tbaa !12
+  %14 = load i32, ptr %8, align 4, !tbaa !3
+  %15 = and i32 %14, 1
+  %16 = icmp ne i32 %15, 0
+  br i1 %16, label %49, label %17
 
-16:                                               ; preds = %4
-  %17 = load i8, ptr %10, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp eq i32 %18, 127
-  br i1 %19, label %48, label %20
+17:                                               ; preds = %4
+  %18 = load i8, ptr %10, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = icmp eq i32 %19, 127
+  br i1 %20, label %49, label %21
 
-20:                                               ; preds = %16
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = icmp sle i32 %22, 122
-  br i1 %23, label %24, label %52
+21:                                               ; preds = %17
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = icmp sle i32 %23, 122
+  br i1 %24, label %25, label %53
 
-24:                                               ; preds = %20
-  %25 = load i8, ptr %10, align 1
-  %26 = zext i8 %25 to i32
-  %27 = icmp ne i32 %26, 35
-  br i1 %27, label %28, label %52
+25:                                               ; preds = %21
+  %26 = load i8, ptr %10, align 1, !tbaa !12
+  %27 = zext i8 %26 to i32
+  %28 = icmp ne i32 %27, 35
+  br i1 %28, label %29, label %53
 
-28:                                               ; preds = %24
-  %29 = load i8, ptr %10, align 1
-  %30 = zext i8 %29 to i32
-  %31 = icmp ne i32 %30, 36
-  br i1 %31, label %32, label %52
+29:                                               ; preds = %25
+  %30 = load i8, ptr %10, align 1, !tbaa !12
+  %31 = zext i8 %30 to i32
+  %32 = icmp ne i32 %31, 36
+  br i1 %32, label %33, label %53
 
-32:                                               ; preds = %28
-  %33 = load i8, ptr %10, align 1
-  %34 = zext i8 %33 to i32
-  %35 = icmp ne i32 %34, 64
-  br i1 %35, label %36, label %52
+33:                                               ; preds = %29
+  %34 = load i8, ptr %10, align 1, !tbaa !12
+  %35 = zext i8 %34 to i32
+  %36 = icmp ne i32 %35, 64
+  br i1 %36, label %37, label %53
 
-36:                                               ; preds = %32
-  %37 = load i8, ptr %10, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp sle i32 %38, 90
-  br i1 %39, label %48, label %40
+37:                                               ; preds = %33
+  %38 = load i8, ptr %10, align 1, !tbaa !12
+  %39 = zext i8 %38 to i32
+  %40 = icmp sle i32 %39, 90
+  br i1 %40, label %49, label %41
 
-40:                                               ; preds = %36
-  %41 = load i8, ptr %10, align 1
-  %42 = zext i8 %41 to i32
-  %43 = icmp eq i32 %42, 95
-  br i1 %43, label %48, label %44
+41:                                               ; preds = %37
+  %42 = load i8, ptr %10, align 1, !tbaa !12
+  %43 = zext i8 %42 to i32
+  %44 = icmp eq i32 %43, 95
+  br i1 %44, label %49, label %45
 
-44:                                               ; preds = %40
-  %45 = load i8, ptr %10, align 1
-  %46 = zext i8 %45 to i32
-  %47 = icmp sge i32 %46, 97
-  br i1 %47, label %48, label %52
+45:                                               ; preds = %41
+  %46 = load i8, ptr %10, align 1, !tbaa !12
+  %47 = zext i8 %46 to i32
+  %48 = icmp sge i32 %47, 97
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %44, %40, %36, %16, %4
-  %49 = load i8, ptr %10, align 1
-  %50 = zext i8 %49 to i32
-  %51 = load ptr, ptr %9, align 8
-  store i32 %50, ptr %51, align 4
+49:                                               ; preds = %45, %41, %37, %17, %4
+  %50 = load i8, ptr %10, align 1, !tbaa !12
+  %51 = zext i8 %50 to i32
+  %52 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %51, ptr %52, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %53
+  store i32 1, ptr %11, align 4
+  br label %54
 
-52:                                               ; preds = %44, %32, %28, %24, %20
+53:                                               ; preds = %45, %33, %29, %25, %21
   store i32 0, ptr %5, align 4
-  br label %53
+  store i32 1, ptr %11, align 4
+  br label %54
 
-53:                                               ; preds = %52, %48
-  %54 = load i32, ptr %5, align 4
-  ret i32 %54
+54:                                               ; preds = %53, %49
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %55 = load i32, ptr %5, align 4
+  ret i32 %55
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3547,10 +3898,10 @@ define internal i32 @zueci_replacement_incr(i32 noundef %0, ptr noundef %1, i32 
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store i32 %0, ptr %5, align 4
-  store ptr %1, ptr %6, align 8
-  store i32 %2, ptr %7, align 4
-  %8 = load i32, ptr %7, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !3
+  store ptr %1, ptr %6, align 8, !tbaa !7
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %11
 
@@ -3559,27 +3910,27 @@ define internal i32 @zueci_replacement_incr(i32 noundef %0, ptr noundef %1, i32 
   br label %81
 
 11:                                               ; preds = %3
-  %12 = load i32, ptr %5, align 4
+  %12 = load i32, ptr %5, align 4, !tbaa !3
   %13 = icmp sle i32 %12, 18
   br i1 %13, label %26, label %14
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %5, align 4
+  %15 = load i32, ptr %5, align 4, !tbaa !3
   %16 = icmp sge i32 %15, 21
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %5, align 4
+  %18 = load i32, ptr %5, align 4, !tbaa !3
   %19 = icmp sle i32 %18, 24
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %17, %14
-  %21 = load i32, ptr %5, align 4
+  %21 = load i32, ptr %5, align 4, !tbaa !3
   %22 = icmp eq i32 %21, 27
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr %5, align 4
+  %24 = load i32, ptr %5, align 4, !tbaa !3
   %25 = icmp eq i32 %24, 170
   br i1 %25, label %26, label %27
 
@@ -3588,12 +3939,12 @@ define internal i32 @zueci_replacement_incr(i32 noundef %0, ptr noundef %1, i32 
   br label %81
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr %5, align 4
+  %28 = load i32, ptr %5, align 4, !tbaa !3
   %29 = icmp eq i32 %28, 25
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = load i32, ptr %5, align 4
+  %31 = load i32, ptr %5, align 4, !tbaa !3
   %32 = icmp eq i32 %31, 33
   br i1 %32, label %33, label %34
 
@@ -3602,22 +3953,22 @@ define internal i32 @zueci_replacement_incr(i32 noundef %0, ptr noundef %1, i32 
   br label %81
 
 34:                                               ; preds = %30
-  %35 = load i32, ptr %5, align 4
+  %35 = load i32, ptr %5, align 4, !tbaa !3
   %36 = icmp eq i32 %35, 34
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
-  %38 = load i32, ptr %5, align 4
+  %38 = load i32, ptr %5, align 4, !tbaa !3
   %39 = icmp eq i32 %38, 35
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %37, %34
-  %41 = load i32, ptr %7, align 4
+  %41 = load i32, ptr %7, align 4, !tbaa !3
   %42 = icmp ult i32 %41, 4
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = load i32, ptr %7, align 4
+  %44 = load i32, ptr %7, align 4, !tbaa !3
   br label %46
 
 45:                                               ; preds = %40
@@ -3629,43 +3980,43 @@ define internal i32 @zueci_replacement_incr(i32 noundef %0, ptr noundef %1, i32 
   br label %81
 
 48:                                               ; preds = %37
-  %49 = load i32, ptr %5, align 4
+  %49 = load i32, ptr %5, align 4, !tbaa !3
   %50 = icmp eq i32 %49, 32
   br i1 %50, label %51, label %80
 
 51:                                               ; preds = %48
-  %52 = load i32, ptr %7, align 4
+  %52 = load i32, ptr %7, align 4, !tbaa !3
   %53 = icmp uge i32 %52, 4
   br i1 %53, label %54, label %79
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %6, align 8, !tbaa !7
   %56 = getelementptr inbounds i8, ptr %55, i64 1
-  %57 = load i8, ptr %56, align 1
+  %57 = load i8, ptr %56, align 1, !tbaa !12
   %58 = zext i8 %57 to i32
   %59 = icmp sle i32 %58, 57
   br i1 %59, label %60, label %79
 
 60:                                               ; preds = %54
-  %61 = load ptr, ptr %6, align 8
+  %61 = load ptr, ptr %6, align 8, !tbaa !7
   %62 = getelementptr inbounds i8, ptr %61, i64 1
-  %63 = load i8, ptr %62, align 1
+  %63 = load i8, ptr %62, align 1, !tbaa !12
   %64 = zext i8 %63 to i32
   %65 = icmp sge i32 %64, 48
   br i1 %65, label %66, label %79
 
 66:                                               ; preds = %60
-  %67 = load ptr, ptr %6, align 8
+  %67 = load ptr, ptr %6, align 8, !tbaa !7
   %68 = getelementptr inbounds i8, ptr %67, i64 0
-  %69 = load i8, ptr %68, align 1
+  %69 = load i8, ptr %68, align 1, !tbaa !12
   %70 = zext i8 %69 to i32
   %71 = icmp sge i32 %70, 129
   br i1 %71, label %72, label %79
 
 72:                                               ; preds = %66
-  %73 = load ptr, ptr %6, align 8
+  %73 = load ptr, ptr %6, align 8, !tbaa !7
   %74 = getelementptr inbounds i8, ptr %73, i64 0
-  %75 = load i8, ptr %74, align 1
+  %75 = load i8, ptr %74, align 1, !tbaa !12
   %76 = zext i8 %75 to i32
   %77 = icmp sle i32 %76, 227
   br i1 %77, label %78, label %79
@@ -3705,471 +4056,505 @@ define i32 @zueci_dest_len_utf8(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store i32 %2, ptr %10, align 4
-  store i32 %3, ptr %11, align 4
-  store i32 %4, ptr %12, align 4
-  store ptr %5, ptr %13, align 8
-  %24 = load ptr, ptr %9, align 8
-  store ptr %24, ptr %14, align 8
-  %25 = load ptr, ptr %9, align 8
-  %26 = load i32, ptr %10, align 4
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %25, i64 %27
-  store ptr %28, ptr %15, align 8
-  store i32 0, ptr %20, align 4
-  store i32 0, ptr %21, align 4
-  store i32 0, ptr %22, align 4
-  %29 = load i32, ptr %8, align 4
-  %30 = call i32 @zueci_is_valid_eci(i32 noundef %29)
-  %31 = icmp ne i32 %30, 0
-  br i1 %31, label %33, label %32
-
-32:                                               ; preds = %6
-  store i32 7, ptr %7, align 4
-  br label %296
+  %24 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !7
+  store i32 %2, ptr %10, align 4, !tbaa !3
+  store i32 %3, ptr %11, align 4, !tbaa !3
+  store i32 %4, ptr %12, align 4, !tbaa !3
+  store ptr %5, ptr %13, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %25 = load ptr, ptr %9, align 8, !tbaa !7
+  store ptr %25, ptr %14, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #3
+  %26 = load ptr, ptr %9, align 8, !tbaa !7
+  %27 = load i32, ptr %10, align 4, !tbaa !3
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %26, i64 %28
+  store ptr %29, ptr %15, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 5, ptr %19) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  store i32 0, ptr %20, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  store i32 0, ptr %21, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  store i32 0, ptr %22, align 4, !tbaa !3
+  %30 = load i32, ptr %8, align 4, !tbaa !3
+  %31 = call i32 @zueci_is_valid_eci(i32 noundef %30)
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %34, label %33
 
 33:                                               ; preds = %6
-  %34 = load ptr, ptr %9, align 8
-  %35 = icmp ne ptr %34, null
-  br i1 %35, label %36, label %39
+  store i32 7, ptr %7, align 4
+  store i32 1, ptr %23, align 4
+  br label %298
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %13, align 8
-  %38 = icmp ne ptr %37, null
-  br i1 %38, label %40, label %39
+34:                                               ; preds = %6
+  %35 = load ptr, ptr %9, align 8, !tbaa !7
+  %36 = icmp ne ptr %35, null
+  br i1 %36, label %37, label %40
 
-39:                                               ; preds = %36, %33
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %13, align 8, !tbaa !10
+  %39 = icmp ne ptr %38, null
+  br i1 %39, label %41, label %40
+
+40:                                               ; preds = %37, %34
   store i32 8, ptr %7, align 4
-  br label %296
+  store i32 1, ptr %23, align 4
+  br label %298
 
-40:                                               ; preds = %36
-  %41 = load i32, ptr %8, align 4
-  %42 = icmp eq i32 %41, 899
-  br i1 %42, label %59, label %43
+41:                                               ; preds = %37
+  %42 = load i32, ptr %8, align 4, !tbaa !3
+  %43 = icmp eq i32 %42, 899
+  br i1 %43, label %60, label %44
 
-43:                                               ; preds = %40
-  %44 = load i32, ptr %12, align 4
-  %45 = and i32 %44, 1
-  %46 = icmp ne i32 %45, 0
-  br i1 %46, label %47, label %77
+44:                                               ; preds = %41
+  %45 = load i32, ptr %12, align 4, !tbaa !3
+  %46 = and i32 %45, 1
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %78
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %8, align 4
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %59, label %50
+48:                                               ; preds = %44
+  %49 = load i32, ptr %8, align 4, !tbaa !3
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %60, label %51
 
-50:                                               ; preds = %47
-  %51 = load i32, ptr %8, align 4
-  %52 = icmp eq i32 %51, 3
-  br i1 %52, label %59, label %53
+51:                                               ; preds = %48
+  %52 = load i32, ptr %8, align 4, !tbaa !3
+  %53 = icmp eq i32 %52, 3
+  br i1 %53, label %60, label %54
 
-53:                                               ; preds = %50
-  %54 = load i32, ptr %8, align 4
-  %55 = icmp eq i32 %54, 27
-  br i1 %55, label %59, label %56
+54:                                               ; preds = %51
+  %55 = load i32, ptr %8, align 4, !tbaa !3
+  %56 = icmp eq i32 %55, 27
+  br i1 %56, label %60, label %57
 
-56:                                               ; preds = %53
-  %57 = load i32, ptr %8, align 4
-  %58 = icmp eq i32 %57, 170
-  br i1 %58, label %59, label %77
+57:                                               ; preds = %54
+  %58 = load i32, ptr %8, align 4, !tbaa !3
+  %59 = icmp eq i32 %58, 170
+  br i1 %59, label %60, label %78
 
-59:                                               ; preds = %56, %53, %50, %47, %40
-  br label %60
+60:                                               ; preds = %57, %54, %51, %48, %41
+  br label %61
 
-60:                                               ; preds = %64, %59
-  %61 = load ptr, ptr %14, align 8
-  %62 = load ptr, ptr %15, align 8
-  %63 = icmp ult ptr %61, %62
-  br i1 %63, label %64, label %74
+61:                                               ; preds = %65, %60
+  %62 = load ptr, ptr %14, align 8, !tbaa !7
+  %63 = load ptr, ptr %15, align 8, !tbaa !7
+  %64 = icmp ult ptr %62, %63
+  br i1 %64, label %65, label %75
 
-64:                                               ; preds = %60
-  %65 = load ptr, ptr %14, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i32 1
-  store ptr %66, ptr %14, align 8
-  %67 = load i8, ptr %65, align 1
-  %68 = zext i8 %67 to i32
-  %69 = icmp sge i32 %68, 128
-  %70 = zext i1 %69 to i32
-  %71 = add nsw i32 1, %70
-  %72 = load i32, ptr %21, align 4
-  %73 = add nsw i32 %72, %71
-  store i32 %73, ptr %21, align 4
-  br label %60, !llvm.loop !26
+65:                                               ; preds = %61
+  %66 = load ptr, ptr %14, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw i8, ptr %66, i32 1
+  store ptr %67, ptr %14, align 8, !tbaa !7
+  %68 = load i8, ptr %66, align 1, !tbaa !12
+  %69 = zext i8 %68 to i32
+  %70 = icmp sge i32 %69, 128
+  %71 = zext i1 %70 to i32
+  %72 = add nsw i32 1, %71
+  %73 = load i32, ptr %21, align 4, !tbaa !3
+  %74 = add nsw i32 %73, %72
+  store i32 %74, ptr %21, align 4, !tbaa !3
+  br label %61, !llvm.loop !38
 
-74:                                               ; preds = %60
-  %75 = load i32, ptr %21, align 4
-  %76 = load ptr, ptr %13, align 8
-  store i32 %75, ptr %76, align 4
+75:                                               ; preds = %61
+  %76 = load i32, ptr %21, align 4, !tbaa !3
+  %77 = load ptr, ptr %13, align 8, !tbaa !10
+  store i32 %76, ptr %77, align 4, !tbaa !3
   store i32 0, ptr %7, align 4
-  br label %296
+  store i32 1, ptr %23, align 4
+  br label %298
 
-77:                                               ; preds = %56, %43
-  %78 = load i32, ptr %11, align 4
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %97
+78:                                               ; preds = %57, %44
+  %79 = load i32, ptr %11, align 4, !tbaa !3
+  %80 = icmp ne i32 %79, 0
+  br i1 %80, label %81, label %98
 
-80:                                               ; preds = %77
-  %81 = load i32, ptr %11, align 4
-  %82 = icmp ult i32 %81, 55296
-  br i1 %82, label %89, label %83
+81:                                               ; preds = %78
+  %82 = load i32, ptr %11, align 4, !tbaa !3
+  %83 = icmp ult i32 %82, 55296
+  br i1 %83, label %90, label %84
 
-83:                                               ; preds = %80
-  %84 = load i32, ptr %11, align 4
-  %85 = icmp uge i32 %84, 57344
-  br i1 %85, label %86, label %92
+84:                                               ; preds = %81
+  %85 = load i32, ptr %11, align 4, !tbaa !3
+  %86 = icmp uge i32 %85, 57344
+  br i1 %86, label %87, label %93
 
-86:                                               ; preds = %83
-  %87 = load i32, ptr %11, align 4
-  %88 = icmp ule i32 %87, 1114111
-  br i1 %88, label %89, label %92
+87:                                               ; preds = %84
+  %88 = load i32, ptr %11, align 4, !tbaa !3
+  %89 = icmp ule i32 %88, 1114111
+  br i1 %89, label %90, label %93
 
-89:                                               ; preds = %86, %80
-  %90 = load i32, ptr %11, align 4
-  %91 = icmp ugt i32 %90, 65535
-  br i1 %91, label %92, label %93
+90:                                               ; preds = %87, %81
+  %91 = load i32, ptr %11, align 4, !tbaa !3
+  %92 = icmp ugt i32 %91, 65535
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %89, %86, %83
+93:                                               ; preds = %90, %87, %84
   store i32 8, ptr %7, align 4
-  br label %296
+  store i32 1, ptr %23, align 4
+  br label %298
 
-93:                                               ; preds = %89
-  %94 = load i32, ptr %11, align 4
-  %95 = getelementptr inbounds [5 x i8], ptr %19, i64 0, i64 0
-  %96 = call i32 @zueci_encode_utf8(i32 noundef %94, ptr noundef %95)
-  store i32 %96, ptr %20, align 4
-  br label %97
+94:                                               ; preds = %90
+  %95 = load i32, ptr %11, align 4, !tbaa !3
+  %96 = getelementptr inbounds [5 x i8], ptr %19, i64 0, i64 0
+  %97 = call i32 @zueci_encode_utf8(i32 noundef %95, ptr noundef %96)
+  store i32 %97, ptr %20, align 4, !tbaa !3
+  br label %98
 
-97:                                               ; preds = %93, %77
-  %98 = load i32, ptr %8, align 4
-  %99 = icmp eq i32 %98, 1
-  br i1 %99, label %103, label %100
+98:                                               ; preds = %94, %78
+  %99 = load i32, ptr %8, align 4, !tbaa !3
+  %100 = icmp eq i32 %99, 1
+  br i1 %100, label %104, label %101
 
-100:                                              ; preds = %97
-  %101 = load i32, ptr %8, align 4
-  %102 = icmp eq i32 %101, 3
-  br i1 %102, label %103, label %143
+101:                                              ; preds = %98
+  %102 = load i32, ptr %8, align 4, !tbaa !3
+  %103 = icmp eq i32 %102, 3
+  br i1 %103, label %104, label %144
 
-103:                                              ; preds = %100, %97
-  br label %104
+104:                                              ; preds = %101, %98
+  br label %105
 
-104:                                              ; preds = %136, %103
-  %105 = load ptr, ptr %14, align 8
-  %106 = load ptr, ptr %15, align 8
-  %107 = icmp ult ptr %105, %106
-  br i1 %107, label %108, label %139
+105:                                              ; preds = %137, %104
+  %106 = load ptr, ptr %14, align 8, !tbaa !7
+  %107 = load ptr, ptr %15, align 8, !tbaa !7
+  %108 = icmp ult ptr %106, %107
+  br i1 %108, label %109, label %140
 
-108:                                              ; preds = %104
-  %109 = load ptr, ptr %14, align 8
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i32
-  %112 = icmp sge i32 %111, 128
-  br i1 %112, label %113, label %126
+109:                                              ; preds = %105
+  %110 = load ptr, ptr %14, align 8, !tbaa !7
+  %111 = load i8, ptr %110, align 1, !tbaa !12
+  %112 = zext i8 %111 to i32
+  %113 = icmp sge i32 %112, 128
+  br i1 %113, label %114, label %127
 
-113:                                              ; preds = %108
-  %114 = load ptr, ptr %14, align 8
-  %115 = load i8, ptr %114, align 1
-  %116 = zext i8 %115 to i32
-  %117 = icmp slt i32 %116, 160
-  br i1 %117, label %118, label %126
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %14, align 8, !tbaa !7
+  %116 = load i8, ptr %115, align 1, !tbaa !12
+  %117 = zext i8 %116 to i32
+  %118 = icmp slt i32 %117, 160
+  br i1 %118, label %119, label %127
 
-118:                                              ; preds = %113
-  %119 = load i32, ptr %11, align 4
-  %120 = icmp ne i32 %119, 0
-  br i1 %120, label %122, label %121
+119:                                              ; preds = %114
+  %120 = load i32, ptr %11, align 4, !tbaa !3
+  %121 = icmp ne i32 %120, 0
+  br i1 %121, label %123, label %122
 
-121:                                              ; preds = %118
+122:                                              ; preds = %119
   store i32 6, ptr %7, align 4
-  br label %296
+  store i32 1, ptr %23, align 4
+  br label %298
 
-122:                                              ; preds = %118
-  %123 = load i32, ptr %20, align 4
-  %124 = load i32, ptr %21, align 4
-  %125 = add nsw i32 %124, %123
-  store i32 %125, ptr %21, align 4
-  store i32 1, ptr %22, align 4
-  br label %135
-
-126:                                              ; preds = %113, %108
-  %127 = load ptr, ptr %14, align 8
-  %128 = load i8, ptr %127, align 1
-  %129 = zext i8 %128 to i32
-  %130 = icmp sge i32 %129, 128
-  %131 = zext i1 %130 to i32
-  %132 = add nsw i32 1, %131
-  %133 = load i32, ptr %21, align 4
-  %134 = add nsw i32 %133, %132
-  store i32 %134, ptr %21, align 4
-  br label %135
-
-135:                                              ; preds = %126, %122
+123:                                              ; preds = %119
+  %124 = load i32, ptr %20, align 4, !tbaa !3
+  %125 = load i32, ptr %21, align 4, !tbaa !3
+  %126 = add nsw i32 %125, %124
+  store i32 %126, ptr %21, align 4, !tbaa !3
+  store i32 1, ptr %22, align 4, !tbaa !3
   br label %136
 
-136:                                              ; preds = %135
-  %137 = load ptr, ptr %14, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i32 1
-  store ptr %138, ptr %14, align 8
-  br label %104, !llvm.loop !27
+127:                                              ; preds = %114, %109
+  %128 = load ptr, ptr %14, align 8, !tbaa !7
+  %129 = load i8, ptr %128, align 1, !tbaa !12
+  %130 = zext i8 %129 to i32
+  %131 = icmp sge i32 %130, 128
+  %132 = zext i1 %131 to i32
+  %133 = add nsw i32 1, %132
+  %134 = load i32, ptr %21, align 4, !tbaa !3
+  %135 = add nsw i32 %134, %133
+  store i32 %135, ptr %21, align 4, !tbaa !3
+  br label %136
 
-139:                                              ; preds = %104
-  %140 = load i32, ptr %21, align 4
-  %141 = load ptr, ptr %13, align 8
-  store i32 %140, ptr %141, align 4
-  %142 = load i32, ptr %22, align 4
-  store i32 %142, ptr %7, align 4
-  br label %296
+136:                                              ; preds = %127, %123
+  br label %137
 
-143:                                              ; preds = %100
-  %144 = load i32, ptr %8, align 4
-  %145 = icmp eq i32 %144, 26
-  br i1 %145, label %146, label %226
+137:                                              ; preds = %136
+  %138 = load ptr, ptr %14, align 8, !tbaa !7
+  %139 = getelementptr inbounds nuw i8, ptr %138, i32 1
+  store ptr %139, ptr %14, align 8, !tbaa !7
+  br label %105, !llvm.loop !39
 
-146:                                              ; preds = %143
-  store i32 0, ptr %23, align 4
-  br label %147
+140:                                              ; preds = %105
+  %141 = load i32, ptr %21, align 4, !tbaa !3
+  %142 = load ptr, ptr %13, align 8, !tbaa !10
+  store i32 %141, ptr %142, align 4, !tbaa !3
+  %143 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %143, ptr %7, align 4
+  store i32 1, ptr %23, align 4
+  br label %298
 
-147:                                              ; preds = %221, %146
-  %148 = load ptr, ptr %14, align 8
-  %149 = load ptr, ptr %15, align 8
-  %150 = icmp ult ptr %148, %149
-  br i1 %150, label %151, label %222
+144:                                              ; preds = %101
+  %145 = load i32, ptr %8, align 4, !tbaa !3
+  %146 = icmp eq i32 %145, 26
+  br i1 %146, label %147, label %228
 
-151:                                              ; preds = %147
-  br label %152
+147:                                              ; preds = %144
+  call void @llvm.lifetime.start.p0(i64 4, ptr %24) #3
+  store i32 0, ptr %24, align 4, !tbaa !3
+  br label %148
 
-152:                                              ; preds = %167, %151
-  %153 = load ptr, ptr %14, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i32 1
-  store ptr %154, ptr %14, align 8
-  %155 = load i8, ptr %153, align 1
-  %156 = call i32 @zueci_decode_utf8(ptr noundef %23, ptr noundef %17, i8 noundef zeroext %155)
-  br label %157
+148:                                              ; preds = %222, %147
+  %149 = load ptr, ptr %14, align 8, !tbaa !7
+  %150 = load ptr, ptr %15, align 8, !tbaa !7
+  %151 = icmp ult ptr %149, %150
+  br i1 %151, label %152, label %223
 
-157:                                              ; preds = %152
-  %158 = load ptr, ptr %14, align 8
-  %159 = load ptr, ptr %15, align 8
-  %160 = icmp ult ptr %158, %159
-  br i1 %160, label %161, label %167
+152:                                              ; preds = %148
+  br label %153
 
-161:                                              ; preds = %157
-  %162 = load i32, ptr %23, align 4
-  %163 = icmp ne i32 %162, 0
-  br i1 %163, label %164, label %167
+153:                                              ; preds = %168, %152
+  %154 = load ptr, ptr %14, align 8, !tbaa !7
+  %155 = getelementptr inbounds nuw i8, ptr %154, i32 1
+  store ptr %155, ptr %14, align 8, !tbaa !7
+  %156 = load i8, ptr %154, align 1, !tbaa !12
+  %157 = call i32 @zueci_decode_utf8(ptr noundef %24, ptr noundef %17, i8 noundef zeroext %156)
+  br label %158
 
-164:                                              ; preds = %161
-  %165 = load i32, ptr %23, align 4
-  %166 = icmp ne i32 %165, 12
-  br label %167
+158:                                              ; preds = %153
+  %159 = load ptr, ptr %14, align 8, !tbaa !7
+  %160 = load ptr, ptr %15, align 8, !tbaa !7
+  %161 = icmp ult ptr %159, %160
+  br i1 %161, label %162, label %168
 
-167:                                              ; preds = %164, %161, %157
-  %168 = phi i1 [ false, %161 ], [ false, %157 ], [ %166, %164 ]
-  br i1 %168, label %152, label %169, !llvm.loop !28
+162:                                              ; preds = %158
+  %163 = load i32, ptr %24, align 4, !tbaa !3
+  %164 = icmp ne i32 %163, 0
+  br i1 %164, label %165, label %168
 
-169:                                              ; preds = %167
-  %170 = load i32, ptr %23, align 4
-  %171 = icmp ne i32 %170, 0
-  br i1 %171, label %172, label %206
+165:                                              ; preds = %162
+  %166 = load i32, ptr %24, align 4, !tbaa !3
+  %167 = icmp ne i32 %166, 12
+  br label %168
 
-172:                                              ; preds = %169
-  %173 = load i32, ptr %11, align 4
-  %174 = icmp ne i32 %173, 0
-  br i1 %174, label %176, label %175
+168:                                              ; preds = %165, %162, %158
+  %169 = phi i1 [ false, %162 ], [ false, %158 ], [ %167, %165 ]
+  br i1 %169, label %153, label %170, !llvm.loop !40
 
-175:                                              ; preds = %172
+170:                                              ; preds = %168
+  %171 = load i32, ptr %24, align 4, !tbaa !3
+  %172 = icmp ne i32 %171, 0
+  br i1 %172, label %173, label %207
+
+173:                                              ; preds = %170
+  %174 = load i32, ptr %11, align 4, !tbaa !3
+  %175 = icmp ne i32 %174, 0
+  br i1 %175, label %177, label %176
+
+176:                                              ; preds = %173
   store i32 9, ptr %7, align 4
-  br label %296
+  store i32 1, ptr %23, align 4
+  br label %227
 
-176:                                              ; preds = %172
-  %177 = load ptr, ptr %14, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 -1
-  %179 = load i8, ptr %178, align 1
-  %180 = zext i8 %179 to i32
-  %181 = icmp slt i32 %180, 128
-  br i1 %181, label %182, label %185
+177:                                              ; preds = %173
+  %178 = load ptr, ptr %14, align 8, !tbaa !7
+  %179 = getelementptr inbounds i8, ptr %178, i64 -1
+  %180 = load i8, ptr %179, align 1, !tbaa !12
+  %181 = zext i8 %180 to i32
+  %182 = icmp slt i32 %181, 128
+  br i1 %182, label %183, label %186
 
-182:                                              ; preds = %176
-  %183 = load ptr, ptr %14, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i32 -1
-  store ptr %184, ptr %14, align 8
-  br label %202
+183:                                              ; preds = %177
+  %184 = load ptr, ptr %14, align 8, !tbaa !7
+  %185 = getelementptr inbounds i8, ptr %184, i32 -1
+  store ptr %185, ptr %14, align 8, !tbaa !7
+  br label %203
 
-185:                                              ; preds = %176
-  br label %186
+186:                                              ; preds = %177
+  br label %187
 
-186:                                              ; preds = %198, %185
-  %187 = load ptr, ptr %14, align 8
-  %188 = load ptr, ptr %15, align 8
-  %189 = icmp ult ptr %187, %188
-  br i1 %189, label %190, label %196
+187:                                              ; preds = %199, %186
+  %188 = load ptr, ptr %14, align 8, !tbaa !7
+  %189 = load ptr, ptr %15, align 8, !tbaa !7
+  %190 = icmp ult ptr %188, %189
+  br i1 %190, label %191, label %197
 
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %14, align 8
-  %192 = load i8, ptr %191, align 1
-  %193 = zext i8 %192 to i32
-  %194 = and i32 %193, 192
-  %195 = icmp eq i32 %194, 128
-  br label %196
+191:                                              ; preds = %187
+  %192 = load ptr, ptr %14, align 8, !tbaa !7
+  %193 = load i8, ptr %192, align 1, !tbaa !12
+  %194 = zext i8 %193 to i32
+  %195 = and i32 %194, 192
+  %196 = icmp eq i32 %195, 128
+  br label %197
 
-196:                                              ; preds = %190, %186
-  %197 = phi i1 [ false, %186 ], [ %195, %190 ]
-  br i1 %197, label %198, label %201
+197:                                              ; preds = %191, %187
+  %198 = phi i1 [ false, %187 ], [ %196, %191 ]
+  br i1 %198, label %199, label %202
 
-198:                                              ; preds = %196
-  %199 = load ptr, ptr %14, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i32 1
-  store ptr %200, ptr %14, align 8
-  br label %186, !llvm.loop !29
+199:                                              ; preds = %197
+  %200 = load ptr, ptr %14, align 8, !tbaa !7
+  %201 = getelementptr inbounds nuw i8, ptr %200, i32 1
+  store ptr %201, ptr %14, align 8, !tbaa !7
+  br label %187, !llvm.loop !41
 
-201:                                              ; preds = %196
-  br label %202
+202:                                              ; preds = %197
+  br label %203
 
-202:                                              ; preds = %201, %182
-  %203 = load i32, ptr %20, align 4
-  %204 = load i32, ptr %21, align 4
-  %205 = add nsw i32 %204, %203
-  store i32 %205, ptr %21, align 4
-  store i32 1, ptr %22, align 4
-  store i32 0, ptr %23, align 4
-  br label %221
+203:                                              ; preds = %202, %183
+  %204 = load i32, ptr %20, align 4, !tbaa !3
+  %205 = load i32, ptr %21, align 4, !tbaa !3
+  %206 = add nsw i32 %205, %204
+  store i32 %206, ptr %21, align 4, !tbaa !3
+  store i32 1, ptr %22, align 4, !tbaa !3
+  store i32 0, ptr %24, align 4, !tbaa !3
+  br label %222
 
-206:                                              ; preds = %169
-  %207 = load i32, ptr %17, align 4
-  %208 = icmp uge i32 %207, 128
-  %209 = zext i1 %208 to i32
-  %210 = add nsw i32 1, %209
-  %211 = load i32, ptr %17, align 4
-  %212 = icmp uge i32 %211, 2048
-  %213 = zext i1 %212 to i32
-  %214 = add nsw i32 %210, %213
-  %215 = load i32, ptr %17, align 4
-  %216 = icmp uge i32 %215, 65536
-  %217 = zext i1 %216 to i32
-  %218 = add nsw i32 %214, %217
-  %219 = load i32, ptr %21, align 4
-  %220 = add nsw i32 %219, %218
-  store i32 %220, ptr %21, align 4
-  br label %221
+207:                                              ; preds = %170
+  %208 = load i32, ptr %17, align 4, !tbaa !3
+  %209 = icmp uge i32 %208, 128
+  %210 = zext i1 %209 to i32
+  %211 = add nsw i32 1, %210
+  %212 = load i32, ptr %17, align 4, !tbaa !3
+  %213 = icmp uge i32 %212, 2048
+  %214 = zext i1 %213 to i32
+  %215 = add nsw i32 %211, %214
+  %216 = load i32, ptr %17, align 4, !tbaa !3
+  %217 = icmp uge i32 %216, 65536
+  %218 = zext i1 %217 to i32
+  %219 = add nsw i32 %215, %218
+  %220 = load i32, ptr %21, align 4, !tbaa !3
+  %221 = add nsw i32 %220, %219
+  store i32 %221, ptr %21, align 4, !tbaa !3
+  br label %222
 
-221:                                              ; preds = %206, %202
-  br label %147, !llvm.loop !30
+222:                                              ; preds = %207, %203
+  br label %148, !llvm.loop !42
 
-222:                                              ; preds = %147
-  %223 = load i32, ptr %21, align 4
-  %224 = load ptr, ptr %13, align 8
-  store i32 %223, ptr %224, align 4
-  %225 = load i32, ptr %22, align 4
-  store i32 %225, ptr %7, align 4
-  br label %296
+223:                                              ; preds = %148
+  %224 = load i32, ptr %21, align 4, !tbaa !3
+  %225 = load ptr, ptr %13, align 8, !tbaa !10
+  store i32 %224, ptr %225, align 4, !tbaa !3
+  %226 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %226, ptr %7, align 4
+  store i32 1, ptr %23, align 4
+  br label %227
 
-226:                                              ; preds = %143
-  %227 = load i32, ptr %8, align 4
-  %228 = icmp eq i32 %227, 170
-  br i1 %228, label %229, label %230
+227:                                              ; preds = %223, %176
+  call void @llvm.lifetime.end.p0(i64 4, ptr %24) #3
+  br label %298
 
-229:                                              ; preds = %226
-  store ptr @zueci_ascii_inv_u, ptr %16, align 8
-  br label %235
+228:                                              ; preds = %144
+  %229 = load i32, ptr %8, align 4, !tbaa !3
+  %230 = icmp eq i32 %229, 170
+  br i1 %230, label %231, label %232
 
-230:                                              ; preds = %226
-  %231 = load i32, ptr %8, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds [36 x ptr], ptr @zueci_utf8_funcs, i64 0, i64 %232
-  %234 = load ptr, ptr %233, align 8
-  store ptr %234, ptr %16, align 8
-  br label %235
+231:                                              ; preds = %228
+  store ptr @zueci_ascii_inv_u, ptr %16, align 8, !tbaa !16
+  br label %237
 
-235:                                              ; preds = %230, %229
-  br label %236
+232:                                              ; preds = %228
+  %233 = load i32, ptr %8, align 4, !tbaa !3
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds [36 x ptr], ptr @zueci_utf8_funcs, i64 0, i64 %234
+  %236 = load ptr, ptr %235, align 8, !tbaa !16
+  store ptr %236, ptr %16, align 8, !tbaa !16
+  br label %237
 
-236:                                              ; preds = %291, %235
-  %237 = load ptr, ptr %14, align 8
-  %238 = load ptr, ptr %15, align 8
-  %239 = icmp ult ptr %237, %238
-  br i1 %239, label %240, label %292
+237:                                              ; preds = %232, %231
+  br label %238
 
-240:                                              ; preds = %236
-  %241 = load ptr, ptr %16, align 8
-  %242 = load ptr, ptr %14, align 8
-  %243 = load ptr, ptr %15, align 8
-  %244 = load ptr, ptr %14, align 8
-  %245 = ptrtoint ptr %243 to i64
-  %246 = ptrtoint ptr %244 to i64
-  %247 = sub i64 %245, %246
-  %248 = trunc i64 %247 to i32
-  %249 = load i32, ptr %12, align 4
-  %250 = call i32 %241(ptr noundef %242, i32 noundef %248, i32 noundef %249, ptr noundef %17)
-  store i32 %250, ptr %18, align 4
-  %251 = icmp ne i32 %250, 0
-  br i1 %251, label %272, label %252
+238:                                              ; preds = %293, %237
+  %239 = load ptr, ptr %14, align 8, !tbaa !7
+  %240 = load ptr, ptr %15, align 8, !tbaa !7
+  %241 = icmp ult ptr %239, %240
+  br i1 %241, label %242, label %294
 
-252:                                              ; preds = %240
-  %253 = load i32, ptr %11, align 4
-  %254 = icmp ne i32 %253, 0
-  br i1 %254, label %256, label %255
+242:                                              ; preds = %238
+  %243 = load ptr, ptr %16, align 8, !tbaa !16
+  %244 = load ptr, ptr %14, align 8, !tbaa !7
+  %245 = load ptr, ptr %15, align 8, !tbaa !7
+  %246 = load ptr, ptr %14, align 8, !tbaa !7
+  %247 = ptrtoint ptr %245 to i64
+  %248 = ptrtoint ptr %246 to i64
+  %249 = sub i64 %247, %248
+  %250 = trunc i64 %249 to i32
+  %251 = load i32, ptr %12, align 4, !tbaa !3
+  %252 = call i32 %243(ptr noundef %244, i32 noundef %250, i32 noundef %251, ptr noundef %17)
+  store i32 %252, ptr %18, align 4, !tbaa !3
+  %253 = icmp ne i32 %252, 0
+  br i1 %253, label %274, label %254
 
-255:                                              ; preds = %252
+254:                                              ; preds = %242
+  %255 = load i32, ptr %11, align 4, !tbaa !3
+  %256 = icmp ne i32 %255, 0
+  br i1 %256, label %258, label %257
+
+257:                                              ; preds = %254
   store i32 6, ptr %7, align 4
-  br label %296
+  store i32 1, ptr %23, align 4
+  br label %298
 
-256:                                              ; preds = %252
-  %257 = load i32, ptr %8, align 4
-  %258 = load ptr, ptr %14, align 8
-  %259 = load ptr, ptr %15, align 8
-  %260 = load ptr, ptr %14, align 8
-  %261 = ptrtoint ptr %259 to i64
-  %262 = ptrtoint ptr %260 to i64
-  %263 = sub i64 %261, %262
-  %264 = trunc i64 %263 to i32
-  %265 = call i32 @zueci_replacement_incr(i32 noundef %257, ptr noundef %258, i32 noundef %264)
-  %266 = load ptr, ptr %14, align 8
-  %267 = sext i32 %265 to i64
-  %268 = getelementptr inbounds i8, ptr %266, i64 %267
-  store ptr %268, ptr %14, align 8
-  %269 = load i32, ptr %20, align 4
-  %270 = load i32, ptr %21, align 4
-  %271 = add nsw i32 %270, %269
-  store i32 %271, ptr %21, align 4
-  store i32 1, ptr %22, align 4
-  br label %291
+258:                                              ; preds = %254
+  %259 = load i32, ptr %8, align 4, !tbaa !3
+  %260 = load ptr, ptr %14, align 8, !tbaa !7
+  %261 = load ptr, ptr %15, align 8, !tbaa !7
+  %262 = load ptr, ptr %14, align 8, !tbaa !7
+  %263 = ptrtoint ptr %261 to i64
+  %264 = ptrtoint ptr %262 to i64
+  %265 = sub i64 %263, %264
+  %266 = trunc i64 %265 to i32
+  %267 = call i32 @zueci_replacement_incr(i32 noundef %259, ptr noundef %260, i32 noundef %266)
+  %268 = load ptr, ptr %14, align 8, !tbaa !7
+  %269 = sext i32 %267 to i64
+  %270 = getelementptr inbounds i8, ptr %268, i64 %269
+  store ptr %270, ptr %14, align 8, !tbaa !7
+  %271 = load i32, ptr %20, align 4, !tbaa !3
+  %272 = load i32, ptr %21, align 4, !tbaa !3
+  %273 = add nsw i32 %272, %271
+  store i32 %273, ptr %21, align 4, !tbaa !3
+  store i32 1, ptr %22, align 4, !tbaa !3
+  br label %293
 
-272:                                              ; preds = %240
-  %273 = load i32, ptr %18, align 4
-  %274 = load ptr, ptr %14, align 8
-  %275 = sext i32 %273 to i64
-  %276 = getelementptr inbounds i8, ptr %274, i64 %275
-  store ptr %276, ptr %14, align 8
-  %277 = load i32, ptr %17, align 4
-  %278 = icmp uge i32 %277, 128
-  %279 = zext i1 %278 to i32
-  %280 = add nsw i32 1, %279
-  %281 = load i32, ptr %17, align 4
-  %282 = icmp uge i32 %281, 2048
-  %283 = zext i1 %282 to i32
-  %284 = add nsw i32 %280, %283
-  %285 = load i32, ptr %17, align 4
-  %286 = icmp uge i32 %285, 65536
-  %287 = zext i1 %286 to i32
-  %288 = add nsw i32 %284, %287
-  %289 = load i32, ptr %21, align 4
-  %290 = add nsw i32 %289, %288
-  store i32 %290, ptr %21, align 4
-  br label %291
+274:                                              ; preds = %242
+  %275 = load i32, ptr %18, align 4, !tbaa !3
+  %276 = load ptr, ptr %14, align 8, !tbaa !7
+  %277 = sext i32 %275 to i64
+  %278 = getelementptr inbounds i8, ptr %276, i64 %277
+  store ptr %278, ptr %14, align 8, !tbaa !7
+  %279 = load i32, ptr %17, align 4, !tbaa !3
+  %280 = icmp uge i32 %279, 128
+  %281 = zext i1 %280 to i32
+  %282 = add nsw i32 1, %281
+  %283 = load i32, ptr %17, align 4, !tbaa !3
+  %284 = icmp uge i32 %283, 2048
+  %285 = zext i1 %284 to i32
+  %286 = add nsw i32 %282, %285
+  %287 = load i32, ptr %17, align 4, !tbaa !3
+  %288 = icmp uge i32 %287, 65536
+  %289 = zext i1 %288 to i32
+  %290 = add nsw i32 %286, %289
+  %291 = load i32, ptr %21, align 4, !tbaa !3
+  %292 = add nsw i32 %291, %290
+  store i32 %292, ptr %21, align 4, !tbaa !3
+  br label %293
 
-291:                                              ; preds = %272, %256
-  br label %236, !llvm.loop !31
+293:                                              ; preds = %274, %258
+  br label %238, !llvm.loop !43
 
-292:                                              ; preds = %236
-  %293 = load i32, ptr %21, align 4
-  %294 = load ptr, ptr %13, align 8
-  store i32 %293, ptr %294, align 4
-  %295 = load i32, ptr %22, align 4
-  store i32 %295, ptr %7, align 4
-  br label %296
+294:                                              ; preds = %238
+  %295 = load i32, ptr %21, align 4, !tbaa !3
+  %296 = load ptr, ptr %13, align 8, !tbaa !10
+  store i32 %295, ptr %296, align 4, !tbaa !3
+  %297 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %297, ptr %7, align 4
+  store i32 1, ptr %23, align 4
+  br label %298
 
-296:                                              ; preds = %292, %255, %222, %175, %139, %121, %92, %74, %39, %32
-  %297 = load i32, ptr %7, align 4
-  ret i32 %297
+298:                                              ; preds = %294, %257, %227, %140, %122, %93, %75, %40, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  call void @llvm.lifetime.end.p0(i64 5, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  %299 = load i32, ptr %7, align 4
+  ret i32 %299
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4184,140 +4569,172 @@ define internal i32 @zueci_u_iso8859(i32 noundef %0, ptr noundef %1, ptr noundef
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i32 %4, ptr %12, align 4
-  store ptr %5, ptr %13, align 8
-  %17 = load i32, ptr %8, align 4
-  %18 = icmp ult i32 %17, 160
-  br i1 %18, label %19, label %27
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !44
+  store ptr %2, ptr %10, align 8, !tbaa !44
+  store ptr %3, ptr %11, align 8, !tbaa !7
+  store i32 %4, ptr %12, align 4, !tbaa !3
+  store ptr %5, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %18 = load i32, ptr %8, align 4, !tbaa !3
+  %19 = icmp ult i32 %18, 160
+  br i1 %19, label %20, label %28
 
-19:                                               ; preds = %6
-  %20 = load i32, ptr %8, align 4
-  %21 = icmp uge i32 %20, 128
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %6
+  %21 = load i32, ptr %8, align 4, !tbaa !3
+  %22 = icmp uge i32 %21, 128
+  br i1 %22, label %23, label %24
 
-22:                                               ; preds = %19
+23:                                               ; preds = %20
   store i32 0, ptr %7, align 4
-  br label %93
+  store i32 1, ptr %15, align 4
+  br label %100
 
-23:                                               ; preds = %19
-  %24 = load i32, ptr %8, align 4
-  %25 = trunc i32 %24 to i8
-  %26 = load ptr, ptr %13, align 8
-  store i8 %25, ptr %26, align 1
+24:                                               ; preds = %20
+  %25 = load i32, ptr %8, align 4, !tbaa !3
+  %26 = trunc i32 %25 to i8
+  %27 = load ptr, ptr %13, align 8, !tbaa !7
+  store i8 %26, ptr %27, align 1, !tbaa !12
   store i32 1, ptr %7, align 4
-  br label %93
+  store i32 1, ptr %15, align 4
+  br label %100
 
-27:                                               ; preds = %6
-  %28 = load i32, ptr %8, align 4
-  %29 = icmp ule i32 %28, 255
-  br i1 %29, label %30, label %50
+28:                                               ; preds = %6
+  %29 = load i32, ptr %8, align 4, !tbaa !3
+  %30 = icmp ule i32 %29, 255
+  br i1 %30, label %31, label %54
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %8, align 4
-  %32 = sub i32 %31, 160
-  store i32 %32, ptr %15, align 4
-  %33 = load ptr, ptr %9, align 8
-  %34 = load i32, ptr %15, align 4
-  %35 = lshr i32 %34, 4
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %33, i64 %36
-  %38 = load i16, ptr %37, align 2
-  %39 = zext i16 %38 to i32
-  %40 = load i32, ptr %15, align 4
-  %41 = and i32 %40, 15
-  %42 = shl i32 1, %41
-  %43 = and i32 %39, %42
-  %44 = icmp ne i32 %43, 0
-  br i1 %44, label %45, label %49
+31:                                               ; preds = %28
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %32 = load i32, ptr %8, align 4, !tbaa !3
+  %33 = sub i32 %32, 160
+  store i32 %33, ptr %16, align 4, !tbaa !3
+  %34 = load ptr, ptr %9, align 8, !tbaa !44
+  %35 = load i32, ptr %16, align 4, !tbaa !3
+  %36 = lshr i32 %35, 4
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw i16, ptr %34, i64 %37
+  %39 = load i16, ptr %38, align 2, !tbaa !19
+  %40 = zext i16 %39 to i32
+  %41 = load i32, ptr %16, align 4, !tbaa !3
+  %42 = and i32 %41, 15
+  %43 = shl i32 1, %42
+  %44 = and i32 %40, %43
+  %45 = icmp ne i32 %44, 0
+  br i1 %45, label %46, label %50
 
-45:                                               ; preds = %30
-  %46 = load i32, ptr %8, align 4
-  %47 = trunc i32 %46 to i8
-  %48 = load ptr, ptr %13, align 8
-  store i8 %47, ptr %48, align 1
+46:                                               ; preds = %31
+  %47 = load i32, ptr %8, align 4, !tbaa !3
+  %48 = trunc i32 %47 to i8
+  %49 = load ptr, ptr %13, align 8, !tbaa !7
+  store i8 %48, ptr %49, align 1, !tbaa !12
   store i32 1, ptr %7, align 4
-  br label %93
-
-49:                                               ; preds = %30
-  br label %50
-
-50:                                               ; preds = %49, %27
-  store i32 0, ptr %14, align 4
+  store i32 1, ptr %15, align 4
   br label %51
 
-51:                                               ; preds = %91, %50
-  %52 = load i32, ptr %14, align 4
-  %53 = load i32, ptr %12, align 4
-  %54 = icmp sle i32 %52, %53
-  br i1 %54, label %55, label %92
+50:                                               ; preds = %31
+  store i32 0, ptr %15, align 4
+  br label %51
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr %14, align 4
-  %57 = load i32, ptr %12, align 4
-  %58 = add nsw i32 %56, %57
-  %59 = ashr i32 %58, 1
-  store i32 %59, ptr %16, align 4
-  %60 = load ptr, ptr %10, align 8
-  %61 = load i32, ptr %16, align 4
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i16, ptr %60, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = load i32, ptr %8, align 4
-  %67 = icmp ult i32 %65, %66
-  br i1 %67, label %68, label %71
+51:                                               ; preds = %50, %46
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  %52 = load i32, ptr %15, align 4
+  switch i32 %52, label %100 [
+    i32 0, label %53
+  ]
 
-68:                                               ; preds = %55
-  %69 = load i32, ptr %16, align 4
-  %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %14, align 4
-  br label %91
+53:                                               ; preds = %51
+  br label %54
 
-71:                                               ; preds = %55
-  %72 = load ptr, ptr %10, align 8
-  %73 = load i32, ptr %16, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i16, ptr %72, i64 %74
-  %76 = load i16, ptr %75, align 2
-  %77 = zext i16 %76 to i32
-  %78 = load i32, ptr %8, align 4
-  %79 = icmp ugt i32 %77, %78
-  br i1 %79, label %80, label %83
+54:                                               ; preds = %53, %28
+  store i32 0, ptr %14, align 4, !tbaa !3
+  br label %55
 
-80:                                               ; preds = %71
-  %81 = load i32, ptr %16, align 4
-  %82 = sub nsw i32 %81, 1
-  store i32 %82, ptr %12, align 4
-  br label %90
+55:                                               ; preds = %98, %54
+  %56 = load i32, ptr %14, align 4, !tbaa !3
+  %57 = load i32, ptr %12, align 4, !tbaa !3
+  %58 = icmp sle i32 %56, %57
+  br i1 %58, label %59, label %99
 
-83:                                               ; preds = %71
-  %84 = load ptr, ptr %11, align 8
-  %85 = load i32, ptr %16, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %84, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = load ptr, ptr %13, align 8
-  store i8 %88, ptr %89, align 1
+59:                                               ; preds = %55
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %60 = load i32, ptr %14, align 4, !tbaa !3
+  %61 = load i32, ptr %12, align 4, !tbaa !3
+  %62 = add nsw i32 %60, %61
+  %63 = ashr i32 %62, 1
+  store i32 %63, ptr %17, align 4, !tbaa !3
+  %64 = load ptr, ptr %10, align 8, !tbaa !44
+  %65 = load i32, ptr %17, align 4, !tbaa !3
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr inbounds i16, ptr %64, i64 %66
+  %68 = load i16, ptr %67, align 2, !tbaa !19
+  %69 = zext i16 %68 to i32
+  %70 = load i32, ptr %8, align 4, !tbaa !3
+  %71 = icmp ult i32 %69, %70
+  br i1 %71, label %72, label %75
+
+72:                                               ; preds = %59
+  %73 = load i32, ptr %17, align 4, !tbaa !3
+  %74 = add nsw i32 %73, 1
+  store i32 %74, ptr %14, align 4, !tbaa !3
+  br label %95
+
+75:                                               ; preds = %59
+  %76 = load ptr, ptr %10, align 8, !tbaa !44
+  %77 = load i32, ptr %17, align 4, !tbaa !3
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr inbounds i16, ptr %76, i64 %78
+  %80 = load i16, ptr %79, align 2, !tbaa !19
+  %81 = zext i16 %80 to i32
+  %82 = load i32, ptr %8, align 4, !tbaa !3
+  %83 = icmp ugt i32 %81, %82
+  br i1 %83, label %84, label %87
+
+84:                                               ; preds = %75
+  %85 = load i32, ptr %17, align 4, !tbaa !3
+  %86 = sub nsw i32 %85, 1
+  store i32 %86, ptr %12, align 4, !tbaa !3
+  br label %94
+
+87:                                               ; preds = %75
+  %88 = load ptr, ptr %11, align 8, !tbaa !7
+  %89 = load i32, ptr %17, align 4, !tbaa !3
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i8, ptr %88, i64 %90
+  %92 = load i8, ptr %91, align 1, !tbaa !12
+  %93 = load ptr, ptr %13, align 8, !tbaa !7
+  store i8 %92, ptr %93, align 1, !tbaa !12
   store i32 1, ptr %7, align 4
-  br label %93
+  store i32 1, ptr %15, align 4
+  br label %96
 
-90:                                               ; preds = %80
-  br label %91
+94:                                               ; preds = %84
+  br label %95
 
-91:                                               ; preds = %90, %68
-  br label %51, !llvm.loop !32
+95:                                               ; preds = %94, %72
+  store i32 0, ptr %15, align 4
+  br label %96
 
-92:                                               ; preds = %51
+96:                                               ; preds = %95, %87
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %97 = load i32, ptr %15, align 4
+  switch i32 %97, label %100 [
+    i32 0, label %98
+  ]
+
+98:                                               ; preds = %96
+  br label %55, !llvm.loop !46
+
+99:                                               ; preds = %55
   store i32 0, ptr %7, align 4
-  br label %93
+  store i32 1, ptr %15, align 4
+  br label %100
 
-93:                                               ; preds = %92, %83, %45, %23, %22
-  %94 = load i32, ptr %7, align 4
-  ret i32 %94
+100:                                              ; preds = %99, %96, %51, %24, %23
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %101 = load i32, ptr %7, align 4
+  ret i32 %101
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4331,97 +4748,106 @@ define internal i32 @zueci_u_lookup_uro(i32 noundef %0, ptr noundef %1, ptr noun
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i16, align 2
-  store i32 %0, ptr %7, align 4
-  store ptr %1, ptr %8, align 8
-  store ptr %2, ptr %9, align 8
-  store ptr %3, ptr %10, align 8
-  store ptr %4, ptr %11, align 8
-  %15 = load i32, ptr %7, align 4
-  %16 = sub i32 %15, 19968
-  %17 = lshr i32 %16, 4
-  store i32 %17, ptr %12, align 4
-  %18 = load i32, ptr %7, align 4
-  %19 = and i32 %18, 15
-  %20 = shl i32 1, %19
-  store i32 %20, ptr %13, align 4
-  %21 = load ptr, ptr %8, align 8
-  %22 = load i32, ptr %12, align 4
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i16, ptr %21, i64 %23
-  %25 = load i16, ptr %24, align 2
-  %26 = zext i16 %25 to i32
-  %27 = load i32, ptr %13, align 4
-  %28 = and i32 %26, %27
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %31
-
-30:                                               ; preds = %5
-  store i32 0, ptr %6, align 4
-  br label %81
+  %15 = alloca i32, align 4
+  store i32 %0, ptr %7, align 4, !tbaa !3
+  store ptr %1, ptr %8, align 8, !tbaa !44
+  store ptr %2, ptr %9, align 8, !tbaa !44
+  store ptr %3, ptr %10, align 8, !tbaa !44
+  store ptr %4, ptr %11, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  %16 = load i32, ptr %7, align 4, !tbaa !3
+  %17 = sub i32 %16, 19968
+  %18 = lshr i32 %17, 4
+  store i32 %18, ptr %12, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %19 = load i32, ptr %7, align 4, !tbaa !3
+  %20 = and i32 %19, 15
+  %21 = shl i32 1, %20
+  store i32 %21, ptr %13, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
+  %22 = load ptr, ptr %8, align 8, !tbaa !44
+  %23 = load i32, ptr %12, align 4, !tbaa !3
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
+  %26 = load i16, ptr %25, align 2, !tbaa !19
+  %27 = zext i16 %26 to i32
+  %28 = load i32, ptr %13, align 4, !tbaa !3
+  %29 = and i32 %27, %28
+  %30 = icmp eq i32 %29, 0
+  br i1 %30, label %31, label %32
 
 31:                                               ; preds = %5
-  %32 = load ptr, ptr %8, align 8
-  %33 = load i32, ptr %12, align 4
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i16, ptr %32, i64 %34
-  %36 = load i16, ptr %35, align 2
-  %37 = zext i16 %36 to i32
-  %38 = load i32, ptr %13, align 4
-  %39 = sub i32 %38, 1
-  %40 = and i32 %37, %39
-  store i32 %40, ptr %13, align 4
-  %41 = load i32, ptr %13, align 4
-  %42 = load i32, ptr %13, align 4
-  %43 = lshr i32 %42, 1
-  %44 = and i32 %43, 1431655765
-  %45 = sub i32 %41, %44
-  store i32 %45, ptr %13, align 4
-  %46 = load i32, ptr %13, align 4
-  %47 = and i32 %46, 858993459
-  %48 = load i32, ptr %13, align 4
-  %49 = lshr i32 %48, 2
-  %50 = and i32 %49, 858993459
-  %51 = add i32 %47, %50
-  store i32 %51, ptr %13, align 4
-  %52 = load i32, ptr %13, align 4
-  %53 = load i32, ptr %13, align 4
-  %54 = lshr i32 %53, 4
-  %55 = add i32 %52, %54
-  %56 = and i32 %55, 252645135
-  %57 = mul i32 %56, 16843009
-  %58 = lshr i32 %57, 24
-  store i32 %58, ptr %13, align 4
-  %59 = load ptr, ptr %10, align 8
-  %60 = load ptr, ptr %9, align 8
-  %61 = load i32, ptr %12, align 4
-  %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i16, ptr %60, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = load i32, ptr %13, align 4
-  %67 = add i32 %65, %66
-  %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds i16, ptr %59, i64 %68
-  %70 = load i16, ptr %69, align 2
-  store i16 %70, ptr %14, align 2
-  %71 = load i16, ptr %14, align 2
-  %72 = zext i16 %71 to i32
-  %73 = ashr i32 %72, 8
-  %74 = trunc i32 %73 to i8
-  %75 = load ptr, ptr %11, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 0
-  store i8 %74, ptr %76, align 1
-  %77 = load i16, ptr %14, align 2
-  %78 = trunc i16 %77 to i8
-  %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 1
-  store i8 %78, ptr %80, align 1
-  store i32 2, ptr %6, align 4
-  br label %81
+  store i32 0, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %82
 
-81:                                               ; preds = %31, %30
-  %82 = load i32, ptr %6, align 4
-  ret i32 %82
+32:                                               ; preds = %5
+  %33 = load ptr, ptr %8, align 8, !tbaa !44
+  %34 = load i32, ptr %12, align 4, !tbaa !3
+  %35 = zext i32 %34 to i64
+  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %35
+  %37 = load i16, ptr %36, align 2, !tbaa !19
+  %38 = zext i16 %37 to i32
+  %39 = load i32, ptr %13, align 4, !tbaa !3
+  %40 = sub i32 %39, 1
+  %41 = and i32 %38, %40
+  store i32 %41, ptr %13, align 4, !tbaa !3
+  %42 = load i32, ptr %13, align 4, !tbaa !3
+  %43 = load i32, ptr %13, align 4, !tbaa !3
+  %44 = lshr i32 %43, 1
+  %45 = and i32 %44, 1431655765
+  %46 = sub i32 %42, %45
+  store i32 %46, ptr %13, align 4, !tbaa !3
+  %47 = load i32, ptr %13, align 4, !tbaa !3
+  %48 = and i32 %47, 858993459
+  %49 = load i32, ptr %13, align 4, !tbaa !3
+  %50 = lshr i32 %49, 2
+  %51 = and i32 %50, 858993459
+  %52 = add i32 %48, %51
+  store i32 %52, ptr %13, align 4, !tbaa !3
+  %53 = load i32, ptr %13, align 4, !tbaa !3
+  %54 = load i32, ptr %13, align 4, !tbaa !3
+  %55 = lshr i32 %54, 4
+  %56 = add i32 %53, %55
+  %57 = and i32 %56, 252645135
+  %58 = mul i32 %57, 16843009
+  %59 = lshr i32 %58, 24
+  store i32 %59, ptr %13, align 4, !tbaa !3
+  %60 = load ptr, ptr %10, align 8, !tbaa !44
+  %61 = load ptr, ptr %9, align 8, !tbaa !44
+  %62 = load i32, ptr %12, align 4, !tbaa !3
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw i16, ptr %61, i64 %63
+  %65 = load i16, ptr %64, align 2, !tbaa !19
+  %66 = zext i16 %65 to i32
+  %67 = load i32, ptr %13, align 4, !tbaa !3
+  %68 = add i32 %66, %67
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw i16, ptr %60, i64 %69
+  %71 = load i16, ptr %70, align 2, !tbaa !19
+  store i16 %71, ptr %14, align 2, !tbaa !19
+  %72 = load i16, ptr %14, align 2, !tbaa !19
+  %73 = zext i16 %72 to i32
+  %74 = ashr i32 %73, 8
+  %75 = trunc i32 %74 to i8
+  %76 = load ptr, ptr %11, align 8, !tbaa !7
+  %77 = getelementptr inbounds i8, ptr %76, i64 0
+  store i8 %75, ptr %77, align 1, !tbaa !12
+  %78 = load i16, ptr %14, align 2, !tbaa !19
+  %79 = trunc i16 %78 to i8
+  %80 = load ptr, ptr %11, align 8, !tbaa !7
+  %81 = getelementptr inbounds i8, ptr %80, i64 1
+  store i8 %79, ptr %81, align 1, !tbaa !12
+  store i32 2, ptr %6, align 4
+  store i32 1, ptr %15, align 4
+  br label %82
+
+82:                                               ; preds = %32, %31
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  %83 = load i32, ptr %6, align 4
+  ret i32 %83
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4436,136 +4862,167 @@ define internal i32 @zueci_u_cp125x(i32 noundef %0, ptr noundef %1, ptr noundef 
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  store i32 %0, ptr %8, align 4
-  store ptr %1, ptr %9, align 8
-  store ptr %2, ptr %10, align 8
-  store ptr %3, ptr %11, align 8
-  store i32 %4, ptr %12, align 4
-  store ptr %5, ptr %13, align 8
-  %17 = load i32, ptr %8, align 4
-  %18 = icmp ult i32 %17, 128
-  br i1 %18, label %19, label %23
+  %17 = alloca i32, align 4
+  store i32 %0, ptr %8, align 4, !tbaa !3
+  store ptr %1, ptr %9, align 8, !tbaa !44
+  store ptr %2, ptr %10, align 8, !tbaa !44
+  store ptr %3, ptr %11, align 8, !tbaa !7
+  store i32 %4, ptr %12, align 4, !tbaa !3
+  store ptr %5, ptr %13, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  %18 = load i32, ptr %8, align 4, !tbaa !3
+  %19 = icmp ult i32 %18, 128
+  br i1 %19, label %20, label %24
 
-19:                                               ; preds = %6
-  %20 = load i32, ptr %8, align 4
-  %21 = trunc i32 %20 to i8
-  %22 = load ptr, ptr %13, align 8
-  store i8 %21, ptr %22, align 1
+20:                                               ; preds = %6
+  %21 = load i32, ptr %8, align 4, !tbaa !3
+  %22 = trunc i32 %21 to i8
+  %23 = load ptr, ptr %13, align 8, !tbaa !7
+  store i8 %22, ptr %23, align 1, !tbaa !12
   store i32 1, ptr %7, align 4
-  br label %92
+  store i32 1, ptr %15, align 4
+  br label %99
 
-23:                                               ; preds = %6
-  %24 = load i32, ptr %8, align 4
-  %25 = icmp ule i32 %24, 255
-  br i1 %25, label %26, label %49
+24:                                               ; preds = %6
+  %25 = load i32, ptr %8, align 4, !tbaa !3
+  %26 = icmp ule i32 %25, 255
+  br i1 %26, label %27, label %53
 
-26:                                               ; preds = %23
-  %27 = load i32, ptr %8, align 4
-  %28 = icmp uge i32 %27, 160
-  br i1 %28, label %29, label %49
+27:                                               ; preds = %24
+  %28 = load i32, ptr %8, align 4, !tbaa !3
+  %29 = icmp uge i32 %28, 160
+  br i1 %29, label %30, label %53
 
-29:                                               ; preds = %26
-  %30 = load i32, ptr %8, align 4
-  %31 = sub i32 %30, 160
-  store i32 %31, ptr %15, align 4
-  %32 = load ptr, ptr %9, align 8
-  %33 = load i32, ptr %15, align 4
-  %34 = lshr i32 %33, 4
-  %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %32, i64 %35
-  %37 = load i16, ptr %36, align 2
-  %38 = zext i16 %37 to i32
-  %39 = load i32, ptr %15, align 4
-  %40 = and i32 %39, 15
-  %41 = shl i32 1, %40
-  %42 = and i32 %38, %41
-  %43 = icmp ne i32 %42, 0
-  br i1 %43, label %44, label %48
+30:                                               ; preds = %27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %31 = load i32, ptr %8, align 4, !tbaa !3
+  %32 = sub i32 %31, 160
+  store i32 %32, ptr %16, align 4, !tbaa !3
+  %33 = load ptr, ptr %9, align 8, !tbaa !44
+  %34 = load i32, ptr %16, align 4, !tbaa !3
+  %35 = lshr i32 %34, 4
+  %36 = zext i32 %35 to i64
+  %37 = getelementptr inbounds nuw i16, ptr %33, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !19
+  %39 = zext i16 %38 to i32
+  %40 = load i32, ptr %16, align 4, !tbaa !3
+  %41 = and i32 %40, 15
+  %42 = shl i32 1, %41
+  %43 = and i32 %39, %42
+  %44 = icmp ne i32 %43, 0
+  br i1 %44, label %45, label %49
 
-44:                                               ; preds = %29
-  %45 = load i32, ptr %8, align 4
-  %46 = trunc i32 %45 to i8
-  %47 = load ptr, ptr %13, align 8
-  store i8 %46, ptr %47, align 1
+45:                                               ; preds = %30
+  %46 = load i32, ptr %8, align 4, !tbaa !3
+  %47 = trunc i32 %46 to i8
+  %48 = load ptr, ptr %13, align 8, !tbaa !7
+  store i8 %47, ptr %48, align 1, !tbaa !12
   store i32 1, ptr %7, align 4
-  br label %92
-
-48:                                               ; preds = %29
-  br label %49
-
-49:                                               ; preds = %48, %26, %23
-  store i32 0, ptr %14, align 4
+  store i32 1, ptr %15, align 4
   br label %50
 
-50:                                               ; preds = %90, %49
-  %51 = load i32, ptr %14, align 4
-  %52 = load i32, ptr %12, align 4
-  %53 = icmp sle i32 %51, %52
-  br i1 %53, label %54, label %91
+49:                                               ; preds = %30
+  store i32 0, ptr %15, align 4
+  br label %50
 
-54:                                               ; preds = %50
-  %55 = load i32, ptr %14, align 4
-  %56 = load i32, ptr %12, align 4
-  %57 = add nsw i32 %55, %56
-  %58 = ashr i32 %57, 1
-  store i32 %58, ptr %16, align 4
-  %59 = load ptr, ptr %10, align 8
-  %60 = load i32, ptr %16, align 4
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i16, ptr %59, i64 %61
-  %63 = load i16, ptr %62, align 2
-  %64 = zext i16 %63 to i32
-  %65 = load i32, ptr %8, align 4
-  %66 = icmp ult i32 %64, %65
-  br i1 %66, label %67, label %70
+50:                                               ; preds = %49, %45
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  %51 = load i32, ptr %15, align 4
+  switch i32 %51, label %99 [
+    i32 0, label %52
+  ]
 
-67:                                               ; preds = %54
-  %68 = load i32, ptr %16, align 4
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %14, align 4
-  br label %90
+52:                                               ; preds = %50
+  br label %53
 
-70:                                               ; preds = %54
-  %71 = load ptr, ptr %10, align 8
-  %72 = load i32, ptr %16, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i16, ptr %71, i64 %73
-  %75 = load i16, ptr %74, align 2
-  %76 = zext i16 %75 to i32
-  %77 = load i32, ptr %8, align 4
-  %78 = icmp ugt i32 %76, %77
-  br i1 %78, label %79, label %82
+53:                                               ; preds = %52, %27, %24
+  store i32 0, ptr %14, align 4, !tbaa !3
+  br label %54
 
-79:                                               ; preds = %70
-  %80 = load i32, ptr %16, align 4
-  %81 = sub nsw i32 %80, 1
-  store i32 %81, ptr %12, align 4
-  br label %89
+54:                                               ; preds = %97, %53
+  %55 = load i32, ptr %14, align 4, !tbaa !3
+  %56 = load i32, ptr %12, align 4, !tbaa !3
+  %57 = icmp sle i32 %55, %56
+  br i1 %57, label %58, label %98
 
-82:                                               ; preds = %70
-  %83 = load ptr, ptr %11, align 8
-  %84 = load i32, ptr %16, align 4
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %83, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = load ptr, ptr %13, align 8
-  store i8 %87, ptr %88, align 1
+58:                                               ; preds = %54
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %59 = load i32, ptr %14, align 4, !tbaa !3
+  %60 = load i32, ptr %12, align 4, !tbaa !3
+  %61 = add nsw i32 %59, %60
+  %62 = ashr i32 %61, 1
+  store i32 %62, ptr %17, align 4, !tbaa !3
+  %63 = load ptr, ptr %10, align 8, !tbaa !44
+  %64 = load i32, ptr %17, align 4, !tbaa !3
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i16, ptr %63, i64 %65
+  %67 = load i16, ptr %66, align 2, !tbaa !19
+  %68 = zext i16 %67 to i32
+  %69 = load i32, ptr %8, align 4, !tbaa !3
+  %70 = icmp ult i32 %68, %69
+  br i1 %70, label %71, label %74
+
+71:                                               ; preds = %58
+  %72 = load i32, ptr %17, align 4, !tbaa !3
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %14, align 4, !tbaa !3
+  br label %94
+
+74:                                               ; preds = %58
+  %75 = load ptr, ptr %10, align 8, !tbaa !44
+  %76 = load i32, ptr %17, align 4, !tbaa !3
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i16, ptr %75, i64 %77
+  %79 = load i16, ptr %78, align 2, !tbaa !19
+  %80 = zext i16 %79 to i32
+  %81 = load i32, ptr %8, align 4, !tbaa !3
+  %82 = icmp ugt i32 %80, %81
+  br i1 %82, label %83, label %86
+
+83:                                               ; preds = %74
+  %84 = load i32, ptr %17, align 4, !tbaa !3
+  %85 = sub nsw i32 %84, 1
+  store i32 %85, ptr %12, align 4, !tbaa !3
+  br label %93
+
+86:                                               ; preds = %74
+  %87 = load ptr, ptr %11, align 8, !tbaa !7
+  %88 = load i32, ptr %17, align 4, !tbaa !3
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i8, ptr %87, i64 %89
+  %91 = load i8, ptr %90, align 1, !tbaa !12
+  %92 = load ptr, ptr %13, align 8, !tbaa !7
+  store i8 %91, ptr %92, align 1, !tbaa !12
   store i32 1, ptr %7, align 4
-  br label %92
+  store i32 1, ptr %15, align 4
+  br label %95
 
-89:                                               ; preds = %79
-  br label %90
+93:                                               ; preds = %83
+  br label %94
 
-90:                                               ; preds = %89, %67
-  br label %50, !llvm.loop !33
+94:                                               ; preds = %93, %71
+  store i32 0, ptr %15, align 4
+  br label %95
 
-91:                                               ; preds = %50
+95:                                               ; preds = %94, %86
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  %96 = load i32, ptr %15, align 4
+  switch i32 %96, label %99 [
+    i32 0, label %97
+  ]
+
+97:                                               ; preds = %95
+  br label %54, !llvm.loop !47
+
+98:                                               ; preds = %54
   store i32 0, ptr %7, align 4
-  br label %92
+  store i32 1, ptr %15, align 4
+  br label %99
 
-92:                                               ; preds = %91, %82, %44, %19
-  %93 = load i32, ptr %7, align 4
-  ret i32 %93
+99:                                               ; preds = %98, %95, %50, %20
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  %100 = load i32, ptr %7, align 4
+  ret i32 %100
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4574,56 +5031,58 @@ define internal i32 @zueci_u_gb18030_4_sequential(i32 noundef %0, i32 noundef %1
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  store i32 %0, ptr %4, align 4
-  store i32 %1, ptr %5, align 4
-  store ptr %2, ptr %6, align 8
-  %8 = load i32, ptr %4, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !3
+  store ptr %2, ptr %6, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %7) #3
+  %8 = load i32, ptr %4, align 4, !tbaa !3
   %9 = udiv i32 %8, 10
-  store i32 %9, ptr %7, align 4
-  %10 = load i32, ptr %4, align 4
-  %11 = load i32, ptr %7, align 4
+  store i32 %9, ptr %7, align 4, !tbaa !3
+  %10 = load i32, ptr %4, align 4, !tbaa !3
+  %11 = load i32, ptr %7, align 4, !tbaa !3
   %12 = mul i32 %11, 10
   %13 = sub i32 %10, %12
   %14 = add i32 %13, 48
   %15 = trunc i32 %14 to i8
-  %16 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
   %17 = getelementptr inbounds i8, ptr %16, i64 3
-  store i8 %15, ptr %17, align 1
-  %18 = load i32, ptr %7, align 4
-  store i32 %18, ptr %4, align 4
-  %19 = load i32, ptr %4, align 4
+  store i8 %15, ptr %17, align 1, !tbaa !12
+  %18 = load i32, ptr %7, align 4, !tbaa !3
+  store i32 %18, ptr %4, align 4, !tbaa !3
+  %19 = load i32, ptr %4, align 4, !tbaa !3
   %20 = udiv i32 %19, 126
-  store i32 %20, ptr %7, align 4
-  %21 = load i32, ptr %4, align 4
-  %22 = load i32, ptr %7, align 4
+  store i32 %20, ptr %7, align 4, !tbaa !3
+  %21 = load i32, ptr %4, align 4, !tbaa !3
+  %22 = load i32, ptr %7, align 4, !tbaa !3
   %23 = mul i32 %22, 126
   %24 = sub i32 %21, %23
   %25 = add i32 %24, 129
   %26 = trunc i32 %25 to i8
-  %27 = load ptr, ptr %6, align 8
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
   %28 = getelementptr inbounds i8, ptr %27, i64 2
-  store i8 %26, ptr %28, align 1
-  %29 = load i32, ptr %7, align 4
-  store i32 %29, ptr %4, align 4
-  %30 = load i32, ptr %4, align 4
+  store i8 %26, ptr %28, align 1, !tbaa !12
+  %29 = load i32, ptr %7, align 4, !tbaa !3
+  store i32 %29, ptr %4, align 4, !tbaa !3
+  %30 = load i32, ptr %4, align 4, !tbaa !3
   %31 = udiv i32 %30, 10
-  store i32 %31, ptr %7, align 4
-  %32 = load i32, ptr %7, align 4
-  %33 = load i32, ptr %5, align 4
+  store i32 %31, ptr %7, align 4, !tbaa !3
+  %32 = load i32, ptr %7, align 4, !tbaa !3
+  %33 = load i32, ptr %5, align 4, !tbaa !3
   %34 = add i32 %32, %33
   %35 = trunc i32 %34 to i8
-  %36 = load ptr, ptr %6, align 8
+  %36 = load ptr, ptr %6, align 8, !tbaa !7
   %37 = getelementptr inbounds i8, ptr %36, i64 0
-  store i8 %35, ptr %37, align 1
-  %38 = load i32, ptr %4, align 4
-  %39 = load i32, ptr %7, align 4
+  store i8 %35, ptr %37, align 1, !tbaa !12
+  %38 = load i32, ptr %4, align 4, !tbaa !3
+  %39 = load i32, ptr %7, align 4, !tbaa !3
   %40 = mul i32 %39, 10
   %41 = sub i32 %38, %40
   %42 = add i32 %41, 48
   %43 = trunc i32 %42 to i8
-  %44 = load ptr, ptr %6, align 8
+  %44 = load ptr, ptr %6, align 8, !tbaa !7
   %45 = getelementptr inbounds i8, ptr %44, i64 1
-  store i8 %43, ptr %45, align 1
+  store i8 %43, ptr %45, align 1, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %7) #3
   ret i32 4
 }
 
@@ -4635,46 +5094,51 @@ define internal i32 @zueci_cp437_u(ptr noundef %0, i32 noundef %1, i32 noundef %
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %11 = load ptr, ptr %6, align 8
-  %12 = load i8, ptr %11, align 1
-  store i8 %12, ptr %10, align 1
-  %13 = load i8, ptr %10, align 1
-  %14 = zext i8 %13 to i32
-  %15 = icmp slt i32 %14, 128
-  br i1 %15, label %16, label %20
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  %12 = load ptr, ptr %6, align 8, !tbaa !7
+  %13 = load i8, ptr %12, align 1, !tbaa !12
+  store i8 %13, ptr %10, align 1, !tbaa !12
+  %14 = load i8, ptr %10, align 1, !tbaa !12
+  %15 = zext i8 %14 to i32
+  %16 = icmp slt i32 %15, 128
+  br i1 %16, label %17, label %21
 
-16:                                               ; preds = %4
-  %17 = load i8, ptr %10, align 1
-  %18 = zext i8 %17 to i32
-  %19 = load ptr, ptr %9, align 8
-  store i32 %18, ptr %19, align 4
+17:                                               ; preds = %4
+  %18 = load i8, ptr %10, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %19, ptr %20, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %33
+  store i32 1, ptr %11, align 4
+  br label %34
 
-20:                                               ; preds = %4
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = sub nsw i32 %22, 128
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds [128 x i8], ptr @zueci_cp437_sb_u, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1
-  %27 = sext i8 %26 to i32
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %28
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i32
-  %32 = load ptr, ptr %9, align 8
-  store i32 %31, ptr %32, align 4
+21:                                               ; preds = %4
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = sub nsw i32 %23, 128
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds [128 x i8], ptr @zueci_cp437_sb_u, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !12
+  %28 = sext i8 %27 to i32
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds [128 x i16], ptr @zueci_cp437_u_u, i64 0, i64 %29
+  %31 = load i16, ptr %30, align 2, !tbaa !19
+  %32 = zext i16 %31 to i32
+  %33 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %32, ptr %33, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %33
+  store i32 1, ptr %11, align 4
+  br label %34
 
-33:                                               ; preds = %20, %16
-  %34 = load i32, ptr %5, align 4
-  ret i32 %34
+34:                                               ; preds = %21, %17
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %35 = load i32, ptr %5, align 4
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4683,14 +5147,14 @@ define internal i32 @zueci_iso8859_2_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_2_s, ptr noundef @zueci_iso8859_2_u_u, ptr noundef @zueci_iso8859_2_sb_u, i32 noundef 96, ptr noundef %12)
   ret i32 %13
 }
@@ -4701,14 +5165,14 @@ define internal i32 @zueci_iso8859_3_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_3_s, ptr noundef @zueci_iso8859_3_u_u, ptr noundef @zueci_iso8859_3_sb_u, i32 noundef 96, ptr noundef %12)
   ret i32 %13
 }
@@ -4719,14 +5183,14 @@ define internal i32 @zueci_iso8859_4_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_4_s, ptr noundef @zueci_iso8859_4_u_u, ptr noundef @zueci_iso8859_4_sb_u, i32 noundef 96, ptr noundef %12)
   ret i32 %13
 }
@@ -4737,14 +5201,14 @@ define internal i32 @zueci_iso8859_5_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_5_s, ptr noundef @zueci_iso8859_5_u_u, ptr noundef @zueci_iso8859_5_sb_u, i32 noundef 96, ptr noundef %12)
   ret i32 %13
 }
@@ -4755,14 +5219,14 @@ define internal i32 @zueci_iso8859_6_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_6_s, ptr noundef @zueci_iso8859_6_u_u, ptr noundef @zueci_iso8859_6_sb_u, i32 noundef 83, ptr noundef %12)
   ret i32 %13
 }
@@ -4773,14 +5237,14 @@ define internal i32 @zueci_iso8859_7_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_7_s, ptr noundef @zueci_iso8859_7_u_u, ptr noundef @zueci_iso8859_7_sb_u, i32 noundef 95, ptr noundef %12)
   ret i32 %13
 }
@@ -4791,14 +5255,14 @@ define internal i32 @zueci_iso8859_8_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_8_s, ptr noundef @zueci_iso8859_8_u_u, ptr noundef @zueci_iso8859_8_sb_u, i32 noundef 95, ptr noundef %12)
   ret i32 %13
 }
@@ -4809,14 +5273,14 @@ define internal i32 @zueci_iso8859_9_u(ptr noundef %0, i32 noundef %1, i32 nound
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_9_s, ptr noundef @zueci_iso8859_9_u_u, ptr noundef @zueci_iso8859_9_sb_u, i32 noundef 95, ptr noundef %12)
   ret i32 %13
 }
@@ -4827,14 +5291,14 @@ define internal i32 @zueci_iso8859_10_u(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_10_s, ptr noundef @zueci_iso8859_10_u_u, ptr noundef @zueci_iso8859_10_sb_u, i32 noundef 96, ptr noundef %12)
   ret i32 %13
 }
@@ -4845,14 +5309,14 @@ define internal i32 @zueci_iso8859_11_u(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_11_s, ptr noundef @zueci_iso8859_11_u_u, ptr noundef @zueci_iso8859_11_sb_u, i32 noundef 92, ptr noundef %12)
   ret i32 %13
 }
@@ -4863,14 +5327,14 @@ define internal i32 @zueci_iso8859_13_u(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_13_s, ptr noundef @zueci_iso8859_13_u_u, ptr noundef @zueci_iso8859_13_sb_u, i32 noundef 96, ptr noundef %12)
   ret i32 %13
 }
@@ -4881,14 +5345,14 @@ define internal i32 @zueci_iso8859_14_u(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_14_s, ptr noundef @zueci_iso8859_14_u_u, ptr noundef @zueci_iso8859_14_sb_u, i32 noundef 95, ptr noundef %12)
   ret i32 %13
 }
@@ -4899,14 +5363,14 @@ define internal i32 @zueci_iso8859_15_u(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_15_s, ptr noundef @zueci_iso8859_15_u_u, ptr noundef @zueci_iso8859_15_sb_u, i32 noundef 31, ptr noundef %12)
   ret i32 %13
 }
@@ -4917,14 +5381,14 @@ define internal i32 @zueci_iso8859_16_u(ptr noundef %0, i32 noundef %1, i32 noun
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_iso8859_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_iso8859_16_s, ptr noundef @zueci_iso8859_16_u_u, ptr noundef @zueci_iso8859_16_sb_u, i32 noundef 95, ptr noundef %12)
   ret i32 %13
 }
@@ -4940,252 +5404,268 @@ define internal i32 @zueci_sjis_u(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  store i8 %16, ptr %10, align 1
-  %17 = load i8, ptr %10, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp slt i32 %18, 128
-  br i1 %19, label %20, label %56
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !12
+  store i8 %17, ptr %10, align 1, !tbaa !12
+  %18 = load i8, ptr %10, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = icmp slt i32 %19, 128
+  br i1 %20, label %21, label %57
 
-20:                                               ; preds = %4
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = icmp eq i32 %22, 92
-  br i1 %23, label %24, label %35
+21:                                               ; preds = %4
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = icmp eq i32 %23, 92
+  br i1 %24, label %25, label %36
 
-24:                                               ; preds = %20
-  %25 = load i32, ptr %8, align 4
-  %26 = and i32 %25, 2
-  %27 = icmp ne i32 %26, 0
-  br i1 %27, label %28, label %31
+25:                                               ; preds = %21
+  %26 = load i32, ptr %8, align 4, !tbaa !3
+  %27 = and i32 %26, 2
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %24
-  %29 = load i8, ptr %10, align 1
-  %30 = zext i8 %29 to i32
-  br label %32
+29:                                               ; preds = %25
+  %30 = load i8, ptr %10, align 1, !tbaa !12
+  %31 = zext i8 %30 to i32
+  br label %33
 
-31:                                               ; preds = %24
-  br label %32
+32:                                               ; preds = %25
+  br label %33
 
-32:                                               ; preds = %31, %28
-  %33 = phi i32 [ %30, %28 ], [ 165, %31 ]
-  %34 = load ptr, ptr %9, align 8
-  store i32 %33, ptr %34, align 4
+33:                                               ; preds = %32, %29
+  %34 = phi i32 [ %31, %29 ], [ 165, %32 ]
+  %35 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %34, ptr %35, align 4, !tbaa !3
+  br label %56
+
+36:                                               ; preds = %21
+  %37 = load i8, ptr %10, align 1, !tbaa !12
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 126
+  br i1 %39, label %40, label %51
+
+40:                                               ; preds = %36
+  %41 = load i32, ptr %8, align 4, !tbaa !3
+  %42 = and i32 %41, 2
+  %43 = icmp ne i32 %42, 0
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %40
+  %45 = load i8, ptr %10, align 1, !tbaa !12
+  %46 = zext i8 %45 to i32
+  br label %48
+
+47:                                               ; preds = %40
+  br label %48
+
+48:                                               ; preds = %47, %44
+  %49 = phi i32 [ %46, %44 ], [ 8254, %47 ]
+  %50 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %49, ptr %50, align 4, !tbaa !3
   br label %55
 
-35:                                               ; preds = %20
-  %36 = load i8, ptr %10, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp eq i32 %37, 126
-  br i1 %38, label %39, label %50
-
-39:                                               ; preds = %35
-  %40 = load i32, ptr %8, align 4
-  %41 = and i32 %40, 2
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %46
-
-43:                                               ; preds = %39
-  %44 = load i8, ptr %10, align 1
-  %45 = zext i8 %44 to i32
-  br label %47
-
-46:                                               ; preds = %39
-  br label %47
-
-47:                                               ; preds = %46, %43
-  %48 = phi i32 [ %45, %43 ], [ 8254, %46 ]
-  %49 = load ptr, ptr %9, align 8
-  store i32 %48, ptr %49, align 4
-  br label %54
-
-50:                                               ; preds = %35
-  %51 = load i8, ptr %10, align 1
-  %52 = zext i8 %51 to i32
-  %53 = load ptr, ptr %9, align 8
-  store i32 %52, ptr %53, align 4
-  br label %54
-
-54:                                               ; preds = %50, %47
+51:                                               ; preds = %36
+  %52 = load i8, ptr %10, align 1, !tbaa !12
+  %53 = zext i8 %52 to i32
+  %54 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %53, ptr %54, align 4, !tbaa !3
   br label %55
 
-55:                                               ; preds = %54, %32
+55:                                               ; preds = %51, %48
+  br label %56
+
+56:                                               ; preds = %55, %33
   store i32 1, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-56:                                               ; preds = %4
-  %57 = load i8, ptr %10, align 1
-  %58 = zext i8 %57 to i32
-  %59 = icmp sge i32 %58, 161
-  br i1 %59, label %60, label %69
+57:                                               ; preds = %4
+  %58 = load i8, ptr %10, align 1, !tbaa !12
+  %59 = zext i8 %58 to i32
+  %60 = icmp sge i32 %59, 161
+  br i1 %60, label %61, label %70
 
-60:                                               ; preds = %56
-  %61 = load i8, ptr %10, align 1
-  %62 = zext i8 %61 to i32
-  %63 = icmp sle i32 %62, 223
-  br i1 %63, label %64, label %69
+61:                                               ; preds = %57
+  %62 = load i8, ptr %10, align 1, !tbaa !12
+  %63 = zext i8 %62 to i32
+  %64 = icmp sle i32 %63, 223
+  br i1 %64, label %65, label %70
 
-64:                                               ; preds = %60
-  %65 = load i8, ptr %10, align 1
-  %66 = zext i8 %65 to i32
-  %67 = add nsw i32 65216, %66
-  %68 = load ptr, ptr %9, align 8
-  store i32 %67, ptr %68, align 4
+65:                                               ; preds = %61
+  %66 = load i8, ptr %10, align 1, !tbaa !12
+  %67 = zext i8 %66 to i32
+  %68 = add nsw i32 65216, %67
+  %69 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %68, ptr %69, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-69:                                               ; preds = %60, %56
-  %70 = load i32, ptr %7, align 4
-  %71 = icmp ult i32 %70, 2
-  br i1 %71, label %92, label %72
+70:                                               ; preds = %61, %57
+  %71 = load i32, ptr %7, align 4, !tbaa !3
+  %72 = icmp ult i32 %71, 2
+  br i1 %72, label %93, label %73
 
-72:                                               ; preds = %69
-  %73 = load i8, ptr %10, align 1
-  %74 = zext i8 %73 to i32
-  %75 = icmp eq i32 %74, 128
-  br i1 %75, label %92, label %76
+73:                                               ; preds = %70
+  %74 = load i8, ptr %10, align 1, !tbaa !12
+  %75 = zext i8 %74 to i32
+  %76 = icmp eq i32 %75, 128
+  br i1 %76, label %93, label %77
 
-76:                                               ; preds = %72
-  %77 = load i8, ptr %10, align 1
-  %78 = zext i8 %77 to i32
-  %79 = icmp eq i32 %78, 160
-  br i1 %79, label %92, label %80
+77:                                               ; preds = %73
+  %78 = load i8, ptr %10, align 1, !tbaa !12
+  %79 = zext i8 %78 to i32
+  %80 = icmp eq i32 %79, 160
+  br i1 %80, label %93, label %81
 
-80:                                               ; preds = %76
-  %81 = load i8, ptr %10, align 1
-  %82 = zext i8 %81 to i32
-  %83 = icmp sgt i32 %82, 234
-  br i1 %83, label %84, label %88
+81:                                               ; preds = %77
+  %82 = load i8, ptr %10, align 1, !tbaa !12
+  %83 = zext i8 %82 to i32
+  %84 = icmp sgt i32 %83, 234
+  br i1 %84, label %85, label %89
 
-84:                                               ; preds = %80
-  %85 = load i8, ptr %10, align 1
-  %86 = zext i8 %85 to i32
-  %87 = icmp slt i32 %86, 240
-  br i1 %87, label %92, label %88
+85:                                               ; preds = %81
+  %86 = load i8, ptr %10, align 1, !tbaa !12
+  %87 = zext i8 %86 to i32
+  %88 = icmp slt i32 %87, 240
+  br i1 %88, label %93, label %89
 
-88:                                               ; preds = %84, %80
-  %89 = load i8, ptr %10, align 1
-  %90 = zext i8 %89 to i32
-  %91 = icmp sgt i32 %90, 249
-  br i1 %91, label %92, label %93
+89:                                               ; preds = %85, %81
+  %90 = load i8, ptr %10, align 1, !tbaa !12
+  %91 = zext i8 %90 to i32
+  %92 = icmp sgt i32 %91, 249
+  br i1 %92, label %93, label %94
 
-92:                                               ; preds = %88, %84, %76, %72, %69
+93:                                               ; preds = %89, %85, %77, %73, %70
   store i32 0, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-93:                                               ; preds = %88
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 1
-  %96 = load i8, ptr %95, align 1
-  store i8 %96, ptr %11, align 1
-  %97 = load i8, ptr %11, align 1
-  %98 = zext i8 %97 to i32
-  %99 = icmp slt i32 %98, 64
-  br i1 %99, label %108, label %100
+94:                                               ; preds = %89
+  %95 = load ptr, ptr %6, align 8, !tbaa !7
+  %96 = getelementptr inbounds i8, ptr %95, i64 1
+  %97 = load i8, ptr %96, align 1, !tbaa !12
+  store i8 %97, ptr %11, align 1, !tbaa !12
+  %98 = load i8, ptr %11, align 1, !tbaa !12
+  %99 = zext i8 %98 to i32
+  %100 = icmp slt i32 %99, 64
+  br i1 %100, label %109, label %101
 
-100:                                              ; preds = %93
-  %101 = load i8, ptr %11, align 1
-  %102 = zext i8 %101 to i32
-  %103 = icmp eq i32 %102, 127
-  br i1 %103, label %108, label %104
+101:                                              ; preds = %94
+  %102 = load i8, ptr %11, align 1, !tbaa !12
+  %103 = zext i8 %102 to i32
+  %104 = icmp eq i32 %103, 127
+  br i1 %104, label %109, label %105
 
-104:                                              ; preds = %100
-  %105 = load i8, ptr %11, align 1
-  %106 = zext i8 %105 to i32
-  %107 = icmp sgt i32 %106, 252
-  br i1 %107, label %108, label %109
+105:                                              ; preds = %101
+  %106 = load i8, ptr %11, align 1, !tbaa !12
+  %107 = zext i8 %106 to i32
+  %108 = icmp sgt i32 %107, 252
+  br i1 %108, label %109, label %110
 
-108:                                              ; preds = %104, %100, %93
+109:                                              ; preds = %105, %101, %94
   store i32 0, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-109:                                              ; preds = %104
-  %110 = load i8, ptr %10, align 1
-  %111 = zext i8 %110 to i32
-  %112 = icmp sge i32 %111, 240
-  br i1 %112, label %113, label %133
+110:                                              ; preds = %105
+  %111 = load i8, ptr %10, align 1, !tbaa !12
+  %112 = zext i8 %111 to i32
+  %113 = icmp sge i32 %112, 240
+  br i1 %113, label %114, label %134
 
-113:                                              ; preds = %109
-  %114 = load i8, ptr %10, align 1
-  %115 = zext i8 %114 to i32
-  %116 = icmp sle i32 %115, 249
-  br i1 %116, label %117, label %133
+114:                                              ; preds = %110
+  %115 = load i8, ptr %10, align 1, !tbaa !12
+  %116 = zext i8 %115 to i32
+  %117 = icmp sle i32 %116, 249
+  br i1 %117, label %118, label %134
 
-117:                                              ; preds = %113
-  %118 = load i8, ptr %10, align 1
-  %119 = zext i8 %118 to i32
-  %120 = sub nsw i32 %119, 240
-  %121 = mul nsw i32 188, %120
-  %122 = add nsw i32 57344, %121
-  %123 = load i8, ptr %11, align 1
-  %124 = zext i8 %123 to i32
-  %125 = add nsw i32 %122, %124
-  %126 = sub nsw i32 %125, 64
-  %127 = load i8, ptr %11, align 1
-  %128 = zext i8 %127 to i32
-  %129 = icmp sgt i32 %128, 127
-  %130 = zext i1 %129 to i32
-  %131 = sub nsw i32 %126, %130
-  %132 = load ptr, ptr %9, align 8
-  store i32 %131, ptr %132, align 4
+118:                                              ; preds = %114
+  %119 = load i8, ptr %10, align 1, !tbaa !12
+  %120 = zext i8 %119 to i32
+  %121 = sub nsw i32 %120, 240
+  %122 = mul nsw i32 188, %121
+  %123 = add nsw i32 57344, %122
+  %124 = load i8, ptr %11, align 1, !tbaa !12
+  %125 = zext i8 %124 to i32
+  %126 = add nsw i32 %123, %125
+  %127 = sub nsw i32 %126, 64
+  %128 = load i8, ptr %11, align 1, !tbaa !12
+  %129 = zext i8 %128 to i32
+  %130 = icmp sgt i32 %129, 127
+  %131 = zext i1 %130 to i32
+  %132 = sub nsw i32 %127, %131
+  %133 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %132, ptr %133, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-133:                                              ; preds = %113, %109
-  %134 = load i8, ptr %10, align 1
-  %135 = zext i8 %134 to i32
-  %136 = sub nsw i32 %135, 129
-  %137 = load i8, ptr %10, align 1
-  %138 = zext i8 %137 to i32
-  %139 = icmp sgt i32 %138, 160
-  %140 = zext i1 %139 to i32
-  %141 = mul nsw i32 %140, 64
-  %142 = sub nsw i32 %136, %141
-  %143 = mul nsw i32 188, %142
-  %144 = load i8, ptr %11, align 1
-  %145 = zext i8 %144 to i32
-  %146 = add nsw i32 %143, %145
-  %147 = sub nsw i32 %146, 64
-  %148 = load i8, ptr %11, align 1
-  %149 = zext i8 %148 to i32
-  %150 = icmp sgt i32 %149, 127
-  %151 = zext i1 %150 to i32
-  %152 = sub nsw i32 %147, %151
-  store i32 %152, ptr %12, align 4
-  %153 = load i32, ptr %12, align 4
-  %154 = icmp slt i32 %153, 7808
-  br i1 %154, label %155, label %165
+134:                                              ; preds = %114, %110
+  %135 = load i8, ptr %10, align 1, !tbaa !12
+  %136 = zext i8 %135 to i32
+  %137 = sub nsw i32 %136, 129
+  %138 = load i8, ptr %10, align 1, !tbaa !12
+  %139 = zext i8 %138 to i32
+  %140 = icmp sgt i32 %139, 160
+  %141 = zext i1 %140 to i32
+  %142 = mul nsw i32 %141, 64
+  %143 = sub nsw i32 %137, %142
+  %144 = mul nsw i32 188, %143
+  %145 = load i8, ptr %11, align 1, !tbaa !12
+  %146 = zext i8 %145 to i32
+  %147 = add nsw i32 %144, %146
+  %148 = sub nsw i32 %147, 64
+  %149 = load i8, ptr %11, align 1, !tbaa !12
+  %150 = zext i8 %149 to i32
+  %151 = icmp sgt i32 %150, 127
+  %152 = zext i1 %151 to i32
+  %153 = sub nsw i32 %148, %152
+  store i32 %153, ptr %12, align 4, !tbaa !3
+  %154 = load i32, ptr %12, align 4, !tbaa !3
+  %155 = icmp slt i32 %154, 7808
+  br i1 %155, label %156, label %166
 
-155:                                              ; preds = %133
-  %156 = load i32, ptr %12, align 4
-  %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds [7808 x i16], ptr @zueci_sjis_mb_u, i64 0, i64 %157
-  %159 = load i16, ptr %158, align 2
-  %160 = zext i16 %159 to i32
-  store i32 %160, ptr %13, align 4
-  %161 = icmp ne i32 %160, 0
-  br i1 %161, label %162, label %165
+156:                                              ; preds = %134
+  %157 = load i32, ptr %12, align 4, !tbaa !3
+  %158 = sext i32 %157 to i64
+  %159 = getelementptr inbounds [7808 x i16], ptr @zueci_sjis_mb_u, i64 0, i64 %158
+  %160 = load i16, ptr %159, align 2, !tbaa !19
+  %161 = zext i16 %160 to i32
+  store i32 %161, ptr %13, align 4, !tbaa !3
+  %162 = icmp ne i32 %161, 0
+  br i1 %162, label %163, label %166
 
-162:                                              ; preds = %155
-  %163 = load i32, ptr %13, align 4
-  %164 = load ptr, ptr %9, align 8
-  store i32 %163, ptr %164, align 4
+163:                                              ; preds = %156
+  %164 = load i32, ptr %13, align 4, !tbaa !3
+  %165 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %164, ptr %165, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-165:                                              ; preds = %155, %133
+166:                                              ; preds = %156, %134
   store i32 0, ptr %5, align 4
-  br label %166
+  store i32 1, ptr %14, align 4
+  br label %167
 
-166:                                              ; preds = %165, %162, %117, %108, %92, %64, %55
-  %167 = load i32, ptr %5, align 4
-  ret i32 %167
+167:                                              ; preds = %166, %163, %118, %109, %93, %65, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %168 = load i32, ptr %5, align 4
+  ret i32 %168
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5194,14 +5674,14 @@ define internal i32 @zueci_cp1250_u(ptr noundef %0, i32 noundef %1, i32 noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_cp125x_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_cp1250_s, ptr noundef @zueci_cp1250_u_u, ptr noundef @zueci_cp1250_sb_u, i32 noundef 256, ptr noundef %12)
   ret i32 %13
 }
@@ -5212,14 +5692,14 @@ define internal i32 @zueci_cp1251_u(ptr noundef %0, i32 noundef %1, i32 noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_cp125x_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_cp1251_s, ptr noundef @zueci_cp1251_u_u, ptr noundef @zueci_cp1251_sb_u, i32 noundef 256, ptr noundef %12)
   ret i32 %13
 }
@@ -5230,14 +5710,14 @@ define internal i32 @zueci_cp1252_u(ptr noundef %0, i32 noundef %1, i32 noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_cp125x_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_cp1252_s, ptr noundef @zueci_cp1252_u_u, ptr noundef @zueci_cp1252_sb_u, i32 noundef 160, ptr noundef %12)
   ret i32 %13
 }
@@ -5248,14 +5728,14 @@ define internal i32 @zueci_cp1256_u(ptr noundef %0, i32 noundef %1, i32 noundef 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
-  store ptr %0, ptr %5, align 8
-  store i32 %1, ptr %6, align 4
-  store i32 %2, ptr %7, align 4
-  store ptr %3, ptr %8, align 8
-  %9 = load ptr, ptr %5, align 8
-  %10 = load i8, ptr %9, align 1
-  %11 = load i32, ptr %7, align 4
-  %12 = load ptr, ptr %8, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !7
+  store i32 %1, ptr %6, align 4, !tbaa !3
+  store i32 %2, ptr %7, align 4, !tbaa !3
+  store ptr %3, ptr %8, align 8, !tbaa !10
+  %9 = load ptr, ptr %5, align 8, !tbaa !7
+  %10 = load i8, ptr %9, align 1, !tbaa !12
+  %11 = load i32, ptr %7, align 4, !tbaa !3
+  %12 = load ptr, ptr %8, align 8, !tbaa !10
   %13 = call i32 @zueci_cp125x_u(i8 noundef zeroext %10, i32 noundef %11, ptr noundef @zueci_cp1256_s, ptr noundef @zueci_cp1256_u_u, ptr noundef @zueci_cp1256_sb_u, i32 noundef 256, ptr noundef %12)
   ret i32 %13
 }
@@ -5269,113 +5749,123 @@ define internal i32 @zueci_utf16be_u(ptr noundef %0, i32 noundef %1, i32 noundef
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = icmp ult i32 %12, 2
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %79
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #3
+  %13 = load i32, ptr %7, align 4, !tbaa !3
+  %14 = icmp ult i32 %13, 2
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 0
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i16
-  %20 = zext i16 %19 to i32
-  %21 = shl i32 %20, 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = or i32 %21, %25
-  %27 = trunc i32 %26 to i16
-  store i16 %27, ptr %10, align 2
-  %28 = load i16, ptr %10, align 2
-  %29 = zext i16 %28 to i32
-  %30 = icmp slt i32 %29, 55296
-  br i1 %30, label %35, label %31
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %80
 
-31:                                               ; preds = %15
-  %32 = load i16, ptr %10, align 2
-  %33 = zext i16 %32 to i32
-  %34 = icmp sgt i32 %33, 57343
-  br i1 %34, label %35, label %39
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  %18 = getelementptr inbounds i8, ptr %17, i64 0
+  %19 = load i8, ptr %18, align 1, !tbaa !12
+  %20 = zext i8 %19 to i16
+  %21 = zext i16 %20 to i32
+  %22 = shl i32 %21, 8
+  %23 = load ptr, ptr %6, align 8, !tbaa !7
+  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %25 = load i8, ptr %24, align 1, !tbaa !12
+  %26 = zext i8 %25 to i32
+  %27 = or i32 %22, %26
+  %28 = trunc i32 %27 to i16
+  store i16 %28, ptr %10, align 2, !tbaa !19
+  %29 = load i16, ptr %10, align 2, !tbaa !19
+  %30 = zext i16 %29 to i32
+  %31 = icmp slt i32 %30, 55296
+  br i1 %31, label %36, label %32
 
-35:                                               ; preds = %31, %15
-  %36 = load i16, ptr %10, align 2
-  %37 = zext i16 %36 to i32
-  %38 = load ptr, ptr %9, align 8
-  store i32 %37, ptr %38, align 4
+32:                                               ; preds = %16
+  %33 = load i16, ptr %10, align 2, !tbaa !19
+  %34 = zext i16 %33 to i32
+  %35 = icmp sgt i32 %34, 57343
+  br i1 %35, label %36, label %40
+
+36:                                               ; preds = %32, %16
+  %37 = load i16, ptr %10, align 2, !tbaa !19
+  %38 = zext i16 %37 to i32
+  %39 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %38, ptr %39, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-39:                                               ; preds = %31
-  %40 = load i16, ptr %10, align 2
-  %41 = zext i16 %40 to i32
-  %42 = icmp sge i32 %41, 56320
-  br i1 %42, label %46, label %43
+40:                                               ; preds = %32
+  %41 = load i16, ptr %10, align 2, !tbaa !19
+  %42 = zext i16 %41 to i32
+  %43 = icmp sge i32 %42, 56320
+  br i1 %43, label %47, label %44
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr %7, align 4
-  %45 = icmp ult i32 %44, 4
-  br i1 %45, label %46, label %47
+44:                                               ; preds = %40
+  %45 = load i32, ptr %7, align 4, !tbaa !3
+  %46 = icmp ult i32 %45, 4
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %43, %39
+47:                                               ; preds = %44, %40
   store i32 0, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 2
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i16
-  %52 = zext i16 %51 to i32
-  %53 = shl i32 %52, 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 3
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = or i32 %53, %57
-  %59 = trunc i32 %58 to i16
-  store i16 %59, ptr %11, align 2
-  %60 = load i16, ptr %11, align 2
-  %61 = zext i16 %60 to i32
-  %62 = icmp slt i32 %61, 56320
-  br i1 %62, label %67, label %63
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %6, align 8, !tbaa !7
+  %50 = getelementptr inbounds i8, ptr %49, i64 2
+  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %52 = zext i8 %51 to i16
+  %53 = zext i16 %52 to i32
+  %54 = shl i32 %53, 8
+  %55 = load ptr, ptr %6, align 8, !tbaa !7
+  %56 = getelementptr inbounds i8, ptr %55, i64 3
+  %57 = load i8, ptr %56, align 1, !tbaa !12
+  %58 = zext i8 %57 to i32
+  %59 = or i32 %54, %58
+  %60 = trunc i32 %59 to i16
+  store i16 %60, ptr %11, align 2, !tbaa !19
+  %61 = load i16, ptr %11, align 2, !tbaa !19
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 56320
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %47
-  %64 = load i16, ptr %11, align 2
-  %65 = zext i16 %64 to i32
-  %66 = icmp sgt i32 %65, 57343
-  br i1 %66, label %67, label %68
+64:                                               ; preds = %48
+  %65 = load i16, ptr %11, align 2, !tbaa !19
+  %66 = zext i16 %65 to i32
+  %67 = icmp sgt i32 %66, 57343
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %63, %47
+68:                                               ; preds = %64, %48
   store i32 0, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-68:                                               ; preds = %63
-  %69 = load i16, ptr %10, align 2
-  %70 = zext i16 %69 to i32
-  %71 = sub nsw i32 %70, 55296
-  %72 = shl i32 %71, 10
-  %73 = load i16, ptr %11, align 2
-  %74 = zext i16 %73 to i32
-  %75 = sub nsw i32 %74, 56320
-  %76 = or i32 %72, %75
-  %77 = add i32 65536, %76
-  %78 = load ptr, ptr %9, align 8
-  store i32 %77, ptr %78, align 4
+69:                                               ; preds = %64
+  %70 = load i16, ptr %10, align 2, !tbaa !19
+  %71 = zext i16 %70 to i32
+  %72 = sub nsw i32 %71, 55296
+  %73 = shl i32 %72, 10
+  %74 = load i16, ptr %11, align 2, !tbaa !19
+  %75 = zext i16 %74 to i32
+  %76 = sub nsw i32 %75, 56320
+  %77 = or i32 %73, %76
+  %78 = add i32 65536, %77
+  %79 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %78, ptr %79, align 4, !tbaa !3
   store i32 4, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-79:                                               ; preds = %68, %67, %46, %35, %14
-  %80 = load i32, ptr %5, align 4
-  ret i32 %80
+80:                                               ; preds = %69, %68, %47, %36, %15
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #3
+  %81 = load i32, ptr %5, align 4
+  ret i32 %81
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5385,28 +5875,28 @@ define internal i32 @zueci_ascii_u(ptr noundef %0, i32 noundef %1, i32 noundef %
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %10 = load ptr, ptr %6, align 8
-  %11 = load i8, ptr %10, align 1
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  %10 = load ptr, ptr %6, align 8, !tbaa !7
+  %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = zext i8 %11 to i32
   %13 = icmp slt i32 %12, 128
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %4
-  %15 = load i32, ptr %8, align 4
+  %15 = load i32, ptr %8, align 4, !tbaa !3
   %16 = and i32 %15, 1
   %17 = icmp ne i32 %16, 0
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14, %4
-  %19 = load ptr, ptr %6, align 8
-  %20 = load i8, ptr %19, align 1
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = zext i8 %20 to i32
-  %22 = load ptr, ptr %9, align 8
-  store i32 %21, ptr %22, align 4
+  %22 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %21, ptr %22, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
   br label %24
 
@@ -5430,135 +5920,149 @@ define internal i32 @zueci_big5_u(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  store i8 %16, ptr %10, align 1
-  %17 = load i8, ptr %10, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp slt i32 %18, 128
-  br i1 %19, label %20, label %24
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !12
+  store i8 %17, ptr %10, align 1, !tbaa !12
+  %18 = load i8, ptr %10, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = icmp slt i32 %19, 128
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %4
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %9, align 8
-  store i32 %22, ptr %23, align 4
+21:                                               ; preds = %4
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %93
+  store i32 1, ptr %14, align 4
+  br label %94
 
-24:                                               ; preds = %4
-  %25 = load i32, ptr %7, align 4
-  %26 = icmp ult i32 %25, 2
-  br i1 %26, label %39, label %27
+25:                                               ; preds = %4
+  %26 = load i32, ptr %7, align 4, !tbaa !3
+  %27 = icmp ult i32 %26, 2
+  br i1 %27, label %40, label %28
 
-27:                                               ; preds = %24
-  %28 = load i8, ptr %10, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp slt i32 %29, 161
-  br i1 %30, label %39, label %31
+28:                                               ; preds = %25
+  %29 = load i8, ptr %10, align 1, !tbaa !12
+  %30 = zext i8 %29 to i32
+  %31 = icmp slt i32 %30, 161
+  br i1 %31, label %40, label %32
 
-31:                                               ; preds = %27
-  %32 = load i8, ptr %10, align 1
-  %33 = zext i8 %32 to i32
-  %34 = icmp eq i32 %33, 200
-  br i1 %34, label %39, label %35
+32:                                               ; preds = %28
+  %33 = load i8, ptr %10, align 1, !tbaa !12
+  %34 = zext i8 %33 to i32
+  %35 = icmp eq i32 %34, 200
+  br i1 %35, label %40, label %36
 
-35:                                               ; preds = %31
-  %36 = load i8, ptr %10, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp sgt i32 %37, 249
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %32
+  %37 = load i8, ptr %10, align 1, !tbaa !12
+  %38 = zext i8 %37 to i32
+  %39 = icmp sgt i32 %38, 249
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35, %31, %27, %24
+40:                                               ; preds = %36, %32, %28, %25
   store i32 0, ptr %5, align 4
-  br label %93
+  store i32 1, ptr %14, align 4
+  br label %94
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  %43 = load i8, ptr %42, align 1
-  store i8 %43, ptr %11, align 1
-  %44 = load i8, ptr %11, align 1
-  %45 = zext i8 %44 to i32
-  %46 = icmp slt i32 %45, 64
-  br i1 %46, label %59, label %47
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %6, align 8, !tbaa !7
+  %43 = getelementptr inbounds i8, ptr %42, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !12
+  store i8 %44, ptr %11, align 1, !tbaa !12
+  %45 = load i8, ptr %11, align 1, !tbaa !12
+  %46 = zext i8 %45 to i32
+  %47 = icmp slt i32 %46, 64
+  br i1 %47, label %60, label %48
 
-47:                                               ; preds = %40
-  %48 = load i8, ptr %11, align 1
-  %49 = zext i8 %48 to i32
-  %50 = icmp sgt i32 %49, 126
-  br i1 %50, label %51, label %55
+48:                                               ; preds = %41
+  %49 = load i8, ptr %11, align 1, !tbaa !12
+  %50 = zext i8 %49 to i32
+  %51 = icmp sgt i32 %50, 126
+  br i1 %51, label %52, label %56
 
-51:                                               ; preds = %47
-  %52 = load i8, ptr %11, align 1
-  %53 = zext i8 %52 to i32
-  %54 = icmp slt i32 %53, 161
-  br i1 %54, label %59, label %55
+52:                                               ; preds = %48
+  %53 = load i8, ptr %11, align 1, !tbaa !12
+  %54 = zext i8 %53 to i32
+  %55 = icmp slt i32 %54, 161
+  br i1 %55, label %60, label %56
 
-55:                                               ; preds = %51, %47
-  %56 = load i8, ptr %11, align 1
-  %57 = zext i8 %56 to i32
-  %58 = icmp eq i32 %57, 255
-  br i1 %58, label %59, label %60
+56:                                               ; preds = %52, %48
+  %57 = load i8, ptr %11, align 1, !tbaa !12
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 255
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %55, %51, %40
+60:                                               ; preds = %56, %52, %41
   store i32 0, ptr %5, align 4
-  br label %93
+  store i32 1, ptr %14, align 4
+  br label %94
 
-60:                                               ; preds = %55
-  %61 = load i8, ptr %10, align 1
-  %62 = zext i8 %61 to i32
-  %63 = sub nsw i32 %62, 161
-  %64 = load i8, ptr %10, align 1
-  %65 = zext i8 %64 to i32
-  %66 = icmp sgt i32 %65, 200
-  %67 = zext i1 %66 to i32
-  %68 = sub nsw i32 %63, %67
-  %69 = mul nsw i32 157, %68
-  %70 = load i8, ptr %11, align 1
-  %71 = zext i8 %70 to i32
-  %72 = add nsw i32 %69, %71
-  %73 = sub nsw i32 %72, 64
-  %74 = load i8, ptr %11, align 1
-  %75 = zext i8 %74 to i32
-  %76 = icmp sgt i32 %75, 126
-  %77 = zext i1 %76 to i32
-  %78 = mul nsw i32 %77, 34
-  %79 = sub nsw i32 %73, %78
-  store i32 %79, ptr %12, align 4
-  %80 = load i32, ptr %12, align 4
-  %81 = icmp slt i32 %80, 13775
-  br i1 %81, label %82, label %92
+61:                                               ; preds = %56
+  %62 = load i8, ptr %10, align 1, !tbaa !12
+  %63 = zext i8 %62 to i32
+  %64 = sub nsw i32 %63, 161
+  %65 = load i8, ptr %10, align 1, !tbaa !12
+  %66 = zext i8 %65 to i32
+  %67 = icmp sgt i32 %66, 200
+  %68 = zext i1 %67 to i32
+  %69 = sub nsw i32 %64, %68
+  %70 = mul nsw i32 157, %69
+  %71 = load i8, ptr %11, align 1, !tbaa !12
+  %72 = zext i8 %71 to i32
+  %73 = add nsw i32 %70, %72
+  %74 = sub nsw i32 %73, 64
+  %75 = load i8, ptr %11, align 1, !tbaa !12
+  %76 = zext i8 %75 to i32
+  %77 = icmp sgt i32 %76, 126
+  %78 = zext i1 %77 to i32
+  %79 = mul nsw i32 %78, 34
+  %80 = sub nsw i32 %74, %79
+  store i32 %80, ptr %12, align 4, !tbaa !3
+  %81 = load i32, ptr %12, align 4, !tbaa !3
+  %82 = icmp slt i32 %81, 13775
+  br i1 %82, label %83, label %93
 
-82:                                               ; preds = %60
-  %83 = load i32, ptr %12, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [13775 x i16], ptr @zueci_big5_mb_u, i64 0, i64 %84
-  %86 = load i16, ptr %85, align 2
-  %87 = zext i16 %86 to i32
-  store i32 %87, ptr %13, align 4
-  %88 = icmp ne i32 %87, 0
-  br i1 %88, label %89, label %92
+83:                                               ; preds = %61
+  %84 = load i32, ptr %12, align 4, !tbaa !3
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds [13775 x i16], ptr @zueci_big5_mb_u, i64 0, i64 %85
+  %87 = load i16, ptr %86, align 2, !tbaa !19
+  %88 = zext i16 %87 to i32
+  store i32 %88, ptr %13, align 4, !tbaa !3
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %93
 
-89:                                               ; preds = %82
-  %90 = load i32, ptr %13, align 4
-  %91 = load ptr, ptr %9, align 8
-  store i32 %90, ptr %91, align 4
+90:                                               ; preds = %83
+  %91 = load i32, ptr %13, align 4, !tbaa !3
+  %92 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %91, ptr %92, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %93
+  store i32 1, ptr %14, align 4
+  br label %94
 
-92:                                               ; preds = %82, %60
+93:                                               ; preds = %83, %61
   store i32 0, ptr %5, align 4
-  br label %93
+  store i32 1, ptr %14, align 4
+  br label %94
 
-93:                                               ; preds = %92, %89, %59, %39, %20
-  %94 = load i32, ptr %5, align 4
-  ret i32 %94
+94:                                               ; preds = %93, %90, %60, %40, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %95 = load i32, ptr %5, align 4
+  ret i32 %95
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5572,119 +6076,133 @@ define internal i32 @zueci_gb2312_u(ptr noundef %0, i32 noundef %1, i32 noundef 
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  store i8 %16, ptr %10, align 1
-  %17 = load i8, ptr %10, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp slt i32 %18, 128
-  br i1 %19, label %20, label %24
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !12
+  store i8 %17, ptr %10, align 1, !tbaa !12
+  %18 = load i8, ptr %10, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = icmp slt i32 %19, 128
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %4
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %9, align 8
-  store i32 %22, ptr %23, align 4
+21:                                               ; preds = %4
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %81
+  store i32 1, ptr %14, align 4
+  br label %82
 
-24:                                               ; preds = %4
-  %25 = load i32, ptr %7, align 4
-  %26 = icmp ult i32 %25, 2
-  br i1 %26, label %43, label %27
+25:                                               ; preds = %4
+  %26 = load i32, ptr %7, align 4, !tbaa !3
+  %27 = icmp ult i32 %26, 2
+  br i1 %27, label %44, label %28
 
-27:                                               ; preds = %24
-  %28 = load i8, ptr %10, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp slt i32 %29, 161
-  br i1 %30, label %43, label %31
+28:                                               ; preds = %25
+  %29 = load i8, ptr %10, align 1, !tbaa !12
+  %30 = zext i8 %29 to i32
+  %31 = icmp slt i32 %30, 161
+  br i1 %31, label %44, label %32
 
-31:                                               ; preds = %27
-  %32 = load i8, ptr %10, align 1
-  %33 = zext i8 %32 to i32
-  %34 = icmp sgt i32 %33, 169
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %28
+  %33 = load i8, ptr %10, align 1, !tbaa !12
+  %34 = zext i8 %33 to i32
+  %35 = icmp sgt i32 %34, 169
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %31
-  %36 = load i8, ptr %10, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp slt i32 %37, 176
-  br i1 %38, label %43, label %39
+36:                                               ; preds = %32
+  %37 = load i8, ptr %10, align 1, !tbaa !12
+  %38 = zext i8 %37 to i32
+  %39 = icmp slt i32 %38, 176
+  br i1 %39, label %44, label %40
 
-39:                                               ; preds = %35, %31
-  %40 = load i8, ptr %10, align 1
-  %41 = zext i8 %40 to i32
-  %42 = icmp sgt i32 %41, 247
-  br i1 %42, label %43, label %44
+40:                                               ; preds = %36, %32
+  %41 = load i8, ptr %10, align 1, !tbaa !12
+  %42 = zext i8 %41 to i32
+  %43 = icmp sgt i32 %42, 247
+  br i1 %43, label %44, label %45
 
-43:                                               ; preds = %39, %35, %27, %24
+44:                                               ; preds = %40, %36, %28, %25
   store i32 0, ptr %5, align 4
-  br label %81
+  store i32 1, ptr %14, align 4
+  br label %82
 
-44:                                               ; preds = %39
-  %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1
-  %47 = load i8, ptr %46, align 1
-  store i8 %47, ptr %11, align 1
-  %48 = load i8, ptr %11, align 1
-  %49 = zext i8 %48 to i32
-  %50 = icmp slt i32 %49, 161
-  br i1 %50, label %55, label %51
+45:                                               ; preds = %40
+  %46 = load ptr, ptr %6, align 8, !tbaa !7
+  %47 = getelementptr inbounds i8, ptr %46, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !12
+  store i8 %48, ptr %11, align 1, !tbaa !12
+  %49 = load i8, ptr %11, align 1, !tbaa !12
+  %50 = zext i8 %49 to i32
+  %51 = icmp slt i32 %50, 161
+  br i1 %51, label %56, label %52
 
-51:                                               ; preds = %44
-  %52 = load i8, ptr %11, align 1
-  %53 = zext i8 %52 to i32
-  %54 = icmp eq i32 %53, 255
-  br i1 %54, label %55, label %56
+52:                                               ; preds = %45
+  %53 = load i8, ptr %11, align 1, !tbaa !12
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 255
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %51, %44
+56:                                               ; preds = %52, %45
   store i32 0, ptr %5, align 4
-  br label %81
+  store i32 1, ptr %14, align 4
+  br label %82
 
-56:                                               ; preds = %51
-  %57 = load i8, ptr %10, align 1
-  %58 = zext i8 %57 to i32
-  %59 = sub nsw i32 %58, 161
-  %60 = load i8, ptr %10, align 1
-  %61 = zext i8 %60 to i32
-  %62 = icmp sgt i32 %61, 169
-  %63 = zext i1 %62 to i32
-  %64 = mul nsw i32 %63, 6
-  %65 = sub nsw i32 %59, %64
-  %66 = mul nsw i32 94, %65
-  %67 = load i8, ptr %11, align 1
-  %68 = zext i8 %67 to i32
-  %69 = add nsw i32 %66, %68
-  %70 = sub nsw i32 %69, 161
-  store i32 %70, ptr %12, align 4
-  %71 = load i32, ptr %12, align 4
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds [7614 x i16], ptr @zueci_gb2312_mb_u, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2
-  %75 = zext i16 %74 to i32
-  store i32 %75, ptr %13, align 4
-  %76 = icmp ne i32 %75, 0
-  br i1 %76, label %77, label %80
+57:                                               ; preds = %52
+  %58 = load i8, ptr %10, align 1, !tbaa !12
+  %59 = zext i8 %58 to i32
+  %60 = sub nsw i32 %59, 161
+  %61 = load i8, ptr %10, align 1, !tbaa !12
+  %62 = zext i8 %61 to i32
+  %63 = icmp sgt i32 %62, 169
+  %64 = zext i1 %63 to i32
+  %65 = mul nsw i32 %64, 6
+  %66 = sub nsw i32 %60, %65
+  %67 = mul nsw i32 94, %66
+  %68 = load i8, ptr %11, align 1, !tbaa !12
+  %69 = zext i8 %68 to i32
+  %70 = add nsw i32 %67, %69
+  %71 = sub nsw i32 %70, 161
+  store i32 %71, ptr %12, align 4, !tbaa !3
+  %72 = load i32, ptr %12, align 4, !tbaa !3
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds [7614 x i16], ptr @zueci_gb2312_mb_u, i64 0, i64 %73
+  %75 = load i16, ptr %74, align 2, !tbaa !19
+  %76 = zext i16 %75 to i32
+  store i32 %76, ptr %13, align 4, !tbaa !3
+  %77 = icmp ne i32 %76, 0
+  br i1 %77, label %78, label %81
 
-77:                                               ; preds = %56
-  %78 = load i32, ptr %13, align 4
-  %79 = load ptr, ptr %9, align 8
-  store i32 %78, ptr %79, align 4
+78:                                               ; preds = %57
+  %79 = load i32, ptr %13, align 4, !tbaa !3
+  %80 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %79, ptr %80, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %81
+  store i32 1, ptr %14, align 4
+  br label %82
 
-80:                                               ; preds = %56
+81:                                               ; preds = %57
   store i32 0, ptr %5, align 4
-  br label %81
+  store i32 1, ptr %14, align 4
+  br label %82
 
-81:                                               ; preds = %80, %77, %55, %43, %20
-  %82 = load i32, ptr %5, align 4
-  ret i32 %82
+82:                                               ; preds = %81, %78, %56, %44, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %83 = load i32, ptr %5, align 4
+  ret i32 %83
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5698,130 +6216,144 @@ define internal i32 @zueci_ksx1001_u(ptr noundef %0, i32 noundef %1, i32 noundef
   %11 = alloca i8, align 1
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 0
-  %16 = load i8, ptr %15, align 1
-  store i8 %16, ptr %10, align 1
-  %17 = load i8, ptr %10, align 1
-  %18 = zext i8 %17 to i32
-  %19 = icmp slt i32 %18, 128
-  br i1 %19, label %20, label %24
+  %14 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  %15 = load ptr, ptr %6, align 8, !tbaa !7
+  %16 = getelementptr inbounds i8, ptr %15, i64 0
+  %17 = load i8, ptr %16, align 1, !tbaa !12
+  store i8 %17, ptr %10, align 1, !tbaa !12
+  %18 = load i8, ptr %10, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = icmp slt i32 %19, 128
+  br i1 %20, label %21, label %25
 
-20:                                               ; preds = %4
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = load ptr, ptr %9, align 8
-  store i32 %22, ptr %23, align 4
+21:                                               ; preds = %4
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %23, ptr %24, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %90
+  store i32 1, ptr %14, align 4
+  br label %91
 
-24:                                               ; preds = %4
-  %25 = load i32, ptr %7, align 4
-  %26 = icmp ult i32 %25, 2
-  br i1 %26, label %47, label %27
+25:                                               ; preds = %4
+  %26 = load i32, ptr %7, align 4, !tbaa !3
+  %27 = icmp ult i32 %26, 2
+  br i1 %27, label %48, label %28
 
-27:                                               ; preds = %24
-  %28 = load i8, ptr %10, align 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp slt i32 %29, 161
-  br i1 %30, label %47, label %31
+28:                                               ; preds = %25
+  %29 = load i8, ptr %10, align 1, !tbaa !12
+  %30 = zext i8 %29 to i32
+  %31 = icmp slt i32 %30, 161
+  br i1 %31, label %48, label %32
 
-31:                                               ; preds = %27
-  %32 = load i8, ptr %10, align 1
-  %33 = zext i8 %32 to i32
-  %34 = icmp sgt i32 %33, 172
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %28
+  %33 = load i8, ptr %10, align 1, !tbaa !12
+  %34 = zext i8 %33 to i32
+  %35 = icmp sgt i32 %34, 172
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %31
-  %36 = load i8, ptr %10, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp slt i32 %37, 176
-  br i1 %38, label %47, label %39
+36:                                               ; preds = %32
+  %37 = load i8, ptr %10, align 1, !tbaa !12
+  %38 = zext i8 %37 to i32
+  %39 = icmp slt i32 %38, 176
+  br i1 %39, label %48, label %40
 
-39:                                               ; preds = %35, %31
-  %40 = load i8, ptr %10, align 1
-  %41 = zext i8 %40 to i32
-  %42 = icmp eq i32 %41, 201
-  br i1 %42, label %47, label %43
+40:                                               ; preds = %36, %32
+  %41 = load i8, ptr %10, align 1, !tbaa !12
+  %42 = zext i8 %41 to i32
+  %43 = icmp eq i32 %42, 201
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %39
-  %44 = load i8, ptr %10, align 1
-  %45 = zext i8 %44 to i32
-  %46 = icmp sgt i32 %45, 253
-  br i1 %46, label %47, label %48
+44:                                               ; preds = %40
+  %45 = load i8, ptr %10, align 1, !tbaa !12
+  %46 = zext i8 %45 to i32
+  %47 = icmp sgt i32 %46, 253
+  br i1 %47, label %48, label %49
 
-47:                                               ; preds = %43, %39, %35, %27, %24
+48:                                               ; preds = %44, %40, %36, %28, %25
   store i32 0, ptr %5, align 4
-  br label %90
+  store i32 1, ptr %14, align 4
+  br label %91
 
-48:                                               ; preds = %43
-  %49 = load ptr, ptr %6, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1
-  %51 = load i8, ptr %50, align 1
-  store i8 %51, ptr %11, align 1
-  %52 = load i8, ptr %11, align 1
-  %53 = zext i8 %52 to i32
-  %54 = icmp slt i32 %53, 161
-  br i1 %54, label %59, label %55
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %6, align 8, !tbaa !7
+  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  %52 = load i8, ptr %51, align 1, !tbaa !12
+  store i8 %52, ptr %11, align 1, !tbaa !12
+  %53 = load i8, ptr %11, align 1, !tbaa !12
+  %54 = zext i8 %53 to i32
+  %55 = icmp slt i32 %54, 161
+  br i1 %55, label %60, label %56
 
-55:                                               ; preds = %48
-  %56 = load i8, ptr %11, align 1
-  %57 = zext i8 %56 to i32
-  %58 = icmp eq i32 %57, 255
-  br i1 %58, label %59, label %60
+56:                                               ; preds = %49
+  %57 = load i8, ptr %11, align 1, !tbaa !12
+  %58 = zext i8 %57 to i32
+  %59 = icmp eq i32 %58, 255
+  br i1 %59, label %60, label %61
 
-59:                                               ; preds = %55, %48
+60:                                               ; preds = %56, %49
   store i32 0, ptr %5, align 4
-  br label %90
+  store i32 1, ptr %14, align 4
+  br label %91
 
-60:                                               ; preds = %55
-  %61 = load i8, ptr %10, align 1
-  %62 = zext i8 %61 to i32
-  %63 = sub nsw i32 %62, 161
-  %64 = load i8, ptr %10, align 1
-  %65 = zext i8 %64 to i32
-  %66 = icmp sgt i32 %65, 172
-  %67 = zext i1 %66 to i32
-  %68 = mul nsw i32 %67, 3
-  %69 = sub nsw i32 %63, %68
-  %70 = load i8, ptr %10, align 1
-  %71 = zext i8 %70 to i32
-  %72 = icmp sgt i32 %71, 201
-  %73 = zext i1 %72 to i32
-  %74 = sub nsw i32 %69, %73
-  %75 = mul nsw i32 94, %74
-  %76 = load i8, ptr %11, align 1
-  %77 = zext i8 %76 to i32
-  %78 = add nsw i32 %75, %77
-  %79 = sub nsw i32 %78, 161
-  store i32 %79, ptr %12, align 4
-  %80 = load i32, ptr %12, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [8366 x i16], ptr @zueci_ksx1001_mb_u, i64 0, i64 %81
-  %83 = load i16, ptr %82, align 2
-  %84 = zext i16 %83 to i32
-  store i32 %84, ptr %13, align 4
-  %85 = icmp ne i32 %84, 0
-  br i1 %85, label %86, label %89
+61:                                               ; preds = %56
+  %62 = load i8, ptr %10, align 1, !tbaa !12
+  %63 = zext i8 %62 to i32
+  %64 = sub nsw i32 %63, 161
+  %65 = load i8, ptr %10, align 1, !tbaa !12
+  %66 = zext i8 %65 to i32
+  %67 = icmp sgt i32 %66, 172
+  %68 = zext i1 %67 to i32
+  %69 = mul nsw i32 %68, 3
+  %70 = sub nsw i32 %64, %69
+  %71 = load i8, ptr %10, align 1, !tbaa !12
+  %72 = zext i8 %71 to i32
+  %73 = icmp sgt i32 %72, 201
+  %74 = zext i1 %73 to i32
+  %75 = sub nsw i32 %70, %74
+  %76 = mul nsw i32 94, %75
+  %77 = load i8, ptr %11, align 1, !tbaa !12
+  %78 = zext i8 %77 to i32
+  %79 = add nsw i32 %76, %78
+  %80 = sub nsw i32 %79, 161
+  store i32 %80, ptr %12, align 4, !tbaa !3
+  %81 = load i32, ptr %12, align 4, !tbaa !3
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds [8366 x i16], ptr @zueci_ksx1001_mb_u, i64 0, i64 %82
+  %84 = load i16, ptr %83, align 2, !tbaa !19
+  %85 = zext i16 %84 to i32
+  store i32 %85, ptr %13, align 4, !tbaa !3
+  %86 = icmp ne i32 %85, 0
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %60
-  %87 = load i32, ptr %13, align 4
-  %88 = load ptr, ptr %9, align 8
-  store i32 %87, ptr %88, align 4
+87:                                               ; preds = %61
+  %88 = load i32, ptr %13, align 4, !tbaa !3
+  %89 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %88, ptr %89, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %90
+  store i32 1, ptr %14, align 4
+  br label %91
 
-89:                                               ; preds = %60
+90:                                               ; preds = %61
   store i32 0, ptr %5, align 4
-  br label %90
+  store i32 1, ptr %14, align 4
+  br label %91
 
-90:                                               ; preds = %89, %86, %59, %47, %20
-  %91 = load i32, ptr %5, align 4
-  ret i32 %91
+91:                                               ; preds = %90, %87, %60, %48, %21
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %92 = load i32, ptr %5, align 4
+  ret i32 %92
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5839,349 +6371,395 @@ define internal i32 @zueci_gbk_u(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %18 = load ptr, ptr %6, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 0
-  %20 = load i8, ptr %19, align 1
-  store i8 %20, ptr %10, align 1
-  %21 = load i8, ptr %10, align 1
-  %22 = zext i8 %21 to i32
-  %23 = icmp slt i32 %22, 128
-  br i1 %23, label %24, label %28
+  %18 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %14) #3
+  %19 = load ptr, ptr %6, align 8, !tbaa !7
+  %20 = getelementptr inbounds i8, ptr %19, i64 0
+  %21 = load i8, ptr %20, align 1, !tbaa !12
+  store i8 %21, ptr %10, align 1, !tbaa !12
+  %22 = load i8, ptr %10, align 1, !tbaa !12
+  %23 = zext i8 %22 to i32
+  %24 = icmp slt i32 %23, 128
+  br i1 %24, label %25, label %29
 
-24:                                               ; preds = %4
-  %25 = load i8, ptr %10, align 1
-  %26 = zext i8 %25 to i32
-  %27 = load ptr, ptr %9, align 8
-  store i32 %26, ptr %27, align 4
+25:                                               ; preds = %4
+  %26 = load i8, ptr %10, align 1, !tbaa !12
+  %27 = zext i8 %26 to i32
+  %28 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %27, ptr %28, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-28:                                               ; preds = %4
-  %29 = load i32, ptr %7, align 4
-  %30 = icmp ult i32 %29, 2
-  br i1 %30, label %39, label %31
+29:                                               ; preds = %4
+  %30 = load i32, ptr %7, align 4, !tbaa !3
+  %31 = icmp ult i32 %30, 2
+  br i1 %31, label %40, label %32
 
-31:                                               ; preds = %28
-  %32 = load i8, ptr %10, align 1
-  %33 = zext i8 %32 to i32
-  %34 = icmp slt i32 %33, 129
-  br i1 %34, label %39, label %35
+32:                                               ; preds = %29
+  %33 = load i8, ptr %10, align 1, !tbaa !12
+  %34 = zext i8 %33 to i32
+  %35 = icmp slt i32 %34, 129
+  br i1 %35, label %40, label %36
 
-35:                                               ; preds = %31
-  %36 = load i8, ptr %10, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp eq i32 %37, 255
-  br i1 %38, label %39, label %40
+36:                                               ; preds = %32
+  %37 = load i8, ptr %10, align 1, !tbaa !12
+  %38 = zext i8 %37 to i32
+  %39 = icmp eq i32 %38, 255
+  br i1 %39, label %40, label %41
 
-39:                                               ; preds = %35, %31, %28
+40:                                               ; preds = %36, %32, %29
   store i32 0, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-40:                                               ; preds = %35
-  %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
-  %43 = load i8, ptr %42, align 1
-  store i8 %43, ptr %11, align 1
-  %44 = load i8, ptr %11, align 1
-  %45 = zext i8 %44 to i32
-  %46 = icmp slt i32 %45, 64
-  br i1 %46, label %55, label %47
+41:                                               ; preds = %36
+  %42 = load ptr, ptr %6, align 8, !tbaa !7
+  %43 = getelementptr inbounds i8, ptr %42, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !12
+  store i8 %44, ptr %11, align 1, !tbaa !12
+  %45 = load i8, ptr %11, align 1, !tbaa !12
+  %46 = zext i8 %45 to i32
+  %47 = icmp slt i32 %46, 64
+  br i1 %47, label %56, label %48
 
-47:                                               ; preds = %40
-  %48 = load i8, ptr %11, align 1
-  %49 = zext i8 %48 to i32
-  %50 = icmp eq i32 %49, 127
-  br i1 %50, label %55, label %51
+48:                                               ; preds = %41
+  %49 = load i8, ptr %11, align 1, !tbaa !12
+  %50 = zext i8 %49 to i32
+  %51 = icmp eq i32 %50, 127
+  br i1 %51, label %56, label %52
 
-51:                                               ; preds = %47
-  %52 = load i8, ptr %11, align 1
-  %53 = zext i8 %52 to i32
-  %54 = icmp eq i32 %53, 255
-  br i1 %54, label %55, label %56
+52:                                               ; preds = %48
+  %53 = load i8, ptr %11, align 1, !tbaa !12
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i32 %54, 255
+  br i1 %55, label %56, label %57
 
-55:                                               ; preds = %51, %47, %40
+56:                                               ; preds = %52, %48, %41
   store i32 0, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-56:                                               ; preds = %51
-  %57 = load i8, ptr %10, align 1
-  %58 = zext i8 %57 to i32
-  %59 = icmp sge i32 %58, 161
-  br i1 %59, label %60, label %64
+57:                                               ; preds = %52
+  %58 = load i8, ptr %10, align 1, !tbaa !12
+  %59 = zext i8 %58 to i32
+  %60 = icmp sge i32 %59, 161
+  br i1 %60, label %61, label %65
 
-60:                                               ; preds = %56
-  %61 = load i8, ptr %10, align 1
-  %62 = zext i8 %61 to i32
-  %63 = icmp sle i32 %62, 169
-  br i1 %63, label %72, label %64
+61:                                               ; preds = %57
+  %62 = load i8, ptr %10, align 1, !tbaa !12
+  %63 = zext i8 %62 to i32
+  %64 = icmp sle i32 %63, 169
+  br i1 %64, label %73, label %65
 
-64:                                               ; preds = %60, %56
-  %65 = load i8, ptr %10, align 1
-  %66 = zext i8 %65 to i32
-  %67 = icmp sge i32 %66, 176
-  br i1 %67, label %68, label %104
+65:                                               ; preds = %61, %57
+  %66 = load i8, ptr %10, align 1, !tbaa !12
+  %67 = zext i8 %66 to i32
+  %68 = icmp sge i32 %67, 176
+  br i1 %68, label %69, label %105
 
-68:                                               ; preds = %64
-  %69 = load i8, ptr %10, align 1
-  %70 = zext i8 %69 to i32
-  %71 = icmp sle i32 %70, 247
-  br i1 %71, label %72, label %104
+69:                                               ; preds = %65
+  %70 = load i8, ptr %10, align 1, !tbaa !12
+  %71 = zext i8 %70 to i32
+  %72 = icmp sle i32 %71, 247
+  br i1 %72, label %73, label %105
 
-72:                                               ; preds = %68, %60
-  %73 = load i8, ptr %11, align 1
-  %74 = zext i8 %73 to i32
-  %75 = icmp sge i32 %74, 161
-  br i1 %75, label %76, label %104
+73:                                               ; preds = %69, %61
+  %74 = load i8, ptr %11, align 1, !tbaa !12
+  %75 = zext i8 %74 to i32
+  %76 = icmp sge i32 %75, 161
+  br i1 %76, label %77, label %105
 
-76:                                               ; preds = %72
-  %77 = load i8, ptr %10, align 1
-  %78 = zext i8 %77 to i32
-  %79 = icmp eq i32 %78, 161
-  br i1 %79, label %80, label %86
+77:                                               ; preds = %73
+  %78 = load i8, ptr %10, align 1, !tbaa !12
+  %79 = zext i8 %78 to i32
+  %80 = icmp eq i32 %79, 161
+  br i1 %80, label %81, label %87
 
-80:                                               ; preds = %76
-  %81 = load i8, ptr %11, align 1
-  %82 = zext i8 %81 to i32
-  %83 = icmp eq i32 %82, 164
-  br i1 %83, label %84, label %86
+81:                                               ; preds = %77
+  %82 = load i8, ptr %11, align 1, !tbaa !12
+  %83 = zext i8 %82 to i32
+  %84 = icmp eq i32 %83, 164
+  br i1 %84, label %85, label %87
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %9, align 8
-  store i32 183, ptr %85, align 4
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 183, ptr %86, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-86:                                               ; preds = %80, %76
-  %87 = load i8, ptr %10, align 1
-  %88 = zext i8 %87 to i32
-  %89 = icmp eq i32 %88, 161
-  br i1 %89, label %90, label %96
+87:                                               ; preds = %81, %77
+  %88 = load i8, ptr %10, align 1, !tbaa !12
+  %89 = zext i8 %88 to i32
+  %90 = icmp eq i32 %89, 161
+  br i1 %90, label %91, label %97
 
-90:                                               ; preds = %86
-  %91 = load i8, ptr %11, align 1
-  %92 = zext i8 %91 to i32
-  %93 = icmp eq i32 %92, 170
-  br i1 %93, label %94, label %96
+91:                                               ; preds = %87
+  %92 = load i8, ptr %11, align 1, !tbaa !12
+  %93 = zext i8 %92 to i32
+  %94 = icmp eq i32 %93, 170
+  br i1 %94, label %95, label %97
 
-94:                                               ; preds = %90
-  %95 = load ptr, ptr %9, align 8
-  store i32 8212, ptr %95, align 4
+95:                                               ; preds = %91
+  %96 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 8212, ptr %96, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-96:                                               ; preds = %90, %86
-  %97 = load ptr, ptr %6, align 8
-  %98 = load i32, ptr %7, align 4
-  %99 = load ptr, ptr %9, align 8
-  %100 = call i32 @zueci_gb2312_u(ptr noundef %97, i32 noundef %98, i32 noundef 0, ptr noundef %99)
-  %101 = icmp ne i32 %100, 0
-  br i1 %101, label %102, label %103
+97:                                               ; preds = %91, %87
+  %98 = load ptr, ptr %6, align 8, !tbaa !7
+  %99 = load i32, ptr %7, align 4, !tbaa !3
+  %100 = load ptr, ptr %9, align 8, !tbaa !10
+  %101 = call i32 @zueci_gb2312_u(ptr noundef %98, i32 noundef %99, i32 noundef 0, ptr noundef %100)
+  %102 = icmp ne i32 %101, 0
+  br i1 %102, label %103, label %104
 
-102:                                              ; preds = %96
+103:                                              ; preds = %97
   store i32 2, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-103:                                              ; preds = %96
-  br label %104
+104:                                              ; preds = %97
+  br label %105
 
-104:                                              ; preds = %103, %72, %68, %64
-  %105 = load i8, ptr %10, align 1
-  %106 = zext i8 %105 to i16
-  %107 = zext i16 %106 to i32
-  %108 = shl i32 %107, 8
-  %109 = load i8, ptr %11, align 1
-  %110 = zext i8 %109 to i32
-  %111 = or i32 %108, %110
-  %112 = trunc i32 %111 to i16
-  store i16 %112, ptr %14, align 2
-  %113 = load i16, ptr %14, align 2
-  %114 = zext i16 %113 to i32
-  %115 = load i16, ptr @zueci_gbk_nonuro_mb, align 16
-  %116 = zext i16 %115 to i32
-  %117 = icmp sge i32 %114, %116
-  br i1 %117, label %118, label %168
+105:                                              ; preds = %104, %73, %69, %65
+  %106 = load i8, ptr %10, align 1, !tbaa !12
+  %107 = zext i8 %106 to i16
+  %108 = zext i16 %107 to i32
+  %109 = shl i32 %108, 8
+  %110 = load i8, ptr %11, align 1, !tbaa !12
+  %111 = zext i8 %110 to i32
+  %112 = or i32 %109, %111
+  %113 = trunc i32 %112 to i16
+  store i16 %113, ptr %14, align 2, !tbaa !19
+  %114 = load i16, ptr %14, align 2, !tbaa !19
+  %115 = zext i16 %114 to i32
+  %116 = load i16, ptr @zueci_gbk_nonuro_mb, align 16, !tbaa !19
+  %117 = zext i16 %116 to i32
+  %118 = icmp sge i32 %115, %117
+  br i1 %118, label %119, label %174
 
-118:                                              ; preds = %104
-  %119 = load i16, ptr %14, align 2
-  %120 = zext i16 %119 to i32
-  %121 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_nonuro_mb, i64 0, i64 208
-  %122 = load i16, ptr %121, align 16
+119:                                              ; preds = %105
+  %120 = load i16, ptr %14, align 2, !tbaa !19
+  %121 = zext i16 %120 to i32
+  %122 = load i16, ptr getelementptr inbounds ([209 x i16], ptr @zueci_gbk_nonuro_mb, i64 0, i64 208), align 16, !tbaa !19
   %123 = zext i16 %122 to i32
-  %124 = icmp sle i32 %120, %123
-  br i1 %124, label %125, label %168
+  %124 = icmp sle i32 %121, %123
+  br i1 %124, label %125, label %174
 
-125:                                              ; preds = %118
-  store i32 0, ptr %15, align 4
-  store i32 208, ptr %16, align 4
+125:                                              ; preds = %119
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  store i32 0, ptr %16, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  store i32 208, ptr %17, align 4, !tbaa !3
   br label %126
 
-126:                                              ; preds = %166, %125
-  %127 = load i32, ptr %15, align 4
-  %128 = load i32, ptr %16, align 4
+126:                                              ; preds = %169, %125
+  %127 = load i32, ptr %16, align 4, !tbaa !3
+  %128 = load i32, ptr %17, align 4, !tbaa !3
   %129 = icmp sle i32 %127, %128
-  br i1 %129, label %130, label %167
+  br i1 %129, label %130, label %170
 
 130:                                              ; preds = %126
-  %131 = load i32, ptr %15, align 4
-  %132 = load i32, ptr %16, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  %131 = load i32, ptr %16, align 4, !tbaa !3
+  %132 = load i32, ptr %17, align 4, !tbaa !3
   %133 = add nsw i32 %131, %132
   %134 = ashr i32 %133, 1
-  store i32 %134, ptr %17, align 4
-  %135 = load i32, ptr %17, align 4
+  store i32 %134, ptr %18, align 4, !tbaa !3
+  %135 = load i32, ptr %18, align 4, !tbaa !3
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_nonuro_mb, i64 0, i64 %136
-  %138 = load i16, ptr %137, align 2
+  %138 = load i16, ptr %137, align 2, !tbaa !19
   %139 = zext i16 %138 to i32
-  %140 = load i16, ptr %14, align 2
+  %140 = load i16, ptr %14, align 2, !tbaa !19
   %141 = zext i16 %140 to i32
   %142 = icmp slt i32 %139, %141
   br i1 %142, label %143, label %146
 
 143:                                              ; preds = %130
-  %144 = load i32, ptr %17, align 4
+  %144 = load i32, ptr %18, align 4, !tbaa !3
   %145 = add nsw i32 %144, 1
-  store i32 %145, ptr %15, align 4
+  store i32 %145, ptr %16, align 4, !tbaa !3
   br label %166
 
 146:                                              ; preds = %130
-  %147 = load i32, ptr %17, align 4
+  %147 = load i32, ptr %18, align 4, !tbaa !3
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_nonuro_mb, i64 0, i64 %148
-  %150 = load i16, ptr %149, align 2
+  %150 = load i16, ptr %149, align 2, !tbaa !19
   %151 = zext i16 %150 to i32
-  %152 = load i16, ptr %14, align 2
+  %152 = load i16, ptr %14, align 2, !tbaa !19
   %153 = zext i16 %152 to i32
   %154 = icmp sgt i32 %151, %153
   br i1 %154, label %155, label %158
 
 155:                                              ; preds = %146
-  %156 = load i32, ptr %17, align 4
+  %156 = load i32, ptr %18, align 4, !tbaa !3
   %157 = sub nsw i32 %156, 1
-  store i32 %157, ptr %16, align 4
+  store i32 %157, ptr %17, align 4, !tbaa !3
   br label %165
 
 158:                                              ; preds = %146
-  %159 = load i32, ptr %17, align 4
+  %159 = load i32, ptr %18, align 4, !tbaa !3
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds [209 x i16], ptr @zueci_gbk_nonuro_u, i64 0, i64 %160
-  %162 = load i16, ptr %161, align 2
+  %162 = load i16, ptr %161, align 2, !tbaa !19
   %163 = zext i16 %162 to i32
-  %164 = load ptr, ptr %9, align 8
-  store i32 %163, ptr %164, align 4
+  %164 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %163, ptr %164, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %167
 
 165:                                              ; preds = %155
   br label %166
 
 166:                                              ; preds = %165, %143
-  br label %126, !llvm.loop !34
+  store i32 0, ptr %15, align 4
+  br label %167
 
-167:                                              ; preds = %126
-  br label %168
+167:                                              ; preds = %166, %158
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  %168 = load i32, ptr %15, align 4
+  switch i32 %168, label %171 [
+    i32 0, label %169
+  ]
 
-168:                                              ; preds = %167, %118, %104
-  %169 = load i8, ptr %10, align 1
-  %170 = zext i8 %169 to i32
-  %171 = icmp sge i32 %170, 161
-  br i1 %171, label %172, label %185
+169:                                              ; preds = %167
+  br label %126, !llvm.loop !48
 
-172:                                              ; preds = %168
-  %173 = load i8, ptr %10, align 1
-  %174 = zext i8 %173 to i32
-  %175 = icmp sle i32 %174, 167
-  br i1 %175, label %184, label %176
+170:                                              ; preds = %126
+  store i32 0, ptr %15, align 4
+  br label %171
 
-176:                                              ; preds = %172
-  %177 = load i8, ptr %10, align 1
-  %178 = zext i8 %177 to i32
-  %179 = icmp sge i32 %178, 168
-  br i1 %179, label %180, label %185
+171:                                              ; preds = %170, %167
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  %172 = load i32, ptr %15, align 4
+  switch i32 %172, label %238 [
+    i32 0, label %173
+  ]
 
-180:                                              ; preds = %176
-  %181 = load i8, ptr %11, align 1
-  %182 = zext i8 %181 to i32
-  %183 = icmp sge i32 %182, 161
-  br i1 %183, label %184, label %185
+173:                                              ; preds = %171
+  br label %174
 
-184:                                              ; preds = %180, %172
+174:                                              ; preds = %173, %119, %105
+  %175 = load i8, ptr %10, align 1, !tbaa !12
+  %176 = zext i8 %175 to i32
+  %177 = icmp sge i32 %176, 161
+  br i1 %177, label %178, label %191
+
+178:                                              ; preds = %174
+  %179 = load i8, ptr %10, align 1, !tbaa !12
+  %180 = zext i8 %179 to i32
+  %181 = icmp sle i32 %180, 167
+  br i1 %181, label %190, label %182
+
+182:                                              ; preds = %178
+  %183 = load i8, ptr %10, align 1, !tbaa !12
+  %184 = zext i8 %183 to i32
+  %185 = icmp sge i32 %184, 168
+  br i1 %185, label %186, label %191
+
+186:                                              ; preds = %182
+  %187 = load i8, ptr %11, align 1, !tbaa !12
+  %188 = zext i8 %187 to i32
+  %189 = icmp sge i32 %188, 161
+  br i1 %189, label %190, label %191
+
+190:                                              ; preds = %186, %178
   store i32 0, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-185:                                              ; preds = %180, %176, %168
-  %186 = load i8, ptr %10, align 1
-  %187 = zext i8 %186 to i32
-  %188 = icmp sge i32 %187, 168
-  br i1 %188, label %189, label %204
+191:                                              ; preds = %186, %182, %174
+  %192 = load i8, ptr %10, align 1, !tbaa !12
+  %193 = zext i8 %192 to i32
+  %194 = icmp sge i32 %193, 168
+  br i1 %194, label %195, label %210
 
-189:                                              ; preds = %185
-  %190 = load i8, ptr %10, align 1
-  %191 = zext i8 %190 to i32
-  %192 = sub nsw i32 %191, 168
-  %193 = mul nsw i32 96, %192
-  %194 = add nsw i32 6080, %193
-  %195 = load i8, ptr %11, align 1
-  %196 = zext i8 %195 to i32
-  %197 = add nsw i32 %194, %196
-  %198 = sub nsw i32 %197, 64
-  %199 = load i8, ptr %11, align 1
-  %200 = zext i8 %199 to i32
-  %201 = icmp sgt i32 %200, 127
-  %202 = zext i1 %201 to i32
-  %203 = sub nsw i32 %198, %202
-  store i32 %203, ptr %12, align 4
-  br label %218
-
-204:                                              ; preds = %185
-  %205 = load i8, ptr %10, align 1
+195:                                              ; preds = %191
+  %196 = load i8, ptr %10, align 1, !tbaa !12
+  %197 = zext i8 %196 to i32
+  %198 = sub nsw i32 %197, 168
+  %199 = mul nsw i32 96, %198
+  %200 = add nsw i32 6080, %199
+  %201 = load i8, ptr %11, align 1, !tbaa !12
+  %202 = zext i8 %201 to i32
+  %203 = add nsw i32 %200, %202
+  %204 = sub nsw i32 %203, 64
+  %205 = load i8, ptr %11, align 1, !tbaa !12
   %206 = zext i8 %205 to i32
-  %207 = sub nsw i32 %206, 129
-  %208 = mul nsw i32 190, %207
-  %209 = load i8, ptr %11, align 1
-  %210 = zext i8 %209 to i32
-  %211 = add nsw i32 %208, %210
-  %212 = sub nsw i32 %211, 64
-  %213 = load i8, ptr %11, align 1
-  %214 = zext i8 %213 to i32
-  %215 = icmp sgt i32 %214, 127
-  %216 = zext i1 %215 to i32
-  %217 = sub nsw i32 %212, %216
-  store i32 %217, ptr %12, align 4
-  br label %218
+  %207 = icmp sgt i32 %206, 127
+  %208 = zext i1 %207 to i32
+  %209 = sub nsw i32 %204, %208
+  store i32 %209, ptr %12, align 4, !tbaa !3
+  br label %224
 
-218:                                              ; preds = %204, %189
-  %219 = load i32, ptr %12, align 4
-  %220 = icmp slt i32 %219, 14352
-  br i1 %220, label %221, label %231
+210:                                              ; preds = %191
+  %211 = load i8, ptr %10, align 1, !tbaa !12
+  %212 = zext i8 %211 to i32
+  %213 = sub nsw i32 %212, 129
+  %214 = mul nsw i32 190, %213
+  %215 = load i8, ptr %11, align 1, !tbaa !12
+  %216 = zext i8 %215 to i32
+  %217 = add nsw i32 %214, %216
+  %218 = sub nsw i32 %217, 64
+  %219 = load i8, ptr %11, align 1, !tbaa !12
+  %220 = zext i8 %219 to i32
+  %221 = icmp sgt i32 %220, 127
+  %222 = zext i1 %221 to i32
+  %223 = sub nsw i32 %218, %222
+  store i32 %223, ptr %12, align 4, !tbaa !3
+  br label %224
 
-221:                                              ; preds = %218
-  %222 = load i32, ptr %12, align 4
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds [14352 x i16], ptr @zueci_gbk_mb_u, i64 0, i64 %223
-  %225 = load i16, ptr %224, align 2
-  %226 = zext i16 %225 to i32
-  store i32 %226, ptr %13, align 4
-  %227 = icmp ne i32 %226, 0
-  br i1 %227, label %228, label %231
+224:                                              ; preds = %210, %195
+  %225 = load i32, ptr %12, align 4, !tbaa !3
+  %226 = icmp slt i32 %225, 14352
+  br i1 %226, label %227, label %237
 
-228:                                              ; preds = %221
-  %229 = load i32, ptr %13, align 4
-  %230 = load ptr, ptr %9, align 8
-  store i32 %229, ptr %230, align 4
+227:                                              ; preds = %224
+  %228 = load i32, ptr %12, align 4, !tbaa !3
+  %229 = sext i32 %228 to i64
+  %230 = getelementptr inbounds [14352 x i16], ptr @zueci_gbk_mb_u, i64 0, i64 %229
+  %231 = load i16, ptr %230, align 2, !tbaa !19
+  %232 = zext i16 %231 to i32
+  store i32 %232, ptr %13, align 4, !tbaa !3
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %234, label %237
+
+234:                                              ; preds = %227
+  %235 = load i32, ptr %13, align 4, !tbaa !3
+  %236 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %235, ptr %236, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-231:                                              ; preds = %221, %218
+237:                                              ; preds = %227, %224
   store i32 0, ptr %5, align 4
-  br label %232
+  store i32 1, ptr %15, align 4
+  br label %238
 
-232:                                              ; preds = %231, %228, %184, %158, %102, %94, %84, %55, %39, %24
-  %233 = load i32, ptr %5, align 4
-  ret i32 %233
+238:                                              ; preds = %237, %234, %190, %171, %103, %95, %85, %56, %40, %25
+  call void @llvm.lifetime.end.p0(i64 2, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %239 = load i32, ptr %5, align 4
+  ret i32 %239
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6204,580 +6782,643 @@ define internal i32 @zueci_gb18030_u(ptr noundef %0, i32 noundef %1, i32 noundef
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 0
-  %25 = load i8, ptr %24, align 1
-  store i8 %25, ptr %10, align 1
-  %26 = load i8, ptr %10, align 1
-  %27 = zext i8 %26 to i32
-  %28 = icmp slt i32 %27, 128
-  br i1 %28, label %29, label %33
+  %23 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %24 = load ptr, ptr %6, align 8, !tbaa !7
+  %25 = getelementptr inbounds i8, ptr %24, i64 0
+  %26 = load i8, ptr %25, align 1, !tbaa !12
+  store i8 %26, ptr %10, align 1, !tbaa !12
+  %27 = load i8, ptr %10, align 1, !tbaa !12
+  %28 = zext i8 %27 to i32
+  %29 = icmp slt i32 %28, 128
+  br i1 %29, label %30, label %34
 
-29:                                               ; preds = %4
-  %30 = load i8, ptr %10, align 1
-  %31 = zext i8 %30 to i32
-  %32 = load ptr, ptr %9, align 8
-  store i32 %31, ptr %32, align 4
+30:                                               ; preds = %4
+  %31 = load i8, ptr %10, align 1, !tbaa !12
+  %32 = zext i8 %31 to i32
+  %33 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %32, ptr %33, align 4, !tbaa !3
   store i32 1, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-33:                                               ; preds = %4
-  %34 = load i32, ptr %7, align 4
-  %35 = icmp ult i32 %34, 2
-  br i1 %35, label %44, label %36
+34:                                               ; preds = %4
+  %35 = load i32, ptr %7, align 4, !tbaa !3
+  %36 = icmp ult i32 %35, 2
+  br i1 %36, label %45, label %37
 
-36:                                               ; preds = %33
-  %37 = load i8, ptr %10, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp slt i32 %38, 129
-  br i1 %39, label %44, label %40
+37:                                               ; preds = %34
+  %38 = load i8, ptr %10, align 1, !tbaa !12
+  %39 = zext i8 %38 to i32
+  %40 = icmp slt i32 %39, 129
+  br i1 %40, label %45, label %41
 
-40:                                               ; preds = %36
-  %41 = load i8, ptr %10, align 1
-  %42 = zext i8 %41 to i32
-  %43 = icmp eq i32 %42, 255
-  br i1 %43, label %44, label %45
+41:                                               ; preds = %37
+  %42 = load i8, ptr %10, align 1, !tbaa !12
+  %43 = zext i8 %42 to i32
+  %44 = icmp eq i32 %43, 255
+  br i1 %44, label %45, label %46
 
-44:                                               ; preds = %40, %36, %33
+45:                                               ; preds = %41, %37, %34
   store i32 0, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr %6, align 8
-  %47 = load i32, ptr %7, align 4
-  %48 = load ptr, ptr %9, align 8
-  %49 = call i32 @zueci_gbk_u(ptr noundef %46, i32 noundef %47, i32 noundef 0, ptr noundef %48)
-  store i32 %49, ptr %14, align 4
-  %50 = icmp ne i32 %49, 0
-  br i1 %50, label %51, label %53
+46:                                               ; preds = %41
+  %47 = load ptr, ptr %6, align 8, !tbaa !7
+  %48 = load i32, ptr %7, align 4, !tbaa !3
+  %49 = load ptr, ptr %9, align 8, !tbaa !10
+  %50 = call i32 @zueci_gbk_u(ptr noundef %47, i32 noundef %48, i32 noundef 0, ptr noundef %49)
+  store i32 %50, ptr %14, align 4, !tbaa !3
+  %51 = icmp ne i32 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %45
-  %52 = load i32, ptr %14, align 4
-  store i32 %52, ptr %5, align 4
-  br label %387
+52:                                               ; preds = %46
+  %53 = load i32, ptr %14, align 4, !tbaa !3
+  store i32 %53, ptr %5, align 4
+  store i32 1, ptr %17, align 4
+  br label %393
 
-53:                                               ; preds = %45
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  %56 = load i8, ptr %55, align 1
-  store i8 %56, ptr %11, align 1
-  %57 = load i32, ptr %7, align 4
-  %58 = icmp uge i32 %57, 4
-  br i1 %58, label %59, label %193
+54:                                               ; preds = %46
+  %55 = load ptr, ptr %6, align 8, !tbaa !7
+  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  %57 = load i8, ptr %56, align 1, !tbaa !12
+  store i8 %57, ptr %11, align 1, !tbaa !12
+  %58 = load i32, ptr %7, align 4, !tbaa !3
+  %59 = icmp uge i32 %58, 4
+  br i1 %59, label %60, label %194
 
-59:                                               ; preds = %53
-  %60 = load i8, ptr %11, align 1
-  %61 = zext i8 %60 to i32
-  %62 = icmp sle i32 %61, 57
-  br i1 %62, label %63, label %193
+60:                                               ; preds = %54
+  %61 = load i8, ptr %11, align 1, !tbaa !12
+  %62 = zext i8 %61 to i32
+  %63 = icmp sle i32 %62, 57
+  br i1 %63, label %64, label %194
 
-63:                                               ; preds = %59
-  %64 = load i8, ptr %11, align 1
-  %65 = zext i8 %64 to i32
-  %66 = icmp sge i32 %65, 48
-  br i1 %66, label %67, label %193
+64:                                               ; preds = %60
+  %65 = load i8, ptr %11, align 1, !tbaa !12
+  %66 = zext i8 %65 to i32
+  %67 = icmp sge i32 %66, 48
+  br i1 %67, label %68, label %194
 
-67:                                               ; preds = %63
-  %68 = load i8, ptr %10, align 1
-  %69 = zext i8 %68 to i32
-  %70 = icmp sge i32 %69, 129
-  br i1 %70, label %71, label %193
+68:                                               ; preds = %64
+  %69 = load i8, ptr %10, align 1, !tbaa !12
+  %70 = zext i8 %69 to i32
+  %71 = icmp sge i32 %70, 129
+  br i1 %71, label %72, label %194
 
-71:                                               ; preds = %67
-  %72 = load i8, ptr %10, align 1
-  %73 = zext i8 %72 to i32
-  %74 = icmp sle i32 %73, 227
-  br i1 %74, label %75, label %193
+72:                                               ; preds = %68
+  %73 = load i8, ptr %10, align 1, !tbaa !12
+  %74 = zext i8 %73 to i32
+  %75 = icmp sle i32 %74, 227
+  br i1 %75, label %76, label %194
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 2
-  %78 = load i8, ptr %77, align 1
-  store i8 %78, ptr %12, align 1
-  %79 = load ptr, ptr %6, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 3
-  %81 = load i8, ptr %80, align 1
-  store i8 %81, ptr %13, align 1
-  %82 = load i8, ptr %10, align 1
-  %83 = zext i8 %82 to i32
-  %84 = shl i32 %83, 24
-  %85 = load i8, ptr %11, align 1
-  %86 = zext i8 %85 to i32
-  %87 = shl i32 %86, 16
-  %88 = or i32 %84, %87
-  %89 = load i8, ptr %12, align 1
-  %90 = zext i8 %89 to i32
-  %91 = shl i32 %90, 8
-  %92 = or i32 %88, %91
-  %93 = load i8, ptr %13, align 1
-  %94 = zext i8 %93 to i32
-  %95 = or i32 %92, %94
-  store i32 %95, ptr %16, align 4
-  %96 = load i32, ptr %16, align 4
-  %97 = icmp ult i32 %96, -2127527632
-  br i1 %97, label %123, label %98
+76:                                               ; preds = %72
+  %77 = load ptr, ptr %6, align 8, !tbaa !7
+  %78 = getelementptr inbounds i8, ptr %77, i64 2
+  %79 = load i8, ptr %78, align 1, !tbaa !12
+  store i8 %79, ptr %12, align 1, !tbaa !12
+  %80 = load ptr, ptr %6, align 8, !tbaa !7
+  %81 = getelementptr inbounds i8, ptr %80, i64 3
+  %82 = load i8, ptr %81, align 1, !tbaa !12
+  store i8 %82, ptr %13, align 1, !tbaa !12
+  %83 = load i8, ptr %10, align 1, !tbaa !12
+  %84 = zext i8 %83 to i32
+  %85 = shl i32 %84, 24
+  %86 = load i8, ptr %11, align 1, !tbaa !12
+  %87 = zext i8 %86 to i32
+  %88 = shl i32 %87, 16
+  %89 = or i32 %85, %88
+  %90 = load i8, ptr %12, align 1, !tbaa !12
+  %91 = zext i8 %90 to i32
+  %92 = shl i32 %91, 8
+  %93 = or i32 %89, %92
+  %94 = load i8, ptr %13, align 1, !tbaa !12
+  %95 = zext i8 %94 to i32
+  %96 = or i32 %93, %95
+  store i32 %96, ptr %16, align 4, !tbaa !3
+  %97 = load i32, ptr %16, align 4, !tbaa !3
+  %98 = icmp ult i32 %97, -2127527632
+  br i1 %98, label %124, label %99
 
-98:                                               ; preds = %75
-  %99 = load i32, ptr %16, align 4
-  %100 = icmp ugt i32 %99, -2077121479
-  br i1 %100, label %101, label %104
+99:                                               ; preds = %76
+  %100 = load i32, ptr %16, align 4, !tbaa !3
+  %101 = icmp ugt i32 %100, -2077121479
+  br i1 %101, label %102, label %105
 
-101:                                              ; preds = %98
-  %102 = load i32, ptr %16, align 4
-  %103 = icmp ult i32 %102, -1875869392
-  br i1 %103, label %123, label %104
+102:                                              ; preds = %99
+  %103 = load i32, ptr %16, align 4, !tbaa !3
+  %104 = icmp ult i32 %103, -1875869392
+  br i1 %104, label %124, label %105
 
-104:                                              ; preds = %101, %98
-  %105 = load i32, ptr %16, align 4
-  %106 = icmp ugt i32 %105, -483222987
-  br i1 %106, label %123, label %107
+105:                                              ; preds = %102, %99
+  %106 = load i32, ptr %16, align 4, !tbaa !3
+  %107 = icmp ugt i32 %106, -483222987
+  br i1 %107, label %124, label %108
 
-107:                                              ; preds = %104
-  %108 = load i8, ptr %12, align 1
-  %109 = zext i8 %108 to i32
-  %110 = icmp slt i32 %109, 129
-  br i1 %110, label %123, label %111
+108:                                              ; preds = %105
+  %109 = load i8, ptr %12, align 1, !tbaa !12
+  %110 = zext i8 %109 to i32
+  %111 = icmp slt i32 %110, 129
+  br i1 %111, label %124, label %112
 
-111:                                              ; preds = %107
-  %112 = load i8, ptr %12, align 1
-  %113 = zext i8 %112 to i32
-  %114 = icmp sgt i32 %113, 254
-  br i1 %114, label %123, label %115
+112:                                              ; preds = %108
+  %113 = load i8, ptr %12, align 1, !tbaa !12
+  %114 = zext i8 %113 to i32
+  %115 = icmp sgt i32 %114, 254
+  br i1 %115, label %124, label %116
 
-115:                                              ; preds = %111
-  %116 = load i8, ptr %13, align 1
-  %117 = zext i8 %116 to i32
-  %118 = icmp slt i32 %117, 48
-  br i1 %118, label %123, label %119
+116:                                              ; preds = %112
+  %117 = load i8, ptr %13, align 1, !tbaa !12
+  %118 = zext i8 %117 to i32
+  %119 = icmp slt i32 %118, 48
+  br i1 %119, label %124, label %120
 
-119:                                              ; preds = %115
-  %120 = load i8, ptr %13, align 1
-  %121 = zext i8 %120 to i32
-  %122 = icmp sgt i32 %121, 57
-  br i1 %122, label %123, label %124
+120:                                              ; preds = %116
+  %121 = load i8, ptr %13, align 1, !tbaa !12
+  %122 = zext i8 %121 to i32
+  %123 = icmp sgt i32 %122, 57
+  br i1 %123, label %124, label %125
 
-123:                                              ; preds = %119, %115, %111, %107, %104, %101, %75
+124:                                              ; preds = %120, %116, %112, %108, %105, %102, %76
   store i32 0, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-124:                                              ; preds = %119
-  %125 = load i32, ptr %16, align 4
-  %126 = icmp eq i32 %125, -2127170505
-  br i1 %126, label %127, label %129
+125:                                              ; preds = %120
+  %126 = load i32, ptr %16, align 4, !tbaa !3
+  %127 = icmp eq i32 %126, -2127170505
+  br i1 %127, label %128, label %130
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %9, align 8
-  store i32 59335, ptr %128, align 4
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 59335, ptr %129, align 4, !tbaa !3
   store i32 4, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-129:                                              ; preds = %124
-  %130 = load i8, ptr %10, align 1
-  %131 = zext i8 %130 to i32
-  %132 = icmp sge i32 %131, 144
-  br i1 %132, label %133, label %154
+130:                                              ; preds = %125
+  %131 = load i8, ptr %10, align 1, !tbaa !12
+  %132 = zext i8 %131 to i32
+  %133 = icmp sge i32 %132, 144
+  br i1 %133, label %134, label %155
 
-133:                                              ; preds = %129
-  %134 = load i8, ptr %10, align 1
-  %135 = zext i8 %134 to i32
-  %136 = sub nsw i32 %135, 144
-  %137 = mul nsw i32 %136, 10
-  %138 = load i8, ptr %11, align 1
-  %139 = zext i8 %138 to i32
-  %140 = sub nsw i32 %139, 48
-  %141 = add nsw i32 %137, %140
-  %142 = mul nsw i32 %141, 126
-  %143 = load i8, ptr %12, align 1
-  %144 = zext i8 %143 to i32
-  %145 = sub nsw i32 %144, 129
-  %146 = add nsw i32 %142, %145
-  %147 = mul nsw i32 %146, 10
-  %148 = add nsw i32 65536, %147
-  %149 = load i8, ptr %13, align 1
-  %150 = zext i8 %149 to i32
-  %151 = add nsw i32 %148, %150
-  %152 = sub nsw i32 %151, 48
-  %153 = load ptr, ptr %9, align 8
-  store i32 %152, ptr %153, align 4
-  br label %192
+134:                                              ; preds = %130
+  %135 = load i8, ptr %10, align 1, !tbaa !12
+  %136 = zext i8 %135 to i32
+  %137 = sub nsw i32 %136, 144
+  %138 = mul nsw i32 %137, 10
+  %139 = load i8, ptr %11, align 1, !tbaa !12
+  %140 = zext i8 %139 to i32
+  %141 = sub nsw i32 %140, 48
+  %142 = add nsw i32 %138, %141
+  %143 = mul nsw i32 %142, 126
+  %144 = load i8, ptr %12, align 1, !tbaa !12
+  %145 = zext i8 %144 to i32
+  %146 = sub nsw i32 %145, 129
+  %147 = add nsw i32 %143, %146
+  %148 = mul nsw i32 %147, 10
+  %149 = add nsw i32 65536, %148
+  %150 = load i8, ptr %13, align 1, !tbaa !12
+  %151 = zext i8 %150 to i32
+  %152 = add nsw i32 %149, %151
+  %153 = sub nsw i32 %152, 48
+  %154 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %153, ptr %154, align 4, !tbaa !3
+  br label %193
 
-154:                                              ; preds = %129
-  store i32 0, ptr %17, align 4
-  store i32 205, ptr %18, align 4
-  br label %155
+155:                                              ; preds = %130
+  call void @llvm.lifetime.start.p0(i64 4, ptr %18) #3
+  store i32 0, ptr %18, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %19) #3
+  store i32 205, ptr %19, align 4, !tbaa !3
+  br label %156
 
-155:                                              ; preds = %175, %154
-  %156 = load i32, ptr %17, align 4
-  %157 = load i32, ptr %18, align 4
-  %158 = icmp slt i32 %156, %157
-  br i1 %158, label %159, label %176
+156:                                              ; preds = %176, %155
+  %157 = load i32, ptr %18, align 4, !tbaa !3
+  %158 = load i32, ptr %19, align 4, !tbaa !3
+  %159 = icmp slt i32 %157, %158
+  br i1 %159, label %160, label %177
 
-159:                                              ; preds = %155
-  %160 = load i32, ptr %17, align 4
-  %161 = load i32, ptr %18, align 4
-  %162 = add nsw i32 %160, %161
-  %163 = ashr i32 %162, 1
-  store i32 %163, ptr %19, align 4
-  %164 = load i32, ptr %19, align 4
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds [206 x i32], ptr @zueci_gb18030_4_mb_e, i64 0, i64 %165
-  %167 = load i32, ptr %166, align 4
-  %168 = load i32, ptr %16, align 4
-  %169 = icmp ult i32 %167, %168
-  br i1 %169, label %170, label %173
+160:                                              ; preds = %156
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #3
+  %161 = load i32, ptr %18, align 4, !tbaa !3
+  %162 = load i32, ptr %19, align 4, !tbaa !3
+  %163 = add nsw i32 %161, %162
+  %164 = ashr i32 %163, 1
+  store i32 %164, ptr %20, align 4, !tbaa !3
+  %165 = load i32, ptr %20, align 4, !tbaa !3
+  %166 = sext i32 %165 to i64
+  %167 = getelementptr inbounds [206 x i32], ptr @zueci_gb18030_4_mb_e, i64 0, i64 %166
+  %168 = load i32, ptr %167, align 4, !tbaa !3
+  %169 = load i32, ptr %16, align 4, !tbaa !3
+  %170 = icmp ult i32 %168, %169
+  br i1 %170, label %171, label %174
 
-170:                                              ; preds = %159
-  %171 = load i32, ptr %19, align 4
-  %172 = add nsw i32 %171, 1
-  store i32 %172, ptr %17, align 4
-  br label %175
+171:                                              ; preds = %160
+  %172 = load i32, ptr %20, align 4, !tbaa !3
+  %173 = add nsw i32 %172, 1
+  store i32 %173, ptr %18, align 4, !tbaa !3
+  br label %176
 
-173:                                              ; preds = %159
-  %174 = load i32, ptr %19, align 4
-  store i32 %174, ptr %18, align 4
-  br label %175
+174:                                              ; preds = %160
+  %175 = load i32, ptr %20, align 4, !tbaa !3
+  store i32 %175, ptr %19, align 4, !tbaa !3
+  br label %176
 
-175:                                              ; preds = %173, %170
-  br label %155, !llvm.loop !35
+176:                                              ; preds = %174, %171
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #3
+  br label %156, !llvm.loop !49
 
-176:                                              ; preds = %155
-  %177 = load i32, ptr %17, align 4
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %178
-  %180 = load i16, ptr %179, align 2
-  %181 = zext i16 %180 to i32
-  %182 = load i32, ptr %17, align 4
-  %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds [206 x i32], ptr @zueci_gb18030_4_mb_e, i64 0, i64 %183
-  %185 = load i32, ptr %184, align 4
-  %186 = call i32 @zueci_gb18030_mb4_u(i32 noundef %185)
-  %187 = load i32, ptr %16, align 4
-  %188 = call i32 @zueci_gb18030_mb4_u(i32 noundef %187)
-  %189 = sub i32 %186, %188
-  %190 = sub i32 %181, %189
-  %191 = load ptr, ptr %9, align 8
-  store i32 %190, ptr %191, align 4
-  br label %192
+177:                                              ; preds = %156
+  %178 = load i32, ptr %18, align 4, !tbaa !3
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds [206 x i16], ptr @zueci_gb18030_4_u_e, i64 0, i64 %179
+  %181 = load i16, ptr %180, align 2, !tbaa !19
+  %182 = zext i16 %181 to i32
+  %183 = load i32, ptr %18, align 4, !tbaa !3
+  %184 = sext i32 %183 to i64
+  %185 = getelementptr inbounds [206 x i32], ptr @zueci_gb18030_4_mb_e, i64 0, i64 %184
+  %186 = load i32, ptr %185, align 4, !tbaa !3
+  %187 = call i32 @zueci_gb18030_mb4_u(i32 noundef %186)
+  %188 = load i32, ptr %16, align 4, !tbaa !3
+  %189 = call i32 @zueci_gb18030_mb4_u(i32 noundef %188)
+  %190 = sub i32 %187, %189
+  %191 = sub i32 %182, %190
+  %192 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %191, ptr %192, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %18) #3
+  br label %193
 
-192:                                              ; preds = %176, %133
+193:                                              ; preds = %177, %134
   store i32 4, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-193:                                              ; preds = %71, %67, %63, %59, %53
-  %194 = load i8, ptr %11, align 1
-  %195 = zext i8 %194 to i32
-  %196 = icmp slt i32 %195, 64
-  br i1 %196, label %205, label %197
+194:                                              ; preds = %72, %68, %64, %60, %54
+  %195 = load i8, ptr %11, align 1, !tbaa !12
+  %196 = zext i8 %195 to i32
+  %197 = icmp slt i32 %196, 64
+  br i1 %197, label %206, label %198
 
-197:                                              ; preds = %193
-  %198 = load i8, ptr %11, align 1
-  %199 = zext i8 %198 to i32
-  %200 = icmp eq i32 %199, 127
-  br i1 %200, label %205, label %201
+198:                                              ; preds = %194
+  %199 = load i8, ptr %11, align 1, !tbaa !12
+  %200 = zext i8 %199 to i32
+  %201 = icmp eq i32 %200, 127
+  br i1 %201, label %206, label %202
 
-201:                                              ; preds = %197
-  %202 = load i8, ptr %11, align 1
-  %203 = zext i8 %202 to i32
-  %204 = icmp eq i32 %203, 255
-  br i1 %204, label %205, label %206
+202:                                              ; preds = %198
+  %203 = load i8, ptr %11, align 1, !tbaa !12
+  %204 = zext i8 %203 to i32
+  %205 = icmp eq i32 %204, 255
+  br i1 %205, label %206, label %207
 
-205:                                              ; preds = %201, %197, %193
+206:                                              ; preds = %202, %198, %194
   store i32 0, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-206:                                              ; preds = %201
-  %207 = load i8, ptr %10, align 1
-  %208 = zext i8 %207 to i32
-  %209 = icmp sge i32 %208, 170
-  br i1 %209, label %210, label %214
+207:                                              ; preds = %202
+  %208 = load i8, ptr %10, align 1, !tbaa !12
+  %209 = zext i8 %208 to i32
+  %210 = icmp sge i32 %209, 170
+  br i1 %210, label %211, label %215
 
-210:                                              ; preds = %206
-  %211 = load i8, ptr %10, align 1
-  %212 = zext i8 %211 to i32
-  %213 = icmp sle i32 %212, 175
-  br i1 %213, label %222, label %214
+211:                                              ; preds = %207
+  %212 = load i8, ptr %10, align 1, !tbaa !12
+  %213 = zext i8 %212 to i32
+  %214 = icmp sle i32 %213, 175
+  br i1 %214, label %223, label %215
 
-214:                                              ; preds = %210, %206
-  %215 = load i8, ptr %10, align 1
-  %216 = zext i8 %215 to i32
-  %217 = icmp sge i32 %216, 248
-  br i1 %217, label %218, label %245
+215:                                              ; preds = %211, %207
+  %216 = load i8, ptr %10, align 1, !tbaa !12
+  %217 = zext i8 %216 to i32
+  %218 = icmp sge i32 %217, 248
+  br i1 %218, label %219, label %246
 
-218:                                              ; preds = %214
-  %219 = load i8, ptr %10, align 1
-  %220 = zext i8 %219 to i32
-  %221 = icmp sle i32 %220, 254
-  br i1 %221, label %222, label %245
+219:                                              ; preds = %215
+  %220 = load i8, ptr %10, align 1, !tbaa !12
+  %221 = zext i8 %220 to i32
+  %222 = icmp sle i32 %221, 254
+  br i1 %222, label %223, label %246
 
-222:                                              ; preds = %218, %210
-  %223 = load i8, ptr %11, align 1
-  %224 = zext i8 %223 to i32
-  %225 = icmp sge i32 %224, 161
-  br i1 %225, label %226, label %245
+223:                                              ; preds = %219, %211
+  %224 = load i8, ptr %11, align 1, !tbaa !12
+  %225 = zext i8 %224 to i32
+  %226 = icmp sge i32 %225, 161
+  br i1 %226, label %227, label %246
 
-226:                                              ; preds = %222
-  %227 = load i8, ptr %11, align 1
-  %228 = zext i8 %227 to i32
-  %229 = icmp sle i32 %228, 254
-  br i1 %229, label %230, label %245
+227:                                              ; preds = %223
+  %228 = load i8, ptr %11, align 1, !tbaa !12
+  %229 = zext i8 %228 to i32
+  %230 = icmp sle i32 %229, 254
+  br i1 %230, label %231, label %246
 
-230:                                              ; preds = %226
-  %231 = load i8, ptr %10, align 1
-  %232 = zext i8 %231 to i32
-  %233 = load i8, ptr %10, align 1
-  %234 = zext i8 %233 to i32
-  %235 = icmp sge i32 %234, 248
-  %236 = select i1 %235, i32 242, i32 170
-  %237 = sub nsw i32 %232, %236
-  %238 = mul nsw i32 94, %237
-  %239 = add nsw i32 57344, %238
-  %240 = load i8, ptr %11, align 1
-  %241 = zext i8 %240 to i32
-  %242 = add nsw i32 %239, %241
-  %243 = sub nsw i32 %242, 161
-  %244 = load ptr, ptr %9, align 8
-  store i32 %243, ptr %244, align 4
+231:                                              ; preds = %227
+  %232 = load i8, ptr %10, align 1, !tbaa !12
+  %233 = zext i8 %232 to i32
+  %234 = load i8, ptr %10, align 1, !tbaa !12
+  %235 = zext i8 %234 to i32
+  %236 = icmp sge i32 %235, 248
+  %237 = select i1 %236, i32 242, i32 170
+  %238 = sub nsw i32 %233, %237
+  %239 = mul nsw i32 94, %238
+  %240 = add nsw i32 57344, %239
+  %241 = load i8, ptr %11, align 1, !tbaa !12
+  %242 = zext i8 %241 to i32
+  %243 = add nsw i32 %240, %242
+  %244 = sub nsw i32 %243, 161
+  %245 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %244, ptr %245, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-245:                                              ; preds = %226, %222, %218, %214
-  %246 = load i8, ptr %10, align 1
-  %247 = zext i8 %246 to i32
-  %248 = icmp sge i32 %247, 161
-  br i1 %248, label %249, label %273
+246:                                              ; preds = %227, %223, %219, %215
+  %247 = load i8, ptr %10, align 1, !tbaa !12
+  %248 = zext i8 %247 to i32
+  %249 = icmp sge i32 %248, 161
+  br i1 %249, label %250, label %274
 
-249:                                              ; preds = %245
-  %250 = load i8, ptr %10, align 1
-  %251 = zext i8 %250 to i32
-  %252 = icmp sle i32 %251, 167
-  br i1 %252, label %253, label %273
+250:                                              ; preds = %246
+  %251 = load i8, ptr %10, align 1, !tbaa !12
+  %252 = zext i8 %251 to i32
+  %253 = icmp sle i32 %252, 167
+  br i1 %253, label %254, label %274
 
-253:                                              ; preds = %249
-  %254 = load i8, ptr %11, align 1
-  %255 = zext i8 %254 to i32
-  %256 = icmp sle i32 %255, 161
-  br i1 %256, label %257, label %273
+254:                                              ; preds = %250
+  %255 = load i8, ptr %11, align 1, !tbaa !12
+  %256 = zext i8 %255 to i32
+  %257 = icmp sle i32 %256, 161
+  br i1 %257, label %258, label %274
 
-257:                                              ; preds = %253
-  %258 = load i8, ptr %10, align 1
-  %259 = zext i8 %258 to i32
-  %260 = sub nsw i32 %259, 161
-  %261 = mul nsw i32 96, %260
-  %262 = add nsw i32 58566, %261
-  %263 = load i8, ptr %11, align 1
-  %264 = zext i8 %263 to i32
-  %265 = add nsw i32 %262, %264
-  %266 = sub nsw i32 %265, 64
-  %267 = load i8, ptr %11, align 1
-  %268 = zext i8 %267 to i32
-  %269 = icmp sgt i32 %268, 127
-  %270 = zext i1 %269 to i32
-  %271 = sub nsw i32 %266, %270
-  %272 = load ptr, ptr %9, align 8
-  store i32 %271, ptr %272, align 4
+258:                                              ; preds = %254
+  %259 = load i8, ptr %10, align 1, !tbaa !12
+  %260 = zext i8 %259 to i32
+  %261 = sub nsw i32 %260, 161
+  %262 = mul nsw i32 96, %261
+  %263 = add nsw i32 58566, %262
+  %264 = load i8, ptr %11, align 1, !tbaa !12
+  %265 = zext i8 %264 to i32
+  %266 = add nsw i32 %263, %265
+  %267 = sub nsw i32 %266, 64
+  %268 = load i8, ptr %11, align 1, !tbaa !12
+  %269 = zext i8 %268 to i32
+  %270 = icmp sgt i32 %269, 127
+  %271 = zext i1 %270 to i32
+  %272 = sub nsw i32 %267, %271
+  %273 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %272, ptr %273, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-273:                                              ; preds = %253, %249, %245
-  %274 = load i8, ptr %10, align 1
-  %275 = zext i8 %274 to i32
-  %276 = icmp eq i32 %275, 254
-  br i1 %276, label %277, label %322
+274:                                              ; preds = %254, %250, %246
+  %275 = load i8, ptr %10, align 1, !tbaa !12
+  %276 = zext i8 %275 to i32
+  %277 = icmp eq i32 %276, 254
+  br i1 %277, label %278, label %323
 
-277:                                              ; preds = %273
-  %278 = load i8, ptr %11, align 1
-  %279 = zext i8 %278 to i32
-  %280 = icmp sge i32 %279, 81
-  br i1 %280, label %281, label %322
+278:                                              ; preds = %274
+  %279 = load i8, ptr %11, align 1, !tbaa !12
+  %280 = zext i8 %279 to i32
+  %281 = icmp sge i32 %280, 81
+  br i1 %281, label %282, label %323
 
-281:                                              ; preds = %277
-  %282 = load i8, ptr %11, align 1
-  %283 = zext i8 %282 to i32
-  %284 = icmp sle i32 %283, 145
-  br i1 %284, label %285, label %322
+282:                                              ; preds = %278
+  %283 = load i8, ptr %11, align 1, !tbaa !12
+  %284 = zext i8 %283 to i32
+  %285 = icmp sle i32 %284, 145
+  br i1 %285, label %286, label %323
 
-285:                                              ; preds = %281
-  %286 = load i8, ptr %11, align 1
-  %287 = zext i8 %286 to i32
-  %288 = icmp eq i32 %287, 81
-  br i1 %288, label %289, label %291
+286:                                              ; preds = %282
+  %287 = load i8, ptr %11, align 1, !tbaa !12
+  %288 = zext i8 %287 to i32
+  %289 = icmp eq i32 %288, 81
+  br i1 %289, label %290, label %292
 
-289:                                              ; preds = %285
-  %290 = load ptr, ptr %9, align 8
-  store i32 131207, ptr %290, align 4
+290:                                              ; preds = %286
+  %291 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 131207, ptr %291, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-291:                                              ; preds = %285
-  %292 = load i8, ptr %11, align 1
-  %293 = zext i8 %292 to i32
-  %294 = icmp eq i32 %293, 82
-  br i1 %294, label %295, label %297
+292:                                              ; preds = %286
+  %293 = load i8, ptr %11, align 1, !tbaa !12
+  %294 = zext i8 %293 to i32
+  %295 = icmp eq i32 %294, 82
+  br i1 %295, label %296, label %298
 
-295:                                              ; preds = %291
-  %296 = load ptr, ptr %9, align 8
-  store i32 131209, ptr %296, align 4
+296:                                              ; preds = %292
+  %297 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 131209, ptr %297, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-297:                                              ; preds = %291
-  %298 = load i8, ptr %11, align 1
-  %299 = zext i8 %298 to i32
-  %300 = icmp eq i32 %299, 83
-  br i1 %300, label %301, label %303
+298:                                              ; preds = %292
+  %299 = load i8, ptr %11, align 1, !tbaa !12
+  %300 = zext i8 %299 to i32
+  %301 = icmp eq i32 %300, 83
+  br i1 %301, label %302, label %304
 
-301:                                              ; preds = %297
-  %302 = load ptr, ptr %9, align 8
-  store i32 131276, ptr %302, align 4
+302:                                              ; preds = %298
+  %303 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 131276, ptr %303, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-303:                                              ; preds = %297
-  %304 = load i8, ptr %11, align 1
-  %305 = zext i8 %304 to i32
-  %306 = icmp eq i32 %305, 108
-  br i1 %306, label %307, label %309
+304:                                              ; preds = %298
+  %305 = load i8, ptr %11, align 1, !tbaa !12
+  %306 = zext i8 %305 to i32
+  %307 = icmp eq i32 %306, 108
+  br i1 %307, label %308, label %310
 
-307:                                              ; preds = %303
-  %308 = load ptr, ptr %9, align 8
-  store i32 136663, ptr %308, align 4
+308:                                              ; preds = %304
+  %309 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 136663, ptr %309, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-309:                                              ; preds = %303
-  %310 = load i8, ptr %11, align 1
-  %311 = zext i8 %310 to i32
-  %312 = icmp eq i32 %311, 118
-  br i1 %312, label %313, label %315
+310:                                              ; preds = %304
+  %311 = load i8, ptr %11, align 1, !tbaa !12
+  %312 = zext i8 %311 to i32
+  %313 = icmp eq i32 %312, 118
+  br i1 %313, label %314, label %316
 
-313:                                              ; preds = %309
-  %314 = load ptr, ptr %9, align 8
-  store i32 141711, ptr %314, align 4
+314:                                              ; preds = %310
+  %315 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 141711, ptr %315, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-315:                                              ; preds = %309
-  %316 = load i8, ptr %11, align 1
-  %317 = zext i8 %316 to i32
-  %318 = icmp eq i32 %317, 145
-  br i1 %318, label %319, label %321
+316:                                              ; preds = %310
+  %317 = load i8, ptr %11, align 1, !tbaa !12
+  %318 = zext i8 %317 to i32
+  %319 = icmp eq i32 %318, 145
+  br i1 %319, label %320, label %322
 
-319:                                              ; preds = %315
-  %320 = load ptr, ptr %9, align 8
-  store i32 147966, ptr %320, align 4
+320:                                              ; preds = %316
+  %321 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 147966, ptr %321, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-321:                                              ; preds = %315
-  br label %322
+322:                                              ; preds = %316
+  br label %323
 
-322:                                              ; preds = %321, %281, %277, %273
-  %323 = load i8, ptr %10, align 1
-  %324 = zext i8 %323 to i16
-  %325 = zext i16 %324 to i32
-  %326 = shl i32 %325, 8
-  %327 = load i8, ptr %11, align 1
-  %328 = zext i8 %327 to i32
-  %329 = or i32 %326, %328
-  %330 = trunc i32 %329 to i16
-  store i16 %330, ptr %15, align 2
-  %331 = load i16, ptr %15, align 2
-  %332 = zext i16 %331 to i32
-  %333 = load i16, ptr @zueci_gb18030_2_mb_mb, align 16
-  %334 = zext i16 %333 to i32
-  %335 = icmp sge i32 %332, %334
-  br i1 %335, label %336, label %386
+323:                                              ; preds = %322, %282, %278, %274
+  %324 = load i8, ptr %10, align 1, !tbaa !12
+  %325 = zext i8 %324 to i16
+  %326 = zext i16 %325 to i32
+  %327 = shl i32 %326, 8
+  %328 = load i8, ptr %11, align 1, !tbaa !12
+  %329 = zext i8 %328 to i32
+  %330 = or i32 %327, %329
+  %331 = trunc i32 %330 to i16
+  store i16 %331, ptr %15, align 2, !tbaa !19
+  %332 = load i16, ptr %15, align 2, !tbaa !19
+  %333 = zext i16 %332 to i32
+  %334 = load i16, ptr @zueci_gb18030_2_mb_mb, align 16, !tbaa !19
+  %335 = zext i16 %334 to i32
+  %336 = icmp sge i32 %333, %335
+  br i1 %336, label %337, label %392
 
-336:                                              ; preds = %322
-  %337 = load i16, ptr %15, align 2
-  %338 = zext i16 %337 to i32
-  %339 = getelementptr inbounds [255 x i16], ptr @zueci_gb18030_2_mb_mb, i64 0, i64 254
-  %340 = load i16, ptr %339, align 4
+337:                                              ; preds = %323
+  %338 = load i16, ptr %15, align 2, !tbaa !19
+  %339 = zext i16 %338 to i32
+  %340 = load i16, ptr getelementptr inbounds ([255 x i16], ptr @zueci_gb18030_2_mb_mb, i64 0, i64 254), align 4, !tbaa !19
   %341 = zext i16 %340 to i32
-  %342 = icmp sle i32 %338, %341
-  br i1 %342, label %343, label %386
+  %342 = icmp sle i32 %339, %341
+  br i1 %342, label %343, label %392
 
-343:                                              ; preds = %336
-  store i32 0, ptr %20, align 4
-  store i32 254, ptr %21, align 4
+343:                                              ; preds = %337
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #3
+  store i32 0, ptr %21, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #3
+  store i32 254, ptr %22, align 4, !tbaa !3
   br label %344
 
-344:                                              ; preds = %384, %343
-  %345 = load i32, ptr %20, align 4
-  %346 = load i32, ptr %21, align 4
+344:                                              ; preds = %387, %343
+  %345 = load i32, ptr %21, align 4, !tbaa !3
+  %346 = load i32, ptr %22, align 4, !tbaa !3
   %347 = icmp sle i32 %345, %346
-  br i1 %347, label %348, label %385
+  br i1 %347, label %348, label %388
 
 348:                                              ; preds = %344
-  %349 = load i32, ptr %20, align 4
-  %350 = load i32, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #3
+  %349 = load i32, ptr %21, align 4, !tbaa !3
+  %350 = load i32, ptr %22, align 4, !tbaa !3
   %351 = add nsw i32 %349, %350
   %352 = ashr i32 %351, 1
-  store i32 %352, ptr %22, align 4
-  %353 = load i32, ptr %22, align 4
+  store i32 %352, ptr %23, align 4, !tbaa !3
+  %353 = load i32, ptr %23, align 4, !tbaa !3
   %354 = sext i32 %353 to i64
   %355 = getelementptr inbounds [255 x i16], ptr @zueci_gb18030_2_mb_mb, i64 0, i64 %354
-  %356 = load i16, ptr %355, align 2
+  %356 = load i16, ptr %355, align 2, !tbaa !19
   %357 = zext i16 %356 to i32
-  %358 = load i16, ptr %15, align 2
+  %358 = load i16, ptr %15, align 2, !tbaa !19
   %359 = zext i16 %358 to i32
   %360 = icmp slt i32 %357, %359
   br i1 %360, label %361, label %364
 
 361:                                              ; preds = %348
-  %362 = load i32, ptr %22, align 4
+  %362 = load i32, ptr %23, align 4, !tbaa !3
   %363 = add nsw i32 %362, 1
-  store i32 %363, ptr %20, align 4
+  store i32 %363, ptr %21, align 4, !tbaa !3
   br label %384
 
 364:                                              ; preds = %348
-  %365 = load i32, ptr %22, align 4
+  %365 = load i32, ptr %23, align 4, !tbaa !3
   %366 = sext i32 %365 to i64
   %367 = getelementptr inbounds [255 x i16], ptr @zueci_gb18030_2_mb_mb, i64 0, i64 %366
-  %368 = load i16, ptr %367, align 2
+  %368 = load i16, ptr %367, align 2, !tbaa !19
   %369 = zext i16 %368 to i32
-  %370 = load i16, ptr %15, align 2
+  %370 = load i16, ptr %15, align 2, !tbaa !19
   %371 = zext i16 %370 to i32
   %372 = icmp sgt i32 %369, %371
   br i1 %372, label %373, label %376
 
 373:                                              ; preds = %364
-  %374 = load i32, ptr %22, align 4
+  %374 = load i32, ptr %23, align 4, !tbaa !3
   %375 = sub nsw i32 %374, 1
-  store i32 %375, ptr %21, align 4
+  store i32 %375, ptr %22, align 4, !tbaa !3
   br label %383
 
 376:                                              ; preds = %364
-  %377 = load i32, ptr %22, align 4
+  %377 = load i32, ptr %23, align 4, !tbaa !3
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds [255 x i16], ptr @zueci_gb18030_2_mb_u, i64 0, i64 %378
-  %380 = load i16, ptr %379, align 2
+  %380 = load i16, ptr %379, align 2, !tbaa !19
   %381 = zext i16 %380 to i32
-  %382 = load ptr, ptr %9, align 8
-  store i32 %381, ptr %382, align 4
+  %382 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %381, ptr %382, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %385
 
 383:                                              ; preds = %373
   br label %384
 
 384:                                              ; preds = %383, %361
-  br label %344, !llvm.loop !36
+  store i32 0, ptr %17, align 4
+  br label %385
 
-385:                                              ; preds = %344
-  br label %386
+385:                                              ; preds = %384, %376
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #3
+  %386 = load i32, ptr %17, align 4
+  switch i32 %386, label %389 [
+    i32 0, label %387
+  ]
 
-386:                                              ; preds = %385, %336, %322
+387:                                              ; preds = %385
+  br label %344, !llvm.loop !50
+
+388:                                              ; preds = %344
+  store i32 0, ptr %17, align 4
+  br label %389
+
+389:                                              ; preds = %388, %385
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #3
+  %390 = load i32, ptr %17, align 4
+  switch i32 %390, label %393 [
+    i32 0, label %391
+  ]
+
+391:                                              ; preds = %389
+  br label %392
+
+392:                                              ; preds = %391, %337, %323
   store i32 0, ptr %5, align 4
-  br label %387
+  store i32 1, ptr %17, align 4
+  br label %393
 
-387:                                              ; preds = %386, %376, %319, %313, %307, %301, %295, %289, %257, %230, %205, %192, %127, %123, %51, %44, %29
-  %388 = load i32, ptr %5, align 4
-  ret i32 %388
+393:                                              ; preds = %392, %389, %320, %314, %308, %302, %296, %290, %258, %231, %206, %193, %128, %124, %52, %45, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %15) #3
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %10) #3
+  %394 = load i32, ptr %5, align 4
+  ret i32 %394
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6789,113 +7430,123 @@ define internal i32 @zueci_utf16le_u(ptr noundef %0, i32 noundef %1, i32 noundef
   %9 = alloca ptr, align 8
   %10 = alloca i16, align 2
   %11 = alloca i16, align 2
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %12 = load i32, ptr %7, align 4
-  %13 = icmp ult i32 %12, 2
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %79
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 2, ptr %10) #3
+  call void @llvm.lifetime.start.p0(i64 2, ptr %11) #3
+  %13 = load i32, ptr %7, align 4, !tbaa !3
+  %14 = icmp ult i32 %13, 2
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %4
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = zext i8 %18 to i16
-  %20 = zext i16 %19 to i32
-  %21 = shl i32 %20, 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 0
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = or i32 %21, %25
-  %27 = trunc i32 %26 to i16
-  store i16 %27, ptr %10, align 2
-  %28 = load i16, ptr %10, align 2
-  %29 = zext i16 %28 to i32
-  %30 = icmp slt i32 %29, 55296
-  br i1 %30, label %35, label %31
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %12, align 4
+  br label %80
 
-31:                                               ; preds = %15
-  %32 = load i16, ptr %10, align 2
-  %33 = zext i16 %32 to i32
-  %34 = icmp sgt i32 %33, 57343
-  br i1 %34, label %35, label %39
+16:                                               ; preds = %4
+  %17 = load ptr, ptr %6, align 8, !tbaa !7
+  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %19 = load i8, ptr %18, align 1, !tbaa !12
+  %20 = zext i8 %19 to i16
+  %21 = zext i16 %20 to i32
+  %22 = shl i32 %21, 8
+  %23 = load ptr, ptr %6, align 8, !tbaa !7
+  %24 = getelementptr inbounds i8, ptr %23, i64 0
+  %25 = load i8, ptr %24, align 1, !tbaa !12
+  %26 = zext i8 %25 to i32
+  %27 = or i32 %22, %26
+  %28 = trunc i32 %27 to i16
+  store i16 %28, ptr %10, align 2, !tbaa !19
+  %29 = load i16, ptr %10, align 2, !tbaa !19
+  %30 = zext i16 %29 to i32
+  %31 = icmp slt i32 %30, 55296
+  br i1 %31, label %36, label %32
 
-35:                                               ; preds = %31, %15
-  %36 = load i16, ptr %10, align 2
-  %37 = zext i16 %36 to i32
-  %38 = load ptr, ptr %9, align 8
-  store i32 %37, ptr %38, align 4
+32:                                               ; preds = %16
+  %33 = load i16, ptr %10, align 2, !tbaa !19
+  %34 = zext i16 %33 to i32
+  %35 = icmp sgt i32 %34, 57343
+  br i1 %35, label %36, label %40
+
+36:                                               ; preds = %32, %16
+  %37 = load i16, ptr %10, align 2, !tbaa !19
+  %38 = zext i16 %37 to i32
+  %39 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %38, ptr %39, align 4, !tbaa !3
   store i32 2, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-39:                                               ; preds = %31
-  %40 = load i16, ptr %10, align 2
-  %41 = zext i16 %40 to i32
-  %42 = icmp sge i32 %41, 56320
-  br i1 %42, label %46, label %43
+40:                                               ; preds = %32
+  %41 = load i16, ptr %10, align 2, !tbaa !19
+  %42 = zext i16 %41 to i32
+  %43 = icmp sge i32 %42, 56320
+  br i1 %43, label %47, label %44
 
-43:                                               ; preds = %39
-  %44 = load i32, ptr %7, align 4
-  %45 = icmp ult i32 %44, 4
-  br i1 %45, label %46, label %47
+44:                                               ; preds = %40
+  %45 = load i32, ptr %7, align 4, !tbaa !3
+  %46 = icmp ult i32 %45, 4
+  br i1 %46, label %47, label %48
 
-46:                                               ; preds = %43, %39
+47:                                               ; preds = %44, %40
   store i32 0, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-47:                                               ; preds = %43
-  %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 3
-  %50 = load i8, ptr %49, align 1
-  %51 = zext i8 %50 to i16
-  %52 = zext i16 %51 to i32
-  %53 = shl i32 %52, 8
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 2
-  %56 = load i8, ptr %55, align 1
-  %57 = zext i8 %56 to i32
-  %58 = or i32 %53, %57
-  %59 = trunc i32 %58 to i16
-  store i16 %59, ptr %11, align 2
-  %60 = load i16, ptr %11, align 2
-  %61 = zext i16 %60 to i32
-  %62 = icmp slt i32 %61, 56320
-  br i1 %62, label %67, label %63
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %6, align 8, !tbaa !7
+  %50 = getelementptr inbounds i8, ptr %49, i64 3
+  %51 = load i8, ptr %50, align 1, !tbaa !12
+  %52 = zext i8 %51 to i16
+  %53 = zext i16 %52 to i32
+  %54 = shl i32 %53, 8
+  %55 = load ptr, ptr %6, align 8, !tbaa !7
+  %56 = getelementptr inbounds i8, ptr %55, i64 2
+  %57 = load i8, ptr %56, align 1, !tbaa !12
+  %58 = zext i8 %57 to i32
+  %59 = or i32 %54, %58
+  %60 = trunc i32 %59 to i16
+  store i16 %60, ptr %11, align 2, !tbaa !19
+  %61 = load i16, ptr %11, align 2, !tbaa !19
+  %62 = zext i16 %61 to i32
+  %63 = icmp slt i32 %62, 56320
+  br i1 %63, label %68, label %64
 
-63:                                               ; preds = %47
-  %64 = load i16, ptr %11, align 2
-  %65 = zext i16 %64 to i32
-  %66 = icmp sgt i32 %65, 57343
-  br i1 %66, label %67, label %68
+64:                                               ; preds = %48
+  %65 = load i16, ptr %11, align 2, !tbaa !19
+  %66 = zext i16 %65 to i32
+  %67 = icmp sgt i32 %66, 57343
+  br i1 %67, label %68, label %69
 
-67:                                               ; preds = %63, %47
+68:                                               ; preds = %64, %48
   store i32 0, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-68:                                               ; preds = %63
-  %69 = load i16, ptr %10, align 2
-  %70 = zext i16 %69 to i32
-  %71 = sub nsw i32 %70, 55296
-  %72 = shl i32 %71, 10
-  %73 = load i16, ptr %11, align 2
-  %74 = zext i16 %73 to i32
-  %75 = sub nsw i32 %74, 56320
-  %76 = or i32 %72, %75
-  %77 = add i32 65536, %76
-  %78 = load ptr, ptr %9, align 8
-  store i32 %77, ptr %78, align 4
+69:                                               ; preds = %64
+  %70 = load i16, ptr %10, align 2, !tbaa !19
+  %71 = zext i16 %70 to i32
+  %72 = sub nsw i32 %71, 55296
+  %73 = shl i32 %72, 10
+  %74 = load i16, ptr %11, align 2, !tbaa !19
+  %75 = zext i16 %74 to i32
+  %76 = sub nsw i32 %75, 56320
+  %77 = or i32 %73, %76
+  %78 = add i32 65536, %77
+  %79 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %78, ptr %79, align 4, !tbaa !3
   store i32 4, ptr %5, align 4
-  br label %79
+  store i32 1, ptr %12, align 4
+  br label %80
 
-79:                                               ; preds = %68, %67, %46, %35, %14
-  %80 = load i32, ptr %5, align 4
-  ret i32 %80
+80:                                               ; preds = %69, %68, %47, %36, %15
+  call void @llvm.lifetime.end.p0(i64 2, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 2, ptr %10) #3
+  %81 = load i32, ptr %5, align 4
+  ret i32 %81
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6906,70 +7557,76 @@ define internal i32 @zueci_utf32be_u(ptr noundef %0, i32 noundef %1, i32 noundef
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %11 = load i32, ptr %7, align 4
-  %12 = icmp ult i32 %11, 4
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %49
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load i32, ptr %7, align 4, !tbaa !3
+  %13 = icmp ult i32 %12, 4
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 0
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = shl i32 %18, 24
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = shl i32 %23, 16
-  %25 = or i32 %19, %24
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 2
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = shl i32 %29, 8
-  %31 = or i32 %25, %30
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 3
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = or i32 %31, %35
-  store i32 %36, ptr %10, align 4
-  %37 = load i32, ptr %10, align 4
-  %38 = icmp ult i32 %37, 55296
-  br i1 %38, label %46, label %39
-
-39:                                               ; preds = %14
-  %40 = load i32, ptr %10, align 4
-  %41 = icmp uge i32 %40, 57344
-  br i1 %41, label %42, label %45
-
-42:                                               ; preds = %39
-  %43 = load i32, ptr %10, align 4
-  %44 = icmp ule i32 %43, 1114111
-  br i1 %44, label %46, label %45
-
-45:                                               ; preds = %42, %39
   store i32 0, ptr %5, align 4
-  br label %49
+  store i32 1, ptr %11, align 4
+  br label %50
 
-46:                                               ; preds = %42, %14
-  %47 = load i32, ptr %10, align 4
-  %48 = load ptr, ptr %9, align 8
-  store i32 %47, ptr %48, align 4
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %17 = getelementptr inbounds i8, ptr %16, i64 0
+  %18 = load i8, ptr %17, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = shl i32 %19, 24
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %24 = zext i8 %23 to i32
+  %25 = shl i32 %24, 16
+  %26 = or i32 %20, %25
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
+  %28 = getelementptr inbounds i8, ptr %27, i64 2
+  %29 = load i8, ptr %28, align 1, !tbaa !12
+  %30 = zext i8 %29 to i32
+  %31 = shl i32 %30, 8
+  %32 = or i32 %26, %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !7
+  %34 = getelementptr inbounds i8, ptr %33, i64 3
+  %35 = load i8, ptr %34, align 1, !tbaa !12
+  %36 = zext i8 %35 to i32
+  %37 = or i32 %32, %36
+  store i32 %37, ptr %10, align 4, !tbaa !3
+  %38 = load i32, ptr %10, align 4, !tbaa !3
+  %39 = icmp ult i32 %38, 55296
+  br i1 %39, label %47, label %40
+
+40:                                               ; preds = %15
+  %41 = load i32, ptr %10, align 4, !tbaa !3
+  %42 = icmp uge i32 %41, 57344
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %40
+  %44 = load i32, ptr %10, align 4, !tbaa !3
+  %45 = icmp ule i32 %44, 1114111
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %43, %40
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %50
+
+47:                                               ; preds = %43, %15
+  %48 = load i32, ptr %10, align 4, !tbaa !3
+  %49 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %48, ptr %49, align 4, !tbaa !3
   store i32 4, ptr %5, align 4
-  br label %49
+  store i32 1, ptr %11, align 4
+  br label %50
 
-49:                                               ; preds = %46, %45, %13
-  %50 = load i32, ptr %5, align 4
-  ret i32 %50
+50:                                               ; preds = %47, %46, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %51 = load i32, ptr %5, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6980,70 +7637,76 @@ define internal i32 @zueci_utf32le_u(ptr noundef %0, i32 noundef %1, i32 noundef
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
-  store ptr %0, ptr %6, align 8
-  store i32 %1, ptr %7, align 4
-  store i32 %2, ptr %8, align 4
-  store ptr %3, ptr %9, align 8
-  %11 = load i32, ptr %7, align 4
-  %12 = icmp ult i32 %11, 4
-  br i1 %12, label %13, label %14
-
-13:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
-  br label %49
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %6, align 8, !tbaa !7
+  store i32 %1, ptr %7, align 4, !tbaa !3
+  store i32 %2, ptr %8, align 4, !tbaa !3
+  store ptr %3, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #3
+  %12 = load i32, ptr %7, align 4, !tbaa !3
+  %13 = icmp ult i32 %12, 4
+  br i1 %13, label %14, label %15
 
 14:                                               ; preds = %4
-  %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 3
-  %17 = load i8, ptr %16, align 1
-  %18 = zext i8 %17 to i32
-  %19 = shl i32 %18, 24
-  %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 2
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i32
-  %24 = shl i32 %23, 16
-  %25 = or i32 %19, %24
-  %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1
-  %28 = load i8, ptr %27, align 1
-  %29 = zext i8 %28 to i32
-  %30 = shl i32 %29, 8
-  %31 = or i32 %25, %30
-  %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 0
-  %34 = load i8, ptr %33, align 1
-  %35 = zext i8 %34 to i32
-  %36 = or i32 %31, %35
-  store i32 %36, ptr %10, align 4
-  %37 = load i32, ptr %10, align 4
-  %38 = icmp ult i32 %37, 55296
-  br i1 %38, label %46, label %39
-
-39:                                               ; preds = %14
-  %40 = load i32, ptr %10, align 4
-  %41 = icmp uge i32 %40, 57344
-  br i1 %41, label %42, label %45
-
-42:                                               ; preds = %39
-  %43 = load i32, ptr %10, align 4
-  %44 = icmp ule i32 %43, 1114111
-  br i1 %44, label %46, label %45
-
-45:                                               ; preds = %42, %39
   store i32 0, ptr %5, align 4
-  br label %49
+  store i32 1, ptr %11, align 4
+  br label %50
 
-46:                                               ; preds = %42, %14
-  %47 = load i32, ptr %10, align 4
-  %48 = load ptr, ptr %9, align 8
-  store i32 %47, ptr %48, align 4
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8, !tbaa !7
+  %17 = getelementptr inbounds i8, ptr %16, i64 3
+  %18 = load i8, ptr %17, align 1, !tbaa !12
+  %19 = zext i8 %18 to i32
+  %20 = shl i32 %19, 24
+  %21 = load ptr, ptr %6, align 8, !tbaa !7
+  %22 = getelementptr inbounds i8, ptr %21, i64 2
+  %23 = load i8, ptr %22, align 1, !tbaa !12
+  %24 = zext i8 %23 to i32
+  %25 = shl i32 %24, 16
+  %26 = or i32 %20, %25
+  %27 = load ptr, ptr %6, align 8, !tbaa !7
+  %28 = getelementptr inbounds i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !12
+  %30 = zext i8 %29 to i32
+  %31 = shl i32 %30, 8
+  %32 = or i32 %26, %31
+  %33 = load ptr, ptr %6, align 8, !tbaa !7
+  %34 = getelementptr inbounds i8, ptr %33, i64 0
+  %35 = load i8, ptr %34, align 1, !tbaa !12
+  %36 = zext i8 %35 to i32
+  %37 = or i32 %32, %36
+  store i32 %37, ptr %10, align 4, !tbaa !3
+  %38 = load i32, ptr %10, align 4, !tbaa !3
+  %39 = icmp ult i32 %38, 55296
+  br i1 %39, label %47, label %40
+
+40:                                               ; preds = %15
+  %41 = load i32, ptr %10, align 4, !tbaa !3
+  %42 = icmp uge i32 %41, 57344
+  br i1 %42, label %43, label %46
+
+43:                                               ; preds = %40
+  %44 = load i32, ptr %10, align 4, !tbaa !3
+  %45 = icmp ule i32 %44, 1114111
+  br i1 %45, label %47, label %46
+
+46:                                               ; preds = %43, %40
+  store i32 0, ptr %5, align 4
+  store i32 1, ptr %11, align 4
+  br label %50
+
+47:                                               ; preds = %43, %15
+  %48 = load i32, ptr %10, align 4, !tbaa !3
+  %49 = load ptr, ptr %9, align 8, !tbaa !10
+  store i32 %48, ptr %49, align 4, !tbaa !3
   store i32 4, ptr %5, align 4
-  br label %49
+  store i32 1, ptr %11, align 4
+  br label %50
 
-49:                                               ; preds = %46, %45, %13
-  %50 = load i32, ptr %5, align 4
-  ret i32 %50
+50:                                               ; preds = %47, %46, %14
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #3
+  %51 = load i32, ptr %5, align 4
+  ret i32 %51
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7058,123 +7721,134 @@ define internal i32 @zueci_iso8859_u(i8 noundef zeroext %0, i32 noundef %1, ptr 
   %15 = alloca ptr, align 8
   %16 = alloca i8, align 1
   %17 = alloca i32, align 4
-  store i8 %0, ptr %9, align 1
-  store i32 %1, ptr %10, align 4
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store i32 %5, ptr %14, align 4
-  store ptr %6, ptr %15, align 8
-  %18 = load i8, ptr %9, align 1
-  %19 = zext i8 %18 to i32
-  %20 = icmp slt i32 %19, 160
-  br i1 %20, label %21, label %34
+  %18 = alloca i32, align 4
+  store i8 %0, ptr %9, align 1, !tbaa !12
+  store i32 %1, ptr %10, align 4, !tbaa !3
+  store ptr %2, ptr %11, align 8, !tbaa !44
+  store ptr %3, ptr %12, align 8, !tbaa !44
+  store ptr %4, ptr %13, align 8, !tbaa !7
+  store i32 %5, ptr %14, align 4, !tbaa !3
+  store ptr %6, ptr %15, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %16) #3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #3
+  %19 = load i8, ptr %9, align 1, !tbaa !12
+  %20 = zext i8 %19 to i32
+  %21 = icmp slt i32 %20, 160
+  br i1 %21, label %22, label %35
 
-21:                                               ; preds = %7
-  %22 = load i8, ptr %9, align 1
-  %23 = zext i8 %22 to i32
-  %24 = icmp sge i32 %23, 128
-  br i1 %24, label %25, label %30
+22:                                               ; preds = %7
+  %23 = load i8, ptr %9, align 1, !tbaa !12
+  %24 = zext i8 %23 to i32
+  %25 = icmp sge i32 %24, 128
+  br i1 %25, label %26, label %31
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %10, align 4
-  %27 = and i32 %26, 1
-  %28 = icmp ne i32 %27, 0
-  br i1 %28, label %30, label %29
+26:                                               ; preds = %22
+  %27 = load i32, ptr %10, align 4, !tbaa !3
+  %28 = and i32 %27, 1
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %31, label %30
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   store i32 0, ptr %8, align 4
-  br label %87
+  store i32 1, ptr %18, align 4
+  br label %88
 
-30:                                               ; preds = %25, %21
-  %31 = load i8, ptr %9, align 1
-  %32 = zext i8 %31 to i32
-  %33 = load ptr, ptr %15, align 8
-  store i32 %32, ptr %33, align 4
+31:                                               ; preds = %26, %22
+  %32 = load i8, ptr %9, align 1, !tbaa !12
+  %33 = zext i8 %32 to i32
+  %34 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %33, ptr %34, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %87
+  store i32 1, ptr %18, align 4
+  br label %88
 
-34:                                               ; preds = %7
-  %35 = load i8, ptr %9, align 1
-  %36 = zext i8 %35 to i32
-  %37 = sub nsw i32 %36, 160
-  %38 = trunc i32 %37 to i8
-  store i8 %38, ptr %16, align 1
-  %39 = load ptr, ptr %11, align 8
-  %40 = load i8, ptr %16, align 1
-  %41 = zext i8 %40 to i32
-  %42 = ashr i32 %41, 4
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %39, i64 %43
-  %45 = load i16, ptr %44, align 2
-  %46 = zext i16 %45 to i32
-  %47 = load i8, ptr %16, align 1
-  %48 = zext i8 %47 to i32
-  %49 = and i32 %48, 15
-  %50 = shl i32 1, %49
-  %51 = and i32 %46, %50
-  %52 = icmp ne i32 %51, 0
-  br i1 %52, label %53, label %57
+35:                                               ; preds = %7
+  %36 = load i8, ptr %9, align 1, !tbaa !12
+  %37 = zext i8 %36 to i32
+  %38 = sub nsw i32 %37, 160
+  %39 = trunc i32 %38 to i8
+  store i8 %39, ptr %16, align 1, !tbaa !12
+  %40 = load ptr, ptr %11, align 8, !tbaa !44
+  %41 = load i8, ptr %16, align 1, !tbaa !12
+  %42 = zext i8 %41 to i32
+  %43 = ashr i32 %42, 4
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr inbounds i16, ptr %40, i64 %44
+  %46 = load i16, ptr %45, align 2, !tbaa !19
+  %47 = zext i16 %46 to i32
+  %48 = load i8, ptr %16, align 1, !tbaa !12
+  %49 = zext i8 %48 to i32
+  %50 = and i32 %49, 15
+  %51 = shl i32 1, %50
+  %52 = and i32 %47, %51
+  %53 = icmp ne i32 %52, 0
+  br i1 %53, label %54, label %58
 
-53:                                               ; preds = %34
-  %54 = load i8, ptr %9, align 1
-  %55 = zext i8 %54 to i32
-  %56 = load ptr, ptr %15, align 8
-  store i32 %55, ptr %56, align 4
+54:                                               ; preds = %35
+  %55 = load i8, ptr %9, align 1, !tbaa !12
+  %56 = zext i8 %55 to i32
+  %57 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %56, ptr %57, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %87
+  store i32 1, ptr %18, align 4
+  br label %88
 
-57:                                               ; preds = %34
-  %58 = load i8, ptr %16, align 1
-  %59 = zext i8 %58 to i32
-  %60 = load i32, ptr %14, align 4
-  %61 = icmp slt i32 %59, %60
-  br i1 %61, label %62, label %78
+58:                                               ; preds = %35
+  %59 = load i8, ptr %16, align 1, !tbaa !12
+  %60 = zext i8 %59 to i32
+  %61 = load i32, ptr %14, align 4, !tbaa !3
+  %62 = icmp slt i32 %60, %61
+  br i1 %62, label %63, label %79
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %13, align 8
-  %64 = load i8, ptr %16, align 1
-  %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %63, i64 %65
-  %67 = load i8, ptr %66, align 1
-  %68 = sext i8 %67 to i32
-  store i32 %68, ptr %17, align 4
-  %69 = icmp ne i32 %68, -1
-  br i1 %69, label %70, label %78
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %13, align 8, !tbaa !7
+  %65 = load i8, ptr %16, align 1, !tbaa !12
+  %66 = zext i8 %65 to i64
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %66
+  %68 = load i8, ptr %67, align 1, !tbaa !12
+  %69 = sext i8 %68 to i32
+  store i32 %69, ptr %17, align 4, !tbaa !3
+  %70 = icmp ne i32 %69, -1
+  br i1 %70, label %71, label %79
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %12, align 8
-  %72 = load i32, ptr %17, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i16, ptr %71, i64 %73
-  %75 = load i16, ptr %74, align 2
-  %76 = zext i16 %75 to i32
-  %77 = load ptr, ptr %15, align 8
-  store i32 %76, ptr %77, align 4
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %12, align 8, !tbaa !44
+  %73 = load i32, ptr %17, align 4, !tbaa !3
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i16, ptr %72, i64 %74
+  %76 = load i16, ptr %75, align 2, !tbaa !19
+  %77 = zext i16 %76 to i32
+  %78 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %77, ptr %78, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %87
+  store i32 1, ptr %18, align 4
+  br label %88
 
-78:                                               ; preds = %62, %57
-  %79 = load i32, ptr %10, align 4
-  %80 = and i32 %79, 1
-  %81 = icmp ne i32 %80, 0
-  br i1 %81, label %82, label %86
+79:                                               ; preds = %63, %58
+  %80 = load i32, ptr %10, align 4, !tbaa !3
+  %81 = and i32 %80, 1
+  %82 = icmp ne i32 %81, 0
+  br i1 %82, label %83, label %87
 
-82:                                               ; preds = %78
-  %83 = load i8, ptr %9, align 1
-  %84 = zext i8 %83 to i32
-  %85 = load ptr, ptr %15, align 8
-  store i32 %84, ptr %85, align 4
+83:                                               ; preds = %79
+  %84 = load i8, ptr %9, align 1, !tbaa !12
+  %85 = zext i8 %84 to i32
+  %86 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %85, ptr %86, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %87
+  store i32 1, ptr %18, align 4
+  br label %88
 
-86:                                               ; preds = %78
+87:                                               ; preds = %79
   store i32 0, ptr %8, align 4
-  br label %87
+  store i32 1, ptr %18, align 4
+  br label %88
 
-87:                                               ; preds = %86, %82, %70, %53, %30, %29
-  %88 = load i32, ptr %8, align 4
-  ret i32 %88
+88:                                               ; preds = %87, %83, %71, %54, %31, %30
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %16) #3
+  %89 = load i32, ptr %8, align 4
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7188,119 +7862,139 @@ define internal i32 @zueci_cp125x_u(i8 noundef zeroext %0, i32 noundef %1, ptr n
   %14 = alloca i32, align 4
   %15 = alloca ptr, align 8
   %16 = alloca i32, align 4
-  %17 = alloca i8, align 1
-  store i8 %0, ptr %9, align 1
-  store i32 %1, ptr %10, align 4
-  store ptr %2, ptr %11, align 8
-  store ptr %3, ptr %12, align 8
-  store ptr %4, ptr %13, align 8
-  store i32 %5, ptr %14, align 4
-  store ptr %6, ptr %15, align 8
-  %18 = load i8, ptr %9, align 1
-  %19 = zext i8 %18 to i32
-  %20 = icmp slt i32 %19, 128
-  br i1 %20, label %21, label %25
+  %17 = alloca i32, align 4
+  %18 = alloca i8, align 1
+  store i8 %0, ptr %9, align 1, !tbaa !12
+  store i32 %1, ptr %10, align 4, !tbaa !3
+  store ptr %2, ptr %11, align 8, !tbaa !44
+  store ptr %3, ptr %12, align 8, !tbaa !44
+  store ptr %4, ptr %13, align 8, !tbaa !7
+  store i32 %5, ptr %14, align 4, !tbaa !3
+  store ptr %6, ptr %15, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #3
+  %19 = load i8, ptr %9, align 1, !tbaa !12
+  %20 = zext i8 %19 to i32
+  %21 = icmp slt i32 %20, 128
+  br i1 %21, label %22, label %26
 
-21:                                               ; preds = %7
-  %22 = load i8, ptr %9, align 1
-  %23 = zext i8 %22 to i32
-  %24 = load ptr, ptr %15, align 8
-  store i32 %23, ptr %24, align 4
+22:                                               ; preds = %7
+  %23 = load i8, ptr %9, align 1, !tbaa !12
+  %24 = zext i8 %23 to i32
+  %25 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %24, ptr %25, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %85
+  store i32 1, ptr %17, align 4
+  br label %89
 
-25:                                               ; preds = %7
-  %26 = load i8, ptr %9, align 1
-  %27 = zext i8 %26 to i32
-  %28 = icmp sge i32 %27, 160
-  br i1 %28, label %29, label %53
+26:                                               ; preds = %7
+  %27 = load i8, ptr %9, align 1, !tbaa !12
+  %28 = zext i8 %27 to i32
+  %29 = icmp sge i32 %28, 160
+  br i1 %29, label %30, label %57
 
-29:                                               ; preds = %25
-  %30 = load i8, ptr %9, align 1
-  %31 = zext i8 %30 to i32
-  %32 = sub nsw i32 %31, 160
-  %33 = trunc i32 %32 to i8
-  store i8 %33, ptr %17, align 1
-  %34 = load ptr, ptr %11, align 8
-  %35 = load i8, ptr %17, align 1
-  %36 = zext i8 %35 to i32
-  %37 = ashr i32 %36, 4
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %34, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = zext i16 %40 to i32
-  %42 = load i8, ptr %17, align 1
-  %43 = zext i8 %42 to i32
-  %44 = and i32 %43, 15
-  %45 = shl i32 1, %44
-  %46 = and i32 %41, %45
-  %47 = icmp ne i32 %46, 0
-  br i1 %47, label %48, label %52
+30:                                               ; preds = %26
+  call void @llvm.lifetime.start.p0(i64 1, ptr %18) #3
+  %31 = load i8, ptr %9, align 1, !tbaa !12
+  %32 = zext i8 %31 to i32
+  %33 = sub nsw i32 %32, 160
+  %34 = trunc i32 %33 to i8
+  store i8 %34, ptr %18, align 1, !tbaa !12
+  %35 = load ptr, ptr %11, align 8, !tbaa !44
+  %36 = load i8, ptr %18, align 1, !tbaa !12
+  %37 = zext i8 %36 to i32
+  %38 = ashr i32 %37, 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds i16, ptr %35, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !19
+  %42 = zext i16 %41 to i32
+  %43 = load i8, ptr %18, align 1, !tbaa !12
+  %44 = zext i8 %43 to i32
+  %45 = and i32 %44, 15
+  %46 = shl i32 1, %45
+  %47 = and i32 %42, %46
+  %48 = icmp ne i32 %47, 0
+  br i1 %48, label %49, label %53
 
-48:                                               ; preds = %29
-  %49 = load i8, ptr %9, align 1
-  %50 = zext i8 %49 to i32
-  %51 = load ptr, ptr %15, align 8
-  store i32 %50, ptr %51, align 4
+49:                                               ; preds = %30
+  %50 = load i8, ptr %9, align 1, !tbaa !12
+  %51 = zext i8 %50 to i32
+  %52 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %51, ptr %52, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %85
+  store i32 1, ptr %17, align 4
+  br label %54
 
-52:                                               ; preds = %29
-  br label %53
+53:                                               ; preds = %30
+  store i32 0, ptr %17, align 4
+  br label %54
 
-53:                                               ; preds = %52, %25
-  %54 = load i8, ptr %9, align 1
-  %55 = zext i8 %54 to i32
-  %56 = load i32, ptr %14, align 4
-  %57 = icmp slt i32 %55, %56
-  br i1 %57, label %58, label %76
+54:                                               ; preds = %53, %49
+  call void @llvm.lifetime.end.p0(i64 1, ptr %18) #3
+  %55 = load i32, ptr %17, align 4
+  switch i32 %55, label %89 [
+    i32 0, label %56
+  ]
 
-58:                                               ; preds = %53
-  %59 = load ptr, ptr %13, align 8
-  %60 = load i8, ptr %9, align 1
-  %61 = zext i8 %60 to i32
-  %62 = sub nsw i32 %61, 128
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %59, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = sext i8 %65 to i32
-  store i32 %66, ptr %16, align 4
-  %67 = icmp ne i32 %66, -1
-  br i1 %67, label %68, label %76
+56:                                               ; preds = %54
+  br label %57
 
-68:                                               ; preds = %58
-  %69 = load ptr, ptr %12, align 8
-  %70 = load i32, ptr %16, align 4
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i16, ptr %69, i64 %71
-  %73 = load i16, ptr %72, align 2
-  %74 = zext i16 %73 to i32
-  %75 = load ptr, ptr %15, align 8
-  store i32 %74, ptr %75, align 4
+57:                                               ; preds = %56, %26
+  %58 = load i8, ptr %9, align 1, !tbaa !12
+  %59 = zext i8 %58 to i32
+  %60 = load i32, ptr %14, align 4, !tbaa !3
+  %61 = icmp slt i32 %59, %60
+  br i1 %61, label %62, label %80
+
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %13, align 8, !tbaa !7
+  %64 = load i8, ptr %9, align 1, !tbaa !12
+  %65 = zext i8 %64 to i32
+  %66 = sub nsw i32 %65, 128
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds i8, ptr %63, i64 %67
+  %69 = load i8, ptr %68, align 1, !tbaa !12
+  %70 = sext i8 %69 to i32
+  store i32 %70, ptr %16, align 4, !tbaa !3
+  %71 = icmp ne i32 %70, -1
+  br i1 %71, label %72, label %80
+
+72:                                               ; preds = %62
+  %73 = load ptr, ptr %12, align 8, !tbaa !44
+  %74 = load i32, ptr %16, align 4, !tbaa !3
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i16, ptr %73, i64 %75
+  %77 = load i16, ptr %76, align 2, !tbaa !19
+  %78 = zext i16 %77 to i32
+  %79 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %78, ptr %79, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %85
+  store i32 1, ptr %17, align 4
+  br label %89
 
-76:                                               ; preds = %58, %53
-  %77 = load i32, ptr %10, align 4
-  %78 = and i32 %77, 1
-  %79 = icmp ne i32 %78, 0
-  br i1 %79, label %80, label %84
+80:                                               ; preds = %62, %57
+  %81 = load i32, ptr %10, align 4, !tbaa !3
+  %82 = and i32 %81, 1
+  %83 = icmp ne i32 %82, 0
+  br i1 %83, label %84, label %88
 
-80:                                               ; preds = %76
-  %81 = load i8, ptr %9, align 1
-  %82 = zext i8 %81 to i32
-  %83 = load ptr, ptr %15, align 8
-  store i32 %82, ptr %83, align 4
+84:                                               ; preds = %80
+  %85 = load i8, ptr %9, align 1, !tbaa !12
+  %86 = zext i8 %85 to i32
+  %87 = load ptr, ptr %15, align 8, !tbaa !10
+  store i32 %86, ptr %87, align 4, !tbaa !3
   store i32 1, ptr %8, align 4
-  br label %85
+  store i32 1, ptr %17, align 4
+  br label %89
 
-84:                                               ; preds = %76
+88:                                               ; preds = %80
   store i32 0, ptr %8, align 4
-  br label %85
+  store i32 1, ptr %17, align 4
+  br label %89
 
-85:                                               ; preds = %84, %80, %68, %48, %21
-  %86 = load i32, ptr %8, align 4
-  ret i32 %86
+89:                                               ; preds = %88, %84, %72, %54, %22
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #3
+  %90 = load i32, ptr %8, align 4
+  ret i32 %90
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7310,82 +8004,106 @@ define internal i32 @zueci_gb18030_mb4_u(i32 noundef %0) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  store i32 %0, ptr %2, align 4
-  %7 = load i32, ptr %2, align 4
+  store i32 %0, ptr %2, align 4, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %3) #3
+  %7 = load i32, ptr %2, align 4, !tbaa !3
   %8 = lshr i32 %7, 24
   %9 = trunc i32 %8 to i8
-  store i8 %9, ptr %3, align 1
-  %10 = load i32, ptr %2, align 4
+  store i8 %9, ptr %3, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #3
+  %10 = load i32, ptr %2, align 4, !tbaa !3
   %11 = lshr i32 %10, 16
   %12 = trunc i32 %11 to i8
-  store i8 %12, ptr %4, align 1
-  %13 = load i32, ptr %2, align 4
+  store i8 %12, ptr %4, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #3
+  %13 = load i32, ptr %2, align 4, !tbaa !3
   %14 = lshr i32 %13, 8
   %15 = trunc i32 %14 to i8
-  store i8 %15, ptr %5, align 1
-  %16 = load i32, ptr %2, align 4
+  store i8 %15, ptr %5, align 1, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr %6) #3
+  %16 = load i32, ptr %2, align 4, !tbaa !3
   %17 = trunc i32 %16 to i8
-  store i8 %17, ptr %6, align 1
-  %18 = load i8, ptr %3, align 1
+  store i8 %17, ptr %6, align 1, !tbaa !12
+  %18 = load i8, ptr %3, align 1, !tbaa !12
   %19 = zext i8 %18 to i32
   %20 = sub nsw i32 %19, 129
   %21 = mul nsw i32 %20, 10
-  %22 = load i8, ptr %4, align 1
+  %22 = load i8, ptr %4, align 1, !tbaa !12
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 %23, 48
   %25 = add nsw i32 %21, %24
   %26 = mul nsw i32 %25, 126
-  %27 = load i8, ptr %5, align 1
+  %27 = load i8, ptr %5, align 1, !tbaa !12
   %28 = zext i8 %27 to i32
   %29 = sub nsw i32 %28, 129
   %30 = add nsw i32 %26, %29
   %31 = mul nsw i32 %30, 10
-  %32 = load i8, ptr %6, align 1
+  %32 = load i8, ptr %6, align 1, !tbaa !12
   %33 = zext i8 %32 to i32
   %34 = add nsw i32 %31, %33
   %35 = sub nsw i32 %34, 48
+  call void @llvm.lifetime.end.p0(i64 1, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %3) #3
   ret i32 %35
 }
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 int", !9, i64 0}
+!12 = !{!5, !5, i64 0}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = !{!9, !9, i64 0}
+!17 = distinct !{!17, !14}
+!18 = distinct !{!18, !14}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !5, i64 0}
+!21 = distinct !{!21, !14}
+!22 = distinct !{!22, !14}
+!23 = distinct !{!23, !14}
+!24 = distinct !{!24, !14}
+!25 = distinct !{!25, !14}
+!26 = distinct !{!26, !14}
+!27 = distinct !{!27, !14}
+!28 = distinct !{!28, !14}
+!29 = distinct !{!29, !14}
+!30 = distinct !{!30, !14}
+!31 = distinct !{!31, !14}
+!32 = distinct !{!32, !14}
+!33 = distinct !{!33, !14}
+!34 = distinct !{!34, !14}
+!35 = distinct !{!35, !14}
+!36 = distinct !{!36, !14}
+!37 = distinct !{!37, !14}
+!38 = distinct !{!38, !14}
+!39 = distinct !{!39, !14}
+!40 = distinct !{!40, !14}
+!41 = distinct !{!41, !14}
+!42 = distinct !{!42, !14}
+!43 = distinct !{!43, !14}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 short", !9, i64 0}
+!46 = distinct !{!46, !14}
+!47 = distinct !{!47, !14}
+!48 = distinct !{!48, !14}
+!49 = distinct !{!49, !14}
+!50 = distinct !{!50, !14}

@@ -145,6 +145,7 @@ supported_project = [
     "yosys",
     "z3",
     "zfp",
+    "zxing",
 ]
 
 modify_only = [
@@ -188,6 +189,7 @@ modify_only = [
     "sentencepiece",
     "snappy",
     "spdlog",
+    "zxing",
 ]
 
 
