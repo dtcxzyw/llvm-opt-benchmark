@@ -134,6 +134,7 @@ supported_project = [
     "taskflow",
     "tinygltf",
     "tinympc",
+    "tinyobjloader",
 ]
 
 modify_only = [
