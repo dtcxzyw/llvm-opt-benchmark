@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 $_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_ = comdat any
 
@@ -10,504 +10,526 @@ $_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_ = comdat any
 $_ZSt3absf = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %widthMode, float noundef %availableWidth, i32 noundef %heightMode, float noundef %availableHeight, i32 noundef %lastWidthMode, float noundef %lastAvailableWidth, i32 noundef %lastHeightMode, float noundef %lastAvailableHeight, float noundef %lastComputedWidth, float noundef %lastComputedHeight, float noundef %marginRow, float noundef %marginColumn, ptr noundef %config) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %widthMode.addr = alloca i32, align 4
-  %availableWidth.addr = alloca float, align 4
-  %heightMode.addr = alloca i32, align 4
-  %availableHeight.addr = alloca float, align 4
-  %lastWidthMode.addr = alloca i32, align 4
-  %lastAvailableWidth.addr = alloca float, align 4
-  %lastHeightMode.addr = alloca i32, align 4
-  %lastAvailableHeight.addr = alloca float, align 4
-  %lastComputedWidth.addr = alloca float, align 4
-  %lastComputedHeight.addr = alloca float, align 4
-  %marginRow.addr = alloca float, align 4
-  %marginColumn.addr = alloca float, align 4
-  %config.addr = alloca ptr, align 8
-  %pointScaleFactor = alloca float, align 4
-  %useRoundedComparison = alloca i8, align 1
-  %effectiveWidth = alloca float, align 4
-  %effectiveHeight = alloca float, align 4
-  %effectiveLastWidth = alloca float, align 4
-  %effectiveLastHeight = alloca float, align 4
-  %hasSameWidthSpec = alloca i8, align 1
-  %hasSameHeightSpec = alloca i8, align 1
-  %widthIsCompatible = alloca i8, align 1
-  %heightIsCompatible = alloca i8, align 1
-  store i32 %widthMode, ptr %widthMode.addr, align 4
-  store float %availableWidth, ptr %availableWidth.addr, align 4
-  store i32 %heightMode, ptr %heightMode.addr, align 4
-  store float %availableHeight, ptr %availableHeight.addr, align 4
-  store i32 %lastWidthMode, ptr %lastWidthMode.addr, align 4
-  store float %lastAvailableWidth, ptr %lastAvailableWidth.addr, align 4
-  store i32 %lastHeightMode, ptr %lastHeightMode.addr, align 4
-  store float %lastAvailableHeight, ptr %lastAvailableHeight.addr, align 4
-  store float %lastComputedWidth, ptr %lastComputedWidth.addr, align 4
-  store float %lastComputedHeight, ptr %lastComputedHeight.addr, align 4
-  store float %marginRow, ptr %marginRow.addr, align 4
-  store float %marginColumn, ptr %marginColumn.addr, align 4
-  store ptr %config, ptr %config.addr, align 8
-  %0 = load float, ptr %lastComputedHeight.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %0)
-  br i1 %call, label %land.lhs.true, label %lor.lhs.false
+define hidden noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %0, float noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, float noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, ptr noundef %12) #0 {
+  %14 = alloca i1, align 1
+  %15 = alloca i32, align 4
+  %16 = alloca float, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca float, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca float, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca float, align 4
+  %23 = alloca float, align 4
+  %24 = alloca float, align 4
+  %25 = alloca float, align 4
+  %26 = alloca float, align 4
+  %27 = alloca ptr, align 8
+  %28 = alloca float, align 4
+  %29 = alloca i8, align 1
+  %30 = alloca float, align 4
+  %31 = alloca float, align 4
+  %32 = alloca float, align 4
+  %33 = alloca float, align 4
+  %34 = alloca i8, align 1
+  %35 = alloca i8, align 1
+  %36 = alloca i8, align 1
+  %37 = alloca i8, align 1
+  store i32 %0, ptr %15, align 4, !tbaa !4
+  store float %1, ptr %16, align 4, !tbaa !8
+  store i32 %2, ptr %17, align 4, !tbaa !4
+  store float %3, ptr %18, align 4, !tbaa !8
+  store i32 %4, ptr %19, align 4, !tbaa !4
+  store float %5, ptr %20, align 4, !tbaa !8
+  store i32 %6, ptr %21, align 4, !tbaa !4
+  store float %7, ptr %22, align 4, !tbaa !8
+  store float %8, ptr %23, align 4, !tbaa !8
+  store float %9, ptr %24, align 4, !tbaa !8
+  store float %10, ptr %25, align 4, !tbaa !8
+  store float %11, ptr %26, align 4, !tbaa !8
+  store ptr %12, ptr %27, align 8, !tbaa !10
+  %38 = load float, ptr %24, align 4, !tbaa !8
+  %39 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %38)
+  br i1 %39, label %40, label %43
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load float, ptr %lastComputedHeight.addr, align 4
-  %cmp = fcmp olt float %1, 0.000000e+00
-  br i1 %cmp, label %if.then, label %lor.lhs.false
+40:                                               ; preds = %13
+  %41 = load float, ptr %24, align 4, !tbaa !8
+  %42 = fcmp olt float %41, 0.000000e+00
+  br i1 %42, label %49, label %43
 
-lor.lhs.false:                                    ; preds = %land.lhs.true, %entry
-  %2 = load float, ptr %lastComputedWidth.addr, align 4
-  %call1 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %2)
-  br i1 %call1, label %land.lhs.true2, label %if.end
+43:                                               ; preds = %40, %13
+  %44 = load float, ptr %23, align 4, !tbaa !8
+  %45 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %44)
+  br i1 %45, label %46, label %50
 
-land.lhs.true2:                                   ; preds = %lor.lhs.false
-  %3 = load float, ptr %lastComputedWidth.addr, align 4
-  %cmp3 = fcmp olt float %3, 0.000000e+00
-  br i1 %cmp3, label %if.then, label %if.end
+46:                                               ; preds = %43
+  %47 = load float, ptr %23, align 4, !tbaa !8
+  %48 = fcmp olt float %47, 0.000000e+00
+  br i1 %48, label %49, label %50
 
-if.then:                                          ; preds = %land.lhs.true2, %land.lhs.true
-  store i1 false, ptr %retval, align 1
-  br label %return
+49:                                               ; preds = %46, %40
+  store i1 false, ptr %14, align 1
+  br label %194
 
-if.end:                                           ; preds = %land.lhs.true2, %lor.lhs.false
-  %4 = load ptr, ptr %config.addr, align 8
-  %call4 = call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
-  store float %call4, ptr %pointScaleFactor, align 4
-  %5 = load ptr, ptr %config.addr, align 8
-  %cmp5 = icmp ne ptr %5, null
-  br i1 %cmp5, label %land.rhs, label %land.end
+50:                                               ; preds = %46, %43
+  call void @llvm.lifetime.start.p0(i64 4, ptr %28) #7
+  %51 = load ptr, ptr %27, align 8, !tbaa !10
+  %52 = call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %51)
+  store float %52, ptr %28, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %29) #7
+  %53 = load ptr, ptr %27, align 8, !tbaa !10
+  %54 = icmp ne ptr %53, null
+  br i1 %54, label %55, label %58
 
-land.rhs:                                         ; preds = %if.end
-  %6 = load float, ptr %pointScaleFactor, align 4
-  %cmp6 = fcmp une float %6, 0.000000e+00
-  br label %land.end
+55:                                               ; preds = %50
+  %56 = load float, ptr %28, align 4, !tbaa !8
+  %57 = fcmp une float %56, 0.000000e+00
+  br label %58
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %7 = phi i1 [ false, %if.end ], [ %cmp6, %land.rhs ]
-  %frombool = zext i1 %7 to i8
-  store i8 %frombool, ptr %useRoundedComparison, align 1
-  %8 = load i8, ptr %useRoundedComparison, align 1
-  %tobool = trunc i8 %8 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+58:                                               ; preds = %55, %50
+  %59 = phi i1 [ false, %50 ], [ %57, %55 ]
+  %60 = zext i1 %59 to i8
+  store i8 %60, ptr %29, align 1, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 4, ptr %30) #7
+  %61 = load i8, ptr %29, align 1, !tbaa !13, !range !15, !noundef !16
+  %62 = trunc i8 %61 to i1
+  br i1 %62, label %63, label %69
 
-cond.true:                                        ; preds = %land.end
-  %9 = load float, ptr %availableWidth.addr, align 4
-  %conv = fpext float %9 to double
-  %10 = load float, ptr %pointScaleFactor, align 4
-  %conv7 = fpext float %10 to double
-  %call8 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv, double noundef %conv7, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %cond.end
+63:                                               ; preds = %58
+  %64 = load float, ptr %16, align 4, !tbaa !8
+  %65 = fpext float %64 to double
+  %66 = load float, ptr %28, align 4, !tbaa !8
+  %67 = fpext float %66 to double
+  %68 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %65, double noundef %67, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %71
 
-cond.false:                                       ; preds = %land.end
-  %11 = load float, ptr %availableWidth.addr, align 4
-  br label %cond.end
+69:                                               ; preds = %58
+  %70 = load float, ptr %16, align 4, !tbaa !8
+  br label %71
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi float [ %call8, %cond.true ], [ %11, %cond.false ]
-  store float %cond, ptr %effectiveWidth, align 4
-  %12 = load i8, ptr %useRoundedComparison, align 1
-  %tobool9 = trunc i8 %12 to i1
-  br i1 %tobool9, label %cond.true10, label %cond.false14
+71:                                               ; preds = %69, %63
+  %72 = phi float [ %68, %63 ], [ %70, %69 ]
+  store float %72, ptr %30, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %31) #7
+  %73 = load i8, ptr %29, align 1, !tbaa !13, !range !15, !noundef !16
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %81
 
-cond.true10:                                      ; preds = %cond.end
-  %13 = load float, ptr %availableHeight.addr, align 4
-  %conv11 = fpext float %13 to double
-  %14 = load float, ptr %pointScaleFactor, align 4
-  %conv12 = fpext float %14 to double
-  %call13 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv11, double noundef %conv12, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %cond.end15
+75:                                               ; preds = %71
+  %76 = load float, ptr %18, align 4, !tbaa !8
+  %77 = fpext float %76 to double
+  %78 = load float, ptr %28, align 4, !tbaa !8
+  %79 = fpext float %78 to double
+  %80 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %77, double noundef %79, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %83
 
-cond.false14:                                     ; preds = %cond.end
-  %15 = load float, ptr %availableHeight.addr, align 4
-  br label %cond.end15
+81:                                               ; preds = %71
+  %82 = load float, ptr %18, align 4, !tbaa !8
+  br label %83
 
-cond.end15:                                       ; preds = %cond.false14, %cond.true10
-  %cond16 = phi float [ %call13, %cond.true10 ], [ %15, %cond.false14 ]
-  store float %cond16, ptr %effectiveHeight, align 4
-  %16 = load i8, ptr %useRoundedComparison, align 1
-  %tobool17 = trunc i8 %16 to i1
-  br i1 %tobool17, label %cond.true18, label %cond.false22
+83:                                               ; preds = %81, %75
+  %84 = phi float [ %80, %75 ], [ %82, %81 ]
+  store float %84, ptr %31, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %32) #7
+  %85 = load i8, ptr %29, align 1, !tbaa !13, !range !15, !noundef !16
+  %86 = trunc i8 %85 to i1
+  br i1 %86, label %87, label %93
 
-cond.true18:                                      ; preds = %cond.end15
-  %17 = load float, ptr %lastAvailableWidth.addr, align 4
-  %conv19 = fpext float %17 to double
-  %18 = load float, ptr %pointScaleFactor, align 4
-  %conv20 = fpext float %18 to double
-  %call21 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv19, double noundef %conv20, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %cond.end23
+87:                                               ; preds = %83
+  %88 = load float, ptr %20, align 4, !tbaa !8
+  %89 = fpext float %88 to double
+  %90 = load float, ptr %28, align 4, !tbaa !8
+  %91 = fpext float %90 to double
+  %92 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %89, double noundef %91, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %95
 
-cond.false22:                                     ; preds = %cond.end15
-  %19 = load float, ptr %lastAvailableWidth.addr, align 4
-  br label %cond.end23
+93:                                               ; preds = %83
+  %94 = load float, ptr %20, align 4, !tbaa !8
+  br label %95
 
-cond.end23:                                       ; preds = %cond.false22, %cond.true18
-  %cond24 = phi float [ %call21, %cond.true18 ], [ %19, %cond.false22 ]
-  store float %cond24, ptr %effectiveLastWidth, align 4
-  %20 = load i8, ptr %useRoundedComparison, align 1
-  %tobool25 = trunc i8 %20 to i1
-  br i1 %tobool25, label %cond.true26, label %cond.false30
+95:                                               ; preds = %93, %87
+  %96 = phi float [ %92, %87 ], [ %94, %93 ]
+  store float %96, ptr %32, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr %33) #7
+  %97 = load i8, ptr %29, align 1, !tbaa !13, !range !15, !noundef !16
+  %98 = trunc i8 %97 to i1
+  br i1 %98, label %99, label %105
 
-cond.true26:                                      ; preds = %cond.end23
-  %21 = load float, ptr %lastAvailableHeight.addr, align 4
-  %conv27 = fpext float %21 to double
-  %22 = load float, ptr %pointScaleFactor, align 4
-  %conv28 = fpext float %22 to double
-  %call29 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv27, double noundef %conv28, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %cond.end31
+99:                                               ; preds = %95
+  %100 = load float, ptr %22, align 4, !tbaa !8
+  %101 = fpext float %100 to double
+  %102 = load float, ptr %28, align 4, !tbaa !8
+  %103 = fpext float %102 to double
+  %104 = call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %101, double noundef %103, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %107
 
-cond.false30:                                     ; preds = %cond.end23
-  %23 = load float, ptr %lastAvailableHeight.addr, align 4
-  br label %cond.end31
+105:                                              ; preds = %95
+  %106 = load float, ptr %22, align 4, !tbaa !8
+  br label %107
 
-cond.end31:                                       ; preds = %cond.false30, %cond.true26
-  %cond32 = phi float [ %call29, %cond.true26 ], [ %23, %cond.false30 ]
-  store float %cond32, ptr %effectiveLastHeight, align 4
-  %24 = load i32, ptr %lastWidthMode.addr, align 4
-  %25 = load i32, ptr %widthMode.addr, align 4
-  %cmp33 = icmp eq i32 %24, %25
-  br i1 %cmp33, label %land.rhs34, label %land.end36
+107:                                              ; preds = %105, %99
+  %108 = phi float [ %104, %99 ], [ %106, %105 ]
+  store float %108, ptr %33, align 4, !tbaa !8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %34) #7
+  %109 = load i32, ptr %19, align 4, !tbaa !4
+  %110 = load i32, ptr %15, align 4, !tbaa !4
+  %111 = icmp eq i32 %109, %110
+  br i1 %111, label %112, label %116
 
-land.rhs34:                                       ; preds = %cond.end31
-  %26 = load float, ptr %effectiveLastWidth, align 4
-  %27 = load float, ptr %effectiveWidth, align 4
-  %call35 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %26, float noundef %27)
-  br label %land.end36
+112:                                              ; preds = %107
+  %113 = load float, ptr %32, align 4, !tbaa !8
+  %114 = load float, ptr %30, align 4, !tbaa !8
+  %115 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %113, float noundef %114)
+  br label %116
 
-land.end36:                                       ; preds = %land.rhs34, %cond.end31
-  %28 = phi i1 [ false, %cond.end31 ], [ %call35, %land.rhs34 ]
-  %frombool37 = zext i1 %28 to i8
-  store i8 %frombool37, ptr %hasSameWidthSpec, align 1
-  %29 = load i32, ptr %lastHeightMode.addr, align 4
-  %30 = load i32, ptr %heightMode.addr, align 4
-  %cmp38 = icmp eq i32 %29, %30
-  br i1 %cmp38, label %land.rhs39, label %land.end41
+116:                                              ; preds = %112, %107
+  %117 = phi i1 [ false, %107 ], [ %115, %112 ]
+  %118 = zext i1 %117 to i8
+  store i8 %118, ptr %34, align 1, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %35) #7
+  %119 = load i32, ptr %21, align 4, !tbaa !4
+  %120 = load i32, ptr %17, align 4, !tbaa !4
+  %121 = icmp eq i32 %119, %120
+  br i1 %121, label %122, label %126
 
-land.rhs39:                                       ; preds = %land.end36
-  %31 = load float, ptr %effectiveLastHeight, align 4
-  %32 = load float, ptr %effectiveHeight, align 4
-  %call40 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %31, float noundef %32)
-  br label %land.end41
+122:                                              ; preds = %116
+  %123 = load float, ptr %33, align 4, !tbaa !8
+  %124 = load float, ptr %31, align 4, !tbaa !8
+  %125 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %123, float noundef %124)
+  br label %126
 
-land.end41:                                       ; preds = %land.rhs39, %land.end36
-  %33 = phi i1 [ false, %land.end36 ], [ %call40, %land.rhs39 ]
-  %frombool42 = zext i1 %33 to i8
-  store i8 %frombool42, ptr %hasSameHeightSpec, align 1
-  %34 = load i8, ptr %hasSameWidthSpec, align 1
-  %tobool43 = trunc i8 %34 to i1
-  br i1 %tobool43, label %lor.end, label %lor.lhs.false44
+126:                                              ; preds = %122, %116
+  %127 = phi i1 [ false, %116 ], [ %125, %122 ]
+  %128 = zext i1 %127 to i8
+  store i8 %128, ptr %35, align 1, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %36) #7
+  %129 = load i8, ptr %34, align 1, !tbaa !13, !range !15, !noundef !16
+  %130 = trunc i8 %129 to i1
+  br i1 %130, label %155, label %131
 
-lor.lhs.false44:                                  ; preds = %land.end41
-  %35 = load i32, ptr %widthMode.addr, align 4
-  %36 = load float, ptr %availableWidth.addr, align 4
-  %37 = load float, ptr %marginRow.addr, align 4
-  %sub = fsub float %36, %37
-  %38 = load float, ptr %lastComputedWidth.addr, align 4
-  %call45 = call noundef zeroext i1 @_ZN8facebook4yogaL36sizeIsExactAndMatchesOldMeasuredSizeENS0_10SizingModeEff(i32 noundef %35, float noundef %sub, float noundef %38)
-  br i1 %call45, label %lor.end, label %lor.lhs.false46
+131:                                              ; preds = %126
+  %132 = load i32, ptr %15, align 4, !tbaa !4
+  %133 = load float, ptr %16, align 4, !tbaa !8
+  %134 = load float, ptr %25, align 4, !tbaa !8
+  %135 = fsub float %133, %134
+  %136 = load float, ptr %23, align 4, !tbaa !8
+  %137 = call noundef zeroext i1 @_ZN8facebook4yogaL36sizeIsExactAndMatchesOldMeasuredSizeENS0_10SizingModeEff(i32 noundef %132, float noundef %135, float noundef %136)
+  br i1 %137, label %155, label %138
 
-lor.lhs.false46:                                  ; preds = %lor.lhs.false44
-  %39 = load i32, ptr %widthMode.addr, align 4
-  %40 = load float, ptr %availableWidth.addr, align 4
-  %41 = load float, ptr %marginRow.addr, align 4
-  %sub47 = fsub float %40, %41
-  %42 = load i32, ptr %lastWidthMode.addr, align 4
-  %43 = load float, ptr %lastComputedWidth.addr, align 4
-  %call48 = call noundef zeroext i1 @_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f(i32 noundef %39, float noundef %sub47, i32 noundef %42, float noundef %43)
-  br i1 %call48, label %lor.end, label %lor.rhs
+138:                                              ; preds = %131
+  %139 = load i32, ptr %15, align 4, !tbaa !4
+  %140 = load float, ptr %16, align 4, !tbaa !8
+  %141 = load float, ptr %25, align 4, !tbaa !8
+  %142 = fsub float %140, %141
+  %143 = load i32, ptr %19, align 4, !tbaa !4
+  %144 = load float, ptr %23, align 4, !tbaa !8
+  %145 = call noundef zeroext i1 @_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f(i32 noundef %139, float noundef %142, i32 noundef %143, float noundef %144)
+  br i1 %145, label %155, label %146
 
-lor.rhs:                                          ; preds = %lor.lhs.false46
-  %44 = load i32, ptr %widthMode.addr, align 4
-  %45 = load float, ptr %availableWidth.addr, align 4
-  %46 = load float, ptr %marginRow.addr, align 4
-  %sub49 = fsub float %45, %46
-  %47 = load i32, ptr %lastWidthMode.addr, align 4
-  %48 = load float, ptr %lastAvailableWidth.addr, align 4
-  %49 = load float, ptr %lastComputedWidth.addr, align 4
-  %call50 = call noundef zeroext i1 @_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff(i32 noundef %44, float noundef %sub49, i32 noundef %47, float noundef %48, float noundef %49)
-  br label %lor.end
+146:                                              ; preds = %138
+  %147 = load i32, ptr %15, align 4, !tbaa !4
+  %148 = load float, ptr %16, align 4, !tbaa !8
+  %149 = load float, ptr %25, align 4, !tbaa !8
+  %150 = fsub float %148, %149
+  %151 = load i32, ptr %19, align 4, !tbaa !4
+  %152 = load float, ptr %20, align 4, !tbaa !8
+  %153 = load float, ptr %23, align 4, !tbaa !8
+  %154 = call noundef zeroext i1 @_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff(i32 noundef %147, float noundef %150, i32 noundef %151, float noundef %152, float noundef %153)
+  br label %155
 
-lor.end:                                          ; preds = %lor.rhs, %lor.lhs.false46, %lor.lhs.false44, %land.end41
-  %50 = phi i1 [ true, %lor.lhs.false46 ], [ true, %lor.lhs.false44 ], [ true, %land.end41 ], [ %call50, %lor.rhs ]
-  %frombool51 = zext i1 %50 to i8
-  store i8 %frombool51, ptr %widthIsCompatible, align 1
-  %51 = load i8, ptr %hasSameHeightSpec, align 1
-  %tobool52 = trunc i8 %51 to i1
-  br i1 %tobool52, label %lor.end62, label %lor.lhs.false53
+155:                                              ; preds = %146, %138, %131, %126
+  %156 = phi i1 [ true, %138 ], [ true, %131 ], [ true, %126 ], [ %154, %146 ]
+  %157 = zext i1 %156 to i8
+  store i8 %157, ptr %36, align 1, !tbaa !13
+  call void @llvm.lifetime.start.p0(i64 1, ptr %37) #7
+  %158 = load i8, ptr %35, align 1, !tbaa !13, !range !15, !noundef !16
+  %159 = trunc i8 %158 to i1
+  br i1 %159, label %184, label %160
 
-lor.lhs.false53:                                  ; preds = %lor.end
-  %52 = load i32, ptr %heightMode.addr, align 4
-  %53 = load float, ptr %availableHeight.addr, align 4
-  %54 = load float, ptr %marginColumn.addr, align 4
-  %sub54 = fsub float %53, %54
-  %55 = load float, ptr %lastComputedHeight.addr, align 4
-  %call55 = call noundef zeroext i1 @_ZN8facebook4yogaL36sizeIsExactAndMatchesOldMeasuredSizeENS0_10SizingModeEff(i32 noundef %52, float noundef %sub54, float noundef %55)
-  br i1 %call55, label %lor.end62, label %lor.lhs.false56
+160:                                              ; preds = %155
+  %161 = load i32, ptr %17, align 4, !tbaa !4
+  %162 = load float, ptr %18, align 4, !tbaa !8
+  %163 = load float, ptr %26, align 4, !tbaa !8
+  %164 = fsub float %162, %163
+  %165 = load float, ptr %24, align 4, !tbaa !8
+  %166 = call noundef zeroext i1 @_ZN8facebook4yogaL36sizeIsExactAndMatchesOldMeasuredSizeENS0_10SizingModeEff(i32 noundef %161, float noundef %164, float noundef %165)
+  br i1 %166, label %184, label %167
 
-lor.lhs.false56:                                  ; preds = %lor.lhs.false53
-  %56 = load i32, ptr %heightMode.addr, align 4
-  %57 = load float, ptr %availableHeight.addr, align 4
-  %58 = load float, ptr %marginColumn.addr, align 4
-  %sub57 = fsub float %57, %58
-  %59 = load i32, ptr %lastHeightMode.addr, align 4
-  %60 = load float, ptr %lastComputedHeight.addr, align 4
-  %call58 = call noundef zeroext i1 @_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f(i32 noundef %56, float noundef %sub57, i32 noundef %59, float noundef %60)
-  br i1 %call58, label %lor.end62, label %lor.rhs59
+167:                                              ; preds = %160
+  %168 = load i32, ptr %17, align 4, !tbaa !4
+  %169 = load float, ptr %18, align 4, !tbaa !8
+  %170 = load float, ptr %26, align 4, !tbaa !8
+  %171 = fsub float %169, %170
+  %172 = load i32, ptr %21, align 4, !tbaa !4
+  %173 = load float, ptr %24, align 4, !tbaa !8
+  %174 = call noundef zeroext i1 @_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f(i32 noundef %168, float noundef %171, i32 noundef %172, float noundef %173)
+  br i1 %174, label %184, label %175
 
-lor.rhs59:                                        ; preds = %lor.lhs.false56
-  %61 = load i32, ptr %heightMode.addr, align 4
-  %62 = load float, ptr %availableHeight.addr, align 4
-  %63 = load float, ptr %marginColumn.addr, align 4
-  %sub60 = fsub float %62, %63
-  %64 = load i32, ptr %lastHeightMode.addr, align 4
-  %65 = load float, ptr %lastAvailableHeight.addr, align 4
-  %66 = load float, ptr %lastComputedHeight.addr, align 4
-  %call61 = call noundef zeroext i1 @_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff(i32 noundef %61, float noundef %sub60, i32 noundef %64, float noundef %65, float noundef %66)
-  br label %lor.end62
+175:                                              ; preds = %167
+  %176 = load i32, ptr %17, align 4, !tbaa !4
+  %177 = load float, ptr %18, align 4, !tbaa !8
+  %178 = load float, ptr %26, align 4, !tbaa !8
+  %179 = fsub float %177, %178
+  %180 = load i32, ptr %21, align 4, !tbaa !4
+  %181 = load float, ptr %22, align 4, !tbaa !8
+  %182 = load float, ptr %24, align 4, !tbaa !8
+  %183 = call noundef zeroext i1 @_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff(i32 noundef %176, float noundef %179, i32 noundef %180, float noundef %181, float noundef %182)
+  br label %184
 
-lor.end62:                                        ; preds = %lor.rhs59, %lor.lhs.false56, %lor.lhs.false53, %lor.end
-  %67 = phi i1 [ true, %lor.lhs.false56 ], [ true, %lor.lhs.false53 ], [ true, %lor.end ], [ %call61, %lor.rhs59 ]
-  %frombool63 = zext i1 %67 to i8
-  store i8 %frombool63, ptr %heightIsCompatible, align 1
-  %68 = load i8, ptr %widthIsCompatible, align 1
-  %tobool64 = trunc i8 %68 to i1
-  br i1 %tobool64, label %land.rhs65, label %land.end67
+184:                                              ; preds = %175, %167, %160, %155
+  %185 = phi i1 [ true, %167 ], [ true, %160 ], [ true, %155 ], [ %183, %175 ]
+  %186 = zext i1 %185 to i8
+  store i8 %186, ptr %37, align 1, !tbaa !13
+  %187 = load i8, ptr %36, align 1, !tbaa !13, !range !15, !noundef !16
+  %188 = trunc i8 %187 to i1
+  br i1 %188, label %189, label %192
 
-land.rhs65:                                       ; preds = %lor.end62
-  %69 = load i8, ptr %heightIsCompatible, align 1
-  %tobool66 = trunc i8 %69 to i1
-  br label %land.end67
+189:                                              ; preds = %184
+  %190 = load i8, ptr %37, align 1, !tbaa !13, !range !15, !noundef !16
+  %191 = trunc i8 %190 to i1
+  br label %192
 
-land.end67:                                       ; preds = %land.rhs65, %lor.end62
-  %70 = phi i1 [ false, %lor.end62 ], [ %tobool66, %land.rhs65 ]
-  store i1 %70, ptr %retval, align 1
-  br label %return
+192:                                              ; preds = %189, %184
+  %193 = phi i1 [ false, %184 ], [ %191, %189 ]
+  store i1 %193, ptr %14, align 1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %37) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %36) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %35) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %34) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %33) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %32) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %31) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %30) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %29) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %28) #7
+  br label %194
 
-return:                                           ; preds = %land.end67, %if.then
-  %71 = load i1, ptr %retval, align 1
-  ret i1 %71
+194:                                              ; preds = %192, %49
+  %195 = load i1, ptr %14, align 1
+  ret i1 %195
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %value) #0 comdat {
-entry:
-  %value.addr = alloca float, align 4
-  store float %value, ptr %value.addr, align 4
-  %0 = load float, ptr %value.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %0) #0 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !8
+  %3 = load float, ptr %2, align 4, !tbaa !8
+  %4 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %3)
+  %5 = xor i1 %4, true
+  ret i1 %5
 }
 
-declare noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48)) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef, double noundef, i1 noundef zeroext, i1 noundef zeroext) #1
+declare noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48)) #2
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %a, float noundef %b) #0 comdat {
-entry:
-  %retval = alloca i1, align 1
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  %0 = load float, ptr %a.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %0)
-  br i1 %call, label %land.lhs.true, label %if.end
+declare noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef, double noundef, i1 noundef zeroext, i1 noundef zeroext) #2
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load float, ptr %b.addr, align 4
-  %call1 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %1)
-  br i1 %call1, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %0, float noundef %1) #3 comdat {
+  %3 = alloca i1, align 1
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  store float %0, ptr %4, align 4, !tbaa !8
+  store float %1, ptr %5, align 4, !tbaa !8
+  %6 = load float, ptr %4, align 4, !tbaa !8
+  %7 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %6)
+  br i1 %7, label %8, label %17
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load float, ptr %a.addr, align 4
-  %3 = load float, ptr %b.addr, align 4
-  %sub = fsub float %2, %3
-  %call2 = call noundef float @_ZSt3absf(float noundef %sub)
-  %cmp = fcmp olt float %call2, 0x3F1A36E2E0000000
-  store i1 %cmp, ptr %retval, align 1
-  br label %return
+8:                                                ; preds = %2
+  %9 = load float, ptr %5, align 4, !tbaa !8
+  %10 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %9)
+  br i1 %10, label %11, label %17
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load float, ptr %a.addr, align 4
-  %call3 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %4)
-  br i1 %call3, label %land.rhs, label %land.end
+11:                                               ; preds = %8
+  %12 = load float, ptr %4, align 4, !tbaa !8
+  %13 = load float, ptr %5, align 4, !tbaa !8
+  %14 = fsub float %12, %13
+  %15 = call noundef float @_ZSt3absf(float noundef %14)
+  %16 = fcmp olt float %15, 0x3F1A36E2E0000000
+  store i1 %16, ptr %3, align 1
+  br label %25
 
-land.rhs:                                         ; preds = %if.end
-  %5 = load float, ptr %b.addr, align 4
-  %call4 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %5)
-  br label %land.end
+17:                                               ; preds = %8, %2
+  %18 = load float, ptr %4, align 4, !tbaa !8
+  %19 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %18)
+  br i1 %19, label %20, label %23
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %6 = phi i1 [ false, %if.end ], [ %call4, %land.rhs ]
-  store i1 %6, ptr %retval, align 1
-  br label %return
+20:                                               ; preds = %17
+  %21 = load float, ptr %5, align 4, !tbaa !8
+  %22 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %21)
+  br label %23
 
-return:                                           ; preds = %land.end, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
+23:                                               ; preds = %20, %17
+  %24 = phi i1 [ false, %17 ], [ %22, %20 ]
+  store i1 %24, ptr %3, align 1
+  br label %25
+
+25:                                               ; preds = %23, %11
+  %26 = load i1, ptr %3, align 1
+  ret i1 %26
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook4yogaL36sizeIsExactAndMatchesOldMeasuredSizeENS0_10SizingModeEff(i32 noundef %sizeMode, float noundef %size, float noundef %lastComputedSize) #0 {
-entry:
-  %sizeMode.addr = alloca i32, align 4
-  %size.addr = alloca float, align 4
-  %lastComputedSize.addr = alloca float, align 4
-  store i32 %sizeMode, ptr %sizeMode.addr, align 4
-  store float %size, ptr %size.addr, align 4
-  store float %lastComputedSize, ptr %lastComputedSize.addr, align 4
-  %0 = load i32, ptr %sizeMode.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i1 @_ZN8facebook4yogaL36sizeIsExactAndMatchesOldMeasuredSizeENS0_10SizingModeEff(i32 noundef %0, float noundef %1, float noundef %2) #3 {
+  %4 = alloca i32, align 4
+  %5 = alloca float, align 4
+  %6 = alloca float, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !4
+  store float %1, ptr %5, align 4, !tbaa !8
+  store float %2, ptr %6, align 4, !tbaa !8
+  %7 = load i32, ptr %4, align 4, !tbaa !4
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %9, label %13
 
-land.rhs:                                         ; preds = %entry
-  %1 = load float, ptr %size.addr, align 4
-  %2 = load float, ptr %lastComputedSize.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %1, float noundef %2)
-  br label %land.end
+9:                                                ; preds = %3
+  %10 = load float, ptr %5, align 4, !tbaa !8
+  %11 = load float, ptr %6, align 4, !tbaa !8
+  %12 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %10, float noundef %11)
+  br label %13
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %call, %land.rhs ]
-  ret i1 %3
+13:                                               ; preds = %9, %3
+  %14 = phi i1 [ false, %3 ], [ %12, %9 ]
+  ret i1 %14
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f(i32 noundef %sizeMode, float noundef %size, i32 noundef %lastSizeMode, float noundef %lastComputedSize) #0 {
-entry:
-  %sizeMode.addr = alloca i32, align 4
-  %size.addr = alloca float, align 4
-  %lastSizeMode.addr = alloca i32, align 4
-  %lastComputedSize.addr = alloca float, align 4
-  store i32 %sizeMode, ptr %sizeMode.addr, align 4
-  store float %size, ptr %size.addr, align 4
-  store i32 %lastSizeMode, ptr %lastSizeMode.addr, align 4
-  store float %lastComputedSize, ptr %lastComputedSize.addr, align 4
-  %0 = load i32, ptr %sizeMode.addr, align 4
-  %cmp = icmp eq i32 %0, 2
-  br i1 %cmp, label %land.lhs.true, label %land.end
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i1 @_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f(i32 noundef %0, float noundef %1, i32 noundef %2, float noundef %3) #3 {
+  %5 = alloca i32, align 4
+  %6 = alloca float, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca float, align 4
+  store i32 %0, ptr %5, align 4, !tbaa !4
+  store float %1, ptr %6, align 4, !tbaa !8
+  store i32 %2, ptr %7, align 4, !tbaa !4
+  store float %3, ptr %8, align 4, !tbaa !8
+  %9 = load i32, ptr %5, align 4, !tbaa !4
+  %10 = icmp eq i32 %9, 2
+  br i1 %10, label %11, label %24
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %lastSizeMode.addr, align 4
-  %cmp1 = icmp eq i32 %1, 1
-  br i1 %cmp1, label %land.rhs, label %land.end
+11:                                               ; preds = %4
+  %12 = load i32, ptr %7, align 4, !tbaa !4
+  %13 = icmp eq i32 %12, 1
+  br i1 %13, label %14, label %24
 
-land.rhs:                                         ; preds = %land.lhs.true
-  %2 = load float, ptr %size.addr, align 4
-  %3 = load float, ptr %lastComputedSize.addr, align 4
-  %cmp2 = fcmp oge float %2, %3
-  br i1 %cmp2, label %lor.end, label %lor.rhs
+14:                                               ; preds = %11
+  %15 = load float, ptr %6, align 4, !tbaa !8
+  %16 = load float, ptr %8, align 4, !tbaa !8
+  %17 = fcmp oge float %15, %16
+  br i1 %17, label %22, label %18
 
-lor.rhs:                                          ; preds = %land.rhs
-  %4 = load float, ptr %size.addr, align 4
-  %5 = load float, ptr %lastComputedSize.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %4, float noundef %5)
-  br label %lor.end
+18:                                               ; preds = %14
+  %19 = load float, ptr %6, align 4, !tbaa !8
+  %20 = load float, ptr %8, align 4, !tbaa !8
+  %21 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %19, float noundef %20)
+  br label %22
 
-lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %6 = phi i1 [ true, %land.rhs ], [ %call, %lor.rhs ]
-  br label %land.end
+22:                                               ; preds = %18, %14
+  %23 = phi i1 [ true, %14 ], [ %21, %18 ]
+  br label %24
 
-land.end:                                         ; preds = %lor.end, %land.lhs.true, %entry
-  %7 = phi i1 [ false, %land.lhs.true ], [ false, %entry ], [ %6, %lor.end ]
-  ret i1 %7
+24:                                               ; preds = %22, %11, %4
+  %25 = phi i1 [ false, %11 ], [ false, %4 ], [ %23, %22 ]
+  ret i1 %25
 }
 
-; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff(i32 noundef %sizeMode, float noundef %size, i32 noundef %lastSizeMode, float noundef %lastSize, float noundef %lastComputedSize) #0 {
-entry:
-  %sizeMode.addr = alloca i32, align 4
-  %size.addr = alloca float, align 4
-  %lastSizeMode.addr = alloca i32, align 4
-  %lastSize.addr = alloca float, align 4
-  %lastComputedSize.addr = alloca float, align 4
-  store i32 %sizeMode, ptr %sizeMode.addr, align 4
-  store float %size, ptr %size.addr, align 4
-  store i32 %lastSizeMode, ptr %lastSizeMode.addr, align 4
-  store float %lastSize, ptr %lastSize.addr, align 4
-  store float %lastComputedSize, ptr %lastComputedSize.addr, align 4
-  %0 = load i32, ptr %lastSizeMode.addr, align 4
-  %cmp = icmp eq i32 %0, 2
-  br i1 %cmp, label %land.lhs.true, label %land.end
+; Function Attrs: inlinehint mustprogress uwtable
+define internal noundef zeroext i1 @_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff(i32 noundef %0, float noundef %1, i32 noundef %2, float noundef %3, float noundef %4) #3 {
+  %6 = alloca i32, align 4
+  %7 = alloca float, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca float, align 4
+  %10 = alloca float, align 4
+  store i32 %0, ptr %6, align 4, !tbaa !4
+  store float %1, ptr %7, align 4, !tbaa !8
+  store i32 %2, ptr %8, align 4, !tbaa !4
+  store float %3, ptr %9, align 4, !tbaa !8
+  store float %4, ptr %10, align 4, !tbaa !8
+  %11 = load i32, ptr %8, align 4, !tbaa !4
+  %12 = icmp eq i32 %11, 2
+  br i1 %12, label %13, label %39
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load i32, ptr %sizeMode.addr, align 4
-  %cmp1 = icmp eq i32 %1, 2
-  br i1 %cmp1, label %land.lhs.true2, label %land.end
+13:                                               ; preds = %5
+  %14 = load i32, ptr %6, align 4, !tbaa !4
+  %15 = icmp eq i32 %14, 2
+  br i1 %15, label %16, label %39
 
-land.lhs.true2:                                   ; preds = %land.lhs.true
-  %2 = load float, ptr %lastSize.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %2)
-  br i1 %call, label %land.lhs.true3, label %land.end
+16:                                               ; preds = %13
+  %17 = load float, ptr %9, align 4, !tbaa !8
+  %18 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %17)
+  br i1 %18, label %19, label %39
 
-land.lhs.true3:                                   ; preds = %land.lhs.true2
-  %3 = load float, ptr %size.addr, align 4
-  %call4 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %3)
-  br i1 %call4, label %land.lhs.true5, label %land.end
+19:                                               ; preds = %16
+  %20 = load float, ptr %7, align 4, !tbaa !8
+  %21 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %20)
+  br i1 %21, label %22, label %39
 
-land.lhs.true5:                                   ; preds = %land.lhs.true3
-  %4 = load float, ptr %lastComputedSize.addr, align 4
-  %call6 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %4)
-  br i1 %call6, label %land.lhs.true7, label %land.end
+22:                                               ; preds = %19
+  %23 = load float, ptr %10, align 4, !tbaa !8
+  %24 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %23)
+  br i1 %24, label %25, label %39
 
-land.lhs.true7:                                   ; preds = %land.lhs.true5
-  %5 = load float, ptr %lastSize.addr, align 4
-  %6 = load float, ptr %size.addr, align 4
-  %cmp8 = fcmp ogt float %5, %6
-  br i1 %cmp8, label %land.rhs, label %land.end
+25:                                               ; preds = %22
+  %26 = load float, ptr %9, align 4, !tbaa !8
+  %27 = load float, ptr %7, align 4, !tbaa !8
+  %28 = fcmp ogt float %26, %27
+  br i1 %28, label %29, label %39
 
-land.rhs:                                         ; preds = %land.lhs.true7
-  %7 = load float, ptr %lastComputedSize.addr, align 4
-  %8 = load float, ptr %size.addr, align 4
-  %cmp9 = fcmp ole float %7, %8
-  br i1 %cmp9, label %lor.end, label %lor.rhs
+29:                                               ; preds = %25
+  %30 = load float, ptr %10, align 4, !tbaa !8
+  %31 = load float, ptr %7, align 4, !tbaa !8
+  %32 = fcmp ole float %30, %31
+  br i1 %32, label %37, label %33
 
-lor.rhs:                                          ; preds = %land.rhs
-  %9 = load float, ptr %size.addr, align 4
-  %10 = load float, ptr %lastComputedSize.addr, align 4
-  %call10 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %9, float noundef %10)
-  br label %lor.end
+33:                                               ; preds = %29
+  %34 = load float, ptr %7, align 4, !tbaa !8
+  %35 = load float, ptr %10, align 4, !tbaa !8
+  %36 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %34, float noundef %35)
+  br label %37
 
-lor.end:                                          ; preds = %lor.rhs, %land.rhs
-  %11 = phi i1 [ true, %land.rhs ], [ %call10, %lor.rhs ]
-  br label %land.end
+37:                                               ; preds = %33, %29
+  %38 = phi i1 [ true, %29 ], [ %36, %33 ]
+  br label %39
 
-land.end:                                         ; preds = %lor.end, %land.lhs.true7, %land.lhs.true5, %land.lhs.true3, %land.lhs.true2, %land.lhs.true, %entry
-  %12 = phi i1 [ false, %land.lhs.true7 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true3 ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ false, %entry ], [ %11, %lor.end ]
-  ret i1 %12
+39:                                               ; preds = %37, %25, %22, %19, %16, %13, %5
+  %40 = phi i1 [ false, %25 ], [ false, %22 ], [ false, %19 ], [ false, %16 ], [ false, %13 ], [ false, %5 ], [ %38, %37 ]
+  ret i1 %40
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %value) #2 comdat {
-entry:
-  %value.addr = alloca float, align 4
-  store float %value, ptr %value.addr, align 4
-  %0 = load float, ptr %value.addr, align 4
-  %1 = load float, ptr %value.addr, align 4
-  %cmp = fcmp une float %0, %1
-  ret i1 %cmp
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %0) #4 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !8
+  %3 = load float, ptr %2, align 4, !tbaa !8
+  %4 = load float, ptr %2, align 4, !tbaa !8
+  %5 = fcmp une float %3, %4
+  ret i1 %5
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt3absf(float noundef %__x) #2 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %1 = call float @llvm.fabs.f32(float %0)
-  ret float %1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt3absf(float noundef %0) #5 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !8
+  %3 = load float, ptr %2, align 4, !tbaa !8
+  %4 = call float @llvm.fabs.f32(float %3)
+  ret float %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
+declare float @llvm.fabs.f32(float) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}
@@ -516,3 +538,16 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"_ZTSN8facebook4yoga10SizingModeE", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"float", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 _ZTSN8facebook4yoga6ConfigE", !12, i64 0}
+!12 = !{!"any pointer", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"bool", !6, i64 0}
+!15 = !{i8 0, i8 2}
+!16 = !{}

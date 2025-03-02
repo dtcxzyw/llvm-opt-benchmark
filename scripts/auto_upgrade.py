@@ -141,6 +141,7 @@ supported_project = [
     "verilator",
     "xgboost",
     "yaml-cpp",
+    "yoga",
 ]
 
 modify_only = [

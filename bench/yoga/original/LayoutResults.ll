@@ -1,7 +1,7 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
-%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i8, i32, %"struct.std::array", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.0", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1" }
+%"struct.facebook::yoga::LayoutResults" = type { i32, %"struct.facebook::yoga::FloatOptional", i32, i32, i8, i32, %"struct.std::array", %"struct.facebook::yoga::CachedMeasurement", i8, %"struct.std::array.0", %"struct.std::array.0", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1", %"struct.std::array.1" }
 %"struct.facebook::yoga::FloatOptional" = type { float }
 %"struct.std::array" = type { [8 x %"struct.facebook::yoga::CachedMeasurement"] }
 %"struct.facebook::yoga::CachedMeasurement" = type { float, float, i32, i32, float, float }
@@ -49,761 +49,780 @@ $_ZSt3absf = comdat any
 $_ZNSt14__array_traitsIfLm4EE6_S_refERA4_Kfm = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResultseqES1_(ptr noundef nonnull align 4 dereferenceable(320) %this, ptr noundef byval(%"struct.facebook::yoga::LayoutResults") align 8 %layout) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %isEqual = alloca i8, align 1
-  %agg.tmp = alloca %"struct.facebook::yoga::CachedMeasurement", align 8
-  %agg.tmp31 = alloca %"struct.facebook::yoga::FloatOptional", align 4
-  %agg.tmp32 = alloca %"struct.facebook::yoga::FloatOptional", align 4
-  %i = alloca i32, align 4
-  %agg.tmp43 = alloca %"struct.facebook::yoga::CachedMeasurement", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %position_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 10
-  %position_2 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 10
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %position_, ptr noundef nonnull align 4 dereferenceable(16) %position_2)
-  br i1 %call, label %land.lhs.true, label %land.end
+define hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResultseqES1_(ptr noundef nonnull align 4 dereferenceable(324) %0, ptr noundef byval(%"struct.facebook::yoga::LayoutResults") align 8 %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  %5 = alloca %"struct.facebook::yoga::CachedMeasurement", align 8
+  %6 = alloca %"struct.facebook::yoga::FloatOptional", align 4
+  %7 = alloca %"struct.facebook::yoga::FloatOptional", align 4
+  %8 = alloca i32, align 4
+  %9 = alloca %"struct.facebook::yoga::CachedMeasurement", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !4
+  %10 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #7
+  %11 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 11
+  %12 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 11
+  %13 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %12)
+  br i1 %13, label %14, label %70
 
-land.lhs.true:                                    ; preds = %entry
-  %dimensions_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 8
-  %dimensions_3 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 8
-  %call4 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(8) %dimensions_, ptr noundef nonnull align 4 dereferenceable(8) %dimensions_3)
-  br i1 %call4, label %land.lhs.true5, label %land.end
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 9
+  %16 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 9
+  %17 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %16)
+  br i1 %17, label %18, label %70
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %margin_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 11
-  %margin_6 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 11
-  %call7 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %margin_, ptr noundef nonnull align 4 dereferenceable(16) %margin_6)
-  br i1 %call7, label %land.lhs.true8, label %land.end
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 12
+  %20 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 12
+  %21 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %20)
+  br i1 %21, label %22, label %70
 
-land.lhs.true8:                                   ; preds = %land.lhs.true5
-  %border_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 12
-  %border_9 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 12
-  %call10 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %border_, ptr noundef nonnull align 4 dereferenceable(16) %border_9)
-  br i1 %call10, label %land.lhs.true11, label %land.end
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 13
+  %24 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 13
+  %25 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %23, ptr noundef nonnull align 4 dereferenceable(16) %24)
+  br i1 %25, label %26, label %70
 
-land.lhs.true11:                                  ; preds = %land.lhs.true8
-  %padding_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 13
-  %padding_12 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 13
-  %call13 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %padding_, ptr noundef nonnull align 4 dereferenceable(16) %padding_12)
-  br i1 %call13, label %land.lhs.true14, label %land.end
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 14
+  %28 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 14
+  %29 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %28)
+  br i1 %29, label %30, label %70
 
-land.lhs.true14:                                  ; preds = %land.lhs.true11
-  %call15 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(320) %this1)
-  %call16 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(320) %layout)
-  %cmp = icmp eq i8 %call15, %call16
-  br i1 %cmp, label %land.lhs.true17, label %land.end
+30:                                               ; preds = %26
+  %31 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(324) %10)
+  %32 = call noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(324) %1)
+  %33 = icmp eq i8 %31, %32
+  br i1 %33, label %34, label %70
 
-land.lhs.true17:                                  ; preds = %land.lhs.true14
-  %call18 = call noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResults11hadOverflowEv(ptr noundef nonnull align 4 dereferenceable(320) %this1)
-  %conv = zext i1 %call18 to i32
-  %call19 = call noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResults11hadOverflowEv(ptr noundef nonnull align 4 dereferenceable(320) %layout)
-  %conv20 = zext i1 %call19 to i32
-  %cmp21 = icmp eq i32 %conv, %conv20
-  br i1 %cmp21, label %land.lhs.true22, label %land.end
+34:                                               ; preds = %30
+  %35 = call noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResults11hadOverflowEv(ptr noundef nonnull align 4 dereferenceable(324) %10)
+  %36 = zext i1 %35 to i32
+  %37 = call noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResults11hadOverflowEv(ptr noundef nonnull align 4 dereferenceable(324) %1)
+  %38 = zext i1 %37 to i32
+  %39 = icmp eq i32 %36, %38
+  br i1 %39, label %40, label %70
 
-land.lhs.true22:                                  ; preds = %land.lhs.true17
-  %lastOwnerDirection = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %lastOwnerDirection, align 4
-  %lastOwnerDirection23 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 3
-  %1 = load i8, ptr %lastOwnerDirection23, align 4
-  %cmp24 = icmp eq i8 %0, %1
-  br i1 %cmp24, label %land.lhs.true25, label %land.end
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 4
+  %42 = load i8, ptr %41, align 4, !tbaa !9
+  %43 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 4
+  %44 = load i8, ptr %43, align 8, !tbaa !9
+  %45 = icmp eq i8 %42, %44
+  br i1 %45, label %46, label %70
 
-land.lhs.true25:                                  ; preds = %land.lhs.true22
-  %nextCachedMeasurementsIndex = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 4
-  %2 = load i32, ptr %nextCachedMeasurementsIndex, align 4
-  %nextCachedMeasurementsIndex26 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 4
-  %3 = load i32, ptr %nextCachedMeasurementsIndex26, align 8
-  %cmp27 = icmp eq i32 %2, %3
-  br i1 %cmp27, label %land.lhs.true28, label %land.end
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 3
+  %48 = load i32, ptr %47, align 4, !tbaa !21
+  %49 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 3
+  %50 = load i32, ptr %49, align 4, !tbaa !21
+  %51 = icmp eq i32 %48, %50
+  br i1 %51, label %52, label %70
 
-land.lhs.true28:                                  ; preds = %land.lhs.true25
-  %cachedLayout = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 6
-  %cachedLayout29 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp, ptr align 4 %cachedLayout29, i64 24, i1 false)
-  %call30 = call noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %cachedLayout, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %agg.tmp)
-  br i1 %call30, label %land.rhs, label %land.end
+52:                                               ; preds = %46
+  %53 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 5
+  %54 = load i32, ptr %53, align 4, !tbaa !22
+  %55 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 5
+  %56 = load i32, ptr %55, align 4, !tbaa !22
+  %57 = icmp eq i32 %54, %56
+  br i1 %57, label %58, label %70
 
-land.rhs:                                         ; preds = %land.lhs.true28
-  %computedFlexBasis = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp31, ptr align 4 %computedFlexBasis, i64 4, i1 false)
-  %computedFlexBasis33 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp32, ptr align 4 %computedFlexBasis33, i64 4, i1 false)
-  %coerce.dive = getelementptr inbounds %"struct.facebook::yoga::FloatOptional", ptr %agg.tmp31, i32 0, i32 0
-  %4 = load float, ptr %coerce.dive, align 4
-  %coerce.dive34 = getelementptr inbounds %"struct.facebook::yoga::FloatOptional", ptr %agg.tmp32, i32 0, i32 0
-  %5 = load float, ptr %coerce.dive34, align 4
-  %call35 = call noundef zeroext i1 @_ZN8facebook4yogaeqENS0_13FloatOptionalES1_(float %4, float %5)
-  br label %land.end
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 7
+  %60 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %5, ptr align 8 %60, i64 24, i1 false), !tbaa.struct !23
+  %61 = call noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %59, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %5)
+  br i1 %61, label %62, label %70
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true28, %land.lhs.true25, %land.lhs.true22, %land.lhs.true17, %land.lhs.true14, %land.lhs.true11, %land.lhs.true8, %land.lhs.true5, %land.lhs.true, %entry
-  %6 = phi i1 [ false, %land.lhs.true28 ], [ false, %land.lhs.true25 ], [ false, %land.lhs.true22 ], [ false, %land.lhs.true17 ], [ false, %land.lhs.true14 ], [ false, %land.lhs.true11 ], [ false, %land.lhs.true8 ], [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ %call35, %land.rhs ]
-  %frombool = zext i1 %6 to i8
-  store i8 %frombool, ptr %isEqual, align 1
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+62:                                               ; preds = %58
+  %63 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %6, ptr align 4 %63, i64 4, i1 false), !tbaa.struct !26
+  %64 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %7, ptr align 4 %64, i64 4, i1 false), !tbaa.struct !26
+  %65 = getelementptr inbounds nuw %"struct.facebook::yoga::FloatOptional", ptr %6, i32 0, i32 0
+  %66 = load float, ptr %65, align 4
+  %67 = getelementptr inbounds nuw %"struct.facebook::yoga::FloatOptional", ptr %7, i32 0, i32 0
+  %68 = load float, ptr %67, align 4
+  %69 = call noundef zeroext i1 @_ZN8facebook4yogaeqENS0_13FloatOptionalES1_(float %66, float %68)
+  br label %70
 
-for.cond:                                         ; preds = %for.inc, %land.end
-  %7 = load i32, ptr %i, align 4
-  %cmp36 = icmp ult i32 %7, 8
-  br i1 %cmp36, label %land.rhs37, label %land.end38
+70:                                               ; preds = %62, %58, %52, %46, %40, %34, %30, %26, %22, %18, %14, %2
+  %71 = phi i1 [ false, %58 ], [ false, %52 ], [ false, %46 ], [ false, %40 ], [ false, %34 ], [ false, %30 ], [ false, %26 ], [ false, %22 ], [ false, %18 ], [ false, %14 ], [ false, %2 ], [ %69, %62 ]
+  %72 = zext i1 %71 to i8
+  store i8 %72, ptr %4, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #7
+  store i32 0, ptr %8, align 4, !tbaa !28
+  br label %73
 
-land.rhs37:                                       ; preds = %for.cond
-  %8 = load i8, ptr %isEqual, align 1
-  %tobool = trunc i8 %8 to i1
-  br label %land.end38
+73:                                               ; preds = %98, %70
+  %74 = load i32, ptr %8, align 4, !tbaa !28
+  %75 = icmp ult i32 %74, 8
+  br i1 %75, label %76, label %79
 
-land.end38:                                       ; preds = %land.rhs37, %for.cond
-  %9 = phi i1 [ false, %for.cond ], [ %tobool, %land.rhs37 ]
-  br i1 %9, label %for.body, label %for.end
+76:                                               ; preds = %73
+  %77 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %78 = trunc i8 %77 to i1
+  br label %79
 
-for.body:                                         ; preds = %land.end38
-  %10 = load i8, ptr %isEqual, align 1
-  %tobool39 = trunc i8 %10 to i1
-  br i1 %tobool39, label %land.rhs40, label %land.end48
+79:                                               ; preds = %76, %73
+  %80 = phi i1 [ false, %73 ], [ %78, %76 ]
+  br i1 %80, label %82, label %81
 
-land.rhs40:                                       ; preds = %for.body
-  %cachedMeasurements = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 5
-  %11 = load i32, ptr %i, align 4
-  %conv41 = zext i32 %11 to i64
-  %call42 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %cachedMeasurements, i64 noundef %conv41) #4
-  %cachedMeasurements44 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 5
-  %12 = load i32, ptr %i, align 4
-  %conv45 = zext i32 %12 to i64
-  %call46 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %cachedMeasurements44, i64 noundef %conv45) #4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %agg.tmp43, ptr align 4 %call46, i64 24, i1 false)
-  %call47 = call noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %call42, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %agg.tmp43)
-  br label %land.end48
+81:                                               ; preds = %79
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #7
+  br label %101
 
-land.end48:                                       ; preds = %land.rhs40, %for.body
-  %13 = phi i1 [ false, %for.body ], [ %call47, %land.rhs40 ]
-  %frombool49 = zext i1 %13 to i8
-  store i8 %frombool49, ptr %isEqual, align 1
-  br label %for.inc
+82:                                               ; preds = %79
+  %83 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %84 = trunc i8 %83 to i1
+  br i1 %84, label %85, label %95
 
-for.inc:                                          ; preds = %land.end48
-  %14 = load i32, ptr %i, align 4
-  %inc = add i32 %14, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 6
+  %87 = load i32, ptr %8, align 4, !tbaa !28
+  %88 = zext i32 %87 to i64
+  %89 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %86, i64 noundef %88) #7
+  %90 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 6
+  %91 = load i32, ptr %8, align 4, !tbaa !28
+  %92 = zext i32 %91 to i64
+  %93 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %90, i64 noundef %92) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %9, ptr align 4 %93, i64 24, i1 false), !tbaa.struct !23
+  %94 = call noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %89, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %9)
+  br label %95
 
-for.end:                                          ; preds = %land.end38
-  %measuredDimensions_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 9
-  %call50 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_, i64 noundef 0) #4
-  %15 = load float, ptr %call50, align 4
-  %call51 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %15)
-  br i1 %call51, label %lor.lhs.false, label %if.then
+95:                                               ; preds = %85, %82
+  %96 = phi i1 [ false, %82 ], [ %94, %85 ]
+  %97 = zext i1 %96 to i8
+  store i8 %97, ptr %4, align 1, !tbaa !27
+  br label %98
 
-lor.lhs.false:                                    ; preds = %for.end
-  %measuredDimensions_52 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 9
-  %call53 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_52, i64 noundef 0) #4
-  %16 = load float, ptr %call53, align 4
-  %call54 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %16)
-  br i1 %call54, label %if.end, label %if.then
+98:                                               ; preds = %95
+  %99 = load i32, ptr %8, align 4, !tbaa !28
+  %100 = add i32 %99, 1
+  store i32 %100, ptr %8, align 4, !tbaa !28
+  br label %73, !llvm.loop !31
 
-if.then:                                          ; preds = %lor.lhs.false, %for.end
-  %17 = load i8, ptr %isEqual, align 1
-  %tobool55 = trunc i8 %17 to i1
-  br i1 %tobool55, label %land.rhs56, label %land.end62
+101:                                              ; preds = %81
+  %102 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 10
+  %103 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %102, i64 noundef 0) #7
+  %104 = load float, ptr %103, align 4, !tbaa !24
+  %105 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %104)
+  br i1 %105, label %106, label %111
 
-land.rhs56:                                       ; preds = %if.then
-  %measuredDimensions_57 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 9
-  %call58 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_57, i64 noundef 0) #4
-  %18 = load float, ptr %call58, align 4
-  %measuredDimensions_59 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 9
-  %call60 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_59, i64 noundef 0) #4
-  %19 = load float, ptr %call60, align 4
-  %cmp61 = fcmp oeq float %18, %19
-  br label %land.end62
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 10
+  %108 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %107, i64 noundef 0) #7
+  %109 = load float, ptr %108, align 4, !tbaa !24
+  %110 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %109)
+  br i1 %110, label %125, label %111
 
-land.end62:                                       ; preds = %land.rhs56, %if.then
-  %20 = phi i1 [ false, %if.then ], [ %cmp61, %land.rhs56 ]
-  %frombool63 = zext i1 %20 to i8
-  store i8 %frombool63, ptr %isEqual, align 1
-  br label %if.end
+111:                                              ; preds = %106, %101
+  %112 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %113 = trunc i8 %112 to i1
+  br i1 %113, label %114, label %122
 
-if.end:                                           ; preds = %land.end62, %lor.lhs.false
-  %measuredDimensions_64 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 9
-  %call65 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_64, i64 noundef 1) #4
-  %21 = load float, ptr %call65, align 4
-  %call66 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %21)
-  br i1 %call66, label %lor.lhs.false67, label %if.then71
+114:                                              ; preds = %111
+  %115 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 10
+  %116 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %115, i64 noundef 0) #7
+  %117 = load float, ptr %116, align 4, !tbaa !24
+  %118 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 10
+  %119 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %118, i64 noundef 0) #7
+  %120 = load float, ptr %119, align 4, !tbaa !24
+  %121 = fcmp oeq float %117, %120
+  br label %122
 
-lor.lhs.false67:                                  ; preds = %if.end
-  %measuredDimensions_68 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 9
-  %call69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_68, i64 noundef 1) #4
-  %22 = load float, ptr %call69, align 4
-  %call70 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %22)
-  br i1 %call70, label %if.end81, label %if.then71
+122:                                              ; preds = %114, %111
+  %123 = phi i1 [ false, %111 ], [ %121, %114 ]
+  %124 = zext i1 %123 to i8
+  store i8 %124, ptr %4, align 1, !tbaa !27
+  br label %125
 
-if.then71:                                        ; preds = %lor.lhs.false67, %if.end
-  %23 = load i8, ptr %isEqual, align 1
-  %tobool72 = trunc i8 %23 to i1
-  br i1 %tobool72, label %land.rhs73, label %land.end79
+125:                                              ; preds = %122, %106
+  %126 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 10
+  %127 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %126, i64 noundef 1) #7
+  %128 = load float, ptr %127, align 4, !tbaa !24
+  %129 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %128)
+  br i1 %129, label %130, label %135
 
-land.rhs73:                                       ; preds = %if.then71
-  %measuredDimensions_74 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 9
-  %call75 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_74, i64 noundef 1) #4
-  %24 = load float, ptr %call75, align 4
-  %measuredDimensions_76 = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %layout, i32 0, i32 9
-  %call77 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %measuredDimensions_76, i64 noundef 1) #4
-  %25 = load float, ptr %call77, align 4
-  %cmp78 = fcmp oeq float %24, %25
-  br label %land.end79
+130:                                              ; preds = %125
+  %131 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 10
+  %132 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %131, i64 noundef 1) #7
+  %133 = load float, ptr %132, align 4, !tbaa !24
+  %134 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %133)
+  br i1 %134, label %149, label %135
 
-land.end79:                                       ; preds = %land.rhs73, %if.then71
-  %26 = phi i1 [ false, %if.then71 ], [ %cmp78, %land.rhs73 ]
-  %frombool80 = zext i1 %26 to i8
-  store i8 %frombool80, ptr %isEqual, align 1
-  br label %if.end81
+135:                                              ; preds = %130, %125
+  %136 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %137 = trunc i8 %136 to i1
+  br i1 %137, label %138, label %146
 
-if.end81:                                         ; preds = %land.end79, %lor.lhs.false67
-  %27 = load i8, ptr %isEqual, align 1
-  %tobool82 = trunc i8 %27 to i1
-  ret i1 %tobool82
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %10, i32 0, i32 10
+  %140 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %139, i64 noundef 1) #7
+  %141 = load float, ptr %140, align 4, !tbaa !24
+  %142 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %1, i32 0, i32 10
+  %143 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %142, i64 noundef 1) #7
+  %144 = load float, ptr %143, align 4, !tbaa !24
+  %145 = fcmp oeq float %141, %144
+  br label %146
+
+146:                                              ; preds = %138, %135
+  %147 = phi i1 [ false, %135 ], [ %145, %138 ]
+  %148 = zext i1 %147 to i8
+  store i8 %148, ptr %4, align 1, !tbaa !27
+  br label %149
+
+149:                                              ; preds = %146, %130
+  %150 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %151 = trunc i8 %150 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #7
+  ret i1 %151
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store ptr %1, ptr %4, align 8, !tbaa !33
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #7
+  store i8 1, ptr %5, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  store i64 0, ptr %6, align 8, !tbaa !35
+  br label %7
+
+7:                                                ; preds = %27, %2
+  %8 = load i64, ptr %6, align 8, !tbaa !35
+  %9 = icmp ult i64 %8, 4
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %7
+  %11 = load i8, ptr %5, align 1, !tbaa !27, !range !29, !noundef !30
+  %12 = trunc i8 %11 to i1
+  br label %13
+
+13:                                               ; preds = %10, %7
+  %14 = phi i1 [ false, %7 ], [ %12, %10 ]
+  br i1 %14, label %16, label %15
+
+15:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %30
+
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %3, align 8, !tbaa !33
+  %18 = load i64, ptr %6, align 8, !tbaa !35
+  %19 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm4EEixEm(ptr noundef nonnull align 4 dereferenceable(16) %17, i64 noundef %18) #7
+  %20 = load float, ptr %19, align 4, !tbaa !24
+  %21 = load ptr, ptr %4, align 8, !tbaa !33
+  %22 = load i64, ptr %6, align 8, !tbaa !35
+  %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm4EEixEm(ptr noundef nonnull align 4 dereferenceable(16) %21, i64 noundef %22) #7
+  %24 = load float, ptr %23, align 4, !tbaa !24
+  %25 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %20, float noundef %24)
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %5, align 1, !tbaa !27
+  br label %27
+
+27:                                               ; preds = %16
+  %28 = load i64, ptr %6, align 8, !tbaa !35
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %6, align 8, !tbaa !35
+  br label %7, !llvm.loop !37
+
+30:                                               ; preds = %15
+  %31 = load i8, ptr %5, align 1, !tbaa !27, !range !29, !noundef !30
+  %32 = trunc i8 %31 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #7
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm4EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(16) %val1, ptr noundef nonnull align 4 dereferenceable(16) %val2) #0 comdat {
-entry:
-  %val1.addr = alloca ptr, align 8
-  %val2.addr = alloca ptr, align 8
-  %areEqual = alloca i8, align 1
-  %i = alloca i64, align 8
-  store ptr %val1, ptr %val1.addr, align 8
-  store ptr %val2, ptr %val2.addr, align 8
-  store i8 1, ptr %areEqual, align 1
-  store i64 0, ptr %i, align 8
-  br label %for.cond
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store ptr %1, ptr %4, align 8, !tbaa !38
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #7
+  store i8 1, ptr %5, align 1, !tbaa !27
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #7
+  store i64 0, ptr %6, align 8, !tbaa !35
+  br label %7
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 4
-  br i1 %cmp, label %land.rhs, label %land.end
+7:                                                ; preds = %27, %2
+  %8 = load i64, ptr %6, align 8, !tbaa !35
+  %9 = icmp ult i64 %8, 2
+  br i1 %9, label %10, label %13
 
-land.rhs:                                         ; preds = %for.cond
-  %1 = load i8, ptr %areEqual, align 1
-  %tobool = trunc i8 %1 to i1
-  br label %land.end
+10:                                               ; preds = %7
+  %11 = load i8, ptr %5, align 1, !tbaa !27, !range !29, !noundef !30
+  %12 = trunc i8 %11 to i1
+  br label %13
 
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %2 = phi i1 [ false, %for.cond ], [ %tobool, %land.rhs ]
-  br i1 %2, label %for.body, label %for.end
+13:                                               ; preds = %10, %7
+  %14 = phi i1 [ false, %7 ], [ %12, %10 ]
+  br i1 %14, label %16, label %15
 
-for.body:                                         ; preds = %land.end
-  %3 = load ptr, ptr %val1.addr, align 8
-  %4 = load i64, ptr %i, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm4EEixEm(ptr noundef nonnull align 4 dereferenceable(16) %3, i64 noundef %4) #4
-  %5 = load float, ptr %call, align 4
-  %6 = load ptr, ptr %val2.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %call1 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm4EEixEm(ptr noundef nonnull align 4 dereferenceable(16) %6, i64 noundef %7) #4
-  %8 = load float, ptr %call1, align 4
-  %call2 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %5, float noundef %8)
-  %frombool = zext i1 %call2 to i8
-  store i8 %frombool, ptr %areEqual, align 1
-  br label %for.inc
+15:                                               ; preds = %13
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #7
+  br label %30
 
-for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !6
+16:                                               ; preds = %13
+  %17 = load ptr, ptr %3, align 8, !tbaa !38
+  %18 = load i64, ptr %6, align 8, !tbaa !35
+  %19 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %17, i64 noundef %18) #7
+  %20 = load float, ptr %19, align 4, !tbaa !24
+  %21 = load ptr, ptr %4, align 8, !tbaa !38
+  %22 = load i64, ptr %6, align 8, !tbaa !35
+  %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %21, i64 noundef %22) #7
+  %24 = load float, ptr %23, align 4, !tbaa !24
+  %25 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %20, float noundef %24)
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %5, align 1, !tbaa !27
+  br label %27
 
-for.end:                                          ; preds = %land.end
-  %10 = load i8, ptr %areEqual, align 1
-  %tobool3 = trunc i8 %10 to i1
-  ret i1 %tobool3
-}
+27:                                               ; preds = %16
+  %28 = load i64, ptr %6, align 8, !tbaa !35
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %6, align 8, !tbaa !35
+  br label %7, !llvm.loop !40
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsILm2EfEEbRKSt5arrayIT0_XT_EES6_(ptr noundef nonnull align 4 dereferenceable(8) %val1, ptr noundef nonnull align 4 dereferenceable(8) %val2) #0 comdat {
-entry:
-  %val1.addr = alloca ptr, align 8
-  %val2.addr = alloca ptr, align 8
-  %areEqual = alloca i8, align 1
-  %i = alloca i64, align 8
-  store ptr %val1, ptr %val1.addr, align 8
-  store ptr %val2, ptr %val2.addr, align 8
-  store i8 1, ptr %areEqual, align 1
-  store i64 0, ptr %i, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i64, ptr %i, align 8
-  %cmp = icmp ult i64 %0, 2
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %for.cond
-  %1 = load i8, ptr %areEqual, align 1
-  %tobool = trunc i8 %1 to i1
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %for.cond
-  %2 = phi i1 [ false, %for.cond ], [ %tobool, %land.rhs ]
-  br i1 %2, label %for.body, label %for.end
-
-for.body:                                         ; preds = %land.end
-  %3 = load ptr, ptr %val1.addr, align 8
-  %4 = load i64, ptr %i, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %4) #4
-  %5 = load float, ptr %call, align 4
-  %6 = load ptr, ptr %val2.addr, align 8
-  %7 = load i64, ptr %i, align 8
-  %call1 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %6, i64 noundef %7) #4
-  %8 = load float, ptr %call1, align 4
-  %call2 = call noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %5, float noundef %8)
-  %frombool = zext i1 %call2 to i8
-  store i8 %frombool, ptr %areEqual, align 1
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %9 = load i64, ptr %i, align 8
-  %inc = add i64 %9, 1
-  store i64 %inc, ptr %i, align 8
-  br label %for.cond, !llvm.loop !7
-
-for.end:                                          ; preds = %land.end
-  %10 = load i8, ptr %areEqual, align 1
-  %tobool3 = trunc i8 %10 to i1
-  ret i1 %tobool3
+30:                                               ; preds = %15
+  %31 = load i8, ptr %5, align 1, !tbaa !27, !range !29, !noundef !30
+  %32 = trunc i8 %31 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #7
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(320) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %direction_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 7
-  %bf.load = load i8, ptr %direction_, align 4
-  %bf.clear = and i8 %bf.load, 3
-  ret i8 %bf.clear
+define linkonce_odr hidden noundef zeroext i8 @_ZNK8facebook4yoga13LayoutResults9directionEv(ptr noundef nonnull align 4 dereferenceable(324) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %3, i32 0, i32 8
+  %5 = load i8, ptr %4, align 4
+  %6 = and i8 %5, 3
+  ret i8 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResults11hadOverflowEv(ptr noundef nonnull align 4 dereferenceable(320) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %hadOverflow_ = getelementptr inbounds %"struct.facebook::yoga::LayoutResults", ptr %this1, i32 0, i32 7
-  %bf.load = load i8, ptr %hadOverflow_, align 4
-  %bf.lshr = lshr i8 %bf.load, 2
-  %bf.clear = and i8 %bf.lshr, 1
-  %bf.cast = trunc i8 %bf.clear to i1
-  ret i1 %bf.cast
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga13LayoutResults11hadOverflowEv(ptr noundef nonnull align 4 dereferenceable(324) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !4
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.facebook::yoga::LayoutResults", ptr %3, i32 0, i32 8
+  %5 = load i8, ptr %4, align 4
+  %6 = lshr i8 %5, 2
+  %7 = and i8 %6, 1
+  %8 = trunc i8 %7 to i1
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %this, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %measurement) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %isEqual = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %widthSizingMode = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %widthSizingMode, align 4
-  %widthSizingMode2 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 2
-  %1 = load i32, ptr %widthSizingMode2, align 8
-  %cmp = icmp eq i32 %0, %1
-  br i1 %cmp, label %land.rhs, label %land.end
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga17CachedMeasurementeqES1_(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef byval(%"struct.facebook::yoga::CachedMeasurement") align 8 %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %4) #7
+  %6 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 2
+  %7 = load i32, ptr %6, align 4, !tbaa !43
+  %8 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 2
+  %9 = load i32, ptr %8, align 8, !tbaa !43
+  %10 = icmp eq i32 %7, %9
+  br i1 %10, label %11, label %17
 
-land.rhs:                                         ; preds = %entry
-  %heightSizingMode = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 3
-  %2 = load i32, ptr %heightSizingMode, align 4
-  %heightSizingMode3 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 3
-  %3 = load i32, ptr %heightSizingMode3, align 4
-  %cmp4 = icmp eq i32 %2, %3
-  br label %land.end
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 3
+  %13 = load i32, ptr %12, align 4, !tbaa !44
+  %14 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 3
+  %15 = load i32, ptr %14, align 4, !tbaa !44
+  %16 = icmp eq i32 %13, %15
+  br label %17
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %4 = phi i1 [ false, %entry ], [ %cmp4, %land.rhs ]
-  %frombool = zext i1 %4 to i8
-  store i8 %frombool, ptr %isEqual, align 1
-  %availableWidth = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 0
-  %5 = load float, ptr %availableWidth, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %5)
-  br i1 %call, label %lor.lhs.false, label %if.then
+17:                                               ; preds = %11, %2
+  %18 = phi i1 [ false, %2 ], [ %16, %11 ]
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %4, align 1, !tbaa !27
+  %20 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 0
+  %21 = load float, ptr %20, align 4, !tbaa !45
+  %22 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %21)
+  br i1 %22, label %23, label %27
 
-lor.lhs.false:                                    ; preds = %land.end
-  %availableWidth5 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 0
-  %6 = load float, ptr %availableWidth5, align 8
-  %call6 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %6)
-  br i1 %call6, label %if.end, label %if.then
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 0
+  %25 = load float, ptr %24, align 8, !tbaa !45
+  %26 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %25)
+  br i1 %26, label %39, label %27
 
-if.then:                                          ; preds = %lor.lhs.false, %land.end
-  %7 = load i8, ptr %isEqual, align 1
-  %tobool = trunc i8 %7 to i1
-  br i1 %tobool, label %land.rhs7, label %land.end11
+27:                                               ; preds = %23, %17
+  %28 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %30, label %36
 
-land.rhs7:                                        ; preds = %if.then
-  %availableWidth8 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 0
-  %8 = load float, ptr %availableWidth8, align 4
-  %availableWidth9 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 0
-  %9 = load float, ptr %availableWidth9, align 8
-  %cmp10 = fcmp oeq float %8, %9
-  br label %land.end11
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 0
+  %32 = load float, ptr %31, align 4, !tbaa !45
+  %33 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 0
+  %34 = load float, ptr %33, align 8, !tbaa !45
+  %35 = fcmp oeq float %32, %34
+  br label %36
 
-land.end11:                                       ; preds = %land.rhs7, %if.then
-  %10 = phi i1 [ false, %if.then ], [ %cmp10, %land.rhs7 ]
-  %frombool12 = zext i1 %10 to i8
-  store i8 %frombool12, ptr %isEqual, align 1
-  br label %if.end
+36:                                               ; preds = %30, %27
+  %37 = phi i1 [ false, %27 ], [ %35, %30 ]
+  %38 = zext i1 %37 to i8
+  store i8 %38, ptr %4, align 1, !tbaa !27
+  br label %39
 
-if.end:                                           ; preds = %land.end11, %lor.lhs.false
-  %availableHeight = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 1
-  %11 = load float, ptr %availableHeight, align 4
-  %call13 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %11)
-  br i1 %call13, label %lor.lhs.false14, label %if.then17
+39:                                               ; preds = %36, %23
+  %40 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 1
+  %41 = load float, ptr %40, align 4, !tbaa !46
+  %42 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %41)
+  br i1 %42, label %43, label %47
 
-lor.lhs.false14:                                  ; preds = %if.end
-  %availableHeight15 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 1
-  %12 = load float, ptr %availableHeight15, align 4
-  %call16 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %12)
-  br i1 %call16, label %if.end25, label %if.then17
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 1
+  %45 = load float, ptr %44, align 4, !tbaa !46
+  %46 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %45)
+  br i1 %46, label %59, label %47
 
-if.then17:                                        ; preds = %lor.lhs.false14, %if.end
-  %13 = load i8, ptr %isEqual, align 1
-  %tobool18 = trunc i8 %13 to i1
-  br i1 %tobool18, label %land.rhs19, label %land.end23
+47:                                               ; preds = %43, %39
+  %48 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %50, label %56
 
-land.rhs19:                                       ; preds = %if.then17
-  %availableHeight20 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 1
-  %14 = load float, ptr %availableHeight20, align 4
-  %availableHeight21 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 1
-  %15 = load float, ptr %availableHeight21, align 4
-  %cmp22 = fcmp oeq float %14, %15
-  br label %land.end23
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 1
+  %52 = load float, ptr %51, align 4, !tbaa !46
+  %53 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 1
+  %54 = load float, ptr %53, align 4, !tbaa !46
+  %55 = fcmp oeq float %52, %54
+  br label %56
 
-land.end23:                                       ; preds = %land.rhs19, %if.then17
-  %16 = phi i1 [ false, %if.then17 ], [ %cmp22, %land.rhs19 ]
-  %frombool24 = zext i1 %16 to i8
-  store i8 %frombool24, ptr %isEqual, align 1
-  br label %if.end25
+56:                                               ; preds = %50, %47
+  %57 = phi i1 [ false, %47 ], [ %55, %50 ]
+  %58 = zext i1 %57 to i8
+  store i8 %58, ptr %4, align 1, !tbaa !27
+  br label %59
 
-if.end25:                                         ; preds = %land.end23, %lor.lhs.false14
-  %computedWidth = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 4
-  %17 = load float, ptr %computedWidth, align 4
-  %call26 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %17)
-  br i1 %call26, label %lor.lhs.false27, label %if.then30
+59:                                               ; preds = %56, %43
+  %60 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 4
+  %61 = load float, ptr %60, align 4, !tbaa !47
+  %62 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %61)
+  br i1 %62, label %63, label %67
 
-lor.lhs.false27:                                  ; preds = %if.end25
-  %computedWidth28 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 4
-  %18 = load float, ptr %computedWidth28, align 8
-  %call29 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %18)
-  br i1 %call29, label %if.end38, label %if.then30
+63:                                               ; preds = %59
+  %64 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 4
+  %65 = load float, ptr %64, align 8, !tbaa !47
+  %66 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %65)
+  br i1 %66, label %79, label %67
 
-if.then30:                                        ; preds = %lor.lhs.false27, %if.end25
-  %19 = load i8, ptr %isEqual, align 1
-  %tobool31 = trunc i8 %19 to i1
-  br i1 %tobool31, label %land.rhs32, label %land.end36
+67:                                               ; preds = %63, %59
+  %68 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %69 = trunc i8 %68 to i1
+  br i1 %69, label %70, label %76
 
-land.rhs32:                                       ; preds = %if.then30
-  %computedWidth33 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 4
-  %20 = load float, ptr %computedWidth33, align 4
-  %computedWidth34 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 4
-  %21 = load float, ptr %computedWidth34, align 8
-  %cmp35 = fcmp oeq float %20, %21
-  br label %land.end36
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 4
+  %72 = load float, ptr %71, align 4, !tbaa !47
+  %73 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 4
+  %74 = load float, ptr %73, align 8, !tbaa !47
+  %75 = fcmp oeq float %72, %74
+  br label %76
 
-land.end36:                                       ; preds = %land.rhs32, %if.then30
-  %22 = phi i1 [ false, %if.then30 ], [ %cmp35, %land.rhs32 ]
-  %frombool37 = zext i1 %22 to i8
-  store i8 %frombool37, ptr %isEqual, align 1
-  br label %if.end38
+76:                                               ; preds = %70, %67
+  %77 = phi i1 [ false, %67 ], [ %75, %70 ]
+  %78 = zext i1 %77 to i8
+  store i8 %78, ptr %4, align 1, !tbaa !27
+  br label %79
 
-if.end38:                                         ; preds = %land.end36, %lor.lhs.false27
-  %computedHeight = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 5
-  %23 = load float, ptr %computedHeight, align 4
-  %call39 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %23)
-  br i1 %call39, label %lor.lhs.false40, label %if.then43
+79:                                               ; preds = %76, %63
+  %80 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 5
+  %81 = load float, ptr %80, align 4, !tbaa !48
+  %82 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %81)
+  br i1 %82, label %83, label %87
 
-lor.lhs.false40:                                  ; preds = %if.end38
-  %computedHeight41 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 5
-  %24 = load float, ptr %computedHeight41, align 4
-  %call42 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %24)
-  br i1 %call42, label %if.end51, label %if.then43
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 5
+  %85 = load float, ptr %84, align 4, !tbaa !48
+  %86 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %85)
+  br i1 %86, label %99, label %87
 
-if.then43:                                        ; preds = %lor.lhs.false40, %if.end38
-  %25 = load i8, ptr %isEqual, align 1
-  %tobool44 = trunc i8 %25 to i1
-  br i1 %tobool44, label %land.rhs45, label %land.end49
+87:                                               ; preds = %83, %79
+  %88 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %89 = trunc i8 %88 to i1
+  br i1 %89, label %90, label %96
 
-land.rhs45:                                       ; preds = %if.then43
-  %computedHeight46 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %this1, i32 0, i32 5
-  %26 = load float, ptr %computedHeight46, align 4
-  %computedHeight47 = getelementptr inbounds %"struct.facebook::yoga::CachedMeasurement", ptr %measurement, i32 0, i32 5
-  %27 = load float, ptr %computedHeight47, align 4
-  %cmp48 = fcmp oeq float %26, %27
-  br label %land.end49
+90:                                               ; preds = %87
+  %91 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %5, i32 0, i32 5
+  %92 = load float, ptr %91, align 4, !tbaa !48
+  %93 = getelementptr inbounds nuw %"struct.facebook::yoga::CachedMeasurement", ptr %1, i32 0, i32 5
+  %94 = load float, ptr %93, align 4, !tbaa !48
+  %95 = fcmp oeq float %92, %94
+  br label %96
 
-land.end49:                                       ; preds = %land.rhs45, %if.then43
-  %28 = phi i1 [ false, %if.then43 ], [ %cmp48, %land.rhs45 ]
-  %frombool50 = zext i1 %28 to i8
-  store i8 %frombool50, ptr %isEqual, align 1
-  br label %if.end51
+96:                                               ; preds = %90, %87
+  %97 = phi i1 [ false, %87 ], [ %95, %90 ]
+  %98 = zext i1 %97 to i8
+  store i8 %98, ptr %4, align 1, !tbaa !27
+  br label %99
 
-if.end51:                                         ; preds = %land.end49, %lor.lhs.false40
-  %29 = load i8, ptr %isEqual, align 1
-  %tobool52 = trunc i8 %29 to i1
-  ret i1 %tobool52
+99:                                               ; preds = %96, %83
+  %100 = load i8, ptr %4, align 1, !tbaa !27, !range !29, !noundef !30
+  %101 = trunc i8 %100 to i1
+  call void @llvm.lifetime.end.p0(i64 1, ptr %4) #7
+  ret i1 %101
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yogaeqENS0_13FloatOptionalES1_(float %lhs.coerce, float %rhs.coerce) #0 comdat {
-entry:
-  %lhs = alloca %"struct.facebook::yoga::FloatOptional", align 4
-  %rhs = alloca %"struct.facebook::yoga::FloatOptional", align 4
-  %coerce.dive = getelementptr inbounds %"struct.facebook::yoga::FloatOptional", ptr %lhs, i32 0, i32 0
-  store float %lhs.coerce, ptr %coerce.dive, align 4
-  %coerce.dive1 = getelementptr inbounds %"struct.facebook::yoga::FloatOptional", ptr %rhs, i32 0, i32 0
-  store float %rhs.coerce, ptr %coerce.dive1, align 4
-  %call = call noundef float @_ZNK8facebook4yoga13FloatOptional6unwrapEv(ptr noundef nonnull align 4 dereferenceable(4) %lhs)
-  %call2 = call noundef float @_ZNK8facebook4yoga13FloatOptional6unwrapEv(ptr noundef nonnull align 4 dereferenceable(4) %rhs)
-  %cmp = fcmp oeq float %call, %call2
-  br i1 %cmp, label %lor.end, label %lor.rhs
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yogaeqENS0_13FloatOptionalES1_(float %0, float %1) #0 comdat {
+  %3 = alloca %"struct.facebook::yoga::FloatOptional", align 4
+  %4 = alloca %"struct.facebook::yoga::FloatOptional", align 4
+  %5 = getelementptr inbounds nuw %"struct.facebook::yoga::FloatOptional", ptr %3, i32 0, i32 0
+  store float %0, ptr %5, align 4
+  %6 = getelementptr inbounds nuw %"struct.facebook::yoga::FloatOptional", ptr %4, i32 0, i32 0
+  store float %1, ptr %6, align 4
+  %7 = call noundef float @_ZNK8facebook4yoga13FloatOptional6unwrapEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %8 = call noundef float @_ZNK8facebook4yoga13FloatOptional6unwrapEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %9 = fcmp oeq float %7, %8
+  br i1 %9, label %16, label %10
 
-lor.rhs:                                          ; preds = %entry
-  %call3 = call noundef zeroext i1 @_ZNK8facebook4yoga13FloatOptional11isUndefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %lhs)
-  br i1 %call3, label %land.rhs, label %land.end
+10:                                               ; preds = %2
+  %11 = call noundef zeroext i1 @_ZNK8facebook4yoga13FloatOptional11isUndefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br i1 %11, label %12, label %14
 
-land.rhs:                                         ; preds = %lor.rhs
-  %call4 = call noundef zeroext i1 @_ZNK8facebook4yoga13FloatOptional11isUndefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %rhs)
-  br label %land.end
+12:                                               ; preds = %10
+  %13 = call noundef zeroext i1 @_ZNK8facebook4yoga13FloatOptional11isUndefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %4)
+  br label %14
 
-land.end:                                         ; preds = %land.rhs, %lor.rhs
-  %0 = phi i1 [ false, %lor.rhs ], [ %call4, %land.rhs ]
-  br label %lor.end
+14:                                               ; preds = %12, %10
+  %15 = phi i1 [ false, %10 ], [ %13, %12 ]
+  br label %16
 
-lor.end:                                          ; preds = %land.end, %entry
-  %1 = phi i1 [ true, %entry ], [ %0, %land.end ]
-  ret i1 %1
+16:                                               ; preds = %14, %2
+  %17 = phi i1 [ true, %2 ], [ %15, %14 ]
+  ret i1 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt14__array_traitsIN8facebook4yoga17CachedMeasurementELm8EE6_S_refERA8_KS2_m(ptr noundef nonnull align 4 dereferenceable(192) %_M_elems, i64 noundef %0) #4
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(24) ptr @_ZNKSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !35
+  %8 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt14__array_traitsIN8facebook4yoga17CachedMeasurementELm8EE6_S_refERA8_KS2_m(ptr noundef nonnull align 4 dereferenceable(192) %6, i64 noundef %7) #7
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt14__array_traitsIN8facebook4yoga17CachedMeasurementELm8EE6_S_refERA8_KS2_m(ptr noundef nonnull align 4 dereferenceable(192) %_M_elems, i64 noundef %0) #4
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt5arrayIN8facebook4yoga17CachedMeasurementELm8EEixEm(ptr noundef nonnull align 4 dereferenceable(192) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !35
+  %8 = call noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt14__array_traitsIN8facebook4yoga17CachedMeasurementELm8EE6_S_refERA8_KS2_m(ptr noundef nonnull align 4 dereferenceable(192) %6, i64 noundef %7) #7
+  ret ptr %8
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %0) #2 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !24
+  %3 = load float, ptr %2, align 4, !tbaa !24
+  %4 = load float, ptr %2, align 4, !tbaa !24
+  %5 = fcmp une float %3, %4
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %value) #1 comdat {
-entry:
-  %value.addr = alloca float, align 4
-  store float %value, ptr %value.addr, align 4
-  %0 = load float, ptr %value.addr, align 4
-  %1 = load float, ptr %value.addr, align 4
-  %cmp = fcmp une float %0, %1
-  ret i1 %cmp
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array.0", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !35
+  %8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm2EE6_S_refERA2_Kfm(ptr noundef nonnull align 4 dereferenceable(8) %6, i64 noundef %7) #7
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array.0", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm2EE6_S_refERA2_Kfm(ptr noundef nonnull align 4 dereferenceable(8) %_M_elems, i64 noundef %0) #4
-  ret ptr %call
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array.0", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !35
+  %8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm2EE6_S_refERA2_Kfm(ptr noundef nonnull align 4 dereferenceable(8) %6, i64 noundef %7) #7
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt5arrayIfLm2EEixEm(ptr noundef nonnull align 4 dereferenceable(8) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array.0", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm2EE6_S_refERA2_Kfm(ptr noundef nonnull align 4 dereferenceable(8) %_M_elems, i64 noundef %0) #4
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef float @_ZNK8facebook4yoga13FloatOptional6unwrapEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %value_ = getelementptr inbounds %"struct.facebook::yoga::FloatOptional", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %value_, align 4
-  ret float %0
+define linkonce_odr hidden noundef float @_ZNK8facebook4yoga13FloatOptional6unwrapEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.facebook::yoga::FloatOptional", ptr %3, i32 0, i32 0
+  %5 = load float, ptr %4, align 4, !tbaa !53
+  ret float %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga13FloatOptional11isUndefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %value_ = getelementptr inbounds %"struct.facebook::yoga::FloatOptional", ptr %this1, i32 0, i32 0
-  %0 = load float, ptr %value_, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %0)
-  ret i1 %call
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8facebook4yoga13FloatOptional11isUndefinedEv(ptr noundef nonnull align 4 dereferenceable(4) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !51
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.facebook::yoga::FloatOptional", ptr %3, i32 0, i32 0
+  %5 = load float, ptr %4, align 4, !tbaa !53
+  %6 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %5)
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt14__array_traitsIN8facebook4yoga17CachedMeasurementELm8EE6_S_refERA8_KS2_m(ptr noundef nonnull align 4 dereferenceable(192) %__t, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %arrayidx = getelementptr inbounds [8 x %"struct.facebook::yoga::CachedMeasurement"], ptr %0, i64 0, i64 %1
-  ret ptr %arrayidx
+define linkonce_odr hidden noundef nonnull align 4 dereferenceable(24) ptr @_ZNSt14__array_traitsIN8facebook4yoga17CachedMeasurementELm8EE6_S_refERA8_KS2_m(ptr noundef nonnull align 4 dereferenceable(192) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !41
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !41
+  %6 = load i64, ptr %4, align 8, !tbaa !35
+  %7 = getelementptr inbounds nuw [8 x %"struct.facebook::yoga::CachedMeasurement"], ptr %5, i64 0, i64 %6
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm2EE6_S_refERA2_Kfm(ptr noundef nonnull align 4 dereferenceable(8) %__t, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %arrayidx = getelementptr inbounds [2 x float], ptr %0, i64 0, i64 %1
-  ret ptr %arrayidx
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm2EE6_S_refERA2_Kfm(ptr noundef nonnull align 4 dereferenceable(8) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !54
+  %6 = load i64, ptr %4, align 8, !tbaa !35
+  %7 = getelementptr inbounds nuw [2 x float], ptr %5, i64 0, i64 %6
+  ret ptr %7
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %a, float noundef %b) #0 comdat {
-entry:
-  %retval = alloca i1, align 1
-  %a.addr = alloca float, align 4
-  %b.addr = alloca float, align 4
-  store float %a, ptr %a.addr, align 4
-  store float %b, ptr %b.addr, align 4
-  %0 = load float, ptr %a.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %0)
-  br i1 %call, label %land.lhs.true, label %if.end
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsEff(float noundef %0, float noundef %1) #4 comdat {
+  %3 = alloca i1, align 1
+  %4 = alloca float, align 4
+  %5 = alloca float, align 4
+  store float %0, ptr %4, align 4, !tbaa !24
+  store float %1, ptr %5, align 4, !tbaa !24
+  %6 = load float, ptr %4, align 4, !tbaa !24
+  %7 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %6)
+  br i1 %7, label %8, label %17
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load float, ptr %b.addr, align 4
-  %call1 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %1)
-  br i1 %call1, label %if.then, label %if.end
+8:                                                ; preds = %2
+  %9 = load float, ptr %5, align 4, !tbaa !24
+  %10 = call noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %9)
+  br i1 %10, label %11, label %17
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load float, ptr %a.addr, align 4
-  %3 = load float, ptr %b.addr, align 4
-  %sub = fsub float %2, %3
-  %call2 = call noundef float @_ZSt3absf(float noundef %sub)
-  %cmp = fcmp olt float %call2, 0x3F1A36E2E0000000
-  store i1 %cmp, ptr %retval, align 1
-  br label %return
+11:                                               ; preds = %8
+  %12 = load float, ptr %4, align 4, !tbaa !24
+  %13 = load float, ptr %5, align 4, !tbaa !24
+  %14 = fsub float %12, %13
+  %15 = call noundef float @_ZSt3absf(float noundef %14)
+  %16 = fcmp olt float %15, 0x3F1A36E2E0000000
+  store i1 %16, ptr %3, align 1
+  br label %25
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %4 = load float, ptr %a.addr, align 4
-  %call3 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %4)
-  br i1 %call3, label %land.rhs, label %land.end
+17:                                               ; preds = %8, %2
+  %18 = load float, ptr %4, align 4, !tbaa !24
+  %19 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %18)
+  br i1 %19, label %20, label %23
 
-land.rhs:                                         ; preds = %if.end
-  %5 = load float, ptr %b.addr, align 4
-  %call4 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %5)
-  br label %land.end
+20:                                               ; preds = %17
+  %21 = load float, ptr %5, align 4, !tbaa !24
+  %22 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %21)
+  br label %23
 
-land.end:                                         ; preds = %land.rhs, %if.end
-  %6 = phi i1 [ false, %if.end ], [ %call4, %land.rhs ]
-  store i1 %6, ptr %retval, align 1
-  br label %return
+23:                                               ; preds = %20, %17
+  %24 = phi i1 [ false, %17 ], [ %22, %20 ]
+  store i1 %24, ptr %3, align 1
+  br label %25
 
-return:                                           ; preds = %land.end, %if.then
-  %7 = load i1, ptr %retval, align 1
-  ret i1 %7
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm4EEixEm(ptr noundef nonnull align 4 dereferenceable(16) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_elems = getelementptr inbounds %"struct.std::array.1", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm4EE6_S_refERA4_Kfm(ptr noundef nonnull align 4 dereferenceable(16) %_M_elems, i64 noundef %0) #4
-  ret ptr %call
+25:                                               ; preds = %23, %11
+  %26 = load i1, ptr %3, align 1
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %value) #1 comdat {
-entry:
-  %value.addr = alloca float, align 4
-  store float %value, ptr %value.addr, align 4
-  %0 = load float, ptr %value.addr, align 4
-  %call = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt5arrayIfLm4EEixEm(ptr noundef nonnull align 4 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !33
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::array.1", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !35
+  %8 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm4EE6_S_refERA4_Kfm(ptr noundef nonnull align 4 dereferenceable(16) %6, i64 noundef %7) #7
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef float @_ZSt3absf(float noundef %__x) #1 comdat {
-entry:
-  %__x.addr = alloca float, align 4
-  store float %__x, ptr %__x.addr, align 4
-  %0 = load float, ptr %__x.addr, align 4
-  %1 = call float @llvm.fabs.f32(float %0)
-  ret float %1
+define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga9isDefinedITkSt14floating_pointfEEbT_(float noundef %0) #2 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !24
+  %3 = load float, ptr %2, align 4, !tbaa !24
+  %4 = call noundef zeroext i1 @_ZN8facebook4yoga11isUndefinedITkSt14floating_pointfEEbT_(float noundef %3)
+  %5 = xor i1 %4, true
+  ret i1 %5
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef float @_ZSt3absf(float noundef %0) #5 comdat {
+  %2 = alloca float, align 4
+  store float %0, ptr %2, align 4, !tbaa !24
+  %3 = load float, ptr %2, align 4, !tbaa !24
+  %4 = call float @llvm.fabs.f32(float %3)
+  ret float %4
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #3
+declare float @llvm.fabs.f32(float) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm4EE6_S_refERA4_Kfm(ptr noundef nonnull align 4 dereferenceable(16) %__t, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %__t.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__t, ptr %__t.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__t.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %arrayidx = getelementptr inbounds [4 x float], ptr %0, i64 0, i64 %1
-  ret ptr %arrayidx
+define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt14__array_traitsIfLm4EE6_S_refERA4_Kfm(ptr noundef nonnull align 4 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store i64 %1, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %3, align 8, !tbaa !54
+  %6 = load i64, ptr %4, align 8, !tbaa !35
+  %7 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %6
+  ret ptr %7
 }
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nounwind }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { inlinehint mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { inlinehint mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind }
 
 !llvm.linker.options = !{}
 !llvm.module.flags = !{!0, !1, !2, !3}
@@ -812,7 +831,55 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"p1 _ZTSN8facebook4yoga13LayoutResultsE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!10, !14, i64 16}
+!10 = !{!"_ZTSN8facebook4yoga13LayoutResultsE", !11, i64 0, !12, i64 4, !11, i64 8, !11, i64 12, !14, i64 16, !11, i64 20, !15, i64 24, !16, i64 216, !14, i64 240, !18, i64 240, !19, i64 244, !19, i64 252, !20, i64 260, !20, i64 276, !20, i64 292, !20, i64 308}
+!11 = !{!"int", !7, i64 0}
+!12 = !{!"_ZTSN8facebook4yoga13FloatOptionalE", !13, i64 0}
+!13 = !{!"float", !7, i64 0}
+!14 = !{!"_ZTSN8facebook4yoga9DirectionE", !7, i64 0}
+!15 = !{!"_ZTSSt5arrayIN8facebook4yoga17CachedMeasurementELm8EE", !7, i64 0}
+!16 = !{!"_ZTSN8facebook4yoga17CachedMeasurementE", !13, i64 0, !13, i64 4, !17, i64 8, !17, i64 12, !13, i64 16, !13, i64 20}
+!17 = !{!"_ZTSN8facebook4yoga10SizingModeE", !7, i64 0}
+!18 = !{!"bool", !7, i64 0}
+!19 = !{!"_ZTSSt5arrayIfLm2EE", !7, i64 0}
+!20 = !{!"_ZTSSt5arrayIfLm4EE", !7, i64 0}
+!21 = !{!10, !11, i64 12}
+!22 = !{!10, !11, i64 20}
+!23 = !{i64 0, i64 4, !24, i64 4, i64 4, !24, i64 8, i64 4, !25, i64 12, i64 4, !25, i64 16, i64 4, !24, i64 20, i64 4, !24}
+!24 = !{!13, !13, i64 0}
+!25 = !{!17, !17, i64 0}
+!26 = !{i64 0, i64 4, !24}
+!27 = !{!18, !18, i64 0}
+!28 = !{!11, !11, i64 0}
+!29 = !{i8 0, i8 2}
+!30 = !{}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.mustprogress"}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSSt5arrayIfLm4EE", !6, i64 0}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !7, i64 0}
+!37 = distinct !{!37, !32}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSSt5arrayIfLm2EE", !6, i64 0}
+!40 = distinct !{!40, !32}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTSN8facebook4yoga17CachedMeasurementE", !6, i64 0}
+!43 = !{!16, !17, i64 8}
+!44 = !{!16, !17, i64 12}
+!45 = !{!16, !13, i64 0}
+!46 = !{!16, !13, i64 4}
+!47 = !{!16, !13, i64 16}
+!48 = !{!16, !13, i64 20}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSSt5arrayIN8facebook4yoga17CachedMeasurementELm8EE", !6, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTSN8facebook4yoga13FloatOptionalE", !6, i64 0}
+!53 = !{!12, !13, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 float", !6, i64 0}

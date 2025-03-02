@@ -1,256 +1,255 @@
 ; ModuleID = 'bench/yoga/original/Cache.ll'
 source_filename = "bench/yoga/original/Cache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %widthMode, float noundef %availableWidth, i32 noundef %heightMode, float noundef %availableHeight, i32 noundef %lastWidthMode, float noundef %lastAvailableWidth, i32 noundef %lastHeightMode, float noundef %lastAvailableHeight, float noundef %lastComputedWidth, float noundef %lastComputedHeight, float noundef %marginRow, float noundef %marginColumn, ptr noundef %config) local_unnamed_addr #0 {
-entry:
-  %cmp.i.i = fcmp ord float %lastComputedHeight, 0.000000e+00
-  %cmp = fcmp olt float %lastComputedHeight, 0.000000e+00
-  br i1 %cmp, label %return, label %lor.lhs.false
+define hidden noundef zeroext i1 @_ZN8facebook4yoga23canUseCachedMeasurementENS0_10SizingModeEfS1_fS1_fS1_fffffPKNS0_6ConfigE(i32 noundef %0, float noundef %1, i32 noundef %2, float noundef %3, i32 noundef %4, float noundef %5, i32 noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+  %14 = fcmp ord float %9, 0.000000e+00
+  %15 = fcmp olt float %9, 0.000000e+00
+  br i1 %15, label %130, label %16
 
-lor.lhs.false:                                    ; preds = %entry
-  %cmp.i.i44 = fcmp ord float %lastComputedWidth, 0.000000e+00
-  %cmp3 = fcmp olt float %lastComputedWidth, 0.000000e+00
-  br i1 %cmp3, label %return, label %if.end
+16:                                               ; preds = %13
+  %17 = fcmp ord float %8, 0.000000e+00
+  %18 = fcmp olt float %8, 0.000000e+00
+  br i1 %18, label %130, label %19
 
-if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %config)
-  %cmp6 = fcmp une float %call4, 0.000000e+00
-  br i1 %cmp6, label %cond.true26, label %cond.end31
+19:                                               ; preds = %16
+  %20 = tail call noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %21 = fcmp une float %20, 0.000000e+00
+  br i1 %21, label %22, label %32
 
-cond.true26:                                      ; preds = %if.end
-  %conv = fpext float %availableWidth to double
-  %conv7 = fpext float %call4 to double
-  %call8 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv, double noundef %conv7, i1 noundef zeroext false, i1 noundef zeroext false)
-  %conv11 = fpext float %availableHeight to double
-  %call13 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv11, double noundef %conv7, i1 noundef zeroext false, i1 noundef zeroext false)
-  %conv19 = fpext float %lastAvailableWidth to double
-  %call21 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv19, double noundef %conv7, i1 noundef zeroext false, i1 noundef zeroext false)
-  %conv27 = fpext float %lastAvailableHeight to double
-  %call29 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %conv27, double noundef %conv7, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %cond.end31
+22:                                               ; preds = %19
+  %23 = fpext float %1 to double
+  %24 = fpext float %20 to double
+  %25 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %23, double noundef %24, i1 noundef zeroext false, i1 noundef zeroext false)
+  %26 = fpext float %3 to double
+  %27 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %26, double noundef %24, i1 noundef zeroext false, i1 noundef zeroext false)
+  %28 = fpext float %5 to double
+  %29 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %28, double noundef %24, i1 noundef zeroext false, i1 noundef zeroext false)
+  %30 = fpext float %7 to double
+  %31 = tail call noundef float @_ZN8facebook4yoga21roundValueToPixelGridEddbb(double noundef %30, double noundef %24, i1 noundef zeroext false, i1 noundef zeroext false)
+  br label %32
 
-cond.end31:                                       ; preds = %if.end, %cond.true26
-  %cond24137 = phi float [ %call21, %cond.true26 ], [ %lastAvailableWidth, %if.end ]
-  %cond122126135 = phi float [ %call8, %cond.true26 ], [ %availableWidth, %if.end ]
-  %cond16128133 = phi float [ %call13, %cond.true26 ], [ %availableHeight, %if.end ]
-  %cond32 = phi float [ %call29, %cond.true26 ], [ %lastAvailableHeight, %if.end ]
-  %cmp33 = icmp eq i32 %lastWidthMode, %widthMode
-  br i1 %cmp33, label %land.rhs34, label %land.end36
+32:                                               ; preds = %19, %22
+  %33 = phi float [ %29, %22 ], [ %5, %19 ]
+  %34 = phi float [ %25, %22 ], [ %1, %19 ]
+  %35 = phi float [ %27, %22 ], [ %3, %19 ]
+  %36 = phi float [ %31, %22 ], [ %7, %19 ]
+  %37 = icmp eq i32 %4, %0
+  br i1 %37, label %38, label %_ZN8facebook4yoga13inexactEqualsEff.exit
 
-land.rhs34:                                       ; preds = %cond.end31
-  %or.cond.i = fcmp ord float %cond24137, %cond122126135
-  br i1 %or.cond.i, label %if.then.i, label %if.end.i
+38:                                               ; preds = %32
+  %or.cond.i = fcmp ord float %33, %34
+  br i1 %or.cond.i, label %39, label %43
 
-if.then.i:                                        ; preds = %land.rhs34
-  %sub.i = fsub float %cond24137, %cond122126135
-  %0 = tail call noundef float @llvm.fabs.f32(float %sub.i)
-  %cmp.i = fcmp olt float %0, 0x3F1A36E2E0000000
-  br label %land.end36
+39:                                               ; preds = %38
+  %40 = fsub float %33, %34
+  %41 = tail call noundef float @llvm.fabs.f32(float %40)
+  %42 = fcmp olt float %41, 0x3F1A36E2E0000000
+  br label %_ZN8facebook4yoga13inexactEqualsEff.exit
 
-if.end.i:                                         ; preds = %land.rhs34
-  %cmp.i.i45 = fcmp uno float %cond24137, 0.000000e+00
-  br i1 %cmp.i.i45, label %land.rhs.i, label %land.end36
+43:                                               ; preds = %38
+  %44 = fcmp uno float %33, 0.000000e+00
+  br i1 %44, label %45, label %_ZN8facebook4yoga13inexactEqualsEff.exit
 
-land.rhs.i:                                       ; preds = %if.end.i
-  %cmp.i6.i = fcmp uno float %cond122126135, 0.000000e+00
-  br label %land.end36
+45:                                               ; preds = %43
+  %46 = fcmp uno float %34, 0.000000e+00
+  br label %_ZN8facebook4yoga13inexactEqualsEff.exit
 
-land.end36:                                       ; preds = %land.rhs.i, %if.end.i, %if.then.i, %cond.end31
-  %1 = phi i1 [ false, %cond.end31 ], [ %cmp.i, %if.then.i ], [ false, %if.end.i ], [ %cmp.i6.i, %land.rhs.i ]
-  %cmp38 = icmp eq i32 %lastHeightMode, %heightMode
-  br i1 %cmp38, label %land.rhs39, label %land.end41
+_ZN8facebook4yoga13inexactEqualsEff.exit:         ; preds = %45, %43, %39, %32
+  %47 = phi i1 [ false, %32 ], [ %42, %39 ], [ false, %43 ], [ %46, %45 ]
+  %48 = icmp eq i32 %6, %2
+  br i1 %48, label %49, label %_ZN8facebook4yoga13inexactEqualsEff.exit71
 
-land.rhs39:                                       ; preds = %land.end36
-  %or.cond.i46 = fcmp ord float %cond32, %cond16128133
-  br i1 %or.cond.i46, label %if.then.i52, label %if.end.i47
+49:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit
+  %or.cond.i69 = fcmp ord float %36, %35
+  br i1 %or.cond.i69, label %50, label %54
 
-if.then.i52:                                      ; preds = %land.rhs39
-  %sub.i53 = fsub float %cond32, %cond16128133
-  %2 = tail call noundef float @llvm.fabs.f32(float %sub.i53)
-  %cmp.i54 = fcmp olt float %2, 0x3F1A36E2E0000000
-  br label %land.end41
+50:                                               ; preds = %49
+  %51 = fsub float %36, %35
+  %52 = tail call noundef float @llvm.fabs.f32(float %51)
+  %53 = fcmp olt float %52, 0x3F1A36E2E0000000
+  br label %_ZN8facebook4yoga13inexactEqualsEff.exit71
 
-if.end.i47:                                       ; preds = %land.rhs39
-  %cmp.i.i48 = fcmp uno float %cond32, 0.000000e+00
-  br i1 %cmp.i.i48, label %land.rhs.i50, label %land.end41
+54:                                               ; preds = %49
+  %55 = fcmp uno float %36, 0.000000e+00
+  br i1 %55, label %56, label %_ZN8facebook4yoga13inexactEqualsEff.exit71
 
-land.rhs.i50:                                     ; preds = %if.end.i47
-  %cmp.i6.i51 = fcmp uno float %cond16128133, 0.000000e+00
-  br label %land.end41
+56:                                               ; preds = %54
+  %57 = fcmp uno float %35, 0.000000e+00
+  br label %_ZN8facebook4yoga13inexactEqualsEff.exit71
 
-land.end41:                                       ; preds = %land.rhs.i50, %if.end.i47, %if.then.i52, %land.end36
-  %3 = phi i1 [ false, %land.end36 ], [ %cmp.i54, %if.then.i52 ], [ false, %if.end.i47 ], [ %cmp.i6.i51, %land.rhs.i50 ]
-  br i1 %1, label %lor.end, label %lor.lhs.false44
+_ZN8facebook4yoga13inexactEqualsEff.exit71:       ; preds = %56, %54, %50, %_ZN8facebook4yoga13inexactEqualsEff.exit
+  %58 = phi i1 [ false, %_ZN8facebook4yoga13inexactEqualsEff.exit ], [ %53, %50 ], [ false, %54 ], [ %57, %56 ]
+  br i1 %47, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit, label %59
 
-lor.lhs.false44:                                  ; preds = %land.end41
-  %sub = fsub float %availableWidth, %marginRow
-  %cmp.i56 = icmp eq i32 %widthMode, 0
-  br i1 %cmp.i56, label %land.rhs.i57, label %lor.lhs.false46
+59:                                               ; preds = %_ZN8facebook4yoga13inexactEqualsEff.exit71
+  %60 = fsub float %1, %10
+  %61 = icmp eq i32 %0, 0
+  br i1 %61, label %62, label %70
 
-land.rhs.i57:                                     ; preds = %lor.lhs.false44
-  %or.cond.i.i = fcmp ord float %sub, %lastComputedWidth
-  br i1 %or.cond.i.i, label %if.then.i.i, label %if.end.i.i
+62:                                               ; preds = %59
+  %or.cond.i.i = fcmp ord float %60, %8
+  br i1 %or.cond.i.i, label %63, label %67
 
-if.then.i.i:                                      ; preds = %land.rhs.i57
-  %sub.i.i = fsub float %sub, %lastComputedWidth
-  %4 = tail call noundef float @llvm.fabs.f32(float %sub.i.i)
-  %cmp.i.i58 = fcmp olt float %4, 0x3F1A36E2E0000000
-  br i1 %cmp.i.i58, label %lor.end, label %lor.rhs
+63:                                               ; preds = %62
+  %64 = fsub float %60, %8
+  %65 = tail call noundef float @llvm.fabs.f32(float %64)
+  %66 = fcmp olt float %65, 0x3F1A36E2E0000000
+  br i1 %66, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit, label %.thread90
 
-if.end.i.i:                                       ; preds = %land.rhs.i57
-  %cmp.i.i.i = fcmp uno float %sub, 0.000000e+00
-  %cmp.i6.i.i = fcmp uno float %lastComputedWidth, 0.000000e+00
-  %or.cond182 = and i1 %cmp.i6.i.i, %cmp.i.i.i
-  br i1 %or.cond182, label %lor.end, label %lor.rhs
+67:                                               ; preds = %62
+  %68 = fcmp uno float %60, 0.000000e+00
+  %69 = fcmp uno float %8, 0.000000e+00
+  %or.cond117 = and i1 %69, %68
+  br i1 %or.cond117, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit, label %.thread90
 
-lor.lhs.false46:                                  ; preds = %lor.lhs.false44
-  %cmp.i59 = icmp eq i32 %widthMode, 2
-  %cmp1.i = icmp eq i32 %lastWidthMode, 1
-  %or.cond.i60 = and i1 %cmp.i59, %cmp1.i
-  br i1 %or.cond.i60, label %land.rhs.i61, label %lor.rhs
+70:                                               ; preds = %59
+  %71 = icmp eq i32 %0, 2
+  %72 = icmp eq i32 %4, 1
+  %or.cond.i72 = and i1 %71, %72
+  br i1 %or.cond.i72, label %73, label %.thread90
 
-land.rhs.i61:                                     ; preds = %lor.lhs.false46
-  %cmp2.i = fcmp ult float %sub, %lastComputedWidth
-  br i1 %cmp2.i, label %lor.rhs.i, label %lor.end
+73:                                               ; preds = %70
+  %74 = fcmp ult float %60, %8
+  br i1 %74, label %75, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-lor.rhs.i:                                        ; preds = %land.rhs.i61
-  %or.cond.i.i62 = fcmp ord float %sub, %lastComputedWidth
-  br i1 %or.cond.i.i62, label %if.then.i.i67, label %if.end.i.i63
+75:                                               ; preds = %73
+  %or.cond.i.i73 = fcmp ord float %60, %8
+  br i1 %or.cond.i.i73, label %76, label %80
 
-if.then.i.i67:                                    ; preds = %lor.rhs.i
-  %sub.i.i68 = fsub float %sub, %lastComputedWidth
-  %5 = tail call noundef float @llvm.fabs.f32(float %sub.i.i68)
-  %cmp.i.i69 = fcmp olt float %5, 0x3F1A36E2E0000000
-  br i1 %cmp.i.i69, label %lor.end, label %lor.rhs.thread
+76:                                               ; preds = %75
+  %77 = fsub float %60, %8
+  %78 = tail call noundef float @llvm.fabs.f32(float %77)
+  %79 = fcmp olt float %78, 0x3F1A36E2E0000000
+  br i1 %79, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit, label %.thread94
 
-if.end.i.i63:                                     ; preds = %lor.rhs.i
-  %cmp.i.i.i64 = fcmp uno float %sub, 0.000000e+00
-  br i1 %cmp.i.i.i64, label %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit, label %lor.end
+80:                                               ; preds = %75
+  %81 = fcmp uno float %60, 0.000000e+00
+  br i1 %81, label %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit: ; preds = %if.end.i.i63
-  %cmp.i6.i.i66 = fcmp uno float %lastComputedWidth, 0.000000e+00
-  br i1 %cmp.i6.i.i66, label %lor.end, label %lor.rhs.thread
+_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit: ; preds = %80
+  %82 = fcmp uno float %8, 0.000000e+00
+  br i1 %82, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit, label %.thread94
 
-lor.rhs.thread:                                   ; preds = %if.then.i.i67, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit
-  br label %lor.end
+.thread94:                                        ; preds = %76, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit
+  br label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-lor.rhs:                                          ; preds = %if.then.i.i, %if.end.i.i, %lor.lhs.false46
-  %cmp.i59142.ph = phi i1 [ %cmp.i59, %lor.lhs.false46 ], [ false, %if.end.i.i ], [ false, %if.then.i.i ]
-  %cmp.i70 = icmp eq i32 %lastWidthMode, 2
-  %or.cond.i72 = and i1 %cmp.i70, %cmp.i59142.ph
-  %6 = fcmp ord float %sub, %lastAvailableWidth
-  %or.cond12.i = and i1 %6, %or.cond.i72
-  %cmp8.i = fcmp ogt float %lastAvailableWidth, %sub
-  %or.cond7.i = and i1 %cmp.i.i44, %cmp8.i
-  %or.cond = and i1 %or.cond7.i, %or.cond12.i
-  br i1 %or.cond, label %land.rhs.i73, label %lor.end
+.thread90:                                        ; preds = %63, %67, %70
+  %.ph = phi i1 [ %71, %70 ], [ false, %67 ], [ false, %63 ]
+  %83 = icmp eq i32 %4, 2
+  %or.cond.i74 = and i1 %83, %.ph
+  %84 = fcmp ord float %60, %5
+  %or.cond14.i = and i1 %84, %or.cond.i74
+  %85 = fcmp ogt float %5, %60
+  %or.cond12.i = and i1 %17, %85
+  %or.cond = and i1 %or.cond12.i, %or.cond14.i
+  br i1 %or.cond, label %86, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-land.rhs.i73:                                     ; preds = %lor.rhs
-  %cmp9.i = fcmp ugt float %lastComputedWidth, %sub
-  br i1 %cmp9.i, label %lor.rhs.i74, label %lor.end
+86:                                               ; preds = %.thread90
+  %87 = fcmp ugt float %8, %60
+  br i1 %87, label %88, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-lor.rhs.i74:                                      ; preds = %land.rhs.i73
-  %or.cond.i.i75 = fcmp ord float %sub, 0.000000e+00
-  br i1 %or.cond.i.i75, label %if.then.i.i76, label %lor.end
+88:                                               ; preds = %86
+  %or.cond.i.i75 = fcmp ord float %60, 0.000000e+00
+  br i1 %or.cond.i.i75, label %89, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-if.then.i.i76:                                    ; preds = %lor.rhs.i74
-  %sub.i.i77 = fsub float %sub, %lastComputedWidth
-  %7 = tail call noundef float @llvm.fabs.f32(float %sub.i.i77)
-  %cmp.i.i78 = fcmp olt float %7, 0x3F1A36E2E0000000
-  br label %lor.end
+89:                                               ; preds = %88
+  %90 = fsub float %60, %8
+  %91 = tail call noundef float @llvm.fabs.f32(float %90)
+  %92 = fcmp olt float %91, 0x3F1A36E2E0000000
+  br label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
 
-lor.end:                                          ; preds = %if.end.i.i, %if.end.i.i63, %land.rhs.i61, %if.then.i.i76, %lor.rhs.i74, %land.rhs.i73, %lor.rhs, %lor.rhs.thread, %if.then.i.i67, %if.then.i.i, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit, %land.end41
-  %8 = phi i1 [ true, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit ], [ true, %land.end41 ], [ true, %if.then.i.i ], [ true, %if.then.i.i67 ], [ false, %lor.rhs ], [ true, %land.rhs.i73 ], [ %cmp.i.i78, %if.then.i.i76 ], [ false, %lor.rhs.i74 ], [ false, %lor.rhs.thread ], [ true, %land.rhs.i61 ], [ false, %if.end.i.i63 ], [ true, %if.end.i.i ]
-  br i1 %3, label %lor.end62, label %lor.lhs.false53
+_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit: ; preds = %67, %80, %73, %89, %88, %86, %.thread90, %.thread94, %76, %63, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit, %_ZN8facebook4yoga13inexactEqualsEff.exit71
+  %93 = phi i1 [ true, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit ], [ true, %_ZN8facebook4yoga13inexactEqualsEff.exit71 ], [ true, %63 ], [ true, %76 ], [ false, %.thread90 ], [ true, %86 ], [ %92, %89 ], [ false, %88 ], [ false, %.thread94 ], [ true, %73 ], [ false, %80 ], [ true, %67 ]
+  br i1 %58, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85, label %94
 
-lor.lhs.false53:                                  ; preds = %lor.end
-  %sub54 = fsub float %availableHeight, %marginColumn
-  %cmp.i79 = icmp eq i32 %heightMode, 0
-  br i1 %cmp.i79, label %land.rhs.i80, label %lor.lhs.false56
+94:                                               ; preds = %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
+  %95 = fsub float %3, %11
+  %96 = icmp eq i32 %2, 0
+  br i1 %96, label %97, label %105
 
-land.rhs.i80:                                     ; preds = %lor.lhs.false53
-  %or.cond.i.i81 = fcmp ord float %sub54, %lastComputedHeight
-  br i1 %or.cond.i.i81, label %if.then.i.i86, label %if.end.i.i82
+97:                                               ; preds = %94
+  %or.cond.i.i76 = fcmp ord float %95, %9
+  br i1 %or.cond.i.i76, label %98, label %102
 
-if.then.i.i86:                                    ; preds = %land.rhs.i80
-  %sub.i.i87 = fsub float %sub54, %lastComputedHeight
-  %9 = tail call noundef float @llvm.fabs.f32(float %sub.i.i87)
-  %cmp.i.i88 = fcmp olt float %9, 0x3F1A36E2E0000000
-  br i1 %cmp.i.i88, label %lor.end62, label %lor.rhs59
+98:                                               ; preds = %97
+  %99 = fsub float %95, %9
+  %100 = tail call noundef float @llvm.fabs.f32(float %99)
+  %101 = fcmp olt float %100, 0x3F1A36E2E0000000
+  br i1 %101, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85, label %.thread104
 
-if.end.i.i82:                                     ; preds = %land.rhs.i80
-  %cmp.i.i.i83 = fcmp uno float %sub54, 0.000000e+00
-  %cmp.i6.i.i85 = fcmp uno float %lastComputedHeight, 0.000000e+00
-  %or.cond183 = and i1 %cmp.i6.i.i85, %cmp.i.i.i83
-  br i1 %or.cond183, label %lor.end62, label %lor.rhs59
+102:                                              ; preds = %97
+  %103 = fcmp uno float %95, 0.000000e+00
+  %104 = fcmp uno float %9, 0.000000e+00
+  %or.cond118 = and i1 %104, %103
+  br i1 %or.cond118, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85, label %.thread104
 
-lor.lhs.false56:                                  ; preds = %lor.lhs.false53
-  %cmp.i90 = icmp eq i32 %heightMode, 2
-  %cmp1.i91 = icmp eq i32 %lastHeightMode, 1
-  %or.cond.i92 = and i1 %cmp.i90, %cmp1.i91
-  br i1 %or.cond.i92, label %land.rhs.i93, label %lor.rhs59
+105:                                              ; preds = %94
+  %106 = icmp eq i32 %2, 2
+  %107 = icmp eq i32 %6, 1
+  %or.cond.i78 = and i1 %106, %107
+  br i1 %or.cond.i78, label %108, label %.thread104
 
-land.rhs.i93:                                     ; preds = %lor.lhs.false56
-  %cmp2.i94 = fcmp ult float %sub54, %lastComputedHeight
-  br i1 %cmp2.i94, label %lor.rhs.i95, label %lor.end62
+108:                                              ; preds = %105
+  %109 = fcmp ult float %95, %9
+  br i1 %109, label %110, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-lor.rhs.i95:                                      ; preds = %land.rhs.i93
-  %or.cond.i.i96 = fcmp ord float %sub54, %lastComputedHeight
-  br i1 %or.cond.i.i96, label %if.then.i.i101, label %if.end.i.i97
+110:                                              ; preds = %108
+  %or.cond.i.i79 = fcmp ord float %95, %9
+  br i1 %or.cond.i.i79, label %111, label %115
 
-if.then.i.i101:                                   ; preds = %lor.rhs.i95
-  %sub.i.i102 = fsub float %sub54, %lastComputedHeight
-  %10 = tail call noundef float @llvm.fabs.f32(float %sub.i.i102)
-  %cmp.i.i103 = fcmp olt float %10, 0x3F1A36E2E0000000
-  br i1 %cmp.i.i103, label %lor.end62, label %lor.rhs59.thread
+111:                                              ; preds = %110
+  %112 = fsub float %95, %9
+  %113 = tail call noundef float @llvm.fabs.f32(float %112)
+  %114 = fcmp olt float %113, 0x3F1A36E2E0000000
+  br i1 %114, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85, label %.thread109
 
-if.end.i.i97:                                     ; preds = %lor.rhs.i95
-  %cmp.i.i.i98 = fcmp uno float %sub54, 0.000000e+00
-  br i1 %cmp.i.i.i98, label %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit104, label %lor.end62
+115:                                              ; preds = %110
+  %116 = fcmp uno float %95, 0.000000e+00
+  br i1 %116, label %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit80, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit104: ; preds = %if.end.i.i97
-  %cmp.i6.i.i100 = fcmp uno float %lastComputedHeight, 0.000000e+00
-  br i1 %cmp.i6.i.i100, label %lor.end62, label %lor.rhs59.thread
+_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit80: ; preds = %115
+  %117 = fcmp uno float %9, 0.000000e+00
+  br i1 %117, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85, label %.thread109
 
-lor.rhs59.thread:                                 ; preds = %if.then.i.i101, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit104
-  br label %lor.end62
+.thread109:                                       ; preds = %111, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit80
+  br label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-lor.rhs59:                                        ; preds = %if.then.i.i86, %if.end.i.i82, %lor.lhs.false56
-  %cmp.i90163.ph = phi i1 [ %cmp.i90, %lor.lhs.false56 ], [ false, %if.end.i.i82 ], [ false, %if.then.i.i86 ]
-  %cmp.i105 = icmp eq i32 %lastHeightMode, 2
-  %or.cond.i107 = and i1 %cmp.i105, %cmp.i90163.ph
-  %11 = fcmp ord float %sub54, %lastAvailableHeight
-  %or.cond12.i108 = and i1 %11, %or.cond.i107
-  %cmp8.i111 = fcmp ogt float %lastAvailableHeight, %sub54
-  %or.cond7.i112 = and i1 %cmp.i.i, %cmp8.i111
-  %or.cond181 = and i1 %or.cond7.i112, %or.cond12.i108
-  br i1 %or.cond181, label %land.rhs.i113, label %lor.end62
+.thread104:                                       ; preds = %98, %102, %105
+  %.ph106 = phi i1 [ %106, %105 ], [ false, %102 ], [ false, %98 ]
+  %118 = icmp eq i32 %6, 2
+  %or.cond.i81 = and i1 %118, %.ph106
+  %119 = fcmp ord float %95, %7
+  %or.cond14.i82 = and i1 %119, %or.cond.i81
+  %120 = fcmp ogt float %7, %95
+  %or.cond12.i83 = and i1 %14, %120
+  %or.cond116 = and i1 %or.cond12.i83, %or.cond14.i82
+  br i1 %or.cond116, label %121, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-land.rhs.i113:                                    ; preds = %lor.rhs59
-  %cmp9.i114 = fcmp ugt float %lastComputedHeight, %sub54
-  br i1 %cmp9.i114, label %lor.rhs.i115, label %lor.end62
+121:                                              ; preds = %.thread104
+  %122 = fcmp ugt float %9, %95
+  br i1 %122, label %123, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-lor.rhs.i115:                                     ; preds = %land.rhs.i113
-  %or.cond.i.i116 = fcmp ord float %sub54, 0.000000e+00
-  br i1 %or.cond.i.i116, label %if.then.i.i117, label %lor.end62
+123:                                              ; preds = %121
+  %or.cond.i.i84 = fcmp ord float %95, 0.000000e+00
+  br i1 %or.cond.i.i84, label %124, label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-if.then.i.i117:                                   ; preds = %lor.rhs.i115
-  %sub.i.i118 = fsub float %sub54, %lastComputedHeight
-  %12 = tail call noundef float @llvm.fabs.f32(float %sub.i.i118)
-  %cmp.i.i119 = fcmp olt float %12, 0x3F1A36E2E0000000
-  br label %lor.end62
+124:                                              ; preds = %123
+  %125 = fsub float %95, %9
+  %126 = tail call noundef float @llvm.fabs.f32(float %125)
+  %127 = fcmp olt float %126, 0x3F1A36E2E0000000
+  br label %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
 
-lor.end62:                                        ; preds = %if.end.i.i82, %if.end.i.i97, %land.rhs.i93, %if.then.i.i117, %lor.rhs.i115, %land.rhs.i113, %lor.rhs59, %lor.rhs59.thread, %if.then.i.i101, %if.then.i.i86, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit104, %lor.end
-  %13 = phi i1 [ true, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit104 ], [ true, %lor.end ], [ true, %if.then.i.i86 ], [ true, %if.then.i.i101 ], [ false, %lor.rhs59 ], [ true, %land.rhs.i113 ], [ %cmp.i.i119, %if.then.i.i117 ], [ false, %lor.rhs.i115 ], [ false, %lor.rhs59.thread ], [ true, %land.rhs.i93 ], [ false, %if.end.i.i97 ], [ true, %if.end.i.i82 ]
-  %14 = and i1 %8, %13
-  br label %return
+_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85: ; preds = %102, %115, %108, %124, %123, %121, %.thread104, %.thread109, %111, %98, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit80, %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit
+  %128 = phi i1 [ true, %_ZN8facebook4yogaL31oldSizeIsMaxContentAndStillFitsENS0_10SizingModeEfS1_f.exit80 ], [ true, %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit ], [ true, %98 ], [ true, %111 ], [ false, %.thread104 ], [ true, %121 ], [ %127, %124 ], [ false, %123 ], [ false, %.thread109 ], [ true, %108 ], [ false, %115 ], [ true, %102 ]
+  %129 = and i1 %93, %128
+  br label %130
 
-return:                                           ; preds = %entry, %lor.lhs.false, %lor.end62
-  %retval.0 = phi i1 [ %14, %lor.end62 ], [ false, %lor.lhs.false ], [ false, %entry ]
-  ret i1 %retval.0
+130:                                              ; preds = %13, %16, %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85
+  %.0 = phi i1 [ %129, %_ZN8facebook4yogaL30newSizeIsStricterAndStillValidENS0_10SizingModeEfS1_ff.exit85 ], [ false, %16 ], [ false, %13 ]
+  ret i1 %.0
 }
 
 declare noundef float @_ZNK8facebook4yoga6Config19getPointScaleFactorEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
