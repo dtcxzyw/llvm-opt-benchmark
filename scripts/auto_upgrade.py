@@ -135,6 +135,7 @@ supported_project = [
     "tinygltf",
     "tinympc",
     "tinyobjloader",
+    "tinyrenderer",
 ]
 
 modify_only = [
