@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/yaml-cpp/original/graphbuilderadapter.ll'
 source_filename = "bench/yaml-cpp/original/graphbuilderadapter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"struct.YAML::GraphBuilderAdapter::ContainerFrame" = type { ptr, ptr }
 
@@ -21,612 +21,613 @@ $_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate
 
 $_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm = comdat any
 
-$_ZTSN4YAML12EventHandlerE = comdat any
-
 $_ZTIN4YAML12EventHandlerE = comdat any
+
+$_ZTSN4YAML12EventHandlerE = comdat any
 
 @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE = global i32 0, align 4
 @_ZTVN4YAML19GraphBuilderAdapterE = unnamed_addr constant { [14 x ptr] } { [14 x ptr] [ptr null, ptr @_ZTIN4YAML19GraphBuilderAdapterE, ptr @_ZN4YAML19GraphBuilderAdapterD2Ev, ptr @_ZN4YAML19GraphBuilderAdapterD0Ev, ptr @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE, ptr @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv, ptr @_ZN4YAML19GraphBuilderAdapter6OnNullERKNS_4MarkEm, ptr @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm, ptr @_ZN4YAML19GraphBuilderAdapter8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_, ptr @_ZN4YAML19GraphBuilderAdapter15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE, ptr @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv, ptr @_ZN4YAML19GraphBuilderAdapter10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE, ptr @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv, ptr @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE] }, align 8
+@_ZTIN4YAML19GraphBuilderAdapterE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4YAML19GraphBuilderAdapterE, ptr @_ZTIN4YAML12EventHandlerE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN4YAML19GraphBuilderAdapterE = constant [29 x i8] c"N4YAML19GraphBuilderAdapterE\00", align 1
+@_ZTIN4YAML12EventHandlerE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4YAML12EventHandlerE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN4YAML12EventHandlerE = linkonce_odr constant [22 x i8] c"N4YAML12EventHandlerE\00", comdat, align 1
-@_ZTIN4YAML12EventHandlerE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4YAML12EventHandlerE }, comdat, align 8
-@_ZTIN4YAML19GraphBuilderAdapterE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4YAML19GraphBuilderAdapterE, ptr @_ZTIN4YAML12EventHandlerE }, align 8
 @.str = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter6OnNullERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %1 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %if.end.i
+define void @_ZN4YAML19GraphBuilderAdapter6OnNullERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = load ptr, ptr %5, align 8, !tbaa !3
+  %8 = icmp eq ptr %6, %7
+  br i1 %8, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %9
 
-if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !4
-  %cmp.i.i.i1.i = icmp eq ptr %0, %2
-  br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = load ptr, ptr %10, align 8, !tbaa !11, !noalias !12
+  %12 = icmp eq ptr %6, %11
+  br i1 %12, label %13, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !4
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = load ptr, ptr %14, align 8, !tbaa !15, !noalias !12
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 512
   br label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
-  %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i ], [ %0, %if.end.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -16
-  %6 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
+_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %13, %9
+  %19 = phi ptr [ %18, %13 ], [ %6, %9 ]
+  %20 = getelementptr inbounds i8, ptr %19, i64 -16
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
   br label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
 
-_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %entry, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %retval.0.i = phi ptr [ %6, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %entry ]
-  %m_builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %7 = load ptr, ptr %m_builder, align 8
-  %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %8 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef %retval.0.i)
-  %tobool.not.i = icmp eq i64 %anchor, 0
-  br i1 %tobool.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %if.then.i
+_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %3, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.0.i = phi ptr [ %21, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %3 ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %24 = load ptr, ptr %23, align 8, !tbaa !34
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %.0.i)
+  %.not.i = icmp eq i64 %2, 0
+  br i1 %.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %28
 
-if.then.i:                                        ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
-  %m_anchors.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %_M_finish.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %9 = load ptr, ptr %_M_finish.i.i.i2, align 8
-  %10 = load ptr, ptr %m_anchors.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
-  br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
+28:                                               ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %31 = load ptr, ptr %30, align 8, !tbaa !36
+  %32 = load ptr, ptr %29, align 8, !tbaa !37
+  %33 = ptrtoint ptr %31 to i64
+  %34 = ptrtoint ptr %32 to i64
+  %35 = sub i64 %33, %34
+  %36 = ashr exact i64 %35, 3
+  %37 = icmp ugt i64 %2, %36
+  br i1 %37, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
-  tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
-  %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
+_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %28
+  %38 = sub nuw i64 %2, %36
+  tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %29, i64 noundef %38)
+  %.pre.i.i = load ptr, ptr %29, align 8, !tbaa !37
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %if.then.i
-  %11 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %10, %if.then.i ]
-  %12 = getelementptr ptr, ptr %11, i64 %anchor
-  %add.ptr.i3.i.i = getelementptr i8, ptr %12, i64 -8
-  store ptr %call2, ptr %add.ptr.i3.i.i, align 8
+_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %28
+  %39 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %32, %28 ]
+  %40 = getelementptr ptr, ptr %39, i64 %2
+  %41 = getelementptr i8, ptr %40, i64 -8
+  store ptr %27, ptr %41, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
 
 _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
-  %13 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %14 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i6 = icmp eq ptr %13, %14
-  br i1 %cmp.i.i.i.i6, label %if.then.i13, label %if.end.i7
+  %42 = load ptr, ptr %4, align 8, !tbaa !3
+  %43 = load ptr, ptr %5, align 8, !tbaa !3
+  %44 = icmp eq ptr %42, %43
+  br i1 %44, label %45, label %47
 
-if.then.i13:                                      ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
-  %m_pRootNode.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr %call2, ptr %m_pRootNode.i, align 8
+45:                                               ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %27, ptr %46, align 8, !tbaa !39
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.end.i7:                                        ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
-  %_M_first3.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %15 = load ptr, ptr %_M_first3.i.i.i.i.i8, align 8, !noalias !7
-  %cmp.i.i.i5.i = icmp eq ptr %13, %15
-  br i1 %cmp.i.i.i5.i, label %if.then.i.i.i10.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+47:                                               ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %49 = load ptr, ptr %48, align 8, !tbaa !11, !noalias !40
+  %50 = icmp eq ptr %42, %49
+  br i1 %50, label %52, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.end.i7
-  %incdec.ptr.i.i.i.i9 = getelementptr inbounds i8, ptr %13, i64 -16
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %42, i64 -16
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-if.then.i.i.i10.i:                                ; preds = %if.end.i7
-  %_M_node5.i.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %16 = load ptr, ptr %_M_node5.i.i.i.i.i11, align 8, !noalias !7
-  %add.ptr.i.i.i.i12 = getelementptr inbounds i8, ptr %16, i64 -8
-  %17 = load ptr, ptr %add.ptr.i.i.i.i12, align 8
-  %incdec.ptr.i.i.i15.i = getelementptr inbounds nuw i8, ptr %17, i64 496
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %17, i64 512
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %54 = load ptr, ptr %53, align 8, !tbaa !15, !noalias !40
+  %55 = getelementptr inbounds i8, ptr %54, i64 -8
+  %56 = load ptr, ptr %55, align 8, !tbaa !16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 496
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 512
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i: ; preds = %if.then.i.i.i10.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %.in.i = phi ptr [ %incdec.ptr.i.i.i15.i, %if.then.i.i.i10.i ], [ %incdec.ptr.i.i.i.i9, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %18 = phi ptr [ %add.ptr.i.i.i.i13.i, %if.then.i.i.i10.i ], [ %13, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %19 = load ptr, ptr %.in.i, align 8
-  %pPrevKeyNode.i.i = getelementptr inbounds i8, ptr %18, i64 -8
-  %20 = load ptr, ptr %pPrevKeyNode.i.i, align 8
-  %cmp.i.not.i = icmp eq ptr %20, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  br i1 %cmp.i.not.i, label %if.else14.i, label %if.then8.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i: ; preds = %52, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.in.i = phi ptr [ %57, %52 ], [ %51, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %59 = phi ptr [ %58, %52 ], [ %42, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %60 = load ptr, ptr %.in.i, align 8, !tbaa !17
+  %61 = getelementptr inbounds i8, ptr %59, i64 -8
+  %62 = load ptr, ptr %61, align 8, !tbaa !43
+  %.not8.i = icmp eq ptr %62, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  br i1 %.not8.i, label %72, label %63
 
-if.then8.i:                                       ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %m_pKeyNode.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %21 = load ptr, ptr %m_pKeyNode.i, align 8
-  %tobool.not.i10 = icmp eq ptr %21, null
-  br i1 %tobool.not.i10, label %if.else.i, label %if.then9.i
+63:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %65 = load ptr, ptr %64, align 8, !tbaa !44
+  %.not.i5 = icmp eq ptr %65, null
+  br i1 %.not.i5, label %71, label %66
 
-if.then9.i:                                       ; preds = %if.then8.i
-  %22 = load ptr, ptr %m_builder, align 8
-  %vtable.i = load ptr, ptr %22, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %23 = load ptr, ptr %vfn.i, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %19, ptr noundef nonnull %21, ptr noundef %call2)
-  store ptr null, ptr %m_pKeyNode.i, align 8
+66:                                               ; preds = %63
+  %67 = load ptr, ptr %22, align 8, !tbaa !19
+  %68 = load ptr, ptr %67, align 8, !tbaa !34
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %60, ptr noundef nonnull %65, ptr noundef %27)
+  store ptr null, ptr %64, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else.i:                                        ; preds = %if.then8.i
-  store ptr %call2, ptr %m_pKeyNode.i, align 8
+71:                                               ; preds = %63
+  store ptr %27, ptr %64, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else14.i:                                      ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %24 = load ptr, ptr %m_builder, align 8
-  %vtable16.i = load ptr, ptr %24, align 8
-  %vfn17.i = getelementptr inbounds nuw i8, ptr %vtable16.i, i64 40
-  %25 = load ptr, ptr %vfn17.i, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %19, ptr noundef %call2)
+72:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %73 = load ptr, ptr %22, align 8, !tbaa !19
+  %74 = load ptr, ptr %73, align 8, !tbaa !34
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
+  %76 = load ptr, ptr %75, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef %60, ptr noundef %27)
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i13, %if.then9.i, %if.else.i, %if.else14.i
+_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %45, %66, %71, %72
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) local_unnamed_addr #1 align 2 {
-entry:
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %1 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i, label %return, label %if.end
+define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) local_unnamed_addr #2 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = icmp eq ptr %4, %5
+  br i1 %6, label %20, label %7
 
-if.end:                                           ; preds = %entry
-  %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !10
-  %cmp.i.i.i1 = icmp eq ptr %0, %2
-  br i1 %cmp.i.i.i1, label %if.then.i.i.i, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = load ptr, ptr %8, align 8, !tbaa !11, !noalias !45
+  %10 = icmp eq ptr %4, %9
+  br i1 %10, label %11, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
 
-if.then.i.i.i:                                    ; preds = %if.end
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !10
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %13 = load ptr, ptr %12, align 8, !tbaa !15, !noalias !45
+  %14 = getelementptr inbounds i8, ptr %13, i64 -8
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 512
   br label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
 
-_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %if.end, %if.then.i.i.i
-  %5 = phi ptr [ %add.ptr.i.i.i.i, %if.then.i.i.i ], [ %0, %if.end ]
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -16
-  %6 = load ptr, ptr %incdec.ptr.i.i.i, align 8
-  br label %return
+_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %7, %11
+  %17 = phi ptr [ %16, %11 ], [ %4, %7 ]
+  %18 = getelementptr inbounds i8, ptr %17, i64 -16
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  br label %20
 
-return:                                           ; preds = %entry, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
-  %retval.0 = phi ptr [ %6, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit ], [ null, %entry ]
-  ret ptr %retval.0
+20:                                               ; preds = %1, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
+  %.0 = phi ptr [ %19, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 noundef %anchor, ptr noundef %pNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %tobool.not = icmp eq i64 %anchor, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+define void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %18, label %4
 
-if.then:                                          ; preds = %entry
-  %m_anchors = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %1 = load ptr, ptr %m_anchors, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %cmp.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i
-  br i1 %cmp.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %7 = load ptr, ptr %6, align 8, !tbaa !36
+  %8 = load ptr, ptr %5, align 8, !tbaa !37
+  %9 = ptrtoint ptr %7 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = ashr exact i64 %11, 3
+  %13 = icmp ugt i64 %1, %12
+  br i1 %13, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit
 
-_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i:          ; preds = %if.then
-  %sub.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i
-  tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors, i64 noundef %sub.i.i)
-  %.pre.i = load ptr, ptr %m_anchors, align 8
+_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i:          ; preds = %4
+  %14 = sub nuw i64 %1, %12
+  tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %14)
+  %.pre.i = load ptr, ptr %5, align 8, !tbaa !37
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit
 
-_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit:      ; preds = %if.then, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i
-  %2 = phi ptr [ %.pre.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i ], [ %1, %if.then ]
-  %3 = getelementptr ptr, ptr %2, i64 %anchor
-  %add.ptr.i3.i = getelementptr i8, ptr %3, i64 -8
-  store ptr %pNode, ptr %add.ptr.i3.i, align 8
-  br label %if.end
+_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit:      ; preds = %4, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i
+  %15 = phi ptr [ %.pre.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i ], [ %8, %4 ]
+  %16 = getelementptr ptr, ptr %15, i64 %1
+  %17 = getelementptr i8, ptr %16, i64 -8
+  store ptr %2, ptr %17, align 8, !tbaa !38
+  br label %18
 
-if.end:                                           ; preds = %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit, %entry
+18:                                               ; preds = %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef %pNode) local_unnamed_addr #0 align 2 {
-entry:
-  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_finish.i.i, align 8
-  %1 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i, label %if.then, label %if.end
+define void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load ptr, ptr %3, align 8, !tbaa !3
+  %6 = load ptr, ptr %4, align 8, !tbaa !3
+  %7 = icmp eq ptr %5, %6
+  br i1 %7, label %8, label %10
 
-if.then:                                          ; preds = %entry
-  %m_pRootNode = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr %pNode, ptr %m_pRootNode, align 8
-  br label %if.end18
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %1, ptr %9, align 8, !tbaa !39
+  br label %42
 
-if.end:                                           ; preds = %entry
-  %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !13
-  %cmp.i.i.i5 = icmp eq ptr %0, %2
-  br i1 %cmp.i.i.i5, label %if.then.i.i.i10, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
+10:                                               ; preds = %2
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %12 = load ptr, ptr %11, align 8, !tbaa !11, !noalias !48
+  %13 = icmp eq ptr %5, %12
+  br i1 %13, label %15, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %if.end
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -16
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit: ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %5, i64 -16
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7
 
-if.then.i.i.i10:                                  ; preds = %if.end
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !13
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %incdec.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %4, i64 496
-  %add.ptr.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %4, i64 512
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %17 = load ptr, ptr %16, align 8, !tbaa !15, !noalias !48
+  %18 = getelementptr inbounds i8, ptr %17, i64 -8
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 496
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 512
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14: ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit, %if.then.i.i.i10
-  %.in = phi ptr [ %incdec.ptr.i.i.i15, %if.then.i.i.i10 ], [ %incdec.ptr.i.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit ]
-  %5 = phi ptr [ %add.ptr.i.i.i.i13, %if.then.i.i.i10 ], [ %0, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit ]
-  %6 = load ptr, ptr %.in, align 8
-  %pPrevKeyNode.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %7 = load ptr, ptr %pPrevKeyNode.i, align 8
-  %cmp.i.not = icmp eq ptr %7, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  br i1 %cmp.i.not, label %if.else14, label %if.then8
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7: ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit, %15
+  %.in = phi ptr [ %20, %15 ], [ %14, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit ]
+  %22 = phi ptr [ %21, %15 ], [ %5, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit ]
+  %23 = load ptr, ptr %.in, align 8, !tbaa !17
+  %24 = getelementptr inbounds i8, ptr %22, i64 -8
+  %25 = load ptr, ptr %24, align 8, !tbaa !43
+  %.not8 = icmp eq ptr %25, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  br i1 %.not8, label %36, label %26
 
-if.then8:                                         ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14
-  %m_pKeyNode = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %8 = load ptr, ptr %m_pKeyNode, align 8
-  %tobool.not = icmp eq ptr %8, null
-  br i1 %tobool.not, label %if.else, label %if.then9
+26:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  %.not = icmp eq ptr %28, null
+  br i1 %.not, label %35, label %29
 
-if.then9:                                         ; preds = %if.then8
-  %m_builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %9 = load ptr, ptr %m_builder, align 8
-  %vtable = load ptr, ptr %9, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
-  %10 = load ptr, ptr %vfn, align 8
-  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %6, ptr noundef nonnull %8, ptr noundef %pNode)
-  store ptr null, ptr %m_pKeyNode, align 8
-  br label %if.end18
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !19
+  %32 = load ptr, ptr %31, align 8, !tbaa !34
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %23, ptr noundef nonnull %28, ptr noundef %1)
+  store ptr null, ptr %27, align 8, !tbaa !44
+  br label %42
 
-if.else:                                          ; preds = %if.then8
-  store ptr %pNode, ptr %m_pKeyNode, align 8
-  br label %if.end18
+35:                                               ; preds = %26
+  store ptr %1, ptr %27, align 8, !tbaa !44
+  br label %42
 
-if.else14:                                        ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14
-  %m_builder15 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %11 = load ptr, ptr %m_builder15, align 8
-  %vtable16 = load ptr, ptr %11, align 8
-  %vfn17 = getelementptr inbounds nuw i8, ptr %vtable16, i64 40
-  %12 = load ptr, ptr %vfn17, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %6, ptr noundef %pNode)
-  br label %if.end18
+36:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !19
+  %39 = load ptr, ptr %38, align 8, !tbaa !34
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %41 = load ptr, ptr %40, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef %23, ptr noundef %1)
+  br label %42
 
-if.end18:                                         ; preds = %if.then9, %if.else, %if.else14, %if.then
+42:                                               ; preds = %36, %35, %29, %8
+  ret void
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %5 = load ptr, ptr %4, align 8, !tbaa !37
+  %6 = getelementptr ptr, ptr %5, i64 %2
+  %7 = getelementptr i8, ptr %6, i64 -8
+  %8 = load ptr, ptr %7, align 8, !tbaa !38
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %8)
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = load ptr, ptr %15, align 8, !tbaa !3
+  %18 = load ptr, ptr %16, align 8, !tbaa !3
+  %19 = icmp eq ptr %17, %18
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %3
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %14, ptr %21, align 8, !tbaa !39
+  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
+
+22:                                               ; preds = %3
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %24 = load ptr, ptr %23, align 8, !tbaa !11, !noalias !51
+  %25 = icmp eq ptr %17, %24
+  br i1 %25, label %27, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %17, i64 -16
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %29 = load ptr, ptr %28, align 8, !tbaa !15, !noalias !51
+  %30 = getelementptr inbounds i8, ptr %29, i64 -8
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 496
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 512
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i: ; preds = %27, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.in.i = phi ptr [ %32, %27 ], [ %26, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %34 = phi ptr [ %33, %27 ], [ %17, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %35 = load ptr, ptr %.in.i, align 8, !tbaa !17
+  %36 = getelementptr inbounds i8, ptr %34, i64 -8
+  %37 = load ptr, ptr %36, align 8, !tbaa !43
+  %.not8.i = icmp eq ptr %37, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  br i1 %.not8.i, label %47, label %38
+
+38:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %40 = load ptr, ptr %39, align 8, !tbaa !44
+  %.not.i = icmp eq ptr %40, null
+  br i1 %.not.i, label %46, label %41
+
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %9, align 8, !tbaa !19
+  %43 = load ptr, ptr %42, align 8, !tbaa !34
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
+  %45 = load ptr, ptr %44, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %35, ptr noundef nonnull %40, ptr noundef %14)
+  store ptr null, ptr %39, align 8, !tbaa !44
+  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
+
+46:                                               ; preds = %38
+  store ptr %14, ptr %39, align 8, !tbaa !44
+  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
+
+47:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %48 = load ptr, ptr %9, align 8, !tbaa !19
+  %49 = load ptr, ptr %48, align 8, !tbaa !34
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %35, ptr noundef %14)
+  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
+
+_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %20, %41, %46, %47
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
-entry:
-  %m_anchors = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %0 = load ptr, ptr %m_anchors, align 8
-  %1 = getelementptr ptr, ptr %0, i64 %anchor
-  %add.ptr.i.i = getelementptr i8, ptr %1, i64 -8
-  %2 = load ptr, ptr %add.ptr.i.i, align 8
-  %m_builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %m_builder, align 8
-  %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
-  %4 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef %2)
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %6 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %5, %6
-  br i1 %cmp.i.i.i.i, label %if.then.i, label %if.end.i
+define void @_ZN4YAML19GraphBuilderAdapter8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %6, align 8, !tbaa !3
+  %9 = load ptr, ptr %7, align 8, !tbaa !3
+  %10 = icmp eq ptr %8, %9
+  br i1 %10, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %11
 
-if.then.i:                                        ; preds = %entry
-  %m_pRootNode.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr %call2, ptr %m_pRootNode.i, align 8
-  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %13 = load ptr, ptr %12, align 8, !tbaa !11, !noalias !54
+  %14 = icmp eq ptr %8, %13
+  br i1 %14, label %15, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %7 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !16
-  %cmp.i.i.i5.i = icmp eq ptr %5, %7
-  br i1 %cmp.i.i.i5.i, label %if.then.i.i.i10.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -16
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-
-if.then.i.i.i10.i:                                ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %8 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %incdec.ptr.i.i.i15.i = getelementptr inbounds nuw i8, ptr %9, i64 496
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %9, i64 512
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i: ; preds = %if.then.i.i.i10.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %.in.i = phi ptr [ %incdec.ptr.i.i.i15.i, %if.then.i.i.i10.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %10 = phi ptr [ %add.ptr.i.i.i.i13.i, %if.then.i.i.i10.i ], [ %5, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %11 = load ptr, ptr %.in.i, align 8
-  %pPrevKeyNode.i.i = getelementptr inbounds i8, ptr %10, i64 -8
-  %12 = load ptr, ptr %pPrevKeyNode.i.i, align 8
-  %cmp.i.not.i = icmp eq ptr %12, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  br i1 %cmp.i.not.i, label %if.else14.i, label %if.then8.i
-
-if.then8.i:                                       ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %m_pKeyNode.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %13 = load ptr, ptr %m_pKeyNode.i, align 8
-  %tobool.not.i = icmp eq ptr %13, null
-  br i1 %tobool.not.i, label %if.else.i, label %if.then9.i
-
-if.then9.i:                                       ; preds = %if.then8.i
-  %14 = load ptr, ptr %m_builder, align 8
-  %vtable.i = load ptr, ptr %14, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %15 = load ptr, ptr %vfn.i, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %11, ptr noundef nonnull %13, ptr noundef %call2)
-  store ptr null, ptr %m_pKeyNode.i, align 8
-  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
-
-if.else.i:                                        ; preds = %if.then8.i
-  store ptr %call2, ptr %m_pKeyNode.i, align 8
-  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
-
-if.else14.i:                                      ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %16 = load ptr, ptr %m_builder, align 8
-  %vtable16.i = load ptr, ptr %16, align 8
-  %vfn17.i = getelementptr inbounds nuw i8, ptr %vtable16.i, i64 40
-  %17 = load ptr, ptr %vfn17.i, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %11, ptr noundef %call2)
-  br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
-
-_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i, %if.then9.i, %if.else.i, %if.else14.i
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %1 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i.i, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %if.end.i
-
-if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %2 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !19
-  %cmp.i.i.i1.i = icmp eq ptr %0, %2
-  br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-
-if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !19
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 512
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %17 = load ptr, ptr %16, align 8, !tbaa !15, !noalias !54
+  %18 = getelementptr inbounds i8, ptr %17, i64 -8
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 512
   br label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
-  %5 = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i ], [ %0, %if.end.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -16
-  %6 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
+_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %15, %11
+  %21 = phi ptr [ %20, %15 ], [ %8, %11 ]
+  %22 = getelementptr inbounds i8, ptr %21, i64 -16
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
   br label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
 
-_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %entry, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %retval.0.i = phi ptr [ %6, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %entry ]
-  %m_builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %7 = load ptr, ptr %m_builder, align 8
-  %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %8 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, ptr noundef %retval.0.i, ptr noundef nonnull align 8 dereferenceable(32) %value)
-  %tobool.not.i = icmp eq i64 %anchor, 0
-  br i1 %tobool.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %if.then.i
+_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.0.i = phi ptr [ %23, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %5 ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !19
+  %26 = load ptr, ptr %25, align 8, !tbaa !34
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  %.not.i = icmp eq i64 %3, 0
+  br i1 %.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %30
 
-if.then.i:                                        ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
-  %m_anchors.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %_M_finish.i.i.i2 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %9 = load ptr, ptr %_M_finish.i.i.i2, align 8
-  %10 = load ptr, ptr %m_anchors.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %10 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
-  br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
+30:                                               ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %34 = load ptr, ptr %31, align 8, !tbaa !37
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = ashr exact i64 %37, 3
+  %39 = icmp ugt i64 %3, %38
+  br i1 %39, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
-  tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
-  %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
+_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %30
+  %40 = sub nuw i64 %3, %38
+  tail call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %31, i64 noundef %40)
+  %.pre.i.i = load ptr, ptr %31, align 8, !tbaa !37
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %if.then.i
-  %11 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %10, %if.then.i ]
-  %12 = getelementptr ptr, ptr %11, i64 %anchor
-  %add.ptr.i3.i.i = getelementptr i8, ptr %12, i64 -8
-  store ptr %call2, ptr %add.ptr.i3.i.i, align 8
+_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %30
+  %41 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %34, %30 ]
+  %42 = getelementptr ptr, ptr %41, i64 %3
+  %43 = getelementptr i8, ptr %42, i64 -8
+  store ptr %29, ptr %43, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
 
 _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
-  %13 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %14 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i6 = icmp eq ptr %13, %14
-  br i1 %cmp.i.i.i.i6, label %if.then.i13, label %if.end.i7
+  %44 = load ptr, ptr %6, align 8, !tbaa !3
+  %45 = load ptr, ptr %7, align 8, !tbaa !3
+  %46 = icmp eq ptr %44, %45
+  br i1 %46, label %47, label %49
 
-if.then.i13:                                      ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
-  %m_pRootNode.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr %call2, ptr %m_pRootNode.i, align 8
+47:                                               ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %29, ptr %48, align 8, !tbaa !39
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.end.i7:                                        ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
-  %_M_first3.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %15 = load ptr, ptr %_M_first3.i.i.i.i.i8, align 8, !noalias !22
-  %cmp.i.i.i5.i = icmp eq ptr %13, %15
-  br i1 %cmp.i.i.i5.i, label %if.then.i.i.i10.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+49:                                               ; preds = %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %51 = load ptr, ptr %50, align 8, !tbaa !11, !noalias !57
+  %52 = icmp eq ptr %44, %51
+  br i1 %52, label %54, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.end.i7
-  %incdec.ptr.i.i.i.i9 = getelementptr inbounds i8, ptr %13, i64 -16
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %44, i64 -16
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-if.then.i.i.i10.i:                                ; preds = %if.end.i7
-  %_M_node5.i.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %16 = load ptr, ptr %_M_node5.i.i.i.i.i11, align 8, !noalias !22
-  %add.ptr.i.i.i.i12 = getelementptr inbounds i8, ptr %16, i64 -8
-  %17 = load ptr, ptr %add.ptr.i.i.i.i12, align 8
-  %incdec.ptr.i.i.i15.i = getelementptr inbounds nuw i8, ptr %17, i64 496
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %17, i64 512
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %56 = load ptr, ptr %55, align 8, !tbaa !15, !noalias !57
+  %57 = getelementptr inbounds i8, ptr %56, i64 -8
+  %58 = load ptr, ptr %57, align 8, !tbaa !16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 496
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i: ; preds = %if.then.i.i.i10.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %.in.i = phi ptr [ %incdec.ptr.i.i.i15.i, %if.then.i.i.i10.i ], [ %incdec.ptr.i.i.i.i9, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %18 = phi ptr [ %add.ptr.i.i.i.i13.i, %if.then.i.i.i10.i ], [ %13, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %19 = load ptr, ptr %.in.i, align 8
-  %pPrevKeyNode.i.i = getelementptr inbounds i8, ptr %18, i64 -8
-  %20 = load ptr, ptr %pPrevKeyNode.i.i, align 8
-  %cmp.i.not.i = icmp eq ptr %20, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  br i1 %cmp.i.not.i, label %if.else14.i, label %if.then8.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i: ; preds = %54, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.in.i = phi ptr [ %59, %54 ], [ %53, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %61 = phi ptr [ %60, %54 ], [ %44, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %62 = load ptr, ptr %.in.i, align 8, !tbaa !17
+  %63 = getelementptr inbounds i8, ptr %61, i64 -8
+  %64 = load ptr, ptr %63, align 8, !tbaa !43
+  %.not8.i = icmp eq ptr %64, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  br i1 %.not8.i, label %74, label %65
 
-if.then8.i:                                       ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %m_pKeyNode.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %21 = load ptr, ptr %m_pKeyNode.i, align 8
-  %tobool.not.i10 = icmp eq ptr %21, null
-  br i1 %tobool.not.i10, label %if.else.i, label %if.then9.i
+65:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %67 = load ptr, ptr %66, align 8, !tbaa !44
+  %.not.i7 = icmp eq ptr %67, null
+  br i1 %.not.i7, label %73, label %68
 
-if.then9.i:                                       ; preds = %if.then8.i
-  %22 = load ptr, ptr %m_builder, align 8
-  %vtable.i = load ptr, ptr %22, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %23 = load ptr, ptr %vfn.i, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %19, ptr noundef nonnull %21, ptr noundef %call2)
-  store ptr null, ptr %m_pKeyNode.i, align 8
+68:                                               ; preds = %65
+  %69 = load ptr, ptr %24, align 8, !tbaa !19
+  %70 = load ptr, ptr %69, align 8, !tbaa !34
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 64
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %62, ptr noundef nonnull %67, ptr noundef %29)
+  store ptr null, ptr %66, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else.i:                                        ; preds = %if.then8.i
-  store ptr %call2, ptr %m_pKeyNode.i, align 8
+73:                                               ; preds = %65
+  store ptr %29, ptr %66, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else14.i:                                      ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %24 = load ptr, ptr %m_builder, align 8
-  %vtable16.i = load ptr, ptr %24, align 8
-  %vfn17.i = getelementptr inbounds nuw i8, ptr %vtable16.i, i64 40
-  %25 = load ptr, ptr %vfn17.i, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %19, ptr noundef %call2)
+74:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %75 = load ptr, ptr %24, align 8, !tbaa !19
+  %76 = load ptr, ptr %75, align 8, !tbaa !34
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %78 = load ptr, ptr %77, align 8
+  tail call void %78(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %62, ptr noundef %29)
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i13, %if.then9.i, %if.else.i, %if.else14.i
+_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %47, %68, %73, %74
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
-  %m_builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %m_builder, align 8
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %3 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %2, %3
-  br i1 %cmp.i.i.i.i, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %if.end.i
+define void @_ZN4YAML19GraphBuilderAdapter15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i32 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %9, align 8, !tbaa !3
+  %12 = load ptr, ptr %10, align 8, !tbaa !3
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %14
 
-if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %4 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !25
-  %cmp.i.i.i1.i = icmp eq ptr %2, %4
-  br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load ptr, ptr %15, align 8, !tbaa !11, !noalias !60
+  %17 = icmp eq ptr %11, %16
+  br i1 %17, label %18, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %5 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !25
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %6 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 512
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %20 = load ptr, ptr %19, align 8, !tbaa !15, !noalias !60
+  %21 = getelementptr inbounds i8, ptr %20, i64 -8
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 512
   br label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
-  %7 = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i ], [ %2, %if.end.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -16
-  %8 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
+_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %18, %14
+  %24 = phi ptr [ %23, %18 ], [ %11, %14 ]
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load ptr, ptr %25, align 8, !tbaa !17
   br label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
 
-_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %entry, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %retval.0.i = phi ptr [ %8, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %entry ]
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %9 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, ptr noundef %retval.0.i)
-  store ptr %call2, ptr %ref.tmp, align 8
-  %pPrevKeyNode.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE, ptr %pPrevKeyNode.i, align 8
-  %10 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %11 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %11, i64 -16
-  %cmp.not.i.i.i = icmp eq ptr %10, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.0.i = phi ptr [ %26, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %5 ]
+  %27 = load ptr, ptr %8, align 8, !tbaa !34
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.0.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  store ptr %30, ptr %6, align 8, !tbaa !17
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE, ptr %31, align 8, !tbaa !43
+  %32 = load ptr, ptr %9, align 8, !tbaa !63
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %34 = load ptr, ptr %33, align 8, !tbaa !64
+  %35 = getelementptr inbounds i8, ptr %34, i64 -16
+  %.not.i.i.i = icmp eq ptr %32, %35
+  br i1 %.not.i.i.i, label %39, label %36
 
-if.then.i.i.i:                                    ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
-  %12 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
+36:                                               ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !65
+  %37 = load ptr, ptr %9, align 8, !tbaa !63
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store ptr %38, ptr %9, align 8, !tbaa !63
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
-if.else.i.i.i:                                    ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
-  %m_containers = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_containers, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+39:                                               ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %tobool.not.i = icmp eq i64 %anchor, 0
-  br i1 %tobool.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %if.then.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %36, %39
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  %.not.i = icmp eq i64 %3, 0
+  br i1 %.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %41
 
-if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
-  %m_anchors.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %_M_finish.i.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %13 = load ptr, ptr %_M_finish.i.i.i3, align 8
-  %14 = load ptr, ptr %m_anchors.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
-  br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
+41:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %44 = load ptr, ptr %43, align 8, !tbaa !36
+  %45 = load ptr, ptr %42, align 8, !tbaa !37
+  %46 = ptrtoint ptr %44 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = ashr exact i64 %48, 3
+  %50 = icmp ugt i64 %3, %49
+  br i1 %50, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
-  call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
-  %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
+_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %41
+  %51 = sub nuw i64 %3, %49
+  call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %42, i64 noundef %51)
+  %.pre.i.i = load ptr, ptr %42, align 8, !tbaa !37
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %if.then.i
-  %15 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %14, %if.then.i ]
-  %16 = getelementptr ptr, ptr %15, i64 %anchor
-  %add.ptr.i3.i.i = getelementptr i8, ptr %16, i64 -8
-  store ptr %call2, ptr %add.ptr.i3.i.i, align 8
+_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %41
+  %52 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %45, %41 ]
+  %53 = getelementptr ptr, ptr %52, i64 %3
+  %54 = getelementptr i8, ptr %53, i64 -8
+  store ptr %30, ptr %54, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
 
 _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit, %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
@@ -634,204 +635,204 @@ _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !28
-  %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !28
-  %cmp.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then.i.i
+define void @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !3, !noalias !66
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !11, !noalias !66
+  %6 = icmp eq ptr %3, %5
+  br i1 %6, label %10, label %7
 
-if.then.i.i:                                      ; preds = %entry
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -16
-  %2 = load ptr, ptr %incdec.ptr.i.i.i, align 8
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %3, i64 -16
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-if.else.i.i:                                      ; preds = %entry
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %3 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !28
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 -8
-  %4 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %incdec.ptr.i.i.i5 = getelementptr inbounds nuw i8, ptr %4, i64 496
-  %5 = load ptr, ptr %incdec.ptr.i.i.i5, align 8
-  tail call void @_ZdlPv(ptr noundef %1) #10
-  %6 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i1 = getelementptr inbounds i8, ptr %6, i64 -8
-  store ptr %add.ptr.i.i.i1, ptr %_M_node5.i.i.i.i, align 8
-  %7 = load ptr, ptr %add.ptr.i.i.i1, align 8
-  store ptr %7, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i2 = getelementptr inbounds nuw i8, ptr %7, i64 512
-  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr %add.ptr.i.i.i.i2, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 496
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %12 = load ptr, ptr %11, align 8, !tbaa !15, !noalias !66
+  %13 = getelementptr inbounds i8, ptr %12, i64 -8
+  %14 = load ptr, ptr %13, align 8, !tbaa !16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 496
+  %16 = load ptr, ptr %15, align 8, !tbaa !17
+  tail call void @_ZdlPv(ptr noundef %5) #13
+  %17 = load ptr, ptr %11, align 8, !tbaa !69
+  %18 = getelementptr inbounds i8, ptr %17, i64 -8
+  store ptr %18, ptr %11, align 8, !tbaa !15
+  %19 = load ptr, ptr %18, align 8, !tbaa !16
+  store ptr %19, ptr %4, align 8, !tbaa !11
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 512
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %20, ptr %21, align 8, !tbaa !70
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 496
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %8 = phi ptr [ %1, %if.then.i.i ], [ %7, %if.else.i.i ]
-  %9 = phi ptr [ %2, %if.then.i.i ], [ %5, %if.else.i.i ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i ], [ %add.ptr8.i.i.i, %if.else.i.i ]
-  store ptr %storemerge.i.i, ptr %_M_finish.i.i.i, align 8
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %10 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %storemerge.i.i, %10
-  br i1 %cmp.i.i.i.i, label %if.then.i, label %if.end.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %7, %10
+  %23 = phi ptr [ %5, %7 ], [ %19, %10 ]
+  %24 = phi ptr [ %9, %7 ], [ %16, %10 ]
+  %storemerge.i.i = phi ptr [ %8, %7 ], [ %22, %10 ]
+  store ptr %storemerge.i.i, ptr %2, align 8, !tbaa !63
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !3
+  %27 = icmp eq ptr %storemerge.i.i, %26
+  br i1 %27, label %28, label %30
 
-if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %m_pRootNode.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr %9, ptr %m_pRootNode.i, align 8
+28:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %24, ptr %29, align 8, !tbaa !39
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.end.i:                                         ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %cmp.i.i.i5.i = icmp eq ptr %storemerge.i.i, %8
-  br i1 %cmp.i.i.i5.i, label %if.then.i.i.i10.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+30:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
+  %31 = icmp eq ptr %storemerge.i.i, %23
+  br i1 %31, label %33, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 -16
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %storemerge.i.i, i64 -16
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-if.then.i.i.i10.i:                                ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %11 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !31
-  %add.ptr.i.i.i.i4 = getelementptr inbounds i8, ptr %11, i64 -8
-  %12 = load ptr, ptr %add.ptr.i.i.i.i4, align 8
-  %incdec.ptr.i.i.i15.i = getelementptr inbounds nuw i8, ptr %12, i64 496
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %12, i64 512
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %35 = load ptr, ptr %34, align 8, !tbaa !15, !noalias !71
+  %36 = getelementptr inbounds i8, ptr %35, i64 -8
+  %37 = load ptr, ptr %36, align 8, !tbaa !16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 496
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 512
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i: ; preds = %if.then.i.i.i10.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %.in.i = phi ptr [ %incdec.ptr.i.i.i15.i, %if.then.i.i.i10.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %13 = phi ptr [ %add.ptr.i.i.i.i13.i, %if.then.i.i.i10.i ], [ %storemerge.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %14 = load ptr, ptr %.in.i, align 8
-  %pPrevKeyNode.i.i = getelementptr inbounds i8, ptr %13, i64 -8
-  %15 = load ptr, ptr %pPrevKeyNode.i.i, align 8
-  %cmp.i.not.i = icmp eq ptr %15, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  br i1 %cmp.i.not.i, label %if.else14.i, label %if.then8.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i: ; preds = %33, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.in.i = phi ptr [ %38, %33 ], [ %32, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %40 = phi ptr [ %39, %33 ], [ %storemerge.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %41 = load ptr, ptr %.in.i, align 8, !tbaa !17
+  %42 = getelementptr inbounds i8, ptr %40, i64 -8
+  %43 = load ptr, ptr %42, align 8, !tbaa !43
+  %.not8.i = icmp eq ptr %43, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  br i1 %.not8.i, label %54, label %44
 
-if.then8.i:                                       ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %m_pKeyNode.i = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %16 = load ptr, ptr %m_pKeyNode.i, align 8
-  %tobool.not.i = icmp eq ptr %16, null
-  br i1 %tobool.not.i, label %if.else.i, label %if.then9.i
+44:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %46 = load ptr, ptr %45, align 8, !tbaa !44
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %53, label %47
 
-if.then9.i:                                       ; preds = %if.then8.i
-  %m_builder.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %17 = load ptr, ptr %m_builder.i, align 8
-  %vtable.i = load ptr, ptr %17, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %18 = load ptr, ptr %vfn.i, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %14, ptr noundef nonnull %16, ptr noundef %9)
-  store ptr null, ptr %m_pKeyNode.i, align 8
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !19
+  %50 = load ptr, ptr %49, align 8, !tbaa !34
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef %41, ptr noundef nonnull %46, ptr noundef %24)
+  store ptr null, ptr %45, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else.i:                                        ; preds = %if.then8.i
-  store ptr %9, ptr %m_pKeyNode.i, align 8
+53:                                               ; preds = %44
+  store ptr %24, ptr %45, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else14.i:                                      ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %m_builder15.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %19 = load ptr, ptr %m_builder15.i, align 8
-  %vtable16.i = load ptr, ptr %19, align 8
-  %vfn17.i = getelementptr inbounds nuw i8, ptr %vtable16.i, i64 40
-  %20 = load ptr, ptr %vfn17.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %14, ptr noundef %9)
+54:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !19
+  %57 = load ptr, ptr %56, align 8, !tbaa !34
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %59 = load ptr, ptr %58, align 8
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef %41, ptr noundef %24)
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i, %if.then9.i, %if.else.i, %if.else14.i
+_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %28, %47, %53, %54
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %ref.tmp = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
-  %m_builder = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %m_builder, align 8
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %2 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %3 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %2, %3
-  br i1 %cmp.i.i.i.i, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %if.end.i
+define void @_ZN4YAML19GraphBuilderAdapter10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i32 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = load ptr, ptr %9, align 8, !tbaa !3
+  %12 = load ptr, ptr %10, align 8, !tbaa !3
+  %13 = icmp eq ptr %11, %12
+  br i1 %13, label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit, label %14
 
-if.end.i:                                         ; preds = %entry
-  %_M_first3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %4 = load ptr, ptr %_M_first3.i.i.i.i.i, align 8, !noalias !34
-  %cmp.i.i.i1.i = icmp eq ptr %2, %4
-  br i1 %cmp.i.i.i1.i, label %if.then.i.i.i.i, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %16 = load ptr, ptr %15, align 8, !tbaa !11, !noalias !74
+  %17 = icmp eq ptr %11, %16
+  br i1 %17, label %18, label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %5 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !34
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
-  %6 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 512
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %20 = load ptr, ptr %19, align 8, !tbaa !15, !noalias !74
+  %21 = getelementptr inbounds i8, ptr %20, i64 -8
+  %22 = load ptr, ptr %21, align 8, !tbaa !16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 512
   br label %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.then.i.i.i.i, %if.end.i
-  %7 = phi ptr [ %add.ptr.i.i.i.i.i, %if.then.i.i.i.i ], [ %2, %if.end.i ]
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -16
-  %8 = load ptr, ptr %incdec.ptr.i.i.i.i, align 8
+_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %18, %14
+  %24 = phi ptr [ %23, %18 ], [ %11, %14 ]
+  %25 = getelementptr inbounds i8, ptr %24, i64 -16
+  %26 = load ptr, ptr %25, align 8, !tbaa !17
   br label %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
 
-_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %entry, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %retval.0.i = phi ptr [ %8, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %entry ]
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
-  %9 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, ptr noundef %retval.0.i)
-  %m_pKeyNode = getelementptr inbounds nuw i8, ptr %this, i64 128
-  %10 = load ptr, ptr %m_pKeyNode, align 8
-  store ptr %call2, ptr %ref.tmp, align 8
-  %pPrevKeyNode.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store ptr %10, ptr %pPrevKeyNode.i, align 8
-  %11 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  %12 = load ptr, ptr %_M_last.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 -16
-  %cmp.not.i.i.i = icmp eq ptr %11, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
+_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit: ; preds = %5, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.0.i = phi ptr [ %26, %_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ], [ null, %5 ]
+  %27 = load ptr, ptr %8, align 8, !tbaa !34
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %.0.i)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %32 = load ptr, ptr %31, align 8, !tbaa !44
+  store ptr %30, ptr %6, align 8, !tbaa !17
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %32, ptr %33, align 8, !tbaa !43
+  %34 = load ptr, ptr %9, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %36 = load ptr, ptr %35, align 8, !tbaa !64
+  %37 = getelementptr inbounds i8, ptr %36, i64 -16
+  %.not.i.i.i = icmp eq ptr %34, %37
+  br i1 %.not.i.i.i, label %41, label %38
 
-if.then.i.i.i:                                    ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i64 16, i1 false)
-  %13 = load ptr, ptr %_M_finish.i.i.i, align 8
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8
+38:                                               ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !65
+  %39 = load ptr, ptr %9, align 8, !tbaa !63
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store ptr %40, ptr %9, align 8, !tbaa !63
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
-if.else.i.i.i:                                    ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
-  %m_containers = getelementptr inbounds nuw i8, ptr %this, i64 16
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %m_containers, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
+41:                                               ; preds = %_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv.exit
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %42, ptr noundef nonnull align 8 dereferenceable(16) %6)
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  store ptr null, ptr %m_pKeyNode, align 8
-  %tobool.not.i = icmp eq i64 %anchor, 0
-  br i1 %tobool.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %if.then.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit: ; preds = %38, %41
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
+  store ptr null, ptr %31, align 8, !tbaa !44
+  %.not.i = icmp eq i64 %3, 0
+  br i1 %.not.i, label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit, label %43
 
-if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
-  %m_anchors.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %_M_finish.i.i.i3 = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %14 = load ptr, ptr %_M_finish.i.i.i3, align 8
-  %15 = load ptr, ptr %m_anchors.i, align 8
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
-  %cmp.i.i = icmp ugt i64 %anchor, %sub.ptr.div.i.i.i
-  br i1 %cmp.i.i, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
+43:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  %47 = load ptr, ptr %44, align 8, !tbaa !37
+  %48 = ptrtoint ptr %46 to i64
+  %49 = ptrtoint ptr %47 to i64
+  %50 = sub i64 %48, %49
+  %51 = ashr exact i64 %50, 3
+  %52 = icmp ugt i64 %3, %51
+  br i1 %52, label %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %if.then.i
-  %sub.i.i.i = sub nuw i64 %anchor, %sub.ptr.div.i.i.i
-  call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors.i, i64 noundef %sub.i.i.i)
-  %.pre.i.i = load ptr, ptr %m_anchors.i, align 8
+_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i:        ; preds = %43
+  %53 = sub nuw i64 %3, %51
+  call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %44, i64 noundef %53)
+  %.pre.i.i = load ptr, ptr %44, align 8, !tbaa !37
   br label %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
 
-_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %if.then.i
-  %16 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %15, %if.then.i ]
-  %17 = getelementptr ptr, ptr %16, i64 %anchor
-  %add.ptr.i3.i.i = getelementptr i8, ptr %17, i64 -8
-  store ptr %call2, ptr %add.ptr.i3.i.i, align 8
+_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i:    ; preds = %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i, %43
+  %54 = phi ptr [ %.pre.i.i, %_ZNSt6vectorIPvSaIS0_EE6resizeEm.exit.i.i ], [ %47, %43 ]
+  %55 = getelementptr ptr, ptr %54, i64 %3
+  %56 = getelementptr i8, ptr %55, i64 -8
+  store ptr %30, ptr %56, align 8, !tbaa !38
   br label %_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit
 
 _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_.exit, %_ZN4YAML10AnchorDictIPvE8RegisterEmS1_.exit.i
@@ -839,623 +840,662 @@ _ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv.exit: ; preds = %_ZNSt5stackIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((128, 136)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
-  %_M_first3.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %1 = load ptr, ptr %_M_first3.i.i.i.i, align 8, !noalias !37
-  %cmp.i.i.i = icmp eq ptr %0, %1
-  br i1 %cmp.i.i.i, label %if.else.i.i, label %if.then.i.i
+define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((128, 136)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !3, !noalias !77
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !11, !noalias !77
+  %6 = icmp eq ptr %3, %5
+  br i1 %6, label %13, label %7
 
-if.then.i.i:                                      ; preds = %entry
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 -16
-  %2 = load ptr, ptr %incdec.ptr.i.i.i, align 8
-  %pPrevKeyNode = getelementptr inbounds i8, ptr %0, i64 -8
-  %3 = load ptr, ptr %pPrevKeyNode, align 8
-  %m_pKeyNode = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store ptr %3, ptr %m_pKeyNode, align 8
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %3, i64 -16
+  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %10 = getelementptr inbounds i8, ptr %3, i64 -8
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %11, ptr %12, align 8, !tbaa !44
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-if.else.i.i:                                      ; preds = %entry
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %4 = load ptr, ptr %_M_node5.i.i.i.i, align 8, !noalias !37
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 -8
-  %5 = load ptr, ptr %add.ptr.i.i.i, align 8
-  %incdec.ptr.i.i.i14 = getelementptr inbounds nuw i8, ptr %5, i64 496
-  %6 = load ptr, ptr %incdec.ptr.i.i.i14, align 8
-  %pPrevKeyNode16 = getelementptr inbounds nuw i8, ptr %5, i64 504
-  %7 = load ptr, ptr %pPrevKeyNode16, align 8
-  %m_pKeyNode17 = getelementptr inbounds nuw i8, ptr %this, i64 128
-  store ptr %7, ptr %m_pKeyNode17, align 8
-  tail call void @_ZdlPv(ptr noundef %1) #10
-  %8 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %add.ptr.i.i.i10 = getelementptr inbounds i8, ptr %8, i64 -8
-  store ptr %add.ptr.i.i.i10, ptr %_M_node5.i.i.i.i, align 8
-  %9 = load ptr, ptr %add.ptr.i.i.i10, align 8
-  store ptr %9, ptr %_M_first3.i.i.i.i, align 8
-  %add.ptr.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %9, i64 512
-  %_M_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
-  store ptr %add.ptr.i.i.i.i11, ptr %_M_last.i.i.i.i, align 8
-  %add.ptr8.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 496
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = load ptr, ptr %14, align 8, !tbaa !15, !noalias !77
+  %16 = getelementptr inbounds i8, ptr %15, i64 -8
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 496
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 504
+  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %21, ptr %22, align 8, !tbaa !44
+  tail call void @_ZdlPv(ptr noundef %5) #13
+  %23 = load ptr, ptr %14, align 8, !tbaa !69
+  %24 = getelementptr inbounds i8, ptr %23, i64 -8
+  store ptr %24, ptr %14, align 8, !tbaa !15
+  %25 = load ptr, ptr %24, align 8, !tbaa !16
+  store ptr %25, ptr %4, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 512
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store ptr %26, ptr %27, align 8, !tbaa !70
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 496
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %10 = phi ptr [ %1, %if.then.i.i ], [ %9, %if.else.i.i ]
-  %m_pKeyNode18 = phi ptr [ %m_pKeyNode, %if.then.i.i ], [ %m_pKeyNode17, %if.else.i.i ]
-  %11 = phi ptr [ %2, %if.then.i.i ], [ %6, %if.else.i.i ]
-  %storemerge.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i ], [ %add.ptr8.i.i.i, %if.else.i.i ]
-  store ptr %storemerge.i.i, ptr %_M_finish.i.i.i, align 8
-  %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %12 = load ptr, ptr %_M_start.i.i.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %storemerge.i.i, %12
-  br i1 %cmp.i.i.i.i, label %if.then.i, label %if.end.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %7, %13
+  %29 = phi ptr [ %5, %7 ], [ %25, %13 ]
+  %30 = phi ptr [ %12, %7 ], [ %22, %13 ]
+  %31 = phi ptr [ %9, %7 ], [ %19, %13 ]
+  %storemerge.i.i = phi ptr [ %8, %7 ], [ %28, %13 ]
+  store ptr %storemerge.i.i, ptr %2, align 8, !tbaa !63
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !3
+  %34 = icmp eq ptr %storemerge.i.i, %33
+  br i1 %34, label %35, label %37
 
-if.then.i:                                        ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %m_pRootNode.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  store ptr %11, ptr %m_pRootNode.i, align 8
+35:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %31, ptr %36, align 8, !tbaa !39
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.end.i:                                         ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
-  %cmp.i.i.i5.i = icmp eq ptr %storemerge.i.i, %10
-  br i1 %cmp.i.i.i5.i, label %if.then.i.i.i10.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+37:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv.exit
+  %38 = icmp eq ptr %storemerge.i.i, %29
+  br i1 %38, label %40, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %if.end.i
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 -16
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i: ; preds = %37
+  %39 = getelementptr inbounds i8, ptr %storemerge.i.i, i64 -16
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-if.then.i.i.i10.i:                                ; preds = %if.end.i
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %13 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8, !noalias !40
-  %add.ptr.i.i.i.i13 = getelementptr inbounds i8, ptr %13, i64 -8
-  %14 = load ptr, ptr %add.ptr.i.i.i.i13, align 8
-  %incdec.ptr.i.i.i15.i = getelementptr inbounds nuw i8, ptr %14, i64 496
-  %add.ptr.i.i.i.i13.i = getelementptr inbounds nuw i8, ptr %14, i64 512
-  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %42 = load ptr, ptr %41, align 8, !tbaa !15, !noalias !80
+  %43 = getelementptr inbounds i8, ptr %42, i64 -8
+  %44 = load ptr, ptr %43, align 8, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 496
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 512
+  br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
 
-_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i: ; preds = %if.then.i.i.i10.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
-  %.in.i = phi ptr [ %incdec.ptr.i.i.i15.i, %if.then.i.i.i10.i ], [ %incdec.ptr.i.i.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %15 = phi ptr [ %add.ptr.i.i.i.i13.i, %if.then.i.i.i10.i ], [ %storemerge.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
-  %16 = load ptr, ptr %.in.i, align 8
-  %pPrevKeyNode.i.i = getelementptr inbounds i8, ptr %15, i64 -8
-  %17 = load ptr, ptr %pPrevKeyNode.i.i, align 8
-  %cmp.i.not.i = icmp eq ptr %17, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  br i1 %cmp.i.not.i, label %if.else14.i, label %if.then8.i
+_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i: ; preds = %40, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i
+  %.in.i = phi ptr [ %45, %40 ], [ %39, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %47 = phi ptr [ %46, %40 ], [ %storemerge.i.i, %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit.i ]
+  %48 = load ptr, ptr %.in.i, align 8, !tbaa !17
+  %49 = getelementptr inbounds i8, ptr %47, i64 -8
+  %50 = load ptr, ptr %49, align 8, !tbaa !43
+  %.not8.i = icmp eq ptr %50, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  br i1 %.not8.i, label %60, label %51
 
-if.then8.i:                                       ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %18 = load ptr, ptr %m_pKeyNode18, align 8
-  %tobool.not.i = icmp eq ptr %18, null
-  br i1 %tobool.not.i, label %if.else.i, label %if.then9.i
+51:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %52 = load ptr, ptr %30, align 8, !tbaa !44
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %59, label %53
 
-if.then9.i:                                       ; preds = %if.then8.i
-  %m_builder.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %19 = load ptr, ptr %m_builder.i, align 8
-  %vtable.i = load ptr, ptr %19, align 8
-  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
-  %20 = load ptr, ptr %vfn.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %16, ptr noundef nonnull %18, ptr noundef %11)
-  store ptr null, ptr %m_pKeyNode18, align 8
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8, !tbaa !19
+  %56 = load ptr, ptr %55, align 8, !tbaa !34
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 64
+  %58 = load ptr, ptr %57, align 8
+  tail call void %58(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef %48, ptr noundef nonnull %52, ptr noundef %31)
+  store ptr null, ptr %30, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else.i:                                        ; preds = %if.then8.i
-  store ptr %11, ptr %m_pKeyNode18, align 8
+59:                                               ; preds = %51
+  store ptr %31, ptr %30, align 8, !tbaa !44
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-if.else14.i:                                      ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit14.i
-  %m_builder15.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %21 = load ptr, ptr %m_builder15.i, align 8
-  %vtable16.i = load ptr, ptr %21, align 8
-  %vfn17.i = getelementptr inbounds nuw i8, ptr %vtable16.i, i64 40
-  %22 = load ptr, ptr %vfn17.i, align 8
-  tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %16, ptr noundef %11)
+60:                                               ; preds = %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv.exit7.i
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !19
+  %63 = load ptr, ptr %62, align 8, !tbaa !34
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %65 = load ptr, ptr %64, align 8
+  tail call void %65(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %48, ptr noundef %31)
   br label %_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit
 
-_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %if.then.i, %if.then9.i, %if.else.i, %if.else14.i
+_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv.exit: ; preds = %35, %53, %59, %60
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %this, align 8
-  %m_anchors = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %0 = load ptr, ptr %m_anchors, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit, label %if.then.i.i.i.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %0, align 8, !tbaa !34
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %.not.i.i.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit, label %4
 
-if.then.i.i.i.i:                                  ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+4:                                                ; preds = %1
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
   br label %_ZN4YAML10AnchorDictIPvED2Ev.exit
 
-_ZN4YAML10AnchorDictIPvED2Ev.exit:                ; preds = %entry, %if.then.i.i.i.i
-  %m_containers = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %m_containers, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev.exit, label %if.then.i.i.i
+_ZN4YAML10AnchorDictIPvED2Ev.exit:                ; preds = %1, %4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %.not.i.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i.i, label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev.exit, label %7
 
-if.then.i.i.i:                                    ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit
-  %_M_node5.i.i6.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %_M_node5.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_node5.i.i.i.i, align 8
-  %3 = load ptr, ptr %_M_node5.i.i6.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %cmp3.i.i.i.i = icmp ult ptr %2, %add.ptr.i.i.i
-  br i1 %cmp3.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
+7:                                                ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8, !tbaa !84
+  %11 = load ptr, ptr %8, align 8, !tbaa !69
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = icmp ult ptr %10, %12
+  br i1 %13, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %if.then.i.i.i, %for.body.i.i.i.i
-  %__n.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %2, %if.then.i.i.i ]
-  %4 = load ptr, ptr %__n.04.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #10
-  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i, i64 8
-  %cmp.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i, %3
-  br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, !llvm.loop !43
+.lr.ph.i.i.i.i:                                   ; preds = %7, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i ], [ %10, %7 ]
+  %14 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !16
+  tail call void @_ZdlPv(ptr noundef %14) #13
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %16 = icmp ult ptr %.06.i.i.i.i, %11
+  br i1 %16, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, !llvm.loop !85
 
-_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i: ; preds = %for.body.i.i.i.i
-  %.pre.i.i.i = load ptr, ptr %m_containers, align 8
+_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
+  %.pre.i.i.i = load ptr, ptr %5, align 8, !tbaa !83
   br label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
 
-_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, %if.then.i.i.i
-  %5 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i ], [ %1, %if.then.i.i.i ]
-  tail call void @_ZdlPv(ptr noundef %5) #10
+_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i, %7
+  %17 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i ], [ %6, %7 ]
+  tail call void @_ZdlPv(ptr noundef %17) #13
   br label %_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev.exit
 
 _ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev.exit: ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i
   ret void
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %this, align 8
-  %m_anchors.i = getelementptr inbounds nuw i8, ptr %this, i64 96
-  %0 = load ptr, ptr %m_anchors.i, align 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit.i, label %if.then.i.i.i.i.i
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 16), ptr %0, align 8, !tbaa !34
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %.not.i.i.i.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit.i, label %4
 
-if.then.i.i.i.i.i:                                ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #10
+4:                                                ; preds = %1
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #13
   br label %_ZN4YAML10AnchorDictIPvED2Ev.exit.i
 
-_ZN4YAML10AnchorDictIPvED2Ev.exit.i:              ; preds = %if.then.i.i.i.i.i, %entry
-  %m_containers.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %m_containers.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i.i, label %_ZN4YAML19GraphBuilderAdapterD2Ev.exit, label %if.then.i.i.i.i
+_ZN4YAML10AnchorDictIPvED2Ev.exit.i:              ; preds = %4, %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %.not.i.i.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i.i.i, label %_ZN4YAML19GraphBuilderAdapterD2Ev.exit, label %7
 
-if.then.i.i.i.i:                                  ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit.i
-  %_M_node5.i.i6.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %_M_node5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %2 = load ptr, ptr %_M_node5.i.i.i.i.i, align 8
-  %3 = load ptr, ptr %_M_node5.i.i6.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %cmp3.i.i.i.i.i = icmp ult ptr %2, %add.ptr.i.i.i.i
-  br i1 %cmp3.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
+7:                                                ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit.i
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = load ptr, ptr %9, align 8, !tbaa !84
+  %11 = load ptr, ptr %8, align 8, !tbaa !69
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = icmp ult ptr %10, %12
+  br i1 %13, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %for.body.i.i.i.i.i
-  %__n.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %2, %if.then.i.i.i.i ]
-  %4 = load ptr, ptr %__n.04.i.i.i.i.i, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #10
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.04.i.i.i.i.i, i64 8
-  %cmp.i.i.i.i.i = icmp ult ptr %__n.04.i.i.i.i.i, %3
-  br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !43
+.lr.ph.i.i.i.i.i:                                 ; preds = %7, %.lr.ph.i.i.i.i.i
+  %.06.i.i.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i.i.i ], [ %10, %7 ]
+  %14 = load ptr, ptr %.06.i.i.i.i.i, align 8, !tbaa !16
+  tail call void @_ZdlPv(ptr noundef %14) #13
+  %15 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
+  %16 = icmp ult ptr %.06.i.i.i.i.i, %11
+  br i1 %16, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, !llvm.loop !85
 
-_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i: ; preds = %for.body.i.i.i.i.i
-  %.pre.i.i.i.i = load ptr, ptr %m_containers.i, align 8
+_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
+  %.pre.i.i.i.i = load ptr, ptr %5, align 8, !tbaa !83
   br label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
 
-_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, %if.then.i.i.i.i
-  %5 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i ], [ %1, %if.then.i.i.i.i ]
-  tail call void @_ZdlPv(ptr noundef %5) #10
+_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i, %7
+  %17 = phi ptr [ %.pre.i.i.i.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.loopexit.i.i.i.i ], [ %6, %7 ]
+  tail call void @_ZdlPv(ptr noundef %17) #13
   br label %_ZN4YAML19GraphBuilderAdapterD2Ev.exit
 
 _ZN4YAML19GraphBuilderAdapterD2Ev.exit:           ; preds = %_ZN4YAML10AnchorDictIPvED2Ev.exit.i, %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #10
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
-entry:
+define linkonce_odr void @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 comdat align 2 {
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__args) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %_M_start.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %_M_node.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %_M_node.i.i, align 8
-  %_M_node1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_node1.i.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
-  %tobool.i.i = icmp ne ptr %0, null
-  %conv.neg.i.i = sext i1 %tobool.i.i to i64
-  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, %conv.neg.i.i
-  %mul.i.i = shl nsw i64 %sub.i.i, 5
-  %2 = load ptr, ptr %_M_finish.i, align 8
-  %_M_first.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %3 = load ptr, ptr %_M_first.i.i, align 8
-  %sub.ptr.lhs.cast3.i.i = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast4.i.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub5.i.i = sub i64 %sub.ptr.lhs.cast3.i.i, %sub.ptr.rhs.cast4.i.i
-  %sub.ptr.div6.i.i = ashr exact i64 %sub.ptr.sub5.i.i, 4
-  %add.i.i = add nsw i64 %mul.i.i, %sub.ptr.div6.i.i
-  %_M_last.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load ptr, ptr %_M_last.i.i, align 8
-  %5 = load ptr, ptr %_M_start.i, align 8
-  %sub.ptr.lhs.cast8.i.i = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast9.i.i = ptrtoint ptr %5 to i64
-  %sub.ptr.sub10.i.i = sub i64 %sub.ptr.lhs.cast8.i.i, %sub.ptr.rhs.cast9.i.i
-  %sub.ptr.div11.i.i = ashr exact i64 %sub.ptr.sub10.i.i, 4
-  %add12.i.i = add nsw i64 %add.i.i, %sub.ptr.div11.i.i
-  %cmp = icmp eq i64 %add12.i.i, 576460752303423487
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %6 = load ptr, ptr %5, align 8, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %9 = ptrtoint ptr %6 to i64
+  %10 = ptrtoint ptr %8 to i64
+  %11 = sub i64 %9, %10
+  %12 = ashr exact i64 %11, 3
+  %13 = icmp ne ptr %6, null
+  %.neg.i.i = sext i1 %13 to i64
+  %14 = add nsw i64 %12, %.neg.i.i
+  %15 = shl nsw i64 %14, 5
+  %16 = load ptr, ptr %3, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %18 = load ptr, ptr %17, align 8, !tbaa !11
+  %19 = ptrtoint ptr %16 to i64
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  %22 = ashr exact i64 %21, 4
+  %23 = add nsw i64 %15, %22
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !70
+  %26 = load ptr, ptr %4, align 8, !tbaa !3
+  %27 = ptrtoint ptr %25 to i64
+  %28 = ptrtoint ptr %26 to i64
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 4
+  %31 = add nsw i64 %23, %30
+  %32 = icmp eq i64 %31, 576460752303423487
+  br i1 %32, label %33, label %34
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #11
+33:                                               ; preds = %2
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
   unreachable
 
-if.end:                                           ; preds = %entry
-  %_M_map_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %6 = load i64, ptr %_M_map_size.i, align 8
-  %7 = load ptr, ptr %this, align 8
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %sub.i = sub i64 %6, %sub.ptr.div.i
-  %cmp.i = icmp ult i64 %sub.i, 2
-  br i1 %cmp.i, label %if.then.i, label %_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm.exit
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i64, ptr %35, align 8, !tbaa !87
+  %37 = load ptr, ptr %0, align 8, !tbaa !83
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %9, %38
+  %40 = ashr exact i64 %39, 3
+  %41 = sub i64 %36, %40
+  %42 = icmp ult i64 %41, 2
+  br i1 %42, label %43, label %_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm.exit
 
-if.then.i:                                        ; preds = %if.end
-  tail call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 1, i1 noundef zeroext false)
-  %.pre = load ptr, ptr %_M_node.i.i, align 8
+43:                                               ; preds = %34
+  tail call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 1, i1 noundef zeroext false)
+  %.pre = load ptr, ptr %5, align 8, !tbaa !69
   br label %_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm.exit
 
-_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %if.end, %if.then.i
-  %8 = phi ptr [ %0, %if.end ], [ %.pre, %if.then.i ]
-  %call5.i.i.i = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #12
-  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %call5.i.i.i, ptr %add.ptr, align 8
-  %9 = load ptr, ptr %_M_finish.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %__args, i64 16, i1 false)
-  %10 = load ptr, ptr %_M_node.i.i, align 8
-  %add.ptr12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %add.ptr12, ptr %_M_node.i.i, align 8
-  %11 = load ptr, ptr %add.ptr12, align 8
-  store ptr %11, ptr %_M_first.i.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %11, i64 512
-  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  store ptr %11, ptr %_M_finish.i, align 8
+_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm.exit: ; preds = %34, %43
+  %44 = phi ptr [ %6, %34 ], [ %.pre, %43 ]
+  %45 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #15
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %45, ptr %46, align 8, !tbaa !16
+  %47 = load ptr, ptr %3, align 8, !tbaa !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !65
+  %48 = load ptr, ptr %5, align 8, !tbaa !69
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %49, ptr %5, align 8, !tbaa !15
+  %50 = load ptr, ptr %49, align 8, !tbaa !16
+  store ptr %50, ptr %17, align 8, !tbaa !11
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 512
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %51, ptr %52, align 8, !tbaa !70
+  store ptr %50, ptr %3, align 8, !tbaa !63
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #5
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %_M_node = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %0 = load ptr, ptr %_M_node, align 8
-  %_M_node3 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load ptr, ptr %_M_node3, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %add = add nsw i64 %sub.ptr.div, 1
-  %add4 = add i64 %add, %__nodes_to_add
-  %_M_map_size = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load i64, ptr %_M_map_size, align 8
-  %mul = shl i64 %add4, 1
-  %cmp = icmp ugt i64 %2, %mul
-  br i1 %cmp, label %if.then, label %if.else31
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !69
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %8 = ptrtoint ptr %5 to i64
+  %9 = ptrtoint ptr %7 to i64
+  %10 = sub i64 %8, %9
+  %11 = ashr exact i64 %10, 3
+  %12 = add nsw i64 %11, 1
+  %13 = add i64 %12, %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load i64, ptr %14, align 8, !tbaa !87
+  %16 = shl i64 %13, 1
+  %17 = icmp ugt i64 %15, %16
+  br i1 %17, label %18, label %39
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %this, align 8
-  %sub = sub i64 %2, %add4
-  %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
-  %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
-  %cmp13 = icmp ult ptr %add.ptr9, %1
-  %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
-  br i1 %cmp13, label %if.then14, label %if.else
+18:                                               ; preds = %3
+  %19 = load ptr, ptr %0, align 8, !tbaa !83
+  %20 = sub i64 %15, %13
+  %21 = lshr i64 %20, 1
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %23 = select i1 %2, i64 %1, i64 0
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = icmp ult ptr %24, %7
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, %7
+  br i1 %25, label %27, label %31
 
-if.then14:                                        ; preds = %if.then
-  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i
+27:                                               ; preds = %18
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit, label %28
 
-if.then.i.i.i.i.i:                                ; preds = %if.then14
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr21 to i64
-  %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr9, ptr nonnull align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
-  br label %if.end65
+28:                                               ; preds = %27
+  %29 = ptrtoint ptr %26 to i64
+  %30 = sub i64 %29, %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %24, ptr nonnull align 8 %7, i64 %30, i1 false)
+  br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit
 
-if.else:                                          ; preds = %if.then
-  br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
+31:                                               ; preds = %18
+  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit, label %32
 
-if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
-  %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
-  %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
-  %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
-  br label %if.end65
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %34 = ptrtoint ptr %26 to i64
+  %35 = sub i64 %34, %9
+  %36 = ashr exact i64 %35, 3
+  %37 = sub nsw i64 0, %36
+  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
+  br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit
 
-if.else31:                                        ; preds = %entry
-  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %2, i64 %__nodes_to_add)
-  %add37 = add i64 %2, 2
-  %add38 = add i64 %add37, %.sroa.speculated
-  %cmp.i.i.i = icmp ugt i64 %add38, 1152921504606846975
-  br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit
+39:                                               ; preds = %3
+  %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %15, i64 %1)
+  %40 = add i64 %15, 2
+  %41 = add i64 %40, %.sroa.speculated
+  %42 = icmp ugt i64 %41, 1152921504606846975
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit, !prof !88
 
-if.then.i.i.i:                                    ; preds = %if.else31
-  %cmp2.i.i.i = icmp ugt i64 %add38, 2305843009213693951
-  br i1 %cmp2.i.i.i, label %if.then3.i.i.i, label %if.end.i.i.i
+43:                                               ; preds = %39
+  %44 = icmp ugt i64 %41, 2305843009213693951
+  br i1 %44, label %.noexc.i, label %.noexc3.i
 
-if.then3.i.i.i:                                   ; preds = %if.then.i.i.i
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #11
+.noexc.i:                                         ; preds = %43
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-if.end.i.i.i:                                     ; preds = %if.then.i.i.i
-  tail call void @_ZSt17__throw_bad_allocv() #11
+.noexc3.i:                                        ; preds = %43
+  tail call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %if.else31
-  %mul.i.i.i = shl nuw nsw i64 %add38, 3
-  %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #12
-  %sub40 = sub i64 %add38, %add4
-  %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
-  %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
-  br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit30, label %if.then.i.i.i.i.i28
+_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %39
+  %45 = shl nuw nsw i64 %41, 3
+  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #15
+  %47 = sub i64 %41, %13
+  %48 = lshr i64 %47, 1
+  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %50 = select i1 %2, i64 %1, i64 0
+  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
+  br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26, label %53
 
-if.then.i.i.i.i.i28:                              ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit
-  %sub.ptr.lhs.cast.i.i.i.i.i24 = ptrtoint ptr %add.ptr55 to i64
-  %sub.ptr.sub.i.i.i.i.i26 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i24, %sub.ptr.rhs.cast
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr48, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i26, i1 false)
-  br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit30
+53:                                               ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %54, %9
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr align 8 %7, i64 %55, i1 false)
+  br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26
 
-_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit30: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit, %if.then.i.i.i.i.i28
-  %4 = load ptr, ptr %this, align 8
-  tail call void @_ZdlPv(ptr noundef %4) #10
-  store ptr %call5.i.i2.i, ptr %this, align 8
-  store i64 %add38, ptr %_M_map_size, align 8
-  br label %if.end65
+_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26: ; preds = %_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm.exit, %53
+  %56 = load ptr, ptr %0, align 8, !tbaa !83
+  tail call void @_ZdlPv(ptr noundef %56) #13
+  store ptr %46, ptr %0, align 8, !tbaa !83
+  store i64 %41, ptr %14, align 8, !tbaa !87
+  br label %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit
 
-if.end65:                                         ; preds = %if.then.i.i.i.i.i19, %if.else, %if.then.i.i.i.i.i, %if.then14, %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit30
-  %__new_nstart.0 = phi ptr [ %add.ptr48, %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit30 ], [ %add.ptr9, %if.then14 ], [ %add.ptr9, %if.then.i.i.i.i.i ], [ %add.ptr9, %if.else ], [ %add.ptr9, %if.then.i.i.i.i.i19 ]
-  store ptr %__new_nstart.0, ptr %_M_node3, align 8
-  %5 = load ptr, ptr %__new_nstart.0, align 8
-  %_M_first.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %5, ptr %_M_first.i, align 8
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
-  %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
-  store ptr %add.ptr71, ptr %_M_node, align 8
-  %6 = load ptr, ptr %add.ptr71, align 8
-  %_M_first.i32 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  store ptr %6, ptr %_M_first.i32, align 8
-  %add.ptr.i33 = getelementptr inbounds nuw i8, ptr %6, i64 512
-  %_M_last.i34 = getelementptr inbounds nuw i8, ptr %this, i64 64
-  store ptr %add.ptr.i33, ptr %_M_last.i34, align 8
+_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26
+  %.0 = phi ptr [ %51, %_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
+  store ptr %.0, ptr %6, align 8, !tbaa !15
+  %57 = load ptr, ptr %.0, align 8, !tbaa !16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %57, ptr %58, align 8, !tbaa !11
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %59, ptr %60, align 8, !tbaa !70
+  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds i8, ptr %61, i64 -8
+  store ptr %62, ptr %4, align 8, !tbaa !15
+  %63 = load ptr, ptr %62, align 8, !tbaa !16
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %63, ptr %64, align 8, !tbaa !11
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 512
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %65, ptr %66, align 8, !tbaa !70
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #5
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #7
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #5
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #7
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %cmp.not = icmp eq i64 %__n, 0
-  br i1 %cmp.not, label %if.end44, label %if.then
+define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %.not = icmp eq i64 %1, 0
+  br i1 %.not, label %42, label %3
 
-if.then:                                          ; preds = %entry
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %_M_finish.i, align 8
-  %1 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.lhs.cast.i
-  %sub.ptr.div = ashr exact i64 %sub.ptr.sub, 3
-  %cmp4 = icmp ult i64 %sub.ptr.div.i, 1152921504606846976
-  tail call void @llvm.assume(i1 %cmp4)
-  %sub = xor i64 %sub.ptr.div.i, 1152921504606846975
-  %cmp6 = icmp ule i64 %sub.ptr.div, %sub
-  tail call void @llvm.assume(i1 %cmp6)
-  %cmp8.not = icmp ult i64 %sub.ptr.div, %__n
-  br i1 %cmp8.not, label %if.else, label %if.then.i.i.i
+3:                                                ; preds = %2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !36
+  %6 = load ptr, ptr %0, align 8, !tbaa !37
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  %10 = ashr exact i64 %9, 3
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !tbaa !89
+  %13 = ptrtoint ptr %12 to i64
+  %14 = sub i64 %13, %7
+  %15 = ashr exact i64 %14, 3
+  %16 = icmp ult i64 %10, 1152921504606846976
+  tail call void @llvm.assume(i1 %16)
+  %17 = xor i64 %10, 1152921504606846975
+  %18 = icmp ule i64 %15, %17
+  tail call void @llvm.assume(i1 %18)
+  %.not28 = icmp ult i64 %15, %1
+  br i1 %.not28, label %25, label %19
 
-if.then.i.i.i:                                    ; preds = %if.then
-  store ptr null, ptr %0, align 8
-  %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
+19:                                               ; preds = %3
+  store ptr null, ptr %5, align 8, !tbaa !38
+  %20 = getelementptr i8, ptr %5, i64 8
+  %21 = icmp eq i64 %1, 1
+  br i1 %21, label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
 
-if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %3 = shl i64 %__n, 3
-  %4 = add i64 %3, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false)
-  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
+_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
+  %22 = shl i64 %1, 3
+  %23 = add i64 %22, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %23, i1 false), !tbaa !38
+  %24 = getelementptr ptr, ptr %5, i64 %1
   br label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit
 
-_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %if.then.i.i.i, %if.end.i.i.i.i.i
-  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.end.i.i.i.i.i ]
-  store ptr %__first.addr.0.i.i.i, ptr %_M_finish.i, align 8
-  br label %if.end44
+_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i
+  %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i ]
+  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !36
+  br label %42
 
-if.else:                                          ; preds = %if.then
-  %cmp.i = icmp ult i64 %sub, %__n
-  br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
+25:                                               ; preds = %3
+  %26 = icmp ult i64 %17, %1
+  br i1 %26, label %27, label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
 
-if.then.i:                                        ; preds = %if.else
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #11
+27:                                               ; preds = %25
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
   unreachable
 
-_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %if.else
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 %__n)
-  %add.i = add nuw nsw i64 %.sroa.speculated.i, %sub.ptr.div.i
-  %5 = tail call i64 @llvm.umin.i64(i64 %add.i, i64 1152921504606846975)
-  %mul.i.i.i = shl nuw nsw i64 %5, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #12
-  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
-  store ptr null, ptr %add.ptr, align 8
-  %cmp.i.i.i.i.i24 = icmp eq i64 %__n, 1
-  br i1 %cmp.i.i.i.i.i24, label %try.cont, label %if.end.i.i.i.i.i25
+_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %25
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %10, i64 %1)
+  %28 = add nuw nsw i64 %.sroa.speculated.i, %10
+  %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 1152921504606846975)
+  %30 = shl nuw nsw i64 %29, 3
+  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #15
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %9
+  store ptr null, ptr %32, align 8, !tbaa !38
+  %33 = icmp eq i64 %1, 1
+  br i1 %33, label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit32, label %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i30
 
-if.end.i.i.i.i.i25:                               ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
-  %incdec.ptr.i.i.i23 = getelementptr i8, ptr %add.ptr, i64 8
-  %6 = shl nuw nsw i64 %__n, 3
-  %7 = add nsw i64 %6, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i23, i8 0, i64 %7, i1 false)
-  br label %try.cont
+_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
+  %34 = getelementptr i8, ptr %32, i64 8
+  %35 = shl nuw nsw i64 %1, 3
+  %36 = add nsw i64 %35, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %34, i8 0, i64 %36, i1 false), !tbaa !38
+  br label %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit32
 
-try.cont:                                         ; preds = %if.end.i.i.i.i.i25, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
-  %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit32: ; preds = %_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit
+  %37 = icmp sgt i64 %9, 0
+  br i1 %37, label %38, label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-if.then.i.i.i.i:                                  ; preds = %try.cont
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
+38:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %6, i64 %9, i1 false)
   br label %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
-_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %try.cont, %if.then.i.i.i.i
-  %tobool.not.i30 = icmp eq ptr %1, null
-  br i1 %tobool.not.i30, label %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit32, label %if.then.i31
+_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit32, %38
+  %.not.i34 = icmp eq ptr %6, null
+  br i1 %.not.i34, label %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit35, label %39
 
-if.then.i31:                                      ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #10
-  br label %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit32
+39:                                               ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #13
+  br label %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit35
 
-_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit32: ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %if.then.i31
-  store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
-  store ptr %add.ptr37, ptr %_M_finish.i, align 8
-  %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
-  store ptr %add.ptr40, ptr %_M_end_of_storage, align 8
-  br label %if.end44
+_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit35: ; preds = %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %39
+  store ptr %31, ptr %0, align 8, !tbaa !37
+  %40 = getelementptr inbounds nuw ptr, ptr %32, i64 %1
+  store ptr %40, ptr %4, align 8, !tbaa !36
+  %41 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  store ptr %41, ptr %11, align 8, !tbaa !89
+  br label %42
 
-if.end44:                                         ; preds = %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit32, %entry
+42:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m.exit35, %2
   ret void
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #7
+declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #9
+declare i64 @llvm.umin.i64(i64, i64) #11
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { builtin nounwind }
-attributes #11 = { noreturn }
-attributes #12 = { builtin allocsize(0) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { builtin nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!5}
-!5 = distinct !{!5, !6, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!6 = distinct !{!6, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!9 = distinct !{!9, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!12 = distinct !{!12, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!15 = distinct !{!15, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!18 = distinct !{!18, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!21 = distinct !{!21, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!24 = distinct !{!24, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!27 = distinct !{!27, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!30 = distinct !{!30, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!33 = distinct !{!33, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!36 = distinct !{!36, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
-!39 = distinct !{!39, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E", !5, i64 0, !5, i64 8, !5, i64 16, !9, i64 24}
+!5 = !{!"p1 _ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !6, i64 0}
+!6 = !{!"any pointer", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p2 _ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !10, i64 0}
+!10 = !{!"any p2 pointer", !6, i64 0}
+!11 = !{!4, !5, i64 8}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!14 = distinct !{!14, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!15 = !{!4, !9, i64 24}
+!16 = !{!5, !5, i64 0}
+!17 = !{!18, !6, i64 0}
+!18 = !{!"_ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !6, i64 0, !6, i64 8}
+!19 = !{!20, !22, i64 8}
+!20 = !{!"_ZTSN4YAML19GraphBuilderAdapterE", !21, i64 0, !22, i64 8, !23, i64 16, !29, i64 96, !6, i64 120, !6, i64 128}
+!21 = !{!"_ZTSN4YAML12EventHandlerE"}
+!22 = !{!"p1 _ZTSN4YAML21GraphBuilderInterfaceE", !6, i64 0}
+!23 = !{!"_ZTSSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE", !24, i64 0}
+!24 = !{!"_ZTSSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE", !25, i64 0}
+!25 = !{!"_ZTSSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE", !26, i64 0}
+!26 = !{!"_ZTSNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_Deque_implE", !27, i64 0}
+!27 = !{!"_ZTSNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_Deque_impl_dataE", !9, i64 0, !28, i64 8, !4, i64 16, !4, i64 48}
+!28 = !{!"long", !7, i64 0}
+!29 = !{!"_ZTSN4YAML10AnchorDictIPvEE", !30, i64 0}
+!30 = !{!"_ZTSSt6vectorIPvSaIS0_EE", !31, i64 0}
+!31 = !{!"_ZTSSt12_Vector_baseIPvSaIS0_EE", !32, i64 0}
+!32 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE12_Vector_implE", !33, i64 0}
+!33 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"vtable pointer", !8, i64 0}
+!36 = !{!33, !10, i64 8}
+!37 = !{!33, !10, i64 0}
+!38 = !{!6, !6, i64 0}
+!39 = !{!20, !6, i64 120}
 !40 = !{!41}
-!41 = distinct !{!41, !42, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: %agg.result"}
+!41 = distinct !{!41, !42, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
 !42 = distinct !{!42, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.mustprogress"}
+!43 = !{!18, !6, i64 8}
+!44 = !{!20, !6, i64 128}
+!45 = !{!46}
+!46 = distinct !{!46, !47, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!47 = distinct !{!47, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!50 = distinct !{!50, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!53 = distinct !{!53, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!56 = distinct !{!56, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!59 = distinct !{!59, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!62 = distinct !{!62, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!63 = !{!27, !5, i64 48}
+!64 = !{!27, !5, i64 64}
+!65 = !{i64 0, i64 8, !38, i64 8, i64 8, !38}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!68 = distinct !{!68, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!69 = !{!27, !9, i64 72}
+!70 = !{!4, !5, i64 16}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!73 = distinct !{!73, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!76 = distinct !{!76, !"_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!79 = distinct !{!79, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv: argument 0"}
+!82 = distinct !{!82, !"_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv"}
+!83 = !{!27, !9, i64 0}
+!84 = !{!27, !9, i64 40}
+!85 = distinct !{!85, !86}
+!86 = !{!"llvm.loop.mustprogress"}
+!87 = !{!27, !28, i64 8}
+!88 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!89 = !{!33, !10, i64 16}

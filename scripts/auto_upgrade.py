@@ -140,6 +140,7 @@ supported_project = [
     "vcpkg",
     "verilator",
     "xgboost",
+    "yaml-cpp",
 ]
 
 modify_only = [

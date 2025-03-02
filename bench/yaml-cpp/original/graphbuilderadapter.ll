@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.YAML::GraphBuilderAdapter" = type { %"class.YAML::EventHandler", ptr, %"class.std::stack", %"class.YAML::AnchorDict", ptr, ptr }
 %"class.YAML::EventHandler" = type { ptr }
@@ -70,15 +70,11 @@ $_ZNSt12_Destroy_auxILb1EE9__destroyIPPvEEvT_S4_ = comdat any
 
 $_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m = comdat any
 
-$_ZNSt12_Vector_baseIPvSaIS0_EE12_Vector_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIPvED2Ev = comdat any
 
 $_ZNSt16allocator_traitsISaIPvEE10deallocateERS1_PS0_m = comdat any
 
 $_ZNSt15__new_allocatorIPvE10deallocateEPS0_m = comdat any
-
-$_ZNSaIPvED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIPvED2Ev = comdat any
 
 $_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev = comdat any
 
@@ -98,7 +94,7 @@ $_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_des
 
 $_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m = comdat any
 
-$_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_Deque_implD2Ev = comdat any
+$_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev = comdat any
 
 $_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_ = comdat any
 
@@ -112,7 +108,7 @@ $_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_ge
 
 $_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS4_PS3_m = comdat any
 
-$_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev = comdat any
+$_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev = comdat any
 
 $_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv = comdat any
 
@@ -121,12 +117,6 @@ $_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2IS1_EERKSaIT_E = comdat a
 $_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2Ev = comdat any
 
 $_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS3_m = comdat any
-
-$_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev = comdat any
-
-$_ZNSaIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev = comdat any
-
-$_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev = comdat any
 
 $_ZNKSt6vectorIPvSaIS0_EEixEm = comdat any
 
@@ -298,663 +288,664 @@ $_ZSt14__relocate_a_1IPvS0_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE
 
 $_ZSt12__niter_baseIPPvET_S2_ = comdat any
 
-$_ZTSN4YAML12EventHandlerE = comdat any
-
 $_ZTIN4YAML12EventHandlerE = comdat any
+
+$_ZTSN4YAML12EventHandlerE = comdat any
 
 @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE = global i32 0, align 4
 @_ZTVN4YAML19GraphBuilderAdapterE = unnamed_addr constant { [14 x ptr] } { [14 x ptr] [ptr null, ptr @_ZTIN4YAML19GraphBuilderAdapterE, ptr @_ZN4YAML19GraphBuilderAdapterD2Ev, ptr @_ZN4YAML19GraphBuilderAdapterD0Ev, ptr @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE, ptr @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv, ptr @_ZN4YAML19GraphBuilderAdapter6OnNullERKNS_4MarkEm, ptr @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm, ptr @_ZN4YAML19GraphBuilderAdapter8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_, ptr @_ZN4YAML19GraphBuilderAdapter15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE, ptr @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv, ptr @_ZN4YAML19GraphBuilderAdapter10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE, ptr @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv, ptr @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE] }, align 8
+@_ZTIN4YAML19GraphBuilderAdapterE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4YAML19GraphBuilderAdapterE, ptr @_ZTIN4YAML12EventHandlerE }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN4YAML19GraphBuilderAdapterE = constant [29 x i8] c"N4YAML19GraphBuilderAdapterE\00", align 1
+@_ZTIN4YAML12EventHandlerE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4YAML12EventHandlerE }, comdat, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN4YAML12EventHandlerE = linkonce_odr constant [22 x i8] c"N4YAML12EventHandlerE\00", comdat, align 1
-@_ZTIN4YAML12EventHandlerE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN4YAML12EventHandlerE }, comdat, align 8
-@_ZTIN4YAML19GraphBuilderAdapterE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4YAML19GraphBuilderAdapterE, ptr @_ZTIN4YAML12EventHandlerE }, align 8
 @.str = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter6OnNullERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mark.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %pParent = alloca ptr, align 8
-  %pNode = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mark, ptr %mark.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %this1)
-  store ptr %call, ptr %pParent, align 8
-  %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_builder, align 8
-  %1 = load ptr, ptr %mark.addr, align 8
-  %2 = load ptr, ptr %pParent, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
-  %3 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %2)
-  store ptr %call2, ptr %pNode, align 8
-  %4 = load i64, ptr %anchor.addr, align 8
-  %5 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, i64 noundef %4, ptr noundef %5)
-  %6 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %6)
+define void @_ZN4YAML19GraphBuilderAdapter6OnNullERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %9 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %10 = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %9)
+  store ptr %10, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %11 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %9, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !13
+  %13 = load ptr, ptr %5, align 8, !tbaa !8
+  %14 = load ptr, ptr %7, align 8, !tbaa !12
+  %15 = load ptr, ptr %12, align 8, !tbaa !31
+  %16 = getelementptr inbounds ptr, ptr %15, i64 2
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef %14)
+  store ptr %18, ptr %8, align 8, !tbaa !12
+  %19 = load i64, ptr %6, align 8, !tbaa !10
+  %20 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %9, i64 noundef %19, ptr noundef %20)
+  %21 = load ptr, ptr %8, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr noundef %21)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret void
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %0) #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  %6 = call noundef zeroext i1 @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %1
+  store ptr null, ptr %2, align 8
+  br label %13
+
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %9)
+  %11 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  store ptr %12, ptr %2, align 8
+  br label %13
+
+13:                                               ; preds = %8, %7
+  %14 = load ptr, ptr %2, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %0, i64 noundef %1, ptr noundef %2) #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = icmp ne i64 %8, 0
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %7, i32 0, i32 3
+  %12 = load i64, ptr %5, align 8, !tbaa !10
+  %13 = load ptr, ptr %6, align 8, !tbaa !12
+  call void @_ZN4YAML10AnchorDictIPvE8RegisterEmS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef %12, ptr noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %this) #0 align 2 {
-entry:
-  %retval = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call = call noundef zeroext i1 @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers)
-  br i1 %call, label %if.then, label %if.end
+define void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) #0 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 2
+  %8 = call noundef zeroext i1 @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %7)
+  br i1 %8, label %9, label %12
 
-if.then:                                          ; preds = %entry
-  store ptr null, ptr %retval, align 8
-  br label %return
+9:                                                ; preds = %2
+  %10 = load ptr, ptr %4, align 8, !tbaa !12
+  %11 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 4
+  store ptr %10, ptr %11, align 8, !tbaa !35
+  br label %48
 
-if.end:                                           ; preds = %entry
-  %m_containers2 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers2)
-  %pContainer = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %call3, i32 0, i32 0
-  %0 = load ptr, ptr %pContainer, align 8
-  store ptr %0, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %13 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 2
+  %14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
+  %15 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %14, i32 0, i32 0
+  %16 = load ptr, ptr %15, align 8, !tbaa !33
+  store ptr %16, ptr %5, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 2
+  %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %17)
+  %19 = call noundef zeroext i1 @_ZNK4YAML19GraphBuilderAdapter14ContainerFrame5isMapEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  br i1 %19, label %20, label %39
 
-return:                                           ; preds = %if.end, %if.then
-  %1 = load ptr, ptr %retval, align 8
-  ret ptr %1
-}
+20:                                               ; preds = %12
+  %21 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 5
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
+  %23 = icmp ne ptr %22, null
+  br i1 %23, label %24, label %35
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %this, i64 noundef %anchor, ptr noundef %pNode) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %pNode.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  store ptr %pNode, ptr %pNode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %anchor.addr, align 8
-  %tobool = icmp ne i64 %0, 0
-  br i1 %tobool, label %if.then, label %if.end
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 1
+  %26 = load ptr, ptr %25, align 8, !tbaa !13
+  %27 = load ptr, ptr %5, align 8, !tbaa !12
+  %28 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 5
+  %29 = load ptr, ptr %28, align 8, !tbaa !36
+  %30 = load ptr, ptr %4, align 8, !tbaa !12
+  %31 = load ptr, ptr %26, align 8, !tbaa !31
+  %32 = getelementptr inbounds ptr, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8
+  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef %27, ptr noundef %29, ptr noundef %30)
+  %34 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 5
+  store ptr null, ptr %34, align 8, !tbaa !36
+  br label %38
 
-if.then:                                          ; preds = %entry
-  %m_anchors = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 3
-  %1 = load i64, ptr %anchor.addr, align 8
-  %2 = load ptr, ptr %pNode.addr, align 8
-  call void @_ZN4YAML10AnchorDictIPvE8RegisterEmS1_(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors, i64 noundef %1, ptr noundef %2)
-  br label %if.end
+35:                                               ; preds = %20
+  %36 = load ptr, ptr %4, align 8, !tbaa !12
+  %37 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 5
+  store ptr %36, ptr %37, align 8, !tbaa !36
+  br label %38
 
-if.end:                                           ; preds = %if.then, %entry
+38:                                               ; preds = %35, %24
+  br label %47
+
+39:                                               ; preds = %12
+  %40 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %6, i32 0, i32 1
+  %41 = load ptr, ptr %40, align 8, !tbaa !13
+  %42 = load ptr, ptr %5, align 8, !tbaa !12
+  %43 = load ptr, ptr %4, align 8, !tbaa !12
+  %44 = load ptr, ptr %41, align 8, !tbaa !31
+  %45 = getelementptr inbounds ptr, ptr %44, i64 5
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef %42, ptr noundef %43)
+  br label %47
+
+47:                                               ; preds = %39, %38
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %48
+
+48:                                               ; preds = %47, %9
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %pNode) #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pNode.addr = alloca ptr, align 8
-  %pContainer = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pNode, ptr %pNode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call = call noundef zeroext i1 @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers)
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %0 = load ptr, ptr %pNode.addr, align 8
-  %m_pRootNode = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 4
-  store ptr %0, ptr %m_pRootNode, align 8
-  br label %if.end18
-
-if.end:                                           ; preds = %entry
-  %m_containers2 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers2)
-  %pContainer4 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %call3, i32 0, i32 0
-  %1 = load ptr, ptr %pContainer4, align 8
-  store ptr %1, ptr %pContainer, align 8
-  %m_containers5 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers5)
-  %call7 = call noundef zeroext i1 @_ZNK4YAML19GraphBuilderAdapter14ContainerFrame5isMapEv(ptr noundef nonnull align 8 dereferenceable(16) %call6)
-  br i1 %call7, label %if.then8, label %if.else14
-
-if.then8:                                         ; preds = %if.end
-  %m_pKeyNode = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  %2 = load ptr, ptr %m_pKeyNode, align 8
-  %tobool = icmp ne ptr %2, null
-  br i1 %tobool, label %if.then9, label %if.else
-
-if.then9:                                         ; preds = %if.then8
-  %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %m_builder, align 8
-  %4 = load ptr, ptr %pContainer, align 8
-  %m_pKeyNode10 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  %5 = load ptr, ptr %m_pKeyNode10, align 8
-  %6 = load ptr, ptr %pNode.addr, align 8
-  %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 8
-  %7 = load ptr, ptr %vfn, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %m_pKeyNode11 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_pKeyNode11, align 8
-  br label %if.end13
-
-if.else:                                          ; preds = %if.then8
-  %8 = load ptr, ptr %pNode.addr, align 8
-  %m_pKeyNode12 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  store ptr %8, ptr %m_pKeyNode12, align 8
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.else, %if.then9
-  br label %if.end18
-
-if.else14:                                        ; preds = %if.end
-  %m_builder15 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %m_builder15, align 8
-  %10 = load ptr, ptr %pContainer, align 8
-  %11 = load ptr, ptr %pNode.addr, align 8
-  %vtable16 = load ptr, ptr %9, align 8
-  %vfn17 = getelementptr inbounds ptr, ptr %vtable16, i64 5
-  %12 = load ptr, ptr %vfn17, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %10, ptr noundef %11)
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.else14, %if.end13, %if.then
-  ret void
-}
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 noundef %anchor) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mark.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %pReffedNode = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mark, ptr %mark.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_anchors = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 3
-  %0 = load i64, ptr %anchor.addr, align 8
-  %call = call noundef ptr @_ZNK4YAML10AnchorDictIPvE3GetEm(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors, i64 noundef %0)
-  store ptr %call, ptr %pReffedNode, align 8
-  %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_builder, align 8
-  %2 = load ptr, ptr %mark.addr, align 8
-  %3 = load ptr, ptr %pReffedNode, align 8
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 10
-  %4 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef %3)
-  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %call2)
+define void @_ZN4YAML19GraphBuilderAdapter7OnAliasERKNS_4MarkEm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %9 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %8, i32 0, i32 3
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  %11 = call noundef ptr @_ZNK4YAML10AnchorDictIPvE3GetEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10)
+  store ptr %11, ptr %7, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %8, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !13
+  %14 = load ptr, ptr %5, align 8, !tbaa !8
+  %15 = load ptr, ptr %7, align 8, !tbaa !12
+  %16 = load ptr, ptr %13, align 8, !tbaa !31
+  %17 = getelementptr inbounds ptr, ptr %16, i64 10
+  %18 = load ptr, ptr %17, align 8
+  %19 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef %15)
+  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %8, ptr noundef %19)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNK4YAML10AnchorDictIPvE3GetEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %anchor) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %"class.YAML::AnchorDict", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %anchor.addr, align 8
-  %sub = sub i64 %0, 1
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %m_data, i64 noundef %sub) #7
-  %1 = load ptr, ptr %call, align 8
-  ret ptr %1
+define linkonce_odr noundef ptr @_ZNK4YAML10AnchorDictIPvE3GetEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !37
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.YAML::AnchorDict", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8, !tbaa !10
+  %8 = sub i64 %7, 1
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %8) #11
+  %10 = load ptr, ptr %9, align 8, !tbaa !12
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mark.addr = alloca ptr, align 8
-  %tag.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %value.addr = alloca ptr, align 8
-  %pParent = alloca ptr, align 8
-  %pNode = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mark, ptr %mark.addr, align 8
-  store ptr %tag, ptr %tag.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %this1)
-  store ptr %call, ptr %pParent, align 8
-  %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_builder, align 8
-  %1 = load ptr, ptr %mark.addr, align 8
-  %2 = load ptr, ptr %tag.addr, align 8
-  %3 = load ptr, ptr %pParent, align 8
-  %4 = load ptr, ptr %value.addr, align 8
-  %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
-  %5 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  store ptr %call2, ptr %pNode, align 8
-  %6 = load i64, ptr %anchor.addr, align 8
-  %7 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, i64 noundef %6, ptr noundef %7)
-  %8 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %8)
+define void @_ZN4YAML19GraphBuilderAdapter8OnScalarERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSB_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !39
+  store i64 %3, ptr %9, align 8, !tbaa !10
+  store ptr %4, ptr %10, align 8, !tbaa !39
+  %13 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %14 = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %13)
+  store ptr %14, ptr %11, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #11
+  %15 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 1
+  %16 = load ptr, ptr %15, align 8, !tbaa !13
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
+  %18 = load ptr, ptr %8, align 8, !tbaa !39
+  %19 = load ptr, ptr %11, align 8, !tbaa !12
+  %20 = load ptr, ptr %10, align 8, !tbaa !39
+  %21 = load ptr, ptr %16, align 8, !tbaa !31
+  %22 = getelementptr inbounds ptr, ptr %21, i64 3
+  %23 = load ptr, ptr %22, align 8
+  %24 = call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 4 dereferenceable(12) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  store ptr %24, ptr %12, align 8, !tbaa !12
+  %25 = load i64, ptr %9, align 8, !tbaa !10
+  %26 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %13, i64 noundef %25, ptr noundef %26)
+  %27 = load ptr, ptr %12, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %13, ptr noundef %27)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %0) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mark.addr = alloca ptr, align 8
-  %tag.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %.addr = alloca i32, align 4
-  %pNode = alloca ptr, align 8
-  %ref.tmp = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mark, ptr %mark.addr, align 8
-  store ptr %tag, ptr %tag.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_builder, align 8
-  %2 = load ptr, ptr %mark.addr, align 8
-  %3 = load ptr, ptr %tag.addr, align 8
-  %call = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %this1)
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
-  %4 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %call)
-  store ptr %call2, ptr %pNode, align 8
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPv(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %5)
-  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %m_containers, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %6 = load i64, ptr %anchor.addr, align 8
-  %7 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, i64 noundef %6, ptr noundef %7)
+define void @_ZN4YAML19GraphBuilderAdapter15OnSequenceStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !39
+  store i64 %3, ptr %9, align 8, !tbaa !10
+  store i32 %4, ptr %10, align 4, !tbaa !41
+  %13 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %14 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !39
+  %18 = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %13)
+  %19 = load ptr, ptr %15, align 8, !tbaa !31
+  %20 = getelementptr inbounds ptr, ptr %19, i64 4
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %18)
+  store ptr %22, ptr %11, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #11
+  %24 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPv(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %24)
+  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #11
+  %25 = load i64, ptr %9, align 8, !tbaa !10
+  %26 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %13, i64 noundef %25, ptr noundef %26)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__x) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %c = getelementptr inbounds %"class.std::stack", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %c, ptr noundef nonnull align 8 dereferenceable(16) %0)
+define linkonce_odr void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !43
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::stack", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPv(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pSequence) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pSequence.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pSequence, ptr %pSequence.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pContainer = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %pSequence.addr, align 8
-  store ptr %0, ptr %pContainer, align 8
-  %pPrevKeyNode = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %this1, i32 0, i32 1
-  store ptr @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE, ptr %pPrevKeyNode, align 8
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  store ptr %1, ptr %4, align 8, !tbaa !12
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !12
+  store ptr %7, ptr %6, align 8, !tbaa !33
+  %8 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %5, i32 0, i32 1
+  store ptr @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE, ptr %8, align 8, !tbaa !46
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pSequence = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers)
-  %pContainer = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %pContainer, align 8
-  store ptr %0, ptr %pSequence, align 8
-  %m_containers2 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers2)
-  %1 = load ptr, ptr %pSequence, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %1)
+define void @_ZN4YAML19GraphBuilderAdapter13OnSequenceEndEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
+  %7 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  store ptr %8, ptr %3, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %9)
+  %10 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef %10)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %c = getelementptr inbounds %"class.std::stack", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %c) #7
-  ret ptr %call
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::stack", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %c = getelementptr inbounds %"class.std::stack", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(80) %c) #7
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark, ptr noundef nonnull align 8 dereferenceable(32) %tag, i64 noundef %anchor, i32 noundef %0) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mark.addr = alloca ptr, align 8
-  %tag.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %.addr = alloca i32, align 4
-  %pNode = alloca ptr, align 8
-  %ref.tmp = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mark, ptr %mark.addr, align 8
-  store ptr %tag, ptr %tag.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_builder = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_builder, align 8
-  %2 = load ptr, ptr %mark.addr, align 8
-  %3 = load ptr, ptr %tag.addr, align 8
-  %call = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %this1)
-  %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds ptr, ptr %vtable, i64 7
-  %4 = load ptr, ptr %vfn, align 8
-  %call2 = call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %call)
-  store ptr %call2, ptr %pNode, align 8
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %5 = load ptr, ptr %pNode, align 8
-  %m_pKeyNode = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  %6 = load ptr, ptr %m_pKeyNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %5, ptr noundef %6)
-  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %m_containers, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-  %m_pKeyNode3 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  store ptr null, ptr %m_pKeyNode3, align 8
-  %7 = load i64, ptr %anchor.addr, align 8
-  %8 = load ptr, ptr %pNode, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, i64 noundef %7, ptr noundef %8)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %pMap, ptr noundef %pPreviousKeyNode) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pMap.addr = alloca ptr, align 8
-  %pPreviousKeyNode.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %pMap, ptr %pMap.addr, align 8
-  store ptr %pPreviousKeyNode, ptr %pPreviousKeyNode.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pContainer = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %pMap.addr, align 8
-  store ptr %0, ptr %pContainer, align 8
-  %pPrevKeyNode = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %pPreviousKeyNode.addr, align 8
-  store ptr %1, ptr %pPrevKeyNode, align 8
+define linkonce_odr void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::stack", ptr %3, i32 0, i32 0
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %pMap = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers)
-  %pContainer = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %call, i32 0, i32 0
-  %0 = load ptr, ptr %pContainer, align 8
-  store ptr %0, ptr %pMap, align 8
-  %m_containers2 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers2)
-  %pPrevKeyNode = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %call3, i32 0, i32 1
-  %1 = load ptr, ptr %pPrevKeyNode, align 8
-  %m_pKeyNode = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 5
-  store ptr %1, ptr %m_pKeyNode, align 8
-  %m_containers4 = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %m_containers4)
-  %2 = load ptr, ptr %pMap, align 8
-  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %2)
+define void @_ZN4YAML19GraphBuilderAdapter10OnMapStartERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmNS_12EmitterStyle5valueE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca %"struct.YAML::GraphBuilderAdapter::ContainerFrame", align 8
+  store ptr %0, ptr %6, align 8, !tbaa !3
+  store ptr %1, ptr %7, align 8, !tbaa !8
+  store ptr %2, ptr %8, align 8, !tbaa !39
+  store i64 %3, ptr %9, align 8, !tbaa !10
+  store i32 %4, ptr %10, align 4, !tbaa !41
+  %13 = load ptr, ptr %6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %14 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !13
+  %16 = load ptr, ptr %7, align 8, !tbaa !8
+  %17 = load ptr, ptr %8, align 8, !tbaa !39
+  %18 = call noundef ptr @_ZNK4YAML19GraphBuilderAdapter16GetCurrentParentEv(ptr noundef nonnull align 8 dereferenceable(136) %13)
+  %19 = load ptr, ptr %15, align 8, !tbaa !31
+  %20 = getelementptr inbounds ptr, ptr %19, i64 7
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %18)
+  store ptr %22, ptr %11, align 8, !tbaa !12
+  %23 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 2
+  call void @llvm.lifetime.start.p0(i64 16, ptr %12) #11
+  %24 = load ptr, ptr %11, align 8, !tbaa !12
+  %25 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 5
+  %26 = load ptr, ptr %25, align 8, !tbaa !36
+  call void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %24, ptr noundef %26)
+  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE4pushEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @llvm.lifetime.end.p0(i64 16, ptr %12) #11
+  %27 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %13, i32 0, i32 5
+  store ptr null, ptr %27, align 8, !tbaa !36
+  %28 = load i64, ptr %9, align 8, !tbaa !10
+  %29 = load ptr, ptr %11, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter14RegisterAnchorEmPv(ptr noundef nonnull align 8 dereferenceable(136) %13, i64 noundef %28, ptr noundef %29)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %c = getelementptr inbounds %"class.std::stack", ptr %this1, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %c) #7
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %c = getelementptr inbounds %"class.std::stack", ptr %this1, i32 0, i32 0
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %c) #7
-  ret ptr %call
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter14ContainerFrameC2EPvS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !45
+  store ptr %1, ptr %5, align 8, !tbaa !12
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !12
+  store ptr %9, ptr %8, align 8, !tbaa !33
+  %10 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !12
+  store ptr %11, ptr %10, align 8, !tbaa !46
+  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN4YAML10AnchorDictIPvE8RegisterEmS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %anchor, ptr noundef %value) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %anchor.addr = alloca i64, align 8
-  %value.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %anchor, ptr %anchor.addr, align 8
-  store ptr %value, ptr %value.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %anchor.addr, align 8
-  %m_data = getelementptr inbounds %"class.YAML::AnchorDict", ptr %this1, i32 0, i32 0
-  %call = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_data) #7
-  %cmp = icmp ugt i64 %0, %call
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %m_data2 = getelementptr inbounds %"class.YAML::AnchorDict", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %anchor.addr, align 8
-  call void @_ZNSt6vectorIPvSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %m_data2, i64 noundef %1)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %2 = load ptr, ptr %value.addr, align 8
-  %m_data3 = getelementptr inbounds %"class.YAML::AnchorDict", ptr %this1, i32 0, i32 0
-  %3 = load i64, ptr %anchor.addr, align 8
-  %sub = sub i64 %3, 1
-  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %m_data3, i64 noundef %sub) #7
-  store ptr %2, ptr %call4, align 8
+define void @_ZN4YAML19GraphBuilderAdapter8OnMapEndEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  %5 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
+  %7 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
+  store ptr %8, ptr %3, align 8, !tbaa !12
+  %9 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %9)
+  %11 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !46
+  %13 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 5
+  store ptr %12, ptr %13, align 8, !tbaa !36
+  %14 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %4, i32 0, i32 2
+  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3popEv(ptr noundef nonnull align 8 dereferenceable(80) %14)
+  %15 = load ptr, ptr %3, align 8, !tbaa !12
+  call void @_ZN4YAML19GraphBuilderAdapter15DispositionNodeEPv(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK4YAML19GraphBuilderAdapter14ContainerFrame5isMapEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %pPrevKeyNode = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %pPrevKeyNode, align 8
-  %cmp = icmp ne ptr %0, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::stack", ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = getelementptr inbounds { [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i32 0, i32 0, i32 2
-  store ptr %0, ptr %this1, align 8
-  %m_anchors = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 3
-  call void @_ZN4YAML10AnchorDictIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_anchors) #7
-  %m_containers = getelementptr inbounds %"class.YAML::GraphBuilderAdapter", ptr %this1, i32 0, i32 2
-  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_containers) #7
-  call void @_ZN4YAML12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE3topEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::stack", ptr %3, i32 0, i32 0
+  %5 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN4YAML10AnchorDictIPvE8RegisterEmS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !37
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw %"class.YAML::AnchorDict", ptr %7, i32 0, i32 0
+  %10 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %11 = icmp ugt i64 %8, %10
+  br i1 %11, label %12, label %15
+
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds nuw %"class.YAML::AnchorDict", ptr %7, i32 0, i32 0
+  %14 = load i64, ptr %5, align 8, !tbaa !10
+  call void @_ZNSt6vectorIPvSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %14)
+  br label %15
+
+15:                                               ; preds = %12, %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw %"class.YAML::AnchorDict", ptr %7, i32 0, i32 0
+  %18 = load i64, ptr %5, align 8, !tbaa !10
+  %19 = sub i64 %18, 1
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %19) #11
+  store ptr %16, ptr %20, align 8, !tbaa !12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this1) #7
-  call void @_ZdlPv(ptr noundef %this1) #8
+define linkonce_odr noundef zeroext i1 @_ZNK4YAML19GraphBuilderAdapter14ContainerFrame5isMapEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !46
+  %6 = icmp ne ptr %5, @_ZN4YAML19GraphBuilderAdapter14ContainerFrame14sequenceMarkerE
+  ret i1 %6
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  store ptr getelementptr inbounds inrange(-16, 96) ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i32 0, i32 0, i32 2), ptr %3, align 8, !tbaa !31
+  %4 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %3, i32 0, i32 3
+  call void @_ZN4YAML10AnchorDictIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  %5 = getelementptr inbounds nuw %"class.YAML::GraphBuilderAdapter", ptr %3, i32 0, i32 2
+  call void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  call void @_ZN4YAML12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %3) #11
+  call void @_ZdlPv(ptr noundef %3) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 4 dereferenceable(12) %mark) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %mark.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %mark, ptr %mark.addr, align 8
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter15OnDocumentStartERKNS_4MarkE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !3
+  store ptr %1, ptr %4, align 8, !tbaa !8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZN4YAML19GraphBuilderAdapter13OnDocumentEndEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
+define linkonce_odr void @_ZN4YAML12EventHandler8OnAnchorERKNS_4MarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !47
+  store ptr %1, ptr %5, align 8, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !39
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN4YAML10AnchorDictIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.YAML::AnchorDict", ptr %3, i32 0, i32 0
+  call void @_ZNSt6vectorIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::stack", ptr %3, i32 0, i32 0
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML10AnchorDictIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %"class.YAML::AnchorDict", ptr %this1, i32 0, i32 0
-  call void @_ZNSt6vectorIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data) #7
+define linkonce_odr void @_ZN4YAML12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %c = getelementptr inbounds %"class.std::stack", ptr %this1, i32 0, i32 0
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %c) #7
-  ret void
-}
+define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  invoke void @_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN4YAML12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %1 = load ptr, ptr %_M_finish, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  invoke void @_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt12_Vector_baseIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #13
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load ptr, ptr %__last.addr, align 8
-  call void @_ZSt8_DestroyIPPvEvT_S2_(ptr noundef %1, ptr noundef %2)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZSt8_DestroyIPPvEvT_S2_(ptr noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #2 comdat {
-  %2 = call ptr @__cxa_begin_catch(ptr %0) #7
-  call void @_ZSt9terminatev() #9
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #5 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #11
+  call void @_ZSt9terminatev() #13
   unreachable
 }
 
@@ -963,2328 +954,2251 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_impl3 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start4 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl3, i32 0, i32 0
-  %2 = load ptr, ptr %_M_start4, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  invoke void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, i64 noundef %sub.ptr.div)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZNSt12_Vector_baseIPvSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
+  %10 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 8
+  invoke void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
 
-invoke.cont:                                      ; preds = %entry
-  %_M_impl5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt12_Vector_baseIPvSaIS0_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl5) #7
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #11
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %3 = landingpad { ptr, i32 }
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #9
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #13
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8_DestroyIPPvEvT_S2_(ptr noundef %__first, ptr noundef %__last) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPvEEvT_S4_(ptr noundef %0, ptr noundef %1)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPPvEvT_S2_(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %5 = load ptr, ptr %3, align 8, !tbaa !53
+  %6 = load ptr, ptr %4, align 8, !tbaa !53
+  call void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPvEEvT_S4_(ptr noundef %5, ptr noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPvEEvT_S4_(ptr noundef %0, ptr noundef %1) #1 comdat align 2 {
-entry:
-  %.addr = alloca ptr, align 8
-  %.addr1 = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %1, ptr %.addr1, align 8
+define linkonce_odr void @_ZNSt12_Destroy_auxILb1EE9__destroyIPPvEEvT_S4_(ptr noundef %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store ptr %1, ptr %4, align 8, !tbaa !53
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
 
-if.then:                                          ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIPvEE10deallocateERS1_PS0_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %1, i64 noundef %2)
-  br label %if.end
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8, !tbaa !53
+  %13 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt16allocator_traitsISaIPvEE10deallocateERS1_PS0_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
+14:                                               ; preds = %10, %3
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt12_Vector_baseIPvSaIS0_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIPvED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
+define linkonce_odr void @_ZNSt15__new_allocatorIPvED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIPvEE10deallocateERS1_PS0_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorIPvE10deallocateEPS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZNSt16allocator_traitsISaIPvEE10deallocateERS1_PS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !54
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !54
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt15__new_allocatorIPvE10deallocateEPS0_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIPvE10deallocateEPS0_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #8
+define linkonce_odr void @_ZNSt15__new_allocatorIPvE10deallocateEPS0_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZdlPv(ptr noundef %7) #12
   ret void
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) #3
+declare void @_ZdlPv(ptr noundef) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIPvED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIPvED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  ret void
-}
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_Deque_iterator", align 8
+  %4 = alloca %"struct.std::_Deque_iterator", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %5 = load ptr, ptr %2, align 8
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5beginEv(ptr dead_on_unwind writable sret(%"struct.std::_Deque_iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr dead_on_unwind writable sret(%"struct.std::_Deque_iterator") align 8 %4, ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  invoke void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_destroy_dataESt15_Deque_iteratorIS2_RS2_PS2_ES8_RKS3_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %7 unwind label %8
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIPvED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"struct.std::_Deque_iterator", align 8
-  %agg.tmp2 = alloca %"struct.std::_Deque_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5beginEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  invoke void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_destroy_dataESt15_Deque_iteratorIS2_RS2_PS2_ES8_RKS3_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %agg.tmp, ptr noundef %agg.tmp2, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
+7:                                                ; preds = %1
+  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %1 = extractvalue { ptr, i32 } %0, 0
-  call void @__clang_call_terminate(ptr %1) #9
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_destroy_dataESt15_Deque_iteratorIS2_RS2_PS2_ES8_RKS3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 1 dereferenceable(1) %0) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__first.indirect_addr = alloca ptr, align 8
-  %__last.indirect_addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__first, ptr %__first.indirect_addr, align 8
-  store ptr %__last, ptr %__last.indirect_addr, align 8
-  store ptr %0, ptr %.addr, align 8
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_destroy_dataESt15_Deque_iteratorIS2_RS2_PS2_ES8_RKS3_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !61
+  store ptr %1, ptr %6, align 8, !tbaa !63
+  store ptr %2, ptr %7, align 8, !tbaa !63
+  store ptr %3, ptr %8, align 8, !tbaa !65
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5beginEv(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 2
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %_M_start) #7
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5beginEv(ptr dead_on_unwind noalias writable sret(%"struct.std::_Deque_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %6, i32 0, i32 2
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr noalias sret(%"struct.std::_Deque_iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %_M_finish) #7
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr dead_on_unwind noalias writable sret(%"struct.std::_Deque_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %6, i32 0, i32 3
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_map, align 8
-  %tobool = icmp ne ptr %0, null
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
+  %7 = icmp ne ptr %6, null
+  br i1 %7, label %8, label %24
 
-if.then:                                          ; preds = %entry
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_start, i32 0, i32 3
-  %1 = load ptr, ptr %_M_node, align 8
-  %_M_impl3 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl3, i32 0, i32 3
-  %_M_node4 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 3
-  %2 = load ptr, ptr %_M_node4, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 1
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %1, ptr noundef %add.ptr) #7
-  %_M_impl5 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map6 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl5, i32 0, i32 0
-  %3 = load ptr, ptr %_M_map6, align 8
-  %_M_impl7 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl7, i32 0, i32 1
-  %4 = load i64, ptr %_M_map_size, align 8
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %3, i64 noundef %4) #7
-  br label %if.end
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %9, i32 0, i32 2
+  %11 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %10, i32 0, i32 3
+  %12 = load ptr, ptr %11, align 8, !tbaa !70
+  %13 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %14 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %13, i32 0, i32 3
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %14, i32 0, i32 3
+  %16 = load ptr, ptr %15, align 8, !tbaa !71
+  %17 = getelementptr inbounds ptr, ptr %16, i64 1
+  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %12, ptr noundef %17) #11
+  %18 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !69
+  %21 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %21, i32 0, i32 1
+  %23 = load i64, ptr %22, align 8, !tbaa !72
+  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %20, i64 noundef %23) #11
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
-  %_M_impl8 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_Deque_implD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl8) #7
+24:                                               ; preds = %8, %1
+  %25 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %25) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__x) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_cur2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %_M_cur2, align 8
-  store ptr %1, ptr %_M_cur, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %__x.addr, align 8
-  %_M_first3 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %_M_first3, align 8
-  store ptr %3, ptr %_M_first, align 8
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %__x.addr, align 8
-  %_M_last4 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %_M_last4, align 8
-  store ptr %5, ptr %_M_last, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %__x.addr, align 8
-  %_M_node5 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %_M_node5, align 8
-  store ptr %7, ptr %_M_node, align 8
+define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !63
+  %8 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  store ptr %9, ptr %6, align 8, !tbaa !73
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !63
+  %12 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !74
+  store ptr %13, ptr %10, align 8, !tbaa !74
+  %14 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  store ptr %17, ptr %14, align 8, !tbaa !75
+  %18 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 3
+  %19 = load ptr, ptr %4, align 8, !tbaa !63
+  %20 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !76
+  store ptr %21, ptr %18, align 8, !tbaa !76
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__nstart, ptr noundef %__nfinish) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__nstart.addr = alloca ptr, align 8
-  %__nfinish.addr = alloca ptr, align 8
-  %__n = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__nstart, ptr %__nstart.addr, align 8
-  store ptr %__nfinish, ptr %__nfinish.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__nstart.addr, align 8
-  store ptr %0, ptr %__n, align 8
-  br label %for.cond
+define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_destroy_nodesEPPS2_S6_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %9 = load ptr, ptr %5, align 8, !tbaa !77
+  store ptr %9, ptr %7, align 8, !tbaa !77
+  br label %10
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %1 = load ptr, ptr %__n, align 8
-  %2 = load ptr, ptr %__nfinish.addr, align 8
-  %cmp = icmp ult ptr %1, %2
-  br i1 %cmp, label %for.body, label %for.end
+10:                                               ; preds = %18, %3
+  %11 = load ptr, ptr %7, align 8, !tbaa !77
+  %12 = load ptr, ptr %6, align 8, !tbaa !77
+  %13 = icmp ult ptr %11, %12
+  br i1 %13, label %15, label %14
 
-for.body:                                         ; preds = %for.cond
-  %3 = load ptr, ptr %__n, align 8
-  %4 = load ptr, ptr %3, align 8
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %4) #7
-  br label %for.inc
+14:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %21
 
-for.inc:                                          ; preds = %for.body
-  %5 = load ptr, ptr %__n, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %5, i32 1
-  store ptr %incdec.ptr, ptr %__n, align 8
-  br label %for.cond, !llvm.loop !4
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %7, align 8, !tbaa !77
+  %17 = load ptr, ptr %16, align 8, !tbaa !45
+  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef %17) #11
+  br label %18
 
-for.end:                                          ; preds = %for.cond
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %7, align 8, !tbaa !77
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i32 1
+  store ptr %20, ptr %7, align 8, !tbaa !77
+  br label %10, !llvm.loop !78
+
+21:                                               ; preds = %14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__p, i64 noundef %__n) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__map_alloc = alloca %"class.std::allocator.6", align 1
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_get_map_allocatorEv(ptr sret(%"class.std::allocator.6") align 1 %__map_alloc, ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  invoke void @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %__map_alloc, ptr noundef %0, i64 noundef %1)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca %"class.std::allocator.6", align 1
+  store ptr %0, ptr %4, align 8, !tbaa !67
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #11
+  call void @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_get_map_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.6") align 1 %7, ptr noundef nonnull align 8 dereferenceable(80) %8) #11
+  %9 = load ptr, ptr %5, align 8, !tbaa !77
+  %10 = load i64, ptr %6, align 8, !tbaa !10
+  invoke void @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %9, i64 noundef %10)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__map_alloc) #7
+11:                                               ; preds = %3
+  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #11
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_Deque_implD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSaIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
+define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %__p) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__p.addr, align 8
-  %call = invoke noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
-          to label %invoke.cont unwind label %terminate.lpad
+define linkonce_odr void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !45
+  %8 = invoke noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
+          to label %9 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, ptr noundef %0, i64 noundef %call)
-          to label %invoke.cont2 unwind label %terminate.lpad
+9:                                                ; preds = %2
+  invoke void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef %8)
+          to label %10 unwind label %11
 
-invoke.cont2:                                     ; preds = %invoke.cont
+10:                                               ; preds = %9
   ret void
 
-terminate.lpad:                                   ; preds = %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
+11:                                               ; preds = %9, %2
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #9
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !45
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %5, align 8, !tbaa !45
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef %0) #3 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !10
+  %3 = load i64, ptr %2, align 8, !tbaa !10
+  %4 = icmp ult i64 %3, 512
+  br i1 %4, label %5, label %8
+
+5:                                                ; preds = %1
+  %6 = load i64, ptr %2, align 8, !tbaa !10
+  %7 = udiv i64 512, %6
+  br label %9
+
+8:                                                ; preds = %1
+  br label %9
+
+9:                                                ; preds = %8, %5
+  %10 = phi i64 [ %7, %5 ], [ 1, %8 ]
+  ret i64 %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !80
+  store ptr %1, ptr %5, align 8, !tbaa !45
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !45
+  call void @_ZdlPv(ptr noundef %7) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef %__size) #1 comdat {
-entry:
-  %__size.addr = alloca i64, align 8
-  store i64 %__size, ptr %__size.addr, align 8
-  %0 = load i64, ptr %__size.addr, align 8
-  %cmp = icmp ult i64 %0, 512
-  br i1 %cmp, label %cond.true, label %cond.false
-
-cond.true:                                        ; preds = %entry
-  %1 = load i64, ptr %__size.addr, align 8
-  %div = udiv i64 512, %1
-  br label %cond.end
-
-cond.false:                                       ; preds = %entry
-  br label %cond.end
-
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %div, %cond.true ], [ 1, %cond.false ]
-  ret i64 %cond
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_get_map_allocatorEv(ptr noalias sret(%"class.std::allocator.6") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  call void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2IS1_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %call) #7
+define linkonce_odr void @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_get_map_allocatorEv(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.6") align 1 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  call void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2IS1_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2)
+define linkonce_odr void @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE10deallocateERS4_PS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %4, align 8, !tbaa !82
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load i64, ptr %6, align 8, !tbaa !10
+  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
+define linkonce_odr void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2IS1_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
+define linkonce_odr void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2IS1_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  call void @_ZdlPv(ptr noundef %0) #8
+define linkonce_odr void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE10deallocateEPS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !84
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store i64 %2, ptr %6, align 8, !tbaa !10
+  %7 = load ptr, ptr %5, align 8, !tbaa !77
+  call void @_ZdlPv(ptr noundef %7) #12
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSaIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
-  ret ptr %add.ptr
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNKSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %9 = load i64, ptr %4, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__x) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__args) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 0
-  %0 = load ptr, ptr %_M_cur, align 8
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish3 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 3
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish3, i32 0, i32 2
-  %1 = load ptr, ptr %_M_last, align 8
-  %add.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %1, i64 -1
-  %cmp = icmp ne ptr %0, %add.ptr
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE12emplace_backIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %6, i32 0, i32 3
+  %8 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !86
+  %10 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %10, i32 0, i32 3
+  %12 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %11, i32 0, i32 2
+  %13 = load ptr, ptr %12, align 8, !tbaa !87
+  %14 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %13, i64 -1
+  %15 = icmp ne ptr %9, %14
+  br i1 %15, label %16, label %28
 
-if.then:                                          ; preds = %entry
-  %_M_impl4 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_impl5 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish6 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl5, i32 0, i32 3
-  %_M_cur7 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish6, i32 0, i32 0
-  %2 = load ptr, ptr %_M_cur7, align 8
-  %3 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl4, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #7
-  %_M_impl8 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish9 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl8, i32 0, i32 3
-  %_M_cur10 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish9, i32 0, i32 0
-  %4 = load ptr, ptr %_M_cur10, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %_M_cur10, align 8
-  br label %if.end
+16:                                               ; preds = %2
+  %17 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !86
+  %22 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(16) %22) #11
+  %23 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %24, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8, !tbaa !86
+  %27 = getelementptr inbounds nuw %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %26, i32 1
+  store ptr %27, ptr %25, align 8, !tbaa !86
+  br label %30
 
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  br label %if.end
+28:                                               ; preds = %2
+  %29 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  br label %30
 
-if.end:                                           ; preds = %if.else, %if.then
+30:                                               ; preds = %28, %16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args) #1 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE9constructIS2_JS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #7
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !65
+  store ptr %1, ptr %5, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !45
+  %7 = load ptr, ptr %4, align 8, !tbaa !65
+  %8 = load ptr, ptr %5, align 8, !tbaa !45
+  %9 = load ptr, ptr %6, align 8, !tbaa !45
+  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE9constructIS2_JS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %9) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %__args) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %call2 = call noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %cmp = icmp eq i64 %call, %call2
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_push_back_auxIJS2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  %7 = call noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %5) #11
+  %8 = icmp eq i64 %6, %7
+  br i1 %8, label %9, label %10
 
-if.then:                                          ; preds = %entry
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str) #10
+9:                                                ; preds = %2
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str) #14
   unreachable
 
-if.end:                                           ; preds = %entry
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this1, i64 noundef 1)
-  %call3 = call noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_allocate_nodeEv(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 3
-  %0 = load ptr, ptr %_M_node, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 1
-  store ptr %call3, ptr %add.ptr, align 8
-  %_M_impl4 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_impl5 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish6 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl5, i32 0, i32 3
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish6, i32 0, i32 0
-  %1 = load ptr, ptr %_M_cur, align 8
-  %2 = load ptr, ptr %__args.addr, align 8
-  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #7
-  %_M_impl7 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish8 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl7, i32 0, i32 3
-  %_M_impl9 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish10 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl9, i32 0, i32 3
-  %_M_node11 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish10, i32 0, i32 3
-  %3 = load ptr, ptr %_M_node11, align 8
-  %add.ptr12 = getelementptr inbounds ptr, ptr %3, i64 1
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_finish8, ptr noundef %add.ptr12) #7
-  %_M_impl13 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish14 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl13, i32 0, i32 3
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish14, i32 0, i32 1
-  %4 = load ptr, ptr %_M_first, align 8
-  %_M_impl15 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish16 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl15, i32 0, i32 3
-  %_M_cur17 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish16, i32 0, i32 0
-  store ptr %4, ptr %_M_cur17, align 8
+10:                                               ; preds = %2
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %5, i64 noundef 1)
+  %11 = call noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_allocate_nodeEv(ptr noundef nonnull align 8 dereferenceable(80) %5)
+  %12 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %12, i32 0, i32 3
+  %14 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !71
+  %16 = getelementptr inbounds ptr, ptr %15, i64 1
+  store ptr %11, ptr %16, align 8, !tbaa !45
+  %17 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %18 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %18, i32 0, i32 3
+  %20 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8, !tbaa !86
+  %22 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(16) %22) #11
+  %23 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %24 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %23, i32 0, i32 3
+  %25 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %25, i32 0, i32 3
+  %27 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %26, i32 0, i32 3
+  %28 = load ptr, ptr %27, align 8, !tbaa !71
+  %29 = getelementptr inbounds ptr, ptr %28, i64 1
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %29) #11
+  %30 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %30, i32 0, i32 3
+  %32 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %31, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !88
+  %34 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %35 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %34, i32 0, i32 3
+  %36 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %35, i32 0, i32 0
+  store ptr %33, ptr %36, align 8, !tbaa !86
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE9constructIS2_JS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(16) %__args) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  %__args.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  store ptr %__args, ptr %__args.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  %1 = load ptr, ptr %__args.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 8 %1, i64 16, i1 false)
+define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE9constructIS2_JS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !80
+  store ptr %1, ptr %5, align 8, !tbaa !45
+  store ptr %2, ptr %6, align 8, !tbaa !45
+  %7 = load ptr, ptr %5, align 8, !tbaa !45
+  %8 = load ptr, ptr %6, align 8, !tbaa !45
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !89
   ret void
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %call = call noundef i64 @_ZStmiRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %_M_finish, ptr noundef nonnull align 8 dereferenceable(32) %_M_start) #7
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %4, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %6, i32 0, i32 2
+  %8 = call noundef i64 @_ZStmiRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %call2 = call noundef i64 @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_S_max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %call) #7
-  ret i64 %call2
+define linkonce_odr noundef i64 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
+  %5 = call noundef i64 @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_S_max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  ret i64 %5
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #5
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #8
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__nodes_to_add.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__nodes_to_add, ptr %__nodes_to_add.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__nodes_to_add.addr, align 8
-  %add = add i64 %0, 1
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 1
-  %1 = load i64, ptr %_M_map_size, align 8
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 3
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 3
-  %2 = load ptr, ptr %_M_node, align 8
-  %_M_impl3 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl3, i32 0, i32 0
-  %3 = load ptr, ptr %_M_map, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  %sub = sub i64 %1, %sub.ptr.div
-  %cmp = icmp ugt i64 %add, %sub
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE22_M_reserve_map_at_backEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !61
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = add i64 %6, 1
+  %8 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8, !tbaa !72
+  %11 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %12 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %11, i32 0, i32 3
+  %13 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %12, i32 0, i32 3
+  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %15 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !69
+  %18 = ptrtoint ptr %14 to i64
+  %19 = ptrtoint ptr %17 to i64
+  %20 = sub i64 %18, %19
+  %21 = sdiv exact i64 %20, 8
+  %22 = sub i64 %10, %21
+  %23 = icmp ugt i64 %7, %22
+  br i1 %23, label %24, label %26
 
-if.then:                                          ; preds = %entry
-  %4 = load i64, ptr %__nodes_to_add.addr, align 8
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this1, i64 noundef %4, i1 noundef zeroext false)
-  br label %if.end
+24:                                               ; preds = %2
+  %25 = load i64, ptr %4, align 8, !tbaa !10
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %5, i64 noundef %25, i1 noundef zeroext false)
+  br label %26
 
-if.end:                                           ; preds = %if.then, %entry
+26:                                               ; preds = %24, %2
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_allocate_nodeEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %call = call noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
-  %call2 = call noundef ptr @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, i64 noundef %call)
-  ret ptr %call2
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__new_node) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__new_node.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__new_node, ptr %__new_node.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__new_node.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 3
-  store ptr %0, ptr %_M_node, align 8
-  %1 = load ptr, ptr %__new_node.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 1
-  store ptr %2, ptr %_M_first, align 8
-  %_M_first2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %_M_first2, align 8
-  %call = call noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E14_S_buffer_sizeEv() #7
-  %add.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %3, i64 %call
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 2
-  store ptr %add.ptr, ptr %_M_last, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZStmiRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %__x, ptr noundef nonnull align 8 dereferenceable(32) %__y) #1 comdat {
-entry:
-  %__x.addr = alloca ptr, align 8
-  %__y.addr = alloca ptr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %__y, ptr %__y.addr, align 8
-  %call = call noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E14_S_buffer_sizeEv() #7
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %0, i32 0, i32 3
-  %1 = load ptr, ptr %_M_node, align 8
-  %2 = load ptr, ptr %__y.addr, align 8
-  %_M_node1 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %2, i32 0, i32 3
-  %3 = load ptr, ptr %_M_node1, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %3 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  %4 = load ptr, ptr %__x.addr, align 8
-  %_M_node2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %4, i32 0, i32 3
-  %5 = load ptr, ptr %_M_node2, align 8
-  %tobool = icmp ne ptr %5, null
-  %conv = zext i1 %tobool to i64
-  %sub = sub nsw i64 %sub.ptr.div, %conv
-  %mul = mul nsw i64 %call, %sub
-  %6 = load ptr, ptr %__x.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %6, i32 0, i32 0
-  %7 = load ptr, ptr %_M_cur, align 8
-  %8 = load ptr, ptr %__x.addr, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %8, i32 0, i32 1
-  %9 = load ptr, ptr %_M_first, align 8
-  %sub.ptr.lhs.cast3 = ptrtoint ptr %7 to i64
-  %sub.ptr.rhs.cast4 = ptrtoint ptr %9 to i64
-  %sub.ptr.sub5 = sub i64 %sub.ptr.lhs.cast3, %sub.ptr.rhs.cast4
-  %sub.ptr.div6 = sdiv exact i64 %sub.ptr.sub5, 16
-  %add = add nsw i64 %mul, %sub.ptr.div6
-  %10 = load ptr, ptr %__y.addr, align 8
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %10, i32 0, i32 2
-  %11 = load ptr, ptr %_M_last, align 8
-  %12 = load ptr, ptr %__y.addr, align 8
-  %_M_cur7 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %12, i32 0, i32 0
-  %13 = load ptr, ptr %_M_cur7, align 8
-  %sub.ptr.lhs.cast8 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast9 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub10 = sub i64 %sub.ptr.lhs.cast8, %sub.ptr.rhs.cast9
-  %sub.ptr.div11 = sdiv exact i64 %sub.ptr.sub10, 16
-  %add12 = add nsw i64 %add, %sub.ptr.div11
-  ret i64 %add12
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E14_S_buffer_sizeEv() #1 comdat align 2 {
-entry:
-  %call = call noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_S_max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__diffmax = alloca i64, align 8
-  %__allocmax = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 9223372036854775807, ptr %__diffmax, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
-  store i64 %call, ptr %__allocmax, align 8
-  %call1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__diffmax, ptr noundef nonnull align 8 dereferenceable(8) %__allocmax)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
-  %1 = load i64, ptr %call1, align 8
-  ret i64 %1
-
-terminate.lpad:                                   ; preds = %entry
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #9
-  unreachable
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #1 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #1 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__b.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__a.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
+define linkonce_odr noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_M_allocate_nodeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !67
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %5 = call noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
+  %6 = call noundef ptr @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef %5)
   ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  ret i64 %call
+define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !77
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 3
+  store ptr %6, ptr %7, align 8, !tbaa !76
+  %8 = load ptr, ptr %4, align 8, !tbaa !77
+  %9 = load ptr, ptr %8, align 8, !tbaa !45
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 1
+  store ptr %9, ptr %10, align 8, !tbaa !74
+  %11 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
+  %13 = call noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E14_S_buffer_sizeEv() #11
+  %14 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 2
+  store ptr %14, ptr %15, align 8, !tbaa !75
+  ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr noundef i64 @_ZStmiRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = call noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E14_S_buffer_sizeEv() #11
+  %6 = load ptr, ptr %3, align 8, !tbaa !63
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %6, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8, !tbaa !76
+  %9 = load ptr, ptr %4, align 8, !tbaa !63
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %9, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
+  %12 = ptrtoint ptr %8 to i64
+  %13 = ptrtoint ptr %11 to i64
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 8
+  %16 = load ptr, ptr %3, align 8, !tbaa !63
+  %17 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %16, i32 0, i32 3
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  %19 = icmp ne ptr %18, null
+  %20 = zext i1 %19 to i64
+  %21 = sub nsw i64 %15, %20
+  %22 = mul nsw i64 %5, %21
+  %23 = load ptr, ptr %3, align 8, !tbaa !63
+  %24 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %24, align 8, !tbaa !73
+  %26 = load ptr, ptr %3, align 8, !tbaa !63
+  %27 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %26, i32 0, i32 1
+  %28 = load ptr, ptr %27, align 8, !tbaa !74
+  %29 = ptrtoint ptr %25 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = sdiv exact i64 %31, 16
+  %33 = add nsw i64 %22, %32
+  %34 = load ptr, ptr %4, align 8, !tbaa !63
+  %35 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %34, i32 0, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !75
+  %37 = load ptr, ptr %4, align 8, !tbaa !63
+  %38 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !73
+  %40 = ptrtoint ptr %36 to i64
+  %41 = ptrtoint ptr %39 to i64
+  %42 = sub i64 %40, %41
+  %43 = sdiv exact i64 %42, 16
+  %44 = add nsw i64 %33, %43
+  ret i64 %44
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E14_S_buffer_sizeEv() #2 comdat align 2 {
+  %1 = call noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
+  ret i64 %1
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_S_max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  store i64 9223372036854775807, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %5 = load ptr, ptr %2, align 8, !tbaa !65
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  store i64 %6, ptr %4, align 8, !tbaa !10
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret i64 %9
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #13
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !65
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret i64 %4
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !90
+  store ptr %1, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %4, align 8, !tbaa !90
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !90
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !90
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !80
   ret i64 576460752303423487
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__nodes_to_add, i1 noundef zeroext %__add_at_front) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__nodes_to_add.addr = alloca i64, align 8
-  %__add_at_front.addr = alloca i8, align 1
-  %__old_num_nodes = alloca i64, align 8
-  %__new_num_nodes = alloca i64, align 8
-  %__new_nstart = alloca ptr, align 8
-  %__new_map_size = alloca i64, align 8
-  %__new_map = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__nodes_to_add, ptr %__nodes_to_add.addr, align 8
-  %frombool = zext i1 %__add_at_front to i8
-  store i8 %frombool, ptr %__add_at_front.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 3
-  %0 = load ptr, ptr %_M_node, align 8
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %_M_node3 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_start, i32 0, i32 3
-  %1 = load ptr, ptr %_M_node3, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  %add = add nsw i64 %sub.ptr.div, 1
-  store i64 %add, ptr %__old_num_nodes, align 8
-  %2 = load i64, ptr %__old_num_nodes, align 8
-  %3 = load i64, ptr %__nodes_to_add.addr, align 8
-  %add4 = add i64 %2, %3
-  store i64 %add4, ptr %__new_num_nodes, align 8
-  %_M_impl5 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl5, i32 0, i32 1
-  %4 = load i64, ptr %_M_map_size, align 8
-  %5 = load i64, ptr %__new_num_nodes, align 8
-  %mul = mul i64 2, %5
-  %cmp = icmp ugt i64 %4, %mul
-  br i1 %cmp, label %if.then, label %if.else31
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_reallocate_mapEmb(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i1 noundef zeroext %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i8, align 1
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !61
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  %12 = zext i1 %2 to i8
+  store i8 %12, ptr %6, align 1, !tbaa !92
+  %13 = load ptr, ptr %4, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %14 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %15, i32 0, i32 3
+  %17 = load ptr, ptr %16, align 8, !tbaa !71
+  %18 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %18, i32 0, i32 2
+  %20 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !70
+  %22 = ptrtoint ptr %17 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = sdiv exact i64 %24, 8
+  %26 = add nsw i64 %25, 1
+  store i64 %26, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %27 = load i64, ptr %7, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = add i64 %27, %28
+  store i64 %29, ptr %8, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %30 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %31 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %30, i32 0, i32 1
+  %32 = load i64, ptr %31, align 8, !tbaa !72
+  %33 = load i64, ptr %8, align 8, !tbaa !10
+  %34 = mul i64 2, %33
+  %35 = icmp ugt i64 %32, %34
+  br i1 %35, label %36, label %88
 
-if.then:                                          ; preds = %entry
-  %_M_impl6 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl6, i32 0, i32 0
-  %6 = load ptr, ptr %_M_map, align 8
-  %_M_impl7 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size8 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl7, i32 0, i32 1
-  %7 = load i64, ptr %_M_map_size8, align 8
-  %8 = load i64, ptr %__new_num_nodes, align 8
-  %sub = sub i64 %7, %8
-  %div = udiv i64 %sub, 2
-  %add.ptr = getelementptr inbounds ptr, ptr %6, i64 %div
-  %9 = load i8, ptr %__add_at_front.addr, align 1
-  %tobool = trunc i8 %9 to i1
-  br i1 %tobool, label %cond.true, label %cond.false
+36:                                               ; preds = %3
+  %37 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %38 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %37, i32 0, i32 0
+  %39 = load ptr, ptr %38, align 8, !tbaa !69
+  %40 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %41 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %40, i32 0, i32 1
+  %42 = load i64, ptr %41, align 8, !tbaa !72
+  %43 = load i64, ptr %8, align 8, !tbaa !10
+  %44 = sub i64 %42, %43
+  %45 = udiv i64 %44, 2
+  %46 = getelementptr inbounds nuw ptr, ptr %39, i64 %45
+  %47 = load i8, ptr %6, align 1, !tbaa !92, !range !94, !noundef !95
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %49, label %51
 
-cond.true:                                        ; preds = %if.then
-  %10 = load i64, ptr %__nodes_to_add.addr, align 8
-  br label %cond.end
+49:                                               ; preds = %36
+  %50 = load i64, ptr %5, align 8, !tbaa !10
+  br label %52
 
-cond.false:                                       ; preds = %if.then
-  br label %cond.end
+51:                                               ; preds = %36
+  br label %52
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %10, %cond.true ], [ 0, %cond.false ]
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
-  store ptr %add.ptr9, ptr %__new_nstart, align 8
-  %11 = load ptr, ptr %__new_nstart, align 8
-  %_M_impl10 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start11 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl10, i32 0, i32 2
-  %_M_node12 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_start11, i32 0, i32 3
-  %12 = load ptr, ptr %_M_node12, align 8
-  %cmp13 = icmp ult ptr %11, %12
-  br i1 %cmp13, label %if.then14, label %if.else
+52:                                               ; preds = %51, %49
+  %53 = phi i64 [ %50, %49 ], [ 0, %51 ]
+  %54 = getelementptr inbounds nuw ptr, ptr %46, i64 %53
+  store ptr %54, ptr %9, align 8, !tbaa !77
+  %55 = load ptr, ptr %9, align 8, !tbaa !77
+  %56 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %57 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %56, i32 0, i32 2
+  %58 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %57, i32 0, i32 3
+  %59 = load ptr, ptr %58, align 8, !tbaa !70
+  %60 = icmp ult ptr %55, %59
+  br i1 %60, label %61, label %73
 
-if.then14:                                        ; preds = %cond.end
-  %_M_impl15 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start16 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl15, i32 0, i32 2
-  %_M_node17 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_start16, i32 0, i32 3
-  %13 = load ptr, ptr %_M_node17, align 8
-  %_M_impl18 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish19 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl18, i32 0, i32 3
-  %_M_node20 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish19, i32 0, i32 3
-  %14 = load ptr, ptr %_M_node20, align 8
-  %add.ptr21 = getelementptr inbounds ptr, ptr %14, i64 1
-  %15 = load ptr, ptr %__new_nstart, align 8
-  %call = call noundef ptr @_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %13, ptr noundef %add.ptr21, ptr noundef %15)
-  br label %if.end
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %63 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %62, i32 0, i32 2
+  %64 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %63, i32 0, i32 3
+  %65 = load ptr, ptr %64, align 8, !tbaa !70
+  %66 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %67 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %66, i32 0, i32 3
+  %68 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8, !tbaa !71
+  %70 = getelementptr inbounds ptr, ptr %69, i64 1
+  %71 = load ptr, ptr %9, align 8, !tbaa !77
+  %72 = call noundef ptr @_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %65, ptr noundef %70, ptr noundef %71)
+  br label %87
 
-if.else:                                          ; preds = %cond.end
-  %_M_impl22 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start23 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl22, i32 0, i32 2
-  %_M_node24 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_start23, i32 0, i32 3
-  %16 = load ptr, ptr %_M_node24, align 8
-  %_M_impl25 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish26 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl25, i32 0, i32 3
-  %_M_node27 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish26, i32 0, i32 3
-  %17 = load ptr, ptr %_M_node27, align 8
-  %add.ptr28 = getelementptr inbounds ptr, ptr %17, i64 1
-  %18 = load ptr, ptr %__new_nstart, align 8
-  %19 = load i64, ptr %__old_num_nodes, align 8
-  %add.ptr29 = getelementptr inbounds ptr, ptr %18, i64 %19
-  %call30 = call noundef ptr @_ZSt13copy_backwardIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %16, ptr noundef %add.ptr28, ptr noundef %add.ptr29)
-  br label %if.end
+73:                                               ; preds = %52
+  %74 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %75 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %74, i32 0, i32 2
+  %76 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %75, i32 0, i32 3
+  %77 = load ptr, ptr %76, align 8, !tbaa !70
+  %78 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %79 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %78, i32 0, i32 3
+  %80 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %79, i32 0, i32 3
+  %81 = load ptr, ptr %80, align 8, !tbaa !71
+  %82 = getelementptr inbounds ptr, ptr %81, i64 1
+  %83 = load ptr, ptr %9, align 8, !tbaa !77
+  %84 = load i64, ptr %7, align 8, !tbaa !10
+  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
+  %86 = call noundef ptr @_ZSt13copy_backwardIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %77, ptr noundef %82, ptr noundef %85)
+  br label %87
 
-if.end:                                           ; preds = %if.else, %if.then14
-  br label %if.end65
+87:                                               ; preds = %73, %61
+  br label %137
 
-if.else31:                                        ; preds = %entry
-  %_M_impl32 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size33 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl32, i32 0, i32 1
-  %20 = load i64, ptr %_M_map_size33, align 8
-  %_M_impl34 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size35 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl34, i32 0, i32 1
-  %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %_M_map_size35, ptr noundef nonnull align 8 dereferenceable(8) %__nodes_to_add.addr)
-  %21 = load i64, ptr %call36, align 8
-  %add37 = add i64 %20, %21
-  %add38 = add i64 %add37, 2
-  store i64 %add38, ptr %__new_map_size, align 8
-  %22 = load i64, ptr %__new_map_size, align 8
-  %call39 = call noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this1, i64 noundef %22)
-  store ptr %call39, ptr %__new_map, align 8
-  %23 = load ptr, ptr %__new_map, align 8
-  %24 = load i64, ptr %__new_map_size, align 8
-  %25 = load i64, ptr %__new_num_nodes, align 8
-  %sub40 = sub i64 %24, %25
-  %div41 = udiv i64 %sub40, 2
-  %add.ptr42 = getelementptr inbounds ptr, ptr %23, i64 %div41
-  %26 = load i8, ptr %__add_at_front.addr, align 1
-  %tobool43 = trunc i8 %26 to i1
-  br i1 %tobool43, label %cond.true44, label %cond.false45
+88:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %89 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %90 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %89, i32 0, i32 1
+  %91 = load i64, ptr %90, align 8, !tbaa !72
+  %92 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %93 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %92, i32 0, i32 1
+  %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %95 = load i64, ptr %94, align 8, !tbaa !10
+  %96 = add i64 %91, %95
+  %97 = add i64 %96, 2
+  store i64 %97, ptr %10, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #11
+  %98 = load i64, ptr %10, align 8, !tbaa !10
+  %99 = call noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %13, i64 noundef %98)
+  store ptr %99, ptr %11, align 8, !tbaa !77
+  %100 = load ptr, ptr %11, align 8, !tbaa !77
+  %101 = load i64, ptr %10, align 8, !tbaa !10
+  %102 = load i64, ptr %8, align 8, !tbaa !10
+  %103 = sub i64 %101, %102
+  %104 = udiv i64 %103, 2
+  %105 = getelementptr inbounds nuw ptr, ptr %100, i64 %104
+  %106 = load i8, ptr %6, align 1, !tbaa !92, !range !94, !noundef !95
+  %107 = trunc i8 %106 to i1
+  br i1 %107, label %108, label %110
 
-cond.true44:                                      ; preds = %if.else31
-  %27 = load i64, ptr %__nodes_to_add.addr, align 8
-  br label %cond.end46
+108:                                              ; preds = %88
+  %109 = load i64, ptr %5, align 8, !tbaa !10
+  br label %111
 
-cond.false45:                                     ; preds = %if.else31
-  br label %cond.end46
+110:                                              ; preds = %88
+  br label %111
 
-cond.end46:                                       ; preds = %cond.false45, %cond.true44
-  %cond47 = phi i64 [ %27, %cond.true44 ], [ 0, %cond.false45 ]
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
-  store ptr %add.ptr48, ptr %__new_nstart, align 8
-  %_M_impl49 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start50 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl49, i32 0, i32 2
-  %_M_node51 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_start50, i32 0, i32 3
-  %28 = load ptr, ptr %_M_node51, align 8
-  %_M_impl52 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish53 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl52, i32 0, i32 3
-  %_M_node54 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish53, i32 0, i32 3
-  %29 = load ptr, ptr %_M_node54, align 8
-  %add.ptr55 = getelementptr inbounds ptr, ptr %29, i64 1
-  %30 = load ptr, ptr %__new_nstart, align 8
-  %call56 = call noundef ptr @_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %28, ptr noundef %add.ptr55, ptr noundef %30)
-  %_M_impl57 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map58 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl57, i32 0, i32 0
-  %31 = load ptr, ptr %_M_map58, align 8
-  %_M_impl59 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size60 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl59, i32 0, i32 1
-  %32 = load i64, ptr %_M_map_size60, align 8
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %31, i64 noundef %32) #7
-  %33 = load ptr, ptr %__new_map, align 8
-  %_M_impl61 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map62 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl61, i32 0, i32 0
-  store ptr %33, ptr %_M_map62, align 8
-  %34 = load i64, ptr %__new_map_size, align 8
-  %_M_impl63 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_map_size64 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl63, i32 0, i32 1
-  store i64 %34, ptr %_M_map_size64, align 8
-  br label %if.end65
+111:                                              ; preds = %110, %108
+  %112 = phi i64 [ %109, %108 ], [ 0, %110 ]
+  %113 = getelementptr inbounds nuw ptr, ptr %105, i64 %112
+  store ptr %113, ptr %9, align 8, !tbaa !77
+  %114 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %115 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %114, i32 0, i32 2
+  %116 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %115, i32 0, i32 3
+  %117 = load ptr, ptr %116, align 8, !tbaa !70
+  %118 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %119 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %118, i32 0, i32 3
+  %120 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %119, i32 0, i32 3
+  %121 = load ptr, ptr %120, align 8, !tbaa !71
+  %122 = getelementptr inbounds ptr, ptr %121, i64 1
+  %123 = load ptr, ptr %9, align 8, !tbaa !77
+  %124 = call noundef ptr @_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %117, ptr noundef %122, ptr noundef %123)
+  %125 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %126 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %125, i32 0, i32 0
+  %127 = load ptr, ptr %126, align 8, !tbaa !69
+  %128 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %129 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %128, i32 0, i32 1
+  %130 = load i64, ptr %129, align 8, !tbaa !72
+  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE17_M_deallocate_mapEPPS2_m(ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef %127, i64 noundef %130) #11
+  %131 = load ptr, ptr %11, align 8, !tbaa !77
+  %132 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %133 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %132, i32 0, i32 0
+  store ptr %131, ptr %133, align 8, !tbaa !69
+  %134 = load i64, ptr %10, align 8, !tbaa !10
+  %135 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %136 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %135, i32 0, i32 1
+  store i64 %134, ptr %136, align 8, !tbaa !72
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  br label %137
 
-if.end65:                                         ; preds = %cond.end46, %if.end
-  %_M_impl66 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start67 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl66, i32 0, i32 2
-  %35 = load ptr, ptr %__new_nstart, align 8
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_start67, ptr noundef %35) #7
-  %_M_impl68 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish69 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl68, i32 0, i32 3
-  %36 = load ptr, ptr %__new_nstart, align 8
-  %37 = load i64, ptr %__old_num_nodes, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %36, i64 %37
-  %add.ptr71 = getelementptr inbounds ptr, ptr %add.ptr70, i64 -1
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_finish69, ptr noundef %add.ptr71) #7
+137:                                              ; preds = %111, %87
+  %138 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %139 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %138, i32 0, i32 2
+  %140 = load ptr, ptr %9, align 8, !tbaa !77
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %139, ptr noundef %140) #11
+  %141 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %13, i32 0, i32 0
+  %142 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %141, i32 0, i32 3
+  %143 = load ptr, ptr %9, align 8, !tbaa !77
+  %144 = load i64, ptr %7, align 8, !tbaa !10
+  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %144
+  %146 = getelementptr inbounds ptr, ptr %145, i64 -1
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef %146) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %0)
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %1)
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call2 = call noundef ptr @_ZSt13__copy_move_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %call, ptr noundef %call1, ptr noundef %2)
-  ret ptr %call2
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt4copyIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %7)
+  %9 = load ptr, ptr %5, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8, !tbaa !77
+  %12 = call noundef ptr @_ZSt13__copy_move_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt13copy_backwardIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %7)
+  %9 = load ptr, ptr %5, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %9)
+  %11 = load ptr, ptr %6, align 8, !tbaa !77
+  %12 = call noundef ptr @_ZSt22__copy_move_backward_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !90
+  store ptr %1, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %4, align 8, !tbaa !90
+  %7 = load i64, ptr %6, align 8, !tbaa !10
+  %8 = load ptr, ptr %5, align 8, !tbaa !90
+  %9 = load i64, ptr %8, align 8, !tbaa !10
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8, !tbaa !90
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8, !tbaa !90
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt13copy_backwardIPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET0_T_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %0)
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %1)
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call2 = call noundef ptr @_ZSt22__copy_move_backward_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %call, ptr noundef %call1, ptr noundef %2)
-  ret ptr %call2
-}
+define linkonce_odr noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"class.std::allocator.6", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !67
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %8 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  call void @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_get_map_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.6") align 1 %5, ptr noundef nonnull align 8 dereferenceable(80) %8) #11
+  %9 = load i64, ptr %4, align 8, !tbaa !10
+  %10 = invoke noundef ptr @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %9)
+          to label %11 unwind label %12
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__a, ptr noundef nonnull align 8 dereferenceable(8) %__b) #1 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__a.addr = alloca ptr, align 8
-  %__b.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__b, ptr %__b.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %0, align 8
-  %2 = load ptr, ptr %__b.addr, align 8
-  %3 = load i64, ptr %2, align 8
-  %cmp = icmp ult i64 %1, %3
-  br i1 %cmp, label %if.then, label %if.end
+11:                                               ; preds = %2
+  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
+  ret ptr %10
 
-if.then:                                          ; preds = %entry
-  %4 = load ptr, ptr %__b.addr, align 8
-  store ptr %4, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %5 = load ptr, ptr %__a.addr, align 8
-  store ptr %5, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %6 = load ptr, ptr %retval, align 8
-  ret ptr %6
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_allocate_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef %__n) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__map_alloc = alloca %"class.std::allocator.6", align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNKSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE20_M_get_map_allocatorEv(ptr sret(%"class.std::allocator.6") align 1 %__map_alloc, ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %0 = load i64, ptr %__n.addr, align 8
-  %call = invoke noundef ptr @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %__map_alloc, i64 noundef %0)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %entry
-  call void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__map_alloc) #7
-  ret ptr %call
-
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZNSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %__map_alloc) #7
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %6, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %7, align 4
+  call void @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8
+  %18 = load i32, ptr %7, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt13__copy_move_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %0) #7
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %1) #7
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call2 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %2) #7
-  %call3 = call noundef ptr @_ZSt14__copy_move_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %call, ptr noundef %call1, ptr noundef %call2)
-  %call4 = call noundef ptr @_ZSt12__niter_wrapIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %__result.addr, ptr noundef %call3)
-  ret ptr %call4
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt13__copy_move_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %7) #11
+  %9 = load ptr, ptr %5, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %9) #11
+  %11 = load ptr, ptr %6, align 8, !tbaa !77
+  %12 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %11) #11
+  %13 = call noundef ptr @_ZSt14__copy_move_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %12)
+  %14 = call noundef ptr @_ZSt12__niter_wrapIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13)
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %__it) #1 comdat {
-entry:
-  %__it.addr = alloca ptr, align 8
-  store ptr %__it, ptr %__it.addr, align 8
-  %0 = load ptr, ptr %__it.addr, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__miter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
+  ret ptr %3
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_wrapIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %__res) #1 comdat {
-entry:
-  %.addr = alloca ptr, align 8
-  %__res.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
-  store ptr %__res, ptr %__res.addr, align 8
-  %1 = load ptr, ptr %__res.addr, align 8
-  ret ptr %1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_wrapIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #3 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !96
+  store ptr %1, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  ret ptr %5
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt14__copy_move_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZSt14__copy_move_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt14__copy_move_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load ptr, ptr %6, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZSt14__copy_move_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %__it) #1 comdat {
-entry:
-  %__it.addr = alloca ptr, align 8
-  store ptr %__it, ptr %__it.addr, align 8
-  %0 = load ptr, ptr %__it.addr, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
+  ret ptr %3
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt14__copy_move_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt14__copy_move_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load ptr, ptr %6, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #1 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %_Num = alloca i64, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %_Num, align 8
-  %2 = load i64, ptr %_Num, align 8
-  %tobool = icmp ne i64 %2, 0
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr noundef ptr @_ZNSt11__copy_moveILb0ELb1ESt26random_access_iterator_tagE8__copy_mIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load ptr, ptr %4, align 8, !tbaa !77
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  store i64 %13, ptr %7, align 8, !tbaa !10
+  %14 = load i64, ptr %7, align 8, !tbaa !10
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %21
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %__result.addr, align 8
-  %4 = load ptr, ptr %__first.addr, align 8
-  %5 = load i64, ptr %_Num, align 8
-  %mul = mul i64 8, %5
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 %mul, i1 false)
-  br label %if.end
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %6, align 8, !tbaa !77
+  %18 = load ptr, ptr %4, align 8, !tbaa !77
+  %19 = load i64, ptr %7, align 8, !tbaa !10
+  %20 = mul i64 8, %19
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %17, ptr align 8 %18, i64 %20, i1 false)
+  br label %21
 
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %__result.addr, align 8
-  %7 = load i64, ptr %_Num, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %6, i64 %7
-  ret ptr %add.ptr
+21:                                               ; preds = %16, %3
+  %22 = load ptr, ptr %6, align 8, !tbaa !77
+  %23 = load i64, ptr %7, align 8, !tbaa !10
+  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret ptr %24
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt22__copy_move_backward_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %0) #7
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %1) #7
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call2 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %2) #7
-  %call3 = call noundef ptr @_ZSt23__copy_move_backward_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %call, ptr noundef %call1, ptr noundef %call2)
-  %call4 = call noundef ptr @_ZSt12__niter_wrapIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %__result.addr, ptr noundef %call3)
-  ret ptr %call4
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__copy_move_backward_aILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %7) #11
+  %9 = load ptr, ptr %5, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %9) #11
+  %11 = load ptr, ptr %6, align 8, !tbaa !77
+  %12 = call noundef ptr @_ZSt12__niter_baseIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_S5_(ptr noundef %11) #11
+  %13 = call noundef ptr @_ZSt23__copy_move_backward_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %8, ptr noundef %10, ptr noundef %12)
+  %14 = call noundef ptr @_ZSt12__niter_wrapIPPN4YAML19GraphBuilderAdapter14ContainerFrameEET_RKS5_S5_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %13)
+  ret ptr %14
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZSt23__copy_move_backward_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a1ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load ptr, ptr %6, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZSt23__copy_move_backward_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call = call noundef ptr @_ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt23__copy_move_backward_a2ILb0EPPN4YAML19GraphBuilderAdapter14ContainerFrameES4_ET1_T0_S6_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  %7 = load ptr, ptr %4, align 8, !tbaa !77
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load ptr, ptr %6, align 8, !tbaa !77
+  %10 = call noundef ptr @_ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %7, ptr noundef %8, ptr noundef %9)
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result) #1 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %_Num = alloca i64, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %_Num, align 8
-  %2 = load i64, ptr %_Num, align 8
-  %tobool = icmp ne i64 %2, 0
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr noundef ptr @_ZNSt20__copy_move_backwardILb0ELb1ESt26random_access_iterator_tagE13__copy_move_bIPN4YAML19GraphBuilderAdapter14ContainerFrameEEEPT_PKS7_SA_S8_(ptr noundef %0, ptr noundef %1, ptr noundef %2) #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store ptr %1, ptr %5, align 8, !tbaa !77
+  store ptr %2, ptr %6, align 8, !tbaa !77
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %5, align 8, !tbaa !77
+  %9 = load ptr, ptr %4, align 8, !tbaa !77
+  %10 = ptrtoint ptr %8 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  store i64 %13, ptr %7, align 8, !tbaa !10
+  %14 = load i64, ptr %7, align 8, !tbaa !10
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %24
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %__result.addr, align 8
-  %4 = load i64, ptr %_Num, align 8
-  %idx.neg = sub i64 0, %4
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %idx.neg
-  %5 = load ptr, ptr %__first.addr, align 8
-  %6 = load i64, ptr %_Num, align 8
-  %mul = mul i64 8, %6
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr, ptr align 8 %5, i64 %mul, i1 false)
-  br label %if.end
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %6, align 8, !tbaa !77
+  %18 = load i64, ptr %7, align 8, !tbaa !10
+  %19 = sub i64 0, %18
+  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %21 = load ptr, ptr %4, align 8, !tbaa !77
+  %22 = load i64, ptr %7, align 8, !tbaa !10
+  %23 = mul i64 8, %22
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %20, ptr align 8 %21, i64 %23, i1 false)
+  br label %24
 
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %__result.addr, align 8
-  %8 = load i64, ptr %_Num, align 8
-  %idx.neg1 = sub i64 0, %8
-  %add.ptr2 = getelementptr inbounds ptr, ptr %7, i64 %idx.neg1
-  ret ptr %add.ptr2
+24:                                               ; preds = %16, %3
+  %25 = load ptr, ptr %6, align 8, !tbaa !77
+  %26 = load i64, ptr %7, align 8, !tbaa !10
+  %27 = sub i64 0, %26
+  %28 = getelementptr inbounds ptr, ptr %25, i64 %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret ptr %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIPN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !82
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !84
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %cmp2, label %if.then3, label %if.end
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !10
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #10
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #10
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #11
-  ret ptr %call5
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !10
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !84
   ret i64 1152921504606846975
 }
 
-; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() #5
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(none)
+declare i64 @llvm.expect.i64(i64, i64) #9
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() #5
+declare void @_ZSt28__throw_bad_array_new_lengthv() #8
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #8
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) #6
+declare noundef nonnull ptr @_Znwm(i64 noundef) #10
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !65
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !80
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 1152921504606846975
-  br i1 %cmp2, label %if.then3, label %if.end
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !10
+  %16 = icmp ugt i64 %15, 1152921504606846975
+  br i1 %16, label %17, label %18
 
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #10
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #10
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 16
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #11
-  ret ptr %call5
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !10
+  %21 = mul i64 %20, 16
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__tmp = alloca %"struct.std::_Deque_iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr sret(%"struct.std::_Deque_iterator") align 8 %__tmp, ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %__tmp) #7
-  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %__tmp) #7
-  ret ptr %call2
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_Deque_iterator", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #11
+  call void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr dead_on_unwind writable sret(%"struct.std::_Deque_iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %4) #11
+  %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #11
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_cur, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_M_first, align 8
-  %cmp = icmp eq ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
+  %8 = icmp eq ptr %5, %7
+  br i1 %8, label %9, label %16
 
-if.then:                                          ; preds = %entry
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %_M_node, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 -1
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %add.ptr) #7
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %_M_last, align 8
-  %_M_cur2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 0
-  store ptr %3, ptr %_M_cur2, align 8
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
+  %12 = getelementptr inbounds ptr, ptr %11, i64 -1
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %12) #11
+  %13 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !75
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !73
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %_M_cur3 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 0
-  %4 = load ptr, ptr %_M_cur3, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %4, i32 -1
-  store ptr %incdec.ptr, ptr %_M_cur3, align 8
-  ret ptr %this1
+16:                                               ; preds = %9, %1
+  %17 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !73
+  %19 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %18, i32 -1
+  store ptr %19, ptr %17, align 8, !tbaa !73
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_cur, align 8
-  ret ptr %0
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !63
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 0
-  %0 = load ptr, ptr %_M_cur, align 8
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish3 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 3
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish3, i32 0, i32 1
-  %1 = load ptr, ptr %_M_first, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %4, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !86
+  %8 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %8, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !88
+  %12 = icmp ne ptr %7, %11
+  br i1 %12, label %13, label %24
 
-if.then:                                          ; preds = %entry
-  %_M_impl4 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish5 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl4, i32 0, i32 3
-  %_M_cur6 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish5, i32 0, i32 0
-  %2 = load ptr, ptr %_M_cur6, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %2, i32 -1
-  store ptr %incdec.ptr, ptr %_M_cur6, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %_M_impl7 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish8 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl7, i32 0, i32 3
-  %_M_cur9 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish8, i32 0, i32 0
-  %3 = load ptr, ptr %_M_cur9, align 8
-  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef %3) #7
-  br label %if.end
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %14, i32 0, i32 3
+  %16 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8, !tbaa !86
+  %18 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %17, i32 -1
+  store ptr %18, ptr %16, align 8, !tbaa !86
+  %19 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
+  %20 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %20, i32 0, i32 3
+  %22 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %21, i32 0, i32 0
+  %23 = load ptr, ptr %22, align 8, !tbaa !86
+  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef %23) #11
+  br label %26
 
-if.else:                                          ; preds = %entry
-  invoke void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_pop_back_auxEv(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-          to label %invoke.cont unwind label %terminate.lpad
+24:                                               ; preds = %1
+  invoke void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_pop_back_auxEv(ptr noundef nonnull align 8 dereferenceable(80) %3)
+          to label %25 unwind label %27
 
-invoke.cont:                                      ; preds = %if.else
-  br label %if.end
+25:                                               ; preds = %24
+  br label %26
 
-if.end:                                           ; preds = %invoke.cont, %if.then
+26:                                               ; preds = %25, %13
   ret void
 
-terminate.lpad:                                   ; preds = %if.else
-  %4 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %5 = extractvalue { ptr, i32 } %4, 0
-  call void @__clang_call_terminate(ptr %5) #9
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %__a, ptr noundef %__p) #1 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load ptr, ptr %__p.addr, align 8
-  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE7destroyIS2_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #7
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !65
+  store ptr %1, ptr %4, align 8, !tbaa !45
+  %5 = load ptr, ptr %3, align 8, !tbaa !65
+  %6 = load ptr, ptr %4, align 8, !tbaa !45
+  call void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE7destroyIS2_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_pop_back_auxEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish, i32 0, i32 1
-  %0 = load ptr, ptr %_M_first, align 8
-  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %0) #7
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish3 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 3
-  %_M_impl4 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish5 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl4, i32 0, i32 3
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish5, i32 0, i32 3
-  %1 = load ptr, ptr %_M_node, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %1, i64 -1
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_finish3, ptr noundef %add.ptr) #7
-  %_M_impl6 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish7 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl6, i32 0, i32 3
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish7, i32 0, i32 2
-  %2 = load ptr, ptr %_M_last, align 8
-  %add.ptr8 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %2, i64 -1
-  %_M_impl9 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish10 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl9, i32 0, i32 3
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish10, i32 0, i32 0
-  store ptr %add.ptr8, ptr %_M_cur, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %_M_impl11 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish12 = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl11, i32 0, i32 3
-  %_M_cur13 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %_M_finish12, i32 0, i32 0
-  %3 = load ptr, ptr %_M_cur13, align 8
-  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef %3) #7
+define linkonce_odr void @_ZNSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE15_M_pop_back_auxEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %4, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !88
+  call void @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE18_M_deallocate_nodeEPS2_(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef %7) #11
+  %8 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %9 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %8, i32 0, i32 3
+  %10 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %10, i32 0, i32 3
+  %12 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %11, i32 0, i32 3
+  %13 = load ptr, ptr %12, align 8, !tbaa !71
+  %14 = getelementptr inbounds ptr, ptr %13, i64 -1
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E11_M_set_nodeEPS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %14) #11
+  %15 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %16 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %15, i32 0, i32 3
+  %17 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8, !tbaa !87
+  %19 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %18, i64 -1
+  %20 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %21 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %20, i32 0, i32 3
+  %22 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %21, i32 0, i32 0
+  store ptr %19, ptr %22, align 8, !tbaa !86
+  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(80) %3) #11
+  %24 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %25 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %24, i32 0, i32 3
+  %26 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8, !tbaa !86
+  call void @_ZNSt16allocator_traitsISaIN4YAML19GraphBuilderAdapter14ContainerFrameEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef %27) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE7destroyIS2_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %__p) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
+define linkonce_odr void @_ZNSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE7destroyIS2_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !80
+  store ptr %1, ptr %4, align 8, !tbaa !45
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  %_M_impl2 = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl2, i32 0, i32 2
-  %call = call noundef zeroext i1 @_ZSteqRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %_M_finish, ptr noundef nonnull align 8 dereferenceable(32) %_M_start) #7
-  ret i1 %call
+define linkonce_odr noundef zeroext i1 @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %4, i32 0, i32 3
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %6, i32 0, i32 2
+  %8 = call noundef zeroext i1 @_ZSteqRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7) #11
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZSteqRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %__x, ptr noundef nonnull align 8 dereferenceable(32) %__y) #1 comdat {
-entry:
-  %__x.addr = alloca ptr, align 8
-  %__y.addr = alloca ptr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  store ptr %__y, ptr %__y.addr, align 8
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %_M_cur, align 8
-  %2 = load ptr, ptr %__y.addr, align 8
-  %_M_cur1 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %_M_cur1, align 8
-  %cmp = icmp eq ptr %1, %3
-  ret i1 %cmp
+define linkonce_odr noundef zeroext i1 @_ZSteqRKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_ES7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8, !tbaa !63
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !73
+  %8 = load ptr, ptr %4, align 8, !tbaa !63
+  %9 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !73
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__tmp = alloca %"struct.std::_Deque_iterator.9", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr sret(%"struct.std::_Deque_iterator.9") align 8 %__tmp, ptr noundef nonnull align 8 dereferenceable(80) %this1) #7
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %__tmp) #7
-  %call2 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %__tmp) #7
-  ret ptr %call2
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_Deque_iterator.9", align 8
+  store ptr %0, ptr %2, align 8, !tbaa !61
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr %3) #11
+  call void @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr dead_on_unwind writable sret(%"struct.std::_Deque_iterator.9") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %4) #11
+  %5 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
+  %6 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr %3) #11
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr noalias sret(%"struct.std::_Deque_iterator.9") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) #1 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"class.std::_Deque_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %_M_impl, i32 0, i32 3
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EC2IS_IS2_RS2_PS2_EvEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %_M_finish) #7
+define linkonce_odr void @_ZNKSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE3endEv(ptr dead_on_unwind noalias writable sret(%"struct.std::_Deque_iterator.9") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !61
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds nuw %"class.std::_Deque_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_base<YAML::GraphBuilderAdapter::ContainerFrame, std::allocator<YAML::GraphBuilderAdapter::ContainerFrame>>::_Deque_impl_data", ptr %6, i32 0, i32 3
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EC2IS_IS2_RS2_PS2_EvEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_cur, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %_M_first, align 8
-  %cmp = icmp eq ptr %0, %1
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EmmEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8, !tbaa !103
+  %8 = icmp eq ptr %5, %7
+  br i1 %8, label %9, label %16
 
-if.then:                                          ; preds = %entry
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 3
-  %2 = load ptr, ptr %_M_node, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %2, i64 -1
-  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E11_M_set_nodeEPPS2_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %add.ptr) #7
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 2
-  %3 = load ptr, ptr %_M_last, align 8
-  %_M_cur2 = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 0
-  store ptr %3, ptr %_M_cur2, align 8
-  br label %if.end
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 3
+  %11 = load ptr, ptr %10, align 8, !tbaa !104
+  %12 = getelementptr inbounds ptr, ptr %11, i64 -1
+  call void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E11_M_set_nodeEPPS2_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %12) #11
+  %13 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 2
+  %14 = load ptr, ptr %13, align 8, !tbaa !105
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 0
+  store ptr %14, ptr %15, align 8, !tbaa !101
+  br label %16
 
-if.end:                                           ; preds = %if.then, %entry
-  %_M_cur3 = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 0
-  %4 = load ptr, ptr %_M_cur3, align 8
-  %incdec.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %4, i32 -1
-  store ptr %incdec.ptr, ptr %_M_cur3, align 8
-  ret ptr %this1
+16:                                               ; preds = %9, %1
+  %17 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8, !tbaa !101
+  %19 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %18, i32 -1
+  store ptr %19, ptr %17, align 8, !tbaa !101
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %_M_cur, align 8
-  ret ptr %0
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNKSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EdeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EC2IS_IS2_RS2_PS2_EvEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %__x) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__x.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__x, ptr %__x.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_cur = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %__x.addr, align 8
-  %_M_cur2 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %_M_cur2, align 8
-  store ptr %1, ptr %_M_cur, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %__x.addr, align 8
-  %_M_first3 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %_M_first3, align 8
-  store ptr %3, ptr %_M_first, align 8
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 2
-  %4 = load ptr, ptr %__x.addr, align 8
-  %_M_last4 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %4, i32 0, i32 2
-  %5 = load ptr, ptr %_M_last4, align 8
-  store ptr %5, ptr %_M_last, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 3
-  %6 = load ptr, ptr %__x.addr, align 8
-  %_M_node5 = getelementptr inbounds %"struct.std::_Deque_iterator", ptr %6, i32 0, i32 3
-  %7 = load ptr, ptr %_M_node5, align 8
-  store ptr %7, ptr %_M_node, align 8
+define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_EC2IS_IS2_RS2_PS2_EvEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store ptr %1, ptr %4, align 8, !tbaa !63
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !63
+  %8 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  store ptr %9, ptr %6, align 8, !tbaa !101
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8, !tbaa !63
+  %12 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !74
+  store ptr %13, ptr %10, align 8, !tbaa !103
+  %14 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8, !tbaa !63
+  %16 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  store ptr %17, ptr %14, align 8, !tbaa !105
+  %18 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 3
+  %19 = load ptr, ptr %4, align 8, !tbaa !63
+  %20 = getelementptr inbounds nuw %"struct.std::_Deque_iterator", ptr %19, i32 0, i32 3
+  %21 = load ptr, ptr %20, align 8, !tbaa !76
+  store ptr %21, ptr %18, align 8, !tbaa !104
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E11_M_set_nodeEPPS2_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__new_node) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__new_node.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__new_node, ptr %__new_node.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %__new_node.addr, align 8
-  %_M_node = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 3
-  store ptr %0, ptr %_M_node, align 8
-  %1 = load ptr, ptr %__new_node.addr, align 8
-  %2 = load ptr, ptr %1, align 8
-  %_M_first = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 1
-  store ptr %2, ptr %_M_first, align 8
-  %_M_first2 = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %_M_first2, align 8
-  %call = call noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E14_S_buffer_sizeEv() #7
-  %add.ptr = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %3, i64 %call
-  %_M_last = getelementptr inbounds %"struct.std::_Deque_iterator.9", ptr %this1, i32 0, i32 2
-  store ptr %add.ptr, ptr %_M_last, align 8
+define linkonce_odr void @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E11_M_set_nodeEPPS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !99
+  store ptr %1, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !77
+  %7 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 3
+  store ptr %6, ptr %7, align 8, !tbaa !104
+  %8 = load ptr, ptr %4, align 8, !tbaa !77
+  %9 = load ptr, ptr %8, align 8, !tbaa !45
+  %10 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 1
+  store ptr %9, ptr %10, align 8, !tbaa !103
+  %11 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8, !tbaa !103
+  %13 = call noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E14_S_buffer_sizeEv() #11
+  %14 = getelementptr inbounds %"struct.YAML::GraphBuilderAdapter::ContainerFrame", ptr %12, i64 %13
+  %15 = getelementptr inbounds nuw %"struct.std::_Deque_iterator.9", ptr %5, i32 0, i32 2
+  store ptr %14, ptr %15, align 8, !tbaa !105
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E14_S_buffer_sizeEv() #1 comdat align 2 {
-entry:
-  %call = call noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E14_S_buffer_sizeEv() #2 comdat align 2 {
+  %1 = call noundef i64 @_ZSt16__deque_buf_sizem(i64 noundef 16)
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 0
-  %1 = load ptr, ptr %_M_start, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  ret i64 %sub.ptr.div
+define linkonce_odr noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8, !tbaa !52
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 8
+  ret i64 %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__new_size.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__new_size, ptr %__new_size.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__new_size.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %cmp = icmp ugt i64 %0, %call
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %8 = icmp ugt i64 %6, %7
+  br i1 %8, label %9, label %13
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %__new_size.addr, align 8
-  %call2 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %sub = sub i64 %1, %call2
-  call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %sub)
-  br label %if.end6
+9:                                                ; preds = %2
+  %10 = load i64, ptr %4, align 8, !tbaa !10
+  %11 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %12 = sub i64 %10, %11
+  call void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %12)
+  br label %24
 
-if.else:                                          ; preds = %entry
-  %2 = load i64, ptr %__new_size.addr, align 8
-  %call3 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %cmp4 = icmp ult i64 %2, %call3
-  br i1 %cmp4, label %if.then5, label %if.end
+13:                                               ; preds = %2
+  %14 = load i64, ptr %4, align 8, !tbaa !10
+  %15 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
+  %16 = icmp ult i64 %14, %15
+  br i1 %16, label %17, label %23
 
-if.then5:                                         ; preds = %if.else
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %3 = load ptr, ptr %_M_start, align 8
-  %4 = load i64, ptr %__new_size.addr, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %4
-  call void @_ZNSt6vectorIPvSaIS0_EE15_M_erase_at_endEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %add.ptr) #7
-  br label %if.end
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8, !tbaa !51
+  %21 = load i64, ptr %4, align 8, !tbaa !10
+  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  call void @_ZNSt6vectorIPvSaIS0_EE15_M_erase_at_endEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %22) #11
+  br label %23
 
-if.end:                                           ; preds = %if.then5, %if.else
-  br label %if.end6
+23:                                               ; preds = %17, %13
+  br label %24
 
-if.end6:                                          ; preds = %if.end, %if.then
+24:                                               ; preds = %23, %9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 0
-  %0 = load ptr, ptr %_M_start, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %0, i64 %1
-  ret ptr %add.ptr
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6vectorIPvSaIS0_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !51
+  %9 = load i64, ptr %4, align 8, !tbaa !10
+  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__size = alloca i64, align 8
-  %__navail = alloca i64, align 8
-  %__old_start = alloca ptr, align 8
-  %__old_finish = alloca ptr, align 8
-  %__len = alloca i64, align 8
-  %__new_start = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end44
+define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %13 = load ptr, ptr %3, align 8
+  %14 = load i64, ptr %4, align 8, !tbaa !10
+  %15 = icmp ne i64 %14, 0
+  br i1 %15, label %16, label %115
 
-if.then:                                          ; preds = %entry
-  %call = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  store i64 %call, ptr %__size, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 2
-  %1 = load ptr, ptr %_M_end_of_storage, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %2 = load ptr, ptr %_M_finish, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %2 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %__navail, align 8
-  %3 = load i64, ptr %__size, align 8
-  %call3 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %cmp4 = icmp ugt i64 %3, %call3
-  br i1 %cmp4, label %if.then7, label %lor.lhs.false
+16:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %17 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  store i64 %17, ptr %5, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #11
+  %18 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %18, i32 0, i32 2
+  %20 = load ptr, ptr %19, align 8, !tbaa !58
+  %21 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %22 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %21, i32 0, i32 1
+  %23 = load ptr, ptr %22, align 8, !tbaa !52
+  %24 = ptrtoint ptr %20 to i64
+  %25 = ptrtoint ptr %23 to i64
+  %26 = sub i64 %24, %25
+  %27 = sdiv exact i64 %26, 8
+  store i64 %27, ptr %6, align 8, !tbaa !10
+  %28 = load i64, ptr %5, align 8, !tbaa !10
+  %29 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %30 = icmp ugt i64 %28, %29
+  br i1 %30, label %37, label %31
 
-lor.lhs.false:                                    ; preds = %if.then
-  %4 = load i64, ptr %__navail, align 8
-  %call5 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %5 = load i64, ptr %__size, align 8
-  %sub = sub i64 %call5, %5
-  %cmp6 = icmp ugt i64 %4, %sub
-  br i1 %cmp6, label %if.then7, label %if.end
+31:                                               ; preds = %16
+  %32 = load i64, ptr %6, align 8, !tbaa !10
+  %33 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %34 = load i64, ptr %5, align 8, !tbaa !10
+  %35 = sub i64 %33, %34
+  %36 = icmp ugt i64 %32, %35
+  br i1 %36, label %37, label %38
 
-if.then7:                                         ; preds = %lor.lhs.false, %if.then
+37:                                               ; preds = %31, %16
   unreachable
 
-if.end:                                           ; preds = %lor.lhs.false
-  %6 = load i64, ptr %__navail, align 8
-  %7 = load i64, ptr %__n.addr, align 8
-  %cmp8 = icmp uge i64 %6, %7
-  br i1 %cmp8, label %if.then9, label %if.else
+38:                                               ; preds = %31
+  %39 = load i64, ptr %6, align 8, !tbaa !10
+  %40 = load i64, ptr %4, align 8, !tbaa !10
+  %41 = icmp uge i64 %39, %40
+  br i1 %41, label %42, label %51
 
-if.then9:                                         ; preds = %if.end
-  %_M_impl10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish11 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl10, i32 0, i32 1
-  %8 = load ptr, ptr %_M_finish11, align 8
-  %9 = load i64, ptr %__n.addr, align 8
-  %call12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %call13 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %call12)
-  %_M_impl14 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish15 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl14, i32 0, i32 1
-  store ptr %call13, ptr %_M_finish15, align 8
-  br label %if.end43
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %44 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %43, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !52
+  %46 = load i64, ptr %4, align 8, !tbaa !10
+  %47 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %48 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E(ptr noundef %45, i64 noundef %46, ptr noundef nonnull align 1 dereferenceable(1) %47)
+  %49 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %50 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %49, i32 0, i32 1
+  store ptr %48, ptr %50, align 8, !tbaa !52
+  br label %114
 
-if.else:                                          ; preds = %if.end
-  %_M_impl16 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl16, i32 0, i32 0
-  %10 = load ptr, ptr %_M_start, align 8
-  store ptr %10, ptr %__old_start, align 8
-  %_M_impl17 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish18 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl17, i32 0, i32 1
-  %11 = load ptr, ptr %_M_finish18, align 8
-  store ptr %11, ptr %__old_finish, align 8
-  %12 = load i64, ptr %__n.addr, align 8
-  %call19 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %12, ptr noundef @.str.1)
-  store i64 %call19, ptr %__len, align 8
-  %13 = load i64, ptr %__len, align 8
-  %call20 = call noundef ptr @_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %13)
-  store ptr %call20, ptr %__new_start, align 8
-  %14 = load ptr, ptr %__new_start, align 8
-  %15 = load i64, ptr %__size, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %14, i64 %15
-  %16 = load i64, ptr %__n.addr, align 8
-  %call21 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %call22 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E(ptr noundef %add.ptr, i64 noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %call21)
-          to label %invoke.cont unwind label %lpad
+51:                                               ; preds = %38
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %52 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %53 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %52, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8, !tbaa !51
+  store ptr %54, ptr %7, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %55 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %56 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %55, i32 0, i32 1
+  %57 = load ptr, ptr %56, align 8, !tbaa !52
+  store ptr %57, ptr %8, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %58 = load i64, ptr %4, align 8, !tbaa !10
+  %59 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %58, ptr noundef @.str.1)
+  store i64 %59, ptr %9, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #11
+  %60 = load i64, ptr %9, align 8, !tbaa !10
+  %61 = call noundef ptr @_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %60)
+  store ptr %61, ptr %10, align 8, !tbaa !53
+  %62 = load ptr, ptr %10, align 8, !tbaa !53
+  %63 = load i64, ptr %5, align 8, !tbaa !10
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
+  %65 = load i64, ptr %4, align 8, !tbaa !10
+  %66 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %67 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E(ptr noundef %64, i64 noundef %65, ptr noundef nonnull align 1 dereferenceable(1) %66)
+          to label %68 unwind label %69
 
-invoke.cont:                                      ; preds = %if.else
-  br label %try.cont
+68:                                               ; preds = %51
+  br label %84
 
-lpad:                                             ; preds = %if.else
-  %17 = landingpad { ptr, i32 }
+69:                                               ; preds = %51
+  %70 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  store ptr %18, ptr %exn.slot, align 8
-  %19 = extractvalue { ptr, i32 } %17, 1
-  store i32 %19, ptr %ehselector.slot, align 4
-  br label %catch
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %11, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %12, align 4
+  br label %73
 
-catch:                                            ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %20 = call ptr @__cxa_begin_catch(ptr %exn) #7
-  %21 = load ptr, ptr %__new_start, align 8
-  %22 = load i64, ptr %__len, align 8
-  invoke void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %21, i64 noundef %22)
-          to label %invoke.cont24 unwind label %lpad23
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %11, align 8
+  %75 = call ptr @__cxa_begin_catch(ptr %74) #11
+  %76 = load ptr, ptr %10, align 8, !tbaa !53
+  %77 = load i64, ptr %9, align 8, !tbaa !10
+  invoke void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %76, i64 noundef %77)
+          to label %78 unwind label %79
 
-invoke.cont24:                                    ; preds = %catch
-  invoke void @__cxa_rethrow() #10
-          to label %unreachable unwind label %lpad23
+78:                                               ; preds = %73
+  invoke void @__cxa_rethrow() #14
+          to label %124 unwind label %79
 
-lpad23:                                           ; preds = %invoke.cont24, %catch
-  %23 = landingpad { ptr, i32 }
+79:                                               ; preds = %78, %73
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %24 = extractvalue { ptr, i32 } %23, 0
-  store ptr %24, ptr %exn.slot, align 8
-  %25 = extractvalue { ptr, i32 } %23, 1
-  store i32 %25, ptr %ehselector.slot, align 4
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %11, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %12, align 4
   invoke void @__cxa_end_catch()
-          to label %invoke.cont25 unwind label %terminate.lpad
+          to label %83 unwind label %121
 
-invoke.cont25:                                    ; preds = %lpad23
-  br label %eh.resume
+83:                                               ; preds = %79
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %116
 
-try.cont:                                         ; preds = %invoke.cont
-  %26 = load ptr, ptr %__old_start, align 8
-  %27 = load ptr, ptr %__old_finish, align 8
-  %28 = load ptr, ptr %__new_start, align 8
-  %call26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %call27 = call noundef ptr @_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_(ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %call26) #7
-  %29 = load ptr, ptr %__old_start, align 8
-  %_M_impl28 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage29 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl28, i32 0, i32 2
-  %30 = load ptr, ptr %_M_end_of_storage29, align 8
-  %31 = load ptr, ptr %__old_start, align 8
-  %sub.ptr.lhs.cast30 = ptrtoint ptr %30 to i64
-  %sub.ptr.rhs.cast31 = ptrtoint ptr %31 to i64
-  %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
-  %sub.ptr.div33 = sdiv exact i64 %sub.ptr.sub32, 8
-  call void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %29, i64 noundef %sub.ptr.div33)
-  %32 = load ptr, ptr %__new_start, align 8
-  %_M_impl34 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_start35 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl34, i32 0, i32 0
-  store ptr %32, ptr %_M_start35, align 8
-  %33 = load ptr, ptr %__new_start, align 8
-  %34 = load i64, ptr %__size, align 8
-  %add.ptr36 = getelementptr inbounds ptr, ptr %33, i64 %34
-  %35 = load i64, ptr %__n.addr, align 8
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr36, i64 %35
-  %_M_impl38 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish39 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl38, i32 0, i32 1
-  store ptr %add.ptr37, ptr %_M_finish39, align 8
-  %36 = load ptr, ptr %__new_start, align 8
-  %37 = load i64, ptr %__len, align 8
-  %add.ptr40 = getelementptr inbounds ptr, ptr %36, i64 %37
-  %_M_impl41 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_end_of_storage42 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl41, i32 0, i32 2
-  store ptr %add.ptr40, ptr %_M_end_of_storage42, align 8
-  br label %if.end43
+84:                                               ; preds = %68
+  %85 = load ptr, ptr %7, align 8, !tbaa !53
+  %86 = load ptr, ptr %8, align 8, !tbaa !53
+  %87 = load ptr, ptr %10, align 8, !tbaa !53
+  %88 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #11
+  %89 = call noundef ptr @_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_(ptr noundef %85, ptr noundef %86, ptr noundef %87, ptr noundef nonnull align 1 dereferenceable(1) %88) #11
+  %90 = load ptr, ptr %7, align 8, !tbaa !53
+  %91 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %92 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %91, i32 0, i32 2
+  %93 = load ptr, ptr %92, align 8, !tbaa !58
+  %94 = load ptr, ptr %7, align 8, !tbaa !53
+  %95 = ptrtoint ptr %93 to i64
+  %96 = ptrtoint ptr %94 to i64
+  %97 = sub i64 %95, %96
+  %98 = sdiv exact i64 %97, 8
+  call void @_ZNSt12_Vector_baseIPvSaIS0_EE13_M_deallocateEPS0_m(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %90, i64 noundef %98)
+  %99 = load ptr, ptr %10, align 8, !tbaa !53
+  %100 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %101 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %100, i32 0, i32 0
+  store ptr %99, ptr %101, align 8, !tbaa !51
+  %102 = load ptr, ptr %10, align 8, !tbaa !53
+  %103 = load i64, ptr %5, align 8, !tbaa !10
+  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
+  %105 = load i64, ptr %4, align 8, !tbaa !10
+  %106 = getelementptr inbounds nuw ptr, ptr %104, i64 %105
+  %107 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %108 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %107, i32 0, i32 1
+  store ptr %106, ptr %108, align 8, !tbaa !52
+  %109 = load ptr, ptr %10, align 8, !tbaa !53
+  %110 = load i64, ptr %9, align 8, !tbaa !10
+  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %110
+  %112 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %13, i32 0, i32 0
+  %113 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %112, i32 0, i32 2
+  store ptr %111, ptr %113, align 8, !tbaa !58
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  br label %114
 
-if.end43:                                         ; preds = %try.cont, %if.then9
-  br label %if.end44
+114:                                              ; preds = %84, %42
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %115
 
-if.end44:                                         ; preds = %if.end43, %entry
+115:                                              ; preds = %114, %2
   ret void
 
-eh.resume:                                        ; preds = %invoke.cont25
-  %exn45 = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn45, 0
-  %lpad.val46 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val46
+116:                                              ; preds = %83
+  %117 = load ptr, ptr %11, align 8
+  %118 = load i32, ptr %12, align 4
+  %119 = insertvalue { ptr, i32 } poison, ptr %117, 0
+  %120 = insertvalue { ptr, i32 } %119, i32 %118, 1
+  resume { ptr, i32 } %120
 
-terminate.lpad:                                   ; preds = %lpad23
-  %38 = landingpad { ptr, i32 }
+121:                                              ; preds = %79
+  %122 = landingpad { ptr, i32 }
           catch ptr null
-  %39 = extractvalue { ptr, i32 } %38, 0
-  call void @__clang_call_terminate(ptr %39) #9
+  %123 = extractvalue { ptr, i32 } %122, 0
+  call void @__clang_call_terminate(ptr %123) #13
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont24
+124:                                              ; preds = %78
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE15_M_erase_at_endEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %__pos) #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__pos.addr = alloca ptr, align 8
-  %__n = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %__pos, ptr %__pos.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl, i32 0, i32 1
-  %0 = load ptr, ptr %_M_finish, align 8
-  %1 = load ptr, ptr %__pos.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %__n, align 8
-  %2 = load i64, ptr %__n, align 8
-  %tobool = icmp ne i64 %2, 0
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr void @_ZNSt6vectorIPvSaIS0_EE15_M_erase_at_endEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !49
+  store ptr %1, ptr %4, align 8, !tbaa !53
+  %6 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %7 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %10 = load ptr, ptr %4, align 8, !tbaa !53
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  store i64 %14, ptr %5, align 8, !tbaa !10
+  %15 = load i64, ptr %5, align 8, !tbaa !10
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %__pos.addr, align 8
-  %_M_impl2 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish3 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl2, i32 0, i32 1
-  %4 = load ptr, ptr %_M_finish3, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  invoke void @_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E(ptr noundef %3, ptr noundef %4, ptr noundef nonnull align 1 dereferenceable(1) %call)
-          to label %invoke.cont unwind label %terminate.lpad
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8, !tbaa !53
+  %19 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #11
+  invoke void @_ZSt8_DestroyIPPvS0_EvT_S2_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %23 unwind label %28
 
-invoke.cont:                                      ; preds = %if.then
-  %5 = load ptr, ptr %__pos.addr, align 8
-  %_M_impl4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %_M_finish5 = getelementptr inbounds %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %_M_impl4, i32 0, i32 1
-  store ptr %5, ptr %_M_finish5, align 8
-  br label %if.end
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8, !tbaa !53
+  %25 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds nuw %"struct.std::_Vector_base<void *, std::allocator<void *>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8, !tbaa !52
+  br label %27
 
-if.end:                                           ; preds = %invoke.cont, %entry
+27:                                               ; preds = %23, %2
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %6 = landingpad { ptr, i32 }
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #9
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #13
   unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %call2 = call noundef i64 @_ZNSt6vectorIPvSaIS0_EE11_S_max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %call) #7
-  ret i64 %call2
+define linkonce_odr noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !49
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #11
+  %5 = call noundef i64 @_ZNSt6vectorIPvSaIS0_EE11_S_max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %4) #11
+  ret i64 %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = call noundef ptr @_ZSt25__uninitialized_default_nIPPvmET_S2_T0_(ptr noundef %7, i64 noundef %8)
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt27__uninitialized_default_n_aIPPvmS0_ET_S2_T0_RSaIT1_E(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 1 dereferenceable(1) %0) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %2 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZSt25__uninitialized_default_nIPPvmET_S2_T0_(ptr noundef %1, i64 noundef %2)
-  ret ptr %call
-}
+define linkonce_odr noundef i64 @_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !49
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !106
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %11 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %12 = sub i64 %10, %11
+  %13 = load i64, ptr %5, align 8, !tbaa !10
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %17
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr noundef %__s) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__s.addr = alloca ptr, align 8
-  %__len = alloca i64, align 8
-  %ref.tmp = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__s, ptr %__s.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %call2 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %sub = sub i64 %call, %call2
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ult i64 %sub, %0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %__s.addr, align 8
-  call void @_ZSt20__throw_length_errorPKc(ptr noundef %1) #10
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8, !tbaa !106
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #14
   unreachable
 
-if.end:                                           ; preds = %entry
-  %call3 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %call4 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  store i64 %call4, ptr %ref.tmp, align 8
-  %call5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %__n.addr)
-  %2 = load i64, ptr %call5, align 8
-  %add = add i64 %call3, %2
-  store i64 %add, ptr %__len, align 8
-  %3 = load i64, ptr %__len, align 8
-  %call6 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %cmp7 = icmp ult i64 %3, %call6
-  br i1 %cmp7, label %cond.true, label %lor.lhs.false
+17:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %18 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #11
+  %19 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  store i64 %19, ptr %8, align 8, !tbaa !10
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %21 = load i64, ptr %20, align 8, !tbaa !10
+  %22 = add i64 %18, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #11
+  store i64 %22, ptr %7, align 8, !tbaa !10
+  %23 = load i64, ptr %7, align 8, !tbaa !10
+  %24 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %30, label %26
 
-lor.lhs.false:                                    ; preds = %if.end
-  %4 = load i64, ptr %__len, align 8
-  %call8 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  %cmp9 = icmp ugt i64 %4, %call8
-  br i1 %cmp9, label %cond.true, label %cond.false
+26:                                               ; preds = %17
+  %27 = load i64, ptr %7, align 8, !tbaa !10
+  %28 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  %29 = icmp ugt i64 %27, %28
+  br i1 %29, label %30, label %32
 
-cond.true:                                        ; preds = %lor.lhs.false, %if.end
-  %call10 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #7
-  br label %cond.end
+30:                                               ; preds = %26, %17
+  %31 = call noundef i64 @_ZNKSt6vectorIPvSaIS0_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
+  br label %34
 
-cond.false:                                       ; preds = %lor.lhs.false
-  %5 = load i64, ptr %__len, align 8
-  br label %cond.end
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8, !tbaa !10
+  br label %34
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i64 [ %call10, %cond.true ], [ %5, %cond.false ]
-  ret i64 %cond
+34:                                               ; preds = %32, %30
+  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
+  ret i64 %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ne i64 %0, 0
-  br i1 %cmp, label %cond.true, label %cond.false
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIPvSaIS0_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
 
-cond.true:                                        ; preds = %entry
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt16allocator_traitsISaIPvEE8allocateERS1_m(ptr noundef nonnull align 1 dereferenceable(1) %_M_impl, i64 noundef %1)
-  br label %cond.end
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8, !tbaa !10
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIPvEE8allocateERS1_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
 
-cond.false:                                       ; preds = %entry
-  br label %cond.end
+12:                                               ; preds = %2
+  br label %13
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi ptr [ %call, %cond.true ], [ null, %cond.false ]
-  ret ptr %cond
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
 }
 
 declare void @__cxa_rethrow()
@@ -3292,416 +3206,517 @@ declare void @__cxa_rethrow()
 declare void @__cxa_end_catch()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %call = call noundef ptr @_ZNSt6vectorIPvSaIS0_EE14_S_do_relocateEPS0_S3_S3_RS1_St17integral_constantIbLb1EE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #7
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  %10 = load ptr, ptr %6, align 8, !tbaa !53
+  %11 = load ptr, ptr %7, align 8, !tbaa !53
+  %12 = load ptr, ptr %8, align 8, !tbaa !54
+  %13 = call noundef ptr @_ZNSt6vectorIPvSaIS0_EE14_S_do_relocateEPS0_S3_S3_RS1_St17integral_constantIbLb1EE(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #11
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt6vectorIPvSaIS0_EE11_S_max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #1 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__diffmax = alloca i64, align 8
-  %__allocmax = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 1152921504606846975, ptr %__diffmax, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNSt16allocator_traitsISaIPvEE8max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
-  store i64 %call, ptr %__allocmax, align 8
-  %call1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %__diffmax, ptr noundef nonnull align 8 dereferenceable(8) %__allocmax)
-  %1 = load i64, ptr %call1, align 8
-  ret i64 %1
+define linkonce_odr noundef i64 @_ZNSt6vectorIPvSaIS0_EE11_S_max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #11
+  store i64 1152921504606846975, ptr %3, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #11
+  %5 = load ptr, ptr %2, align 8, !tbaa !54
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIPvEE8max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
+  store i64 %6, ptr %4, align 8, !tbaa !10
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %8 = load i64, ptr %7, align 8, !tbaa !10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #11
+  ret i64 %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %_M_impl = getelementptr inbounds %"struct.std::_Vector_base", ptr %this1, i32 0, i32 0
-  ret ptr %_M_impl
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIPvSaIS0_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIPvEE8max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %__a) #1 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIPvE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #7
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIPvEE8max_sizeERKS1_(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !54
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPvE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPvE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIPvE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  ret i64 %call
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPvE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIPvE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
+  ret i64 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPvE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIPvE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !59
   ret i64 1152921504606846975
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt25__uninitialized_default_nIPPvmET_S2_T0_(ptr noundef %__first, i64 noundef %__n) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__can_fill = alloca i8, align 1
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store i8 1, ptr %__can_fill, align 1
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt27__uninitialized_default_n_1ILb1EE18__uninit_default_nIPPvmEET_S4_T0_(ptr noundef %0, i64 noundef %1)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb1EE18__uninit_default_nIPPvmEET_S4_T0_(ptr noundef %__first, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__val = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ugt i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %__first.addr, align 8
-  store ptr %1, ptr %__val, align 8
-  %2 = load ptr, ptr %__val, align 8
-  call void @_ZSt10_ConstructIPvJEEvPT_DpOT0_(ptr noundef %2)
-  %3 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %3, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  %4 = load ptr, ptr %__first.addr, align 8
-  %5 = load i64, ptr %__n.addr, align 8
-  %sub = sub i64 %5, 1
-  %6 = load ptr, ptr %__val, align 8
-  %call = call noundef ptr @_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_(ptr noundef %4, i64 noundef %sub, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr %call, ptr %__first.addr, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %entry
-  %7 = load ptr, ptr %__first.addr, align 8
-  ret ptr %7
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt10_ConstructIPvJEEvPT_DpOT0_(ptr noundef %__p) #1 comdat {
-entry:
-  %__p.addr = alloca ptr, align 8
-  store ptr %__p, ptr %__p.addr, align 8
-  %0 = load ptr, ptr %__p.addr, align 8
-  store ptr null, ptr %0, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 8 dereferenceable(8) %__value) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZSt17__size_to_integerm(i64 noundef %1)
-  %2 = load ptr, ptr %__value.addr, align 8
-  call void @_ZSt19__iterator_categoryIPPvENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr)
-  %call1 = call noundef ptr @_ZSt10__fill_n_aIPPvmS0_ET_S2_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %call, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  ret ptr %call1
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPPvmS0_ET_S2_T0_RKT1_St26random_access_iterator_tag(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 8 dereferenceable(8) %__value) #0 comdat {
-entry:
-  %retval = alloca ptr, align 8
-  %__first.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  %cmp = icmp ule i64 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %__first.addr, align 8
-  store ptr %1, ptr %retval, align 8
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %__first.addr, align 8
-  %3 = load ptr, ptr %__first.addr, align 8
-  %4 = load i64, ptr %__n.addr, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %3, i64 %4
-  %5 = load ptr, ptr %__value.addr, align 8
-  call void @_ZSt8__fill_aIPPvS0_EvT_S2_RKT0_(ptr noundef %2, ptr noundef %add.ptr, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %6 = load ptr, ptr %__first.addr, align 8
-  %7 = load i64, ptr %__n.addr, align 8
-  %add.ptr1 = getelementptr inbounds ptr, ptr %6, i64 %7
-  store ptr %add.ptr1, ptr %retval, align 8
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %8 = load ptr, ptr %retval, align 8
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt25__uninitialized_default_nIPPvmET_S2_T0_(ptr noundef %0, i64 noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %5) #11
+  store i8 1, ptr %5, align 1, !tbaa !92
+  %6 = load ptr, ptr %3, align 8, !tbaa !53
+  %7 = load i64, ptr %4, align 8, !tbaa !10
+  %8 = call noundef ptr @_ZNSt27__uninitialized_default_n_1ILb1EE18__uninit_default_nIPPvmEET_S4_T0_(ptr noundef %6, i64 noundef %7)
+  call void @llvm.lifetime.end.p0(i64 1, ptr %5) #11
   ret ptr %8
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %__n) #1 comdat {
-entry:
-  %__n.addr = alloca i64, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load i64, ptr %__n.addr, align 8
-  ret i64 %0
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb1EE18__uninit_default_nIPPvmEET_S4_T0_(ptr noundef %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !53
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = icmp ugt i64 %6, 0
+  br i1 %7, label %8, label %18
+
+8:                                                ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #11
+  %9 = load ptr, ptr %3, align 8, !tbaa !53
+  store ptr %9, ptr %5, align 8, !tbaa !53
+  %10 = load ptr, ptr %5, align 8, !tbaa !53
+  call void @_ZSt10_ConstructIPvJEEvPT_DpOT0_(ptr noundef %10)
+  %11 = load ptr, ptr %3, align 8, !tbaa !53
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i32 1
+  store ptr %12, ptr %3, align 8, !tbaa !53
+  %13 = load ptr, ptr %3, align 8, !tbaa !53
+  %14 = load i64, ptr %4, align 8, !tbaa !10
+  %15 = sub i64 %14, 1
+  %16 = load ptr, ptr %5, align 8, !tbaa !53
+  %17 = call noundef ptr @_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_(ptr noundef %13, i64 noundef %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  store ptr %17, ptr %3, align 8, !tbaa !53
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #11
+  br label %18
+
+18:                                               ; preds = %8, %2
+  %19 = load ptr, ptr %3, align 8, !tbaa !53
+  ret ptr %19
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt19__iterator_categoryIPPvENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 comdat {
-entry:
-  %.addr = alloca ptr, align 8
-  store ptr %0, ptr %.addr, align 8
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructIPvJEEvPT_DpOT0_(ptr noundef %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  store ptr null, ptr %3, align 8, !tbaa !12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt6fill_nIPPvmS0_ET_S2_T0_RKT1_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = call noundef i64 @_ZSt17__size_to_integerm(i64 noundef %8)
+  %10 = load ptr, ptr %6, align 8, !tbaa !53
+  call void @_ZSt19__iterator_categoryIPPvENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %11 = call noundef ptr @_ZSt10__fill_n_aIPPvmS0_ET_S2_T0_RKT1_St26random_access_iterator_tag(ptr noundef %7, i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  ret ptr %11
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt10__fill_n_aIPPvmS0_ET_S2_T0_RKT1_St26random_access_iterator_tag(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store i64 %1, ptr %6, align 8, !tbaa !10
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  %8 = load i64, ptr %6, align 8, !tbaa !10
+  %9 = icmp ule i64 %8, 0
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !53
+  store ptr %11, ptr %4, align 8
+  br label %21
+
+12:                                               ; preds = %3
+  %13 = load ptr, ptr %5, align 8, !tbaa !53
+  %14 = load ptr, ptr %5, align 8, !tbaa !53
+  %15 = load i64, ptr %6, align 8, !tbaa !10
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %17 = load ptr, ptr %7, align 8, !tbaa !53
+  call void @_ZSt8__fill_aIPPvS0_EvT_S2_RKT0_(ptr noundef %13, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %18 = load ptr, ptr %5, align 8, !tbaa !53
+  %19 = load i64, ptr %6, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  store ptr %20, ptr %4, align 8
+  br label %21
+
+21:                                               ; preds = %12, %10
+  %22 = load ptr, ptr %4, align 8
+  ret ptr %22
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt17__size_to_integerm(i64 noundef %0) #3 comdat {
+  %2 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8, !tbaa !10
+  %3 = load i64, ptr %2, align 8, !tbaa !10
+  ret i64 %3
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPPvENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !108
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr void @_ZSt8__fill_aIPPvS0_EvT_S2_RKT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  %7 = load ptr, ptr %4, align 8, !tbaa !53
+  %8 = load ptr, ptr %5, align 8, !tbaa !53
+  %9 = load ptr, ptr %6, align 8, !tbaa !53
+  call void @_ZSt9__fill_a1IPPvS0_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S7_RKS4_(ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt9__fill_a1IPPvS0_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S7_RKS4_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !53
+  store ptr %1, ptr %5, align 8, !tbaa !53
+  store ptr %2, ptr %6, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #11
+  %8 = load ptr, ptr %6, align 8, !tbaa !53
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
+  store ptr %9, ptr %7, align 8, !tbaa !12
+  br label %10
+
+10:                                               ; preds = %17, %3
+  %11 = load ptr, ptr %4, align 8, !tbaa !53
+  %12 = load ptr, ptr %5, align 8, !tbaa !53
+  %13 = icmp ne ptr %11, %12
+  br i1 %13, label %14, label %20
+
+14:                                               ; preds = %10
+  %15 = load ptr, ptr %7, align 8, !tbaa !12
+  %16 = load ptr, ptr %4, align 8, !tbaa !53
+  store ptr %15, ptr %16, align 8, !tbaa !12
+  br label %17
+
+17:                                               ; preds = %14
+  %18 = load ptr, ptr %4, align 8, !tbaa !53
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i32 1
+  store ptr %19, ptr %4, align 8, !tbaa !53
+  br label %10, !llvm.loop !109
+
+20:                                               ; preds = %10
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZSt8__fill_aIPPvS0_EvT_S2_RKT0_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(8) %__value) #0 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__value.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__value.addr, align 8
-  call void @_ZSt9__fill_a1IPPvS0_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S7_RKS4_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZSt9__fill_a1IPPvS0_EN9__gnu_cxx11__enable_ifIXsr11__is_scalarIT0_EE7__valueEvE6__typeET_S7_RKS4_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull align 8 dereferenceable(8) %__value) #1 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__value.addr = alloca ptr, align 8
-  %__tmp = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__value, ptr %__value.addr, align 8
-  %0 = load ptr, ptr %__value.addr, align 8
-  %1 = load ptr, ptr %0, align 8
-  store ptr %1, ptr %__tmp, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__first.addr, align 8
-  %3 = load ptr, ptr %__last.addr, align 8
-  %cmp = icmp ne ptr %2, %3
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__tmp, align 8
-  %5 = load ptr, ptr %__first.addr, align 8
-  store ptr %4, ptr %5, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %6 = load ptr, ptr %__first.addr, align 8
-  %incdec.ptr = getelementptr inbounds ptr, ptr %6, i32 1
-  store ptr %incdec.ptr, ptr %__first.addr, align 8
-  br label %for.cond, !llvm.loop !6
-
-for.end:                                          ; preds = %for.cond
-  ret void
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIPvEE8allocateERS1_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !54
+  store i64 %1, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %3, align 8, !tbaa !54
+  %6 = load i64, ptr %4, align 8, !tbaa !10
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIPvE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIPvEE8allocateERS1_m(ptr noundef nonnull align 1 dereferenceable(1) %__a, i64 noundef %__n) #0 comdat align 2 {
-entry:
-  %__a.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  store ptr %__a, ptr %__a.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  %0 = load ptr, ptr %__a.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef ptr @_ZNSt15__new_allocatorIPvE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef null)
-  ret ptr %call
-}
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIPvE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !59
+  store i64 %1, ptr %5, align 8, !tbaa !10
+  store ptr %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8, !tbaa !10
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIPvE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #11
+  %10 = icmp ugt i64 %8, %9
+  %11 = zext i1 %10 to i64
+  %12 = call i64 @llvm.expect.i64(i64 %11, i64 0)
+  %13 = icmp ne i64 %12, 0
+  br i1 %13, label %14, label %19
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIPvE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %__n, ptr noundef %0) #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %__n.addr = alloca i64, align 8
-  %.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %__n, ptr %__n.addr, align 8
-  store ptr %0, ptr %.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %1 = load i64, ptr %__n.addr, align 8
-  %call = call noundef i64 @_ZNKSt15__new_allocatorIPvE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %this1) #7
-  %cmp = icmp ugt i64 %1, %call
-  br i1 %cmp, label %if.then, label %if.end4
+14:                                               ; preds = %3
+  %15 = load i64, ptr %5, align 8, !tbaa !10
+  %16 = icmp ugt i64 %15, 2305843009213693951
+  br i1 %16, label %17, label %18
 
-if.then:                                          ; preds = %entry
-  %2 = load i64, ptr %__n.addr, align 8
-  %cmp2 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %cmp2, label %if.then3, label %if.end
-
-if.then3:                                         ; preds = %if.then
-  call void @_ZSt28__throw_bad_array_new_lengthv() #10
+17:                                               ; preds = %14
+  call void @_ZSt28__throw_bad_array_new_lengthv() #14
   unreachable
 
-if.end:                                           ; preds = %if.then
-  call void @_ZSt17__throw_bad_allocv() #10
+18:                                               ; preds = %14
+  call void @_ZSt17__throw_bad_allocv() #14
   unreachable
 
-if.end4:                                          ; preds = %entry
-  %3 = load i64, ptr %__n.addr, align 8
-  %mul = mul i64 %3, 8
-  %call5 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul) #11
-  ret ptr %call5
+19:                                               ; preds = %3
+  %20 = load i64, ptr %5, align 8, !tbaa !10
+  %21 = mul i64 %20, 8
+  %22 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  ret ptr %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZNSt6vectorIPvSaIS0_EE14_S_do_relocateEPS0_S3_S3_RS1_St17integral_constantIbLb1EE(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat align 2 {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %1 = load ptr, ptr %__last.addr, align 8
-  %2 = load ptr, ptr %__result.addr, align 8
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %call = call noundef ptr @_ZSt12__relocate_aIPPvS1_SaIS0_EET0_T_S4_S3_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #7
-  ret ptr %call
+define linkonce_odr noundef ptr @_ZNSt6vectorIPvSaIS0_EE14_S_do_relocateEPS0_S3_S3_RS1_St17integral_constantIbLb1EE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #2 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  %10 = load ptr, ptr %6, align 8, !tbaa !53
+  %11 = load ptr, ptr %7, align 8, !tbaa !53
+  %12 = load ptr, ptr %8, align 8, !tbaa !54
+  %13 = call noundef ptr @_ZSt12__relocate_aIPPvS1_SaIS0_EET0_T_S4_S3_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #11
+  ret ptr %13
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__relocate_aIPPvS1_SaIS0_EET0_T_S4_S3_RT1_(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__first.addr, align 8
-  %call = call noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %0) #7
-  %1 = load ptr, ptr %__last.addr, align 8
-  %call1 = call noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %1) #7
-  %2 = load ptr, ptr %__result.addr, align 8
-  %call2 = call noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %2) #7
-  %3 = load ptr, ptr %__alloc.addr, align 8
-  %call3 = call noundef ptr @_ZSt14__relocate_a_1IPvS0_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS2_E4typeES3_S3_S3_RSaIT0_E(ptr noundef %call, ptr noundef %call1, ptr noundef %call2, ptr noundef nonnull align 1 dereferenceable(1) %3) #7
-  ret ptr %call3
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPPvS1_SaIS0_EET0_T_S4_S3_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  %9 = load ptr, ptr %5, align 8, !tbaa !53
+  %10 = call noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %9) #11
+  %11 = load ptr, ptr %6, align 8, !tbaa !53
+  %12 = call noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %11) #11
+  %13 = load ptr, ptr %7, align 8, !tbaa !53
+  %14 = call noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %13) #11
+  %15 = load ptr, ptr %8, align 8, !tbaa !54
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPvS0_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS2_E4typeES3_S3_S3_RSaIT0_E(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #11
+  ret ptr %16
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPvS0_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS2_E4typeES3_S3_S3_RSaIT0_E(ptr noundef %__first, ptr noundef %__last, ptr noundef %__result, ptr noundef nonnull align 1 dereferenceable(1) %__alloc) #1 comdat {
-entry:
-  %__first.addr = alloca ptr, align 8
-  %__last.addr = alloca ptr, align 8
-  %__result.addr = alloca ptr, align 8
-  %__alloc.addr = alloca ptr, align 8
-  %__count = alloca i64, align 8
-  store ptr %__first, ptr %__first.addr, align 8
-  store ptr %__last, ptr %__last.addr, align 8
-  store ptr %__result, ptr %__result.addr, align 8
-  store ptr %__alloc, ptr %__alloc.addr, align 8
-  %0 = load ptr, ptr %__last.addr, align 8
-  %1 = load ptr, ptr %__first.addr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 8
-  store i64 %sub.ptr.div, ptr %__count, align 8
-  %2 = load i64, ptr %__count, align 8
-  %cmp = icmp sgt i64 %2, 0
-  br i1 %cmp, label %if.then, label %if.end
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPvS0_ENSt9enable_ifIXsr3std24__is_bitwise_relocatableIT_EE5valueEPS2_E4typeES3_S3_S3_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #3 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !53
+  store ptr %1, ptr %6, align 8, !tbaa !53
+  store ptr %2, ptr %7, align 8, !tbaa !53
+  store ptr %3, ptr %8, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #11
+  %10 = load ptr, ptr %6, align 8, !tbaa !53
+  %11 = load ptr, ptr %5, align 8, !tbaa !53
+  %12 = ptrtoint ptr %10 to i64
+  %13 = ptrtoint ptr %11 to i64
+  %14 = sub i64 %12, %13
+  %15 = sdiv exact i64 %14, 8
+  store i64 %15, ptr %9, align 8, !tbaa !10
+  %16 = load i64, ptr %9, align 8, !tbaa !10
+  %17 = icmp sgt i64 %16, 0
+  br i1 %17, label %18, label %23
 
-if.then:                                          ; preds = %entry
-  %3 = load ptr, ptr %__result.addr, align 8
-  %4 = load ptr, ptr %__first.addr, align 8
-  %5 = load i64, ptr %__count, align 8
-  %mul = mul i64 %5, 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 %mul, i1 false)
-  br label %if.end
+18:                                               ; preds = %4
+  %19 = load ptr, ptr %7, align 8, !tbaa !53
+  %20 = load ptr, ptr %5, align 8, !tbaa !53
+  %21 = load i64, ptr %9, align 8, !tbaa !10
+  %22 = mul i64 %21, 8
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %19, ptr align 8 %20, i64 %22, i1 false)
+  br label %23
 
-if.end:                                           ; preds = %if.then, %entry
-  %6 = load ptr, ptr %__result.addr, align 8
-  %7 = load i64, ptr %__count, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %6, i64 %7
-  ret ptr %add.ptr
+23:                                               ; preds = %18, %4
+  %24 = load ptr, ptr %7, align 8, !tbaa !53
+  %25 = load i64, ptr %9, align 8, !tbaa !10
+  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #11
+  ret ptr %26
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %__it) #1 comdat {
-entry:
-  %__it.addr = alloca ptr, align 8
-  store ptr %__it, ptr %__it.addr, align 8
-  %0 = load ptr, ptr %__it.addr, align 8
-  ret ptr %0
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPPvET_S2_(ptr noundef %0) #3 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  ret ptr %3
 }
 
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { builtin nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { noreturn }
-attributes #11 = { builtin allocsize(0) }
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #10 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind }
+attributes #12 = { builtin nounwind }
+attributes #13 = { noreturn nounwind }
+attributes #14 = { noreturn }
+attributes #15 = { builtin allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN4YAML19GraphBuilderAdapterE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 _ZTSN4YAML4MarkE", !5, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!5, !5, i64 0}
+!13 = !{!14, !16, i64 8}
+!14 = !{!"_ZTSN4YAML19GraphBuilderAdapterE", !15, i64 0, !16, i64 8, !17, i64 16, !26, i64 96, !5, i64 120, !5, i64 128}
+!15 = !{!"_ZTSN4YAML12EventHandlerE"}
+!16 = !{!"p1 _ZTSN4YAML21GraphBuilderInterfaceE", !5, i64 0}
+!17 = !{!"_ZTSSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE", !18, i64 0}
+!18 = !{!"_ZTSSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE", !19, i64 0}
+!19 = !{!"_ZTSSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE", !20, i64 0}
+!20 = !{!"_ZTSNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE11_Deque_implE", !21, i64 0}
+!21 = !{!"_ZTSNSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE16_Deque_impl_dataE", !22, i64 0, !11, i64 8, !24, i64 16, !24, i64 48}
+!22 = !{!"p2 _ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !23, i64 0}
+!23 = !{!"any p2 pointer", !5, i64 0}
+!24 = !{!"_ZTSSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E", !25, i64 0, !25, i64 8, !25, i64 16, !22, i64 24}
+!25 = !{!"p1 _ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !5, i64 0}
+!26 = !{!"_ZTSN4YAML10AnchorDictIPvEE", !27, i64 0}
+!27 = !{!"_ZTSSt6vectorIPvSaIS0_EE", !28, i64 0}
+!28 = !{!"_ZTSSt12_Vector_baseIPvSaIS0_EE", !29, i64 0}
+!29 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE12_Vector_implE", !30, i64 0}
+!30 = !{!"_ZTSNSt12_Vector_baseIPvSaIS0_EE17_Vector_impl_dataE", !23, i64 0, !23, i64 8, !23, i64 16}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"vtable pointer", !7, i64 0}
+!33 = !{!34, !5, i64 0}
+!34 = !{!"_ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !5, i64 0, !5, i64 8}
+!35 = !{!14, !5, i64 120}
+!36 = !{!14, !5, i64 128}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTSN4YAML10AnchorDictIPvEE", !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"_ZTSN4YAML12EmitterStyle5valueE", !6, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSSt5stackIN4YAML19GraphBuilderAdapter14ContainerFrameESt5dequeIS2_SaIS2_EEE", !5, i64 0}
+!45 = !{!25, !25, i64 0}
+!46 = !{!34, !5, i64 8}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTSN4YAML12EventHandlerE", !5, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTSSt6vectorIPvSaIS0_EE", !5, i64 0}
+!51 = !{!30, !23, i64 0}
+!52 = !{!30, !23, i64 8}
+!53 = !{!23, !23, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSSaIPvE", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTSSt12_Vector_baseIPvSaIS0_EE", !5, i64 0}
+!58 = !{!30, !23, i64 16}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSSt15__new_allocatorIPvE", !5, i64 0}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"p1 _ZTSSt5dequeIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE", !5, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERS2_PS2_E", !5, i64 0}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTSSaIN4YAML19GraphBuilderAdapter14ContainerFrameEE", !5, i64 0}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSSt11_Deque_baseIN4YAML19GraphBuilderAdapter14ContainerFrameESaIS2_EE", !5, i64 0}
+!69 = !{!21, !22, i64 0}
+!70 = !{!21, !22, i64 40}
+!71 = !{!21, !22, i64 72}
+!72 = !{!21, !11, i64 8}
+!73 = !{!24, !25, i64 0}
+!74 = !{!24, !25, i64 8}
+!75 = !{!24, !25, i64 16}
+!76 = !{!24, !22, i64 24}
+!77 = !{!22, !22, i64 0}
+!78 = distinct !{!78, !79}
+!79 = !{!"llvm.loop.mustprogress"}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTSSt15__new_allocatorIN4YAML19GraphBuilderAdapter14ContainerFrameEE", !5, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTSSaIPN4YAML19GraphBuilderAdapter14ContainerFrameEE", !5, i64 0}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSSt15__new_allocatorIPN4YAML19GraphBuilderAdapter14ContainerFrameEE", !5, i64 0}
+!86 = !{!21, !25, i64 48}
+!87 = !{!21, !25, i64 64}
+!88 = !{!21, !25, i64 56}
+!89 = !{i64 0, i64 8, !12, i64 8, i64 8, !12}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 long", !5, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"bool", !6, i64 0}
+!94 = !{i8 0, i8 2}
+!95 = !{}
+!96 = !{!97, !97, i64 0}
+!97 = !{!"p3 _ZTSN4YAML19GraphBuilderAdapter14ContainerFrameE", !98, i64 0}
+!98 = !{!"any p3 pointer", !23, i64 0}
+!99 = !{!100, !100, i64 0}
+!100 = !{!"p1 _ZTSSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E", !5, i64 0}
+!101 = !{!102, !25, i64 0}
+!102 = !{!"_ZTSSt15_Deque_iteratorIN4YAML19GraphBuilderAdapter14ContainerFrameERKS2_PS3_E", !25, i64 0, !25, i64 8, !25, i64 16, !22, i64 24}
+!103 = !{!102, !25, i64 8}
+!104 = !{!102, !22, i64 24}
+!105 = !{!102, !25, i64 16}
+!106 = !{!107, !107, i64 0}
+!107 = !{!"p1 omnipotent char", !5, i64 0}
+!108 = !{!98, !98, i64 0}
+!109 = distinct !{!109, !79}
