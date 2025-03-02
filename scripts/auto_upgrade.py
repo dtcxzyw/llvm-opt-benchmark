@@ -139,6 +139,7 @@ supported_project = [
     "tomlplusplus",
     "vcpkg",
     "verilator",
+    "xgboost",
 ]
 
 modify_only = [

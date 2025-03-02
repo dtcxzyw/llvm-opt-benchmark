@@ -30,120 +30,169 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @XGBGetLastError() local_unnamed_addr #3 {
+define ptr @XGBGetLastError() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load i8, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, !prof !4
+  br i1 %2, label %3, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, !prof !3
 
 3:                                                ; preds = %0
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
-  %4 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8, !tbaa !4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), align 8, !tbaa !13
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8, !tbaa !14
+  %4 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #7
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
 
 _ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit: ; preds = %0, %3
   %5 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst)
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
+  %6 = load ptr, ptr %5, align 8, !tbaa !17
   ret ptr %6
 }
 
-; Function Attrs: nounwind
-declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
-
 ; Function Attrs: mustprogress uwtable
-define void @_Z18XGBAPISetLastErrorPKc(ptr noundef %0) local_unnamed_addr #4 {
+define void @_Z18XGBAPISetLastErrorPKc(ptr noundef %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %4, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, !prof !4
+  br i1 %3, label %4, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, !prof !3
 
 4:                                                ; preds = %1
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
-  %5 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8, !tbaa !4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), align 8, !tbaa !13
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8, !tbaa !14
+  %5 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #7
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
 
 _ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit: ; preds = %1, %4
   %6 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst)
-  %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %0)
-  %8 = load i8, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
-  %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1, !prof !4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !10
+  %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
+  %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %0, i64 noundef %9)
+  %11 = load i8, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %13, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1, !prof !3
 
-10:                                               ; preds = %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
-  %11 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
+13:                                               ; preds = %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8, !tbaa !4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), align 8, !tbaa !13
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8, !tbaa !14
+  %14 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #7
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1
 
-_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1: ; preds = %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, %10
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i32 -1, ptr %12, align 8
+_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit1: ; preds = %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, %13
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i32 -1, ptr %15, align 8, !tbaa !14
   ret void
 }
 
-declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @XGBGetLastErrorCode() local_unnamed_addr #3 {
+define i32 @XGBGetLastErrorCode() local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = load i8, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, !prof !4
+  br i1 %2, label %3, label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit, !prof !3
 
 3:                                                ; preds = %0
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst) #5
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8
-  %4 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #5
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8, !tbaa !4
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 8), align 8, !tbaa !10
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 16), align 8, !tbaa !13
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, i64 32), align 8, !tbaa !14
+  %4 = tail call i32 @__cxa_thread_atexit(ptr nonnull @_ZN16XGBAPIErrorEntryD2Ev, ptr nonnull @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, ptr nonnull @__dso_handle) #7
   store i8 1, ptr @_ZGVZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst, align 8
   br label %_ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit
 
 _ZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEv.exit: ; preds = %0, %3
   %5 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc16ThreadLocalStoreI16XGBAPIErrorEntryE3GetEvE4inst)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load i32, ptr %6, align 8
+  %7 = load i32, ptr %6, align 8, !tbaa !14
   ret i32 %7
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN16XGBAPIErrorEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 {
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #5
+declare i32 @__gxx_personality_v0(...)
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr void @_ZN16XGBAPIErrorEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !17
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = icmp eq ptr %2, %3
+  br i1 %4, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8, !tbaa !10
+  %7 = icmp ult i64 %6, 16
+  tail call void @llvm.assume(i1 %7)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %1
+  %8 = load i64, ptr %3, align 8, !tbaa !13
+  %9 = add i64 %8, 1
+  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef %9) #12
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   ret void
 }
 
 ; Function Attrs: nounwind
-declare i32 @__cxa_thread_atexit(ptr, ptr, ptr) local_unnamed_addr #5
+declare i32 @__cxa_thread_atexit(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
-
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_c_api_error.cc() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_c_api_error.cc() #10 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #5
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #7
   ret void
 }
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #11
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree nounwind }
+attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { builtin nounwind }
+
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!"branch_weights", i32 1, i32 1023}
+!3 = !{!"branch_weights", i32 1, i32 1023}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
+!6 = !{!"p1 omnipotent char", !7, i64 0}
+!7 = !{!"any pointer", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !5, i64 0, !12, i64 8, !8, i64 16}
+!12 = !{!"long", !8, i64 0}
+!13 = !{!8, !8, i64 0}
+!14 = !{!15, !16, i64 32}
+!15 = !{!"_ZTS16XGBAPIErrorEntry", !11, i64 0, !16, i64 32}
+!16 = !{!"int", !8, i64 0}
+!17 = !{!11, !6, i64 0}
