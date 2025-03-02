@@ -142,6 +142,7 @@ supported_project = [
     "xgboost",
     "yaml-cpp",
     "yoga",
+    "yosys",
 ]
 
 modify_only = [
