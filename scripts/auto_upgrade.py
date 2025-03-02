@@ -144,6 +144,7 @@ supported_project = [
     "yoga",
     "yosys",
     "z3",
+    "zfp",
 ]
 
 modify_only = [
