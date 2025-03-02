@@ -137,6 +137,7 @@ supported_project = [
     "tinyobjloader",
     "tinyrenderer",
     "tomlplusplus",
+    "vcpkg",
 ]
 
 modify_only = [
