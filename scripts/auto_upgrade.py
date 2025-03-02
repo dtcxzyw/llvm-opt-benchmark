@@ -136,6 +136,7 @@ supported_project = [
     "tinympc",
     "tinyobjloader",
     "tinyrenderer",
+    "tomlplusplus",
 ]
 
 modify_only = [
