@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/z3/original/s_integer.ll'
 source_filename = "bench/z3/original/s_integer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %class.s_integer = type { i32 }
@@ -24,11 +24,11 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden void @_ZN9s_integerC2EPKc(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr noundef readonly captures(none) %str) unnamed_addr #3 align 2 {
-entry:
-  %call = tail call i64 @strtol(ptr noundef captures(none) %str, ptr noundef null, i32 noundef 10) #8
-  %conv = trunc i64 %call to i32
-  store i32 %conv, ptr %this, align 4
+define hidden void @_ZN9s_integerC2EPKc(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 {
+  store i32 0, ptr %0, align 4, !tbaa !3
+  %3 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #8
+  %4 = trunc i64 %3 to i32
+  store i32 %4, ptr %0, align 4, !tbaa !3
   ret void
 }
 
@@ -36,87 +36,83 @@ entry:
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z5powerRK9s_integerj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r, i32 noundef %p) local_unnamed_addr #5 {
-entry:
-  %cmp.not8 = icmp eq i32 %p, 0
-  br i1 %cmp.not8, label %while.end, label %while.body.preheader
+define hidden i32 @_Z5powerRK9s_integerj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #5 {
+  %.not11 = icmp eq i32 %1, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
-while.body.preheader:                             ; preds = %entry
-  %0 = load i32, ptr %r, align 4
-  br label %while.body
+.lr.ph.preheader:                                 ; preds = %2
+  %3 = load i32, ptr %0, align 4, !tbaa !8
+  br label %.lr.ph
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %mask.011 = phi i32 [ %shl, %while.body ], [ 1, %while.body.preheader ]
-  %power.sroa.0.010 = phi i32 [ %mul.i4, %while.body ], [ %0, %while.body.preheader ]
-  %retval.sroa.0.09 = phi i32 [ %spec.select, %while.body ], [ 1, %while.body.preheader ]
-  %and = and i32 %mask.011, %p
-  %tobool.not = icmp eq i32 %and, 0
-  %mul.i = select i1 %tobool.not, i32 1, i32 %power.sroa.0.010
-  %spec.select = mul nsw i32 %mul.i, %retval.sroa.0.09
-  %mul.i4 = mul nsw i32 %power.sroa.0.010, %power.sroa.0.010
-  %shl = shl i32 %mask.011, 1
-  %cmp.not = icmp ugt i32 %shl, %p
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.014 = phi i32 [ %7, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.sroa.0.013 = phi i32 [ %6, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.sroa.09.012 = phi i32 [ %spec.select, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %4 = and i32 %.014, %1
+  %.not6 = icmp eq i32 %4, 0
+  %5 = select i1 %.not6, i32 1, i32 %.sroa.0.013
+  %spec.select = mul nsw i32 %5, %.sroa.09.012
+  %6 = mul nsw i32 %.sroa.0.013, %.sroa.0.013
+  %7 = shl i32 %.014, 1
+  %.not = icmp ugt i32 %7, %1
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-while.end:                                        ; preds = %while.body, %entry
-  %retval.sroa.0.0.lcssa = phi i32 [ 1, %entry ], [ %spec.select, %while.body ]
-  ret i32 %retval.sroa.0.0.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.sroa.09.0.lcssa = phi i32 [ 1, %2 ], [ %spec.select, %.lr.ph ]
+  ret i32 %.sroa.09.0.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, -2147483648) i32 @_Z3gcdRK9s_integerS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r2) local_unnamed_addr #5 {
-entry:
-  %0 = load i32, ptr %r1, align 4
-  %1 = load i32, ptr %r2, align 4
-  %spec.select = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
-  %retval.sroa.0.0 = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %tmp1.sroa.0.1 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %retval.sroa.0.0)
-  %retval.sroa.0.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %retval.sroa.0.0)
-  br label %for.cond
+define hidden range(i32 0, -2147483648) i32 @_Z3gcdRK9s_integerS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 {
+  %3 = load i32, ptr %0, align 4, !tbaa !8
+  %4 = load i32, ptr %1, align 4, !tbaa !8
+  %spec.select = tail call i32 @llvm.abs.i32(i32 %3, i1 true)
+  %.sroa.08.0 = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
+  %.sroa.03.1 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %.sroa.08.0)
+  %.sroa.08.1 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %.sroa.08.0)
+  br label %5
 
-for.cond:                                         ; preds = %for.cond, %entry
-  %tmp1.sroa.0.2 = phi i32 [ %tmp1.sroa.0.1, %entry ], [ %retval.sroa.0.2, %for.cond ]
-  %retval.sroa.0.2 = phi i32 [ %retval.sroa.0.1, %entry ], [ %rem.i.i, %for.cond ]
-  %rem.i.i = urem i32 %tmp1.sroa.0.2, %retval.sroa.0.2
-  %cmp.i4 = icmp eq i32 %rem.i.i, 0
-  br i1 %cmp.i4, label %if.then9, label %for.cond, !llvm.loop !6
+5:                                                ; preds = %5, %2
+  %.sroa.03.2 = phi i32 [ %.sroa.03.1, %2 ], [ %.sroa.08.2, %5 ]
+  %.sroa.08.2 = phi i32 [ %.sroa.08.1, %2 ], [ %6, %5 ]
+  %6 = urem i32 %.sroa.03.2, %.sroa.08.2
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %.critedge, label %5, !llvm.loop !11
 
-if.then9:                                         ; preds = %for.cond
-  ret i32 %retval.sroa.0.2
+.critedge:                                        ; preds = %5
+  ret i32 %.sroa.08.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z3lcmRK9s_integerS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r2) local_unnamed_addr #5 {
-entry:
-  %0 = load i32, ptr %r1, align 4
-  %1 = load i32, ptr %r2, align 4
-  %spec.select.i = tail call i32 @llvm.abs.i32(i32 %0, i1 true)
-  %retval.sroa.0.0.i = tail call i32 @llvm.abs.i32(i32 %1, i1 true)
-  %tmp1.sroa.0.1.i = tail call i32 @llvm.umax.i32(i32 %spec.select.i, i32 %retval.sroa.0.0.i)
-  %retval.sroa.0.1.i = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 %retval.sroa.0.0.i)
-  br label %for.cond.i
+define hidden i32 @_Z3lcmRK9s_integerS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #5 {
+  %3 = load i32, ptr %0, align 4, !tbaa !8
+  %4 = load i32, ptr %1, align 4, !tbaa !8
+  %spec.select.i = tail call i32 @llvm.abs.i32(i32 %3, i1 true)
+  %.sroa.08.0.i = tail call i32 @llvm.abs.i32(i32 %4, i1 true)
+  %.sroa.03.1.i = tail call i32 @llvm.umax.i32(i32 %spec.select.i, i32 %.sroa.08.0.i)
+  %.sroa.08.1.i = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 %.sroa.08.0.i)
+  br label %5
 
-for.cond.i:                                       ; preds = %for.cond.i, %entry
-  %tmp1.sroa.0.2.i = phi i32 [ %tmp1.sroa.0.1.i, %entry ], [ %retval.sroa.0.2.i, %for.cond.i ]
-  %retval.sroa.0.2.i = phi i32 [ %retval.sroa.0.1.i, %entry ], [ %rem.i.i.i, %for.cond.i ]
-  %rem.i.i.i = urem i32 %tmp1.sroa.0.2.i, %retval.sroa.0.2.i
-  %cmp.i4.i = icmp eq i32 %rem.i.i.i, 0
-  br i1 %cmp.i4.i, label %_Z3gcdRK9s_integerS1_.exit, label %for.cond.i, !llvm.loop !6
+5:                                                ; preds = %5, %2
+  %.sroa.03.2.i = phi i32 [ %.sroa.03.1.i, %2 ], [ %.sroa.08.2.i, %5 ]
+  %.sroa.08.2.i = phi i32 [ %.sroa.08.1.i, %2 ], [ %6, %5 ]
+  %6 = urem i32 %.sroa.03.2.i, %.sroa.08.2.i
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %_Z3gcdRK9s_integerS1_.exit, label %5, !llvm.loop !11
 
-_Z3gcdRK9s_integerS1_.exit:                       ; preds = %for.cond.i
-  %div.i.i = sdiv i32 %0, %retval.sroa.0.2.i
-  %mul.i.i = mul nsw i32 %div.i.i, %1
-  ret i32 %mul.i.i
+_Z3gcdRK9s_integerS1_.exit:                       ; preds = %5
+  %8 = sdiv i32 %3, %.sroa.08.2.i
+  %9 = mul nsw i32 %8, %4
+  ret i32 %9
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_s_integer.cpp() #6 section ".text.startup" {
-entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
-  store i32 0, ptr @_ZN9s_integer6m_zeroE, align 4
-  store i32 1, ptr @_ZN9s_integer5m_oneE, align 4
-  store i32 -1, ptr @_ZN9s_integer11m_minus_oneE, align 4
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
+  store i32 0, ptr @_ZN9s_integer6m_zeroE, align 4, !tbaa !3
+  store i32 1, ptr @_ZN9s_integer5m_oneE, align 4, !tbaa !3
+  store i32 -1, ptr @_ZN9s_integer11m_minus_oneE, align 4, !tbaa !3
   ret void
 }
 
@@ -129,22 +125,28 @@ declare i32 @llvm.umax.i32(i32, i32) #7
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #8 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.linker.options = !{}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTS9s_integer", !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!5, !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10}

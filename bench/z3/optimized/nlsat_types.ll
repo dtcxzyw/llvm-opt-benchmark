@@ -1,9 +1,10 @@
 ; ModuleID = 'bench/z3/original/nlsat_types.ll'
 source_filename = "bench/z3/original/nlsat_types.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
+%"class.sat::literal" = type { i32 }
 %"struct.nlsat::ineq_atom::khasher" = type { i8 }
 %"struct.nlsat::ineq_atom::chasher" = type { i8 }
 
@@ -11,6 +12,8 @@ $_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
+@_ZN5nlsatL12true_literalE = internal global %"class.sat::literal" zeroinitializer, align 4
+@_ZN5nlsatL13false_literalE = internal global %"class.sat::literal" zeroinitializer, align 4
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_nlsat_types.cpp, ptr null }]
 
 @_ZN5nlsat9ineq_atomC1ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj = hidden unnamed_addr alias void (ptr, i32, i32, ptr, ptr, i32), ptr @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj
@@ -24,591 +27,624 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
+
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, i32 noundef %k, i32 noundef %sz, ptr noundef readonly captures(none) %ps, ptr noundef readonly captures(none) %is_even, i32 noundef %max_var) unnamed_addr #3 align 2 {
-entry:
-  store i32 %k, ptr %this, align 8
-  %m_ref_count.i = getelementptr inbounds nuw i8, ptr %this, i64 4
-  store i32 0, ptr %m_ref_count.i, align 4
-  %m_bool_var.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 2147483647, ptr %m_bool_var.i, align 8
-  %m_max_var.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i32 %max_var, ptr %m_max_var.i, align 4
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %sz, ptr %m_size, align 8
-  %cmp5.not = icmp eq i32 %sz, 0
-  br i1 %cmp5.not, label %for.end, label %for.body.lr.ph
+define hidden void @_ZN5nlsat9ineq_atomC2ENS_4atom4kindEjPKPN10polynomial10polynomialEPKbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #4 align 2 {
+  store i32 %1, ptr %0, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %7, align 4, !tbaa !9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2147483647, ptr %8, align 8, !tbaa !10
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %5, ptr %9, align 4, !tbaa !11
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %10, align 8, !tbaa !12
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %m_ps = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %wide.trip.count = zext i32 %sz to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %6
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %wide.trip.count = zext i32 %2 to i64
+  br label %12
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %ps, i64 %indvars.iv
-  %0 = load ptr, ptr %arrayidx, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %arrayidx4 = getelementptr inbounds nuw i8, ptr %is_even, i64 %indvars.iv
-  %2 = load i8, ptr %arrayidx4, align 1
-  %3 = and i8 %2, 1
-  %conv = zext nneg i8 %3 to i64
-  %or = or i64 %conv, %1
-  %4 = inttoptr i64 %or to ptr
-  %arrayidx6 = getelementptr inbounds nuw [0 x ptr], ptr %m_ps, i64 0, i64 %indvars.iv
-  store ptr %4, ptr %arrayidx6, align 8
+._crit_edge:                                      ; preds = %12, %6
+  ret void
+
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %14 = load ptr, ptr %13, align 8, !tbaa !14
+  %15 = ptrtoint ptr %14 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
+  %17 = load i8, ptr %16, align 1, !tbaa !17, !range !19, !noundef !20
+  %18 = zext nneg i8 %17 to i64
+  %19 = or i64 %18, %15
+  %20 = inttoptr i64 %19 to ptr
+  %21 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  store ptr %20, ptr %21, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !21
+}
 
-for.end:                                          ; preds = %for.body, %entry
-  ret void
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef i32 @_ZNK5nlsat9ineq_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+  %3 = alloca %"struct.nlsat::ineq_atom::khasher", align 1
+  %4 = alloca %"struct.nlsat::ineq_atom::chasher", align 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #9
+  %7 = call noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_(ptr noundef %1, i32 noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK5nlsat9ineq_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %a) local_unnamed_addr #4 align 2 {
-entry:
-  %ref.tmp = alloca %"struct.nlsat::ineq_atom::khasher", align 1
-  %ref.tmp2 = alloca %"struct.nlsat::ineq_atom::chasher", align 1
-  %m_size = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %0 = load i32, ptr %m_size, align 8
-  %call = call noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_(ptr noundef %a, i32 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_(ptr noundef %app, i32 noundef %n, ptr noundef nonnull align 1 dereferenceable(1) %khasher, ptr noundef nonnull align 1 dereferenceable(1) %chasher) local_unnamed_addr #4 comdat {
-entry:
-  %0 = load i32, ptr %app, align 8
-  switch i32 %n, label %while.body.lr.ph [
-    i32 0, label %return
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb35
-    i32 3, label %sw.bb77
+define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_atomENS1_7khasherENS1_7chasherEEjT_jRKT0_RKT1_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #5 comdat {
+  %5 = load i32, ptr %0, align 8, !tbaa !3
+  switch i32 %1, label %.lr.ph [
+    i32 0, label %309
+    i32 1, label %8
+    i32 2, label %49
+    i32 3, label %100
   ]
 
-while.body.lr.ph:                                 ; preds = %entry
-  %m_ps.i.i391 = getelementptr inbounds nuw i8, ptr %app, i64 24
-  %1 = zext i32 %n to i64
-  br label %while.body
+.lr.ph:                                           ; preds = %4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = zext i32 %1 to i64
+  br label %193
 
-sw.bb1:                                           ; preds = %entry
-  %add = add i32 %0, -1640531527
-  %m_ps.i.i = getelementptr inbounds nuw i8, ptr %app, i64 24
-  %2 = load ptr, ptr %m_ps.i.i, align 8
-  %3 = ptrtoint ptr %2 to i64
-  %and.i.i = and i64 %3, -8
-  %4 = inttoptr i64 %and.i.i to ptr
-  %call2.i = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %4)
-  %sub = sub i32 %add, %call2.i
-  %sub3 = add i32 %sub, -11
-  %sub5 = sub i32 %call2.i, %sub
-  %shl = shl i32 %sub3, 8
-  %xor6 = xor i32 %shl, %sub5
-  %5 = add i32 %sub, %xor6
-  %sub8 = sub i32 22, %5
-  %shr9 = lshr i32 %xor6, 13
-  %xor10 = xor i32 %sub8, %shr9
-  %6 = add i32 %xor6, %xor10
-  %sub12 = sub i32 %sub3, %6
-  %shr13 = lshr i32 %xor10, 12
-  %xor14 = xor i32 %sub12, %shr13
-  %7 = add i32 %xor10, %xor14
-  %sub16 = sub i32 %xor6, %7
-  %shl17 = shl i32 %xor14, 16
-  %xor18 = xor i32 %sub16, %shl17
-  %8 = add i32 %xor14, %xor18
-  %sub20 = sub i32 %xor10, %8
-  %shr21 = lshr i32 %xor18, 5
-  %xor22 = xor i32 %sub20, %shr21
-  %9 = add i32 %xor18, %xor22
-  %sub24 = sub i32 %xor14, %9
-  %shr25 = lshr i32 %xor22, 3
-  %xor26 = xor i32 %sub24, %shr25
-  %10 = add i32 %xor22, %xor26
-  %sub28 = sub i32 %xor18, %10
-  %shl29 = shl i32 %xor26, 10
-  %xor30 = xor i32 %sub28, %shl29
-  %11 = add i32 %xor26, %xor30
-  %sub32 = sub i32 %xor22, %11
-  %shr33 = lshr i32 %xor30, 15
-  %xor34 = xor i32 %sub32, %shr33
-  br label %return
+8:                                                ; preds = %4
+  %9 = add i32 %5, -1640531527
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %12 = ptrtoint ptr %11 to i64
+  %13 = and i64 %12, -8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %14)
+  %16 = sub i32 %9, %15
+  %17 = add i32 %16, -11
+  %18 = sub i32 %15, %16
+  %19 = shl i32 %17, 8
+  %20 = xor i32 %19, %18
+  %21 = add i32 %16, %20
+  %22 = sub i32 22, %21
+  %23 = lshr i32 %20, 13
+  %24 = xor i32 %22, %23
+  %25 = add i32 %20, %24
+  %26 = sub i32 %17, %25
+  %27 = lshr i32 %24, 12
+  %28 = xor i32 %26, %27
+  %29 = add i32 %24, %28
+  %30 = sub i32 %20, %29
+  %31 = shl i32 %28, 16
+  %32 = xor i32 %30, %31
+  %33 = add i32 %28, %32
+  %34 = sub i32 %24, %33
+  %35 = lshr i32 %32, 5
+  %36 = xor i32 %34, %35
+  %37 = add i32 %32, %36
+  %38 = sub i32 %28, %37
+  %39 = lshr i32 %36, 3
+  %40 = xor i32 %38, %39
+  %41 = add i32 %36, %40
+  %42 = sub i32 %32, %41
+  %43 = shl i32 %40, 10
+  %44 = xor i32 %42, %43
+  %45 = add i32 %40, %44
+  %46 = sub i32 %36, %45
+  %47 = lshr i32 %44, 15
+  %48 = xor i32 %46, %47
+  br label %309
 
-sw.bb35:                                          ; preds = %entry
-  %m_ps.i.i373 = getelementptr inbounds nuw i8, ptr %app, i64 24
-  %12 = load ptr, ptr %m_ps.i.i373, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %and.i.i374 = and i64 %13, -8
-  %14 = inttoptr i64 %and.i.i374 to ptr
-  %call2.i375 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %14)
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %app, i64 32
-  %15 = load ptr, ptr %arrayidx.i.i, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %and.i.i377 = and i64 %16, -8
-  %17 = inttoptr i64 %and.i.i377 to ptr
-  %call2.i378 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %17)
-  %add40 = add i32 %call2.i378, 11
-  %18 = add i32 %call2.i375, %call2.i378
-  %reass.sub472 = sub i32 %0, %18
-  %sub42 = add i32 %reass.sub472, -11
-  %shr43 = lshr i32 %add40, 13
-  %xor44 = xor i32 %sub42, %shr43
-  %19 = add i32 %call2.i375, -1640531538
-  %20 = add i32 %call2.i378, %xor44
-  %sub46 = sub i32 %19, %20
-  %shl47 = shl i32 %xor44, 8
-  %xor48 = xor i32 %sub46, %shl47
-  %21 = add i32 %xor44, %xor48
-  %sub50 = sub i32 %add40, %21
-  %shr51 = lshr i32 %xor48, 13
-  %xor52 = xor i32 %sub50, %shr51
-  %22 = add i32 %xor48, %xor52
-  %sub54 = sub i32 %xor44, %22
-  %shr55 = lshr i32 %xor52, 12
-  %xor56 = xor i32 %sub54, %shr55
-  %23 = add i32 %xor52, %xor56
-  %sub58 = sub i32 %xor48, %23
-  %shl59 = shl i32 %xor56, 16
-  %xor60 = xor i32 %sub58, %shl59
-  %24 = add i32 %xor56, %xor60
-  %sub62 = sub i32 %xor52, %24
-  %shr63 = lshr i32 %xor60, 5
-  %xor64 = xor i32 %sub62, %shr63
-  %25 = add i32 %xor60, %xor64
-  %sub66 = sub i32 %xor56, %25
-  %shr67 = lshr i32 %xor64, 3
-  %xor68 = xor i32 %sub66, %shr67
-  %26 = add i32 %xor64, %xor68
-  %sub70 = sub i32 %xor60, %26
-  %shl71 = shl i32 %xor68, 10
-  %xor72 = xor i32 %sub70, %shl71
-  %27 = add i32 %xor68, %xor72
-  %sub74 = sub i32 %xor64, %27
-  %shr75 = lshr i32 %xor72, 15
-  %xor76 = xor i32 %sub74, %shr75
-  br label %return
+49:                                               ; preds = %4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !14
+  %52 = ptrtoint ptr %51 to i64
+  %53 = and i64 %52, -8
+  %54 = inttoptr i64 %53 to ptr
+  %55 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %54)
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8, !tbaa !14
+  %58 = ptrtoint ptr %57 to i64
+  %59 = and i64 %58, -8
+  %60 = inttoptr i64 %59 to ptr
+  %61 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %60)
+  %62 = add i32 %61, 11
+  %63 = add i32 %55, %61
+  %reass.sub499 = sub i32 %5, %63
+  %64 = add i32 %reass.sub499, -11
+  %65 = lshr i32 %62, 13
+  %66 = xor i32 %64, %65
+  %67 = add i32 %55, -1640531538
+  %68 = add i32 %61, %66
+  %69 = sub i32 %67, %68
+  %70 = shl i32 %66, 8
+  %71 = xor i32 %69, %70
+  %72 = add i32 %66, %71
+  %73 = sub i32 %62, %72
+  %74 = lshr i32 %71, 13
+  %75 = xor i32 %73, %74
+  %76 = add i32 %71, %75
+  %77 = sub i32 %66, %76
+  %78 = lshr i32 %75, 12
+  %79 = xor i32 %77, %78
+  %80 = add i32 %75, %79
+  %81 = sub i32 %71, %80
+  %82 = shl i32 %79, 16
+  %83 = xor i32 %81, %82
+  %84 = add i32 %79, %83
+  %85 = sub i32 %75, %84
+  %86 = lshr i32 %83, 5
+  %87 = xor i32 %85, %86
+  %88 = add i32 %83, %87
+  %89 = sub i32 %79, %88
+  %90 = lshr i32 %87, 3
+  %91 = xor i32 %89, %90
+  %92 = add i32 %87, %91
+  %93 = sub i32 %83, %92
+  %94 = shl i32 %91, 10
+  %95 = xor i32 %93, %94
+  %96 = add i32 %91, %95
+  %97 = sub i32 %87, %96
+  %98 = lshr i32 %95, 15
+  %99 = xor i32 %97, %98
+  br label %309
 
-sw.bb77:                                          ; preds = %entry
-  %m_ps.i.i379 = getelementptr inbounds nuw i8, ptr %app, i64 24
-  %28 = load ptr, ptr %m_ps.i.i379, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %and.i.i381 = and i64 %29, -8
-  %30 = inttoptr i64 %and.i.i381 to ptr
-  %call2.i382 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %30)
-  %arrayidx.i.i384 = getelementptr inbounds nuw i8, ptr %app, i64 32
-  %31 = load ptr, ptr %arrayidx.i.i384, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %and.i.i385 = and i64 %32, -8
-  %33 = inttoptr i64 %and.i.i385 to ptr
-  %call2.i386 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %33)
-  %arrayidx.i.i388 = getelementptr inbounds nuw i8, ptr %app, i64 40
-  %34 = load ptr, ptr %arrayidx.i.i388, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %and.i.i389 = and i64 %35, -8
-  %36 = inttoptr i64 %and.i.i389 to ptr
-  %call2.i390 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %36)
-  %add83 = add i32 %call2.i390, 11
-  %37 = add i32 %call2.i386, %call2.i390
-  %reass.sub = sub i32 %call2.i382, %37
-  %sub85 = add i32 %reass.sub, -11
-  %shr86 = lshr i32 %add83, 13
-  %xor87 = xor i32 %sub85, %shr86
-  %38 = add i32 %call2.i386, -1640531538
-  %39 = add i32 %call2.i390, %xor87
-  %sub89 = sub i32 %38, %39
-  %shl90 = shl i32 %xor87, 8
-  %xor91 = xor i32 %sub89, %shl90
-  %40 = add i32 %xor87, %xor91
-  %sub93 = sub i32 %add83, %40
-  %shr94 = lshr i32 %xor91, 13
-  %xor95 = xor i32 %sub93, %shr94
-  %41 = add i32 %xor91, %xor95
-  %sub97 = sub i32 %xor87, %41
-  %shr98 = lshr i32 %xor95, 12
-  %xor99 = xor i32 %sub97, %shr98
-  %42 = add i32 %xor95, %xor99
-  %sub101 = sub i32 %xor91, %42
-  %shl102 = shl i32 %xor99, 16
-  %xor103 = xor i32 %sub101, %shl102
-  %43 = add i32 %xor99, %xor103
-  %sub105 = sub i32 %xor95, %43
-  %shr106 = lshr i32 %xor103, 5
-  %xor107 = xor i32 %sub105, %shr106
-  %44 = add i32 %xor103, %xor107
-  %sub109 = sub i32 %xor99, %44
-  %shr110 = lshr i32 %xor107, 3
-  %xor111 = xor i32 %sub109, %shr110
-  %45 = add i32 %xor107, %xor111
-  %sub113 = sub i32 %xor103, %45
-  %shl114 = shl i32 %xor111, 10
-  %xor115 = xor i32 %sub113, %shl114
-  %46 = add i32 %xor111, %xor115
-  %sub117 = sub i32 %xor107, %46
-  %shr118 = lshr i32 %xor115, 15
-  %xor119 = xor i32 %sub117, %shr118
-  %.neg421 = add i32 %xor111, %0
-  %47 = add i32 %xor115, %xor119
-  %sub122 = sub i32 %.neg421, %47
-  %shr123 = lshr i32 %xor119, 13
-  %xor124 = xor i32 %sub122, %shr123
-  %48 = add i32 %xor119, %xor124
-  %sub126 = sub i32 %xor115, %48
-  %shl127 = shl i32 %xor124, 8
-  %xor128 = xor i32 %sub126, %shl127
-  %49 = add i32 %xor124, %xor128
-  %sub130 = sub i32 %xor119, %49
-  %shr131 = lshr i32 %xor128, 13
-  %xor132 = xor i32 %sub130, %shr131
-  %50 = add i32 %xor128, %xor132
-  %sub134 = sub i32 %xor124, %50
-  %shr135 = lshr i32 %xor132, 12
-  %xor136 = xor i32 %sub134, %shr135
-  %51 = add i32 %xor132, %xor136
-  %sub138 = sub i32 %xor128, %51
-  %shl139 = shl i32 %xor136, 16
-  %xor140 = xor i32 %sub138, %shl139
-  %52 = add i32 %xor136, %xor140
-  %sub142 = sub i32 %xor132, %52
-  %shr143 = lshr i32 %xor140, 5
-  %xor144 = xor i32 %sub142, %shr143
-  %53 = add i32 %xor140, %xor144
-  %sub146 = sub i32 %xor136, %53
-  %shr147 = lshr i32 %xor144, 3
-  %xor148 = xor i32 %sub146, %shr147
-  %54 = add i32 %xor144, %xor148
-  %sub150 = sub i32 %xor140, %54
-  %shl151 = shl i32 %xor148, 10
-  %xor152 = xor i32 %sub150, %shl151
-  %55 = add i32 %xor148, %xor152
-  %sub154 = sub i32 %xor144, %55
-  %shr155 = lshr i32 %xor152, 15
-  %xor156 = xor i32 %sub154, %shr155
-  br label %return
+100:                                              ; preds = %4
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %102 = load ptr, ptr %101, align 8, !tbaa !14
+  %103 = ptrtoint ptr %102 to i64
+  %104 = and i64 %103, -8
+  %105 = inttoptr i64 %104 to ptr
+  %106 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %105)
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %108 = load ptr, ptr %107, align 8, !tbaa !14
+  %109 = ptrtoint ptr %108 to i64
+  %110 = and i64 %109, -8
+  %111 = inttoptr i64 %110 to ptr
+  %112 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %111)
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %114 = load ptr, ptr %113, align 8, !tbaa !14
+  %115 = ptrtoint ptr %114 to i64
+  %116 = and i64 %115, -8
+  %117 = inttoptr i64 %116 to ptr
+  %118 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %117)
+  %119 = add i32 %118, 11
+  %120 = add i32 %112, %118
+  %reass.sub = sub i32 %106, %120
+  %121 = add i32 %reass.sub, -11
+  %122 = lshr i32 %119, 13
+  %123 = xor i32 %121, %122
+  %124 = add i32 %112, -1640531538
+  %125 = add i32 %118, %123
+  %126 = sub i32 %124, %125
+  %127 = shl i32 %123, 8
+  %128 = xor i32 %126, %127
+  %129 = add i32 %123, %128
+  %130 = sub i32 %119, %129
+  %131 = lshr i32 %128, 13
+  %132 = xor i32 %130, %131
+  %133 = add i32 %128, %132
+  %134 = sub i32 %123, %133
+  %135 = lshr i32 %132, 12
+  %136 = xor i32 %134, %135
+  %137 = add i32 %132, %136
+  %138 = sub i32 %128, %137
+  %139 = shl i32 %136, 16
+  %140 = xor i32 %138, %139
+  %141 = add i32 %136, %140
+  %142 = sub i32 %132, %141
+  %143 = lshr i32 %140, 5
+  %144 = xor i32 %142, %143
+  %145 = add i32 %140, %144
+  %146 = sub i32 %136, %145
+  %147 = lshr i32 %144, 3
+  %148 = xor i32 %146, %147
+  %149 = add i32 %144, %148
+  %150 = sub i32 %140, %149
+  %151 = shl i32 %148, 10
+  %152 = xor i32 %150, %151
+  %153 = add i32 %148, %152
+  %154 = sub i32 %144, %153
+  %155 = lshr i32 %152, 15
+  %156 = xor i32 %154, %155
+  %.neg404 = add i32 %148, %5
+  %157 = add i32 %152, %156
+  %158 = sub i32 %.neg404, %157
+  %159 = lshr i32 %156, 13
+  %160 = xor i32 %158, %159
+  %161 = add i32 %156, %160
+  %162 = sub i32 %152, %161
+  %163 = shl i32 %160, 8
+  %164 = xor i32 %162, %163
+  %165 = add i32 %160, %164
+  %166 = sub i32 %156, %165
+  %167 = lshr i32 %164, 13
+  %168 = xor i32 %166, %167
+  %169 = add i32 %164, %168
+  %170 = sub i32 %160, %169
+  %171 = lshr i32 %168, 12
+  %172 = xor i32 %170, %171
+  %173 = add i32 %168, %172
+  %174 = sub i32 %164, %173
+  %175 = shl i32 %172, 16
+  %176 = xor i32 %174, %175
+  %177 = add i32 %172, %176
+  %178 = sub i32 %168, %177
+  %179 = lshr i32 %176, 5
+  %180 = xor i32 %178, %179
+  %181 = add i32 %176, %180
+  %182 = sub i32 %172, %181
+  %183 = lshr i32 %180, 3
+  %184 = xor i32 %182, %183
+  %185 = add i32 %180, %184
+  %186 = sub i32 %176, %185
+  %187 = shl i32 %184, 10
+  %188 = xor i32 %186, %187
+  %189 = add i32 %184, %188
+  %190 = sub i32 %180, %189
+  %191 = lshr i32 %188, 15
+  %192 = xor i32 %190, %191
+  br label %309
 
-while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %indvars.iv = phi i64 [ %1, %while.body.lr.ph ], [ %62, %while.body ]
-  %c.0468 = phi i32 [ 11, %while.body.lr.ph ], [ %xor200, %while.body ]
-  %b.0467 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor196, %while.body ]
-  %a.0466 = phi i32 [ -1640531527, %while.body.lr.ph ], [ %xor192, %while.body ]
-  %dec = add i64 %indvars.iv, 4294967295
-  %idxprom.i.i = and i64 %dec, 4294967295
-  %arrayidx.i.i392 = getelementptr inbounds nuw [0 x ptr], ptr %m_ps.i.i391, i64 0, i64 %idxprom.i.i
-  %56 = load ptr, ptr %arrayidx.i.i392, align 8
-  %57 = ptrtoint ptr %56 to i64
-  %and.i.i393 = and i64 %57, -8
-  %58 = inttoptr i64 %and.i.i393 to ptr
-  %call2.i394 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %58)
-  %dec159 = add i64 %indvars.iv, 4294967294
-  %idxprom.i.i396 = and i64 %dec159, 4294967295
-  %arrayidx.i.i397 = getelementptr inbounds nuw [0 x ptr], ptr %m_ps.i.i391, i64 0, i64 %idxprom.i.i396
-  %59 = load ptr, ptr %arrayidx.i.i397, align 8
-  %60 = ptrtoint ptr %59 to i64
-  %and.i.i398 = and i64 %60, -8
-  %61 = inttoptr i64 %and.i.i398 to ptr
-  %call2.i399 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %61)
-  %add161 = add i32 %call2.i399, %b.0467
-  %62 = add nsw i64 %indvars.iv, -3
-  %arrayidx.i.i402 = getelementptr inbounds nuw [0 x ptr], ptr %m_ps.i.i391, i64 0, i64 %62
-  %63 = load ptr, ptr %arrayidx.i.i402, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %and.i.i403 = and i64 %64, -8
-  %65 = inttoptr i64 %and.i.i403 to ptr
-  %call2.i404 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %65)
-  %add164 = add i32 %call2.i404, %c.0468
-  %.neg455 = add i32 %call2.i394, %a.0466
-  %66 = add i32 %add161, %add164
-  %sub166 = sub i32 %.neg455, %66
-  %shr167 = lshr i32 %add164, 13
-  %xor168 = xor i32 %sub166, %shr167
-  %67 = add i32 %add164, %xor168
-  %sub170 = sub i32 %add161, %67
-  %shl171 = shl i32 %xor168, 8
-  %xor172 = xor i32 %sub170, %shl171
-  %68 = add i32 %xor168, %xor172
-  %sub174 = sub i32 %add164, %68
-  %shr175 = lshr i32 %xor172, 13
-  %xor176 = xor i32 %sub174, %shr175
-  %69 = add i32 %xor172, %xor176
-  %sub178 = sub i32 %xor168, %69
-  %shr179 = lshr i32 %xor176, 12
-  %xor180 = xor i32 %sub178, %shr179
-  %70 = add i32 %xor176, %xor180
-  %sub182 = sub i32 %xor172, %70
-  %shl183 = shl i32 %xor180, 16
-  %xor184 = xor i32 %sub182, %shl183
-  %71 = add i32 %xor180, %xor184
-  %sub186 = sub i32 %xor176, %71
-  %shr187 = lshr i32 %xor184, 5
-  %xor188 = xor i32 %sub186, %shr187
-  %72 = add i32 %xor184, %xor188
-  %sub190 = sub i32 %xor180, %72
-  %shr191 = lshr i32 %xor188, 3
-  %xor192 = xor i32 %sub190, %shr191
-  %73 = add i32 %xor188, %xor192
-  %sub194 = sub i32 %xor184, %73
-  %shl195 = shl i32 %xor192, 10
-  %xor196 = xor i32 %sub194, %shl195
-  %74 = add i32 %xor192, %xor196
-  %sub198 = sub i32 %xor188, %74
-  %shr199 = lshr i32 %xor196, 15
-  %xor200 = xor i32 %sub198, %shr199
-  %cmp.wide = icmp ugt i64 %62, 2
-  br i1 %cmp.wide, label %while.body, label %while.end, !llvm.loop !6
+193:                                              ; preds = %.lr.ph, %193
+  %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %211, %193 ]
+  %.0380495 = phi i32 [ 11, %.lr.ph ], [ %254, %193 ]
+  %.0381494 = phi i32 [ -1640531527, %.lr.ph ], [ %250, %193 ]
+  %.0383493 = phi i32 [ -1640531527, %.lr.ph ], [ %246, %193 ]
+  %194 = add i64 %indvars.iv, 4294967295
+  %195 = and i64 %194, 4294967295
+  %196 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %195
+  %197 = load ptr, ptr %196, align 8, !tbaa !14
+  %198 = ptrtoint ptr %197 to i64
+  %199 = and i64 %198, -8
+  %200 = inttoptr i64 %199 to ptr
+  %201 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %200)
+  %202 = add i64 %indvars.iv, 4294967294
+  %203 = and i64 %202, 4294967295
+  %204 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %203
+  %205 = load ptr, ptr %204, align 8, !tbaa !14
+  %206 = ptrtoint ptr %205 to i64
+  %207 = and i64 %206, -8
+  %208 = inttoptr i64 %207 to ptr
+  %209 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %208)
+  %210 = add i32 %209, %.0381494
+  %211 = add nsw i64 %indvars.iv, -3
+  %212 = getelementptr inbounds nuw [0 x ptr], ptr %6, i64 0, i64 %211
+  %213 = load ptr, ptr %212, align 8, !tbaa !14
+  %214 = ptrtoint ptr %213 to i64
+  %215 = and i64 %214, -8
+  %216 = inttoptr i64 %215 to ptr
+  %217 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %216)
+  %218 = add i32 %217, %.0380495
+  %.neg475 = add i32 %201, %.0383493
+  %219 = add i32 %210, %218
+  %220 = sub i32 %.neg475, %219
+  %221 = lshr i32 %218, 13
+  %222 = xor i32 %220, %221
+  %223 = add i32 %218, %222
+  %224 = sub i32 %210, %223
+  %225 = shl i32 %222, 8
+  %226 = xor i32 %224, %225
+  %227 = add i32 %222, %226
+  %228 = sub i32 %218, %227
+  %229 = lshr i32 %226, 13
+  %230 = xor i32 %228, %229
+  %231 = add i32 %226, %230
+  %232 = sub i32 %222, %231
+  %233 = lshr i32 %230, 12
+  %234 = xor i32 %232, %233
+  %235 = add i32 %230, %234
+  %236 = sub i32 %226, %235
+  %237 = shl i32 %234, 16
+  %238 = xor i32 %236, %237
+  %239 = add i32 %234, %238
+  %240 = sub i32 %230, %239
+  %241 = lshr i32 %238, 5
+  %242 = xor i32 %240, %241
+  %243 = add i32 %238, %242
+  %244 = sub i32 %234, %243
+  %245 = lshr i32 %242, 3
+  %246 = xor i32 %244, %245
+  %247 = add i32 %242, %246
+  %248 = sub i32 %238, %247
+  %249 = shl i32 %246, 10
+  %250 = xor i32 %248, %249
+  %251 = add i32 %246, %250
+  %252 = sub i32 %242, %251
+  %253 = lshr i32 %250, 15
+  %254 = xor i32 %252, %253
+  %.wide = icmp ugt i64 %211, 2
+  br i1 %.wide, label %193, label %._crit_edge, !llvm.loop !23
 
-while.end:                                        ; preds = %while.body
-  %75 = trunc nuw i64 %62 to i32
-  switch i32 %75, label %sw.epilog [
-    i32 2, label %sw.bb202
-    i32 1, label %sw.bb205
+._crit_edge:                                      ; preds = %193
+  %255 = trunc nuw i64 %211 to i32
+  switch i32 %255, label %272 [
+    i32 2, label %256
+    i32 1, label %264
   ]
 
-sw.bb202:                                         ; preds = %while.end
-  %arrayidx.i.i406 = getelementptr inbounds nuw i8, ptr %app, i64 32
-  %76 = load ptr, ptr %arrayidx.i.i406, align 8
-  %77 = ptrtoint ptr %76 to i64
-  %and.i.i407 = and i64 %77, -8
-  %78 = inttoptr i64 %and.i.i407 to ptr
-  %call2.i408 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %78)
-  %add204 = add i32 %call2.i408, %xor196
-  br label %sw.bb205
+256:                                              ; preds = %._crit_edge
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %258 = load ptr, ptr %257, align 8, !tbaa !14
+  %259 = ptrtoint ptr %258 to i64
+  %260 = and i64 %259, -8
+  %261 = inttoptr i64 %260 to ptr
+  %262 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %261)
+  %263 = add i32 %262, %250
+  br label %264
 
-sw.bb205:                                         ; preds = %sw.bb202, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %add204, %sw.bb202 ]
-  %m_ps.i.i409 = getelementptr inbounds nuw i8, ptr %app, i64 24
-  %79 = load ptr, ptr %m_ps.i.i409, align 8
-  %80 = ptrtoint ptr %79 to i64
-  %and.i.i411 = and i64 %80, -8
-  %81 = inttoptr i64 %and.i.i411 to ptr
-  %call2.i412 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %81)
-  %add207 = add i32 %call2.i412, %xor200
-  br label %sw.epilog
+264:                                              ; preds = %256, %._crit_edge
+  %.2 = phi i32 [ %250, %._crit_edge ], [ %263, %256 ]
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %266 = load ptr, ptr %265, align 8, !tbaa !14
+  %267 = ptrtoint ptr %266 to i64
+  %268 = and i64 %267, -8
+  %269 = inttoptr i64 %268 to ptr
+  %270 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %269)
+  %271 = add i32 %270, %254
+  br label %272
 
-sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
-  %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %.neg446 = add i32 %xor192, %0
-  %82 = add i32 %b.1, %c.1
-  %sub209 = sub i32 %.neg446, %82
-  %shr210 = lshr i32 %c.1, 13
-  %xor211 = xor i32 %sub209, %shr210
-  %83 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.1, %83
-  %shl214 = shl i32 %xor211, 8
-  %xor215 = xor i32 %sub213, %shl214
-  %84 = add i32 %xor211, %xor215
-  %sub217 = sub i32 %c.1, %84
-  %shr218 = lshr i32 %xor215, 13
-  %xor219 = xor i32 %sub217, %shr218
-  %85 = add i32 %xor215, %xor219
-  %sub221 = sub i32 %xor211, %85
-  %shr222 = lshr i32 %xor219, 12
-  %xor223 = xor i32 %sub221, %shr222
-  %86 = add i32 %xor219, %xor223
-  %sub225 = sub i32 %xor215, %86
-  %shl226 = shl i32 %xor223, 16
-  %xor227 = xor i32 %sub225, %shl226
-  %87 = add i32 %xor223, %xor227
-  %sub229 = sub i32 %xor219, %87
-  %shr230 = lshr i32 %xor227, 5
-  %xor231 = xor i32 %sub229, %shr230
-  %88 = add i32 %xor227, %xor231
-  %sub233 = sub i32 %xor223, %88
-  %shr234 = lshr i32 %xor231, 3
-  %xor235 = xor i32 %sub233, %shr234
-  %89 = add i32 %xor231, %xor235
-  %sub237 = sub i32 %xor227, %89
-  %shl238 = shl i32 %xor235, 10
-  %xor239 = xor i32 %sub237, %shl238
-  %90 = add i32 %xor235, %xor239
-  %sub241 = sub i32 %xor231, %90
-  %shr242 = lshr i32 %xor239, 15
-  %xor243 = xor i32 %sub241, %shr242
-  br label %return
+272:                                              ; preds = %264, %._crit_edge
+  %.1382 = phi i32 [ %250, %._crit_edge ], [ %.2, %264 ]
+  %.1 = phi i32 [ %254, %._crit_edge ], [ %271, %264 ]
+  %.neg456 = add i32 %246, %5
+  %273 = add i32 %.1382, %.1
+  %274 = sub i32 %.neg456, %273
+  %275 = lshr i32 %.1, 13
+  %276 = xor i32 %274, %275
+  %277 = add i32 %.1, %276
+  %278 = sub i32 %.1382, %277
+  %279 = shl i32 %276, 8
+  %280 = xor i32 %278, %279
+  %281 = add i32 %276, %280
+  %282 = sub i32 %.1, %281
+  %283 = lshr i32 %280, 13
+  %284 = xor i32 %282, %283
+  %285 = add i32 %280, %284
+  %286 = sub i32 %276, %285
+  %287 = lshr i32 %284, 12
+  %288 = xor i32 %286, %287
+  %289 = add i32 %284, %288
+  %290 = sub i32 %280, %289
+  %291 = shl i32 %288, 16
+  %292 = xor i32 %290, %291
+  %293 = add i32 %288, %292
+  %294 = sub i32 %284, %293
+  %295 = lshr i32 %292, 5
+  %296 = xor i32 %294, %295
+  %297 = add i32 %292, %296
+  %298 = sub i32 %288, %297
+  %299 = lshr i32 %296, 3
+  %300 = xor i32 %298, %299
+  %301 = add i32 %296, %300
+  %302 = sub i32 %292, %301
+  %303 = shl i32 %300, 10
+  %304 = xor i32 %302, %303
+  %305 = add i32 %300, %304
+  %306 = sub i32 %296, %305
+  %307 = lshr i32 %304, 15
+  %308 = xor i32 %306, %307
+  br label %309
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb77, %sw.bb35, %sw.bb1
-  %retval.0 = phi i32 [ %xor243, %sw.epilog ], [ %xor156, %sw.bb77 ], [ %xor76, %sw.bb35 ], [ %xor34, %sw.bb1 ], [ 11, %entry ]
-  ret i32 %retval.0
+309:                                              ; preds = %4, %272, %100, %49, %8
+  %.0 = phi i32 [ %308, %272 ], [ %192, %100 ], [ %99, %49 ], [ %48, %8 ], [ 11, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a1, ptr noundef readonly captures(none) %a2) local_unnamed_addr #5 align 2 {
-entry:
-  %m_size = getelementptr inbounds nuw i8, ptr %a1, i64 16
-  %0 = load i32, ptr %m_size, align 8
-  %m_size2 = getelementptr inbounds nuw i8, ptr %a2, i64 16
-  %1 = load i32, ptr %m_size2, align 8
-  %cmp.not = icmp eq i32 %0, %1
-  br i1 %cmp.not, label %lor.lhs.false, label %return
+define hidden noundef zeroext i1 @_ZNK5nlsat9ineq_atom7eq_procclEPKS0_S3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %5 = load i32, ptr %4, align 8, !tbaa !12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %7 = load i32, ptr %6, align 8, !tbaa !12
+  %.not = icmp eq i32 %5, %7
+  br i1 %.not, label %8, label %.critedge
 
-lor.lhs.false:                                    ; preds = %entry
-  %2 = load i32, ptr %a1, align 8
-  %3 = load i32, ptr %a2, align 8
-  %cmp4.not = icmp eq i32 %2, %3
-  br i1 %cmp4.not, label %for.cond.preheader, label %return
+8:                                                ; preds = %3
+  %9 = load i32, ptr %1, align 8, !tbaa !3
+  %10 = load i32, ptr %2, align 8, !tbaa !3
+  %.not16 = icmp eq i32 %9, %10
+  br i1 %.not16, label %.preheader, label %.critedge
 
-for.cond.preheader:                               ; preds = %lor.lhs.false
-  %m_ps = getelementptr inbounds nuw i8, ptr %a1, i64 24
-  %cmp69.not = icmp eq i32 %0, 0
-  br i1 %cmp69.not, label %return, label %for.body.lr.ph
+.preheader:                                       ; preds = %8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.not18.not19.not = icmp eq i32 %5, 0
+  br i1 %.not18.not19.not, label %.critedge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_ps7 = getelementptr inbounds nuw i8, ptr %a2, i64 24
-  %wide.trip.count = zext i32 %0 to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %.preheader
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %wide.trip.count = zext i32 %5 to i64
+  br label %13
 
-for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [0 x ptr], ptr %m_ps, i64 0, i64 %indvars.iv
-  %4 = load ptr, ptr %arrayidx, align 8
-  %arrayidx9 = getelementptr inbounds nuw [0 x ptr], ptr %m_ps7, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %arrayidx9, align 8
-  %cmp10.not = icmp eq ptr %4, %5
+13:                                               ; preds = %13, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+  %14 = getelementptr inbounds nuw [0 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  %15 = load ptr, ptr %14, align 8, !tbaa !14
+  %16 = getelementptr inbounds nuw [0 x ptr], ptr %12, i64 0, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8, !tbaa !14
+  %.not17 = icmp eq ptr %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %cmp10.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %for.body, label %return, !llvm.loop !7
+  %or.cond.not = select i1 %.not17, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %13, label %.critedge, !llvm.loop !24
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %entry, %lor.lhs.false
-  %retval.0 = phi i1 [ false, %lor.lhs.false ], [ false, %entry ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
-  ret i1 %retval.0
+.critedge:                                        ; preds = %13, %.preheader, %3, %8
+  %.014 = phi i1 [ false, %8 ], [ false, %3 ], [ true, %.preheader ], [ %.not17, %13 ]
+  ret i1 %.014
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, i32 noundef %k, i32 noundef %x, i32 noundef %i, ptr noundef %p) unnamed_addr #6 align 2 {
-entry:
-  store i32 %k, ptr %this, align 8
-  %m_ref_count.i = getelementptr inbounds nuw i8, ptr %this, i64 4
-  store i32 0, ptr %m_ref_count.i, align 4
-  %m_bool_var.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i32 2147483647, ptr %m_bool_var.i, align 8
-  %m_max_var.i = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i32 %x, ptr %m_max_var.i, align 4
-  %m_x = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %x, ptr %m_x, align 8
-  %m_i = getelementptr inbounds nuw i8, ptr %this, i64 20
-  store i32 %i, ptr %m_i, align 4
-  %m_p = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %p, ptr %m_p, align 8
+define hidden void @_ZN5nlsat9root_atomC2ENS_4atom4kindEjjPN10polynomial10polynomialE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #7 align 2 {
+  store i32 %1, ptr %0, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %6, align 4, !tbaa !9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2147483647, ptr %7, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %2, ptr %8, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %9, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %3, ptr %10, align 4, !tbaa !27
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %11, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK5nlsat9root_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a) local_unnamed_addr #4 align 2 {
-entry:
-  %m_x = getelementptr inbounds nuw i8, ptr %a, i64 16
-  %0 = load i32, ptr %m_x, align 8
-  %m_i = getelementptr inbounds nuw i8, ptr %a, i64 20
-  %1 = load i32, ptr %m_i, align 4
-  %shl = shl i32 %1, 2
-  %2 = load i32, ptr %a, align 8
-  %or = or i32 %shl, %2
-  %m_p = getelementptr inbounds nuw i8, ptr %a, i64 24
-  %3 = load ptr, ptr %m_p, align 8
-  %call = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %3)
-  %4 = add i32 %or, %call
-  %sub2 = sub i32 %0, %4
-  %shr = lshr i32 %call, 13
-  %xor = xor i32 %sub2, %shr
-  %5 = add i32 %call, %xor
-  %sub4 = sub i32 %or, %5
-  %shl5 = shl i32 %xor, 8
-  %xor6 = xor i32 %sub4, %shl5
-  %6 = add i32 %xor, %xor6
-  %sub8 = sub i32 %call, %6
-  %shr9 = lshr i32 %xor6, 13
-  %xor10 = xor i32 %sub8, %shr9
-  %7 = add i32 %xor6, %xor10
-  %sub12 = sub i32 %xor, %7
-  %shr13 = lshr i32 %xor10, 12
-  %xor14 = xor i32 %sub12, %shr13
-  %8 = add i32 %xor10, %xor14
-  %sub16 = sub i32 %xor6, %8
-  %shl17 = shl i32 %xor14, 16
-  %xor18 = xor i32 %sub16, %shl17
-  %9 = add i32 %xor14, %xor18
-  %sub20 = sub i32 %xor10, %9
-  %shr21 = lshr i32 %xor18, 5
-  %xor22 = xor i32 %sub20, %shr21
-  %10 = add i32 %xor18, %xor22
-  %sub24 = sub i32 %xor14, %10
-  %shr25 = lshr i32 %xor22, 3
-  %xor26 = xor i32 %sub24, %shr25
-  %11 = add i32 %xor22, %xor26
-  %sub28 = sub i32 %xor18, %11
-  %shl29 = shl i32 %xor26, 10
-  %xor30 = xor i32 %sub28, %shl29
-  %12 = add i32 %xor26, %xor30
-  %sub32 = sub i32 %xor22, %12
-  %shr33 = lshr i32 %xor30, 15
-  %xor34 = xor i32 %sub32, %shr33
-  ret i32 %xor34
+define hidden noundef i32 @_ZNK5nlsat9root_atom9hash_procclEPKS0_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %4 = load i32, ptr %3, align 8, !tbaa !25
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %6 = load i32, ptr %5, align 4, !tbaa !27
+  %7 = shl i32 %6, 2
+  %8 = load i32, ptr %1, align 8, !tbaa !3
+  %9 = or i32 %7, %8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %12 = tail call noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef %11)
+  %13 = add i32 %9, %12
+  %14 = sub i32 %4, %13
+  %15 = lshr i32 %12, 13
+  %16 = xor i32 %14, %15
+  %17 = add i32 %12, %16
+  %18 = sub i32 %9, %17
+  %19 = shl i32 %16, 8
+  %20 = xor i32 %18, %19
+  %21 = add i32 %16, %20
+  %22 = sub i32 %12, %21
+  %23 = lshr i32 %20, 13
+  %24 = xor i32 %22, %23
+  %25 = add i32 %20, %24
+  %26 = sub i32 %16, %25
+  %27 = lshr i32 %24, 12
+  %28 = xor i32 %26, %27
+  %29 = add i32 %24, %28
+  %30 = sub i32 %20, %29
+  %31 = shl i32 %28, 16
+  %32 = xor i32 %30, %31
+  %33 = add i32 %28, %32
+  %34 = sub i32 %24, %33
+  %35 = lshr i32 %32, 5
+  %36 = xor i32 %34, %35
+  %37 = add i32 %32, %36
+  %38 = sub i32 %28, %37
+  %39 = lshr i32 %36, 3
+  %40 = xor i32 %38, %39
+  %41 = add i32 %36, %40
+  %42 = sub i32 %32, %41
+  %43 = shl i32 %40, 10
+  %44 = xor i32 %42, %43
+  %45 = add i32 %40, %44
+  %46 = sub i32 %36, %45
+  %47 = lshr i32 %44, 15
+  %48 = xor i32 %46, %47
+  ret i32 %48
 }
 
 declare noundef i32 @_ZN10polynomial7manager2idEPKNS_10polynomialE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK5nlsat9root_atom7eq_procclEPKS0_S3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a1, ptr noundef readonly captures(none) %a2) local_unnamed_addr #5 align 2 {
-entry:
-  %0 = load i32, ptr %a1, align 8
-  %1 = load i32, ptr %a2, align 8
-  %cmp = icmp eq i32 %0, %1
-  br i1 %cmp, label %land.lhs.true, label %land.end
+define hidden noundef zeroext i1 @_ZNK5nlsat9root_atom7eq_procclEPKS0_S3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 {
+  %4 = load i32, ptr %1, align 8, !tbaa !3
+  %5 = load i32, ptr %2, align 8, !tbaa !3
+  %6 = icmp eq i32 %4, %5
+  br i1 %6, label %7, label %25
 
-land.lhs.true:                                    ; preds = %entry
-  %m_x = getelementptr inbounds nuw i8, ptr %a1, i64 16
-  %2 = load i32, ptr %m_x, align 8
-  %m_x3 = getelementptr inbounds nuw i8, ptr %a2, i64 16
-  %3 = load i32, ptr %m_x3, align 8
-  %cmp4 = icmp eq i32 %2, %3
-  br i1 %cmp4, label %land.lhs.true5, label %land.end
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !25
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = load i32, ptr %10, align 8, !tbaa !25
+  %12 = icmp eq i32 %9, %11
+  br i1 %12, label %13, label %25
 
-land.lhs.true5:                                   ; preds = %land.lhs.true
-  %m_i = getelementptr inbounds nuw i8, ptr %a1, i64 20
-  %4 = load i32, ptr %m_i, align 4
-  %m_i6 = getelementptr inbounds nuw i8, ptr %a2, i64 20
-  %5 = load i32, ptr %m_i6, align 4
-  %cmp7 = icmp eq i32 %4, %5
-  br i1 %cmp7, label %land.rhs, label %land.end
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %15 = load i32, ptr %14, align 4, !tbaa !27
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %17 = load i32, ptr %16, align 4, !tbaa !27
+  %18 = icmp eq i32 %15, %17
+  br i1 %18, label %19, label %25
 
-land.rhs:                                         ; preds = %land.lhs.true5
-  %m_p = getelementptr inbounds nuw i8, ptr %a1, i64 24
-  %6 = load ptr, ptr %m_p, align 8
-  %m_p8 = getelementptr inbounds nuw i8, ptr %a2, i64 24
-  %7 = load ptr, ptr %m_p8, align 8
-  %cmp9 = icmp eq ptr %6, %7
-  br label %land.end
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %24 = icmp eq ptr %21, %23
+  br label %25
 
-land.end:                                         ; preds = %land.rhs, %land.lhs.true5, %land.lhs.true, %entry
-  %8 = phi i1 [ false, %land.lhs.true5 ], [ false, %land.lhs.true ], [ false, %entry ], [ %cmp9, %land.rhs ]
-  ret i1 %8
+25:                                               ; preds = %19, %13, %7, %3
+  %26 = phi i1 [ false, %13 ], [ false, %7 ], [ false, %3 ], [ %24, %19 ]
+  ret i1 %26
 }
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_nlsat_types.cpp() #7 section ".text.startup" {
-entry:
+define internal void @_GLOBAL__sub_I_nlsat_types.cpp() #8 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #8
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  store i32 0, ptr @_ZN5nlsatL12true_literalE, align 4, !tbaa !29
+  %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN5nlsatL12true_literalE)
+  store i32 1, ptr @_ZN5nlsatL13false_literalE, align 4, !tbaa !29
+  %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN5nlsatL13false_literalE)
   ret void
 }
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.linker.options = !{}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTSN5nlsat4atomE", !5, i64 0, !8, i64 4, !8, i64 8, !8, i64 12}
+!5 = !{!"_ZTSN5nlsat4atom4kindE", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!"int", !6, i64 0}
+!9 = !{!4, !8, i64 4}
+!10 = !{!4, !8, i64 8}
+!11 = !{!4, !8, i64 12}
+!12 = !{!13, !8, i64 16}
+!13 = !{!"_ZTSN5nlsat9ineq_atomE", !4, i64 0, !8, i64 16, !6, i64 24}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTSN10polynomial10polynomialE", !16, i64 0}
+!16 = !{!"any pointer", !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"bool", !6, i64 0}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.mustprogress"}
+!23 = distinct !{!23, !22}
+!24 = distinct !{!24, !22}
+!25 = !{!26, !8, i64 16}
+!26 = !{!"_ZTSN5nlsat9root_atomE", !4, i64 0, !8, i64 16, !8, i64 20, !15, i64 24}
+!27 = !{!26, !8, i64 20}
+!28 = !{!26, !15, i64 24}
+!29 = !{!30, !8, i64 0}
+!30 = !{!"_ZTSN3sat7literalE", !8, i64 0}

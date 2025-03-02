@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.sat::literal" = type { i32 }
@@ -7,36 +7,15 @@ target triple = "x86_64-unknown-linux-gnu"
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
 %"class.lp::int_cube" = type { ptr, ptr }
-%"class.lp::int_solver" = type { ptr, ptr, %"class.lp::int_gcd_test", %"class.lp::int_solver::patcher", i32, [4 x i8], %"class.lp::lar_term", %class.rational, i8, ptr, %"class.lp::hnf_cutter", i32, %class.svector, %class.vector.10 }
-%"class.lp::int_gcd_test" = type <{ ptr, ptr, i32, i32, %class.rational, %class.rational, %class.rational, %class.svector, %class.vector.0, %class.svector, i32, [4 x i8] }>
-%class.vector.0 = type { ptr }
-%"class.lp::int_solver::patcher" = type { ptr, ptr, ptr }
-%"class.lp::lar_term" = type { %class.u_map }
-%class.u_map = type { %class.map }
-%class.map = type { %class.table2map }
-%class.table2map = type { %class.core_hashtable }
-%class.core_hashtable = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"class.lp::hnf_cutter" = type { ptr, ptr, ptr, %"class.lp::general_matrix", %class.vector.3, %class.vector.4, %class.ptr_vector, %class.vector.6, %class.rational, i8, %"class.lp::var_register" }
-%"class.lp::general_matrix" = type { %"class.lp::permutation_matrix", %"class.lp::permutation_matrix", %class.vector.2 }
-%"class.lp::permutation_matrix" = type { %class.vector.1, %class.vector.1 }
-%class.vector.1 = type { ptr }
-%class.vector.2 = type { ptr }
-%class.vector.3 = type { ptr }
-%class.vector.4 = type { ptr }
-%class.ptr_vector = type { %class.vector.5 }
-%class.vector.5 = type { ptr }
-%class.vector.6 = type { ptr }
-%"class.lp::var_register" = type { %class.vector.7, %"class.std::unordered_map", i32, i32 }
-%class.vector.7 = type { ptr }
-%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
-%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%class.svector = type { %class.vector }
+%"class.lp::int_solver" = type { ptr, ptr, ptr, %class.vector }
 %class.vector = type { ptr }
-%class.vector.10 = type { ptr }
-%"struct.lp::statistics" = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%"struct.lp::lp_settings" = type <{ %"class.lp::lp_settings::default_lp_resource_limit", ptr, ptr, ptr, %"struct.lp::statistics", %class.random_gen, i32, i32, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, [4 x i8], double, i8, i8, [2 x i8], i32, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i8, i8, i8, [5 x i8] }>
+%"struct.lp::statistics" = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, %class.statistics }
+%class.statistics = type { %class.svector.2, %class.svector.4 }
+%class.svector.2 = type { %class.vector.3 }
+%class.vector.3 = type { ptr }
+%class.svector.4 = type { %class.vector.5 }
+%class.vector.5 = type { ptr }
+%"struct.lp::lp_settings" = type <{ %"class.lp::lp_settings::default_lp_resource_limit", ptr, ptr, ptr, %"struct.lp::statistics", %class.random_gen, i32, i32, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, double, i8, i8, [2 x i8], i32, i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i8, [3 x i8], i32, i32, i32, i32, i32, i8, [3 x i8], i32, i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8], i32, i32, [4 x i8] }>
 %"class.lp::lp_settings::default_lp_resource_limit" = type { %"class.lp::lp_resource_limit", ptr, %class.stopwatch }
 %"class.lp::lp_resource_limit" = type { ptr }
 %class.stopwatch = type <{ %"class.std::chrono::time_point", %"class.std::chrono::duration", i8, [7 x i8] }>
@@ -44,79 +23,112 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::chrono::duration" = type { i64 }
 %class.random_gen = type { i32 }
 %"struct.lp::numeric_pair" = type { %class.rational, %class.rational }
-%"class.lp::tv" = type { i32 }
-%"class.lp::lar_solver" = type { %"class.lp::column_namer", %class.trail_stack, %"struct.lp::lp_settings", i32, %class.stacked_value, i32, ptr, %"class.lp::lar_core_solver", ptr, i8, %"class.lp::var_register", %"class.lp::var_register", %class.svector.33, %"class.lp::constraint_set", %class.indexed_uint_set, %class.indexed_uint_set, %class.svector, %class.scoped_dependency_manager, %class.svector, %class.indexed_uint_set, %class.indexed_uint_set, %class.svector, %class.vector.37, %"class.lp::indexed_vector", %"class.std::unordered_map.38", %class.vector.15, %"class.lp::stacked_vector.26", %class.map.54, %class.map.54, %class.indexed_uint_set, i8, %"class.std::unordered_set", %"class.std::unordered_set.76", %class.rational, %"class.std::function" }
+%"class.lp::lar_solver" = type { %"class.lp::column_namer", %class.trail_stack, %"struct.lp::lp_settings", i32, %class.stacked_value, i32, ptr, %"class.lp::lar_core_solver", ptr, i8, %"class.lp::var_register", %class.svector.45, %"class.lp::constraint_set", %class.indexed_uint_set, %class.indexed_uint_set, %class.svector, %class.scoped_dependency_manager, %class.svector, %class.indexed_uint_set, %class.indexed_uint_set, %class.svector, %class.vector.51, %"class.lp::indexed_vector", %"class.std::unordered_map.52", %"class.lp::stacked_vector.27", %class.map, %class.map, %class.indexed_uint_set, i8, %"class.std::unordered_set", %"class.std::unordered_set.86", %class.rational, %"class.std::function", %"class.std::function.105", %"class.std::function", %"class.std::function.108" }
 %"class.lp::column_namer" = type { ptr }
-%class.trail_stack = type { %class.ptr_vector.11, %class.svector, %class.region }
-%class.ptr_vector.11 = type { %class.vector.12 }
-%class.vector.12 = type { ptr }
+%class.trail_stack = type { %class.ptr_vector, %class.svector, %class.region }
+%class.ptr_vector = type { %class.vector.0 }
+%class.vector.0 = type { ptr }
 %class.region = type { ptr, ptr, ptr, ptr, ptr }
-%class.stacked_value = type { i32, %class.vector.13 }
+%class.stacked_value = type { i32, %class.vector.6 }
+%class.vector.6 = type { ptr }
+%"class.lp::lar_core_solver" = type { %class.vector.7, i32, %class.vector.8, %class.vector.9, %class.stacked_value, %class.vector.8, %class.vector.8, %"class.lp::stacked_vector", %"class.lp::stacked_vector.12", %"class.lp::stacked_vector.12", %"class.lp::static_matrix", %"class.lp::stacked_vector.27", %class.vector.29, %class.vector.29, %"class.std::vector.30", %"class.lp::lp_primal_core_solver" }
+%class.vector.7 = type { ptr }
+%class.vector.9 = type { ptr }
+%class.vector.8 = type { ptr }
+%"class.lp::stacked_vector" = type { %class.svector, %class.svector, %class.vector.10, %class.vector.11, %class.svector }
+%class.vector.10 = type { ptr }
+%class.vector.11 = type { ptr }
+%"class.lp::stacked_vector.12" = type { %class.svector, %class.svector, %class.vector.13, %class.vector.8, %class.svector }
 %class.vector.13 = type { ptr }
-%"class.lp::lar_core_solver" = type { %class.vector.14, i32, %class.vector.15, %class.vector.6, %class.stacked_value, %"class.lp::stacked_vector", %class.vector.15, %"class.lp::stacked_vector.18", %"class.lp::stacked_vector.18", %"class.lp::static_matrix", %"class.lp::stacked_vector.26", %class.vector.1, %class.vector.1, %class.vector.23, %"class.lp::lp_primal_core_solver" }
-%class.vector.14 = type { ptr }
-%"class.lp::stacked_vector" = type { %class.svector, %class.svector, %class.vector.16, %class.vector.17, %class.svector }
-%class.vector.16 = type { ptr }
-%class.vector.17 = type { ptr }
-%"class.lp::stacked_vector.18" = type { %class.svector, %class.svector, %class.vector.19, %class.vector.15, %class.svector }
-%class.vector.19 = type { ptr }
-%"class.lp::static_matrix" = type { %"class.std::stack", %class.vector.23, %"class.lp::indexed_vector", %class.vector.24, %class.vector.25 }
+%"class.lp::static_matrix" = type { %"class.std::stack", %class.vector.14, %"class.lp::indexed_vector", %"class.std::vector.19", %"class.std::vector.23" }
 %"class.std::stack" = type { %"class.std::deque" }
 %"class.std::deque" = type { %"class.std::_Deque_base" }
 %"class.std::_Deque_base" = type { %"struct.std::_Deque_base<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim, std::allocator<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim>>::_Deque_impl" }
 %"struct.std::_Deque_base<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim, std::allocator<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim>>::_Deque_impl" = type { %"struct.std::_Deque_base<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim, std::allocator<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim>>::_Deque_impl_data" }
 %"struct.std::_Deque_base<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim, std::allocator<lp::static_matrix<rational, lp::numeric_pair<rational>>::dim>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%class.vector.24 = type { ptr }
-%class.vector.25 = type { ptr }
-%class.vector.23 = type { ptr }
-%"class.lp::lp_primal_core_solver" = type { %"class.lp::lp_core_solver_base.base", i32, %class.vector.6, i32, i8, %class.indexed_uint_set, i32, i32, %class.vector.1, %"class.std::__cxx11::list" }
-%"class.lp::lp_core_solver_base.base" = type <{ ptr, i32, i32, i32, [4 x i8], %class.heap, %"class.lp::indexed_vector", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %class.vector.6, ptr, ptr, ptr, i32, [4 x i8], %class.vector.1, i8, [7 x i8], ptr, i8 }>
-%class.heap = type { %class.svector.28, %class.svector.28 }
-%class.svector.28 = type { %class.vector.29 }
+%class.vector.14 = type { ptr }
+%"class.std::vector.19" = type { %"struct.std::_Vector_base.20" }
+%"struct.std::_Vector_base.20" = type { %"struct.std::_Vector_base<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>, std_allocator<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>, std_allocator<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>, std_allocator<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>, std_allocator<std::vector<lp::row_cell<rational>, std_allocator<lp::row_cell<rational>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.23" = type { %"struct.std::_Vector_base.24" }
+%"struct.std::_Vector_base.24" = type { %"struct.std::_Vector_base<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>, std_allocator<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>, std_allocator<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>, std_allocator<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>, std_allocator<std::vector<lp::row_cell<lp::empty_struct>, std_allocator<lp::row_cell<lp::empty_struct>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.vector.29 = type { ptr }
+%"class.std::vector.30" = type { %"struct.std::_Vector_base.31" }
+%"struct.std::_Vector_base.31" = type { %"struct.std::_Vector_base<int, std_allocator<int>>::_Vector_impl" }
+%"struct.std::_Vector_base<int, std_allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std_allocator<int>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<int, std_allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.lp::lp_primal_core_solver" = type { %"class.lp::lp_core_solver_base.base", i32, %class.vector.9, i32, i8, %class.indexed_uint_set, i32, i32, %class.vector.29, %"class.std::__cxx11::list" }
+%"class.lp::lp_core_solver_base.base" = type <{ ptr, i32, i32, i32, [4 x i8], %class.heap, %"class.lp::indexed_vector", ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %class.vector.9, ptr, ptr, ptr, i32, [4 x i8], %class.vector.29, i8, [7 x i8], ptr, i8 }>
+%class.heap = type { %class.svector.34, %class.svector.34 }
+%class.svector.34 = type { %class.vector.35 }
+%class.vector.35 = type { ptr }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<unsigned int, std::allocator<unsigned int>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%class.svector.33 = type { %class.vector.34 }
-%class.vector.34 = type { ptr }
-%"class.lp::constraint_set" = type { %class.region, ptr, ptr, %class.vector.35, %class.stacked_value.36, %class.svector, %class.stacked_value.36 }
-%class.vector.35 = type { ptr }
-%class.stacked_value.36 = type { i32, %class.vector.1 }
-%class.scoped_dependency_manager = type { %"class.scoped_dependency_manager<unsigned int>::config::value_manager", %"class.scoped_dependency_manager<unsigned int>::config::allocator", %class.dependency_manager }
-%"class.scoped_dependency_manager<unsigned int>::config::value_manager" = type { i8 }
+%"class.lp::var_register" = type { %class.vector.39, %"class.std::unordered_map" }
+%class.vector.39 = type { ptr }
+%"class.std::unordered_map" = type { %"class.std::_Hashtable" }
+%"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"struct.std::__detail::_Hash_node_base" = type { ptr }
+%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
+%class.svector.45 = type { %class.vector.46 }
+%class.vector.46 = type { ptr }
+%"class.lp::constraint_set" = type { %class.region, ptr, ptr, %class.vector.47, %class.stacked_value.48, %class.svector, %class.stacked_value.48 }
+%class.vector.47 = type { ptr }
+%class.stacked_value.48 = type { i32, %class.vector.29 }
+%class.scoped_dependency_manager = type { [8 x i8], %"class.scoped_dependency_manager<unsigned int>::config::allocator", %class.dependency_manager }
 %"class.scoped_dependency_manager<unsigned int>::config::allocator" = type { %class.region }
-%class.dependency_manager = type { ptr, ptr, %class.ptr_vector }
-%class.vector.37 = type { ptr }
-%"class.lp::indexed_vector" = type { %class.vector.6, %class.vector.1 }
-%"class.std::unordered_map.38" = type { %"class.std::_Hashtable.39" }
-%"class.std::_Hashtable.39" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%class.vector.15 = type { ptr }
-%"class.lp::stacked_vector.26" = type { %class.svector, %class.svector, %class.vector.27, %class.vector.1, %class.svector }
-%class.vector.27 = type { ptr }
-%class.map.54 = type { %class.table2map.55 }
-%class.table2map.55 = type { %class.core_hashtable.56 }
-%class.core_hashtable.56 = type <{ ptr, i32, i32, i32, [4 x i8] }>
+%class.dependency_manager = type { ptr, ptr, %class.ptr_vector.49 }
+%class.ptr_vector.49 = type { %class.vector.50 }
+%class.vector.50 = type { ptr }
+%class.svector = type { %class.vector.1 }
+%class.vector.1 = type { ptr }
+%class.vector.51 = type { ptr }
+%"class.lp::indexed_vector" = type { %"class.std::vector", %"class.std::vector.15" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<rational, std_allocator<rational>>::_Vector_impl" }
+%"struct.std::_Vector_base<rational, std_allocator<rational>>::_Vector_impl" = type { %"struct.std::_Vector_base<rational, std_allocator<rational>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<rational, std_allocator<rational>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
+%"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<unsigned int, std_allocator<unsigned int>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned int, std_allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std_allocator<unsigned int>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned int, std_allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::unordered_map.52" = type { %"class.std::_Hashtable.53" }
+%"class.std::_Hashtable.53" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"class.lp::stacked_vector.27" = type { %class.svector, %class.svector, %class.vector.28, %class.vector.29, %class.svector }
+%class.vector.28 = type { ptr }
+%class.map = type { %class.table2map }
+%class.table2map = type { %class.core_hashtable }
+%class.core_hashtable = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %class.indexed_uint_set = type { i32, %class.svector, %class.svector }
-%"class.std::unordered_set" = type { %"class.std::_Hashtable.58" }
-%"class.std::_Hashtable.58" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::unordered_set.76" = type { %"class.std::_Hashtable.77" }
-%"class.std::_Hashtable.77" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::unordered_set" = type { %"class.std::_Hashtable.68" }
+%"class.std::_Hashtable.68" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"class.std::unordered_set.86" = type { %"class.std::_Hashtable.87" }
+%"class.std::_Hashtable.87" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
+%"class.std::function.105" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::function.108" = type { %"class.std::_Function_base", ptr }
 %"class.lp::lar_term::const_iterator" = type { %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator" }
 %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator" = type { ptr, ptr }
-%"class.lp::lar_term::ival" = type { i32, ptr }
-%"class.lp::column_index" = type { i32 }
+%"struct.lp::lar_term::ival" = type { i32, ptr }
+%"class.lp::lar_term" = type { %class.u_map, i32, [4 x i8] }
+%class.u_map = type { %class.map.111 }
+%class.map.111 = type { %class.table2map.112 }
+%class.table2map.112 = type { %class.core_hashtable.113 }
+%class.core_hashtable.113 = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %struct._key_data = type { i32, %class.rational }
+%"class.lp::column" = type { ptr, ptr, ptr }
 %class.default_map_entry = type { %class.default_hash_entry }
 %class.default_hash_entry = type { i32, i32, %struct._key_data }
-
-$_ZN3sat7literalC2Ev = comdat any
 
 $_ZN3sat7literalC2Ejb = comdat any
 
@@ -124,17 +136,21 @@ $_ZN2lp11lp_settings5statsEv = comdat any
 
 $_ZNK2lp10lar_solver19r_basis_has_inf_intEv = comdat any
 
-$_ZNK2lp10lar_solver5termsEv = comdat any
+$_ZNK2lp10lar_solver26column_associated_with_rowEj = comdat any
 
-$_ZNK6vectorIPN2lp8lar_termELb1EjEixEj = comdat any
+$_ZNK2lp10lar_solver8get_termEj = comdat any
 
 $_ZN2lp7is_zeroINS_12numeric_pairI8rationalEEEEbRKT_ = comdat any
 
-$_ZN2lp2tv4termEj = comdat any
-
 $_ZN2lp12numeric_pairI8rationalED2Ev = comdat any
 
-$_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv = comdat any
+$_ZNK2lp10lar_solver5termsEv = comdat any
+
+$_ZNK6vectorIPN2lp8lar_termELb1EjE5beginEv = comdat any
+
+$_ZNK6vectorIPN2lp8lar_termELb1EjE3endEv = comdat any
+
+$_ZNK2lp8lar_term1jEv = comdat any
 
 $_ZNK2lp8lar_term4sizeEv = comdat any
 
@@ -146,7 +162,7 @@ $_ZNK2lp8lar_term14const_iteratorneERKS1_ = comdat any
 
 $_ZNK2lp8lar_term14const_iteratordeEv = comdat any
 
-$_ZNK2lp8lar_term4ival6columnEv = comdat any
+$_ZNK2lp8lar_term4ival1jEv = comdat any
 
 $_ZNK2lp8lar_term4ival5coeffEv = comdat any
 
@@ -188,9 +204,11 @@ $_ZNK2lp15lar_core_solver7r_basisEv = comdat any
 
 $_ZNK6vectorIjLb1EjE4sizeEv = comdat any
 
-$_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjEixEj = comdat any
+$_ZNK2lp15lar_core_solver3r_xEj = comdat any
 
 $_ZNK2lp12numeric_pairI8rationalE6is_intEv = comdat any
+
+$_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjEixEj = comdat any
 
 $_ZNK8rational6is_intEv = comdat any
 
@@ -206,6 +224,10 @@ $_ZN11mpz_managerILb1EE6is_oneERK3mpz = comdat any
 
 $_ZN11mpz_managerILb1EE8is_smallERK3mpz = comdat any
 
+$_ZNK3mpz5valueEv = comdat any
+
+$_ZNK3mpz8is_smallEv = comdat any
+
 $_ZN11mpq_managerILb1EE7is_zeroERK3mpq = comdat any
 
 $_ZN11mpq_managerILb1EE7is_zeroERK3mpz = comdat any
@@ -214,9 +236,11 @@ $_ZN11mpz_managerILb1EE7is_zeroERK3mpz = comdat any
 
 $_ZN11mpz_managerILb1EE4signERK3mpz = comdat any
 
-$_ZN2lp2tv9mask_termEj = comdat any
+$_ZNK6vectorIN2lp6columnELb0EjEixEj = comdat any
 
-$_ZN2lp2tvC2Ej = comdat any
+$_ZNK2lp6column19associated_with_rowEv = comdat any
+
+$_ZNK2lp6column4termEv = comdat any
 
 $_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE4sizeEv = comdat any
 
@@ -250,8 +274,6 @@ $_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eq
 
 $_ZN18default_hash_entryI9_key_dataIj8rationalEE8get_dataEv = comdat any
 
-$_ZN2lp12column_indexC2Ej = comdat any
-
 $_ZN11mpq_managerILb1EE2eqERK3mpqS3_ = comdat any
 
 $_ZN11mpq_managerILb1EE2eqERK3mpzS3_ = comdat any
@@ -277,6 +299,8 @@ $_ZN3mpzC2Ei = comdat any
 $_ZN11mpq_managerILb1EE3setER3mpzRKS1_ = comdat any
 
 $_ZN11mpz_managerILb1EE3setER3mpzRKS1_ = comdat any
+
+$_ZN3mpz3setEi = comdat any
 
 $_ZN11mpq_managerILb1EE3negER3mpq = comdat any
 
@@ -320,6 +344,8 @@ $_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE7is_zeroERKS3_ = comdat an
 
 $_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_ = comdat any
 
+$_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv = comdat any
+
 $_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv = comdat any
 
 $_ZN2lp12numeric_pairI8rationalEC2ES1_S1_ = comdat any
@@ -332,7 +358,6 @@ $_ZN11mpq_managerILb1EE3setER3mpqi = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
-@_ZN3satL12null_literalE = internal global %"class.sat::literal" zeroinitializer, align 4
 @_ZN5nlsatL12true_literalE = internal global %"class.sat::literal" zeroinitializer, align 4
 @_ZN5nlsatL13false_literalE = internal global %"class.sat::literal" zeroinitializer, align 4
 @_ZN8rational13g_mpq_managerE = external global ptr, align 8
@@ -344,9 +369,8 @@ $_ZN11mpq_managerILb1EE3setER3mpqi = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -360,1974 +384,2159 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
-entry:
-  call void @_ZN3sat7literalC2Ev(ptr noundef nonnull align 4 dereferenceable(4) @_ZN3satL12null_literalE)
+  call void @_ZN3sat7literalC2Ejb(ptr noundef nonnull align 4 dereferenceable(4) @_ZN5nlsatL12true_literalE, i32 noundef 0, i1 noundef zeroext false)
+  %1 = call ptr @llvm.invariant.start.p0(i64 4, ptr @_ZN5nlsatL12true_literalE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3sat7literalC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %"class.sat::literal", ptr %this1, i32 0, i32 0
-  store i32 -2, ptr %m_val, align 4
+define linkonce_odr hidden void @_ZN3sat7literalC2Ejb(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  store ptr %0, ptr %4, align 8, !tbaa !3
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %7 = zext i1 %2 to i8
+  store i8 %7, ptr %6, align 1, !tbaa !10
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds nuw %"class.sat::literal", ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %5, align 4, !tbaa !8
+  %11 = shl i32 %10, 1
+  %12 = load i8, ptr %6, align 1, !tbaa !10, !range !12, !noundef !13
+  %13 = trunc i8 %12 to i1
+  %14 = zext i1 %13 to i32
+  %15 = add i32 %11, %14
+  store i32 %15, ptr %9, align 4, !tbaa !14
   ret void
 }
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.2() #0 section ".text.startup" {
-entry:
-  call void @_ZN3sat7literalC2Ejb(ptr noundef nonnull align 4 dereferenceable(4) @_ZN5nlsatL12true_literalE, i32 noundef 0, i1 noundef zeroext false)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3sat7literalC2Ejb(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %v, i1 noundef zeroext %_sign) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca i32, align 4
-  %_sign.addr = alloca i8, align 1
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %v, ptr %v.addr, align 4
-  %frombool = zext i1 %_sign to i8
-  store i8 %frombool, ptr %_sign.addr, align 1
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %"class.sat::literal", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %v.addr, align 4
-  %shl = shl i32 %0, 1
-  %1 = load i8, ptr %_sign.addr, align 1
-  %tobool = trunc i8 %1 to i1
-  %conv = zext i1 %tobool to i32
-  %add = add i32 %shl, %conv
-  store i32 %add, ptr %m_val, align 4
-  ret void
-}
-
-; Function Attrs: uwtable
-define internal void @__cxx_global_var_init.3() #0 section ".text.startup" {
-entry:
   call void @_ZN3sat7literalC2Ejb(ptr noundef nonnull align 4 dereferenceable(4) @_ZN5nlsatL13false_literalE, i32 noundef 0, i1 noundef zeroext true)
+  %1 = call ptr @llvm.invariant.start.p0(i64 4, ptr @_ZN5nlsatL13false_literalE)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2lp8int_cubeC2ERNS_10int_solverE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %lia.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %lia, ptr %lia.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %lia2 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %lia.addr, align 8
-  store ptr %0, ptr %lia2, align 8
-  %lra = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %lia.addr, align 8
-  %lra3 = getelementptr inbounds %"class.lp::int_solver", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %lra3, align 8
-  store ptr %2, ptr %lra, align 8
+define hidden void @_ZN2lp8int_cubeC2ERNS_10int_solverE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  store ptr %1, ptr %4, align 8, !tbaa !18
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !18
+  store ptr %7, ptr %6, align 8, !tbaa !18
+  %8 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %5, i32 0, i32 1
+  %9 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = getelementptr inbounds nuw %"class.lp::int_solver", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  store ptr %11, ptr %8, align 8, !tbaa !27
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2lp8int_cubeclEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %st = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %lia = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %lia, align 8
-  %call = call noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504) %0)
-  %call2 = call noundef nonnull align 4 dereferenceable(124) ptr @_ZN2lp11lp_settings5statsEv(ptr noundef nonnull align 8 dereferenceable(299) %call)
-  %m_cube_calls = getelementptr inbounds %"struct.lp::statistics", ptr %call2, i32 0, i32 10
-  %1 = load i32, ptr %m_cube_calls, align 4
-  %inc = add i32 %1, 1
-  store i32 %inc, ptr %m_cube_calls, align 4
-  %lra = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %lra, align 8
-  call void @_ZN2lp10lar_solver4pushEv(ptr noundef nonnull align 8 dereferenceable(1888) %2)
-  %call3 = call noundef zeroext i1 @_ZN2lp8int_cube22tighten_terms_for_cubeEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  br i1 %call3, label %if.end, label %if.then
+define hidden noundef i32 @_ZN2lp8int_cubeclEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %9 = call noundef nonnull align 8 dereferenceable(380) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %10 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZN2lp11lp_settings5statsEv(ptr noundef nonnull align 8 dereferenceable(380) %9)
+  %11 = getelementptr inbounds nuw %"struct.lp::statistics", ptr %10, i32 0, i32 10
+  %12 = load i32, ptr %11, align 8, !tbaa !30
+  %13 = add i32 %12, 1
+  store i32 %13, ptr %11, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver4pushEv(ptr noundef nonnull align 8 dereferenceable(2128) %15)
+  %16 = call noundef zeroext i1 @_ZN2lp8int_cube22tighten_terms_for_cubeEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  br i1 %16, label %22, label %17
 
-if.then:                                          ; preds = %entry
-  %lra4 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %3 = load ptr, ptr %lra4, align 8
-  call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(1888) %3)
-  %lra5 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %4 = load ptr, ptr %lra5, align 8
-  call void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull align 8 dereferenceable(1888) %4, i32 noundef 6)
-  store i32 5, ptr %retval, align 4
-  br label %return
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(2128) %19)
+  %20 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull align 8 dereferenceable(2128) %21, i32 noundef 11)
+  store i32 5, ptr %2, align 4
+  br label %56
 
-if.end:                                           ; preds = %entry
-  %lra6 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %5 = load ptr, ptr %lra6, align 8
-  %call7 = call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888) %5)
-  store i32 %call7, ptr %st, align 4
-  %6 = load i32, ptr %st, align 4
-  %cmp = icmp ne i32 %6, 7
-  br i1 %cmp, label %land.lhs.true, label %if.end14
+22:                                               ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 4, ptr %4) #3
+  %23 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8, !tbaa !39
+  %25 = call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128) %24)
+  store i32 %25, ptr %4, align 4, !tbaa !40
+  %26 = load i32, ptr %4, align 4, !tbaa !40
+  %27 = icmp ne i32 %26, 10
+  br i1 %27, label %28, label %41
 
-land.lhs.true:                                    ; preds = %if.end
-  %7 = load i32, ptr %st, align 4
-  %cmp8 = icmp ne i32 %7, 6
-  br i1 %cmp8, label %if.then9, label %if.end14
+28:                                               ; preds = %22
+  %29 = load i32, ptr %4, align 4, !tbaa !40
+  %30 = icmp ne i32 %29, 11
+  br i1 %30, label %31, label %41
 
-if.then9:                                         ; preds = %land.lhs.true
-  %lra10 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %8 = load ptr, ptr %lra10, align 8
-  call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(1888) %8)
-  %lra11 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %lra11, align 8
-  call void @_ZN2lp10lar_solver32move_non_basic_columns_to_boundsEv(ptr noundef nonnull align 8 dereferenceable(1888) %9)
-  %lra12 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %10 = load ptr, ptr %lra12, align 8
-  %call13 = call noundef zeroext i1 @_ZNK2lp10lar_solver19r_basis_has_inf_intEv(ptr noundef nonnull align 8 dereferenceable(1888) %10)
-  %lnot = xor i1 %call13, true
-  %cond = select i1 %lnot, i32 0, i32 5
-  store i32 %cond, ptr %retval, align 4
-  br label %return
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(2128) %33)
+  %34 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %35 = load ptr, ptr %34, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver32move_non_basic_columns_to_boundsEv(ptr noundef nonnull align 8 dereferenceable(2128) %35)
+  %36 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %37 = load ptr, ptr %36, align 8, !tbaa !39
+  %38 = call noundef zeroext i1 @_ZNK2lp10lar_solver19r_basis_has_inf_intEv(ptr noundef nonnull align 8 dereferenceable(2128) %37)
+  %39 = xor i1 %38, true
+  %40 = select i1 %39, i32 0, i32 5
+  store i32 %40, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %55
 
-if.end14:                                         ; preds = %land.lhs.true, %if.end
-  %lra15 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %11 = load ptr, ptr %lra15, align 8
-  call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(1888) %11)
-  %lra16 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %12 = load ptr, ptr %lra16, align 8
-  call void @_ZN2lp10lar_solver25round_to_integer_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888) %12)
-  %lra17 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %13 = load ptr, ptr %lra17, align 8
-  call void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull align 8 dereferenceable(1888) %13, i32 noundef 7)
-  %lia18 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 0
-  %14 = load ptr, ptr %lia18, align 8
-  %call19 = call noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504) %14)
-  %call20 = call noundef nonnull align 4 dereferenceable(124) ptr @_ZN2lp11lp_settings5statsEv(ptr noundef nonnull align 8 dereferenceable(299) %call19)
-  %m_cube_success = getelementptr inbounds %"struct.lp::statistics", ptr %call20, i32 0, i32 11
-  %15 = load i32, ptr %m_cube_success, align 4
-  %inc21 = add i32 %15, 1
-  store i32 %inc21, ptr %m_cube_success, align 4
-  store i32 0, ptr %retval, align 4
-  br label %return
+41:                                               ; preds = %28, %22
+  %42 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %43 = load ptr, ptr %42, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(2128) %43)
+  %44 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %45 = load ptr, ptr %44, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver25round_to_integer_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128) %45)
+  %46 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 1
+  %47 = load ptr, ptr %46, align 8, !tbaa !39
+  call void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull align 8 dereferenceable(2128) %47, i32 noundef 10)
+  %48 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %6, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
+  %50 = call noundef nonnull align 8 dereferenceable(380) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(32) %49)
+  %51 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZN2lp11lp_settings5statsEv(ptr noundef nonnull align 8 dereferenceable(380) %50)
+  %52 = getelementptr inbounds nuw %"struct.lp::statistics", ptr %51, i32 0, i32 11
+  %53 = load i32, ptr %52, align 4, !tbaa !42
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 4, !tbaa !42
+  store i32 0, ptr %2, align 4
+  store i32 1, ptr %5, align 4
+  br label %55
 
-return:                                           ; preds = %if.end14, %if.then9, %if.then
-  %16 = load i32, ptr %retval, align 4
-  ret i32 %16
+55:                                               ; preds = %41, %31
+  call void @llvm.lifetime.end.p0(i64 4, ptr %4) #3
+  br label %56
+
+56:                                               ; preds = %55, %17
+  %57 = load i32, ptr %2, align 4
+  ret i32 %57
 }
 
-declare noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504)) #1
+declare noundef nonnull align 8 dereferenceable(380) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 4 dereferenceable(124) ptr @_ZN2lp11lp_settings5statsEv(ptr noundef nonnull align 8 dereferenceable(299) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_stats = getelementptr inbounds %"struct.lp::lp_settings", ptr %this1, i32 0, i32 4
-  ret ptr %m_stats
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(192) ptr @_ZN2lp11lp_settings5statsEv(ptr noundef nonnull align 8 dereferenceable(380) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !43
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.lp::lp_settings", ptr %3, i32 0, i32 4
+  ret ptr %4
 }
 
-declare void @_ZN2lp10lar_solver4pushEv(ptr noundef nonnull align 8 dereferenceable(1888)) #1
+declare void @_ZN2lp10lar_solver4pushEv(ptr noundef nonnull align 8 dereferenceable(2128)) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp8int_cube22tighten_terms_for_cubeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+define hidden noundef zeroext i1 @_ZN2lp8int_cube22tighten_terms_for_cubeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !16
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %10 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %9, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver5termsEv(ptr noundef nonnull align 8 dereferenceable(2128) %11)
+  store ptr %12, ptr %4, align 8, !tbaa !45
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %13 = load ptr, ptr %4, align 8, !tbaa !45
+  %14 = call noundef ptr @_ZNK6vectorIPN2lp8lar_termELb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store ptr %14, ptr %5, align 8, !tbaa !47
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %15 = load ptr, ptr %4, align 8, !tbaa !45
+  %16 = call noundef ptr @_ZNK6vectorIPN2lp8lar_termELb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  store ptr %16, ptr %6, align 8, !tbaa !47
+  br label %17
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %0 = load i32, ptr %i, align 4
-  %lra = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %lra, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver5termsEv(ptr noundef nonnull align 8 dereferenceable(1888) %1)
-  %call2 = call noundef i32 @_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %call)
-  %cmp = icmp ult i32 %0, %call2
-  br i1 %cmp, label %for.body, label %for.end
+17:                                               ; preds = %33, %1
+  %18 = load ptr, ptr %5, align 8, !tbaa !47
+  %19 = load ptr, ptr %6, align 8, !tbaa !47
+  %20 = icmp ne ptr %18, %19
+  br i1 %20, label %22, label %21
 
-for.body:                                         ; preds = %for.cond
-  %2 = load i32, ptr %i, align 4
-  %call3 = call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %2)
-  br i1 %call3, label %if.end, label %if.then
+21:                                               ; preds = %17
+  store i32 2, ptr %7, align 4
+  br label %36
 
-if.then:                                          ; preds = %for.body
-  store i1 false, ptr %retval, align 1
-  br label %return
+22:                                               ; preds = %17
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #3
+  %23 = load ptr, ptr %5, align 8, !tbaa !47
+  %24 = load ptr, ptr %23, align 8, !tbaa !50
+  store ptr %24, ptr %8, align 8, !tbaa !50
+  %25 = load ptr, ptr %8, align 8, !tbaa !50
+  %26 = call noundef i32 @_ZNK2lp8lar_term1jEv(ptr noundef nonnull align 8 dereferenceable(28) %25)
+  %27 = call noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %26)
+  br i1 %27, label %29, label %28
 
-if.end:                                           ; preds = %for.body
-  br label %for.inc
+28:                                               ; preds = %22
+  store i1 false, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  br label %30
 
-for.inc:                                          ; preds = %if.end
-  %3 = load i32, ptr %i, align 4
-  %inc = add i32 %3, 1
-  store i32 %inc, ptr %i, align 4
-  br label %for.cond, !llvm.loop !4
+29:                                               ; preds = %22
+  store i32 0, ptr %7, align 4
+  br label %30
 
-for.end:                                          ; preds = %for.cond
-  store i1 true, ptr %retval, align 1
-  br label %return
+30:                                               ; preds = %29, %28
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #3
+  %31 = load i32, ptr %7, align 4
+  switch i32 %31, label %36 [
+    i32 0, label %32
+  ]
 
-return:                                           ; preds = %for.end, %if.then
-  %4 = load i1, ptr %retval, align 1
-  ret i1 %4
+32:                                               ; preds = %30
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %5, align 8, !tbaa !47
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i32 1
+  store ptr %35, ptr %5, align 8, !tbaa !47
+  br label %17
+
+36:                                               ; preds = %30, %21
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  %37 = load i32, ptr %7, align 4
+  switch i32 %37, label %41 [
+    i32 2, label %38
+    i32 1, label %39
+  ]
+
+38:                                               ; preds = %36
+  store i1 true, ptr %2, align 1
+  br label %39
+
+39:                                               ; preds = %38, %36
+  %40 = load i1, ptr %2, align 1
+  ret i1 %40
+
+41:                                               ; preds = %36
+  unreachable
 }
 
-declare void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(1888)) #1
+declare void @_ZN2lp10lar_solver3popEv(ptr noundef nonnull align 8 dereferenceable(2128)) #1
 
-declare void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef) #1
+declare void @_ZN2lp10lar_solver10set_statusENS_9lp_statusE(ptr noundef nonnull align 8 dereferenceable(2128), i32 noundef) #1
 
-declare noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888)) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
-declare void @_ZN2lp10lar_solver32move_non_basic_columns_to_boundsEv(ptr noundef nonnull align 8 dereferenceable(1888)) #1
+declare noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128)) #1
+
+declare void @_ZN2lp10lar_solver32move_non_basic_columns_to_boundsEv(ptr noundef nonnull align 8 dereferenceable(2128)) #1
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp10lar_solver19r_basis_has_inf_intEv(ptr noundef nonnull align 8 dereferenceable(2128) %0) #7 comdat align 2 {
+  %2 = alloca i1, align 1
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  %9 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #3
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(2128) %9)
+  store ptr %10, ptr %4, align 8, !tbaa !52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #3
+  %11 = load ptr, ptr %4, align 8, !tbaa !52
+  %12 = call noundef ptr @_ZNK6vectorIjLb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
+  store ptr %12, ptr %5, align 8, !tbaa !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %13 = load ptr, ptr %4, align 8, !tbaa !52
+  %14 = call noundef ptr @_ZNK6vectorIjLb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %13)
+  store ptr %14, ptr %6, align 8, !tbaa !54
+  br label %15
+
+15:                                               ; preds = %33, %1
+  %16 = load ptr, ptr %5, align 8, !tbaa !54
+  %17 = load ptr, ptr %6, align 8, !tbaa !54
+  %18 = icmp ne ptr %16, %17
+  br i1 %18, label %20, label %19
+
+19:                                               ; preds = %15
+  store i32 2, ptr %7, align 4
+  br label %36
+
+20:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #3
+  %21 = load ptr, ptr %5, align 8, !tbaa !54
+  %22 = load i32, ptr %21, align 4, !tbaa !8
+  store i32 %22, ptr %8, align 4, !tbaa !8
+  %23 = load i32, ptr %8, align 4, !tbaa !8
+  %24 = call noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(2128) %9, i32 noundef %23)
+  br i1 %24, label %25, label %29
+
+25:                                               ; preds = %20
+  %26 = load i32, ptr %8, align 4, !tbaa !8
+  %27 = call noundef zeroext i1 @_ZNK2lp10lar_solver19column_value_is_intEj(ptr noundef nonnull align 8 dereferenceable(2128) %9, i32 noundef %26)
+  br i1 %27, label %29, label %28
+
+28:                                               ; preds = %25
+  store i1 true, ptr %2, align 1
+  store i32 1, ptr %7, align 4
+  br label %30
+
+29:                                               ; preds = %25, %20
+  store i32 0, ptr %7, align 4
+  br label %30
+
+30:                                               ; preds = %29, %28
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #3
+  %31 = load i32, ptr %7, align 4
+  switch i32 %31, label %36 [
+    i32 0, label %32
+  ]
+
+32:                                               ; preds = %30
+  br label %33
+
+33:                                               ; preds = %32
+  %34 = load ptr, ptr %5, align 8, !tbaa !54
+  %35 = getelementptr inbounds nuw i32, ptr %34, i32 1
+  store ptr %35, ptr %5, align 8, !tbaa !54
+  br label %15
+
+36:                                               ; preds = %30, %19
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #3
+  %37 = load i32, ptr %7, align 4
+  switch i32 %37, label %41 [
+    i32 2, label %38
+    i32 1, label %39
+  ]
+
+38:                                               ; preds = %36
+  store i1 false, ptr %2, align 1
+  br label %39
+
+39:                                               ; preds = %38, %36
+  %40 = load i1, ptr %2, align 1
+  ret i1 %40
+
+41:                                               ; preds = %36
+  unreachable
+}
+
+declare void @_ZN2lp10lar_solver25round_to_integer_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128)) #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp10lar_solver19r_basis_has_inf_intEv(ptr noundef nonnull align 8 dereferenceable(1888) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %__range2 = alloca ptr, align 8
-  %__begin2 = alloca ptr, align 8
-  %__end2 = alloca ptr, align 8
-  %j = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(1888) %this1)
-  store ptr %call, ptr %__range2, align 8
-  %0 = load ptr, ptr %__range2, align 8
-  %call2 = call noundef ptr @_ZNK6vectorIjLb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr %call2, ptr %__begin2, align 8
-  %1 = load ptr, ptr %__range2, align 8
-  %call3 = call noundef ptr @_ZNK6vectorIjLb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr %call3, ptr %__end2, align 8
-  br label %for.cond
+define hidden noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #6 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca i1, align 1
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.lp::numeric_pair", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !16
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  %14 = load i32, ptr %5, align 4, !tbaa !8
+  %15 = call noundef zeroext i1 @_ZNK2lp10lar_solver26column_associated_with_rowEj(ptr noundef nonnull align 8 dereferenceable(2128) %13, i32 noundef %14)
+  br i1 %15, label %17, label %16
 
-for.cond:                                         ; preds = %for.inc, %entry
-  %2 = load ptr, ptr %__begin2, align 8
-  %3 = load ptr, ptr %__end2, align 8
-  %cmp = icmp ne ptr %2, %3
-  br i1 %cmp, label %for.body, label %for.end
+16:                                               ; preds = %2
+  store i1 true, ptr %3, align 1
+  br label %37
 
-for.body:                                         ; preds = %for.cond
-  %4 = load ptr, ptr %__begin2, align 8
-  %5 = load i32, ptr %4, align 4
-  store i32 %5, ptr %j, align 4
-  %6 = load i32, ptr %j, align 4
-  %call4 = call noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %this1, i32 noundef %6)
-  br i1 %call4, label %land.lhs.true, label %if.end
+17:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #3
+  %18 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %11, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8, !tbaa !39
+  %20 = load i32, ptr %5, align 4, !tbaa !8
+  %21 = call noundef nonnull align 8 dereferenceable(28) ptr @_ZNK2lp10lar_solver8get_termEj(ptr noundef nonnull align 8 dereferenceable(2128) %19, i32 noundef %20)
+  store ptr %21, ptr %6, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 64, ptr %7) #3
+  %22 = load ptr, ptr %6, align 8, !tbaa !50
+  call void @_ZNK2lp8int_cube23get_cube_delta_for_termERKNS_8lar_termE(ptr dead_on_unwind writable sret(%"struct.lp::numeric_pair") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(28) %22)
+  %23 = invoke noundef zeroext i1 @_ZN2lp7is_zeroINS_12numeric_pairI8rationalEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %24 unwind label %26
 
-land.lhs.true:                                    ; preds = %for.body
-  %7 = load i32, ptr %j, align 4
-  %call5 = call noundef zeroext i1 @_ZNK2lp10lar_solver19column_value_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %this1, i32 noundef %7)
-  br i1 %call5, label %if.end, label %if.then
+24:                                               ; preds = %17
+  br i1 %23, label %25, label %30
 
-if.then:                                          ; preds = %land.lhs.true
-  store i1 true, ptr %retval, align 1
-  br label %return
+25:                                               ; preds = %24
+  store i1 true, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %36
 
-if.end:                                           ; preds = %land.lhs.true, %for.body
-  br label %for.inc
+26:                                               ; preds = %30, %17
+  %27 = landingpad { ptr, i32 }
+          cleanup
+  %28 = extractvalue { ptr, i32 } %27, 0
+  store ptr %28, ptr %8, align 8
+  %29 = extractvalue { ptr, i32 } %27, 1
+  store i32 %29, ptr %9, align 4
+  call void @_ZN2lp12numeric_pairI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
+  call void @llvm.lifetime.end.p0(i64 64, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %39
 
-for.inc:                                          ; preds = %if.end
-  %8 = load ptr, ptr %__begin2, align 8
-  %incdec.ptr = getelementptr inbounds i32, ptr %8, i32 1
-  store ptr %incdec.ptr, ptr %__begin2, align 8
-  br label %for.cond
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %11, i32 0, i32 1
+  %32 = load ptr, ptr %31, align 8, !tbaa !39
+  %33 = load i32, ptr %5, align 4, !tbaa !8
+  %34 = invoke noundef zeroext i1 @_ZN2lp10lar_solver28tighten_term_bounds_by_deltaEjRKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(2128) %32, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(64) %7)
+          to label %35 unwind label %26
 
-for.end:                                          ; preds = %for.cond
-  store i1 false, ptr %retval, align 1
-  br label %return
+35:                                               ; preds = %30
+  store i1 %34, ptr %3, align 1
+  store i32 1, ptr %10, align 4
+  br label %36
 
-return:                                           ; preds = %for.end, %if.then
-  %9 = load i1, ptr %retval, align 1
+36:                                               ; preds = %35, %25
+  call void @_ZN2lp12numeric_pairI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
+  call void @llvm.lifetime.end.p0(i64 64, ptr %7) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #3
+  br label %37
+
+37:                                               ; preds = %36, %16
+  %38 = load i1, ptr %3, align 1
+  ret i1 %38
+
+39:                                               ; preds = %26
+  %40 = load ptr, ptr %8, align 8
+  %41 = load i32, ptr %9, align 4
+  %42 = insertvalue { ptr, i32 } poison, ptr %40, 0
+  %43 = insertvalue { ptr, i32 } %42, i32 %41, 1
+  resume { ptr, i32 } %43
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp10lar_solver26column_associated_with_rowEj(ptr noundef nonnull align 8 dereferenceable(2128) %0, i32 noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_solver", ptr %5, i32 0, i32 11
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6vectorIN2lp6columnELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
+  %9 = call noundef zeroext i1 @_ZNK2lp6column19associated_with_rowEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
   ret i1 %9
 }
 
-declare void @_ZN2lp10lar_solver25round_to_integer_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888)) #1
-
-; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp8int_cube21tighten_term_for_cubeEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %i) #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  %t = alloca ptr, align 8
-  %delta = alloca %"struct.lp::numeric_pair", align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %cleanup.dest.slot = alloca i32, align 4
-  %ref.tmp = alloca %"class.lp::tv", align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %lra = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lra, align 8
-  %1 = load i32, ptr %i.addr, align 4
-  %call = call noundef zeroext i1 @_ZNK2lp10lar_solver19term_is_used_as_rowEj(ptr noundef nonnull align 8 dereferenceable(1888) %0, i32 noundef %1)
-  br i1 %call, label %if.end, label %if.then
-
-if.then:                                          ; preds = %entry
-  store i1 true, ptr %retval, align 1
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %lra2 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %2 = load ptr, ptr %lra2, align 8
-  %call3 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver5termsEv(ptr noundef nonnull align 8 dereferenceable(1888) %2)
-  %3 = load i32, ptr %i.addr, align 4
-  %call4 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6vectorIPN2lp8lar_termELb1EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %call3, i32 noundef %3)
-  %4 = load ptr, ptr %call4, align 8
-  store ptr %4, ptr %t, align 8
-  %5 = load ptr, ptr %t, align 8
-  call void @_ZNK2lp8int_cube23get_cube_delta_for_termERKNS_8lar_termE(ptr sret(%"struct.lp::numeric_pair") align 8 %delta, ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %call5 = invoke noundef zeroext i1 @_ZN2lp7is_zeroINS_12numeric_pairI8rationalEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(64) %delta)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  br i1 %call5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %invoke.cont
-  store i1 true, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-lpad:                                             ; preds = %invoke.cont9, %if.end7, %if.end
-  %6 = landingpad { ptr, i32 }
-          cleanup
-  %7 = extractvalue { ptr, i32 } %6, 0
-  store ptr %7, ptr %exn.slot, align 8
-  %8 = extractvalue { ptr, i32 } %6, 1
-  store i32 %8, ptr %ehselector.slot, align 4
-  call void @_ZN2lp12numeric_pairI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %delta) #3
-  br label %eh.resume
-
-if.end7:                                          ; preds = %invoke.cont
-  %lra8 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %9 = load ptr, ptr %lra8, align 8
-  %10 = load i32, ptr %i.addr, align 4
-  %call10 = invoke i32 @_ZN2lp2tv4termEj(i32 noundef %10)
-          to label %invoke.cont9 unwind label %lpad
-
-invoke.cont9:                                     ; preds = %if.end7
-  %coerce.dive = getelementptr inbounds %"class.lp::tv", ptr %ref.tmp, i32 0, i32 0
-  store i32 %call10, ptr %coerce.dive, align 4
-  %call12 = invoke noundef zeroext i1 @_ZN2lp10lar_solver28tighten_term_bounds_by_deltaERKNS_2tvERKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888) %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %delta)
-          to label %invoke.cont11 unwind label %lpad
-
-invoke.cont11:                                    ; preds = %invoke.cont9
-  store i1 %call12, ptr %retval, align 1
-  store i32 1, ptr %cleanup.dest.slot, align 4
-  br label %cleanup
-
-cleanup:                                          ; preds = %invoke.cont11, %if.then6
-  call void @_ZN2lp12numeric_pairI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %delta) #3
-  br label %return
-
-return:                                           ; preds = %cleanup, %if.then
-  %11 = load i1, ptr %retval, align 1
-  ret i1 %11
-
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val13 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val13
-}
-
-declare noundef zeroext i1 @_ZNK2lp10lar_solver19term_is_used_as_rowEj(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef) #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver5termsEv(ptr noundef nonnull align 8 dereferenceable(1888) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_terms = getelementptr inbounds %"class.lp::lar_solver", ptr %this1, i32 0, i32 22
-  ret ptr %m_terms
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6vectorIPN2lp8lar_termELb1EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %idx) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.vector.37, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %idx.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(28) ptr @_ZNK2lp10lar_solver8get_termEj(ptr noundef nonnull align 8 dereferenceable(2128) %0, i32 noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_solver", ptr %5, i32 0, i32 11
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6vectorIN2lp6columnELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
+  %9 = call noundef ptr @_ZNK2lp6column4termEv(ptr noundef nonnull align 8 dereferenceable(24) %8)
+  ret ptr %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp8int_cube23get_cube_delta_for_termERKNS_8lar_termE(ptr noalias sret(%"struct.lp::numeric_pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(24) %t) #5 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %this.addr = alloca ptr, align 8
-  %t.addr = alloca ptr, align 8
-  %seen_minus = alloca i8, align 1
-  %seen_plus = alloca i8, align 1
-  %__range2 = alloca ptr, align 8
-  %__begin2 = alloca %"class.lp::lar_term::const_iterator", align 8
-  %__end2 = alloca %"class.lp::lar_term::const_iterator", align 8
-  %p = alloca %"class.lp::lar_term::ival", align 8
-  %ref.tmp = alloca %"class.lp::column_index", align 4
-  %c = alloca ptr, align 8
-  %ref.tmp12 = alloca %class.rational, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  %ref.tmp15 = alloca %class.rational, align 8
-  %ref.tmp16 = alloca %class.rational, align 8
-  %coerce = alloca %"class.lp::lar_term::const_iterator", align 8
-  %delta = alloca %class.rational, align 8
-  %__range1 = alloca ptr, align 8
-  %__begin1 = alloca %"class.lp::lar_term::const_iterator", align 8
-  %__end1 = alloca %"class.lp::lar_term::const_iterator", align 8
-  %p43 = alloca %"class.lp::lar_term::ival", align 8
-  %ref.tmp47 = alloca %"class.lp::column_index", align 4
-  %ref.tmp54 = alloca %class.rational, align 8
-  %coerce66 = alloca %"class.lp::lar_term::const_iterator", align 8
-  %ref.tmp69 = alloca %class.rational, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %t, ptr %t.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %t.addr, align 8
-  %call = call noundef i32 @_ZNK2lp8lar_term4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  %cmp = icmp eq i32 %call, 2
-  br i1 %cmp, label %if.then, label %if.end31
+define hidden void @_ZNK2lp8int_cube23get_cube_delta_for_termERKNS_8lar_termE(ptr dead_on_unwind noalias writable sret(%"struct.lp::numeric_pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) #6 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca ptr, align 8
+  %10 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %11 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %12 = alloca i32, align 4
+  %13 = alloca %"struct.lp::lar_term::ival", align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %class.rational, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca i32, align 4
+  %18 = alloca %class.rational, align 8
+  %19 = alloca %class.rational, align 8
+  %20 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %21 = alloca %class.rational, align 8
+  %22 = alloca ptr, align 8
+  %23 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %24 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %25 = alloca %"struct.lp::lar_term::ival", align 8
+  %26 = alloca %class.rational, align 8
+  %27 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %28 = alloca %class.rational, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8, !tbaa !16
+  store ptr %2, ptr %6, align 8, !tbaa !50
+  %29 = load ptr, ptr %5, align 8
+  %30 = load ptr, ptr %6, align 8, !tbaa !50
+  %31 = call noundef i32 @_ZNK2lp8lar_term4sizeEv(ptr noundef nonnull align 8 dereferenceable(28) %30)
+  %32 = icmp eq i32 %31, 2
+  br i1 %32, label %33, label %117
 
-if.then:                                          ; preds = %entry
-  store i8 0, ptr %seen_minus, align 1
-  store i8 0, ptr %seen_plus, align 1
-  %1 = load ptr, ptr %t.addr, align 8
-  store ptr %1, ptr %__range2, align 8
-  %2 = load ptr, ptr %__range2, align 8
-  %call2 = call { ptr, ptr } @_ZNK2lp8lar_term5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %coerce.dive = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %__begin2, i32 0, i32 0
-  %3 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 0
-  %4 = extractvalue { ptr, ptr } %call2, 0
-  store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive, i32 0, i32 1
-  %6 = extractvalue { ptr, ptr } %call2, 1
-  store ptr %6, ptr %5, align 8
-  %7 = load ptr, ptr %__range2, align 8
-  %call3 = call { ptr, ptr } @_ZNK2lp8lar_term3endEv(ptr noundef nonnull align 8 dereferenceable(24) %7)
-  %coerce.dive4 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %__end2, i32 0, i32 0
-  %8 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 0
-  %9 = extractvalue { ptr, ptr } %call3, 0
-  store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive4, i32 0, i32 1
-  %11 = extractvalue { ptr, ptr } %call3, 1
-  store ptr %11, ptr %10, align 8
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %call5 = call noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %__begin2, ptr noundef nonnull align 8 dereferenceable(16) %__end2)
-  br i1 %call5, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %call6 = call { i32, ptr } @_ZNK2lp8lar_term14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin2)
-  %12 = getelementptr inbounds { i32, ptr }, ptr %p, i32 0, i32 0
-  %13 = extractvalue { i32, ptr } %call6, 0
-  store i32 %13, ptr %12, align 8
-  %14 = getelementptr inbounds { i32, ptr }, ptr %p, i32 0, i32 1
-  %15 = extractvalue { i32, ptr } %call6, 1
-  store ptr %15, ptr %14, align 8
-  %lia = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 0
-  %16 = load ptr, ptr %lia, align 8
-  %call7 = call i32 @_ZNK2lp8lar_term4ival6columnEv(ptr noundef nonnull align 8 dereferenceable(16) %p)
-  %coerce.dive8 = getelementptr inbounds %"class.lp::column_index", ptr %ref.tmp, i32 0, i32 0
-  store i32 %call7, ptr %coerce.dive8, align 4
-  %call9 = call noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intERKNS_12column_indexE(ptr noundef nonnull align 8 dereferenceable(504) %16, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
-  %lnot = xor i1 %call9, true
-  br i1 %lnot, label %if.then10, label %if.end
-
-if.then10:                                        ; preds = %for.body
-  br label %usual_delta
-
-if.end:                                           ; preds = %for.body
-  %call11 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2lp8lar_term4ival5coeffEv(ptr noundef nonnull align 8 dereferenceable(16) %p)
-  store ptr %call11, ptr %c, align 8
-  %17 = load ptr, ptr %c, align 8
-  call void @_ZN2lp11one_of_typeI8rationalEET_v(ptr sret(%class.rational) align 8 %ref.tmp12)
-  %call13 = invoke noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12)
-          to label %invoke.cont unwind label %lpad
-
-invoke.cont:                                      ; preds = %if.end
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #3
-  br i1 %call13, label %if.then14, label %if.else
-
-if.then14:                                        ; preds = %invoke.cont
-  store i8 1, ptr %seen_plus, align 1
-  br label %if.end25
-
-lpad:                                             ; preds = %if.end
-  %18 = landingpad { ptr, i32 }
-          cleanup
-  %19 = extractvalue { ptr, i32 } %18, 0
-  store ptr %19, ptr %exn.slot, align 8
-  %20 = extractvalue { ptr, i32 } %18, 1
-  store i32 %20, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #3
-  br label %eh.resume
-
-if.else:                                          ; preds = %invoke.cont
-  %21 = load ptr, ptr %c, align 8
-  call void @_ZN2lp11one_of_typeI8rationalEET_v(ptr sret(%class.rational) align 8 %ref.tmp16)
-  invoke void @_ZngRK8rational(ptr sret(%class.rational) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
-          to label %invoke.cont18 unwind label %lpad17
-
-invoke.cont18:                                    ; preds = %if.else
-  %call21 = invoke noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
-          to label %invoke.cont20 unwind label %lpad19
-
-invoke.cont20:                                    ; preds = %invoke.cont18
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #3
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #3
-  br i1 %call21, label %if.then22, label %if.else23
-
-if.then22:                                        ; preds = %invoke.cont20
-  store i8 1, ptr %seen_minus, align 1
-  br label %if.end24
-
-lpad17:                                           ; preds = %if.else
-  %22 = landingpad { ptr, i32 }
-          cleanup
-  %23 = extractvalue { ptr, i32 } %22, 0
-  store ptr %23, ptr %exn.slot, align 8
-  %24 = extractvalue { ptr, i32 } %22, 1
-  store i32 %24, ptr %ehselector.slot, align 4
-  br label %ehcleanup
-
-lpad19:                                           ; preds = %invoke.cont18
-  %25 = landingpad { ptr, i32 }
-          cleanup
-  %26 = extractvalue { ptr, i32 } %25, 0
-  store ptr %26, ptr %exn.slot, align 8
-  %27 = extractvalue { ptr, i32 } %25, 1
-  store i32 %27, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #3
-  br label %ehcleanup
-
-ehcleanup:                                        ; preds = %lpad19, %lpad17
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16) #3
-  br label %eh.resume
-
-if.else23:                                        ; preds = %invoke.cont20
-  br label %usual_delta
-
-if.end24:                                         ; preds = %if.then22
-  br label %if.end25
-
-if.end25:                                         ; preds = %if.end24, %if.then14
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end25
-  %call26 = call { ptr, ptr } @_ZN2lp8lar_term14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin2)
-  %coerce.dive27 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %coerce, i32 0, i32 0
-  %28 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive27, i32 0, i32 0
-  %29 = extractvalue { ptr, ptr } %call26, 0
-  store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive27, i32 0, i32 1
-  %31 = extractvalue { ptr, ptr } %call26, 1
-  store ptr %31, ptr %30, align 8
-  br label %for.cond
-
-for.end:                                          ; preds = %for.cond
-  %32 = load i8, ptr %seen_minus, align 1
-  %tobool = trunc i8 %32 to i1
-  br i1 %tobool, label %land.lhs.true, label %if.end30
-
-land.lhs.true:                                    ; preds = %for.end
-  %33 = load i8, ptr %seen_plus, align 1
-  %tobool28 = trunc i8 %33 to i1
-  br i1 %tobool28, label %if.then29, label %if.end30
-
-if.then29:                                        ; preds = %land.lhs.true
-  call void @_ZN2lp12zero_of_typeINS_12numeric_pairI8rationalEEEET_v(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result)
-  br label %return
-
-if.end30:                                         ; preds = %land.lhs.true, %for.end
-  call void @_ZN2lp12numeric_pairI8rationalEC2IiiEET_T0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i32 noundef 0, i32 noundef 1)
-  br label %return
-
-if.end31:                                         ; preds = %entry
-  br label %usual_delta
-
-usual_delta:                                      ; preds = %if.end31, %if.else23, %if.then10
-  call void @_ZN2lp12zero_of_typeI8rationalEET_v(ptr sret(%class.rational) align 8 %delta)
-  %34 = load ptr, ptr %t.addr, align 8
-  store ptr %34, ptr %__range1, align 8
-  %35 = load ptr, ptr %__range1, align 8
-  %call34 = invoke { ptr, ptr } @_ZNK2lp8lar_term5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %35)
-          to label %invoke.cont33 unwind label %lpad32
-
-invoke.cont33:                                    ; preds = %usual_delta
-  %coerce.dive35 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %__begin1, i32 0, i32 0
-  %36 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive35, i32 0, i32 0
-  %37 = extractvalue { ptr, ptr } %call34, 0
-  store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive35, i32 0, i32 1
-  %39 = extractvalue { ptr, ptr } %call34, 1
+33:                                               ; preds = %3
+  call void @llvm.lifetime.start.p0(i64 1, ptr %7) #3
+  store i8 0, ptr %7, align 1, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 1, ptr %8) #3
+  store i8 0, ptr %8, align 1, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #3
+  %34 = load ptr, ptr %6, align 8, !tbaa !50
+  store ptr %34, ptr %9, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 16, ptr %10) #3
+  %35 = load ptr, ptr %9, align 8, !tbaa !50
+  %36 = call { ptr, ptr } @_ZNK2lp8lar_term5beginEv(ptr noundef nonnull align 8 dereferenceable(28) %35)
+  %37 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %10, i32 0, i32 0
+  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %37, i32 0, i32 0
+  %39 = extractvalue { ptr, ptr } %36, 0
   store ptr %39, ptr %38, align 8
-  %40 = load ptr, ptr %__range1, align 8
-  %call37 = invoke { ptr, ptr } @_ZNK2lp8lar_term3endEv(ptr noundef nonnull align 8 dereferenceable(24) %40)
-          to label %invoke.cont36 unwind label %lpad32
-
-invoke.cont36:                                    ; preds = %invoke.cont33
-  %coerce.dive38 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %__end1, i32 0, i32 0
-  %41 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive38, i32 0, i32 0
-  %42 = extractvalue { ptr, ptr } %call37, 0
-  store ptr %42, ptr %41, align 8
-  %43 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive38, i32 0, i32 1
-  %44 = extractvalue { ptr, ptr } %call37, 1
-  store ptr %44, ptr %43, align 8
-  br label %for.cond39
-
-for.cond39:                                       ; preds = %invoke.cont64, %invoke.cont36
-  %call41 = invoke noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %__begin1, ptr noundef nonnull align 8 dereferenceable(16) %__end1)
-          to label %invoke.cont40 unwind label %lpad32
-
-invoke.cont40:                                    ; preds = %for.cond39
-  br i1 %call41, label %for.body42, label %for.end68
-
-for.body42:                                       ; preds = %invoke.cont40
-  %call45 = invoke { i32, ptr } @_ZNK2lp8lar_term14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin1)
-          to label %invoke.cont44 unwind label %lpad32
-
-invoke.cont44:                                    ; preds = %for.body42
-  %45 = getelementptr inbounds { i32, ptr }, ptr %p43, i32 0, i32 0
-  %46 = extractvalue { i32, ptr } %call45, 0
-  store i32 %46, ptr %45, align 8
-  %47 = getelementptr inbounds { i32, ptr }, ptr %p43, i32 0, i32 1
-  %48 = extractvalue { i32, ptr } %call45, 1
+  %40 = getelementptr inbounds nuw { ptr, ptr }, ptr %37, i32 0, i32 1
+  %41 = extractvalue { ptr, ptr } %36, 1
+  store ptr %41, ptr %40, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %11) #3
+  %42 = load ptr, ptr %9, align 8, !tbaa !50
+  %43 = call { ptr, ptr } @_ZNK2lp8lar_term3endEv(ptr noundef nonnull align 8 dereferenceable(28) %42)
+  %44 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %11, i32 0, i32 0
+  %45 = getelementptr inbounds nuw { ptr, ptr }, ptr %44, i32 0, i32 0
+  %46 = extractvalue { ptr, ptr } %43, 0
+  store ptr %46, ptr %45, align 8
+  %47 = getelementptr inbounds nuw { ptr, ptr }, ptr %44, i32 0, i32 1
+  %48 = extractvalue { ptr, ptr } %43, 1
   store ptr %48, ptr %47, align 8
-  %lia46 = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 0
-  %49 = load ptr, ptr %lia46, align 8
-  %call49 = invoke i32 @_ZNK2lp8lar_term4ival6columnEv(ptr noundef nonnull align 8 dereferenceable(16) %p43)
-          to label %invoke.cont48 unwind label %lpad32
+  br label %49
 
-invoke.cont48:                                    ; preds = %invoke.cont44
-  %coerce.dive50 = getelementptr inbounds %"class.lp::column_index", ptr %ref.tmp47, i32 0, i32 0
-  store i32 %call49, ptr %coerce.dive50, align 4
-  %call52 = invoke noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intERKNS_12column_indexE(ptr noundef nonnull align 8 dereferenceable(504) %49, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp47)
-          to label %invoke.cont51 unwind label %lpad32
+49:                                               ; preds = %97, %33
+  %50 = call noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %50, label %52, label %51
 
-invoke.cont51:                                    ; preds = %invoke.cont48
-  br i1 %call52, label %if.then53, label %if.end62
+51:                                               ; preds = %49
+  store i32 2, ptr %12, align 4
+  br label %105
 
-if.then53:                                        ; preds = %invoke.cont51
-  %call56 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2lp8lar_term4ival5coeffEv(ptr noundef nonnull align 8 dereferenceable(16) %p43)
-          to label %invoke.cont55 unwind label %lpad32
-
-invoke.cont55:                                    ; preds = %if.then53
-  invoke void @_Z3absRK8rational(ptr sret(%class.rational) align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %call56)
-          to label %invoke.cont57 unwind label %lpad32
-
-invoke.cont57:                                    ; preds = %invoke.cont55
-  %call60 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalpLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %delta, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54)
-          to label %invoke.cont59 unwind label %lpad58
-
-invoke.cont59:                                    ; preds = %invoke.cont57
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #3
-  br label %if.end62
-
-lpad32:                                           ; preds = %invoke.cont72, %for.end68, %for.inc63, %invoke.cont55, %if.then53, %invoke.cont48, %invoke.cont44, %for.body42, %for.cond39, %invoke.cont33, %usual_delta
-  %50 = landingpad { ptr, i32 }
-          cleanup
-  %51 = extractvalue { ptr, i32 } %50, 0
-  store ptr %51, ptr %exn.slot, align 8
-  %52 = extractvalue { ptr, i32 } %50, 1
-  store i32 %52, ptr %ehselector.slot, align 4
-  br label %ehcleanup76
-
-lpad58:                                           ; preds = %invoke.cont57
-  %53 = landingpad { ptr, i32 }
-          cleanup
-  %54 = extractvalue { ptr, i32 } %53, 0
-  store ptr %54, ptr %exn.slot, align 8
-  %55 = extractvalue { ptr, i32 } %53, 1
-  store i32 %55, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54) #3
-  br label %ehcleanup76
-
-if.end62:                                         ; preds = %invoke.cont59, %invoke.cont51
-  br label %for.inc63
-
-for.inc63:                                        ; preds = %if.end62
-  %call65 = invoke { ptr, ptr } @_ZN2lp8lar_term14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %__begin1)
-          to label %invoke.cont64 unwind label %lpad32
-
-invoke.cont64:                                    ; preds = %for.inc63
-  %coerce.dive67 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %coerce66, i32 0, i32 0
-  %56 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive67, i32 0, i32 0
-  %57 = extractvalue { ptr, ptr } %call65, 0
+52:                                               ; preds = %49
+  call void @llvm.lifetime.start.p0(i64 16, ptr %13) #3
+  %53 = call { i32, ptr } @_ZNK2lp8lar_term14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %54 = getelementptr inbounds nuw { i32, ptr }, ptr %13, i32 0, i32 0
+  %55 = extractvalue { i32, ptr } %53, 0
+  store i32 %55, ptr %54, align 8
+  %56 = getelementptr inbounds nuw { i32, ptr }, ptr %13, i32 0, i32 1
+  %57 = extractvalue { i32, ptr } %53, 1
   store ptr %57, ptr %56, align 8
-  %58 = getelementptr inbounds { ptr, ptr }, ptr %coerce.dive67, i32 0, i32 1
-  %59 = extractvalue { ptr, ptr } %call65, 1
-  store ptr %59, ptr %58, align 8
-  br label %for.cond39
+  %58 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %29, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8, !tbaa !28
+  %60 = call noundef i32 @_ZNK2lp8lar_term4ival1jEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  %61 = call noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(32) %59, i32 noundef %60)
+  br i1 %61, label %63, label %62
 
-for.end68:                                        ; preds = %invoke.cont40
-  invoke void @_ZN8rationalC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, i32 noundef 1, i32 noundef 2)
-          to label %invoke.cont70 unwind label %lpad32
+62:                                               ; preds = %52
+  store i32 4, ptr %12, align 4
+  br label %94
 
-invoke.cont70:                                    ; preds = %for.end68
-  %call73 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalmLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %delta, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
-          to label %invoke.cont72 unwind label %lpad71
+63:                                               ; preds = %52
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #3
+  %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2lp8lar_term4ival5coeffEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  store ptr %64, ptr %14, align 8, !tbaa !56
+  %65 = load ptr, ptr %14, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 32, ptr %15) #3
+  call void @_ZN2lp11one_of_typeI8rationalEET_v(ptr dead_on_unwind writable sret(%class.rational) align 8 %15)
+  %66 = invoke noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %15)
+          to label %67 unwind label %69
 
-invoke.cont72:                                    ; preds = %invoke.cont70
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #3
-  invoke void @_ZN2lp12numeric_pairI8rationalEC2IS1_EERKT_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %delta)
-          to label %invoke.cont75 unwind label %lpad32
+67:                                               ; preds = %63
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #3
+  br i1 %66, label %68, label %73
 
-invoke.cont75:                                    ; preds = %invoke.cont72
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %delta) #3
-  br label %return
+68:                                               ; preds = %67
+  store i8 1, ptr %8, align 1, !tbaa !10
+  br label %90
 
-lpad71:                                           ; preds = %invoke.cont70
-  %60 = landingpad { ptr, i32 }
+69:                                               ; preds = %63
+  %70 = landingpad { ptr, i32 }
           cleanup
-  %61 = extractvalue { ptr, i32 } %60, 0
-  store ptr %61, ptr %exn.slot, align 8
-  %62 = extractvalue { ptr, i32 } %60, 1
-  store i32 %62, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #3
-  br label %ehcleanup76
+  %71 = extractvalue { ptr, i32 } %70, 0
+  store ptr %71, ptr %16, align 8
+  %72 = extractvalue { ptr, i32 } %70, 1
+  store i32 %72, ptr %17, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %15) #3
+  br label %104
 
-ehcleanup76:                                      ; preds = %lpad71, %lpad58, %lpad32
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %delta) #3
-  br label %eh.resume
+73:                                               ; preds = %67
+  %74 = load ptr, ptr %14, align 8, !tbaa !56
+  call void @llvm.lifetime.start.p0(i64 32, ptr %18) #3
+  call void @llvm.lifetime.start.p0(i64 32, ptr %19) #3
+  call void @_ZN2lp11one_of_typeI8rationalEET_v(ptr dead_on_unwind writable sret(%class.rational) align 8 %19)
+  invoke void @_ZngRK8rational(ptr dead_on_unwind writable sret(%class.rational) align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %75 unwind label %79
 
-return:                                           ; preds = %invoke.cont75, %if.end30, %if.then29
+75:                                               ; preds = %73
+  %76 = invoke noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %18)
+          to label %77 unwind label %83
+
+77:                                               ; preds = %75
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  br i1 %76, label %78, label %88
+
+78:                                               ; preds = %77
+  store i8 1, ptr %7, align 1, !tbaa !10
+  br label %89
+
+79:                                               ; preds = %73
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %16, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %17, align 4
+  br label %87
+
+83:                                               ; preds = %75
+  %84 = landingpad { ptr, i32 }
+          cleanup
+  %85 = extractvalue { ptr, i32 } %84, 0
+  store ptr %85, ptr %16, align 8
+  %86 = extractvalue { ptr, i32 } %84, 1
+  store i32 %86, ptr %17, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  br label %87
+
+87:                                               ; preds = %83, %79
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %19) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %18) #3
+  br label %104
+
+88:                                               ; preds = %77
+  store i32 4, ptr %12, align 4
+  br label %91
+
+89:                                               ; preds = %78
+  br label %90
+
+90:                                               ; preds = %89, %68
+  store i32 0, ptr %12, align 4
+  br label %91
+
+91:                                               ; preds = %88, %90
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  %92 = load i32, ptr %12, align 4
+  switch i32 %92, label %94 [
+    i32 0, label %93
+  ]
+
+93:                                               ; preds = %91
+  store i32 0, ptr %12, align 4
+  br label %94
+
+94:                                               ; preds = %62, %93, %91
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #3
+  %95 = load i32, ptr %12, align 4
+  switch i32 %95, label %105 [
+    i32 0, label %96
+  ]
+
+96:                                               ; preds = %94
+  br label %97
+
+97:                                               ; preds = %96
+  %98 = call { ptr, ptr } @_ZN2lp8lar_term14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %99 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %20, i32 0, i32 0
+  %100 = getelementptr inbounds nuw { ptr, ptr }, ptr %99, i32 0, i32 0
+  %101 = extractvalue { ptr, ptr } %98, 0
+  store ptr %101, ptr %100, align 8
+  %102 = getelementptr inbounds nuw { ptr, ptr }, ptr %99, i32 0, i32 1
+  %103 = extractvalue { ptr, ptr } %98, 1
+  store ptr %103, ptr %102, align 8
+  br label %49
+
+104:                                              ; preds = %87, %69
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %13) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  br label %212
+
+105:                                              ; preds = %94, %51
+  call void @llvm.lifetime.end.p0(i64 16, ptr %11) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %10) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #3
+  %106 = load i32, ptr %12, align 4
+  switch i32 %106, label %115 [
+    i32 2, label %107
+  ]
+
+107:                                              ; preds = %105
+  %108 = load i8, ptr %7, align 1, !tbaa !10, !range !12, !noundef !13
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %114
+
+110:                                              ; preds = %107
+  %111 = load i8, ptr %8, align 1, !tbaa !10, !range !12, !noundef !13
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %113, label %114
+
+113:                                              ; preds = %110
+  call void @_ZN2lp12zero_of_typeINS_12numeric_pairI8rationalEEEET_v(ptr dead_on_unwind writable sret(%"struct.lp::numeric_pair") align 8 %0)
+  store i32 1, ptr %12, align 4
+  br label %115
+
+114:                                              ; preds = %110, %107
+  call void @_ZN2lp12numeric_pairI8rationalEC2IiiEET_T0_(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef 0, i32 noundef 1)
+  store i32 1, ptr %12, align 4
+  br label %115
+
+115:                                              ; preds = %114, %113, %105
+  call void @llvm.lifetime.end.p0(i64 1, ptr %8) #3
+  call void @llvm.lifetime.end.p0(i64 1, ptr %7) #3
+  %116 = load i32, ptr %12, align 4
+  switch i32 %116, label %217 [
+    i32 1, label %211
+    i32 4, label %118
+  ]
+
+117:                                              ; preds = %3
+  br label %118
+
+118:                                              ; preds = %117, %115
+  call void @llvm.lifetime.start.p0(i64 32, ptr %21) #3
+  call void @_ZN2lp12zero_of_typeI8rationalEET_v(ptr dead_on_unwind writable sret(%class.rational) align 8 %21)
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #3
+  %119 = load ptr, ptr %6, align 8, !tbaa !50
+  store ptr %119, ptr %22, align 8, !tbaa !50
+  call void @llvm.lifetime.start.p0(i64 16, ptr %23) #3
+  %120 = load ptr, ptr %22, align 8, !tbaa !50
+  %121 = invoke { ptr, ptr } @_ZNK2lp8lar_term5beginEv(ptr noundef nonnull align 8 dereferenceable(28) %120)
+          to label %122 unwind label %140
+
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %23, i32 0, i32 0
+  %124 = getelementptr inbounds nuw { ptr, ptr }, ptr %123, i32 0, i32 0
+  %125 = extractvalue { ptr, ptr } %121, 0
+  store ptr %125, ptr %124, align 8
+  %126 = getelementptr inbounds nuw { ptr, ptr }, ptr %123, i32 0, i32 1
+  %127 = extractvalue { ptr, ptr } %121, 1
+  store ptr %127, ptr %126, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %24) #3
+  %128 = load ptr, ptr %22, align 8, !tbaa !50
+  %129 = invoke { ptr, ptr } @_ZNK2lp8lar_term3endEv(ptr noundef nonnull align 8 dereferenceable(28) %128)
+          to label %130 unwind label %144
+
+130:                                              ; preds = %122
+  %131 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %24, i32 0, i32 0
+  %132 = getelementptr inbounds nuw { ptr, ptr }, ptr %131, i32 0, i32 0
+  %133 = extractvalue { ptr, ptr } %129, 0
+  store ptr %133, ptr %132, align 8
+  %134 = getelementptr inbounds nuw { ptr, ptr }, ptr %131, i32 0, i32 1
+  %135 = extractvalue { ptr, ptr } %129, 1
+  store ptr %135, ptr %134, align 8
+  br label %136
+
+136:                                              ; preds = %183, %130
+  %137 = invoke noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24)
+          to label %138 unwind label %144
+
+138:                                              ; preds = %136
+  br i1 %137, label %148, label %139
+
+139:                                              ; preds = %138
+  store i32 5, ptr %12, align 4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #3
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  br label %192
+
+140:                                              ; preds = %118
+  %141 = landingpad { ptr, i32 }
+          cleanup
+  %142 = extractvalue { ptr, i32 } %141, 0
+  store ptr %142, ptr %16, align 8
+  %143 = extractvalue { ptr, i32 } %141, 1
+  store i32 %143, ptr %17, align 4
+  br label %191
+
+144:                                              ; preds = %181, %136, %122
+  %145 = landingpad { ptr, i32 }
+          cleanup
+  %146 = extractvalue { ptr, i32 } %145, 0
+  store ptr %146, ptr %16, align 8
+  %147 = extractvalue { ptr, i32 } %145, 1
+  store i32 %147, ptr %17, align 4
+  br label %190
+
+148:                                              ; preds = %138
+  call void @llvm.lifetime.start.p0(i64 16, ptr %25) #3
+  %149 = invoke { i32, ptr } @_ZNK2lp8lar_term14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+          to label %150 unwind label %167
+
+150:                                              ; preds = %148
+  %151 = getelementptr inbounds nuw { i32, ptr }, ptr %25, i32 0, i32 0
+  %152 = extractvalue { i32, ptr } %149, 0
+  store i32 %152, ptr %151, align 8
+  %153 = getelementptr inbounds nuw { i32, ptr }, ptr %25, i32 0, i32 1
+  %154 = extractvalue { i32, ptr } %149, 1
+  store ptr %154, ptr %153, align 8
+  %155 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %29, i32 0, i32 0
+  %156 = load ptr, ptr %155, align 8, !tbaa !28
+  %157 = invoke noundef i32 @_ZNK2lp8lar_term4ival1jEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %158 unwind label %167
+
+158:                                              ; preds = %150
+  %159 = invoke noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(32) %156, i32 noundef %157)
+          to label %160 unwind label %167
+
+160:                                              ; preds = %158
+  br i1 %159, label %161, label %180
+
+161:                                              ; preds = %160
+  call void @llvm.lifetime.start.p0(i64 32, ptr %26) #3
+  %162 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2lp8lar_term4ival5coeffEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %163 unwind label %171
+
+163:                                              ; preds = %161
+  invoke void @_Z3absRK8rational(ptr dead_on_unwind writable sret(%class.rational) align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %162)
+          to label %164 unwind label %171
+
+164:                                              ; preds = %163
+  %165 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalpLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %26)
+          to label %166 unwind label %175
+
+166:                                              ; preds = %164
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %26) #3
+  br label %180
+
+167:                                              ; preds = %158, %150, %148
+  %168 = landingpad { ptr, i32 }
+          cleanup
+  %169 = extractvalue { ptr, i32 } %168, 0
+  store ptr %169, ptr %16, align 8
+  %170 = extractvalue { ptr, i32 } %168, 1
+  store i32 %170, ptr %17, align 4
+  br label %189
+
+171:                                              ; preds = %163, %161
+  %172 = landingpad { ptr, i32 }
+          cleanup
+  %173 = extractvalue { ptr, i32 } %172, 0
+  store ptr %173, ptr %16, align 8
+  %174 = extractvalue { ptr, i32 } %172, 1
+  store i32 %174, ptr %17, align 4
+  br label %179
+
+175:                                              ; preds = %164
+  %176 = landingpad { ptr, i32 }
+          cleanup
+  %177 = extractvalue { ptr, i32 } %176, 0
+  store ptr %177, ptr %16, align 8
+  %178 = extractvalue { ptr, i32 } %176, 1
+  store i32 %178, ptr %17, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  br label %179
+
+179:                                              ; preds = %175, %171
+  call void @llvm.lifetime.end.p0(i64 32, ptr %26) #3
+  br label %189
+
+180:                                              ; preds = %166, %160
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #3
+  br label %181
+
+181:                                              ; preds = %180
+  %182 = invoke { ptr, ptr } @_ZN2lp8lar_term14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %23)
+          to label %183 unwind label %144
+
+183:                                              ; preds = %181
+  %184 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %27, i32 0, i32 0
+  %185 = getelementptr inbounds nuw { ptr, ptr }, ptr %184, i32 0, i32 0
+  %186 = extractvalue { ptr, ptr } %182, 0
+  store ptr %186, ptr %185, align 8
+  %187 = getelementptr inbounds nuw { ptr, ptr }, ptr %184, i32 0, i32 1
+  %188 = extractvalue { ptr, ptr } %182, 1
+  store ptr %188, ptr %187, align 8
+  br label %136
+
+189:                                              ; preds = %179, %167
+  call void @llvm.lifetime.end.p0(i64 16, ptr %25) #3
+  br label %190
+
+190:                                              ; preds = %189, %144
+  call void @llvm.lifetime.end.p0(i64 16, ptr %24) #3
+  br label %191
+
+191:                                              ; preds = %190, %140
+  call void @llvm.lifetime.end.p0(i64 16, ptr %23) #3
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #3
+  br label %210
+
+192:                                              ; preds = %139
+  call void @llvm.lifetime.start.p0(i64 32, ptr %28) #3
+  invoke void @_ZN8rationalC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %28, i32 noundef 1, i32 noundef 2)
+          to label %193 unwind label %197
+
+193:                                              ; preds = %192
+  %194 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalmLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %28)
+          to label %195 unwind label %201
+
+195:                                              ; preds = %193
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #3
+  invoke void @_ZN2lp12numeric_pairI8rationalEC2IS1_EERKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
+          to label %196 unwind label %206
+
+196:                                              ; preds = %195
+  store i32 1, ptr %12, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  br label %211
+
+197:                                              ; preds = %192
+  %198 = landingpad { ptr, i32 }
+          cleanup
+  %199 = extractvalue { ptr, i32 } %198, 0
+  store ptr %199, ptr %16, align 8
+  %200 = extractvalue { ptr, i32 } %198, 1
+  store i32 %200, ptr %17, align 4
+  br label %205
+
+201:                                              ; preds = %193
+  %202 = landingpad { ptr, i32 }
+          cleanup
+  %203 = extractvalue { ptr, i32 } %202, 0
+  store ptr %203, ptr %16, align 8
+  %204 = extractvalue { ptr, i32 } %202, 1
+  store i32 %204, ptr %17, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  br label %205
+
+205:                                              ; preds = %201, %197
+  call void @llvm.lifetime.end.p0(i64 32, ptr %28) #3
+  br label %210
+
+206:                                              ; preds = %195
+  %207 = landingpad { ptr, i32 }
+          cleanup
+  %208 = extractvalue { ptr, i32 } %207, 0
+  store ptr %208, ptr %16, align 8
+  %209 = extractvalue { ptr, i32 } %207, 1
+  store i32 %209, ptr %17, align 4
+  br label %210
+
+210:                                              ; preds = %206, %205, %191
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  call void @llvm.lifetime.end.p0(i64 32, ptr %21) #3
+  br label %212
+
+211:                                              ; preds = %196, %115
   ret void
 
-eh.resume:                                        ; preds = %ehcleanup76, %ehcleanup, %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val77 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val77
+212:                                              ; preds = %210, %104
+  %213 = load ptr, ptr %16, align 8
+  %214 = load i32, ptr %17, align 4
+  %215 = insertvalue { ptr, i32 } poison, ptr %213, 0
+  %216 = insertvalue { ptr, i32 } %215, i32 %214, 1
+  resume { ptr, i32 } %216
+
+217:                                              ; preds = %115
+  unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN2lp7is_zeroINS_12numeric_pairI8rationalEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(64) %v) #5 comdat {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %call = call noundef zeroext i1 @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE7is_zeroERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  ret i1 %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN2lp7is_zeroINS_12numeric_pairI8rationalEEEEbRKT_(ptr noundef nonnull align 8 dereferenceable(64) %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = call noundef zeroext i1 @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE7is_zeroERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %3)
+  ret i1 %4
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-declare noundef zeroext i1 @_ZN2lp10lar_solver28tighten_term_bounds_by_deltaERKNS_2tvERKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(1888), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 8 dereferenceable(64)) #1
+declare noundef zeroext i1 @_ZN2lp10lar_solver28tighten_term_bounds_by_deltaEjRKNS_12numeric_pairI8rationalEE(ptr noundef nonnull align 8 dereferenceable(2128), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden i32 @_ZN2lp2tv4termEj(i32 noundef %i) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.lp::tv", align 4
-  %i.addr = alloca i32, align 4
-  store i32 %i, ptr %i.addr, align 4
-  %0 = load i32, ptr %i.addr, align 4
-  %call = call noundef i32 @_ZN2lp2tv9mask_termEj(i32 noundef %0)
-  call void @_ZN2lp2tvC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %retval, i32 noundef %call)
-  %coerce.dive = getelementptr inbounds %"class.lp::tv", ptr %retval, i32 0, i32 0
-  %1 = load i32, ptr %coerce.dive, align 4
-  ret i32 %1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %3, i32 0, i32 1
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %5 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %3, i32 0, i32 0
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver5termsEv(ptr noundef nonnull align 8 dereferenceable(2128) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::lar_solver", ptr %3, i32 0, i32 21
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %y = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 1
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %y) #3
-  %x = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 0
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %x) #3
+define linkonce_odr hidden noundef ptr @_ZNK6vectorIPN2lp8lar_termELb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.vector.51, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK6vectorIPN2lp8lar_termELb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !45
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.vector.51, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !60
+  %6 = call noundef i32 @_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2lp8lar_term1jEv(ptr noundef nonnull align 8 dereferenceable(28) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::lar_term", ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 8, !tbaa !62
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN2lp8int_cube22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::int_cube", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %6 = call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(2128) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2lp8lar_term4sizeEv(ptr noundef nonnull align 8 dereferenceable(28) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::lar_term", ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNK2lp8lar_term5beginEv(ptr noundef nonnull align 8 dereferenceable(28) %0) #6 comdat align 2 {
+  %2 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_term", ptr %5, i32 0, i32 0
+  %7 = call { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %9 = extractvalue { ptr, ptr } %7, 0
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %11 = extractvalue { ptr, ptr } %7, 1
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  call void @_ZN2lp8lar_term14const_iteratorC2EN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS5_6u_hash4u_eqE15entry_hash_procENS9_13entry_eq_procEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %13, ptr %15)
+  %16 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %2, i32 0, i32 0
+  %17 = load { ptr, ptr }, ptr %16, align 8
+  ret { ptr, ptr } %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNK2lp8lar_term3endEv(ptr noundef nonnull align 8 dereferenceable(28) %0) #6 comdat align 2 {
+  %2 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !50
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_term", ptr %5, i32 0, i32 0
+  %7 = call { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6)
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %9 = extractvalue { ptr, ptr } %7, 0
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %11 = extractvalue { ptr, ptr } %7, 1
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  call void @_ZN2lp8lar_term14const_iteratorC2EN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS5_6u_hash4u_eqE15entry_hash_procENS9_13entry_eq_procEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr %13, ptr %15)
+  %16 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %2, i32 0, i32 0
+  %17 = load { ptr, ptr }, ptr %16, align 8
+  ret { ptr, ptr } %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !69
+  %7 = call noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratoreqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = xor i1 %7, true
+  ret i1 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { i32, ptr } @_ZNK2lp8lar_term14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca %"struct.lp::lar_term::ival", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %4, i32 0, i32 0
+  %6 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %7 = getelementptr inbounds nuw %struct._key_data, ptr %6, i32 0, i32 0
+  %8 = load i32, ptr %7, align 8, !tbaa !71
+  %9 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %4, i32 0, i32 0
+  %10 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %11 = getelementptr inbounds nuw %struct._key_data, ptr %10, i32 0, i32 1
+  call void @_ZN2lp8lar_term4ivalC2EjRK8rational(ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = load { i32, ptr }, ptr %2, align 8
+  ret { i32, ptr } %12
+}
+
+declare noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK2lp8lar_term4ival1jEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.lp::lar_term::ival", ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !79
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2lp8lar_term4ival5coeffEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !77
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.lp::lar_term::ival", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
+  ret ptr %5
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %6 = load ptr, ptr %3, align 8, !tbaa !56
+  %7 = getelementptr inbounds nuw %class.rational, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %class.rational, ptr %8, i32 0, i32 0
+  %10 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  ret i1 %10
+}
+
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2lp11one_of_typeI8rationalEET_v(ptr dead_on_unwind noalias writable sret(%class.rational) align 8 %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE3oneEv()
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.vector.37, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_data, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !82
+  %5 = getelementptr inbounds nuw %class.rational, ptr %3, i32 0, i32 0
+  invoke void @_ZN11mpq_managerILb1EE3delEPS0_R3mpq(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %6 unwind label %7
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %m_data2 = getelementptr inbounds %class.vector.37, ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %m_data2, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 -1
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
-}
-
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp8int_cube22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %lra = getelementptr inbounds %"class.lp::int_cube", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %lra, align 8
-  %call = call noundef i32 @_ZN2lp10lar_solver22find_feasible_solutionEv(ptr noundef nonnull align 8 dereferenceable(1888) %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK2lp8lar_term4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_coeffs = getelementptr inbounds %"class.lp::lar_term", ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %m_coeffs)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNK2lp8lar_term5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.lp::lar_term::const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_coeffs = getelementptr inbounds %"class.lp::lar_term", ptr %this1, i32 0, i32 0
-  %call = call { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %m_coeffs)
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %1 = extractvalue { ptr, ptr } %call, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  call void @_ZN2lp8lar_term14const_iteratorC2EN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS5_6u_hash4u_eqE15entry_hash_procENS9_13entry_eq_procEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr %5, ptr %7)
-  %coerce.dive = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %retval, i32 0, i32 0
-  %8 = load { ptr, ptr }, ptr %coerce.dive, align 8
-  ret { ptr, ptr } %8
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNK2lp8lar_term3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.lp::lar_term::const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %agg.tmp = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_coeffs = getelementptr inbounds %"class.lp::lar_term", ptr %this1, i32 0, i32 0
-  %call = call { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %m_coeffs)
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %1 = extractvalue { ptr, ptr } %call, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
-  %7 = load ptr, ptr %6, align 8
-  call void @_ZN2lp8lar_term14const_iteratorC2EN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS5_6u_hash4u_eqE15entry_hash_procENS9_13entry_eq_procEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr %5, ptr %7)
-  %coerce.dive = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %retval, i32 0, i32 0
-  %8 = load { ptr, ptr }, ptr %coerce.dive, align 8
-  ret { ptr, ptr } %8
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratorneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %other.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratoreqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %lnot = xor i1 %call, true
-  ret i1 %lnot
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { i32, ptr } @_ZNK2lp8lar_term14const_iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.lp::lar_term::ival", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_it = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %this1, i32 0, i32 0
-  %call = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %m_it)
-  %m_key = getelementptr inbounds %struct._key_data, ptr %call, i32 0, i32 0
-  %0 = load i32, ptr %m_key, align 8
-  %m_it2 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %this1, i32 0, i32 0
-  %call3 = call noundef ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %m_it2)
-  %m_value = getelementptr inbounds %struct._key_data, ptr %call3, i32 0, i32 1
-  call void @_ZN2lp8lar_term4ivalC2EjRK8rational(ptr noundef nonnull align 8 dereferenceable(16) %retval, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %m_value)
-  %1 = load { i32, ptr }, ptr %retval, align 8
-  ret { i32, ptr } %1
-}
-
-declare noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intERKNS_12column_indexE(ptr noundef nonnull align 8 dereferenceable(504), ptr noundef nonnull align 4 dereferenceable(4)) #1
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden i32 @_ZNK2lp8lar_term4ival6columnEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.lp::column_index", align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_var = getelementptr inbounds %"class.lp::lar_term::ival", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %m_var, align 8
-  call void @_ZN2lp12column_indexC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %retval, i32 noundef %0)
-  %coerce.dive = getelementptr inbounds %"class.lp::column_index", ptr %retval, i32 0, i32 0
-  %1 = load i32, ptr %coerce.dive, align 4
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK2lp8lar_term4ival5coeffEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_coeff = getelementptr inbounds %"class.lp::lar_term::ival", ptr %this1, i32 0, i32 1
-  %0 = load ptr, ptr %m_coeff, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZeqRK8rationalS1_(ptr noundef nonnull align 8 dereferenceable(32) %r1, ptr noundef nonnull align 8 dereferenceable(32) %r2) #5 comdat {
-entry:
-  %r1.addr = alloca ptr, align 8
-  %r2.addr = alloca ptr, align 8
-  store ptr %r1, ptr %r1.addr, align 8
-  store ptr %r2, ptr %r2.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %0 = load ptr, ptr %r1.addr, align 8
-  %m_val = getelementptr inbounds %class.rational, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %r2.addr, align 8
-  %m_val1 = getelementptr inbounds %class.rational, ptr %1, i32 0, i32 0
-  %call2 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val, ptr noundef nonnull align 8 dereferenceable(32) %m_val1)
-  ret i1 %call2
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp11one_of_typeI8rationalEET_v(ptr noalias sret(%class.rational) align 8 %agg.result) #5 comdat {
-entry:
-  %result.ptr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE3oneEv()
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  invoke void @_ZN11mpq_managerILb1EE3delEPS0_R3mpq(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-          to label %invoke.cont unwind label %terminate.lpad
-
-invoke.cont:                                      ; preds = %entry
+6:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #8
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #11
   unreachable
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZngRK8rational(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %r) #5 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  %nrvo = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store i1 false, ptr %nrvo, align 1
-  %0 = load ptr, ptr %r.addr, align 8
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  invoke void @_ZN8rational3negEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result)
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZngRK8rational(ptr dead_on_unwind noalias writable sret(%class.rational) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  store i1 false, ptr %5, align 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @_ZN8rational3negEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
+          to label %9 unwind label %11
 
-invoke.cont:                                      ; preds = %entry
-  store i1 true, ptr %nrvo, align 1
-  %nrvo.val = load i1, ptr %nrvo, align 1
-  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+9:                                                ; preds = %2
+  store i1 true, ptr %5, align 1
+  %10 = load i1, ptr %5, align 1
+  br i1 %10, label %16, label %15
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #3
-  br label %eh.resume
+  %13 = extractvalue { ptr, i32 } %12, 0
+  store ptr %13, ptr %6, align 8
+  %14 = extractvalue { ptr, i32 } %12, 1
+  store i32 %14, ptr %7, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %17
 
-nrvo.unused:                                      ; preds = %invoke.cont
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #3
-  br label %nrvo.skipdtor
+15:                                               ; preds = %9
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %16
 
-nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont
+16:                                               ; preds = %15, %9
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
+17:                                               ; preds = %11
+  %18 = load ptr, ptr %6, align 8
+  %19 = load i32, ptr %7, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZN2lp8lar_term14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.lp::lar_term::const_iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %coerce = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 16, i1 false)
-  %m_it = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %this1, i32 0, i32 0
-  %call = call { ptr, ptr } @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEi(ptr noundef nonnull align 8 dereferenceable(16) %m_it, i32 noundef 0)
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %coerce, i32 0, i32 0
-  %1 = extractvalue { ptr, ptr } %call, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %coerce, i32 0, i32 1
-  %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr %2, align 8
-  %coerce.dive = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %retval, i32 0, i32 0
-  %4 = load { ptr, ptr }, ptr %coerce.dive, align 8
-  ret { ptr, ptr } %4
+define linkonce_odr hidden { ptr, ptr } @_ZN2lp8lar_term14const_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca %"class.lp::lar_term::const_iterator", align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  %5 = load ptr, ptr %3, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !84
+  %6 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %5, i32 0, i32 0
+  %7 = call { ptr, ptr } @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEi(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
+  %8 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  %9 = extractvalue { ptr, ptr } %7, 0
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  %11 = extractvalue { ptr, ptr } %7, 1
+  store ptr %11, ptr %10, align 8
+  %12 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %2, i32 0, i32 0
+  %13 = load { ptr, ptr }, ptr %12, align 8
+  ret { ptr, ptr } %13
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp12zero_of_typeINS_12numeric_pairI8rationalEEEET_v(ptr noalias sret(%"struct.lp::numeric_pair") align 8 %agg.result) #5 comdat {
-entry:
-  %result.ptr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  call void @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv(ptr sret(%"struct.lp::numeric_pair") align 8 %agg.result)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2lp12zero_of_typeINS_12numeric_pairI8rationalEEEET_v(ptr dead_on_unwind noalias writable sret(%"struct.lp::numeric_pair") align 8 %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  call void @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv(ptr dead_on_unwind writable sret(%"struct.lp::numeric_pair") align 8 %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalEC2IiiEET_T0_(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %xp, i32 noundef %yp) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %xp.addr = alloca i32, align 4
-  %yp.addr = alloca i32, align 4
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %xp, ptr %xp.addr, align 4
-  store i32 %yp, ptr %yp.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 0
-  call void @_ZN2lp14convert_structI8rationaliE7convertERKi(ptr sret(%class.rational) align 8 %x, ptr noundef nonnull align 4 dereferenceable(4) %xp.addr)
-  %y = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 1
-  invoke void @_ZN2lp14convert_structI8rationaliE7convertERKi(ptr sret(%class.rational) align 8 %y, ptr noundef nonnull align 4 dereferenceable(4) %yp.addr)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalEC2IiiEET_T0_(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !58
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %9, i32 0, i32 0
+  call void @_ZN2lp14convert_structI8rationaliE7convertERKi(ptr dead_on_unwind writable sret(%class.rational) align 8 %10, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %11 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %9, i32 0, i32 1
+  invoke void @_ZN2lp14convert_structI8rationaliE7convertERKi(ptr dead_on_unwind writable sret(%class.rational) align 8 %11, ptr noundef nonnull align 4 dereferenceable(4) %6)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
+12:                                               ; preds = %3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %x) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %7, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %8, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp12zero_of_typeI8rationalEET_v(ptr noalias sret(%class.rational) align 8 %agg.result) #5 comdat {
-entry:
-  %result.ptr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv()
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %call)
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_ZN2lp12zero_of_typeI8rationalEET_v(ptr dead_on_unwind noalias writable sret(%class.rational) align 8 %0) #7 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv()
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_Z3absRK8rational(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %r) #5 comdat personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  %nrvo = alloca i1, align 1
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  store i1 false, ptr %nrvo, align 1
-  %0 = load ptr, ptr %r.addr, align 8
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val = getelementptr inbounds %class.rational, ptr %agg.result, i32 0, i32 0
-  invoke void @_ZN11mpq_managerILb1EE3absER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-          to label %invoke.cont unwind label %lpad
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden void @_Z3absRK8rational(ptr dead_on_unwind noalias writable sret(%class.rational) align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #7 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i1, align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  store i1 false, ptr %5, align 1
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %10 = getelementptr inbounds nuw %class.rational, ptr %0, i32 0, i32 0
+  invoke void @_ZN11mpq_managerILb1EE3absER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+          to label %11 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
-  store i1 true, ptr %nrvo, align 1
-  %nrvo.val = load i1, ptr %nrvo, align 1
-  br i1 %nrvo.val, label %nrvo.skipdtor, label %nrvo.unused
+11:                                               ; preds = %2
+  store i1 true, ptr %5, align 1
+  %12 = load i1, ptr %5, align 1
+  br i1 %12, label %18, label %17
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+13:                                               ; preds = %2
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %6, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %7, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %19
 
-nrvo.unused:                                      ; preds = %invoke.cont
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #3
-  br label %nrvo.skipdtor
+17:                                               ; preds = %11
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %18
 
-nrvo.skipdtor:                                    ; preds = %nrvo.unused, %invoke.cont
+18:                                               ; preds = %17, %11
   ret void
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val1 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val1
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8
+  %21 = load i32, ptr %7, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalpLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %r) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %r.addr, align 8
-  %m_val2 = getelementptr inbounds %class.rational, ptr %0, i32 0, i32 0
-  %m_val3 = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  call void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val, ptr noundef nonnull align 8 dereferenceable(32) %m_val2, ptr noundef nonnull align 8 dereferenceable(32) %m_val3)
-  ret ptr %this1
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalpLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %7 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %class.rational, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  call void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8rationalC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %n, i32 noundef %d) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  call void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val2 = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %n.addr, align 4
-  %1 = load i32, ptr %d.addr, align 4
-  call void @_ZN11mpq_managerILb1EE3setER3mpqii(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val2, i32 noundef %0, i32 noundef %1)
+define linkonce_odr hidden void @_ZN8rationalC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !56
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %class.rational, ptr %7, i32 0, i32 0
+  call void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %10 = getelementptr inbounds nuw %class.rational, ptr %7, i32 0, i32 0
+  %11 = load i32, ptr %5, align 4, !tbaa !8
+  %12 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN11mpq_managerILb1EE3setER3mpqii(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef %11, i32 noundef %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalmLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %r) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %r.addr, align 8
-  %m_val2 = getelementptr inbounds %class.rational, ptr %0, i32 0, i32 0
-  %m_val3 = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  call void @_ZN11mpq_managerILb1EE3mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val, ptr noundef nonnull align 8 dereferenceable(32) %m_val2, ptr noundef nonnull align 8 dereferenceable(32) %m_val3)
-  ret ptr %this1
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rationalmLERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %7 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %4, align 8, !tbaa !56
+  %9 = getelementptr inbounds nuw %class.rational, ptr %8, i32 0, i32 0
+  %10 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  call void @_ZN11mpq_managerILb1EE3mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalEC2IS1_EERKT_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %n) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %n, ptr %n.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %n.addr, align 8
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %y = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 1
-  invoke void @_ZN8rationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %y, i32 noundef 0)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalEC2IS1_EERKT_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !58
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %7 = load ptr, ptr %3, align 8
+  %8 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !56
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %10 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %7, i32 0, i32 1
+  invoke void @_ZN8rationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 0)
+          to label %11 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
+11:                                               ; preds = %2
   ret void
 
-lpad:                                             ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+12:                                               ; preds = %2
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %2 = extractvalue { ptr, i32 } %1, 0
-  store ptr %2, ptr %exn.slot, align 8
-  %3 = extractvalue { ptr, i32 } %1, 1
-  store i32 %3, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %x) #3
-  br label %eh.resume
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  br label %16
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %5, align 8
+  %18 = load i32, ptr %6, align 4
+  %19 = insertvalue { ptr, i32 } poison, ptr %17, 0
+  %20 = insertvalue { ptr, i32 } %19, i32 %18, 1
+  resume { ptr, i32 } %20
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(1888) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_mpq_lar_core_solver = getelementptr inbounds %"class.lp::lar_solver", ptr %this1, i32 0, i32 7
-  %call = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp15lar_core_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(632) %m_mpq_lar_core_solver)
-  ret ptr %call
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp10lar_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(2128) %0) #7 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !27
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::lar_solver", ptr %3, i32 0, i32 7
+  %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp15lar_core_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(752) %4)
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6vectorIjLb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.vector.1, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_data, align 8
-  ret ptr %0
+define linkonce_odr hidden noundef ptr @_ZNK6vectorIjLb1EjE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.vector.29, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK6vectorIjLb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.vector.1, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_data, align 8
-  %call = call noundef i32 @_ZNK6vectorIjLb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  %idx.ext = zext i32 %call to i64
-  %add.ptr = getelementptr inbounds i32, ptr %0, i64 %idx.ext
-  ret ptr %add.ptr
+define linkonce_odr hidden noundef ptr @_ZNK6vectorIjLb1EjE3endEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !52
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.vector.29, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !86
+  %6 = call noundef i32 @_ZNK6vectorIjLb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %7
+  ret ptr %8
 }
 
-declare noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef) #1
+declare noundef zeroext i1 @_ZNK2lp10lar_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(2128), i32 noundef) #1
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp10lar_solver19column_value_is_intEj(ptr noundef nonnull align 8 dereferenceable(1888) %this, i32 noundef %j) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %j.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %j, ptr %j.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_mpq_lar_core_solver = getelementptr inbounds %"class.lp::lar_solver", ptr %this1, i32 0, i32 7
-  %m_r_x = getelementptr inbounds %"class.lp::lar_core_solver", ptr %m_mpq_lar_core_solver, i32 0, i32 6
-  %0 = load i32, ptr %j.addr, align 4
-  %call = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %m_r_x, i32 noundef %0)
-  %call2 = call noundef zeroext i1 @_ZNK2lp12numeric_pairI8rationalE6is_intEv(ptr noundef nonnull align 8 dereferenceable(64) %call)
-  ret i1 %call2
+; Function Attrs: inlinehint mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp10lar_solver19column_value_is_intEj(ptr noundef nonnull align 8 dereferenceable(2128) %0, i32 noundef %1) #7 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_solver", ptr %5, i32 0, i32 7
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2lp15lar_core_solver3r_xEj(ptr noundef nonnull align 8 dereferenceable(752) %6, i32 noundef %7)
+  %9 = call noundef zeroext i1 @_ZNK2lp12numeric_pairI8rationalE6is_intEv(ptr noundef nonnull align 8 dereferenceable(64) %8)
+  ret i1 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp15lar_core_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(632) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_r_basis = getelementptr inbounds %"class.lp::lar_core_solver", ptr %this1, i32 0, i32 11
-  ret ptr %m_r_basis
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK2lp15lar_core_solver7r_basisEv(ptr noundef nonnull align 8 dereferenceable(752) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !88
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::lar_core_solver", ptr %3, i32 0, i32 12
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK6vectorIjLb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #4 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.vector.1, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_data, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden noundef i32 @_ZNK6vectorIjLb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !52
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.vector.29, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !86
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-if.then:                                          ; preds = %entry
-  store i32 0, ptr %retval, align 4
-  br label %return
+8:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %14
 
-if.end:                                           ; preds = %entry
-  %m_data2 = getelementptr inbounds %class.vector.1, ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %m_data2, align 8
-  %arrayidx = getelementptr inbounds i32, ptr %1, i64 -1
-  %2 = load i32, ptr %arrayidx, align 4
-  store i32 %2, ptr %retval, align 4
-  br label %return
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw %class.vector.29, ptr %4, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !86
+  %12 = getelementptr inbounds i32, ptr %11, i64 -1
+  %13 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %13, ptr %2, align 4
+  br label %14
 
-return:                                           ; preds = %if.end, %if.then
-  %3 = load i32, ptr %retval, align 4
-  ret i32 %3
+14:                                               ; preds = %9, %8
+  %15 = load i32, ptr %2, align 4
+  ret i32 %15
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2lp15lar_core_solver3r_xEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !88
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_core_solver", ptr %5, i32 0, i32 5
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  %8 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp12numeric_pairI8rationalE6is_intEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZNK8rational6is_intEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  br i1 %5, label %6, label %9
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %3, i32 0, i32 1
+  %8 = call noundef zeroext i1 @_ZNK8rational7is_zeroEv(ptr noundef nonnull align 8 dereferenceable(32) %7)
+  br label %9
+
+9:                                                ; preds = %6, %1
+  %10 = phi i1 [ false, %1 ], [ %8, %6 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %idx) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %idx.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %idx, ptr %idx.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.vector.15, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_data, align 8
-  %1 = load i32, ptr %idx.addr, align 4
-  %idxprom = zext i32 %1 to i64
-  %arrayidx = getelementptr inbounds %"struct.lp::numeric_pair", ptr %0, i64 %idxprom
-  ret ptr %arrayidx
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6vectorIN2lp12numeric_pairI8rationalEELb1EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !89
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.vector.8, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %7, i64 %9
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp12numeric_pairI8rationalE6is_intEv(ptr noundef nonnull align 8 dereferenceable(64) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZNK8rational6is_intEv(ptr noundef nonnull align 8 dereferenceable(32) %x)
-  br i1 %call, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %y = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 1
-  %call2 = call noundef zeroext i1 @_ZNK8rational7is_zeroEv(ptr noundef nonnull align 8 dereferenceable(32) %y)
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %0 = phi i1 [ false, %entry ], [ %call2, %land.rhs ]
-  ret i1 %0
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8rational6is_intEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %5 = getelementptr inbounds nuw %class.rational, ptr %3, i32 0, i32 0
+  %6 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK8rational6is_intEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %call2 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-  ret i1 %call2
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK8rational7is_zeroEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %call2 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-  ret i1 %call2
+define linkonce_odr hidden noundef zeroext i1 @_ZNK8rational7is_zeroEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %5 = getelementptr inbounds nuw %class.rational, ptr %3, i32 0, i32 0
+  %6 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %5)
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv() #4 comdat align 2 {
-entry:
-  %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  ret ptr %0
+  %1 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !82
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 1
-  %call = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %m_den)
-  ret i1 %call
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %4 = getelementptr inbounds nuw %class.mpq, ptr %3, i32 0, i32 1
+  %5 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  ret i1 %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %a) #5 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpz_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %a) #5 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %call, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %a.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %m_val, align 8
-  %cmp = icmp eq i32 %2, 1
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %3 = phi i1 [ false, %entry ], [ %cmp, %land.rhs ]
-  ret i1 %3
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %a) #4 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_kind = getelementptr inbounds %class.mpz, ptr %0, i32 0, i32 1
-  %bf.load = load i8, ptr %m_kind, align 4
-  %bf.clear = and i8 %bf.load, 1
-  %bf.cast = zext i8 %bf.clear to i32
-  %cmp = icmp eq i32 %bf.cast, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %m_num)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %a) #5 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpz_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %a) #5 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %call = call noundef i32 @_ZN11mpz_managerILb1EE4signERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %cmp = icmp eq i32 %call, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN11mpz_managerILb1EE4signERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %a) #4 comdat align 2 {
-entry:
-  %a.addr = alloca ptr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %m_val, align 8
-  ret i32 %1
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZN2lp2tv9mask_termEj(i32 noundef %j) #4 comdat align 2 {
-entry:
-  %j.addr = alloca i32, align 4
-  store i32 %j, ptr %j.addr, align 4
-  %0 = load i32, ptr %j.addr, align 4
-  %or = or i32 %0, -2147483648
-  ret i32 %or
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2lp2tvC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %i) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %i.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %i, ptr %i.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_index = getelementptr inbounds %"class.lp::tv", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %i.addr, align 4
-  store i32 %0, ptr %m_index, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef i32 @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_table = getelementptr inbounds %class.table2map, ptr %this1, i32 0, i32 0
-  %call = call noundef i32 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %m_table)
-  ret i32 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef i32 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_size = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 2
-  %0 = load i32, ptr %m_size, align 4
-  ret i32 %0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_table = getelementptr inbounds %class.table2map, ptr %this1, i32 0, i32 0
-  %call = call { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %m_table)
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 0
-  %1 = extractvalue { ptr, ptr } %call, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 1
-  %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr %2, align 8
-  %4 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %4
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2lp8lar_term14const_iteratorC2EN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS5_6u_hash4u_eqE15entry_hash_procENS9_13entry_eq_procEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %it.coerce0, ptr %it.coerce1) unnamed_addr #4 comdat align 2 {
-entry:
-  %it = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %it, i32 0, i32 0
-  store ptr %it.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, ptr }, ptr %it, i32 0, i32 1
-  store ptr %it.coerce1, ptr %1, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_it = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %this1, i32 0, i32 0
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_it, ptr align 8 %it, i64 16, i1 false)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_table = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_table, align 8
-  %m_table2 = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 0
-  %1 = load ptr, ptr %m_table2, align 8
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 1
-  %2 = load i32, ptr %m_capacity, align 8
-  %idx.ext = zext i32 %2 to i64
-  %add.ptr = getelementptr inbounds %class.default_map_entry, ptr %1, i64 %idx.ext
-  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorC2EPS2_SB_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %0, ptr noundef %add.ptr)
-  %3 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %3
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorC2EPS2_SB_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %start, ptr noundef %end) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %start.addr = alloca ptr, align 8
-  %end.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %start, ptr %start.addr, align 8
-  store ptr %end, ptr %end.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_curr = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %start.addr, align 8
-  store ptr %0, ptr %m_curr, align 8
-  %m_end = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %end.addr, align 8
-  store ptr %1, ptr %m_end, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iterator12move_to_usedEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iterator12move_to_usedEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %m_curr = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_curr, align 8
-  %m_end = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m_end, align 8
-  %cmp = icmp ne ptr %0, %1
-  br i1 %cmp, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %while.cond
-  %m_curr2 = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %m_curr2, align 8
-  %call = call noundef zeroext i1 @_ZNK18default_hash_entryI9_key_dataIj8rationalEE7is_usedEv(ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %lnot = xor i1 %call, true
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %3 = phi i1 [ false, %while.cond ], [ %lnot, %land.rhs ]
-  br i1 %3, label %while.body, label %while.end
-
-while.body:                                       ; preds = %land.end
-  %m_curr3 = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %4 = load ptr, ptr %m_curr3, align 8
-  %incdec.ptr = getelementptr inbounds %class.default_map_entry, ptr %4, i32 1
-  store ptr %incdec.ptr, ptr %m_curr3, align 8
-  br label %while.cond, !llvm.loop !6
-
-while.end:                                        ; preds = %land.end
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK18default_hash_entryI9_key_dataIj8rationalEE7is_usedEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_state = getelementptr inbounds %class.default_hash_entry, ptr %this1, i32 0, i32 1
-  %0 = load i32, ptr %m_state, align 4
-  %cmp = icmp eq i32 %0, 2
-  ret i1 %cmp
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_table = getelementptr inbounds %class.table2map, ptr %this1, i32 0, i32 0
-  %call = call { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE3endEv(ptr noundef nonnull align 8 dereferenceable(20) %m_table)
-  %0 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 0
-  %1 = extractvalue { ptr, ptr } %call, 0
-  store ptr %1, ptr %0, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %retval, i32 0, i32 1
-  %3 = extractvalue { ptr, ptr } %call, 1
-  store ptr %3, ptr %2, align 8
-  %4 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %4
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE3endEv(ptr noundef nonnull align 8 dereferenceable(20) %this) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_table = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_table, align 8
-  %m_capacity = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 1
-  %1 = load i32, ptr %m_capacity, align 8
-  %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds %class.default_map_entry, ptr %0, i64 %idx.ext
-  %m_table2 = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 0
-  %2 = load ptr, ptr %m_table2, align 8
-  %m_capacity3 = getelementptr inbounds %class.core_hashtable, ptr %this1, i32 0, i32 1
-  %3 = load i32, ptr %m_capacity3, align 8
-  %idx.ext4 = zext i32 %3 to i64
-  %add.ptr5 = getelementptr inbounds %class.default_map_entry, ptr %2, i64 %idx.ext4
-  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorC2EPS2_SB_(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef %add.ptr, ptr noundef %add.ptr5)
-  %4 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %4
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratoreqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %other) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %other.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %other, ptr %other.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_it = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %other.addr, align 8
-  %m_it2 = getelementptr inbounds %"class.lp::lar_term::const_iterator", ptr %0, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratoreqERKSA_(ptr noundef nonnull align 8 dereferenceable(16) %m_it, ptr noundef nonnull align 8 dereferenceable(16) %m_it2)
-  ret i1 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratoreqERKSA_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %it) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %it.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %it, ptr %it.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_curr = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_curr, align 8
-  %1 = load ptr, ptr %it.addr, align 8
-  %m_curr2 = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %1, i32 0, i32 0
-  %2 = load ptr, ptr %m_curr2, align 8
-  %cmp = icmp eq ptr %0, %2
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2lp8lar_term4ivalC2EjRK8rational(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %var, ptr noundef nonnull align 8 dereferenceable(32) %val) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %var.addr = alloca i32, align 4
-  %val.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %var, ptr %var.addr, align 4
-  store ptr %val, ptr %val.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_var = getelementptr inbounds %"class.lp::lar_term::ival", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %var.addr, align 4
-  store i32 %0, ptr %m_var, align 8
-  %m_coeff = getelementptr inbounds %"class.lp::lar_term::ival", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %val.addr, align 8
-  store ptr %1, ptr %m_coeff, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_curr = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_curr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN18default_hash_entryI9_key_dataIj8rationalEE8get_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  ret ptr %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN18default_hash_entryI9_key_dataIj8rationalEE8get_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %this) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_data = getelementptr inbounds %class.default_hash_entry, ptr %this1, i32 0, i32 2
-  ret ptr %m_data
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN2lp12column_indexC2Ej(ptr noundef nonnull align 4 dereferenceable(4) %this, i32 noundef %j) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %j.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %j, ptr %j.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_index = getelementptr inbounds %"class.lp::column_index", ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %j.addr, align 4
-  store i32 %0, ptr %m_index, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %b) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %b.addr, align 8
-  %m_num2 = getelementptr inbounds %class.mpq, ptr %1, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, ptr noundef nonnull align 8 dereferenceable(16) %m_num2)
-  br i1 %call, label %land.rhs, label %land.end
-
-land.rhs:                                         ; preds = %entry
-  %2 = load ptr, ptr %a.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %b.addr, align 8
-  %m_den3 = getelementptr inbounds %class.mpq, ptr %3, i32 0, i32 1
-  %call4 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %m_den3)
-  br label %land.end
-
-land.end:                                         ; preds = %land.rhs, %entry
-  %4 = phi i1 [ false, %entry ], [ %call4, %land.rhs ]
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %b.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  ret i1 %call
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br i1 %4, label %5, label %9
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8, !tbaa !95
+  %7 = call noundef i32 @_ZNK3mpz5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = icmp eq i32 %7, 1
+  br label %9
+
+9:                                                ; preds = %5, %1
+  %10 = phi i1 [ false, %1 ], [ %8, %5 ]
+  ret i1 %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b) #5 comdat align 2 {
-entry:
-  %retval = alloca i1, align 1
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %call, label %land.lhs.true, label %if.else
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef zeroext i1 @_ZNK3mpz8is_smallEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret i1 %4
+}
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %b.addr, align 8
-  %call2 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  br i1 %call2, label %if.then, label %if.else
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK3mpz5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !97
+  ret i32 %5
+}
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %a.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %2, i32 0, i32 0
-  %3 = load i32, ptr %m_val, align 8
-  %4 = load ptr, ptr %b.addr, align 8
-  %m_val3 = getelementptr inbounds %class.mpz, ptr %4, i32 0, i32 0
-  %5 = load i32, ptr %m_val3, align 8
-  %cmp = icmp eq i32 %3, %5
-  store i1 %cmp, ptr %retval, align 1
-  br label %return
-
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load ptr, ptr %a.addr, align 8
-  %7 = load ptr, ptr %b.addr, align 8
-  %call4 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %cmp5 = icmp eq i32 %call4, 0
-  store i1 %cmp5, ptr %retval, align 1
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %8 = load i1, ptr %retval, align 1
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK3mpz8is_smallEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #8 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 1
+  %5 = load i8, ptr %4, align 4
+  %6 = and i8 %5, 1
+  %7 = zext i8 %6 to i32
+  %8 = icmp eq i32 %7, 0
   ret i1 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8, !tbaa !93
+  %4 = getelementptr inbounds nuw %class.mpq, ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE7is_zeroERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = call noundef i32 @_ZN11mpz_managerILb1EE4signERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %5 = icmp eq i32 %4, 0
+  ret i1 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZN11mpz_managerILb1EE4signERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8, !tbaa !95
+  %4 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 0
+  %5 = load i32, ptr %4, align 8, !tbaa !97
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6vectorIN2lp6columnELb0EjEixEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !98
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.vector.46, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !100
+  %8 = load i32, ptr %4, align 4, !tbaa !8
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw %"class.lp::column", ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp6column19associated_with_rowEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::column", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !104
+  %6 = icmp ne ptr %5, null
+  ret i1 %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef ptr @_ZNK2lp6column4termEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.lp::column", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8, !tbaa !104
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef i32 @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !107
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.table2map.112, ptr %3, i32 0, i32 0
+  %5 = call noundef i32 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %4)
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !109
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %3, i32 0, i32 2
+  %5 = load i32, ptr %4, align 4, !tbaa !111
+  ret i32 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.table2map.112, ptr %4, i32 0, i32 0
+  %6 = call { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %5)
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i32 0, i32 0
+  %8 = extractvalue { ptr, ptr } %6, 0
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i32 0, i32 1
+  %10 = extractvalue { ptr, ptr } %6, 1
+  store ptr %10, ptr %9, align 8
+  %11 = load { ptr, ptr }, ptr %2, align 8
+  ret { ptr, ptr } %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2lp8lar_term14const_iteratorC2EN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS5_6u_hash4u_eqE15entry_hash_procENS9_13entry_eq_procEE8iteratorE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 0
+  store ptr %1, ptr %6, align 8
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i32 0, i32 1
+  store ptr %2, ptr %7, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !69
+  %8 = load ptr, ptr %5, align 8
+  %9 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %8, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false), !tbaa.struct !84
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE5beginEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #6 comdat align 2 {
+  %2 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !109
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !112
+  %7 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !112
+  %9 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 1
+  %10 = load i32, ptr %9, align 8, !tbaa !113
+  %11 = zext i32 %10 to i64
+  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
+  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorC2EPS2_SB_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %6, ptr noundef %12)
+  %13 = load { ptr, ptr }, ptr %2, align 8
+  ret { ptr, ptr } %13
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorC2EPS2_SB_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !114
+  store ptr %1, ptr %5, align 8, !tbaa !85
+  store ptr %2, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8, !tbaa !85
+  store ptr %9, ptr %8, align 8, !tbaa !116
+  %10 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !85
+  store ptr %11, ptr %10, align 8, !tbaa !118
+  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iterator12move_to_usedEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iterator12move_to_usedEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
+  %3 = load ptr, ptr %2, align 8
+  br label %4
+
+4:                                                ; preds = %17, %1
+  %5 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %3, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !116
+  %7 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %3, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8, !tbaa !118
+  %9 = icmp ne ptr %6, %8
+  br i1 %9, label %10, label %15
+
+10:                                               ; preds = %4
+  %11 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %3, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !116
+  %13 = call noundef zeroext i1 @_ZNK18default_hash_entryI9_key_dataIj8rationalEE7is_usedEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
+  %14 = xor i1 %13, true
+  br label %15
+
+15:                                               ; preds = %10, %4
+  %16 = phi i1 [ false, %4 ], [ %14, %10 ]
+  br i1 %16, label %17, label %21
+
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %3, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8, !tbaa !116
+  %20 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i32 1
+  store ptr %20, ptr %18, align 8, !tbaa !116
+  br label %4, !llvm.loop !119
+
+21:                                               ; preds = %15
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK18default_hash_entryI9_key_dataIj8rationalEE7is_usedEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.default_hash_entry, ptr %3, i32 0, i32 1
+  %5 = load i32, ptr %4, align 4, !tbaa !123
+  %6 = icmp eq i32 %5, 2
+  ret i1 %6
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNK9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6 comdat align 2 {
+  %2 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !107
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.table2map.112, ptr %4, i32 0, i32 0
+  %6 = call { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE3endEv(ptr noundef nonnull align 8 dereferenceable(20) %5)
+  %7 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i32 0, i32 0
+  %8 = extractvalue { ptr, ptr } %6, 0
+  store ptr %8, ptr %7, align 8
+  %9 = getelementptr inbounds nuw { ptr, ptr }, ptr %2, i32 0, i32 1
+  %10 = extractvalue { ptr, ptr } %6, 1
+  store ptr %10, ptr %9, align 8
+  %11 = load { ptr, ptr }, ptr %2, align 8
+  ret { ptr, ptr } %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden { ptr, ptr } @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE3endEv(ptr noundef nonnull align 8 dereferenceable(20) %0) #6 comdat align 2 {
+  %2 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !109
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !112
+  %7 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 1
+  %8 = load i32, ptr %7, align 8, !tbaa !113
+  %9 = zext i32 %8 to i64
+  %10 = getelementptr inbounds nuw %class.default_map_entry, ptr %6, i64 %9
+  %11 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8, !tbaa !112
+  %13 = getelementptr inbounds nuw %class.core_hashtable.113, ptr %4, i32 0, i32 1
+  %14 = load i32, ptr %13, align 8, !tbaa !113
+  %15 = zext i32 %14 to i64
+  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
+  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorC2EPS2_SB_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %10, ptr noundef %16)
+  %17 = load { ptr, ptr }, ptr %2, align 8
+  ret { ptr, ptr } %17
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK2lp8lar_term14const_iteratoreqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !69
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8, !tbaa !69
+  %8 = getelementptr inbounds nuw %"class.lp::lar_term::const_iterator", ptr %7, i32 0, i32 0
+  %9 = call noundef zeroext i1 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratoreqERKSA_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratoreqERKSA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !114
+  store ptr %1, ptr %4, align 8, !tbaa !114
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !116
+  %8 = load ptr, ptr %4, align 8, !tbaa !114
+  %9 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8, !tbaa !116
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorptEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN2lp8lar_term4ivalC2EjRK8rational(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !77
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"struct.lp::lar_term::ival", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %5, align 4, !tbaa !8
+  store i32 %9, ptr %8, align 8, !tbaa !79
+  %10 = getelementptr inbounds nuw %"struct.lp::lar_term::ival", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8, !tbaa !56
+  store ptr %11, ptr %10, align 8, !tbaa !56
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNK14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !116
+  %6 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN18default_hash_entryI9_key_dataIj8rationalEE8get_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN18default_hash_entryI9_key_dataIj8rationalEE8get_dataEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !121
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.default_hash_entry, ptr %3, i32 0, i32 2
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !93
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !93
+  %9 = getelementptr inbounds nuw %class.mpq, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %6, align 8, !tbaa !93
+  %11 = getelementptr inbounds nuw %class.mpq, ptr %10, i32 0, i32 0
+  %12 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  br i1 %12, label %13, label %19
+
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !93
+  %15 = getelementptr inbounds nuw %class.mpq, ptr %14, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8, !tbaa !93
+  %17 = getelementptr inbounds nuw %class.mpq, ptr %16, i32 0, i32 1
+  %18 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  br label %19
+
+19:                                               ; preds = %13, %3
+  %20 = phi i1 [ false, %3 ], [ %18, %13 ]
+  ret i1 %20
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpq_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !95
+  store ptr %2, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !95
+  %9 = load ptr, ptr %6, align 8, !tbaa !95
+  %10 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  ret i1 %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden noundef zeroext i1 @_ZN11mpz_managerILb1EE2eqERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #6 comdat align 2 {
+  %4 = alloca i1, align 1
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !126
+  store ptr %1, ptr %6, align 8, !tbaa !95
+  store ptr %2, ptr %7, align 8, !tbaa !95
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8, !tbaa !95
+  %10 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  br i1 %10, label %11, label %20
+
+11:                                               ; preds = %3
+  %12 = load ptr, ptr %7, align 8, !tbaa !95
+  %13 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  br i1 %13, label %14, label %20
+
+14:                                               ; preds = %11
+  %15 = load ptr, ptr %6, align 8, !tbaa !95
+  %16 = call noundef i32 @_ZNK3mpz5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %17 = load ptr, ptr %7, align 8, !tbaa !95
+  %18 = call noundef i32 @_ZNK3mpz5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %19 = icmp eq i32 %16, %18
+  store i1 %19, ptr %4, align 1
+  br label %25
+
+20:                                               ; preds = %11, %3
+  %21 = load ptr, ptr %6, align 8, !tbaa !95
+  %22 = load ptr, ptr %7, align 8, !tbaa !95
+  %23 = call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600) %8, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %24 = icmp eq i32 %23, 0
+  store i1 %24, ptr %4, align 1
+  br label %25
+
+25:                                               ; preds = %20, %14
+  %26 = load i1, ptr %4, align 1
+  ret i1 %26
 }
 
 declare noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3delEPS0_R3mpq(ptr noundef %m, ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %m.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %0 = load ptr, ptr %m.addr, align 8
-  %1 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %1, i32 0, i32 0
-  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
-  %2 = load ptr, ptr %m.addr, align 8
-  %3 = load ptr, ptr %a.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %3, i32 0, i32 1
-  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3delEPS0_R3mpq(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %3, align 8, !tbaa !82
+  %6 = load ptr, ptr %4, align 8, !tbaa !93
+  %7 = getelementptr inbounds nuw %class.mpq, ptr %6, i32 0, i32 0
+  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %8 = load ptr, ptr %3, align 8, !tbaa !82
+  %9 = load ptr, ptr %4, align 8, !tbaa !93
+  %10 = getelementptr inbounds nuw %class.mpq, ptr %9, i32 0, i32 1
+  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %10)
   ret void
 }
 
-; Function Attrs: noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #7 comdat {
+; Function Attrs: noinline noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #10 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
-  call void @_ZSt9terminatev() #8
+  call void @_ZSt9terminatev() #11
   unreachable
 }
 
@@ -2338,510 +2547,505 @@ declare void @_ZSt9terminatev()
 declare void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %r) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %r.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %r, ptr %r.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  call void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val2 = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %r.addr, align 8
-  %m_val3 = getelementptr inbounds %class.rational, ptr %0, i32 0, i32 0
-  call void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val2, ptr noundef nonnull align 8 dereferenceable(32) %m_val3)
+define linkonce_odr hidden void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store ptr %1, ptr %4, align 8, !tbaa !56
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  call void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %8 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8, !tbaa !56
+  %10 = getelementptr inbounds nuw %class.rational, ptr %9, i32 0, i32 0
+  call void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8rational3negEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  call void @_ZN11mpq_managerILb1EE3negER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val)
+define linkonce_odr hidden void @_ZN8rational3negEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %5 = getelementptr inbounds nuw %class.rational, ptr %3, i32 0, i32 0
+  call void @_ZN11mpq_managerILb1EE3negER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %this1, i32 0, i32 0
-  call void @_ZN3mpzC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_num)
-  %m_den = getelementptr inbounds %class.mpq, ptr %this1, i32 0, i32 1
-  call void @_ZN3mpzC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %m_den, i32 noundef 1)
+define linkonce_odr hidden void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !93
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.mpq, ptr %3, i32 0, i32 0
+  call void @_ZN3mpzC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
+  %5 = getelementptr inbounds nuw %class.mpq, ptr %3, i32 0, i32 1
+  call void @_ZN3mpzC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %target, ptr noundef nonnull align 8 dereferenceable(32) %source) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %target.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %target, ptr %target.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %target.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %source.addr, align 8
-  %m_num2 = getelementptr inbounds %class.mpq, ptr %1, i32 0, i32 0
-  call void @_ZN11mpq_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, ptr noundef nonnull align 8 dereferenceable(16) %m_num2)
-  %2 = load ptr, ptr %target.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %2, i32 0, i32 1
-  %3 = load ptr, ptr %source.addr, align 8
-  %m_den3 = getelementptr inbounds %class.mpq, ptr %3, i32 0, i32 1
-  call void @_ZN11mpq_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %m_den3)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store ptr %2, ptr %6, align 8, !tbaa !93
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !93
+  %9 = getelementptr inbounds nuw %class.mpq, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %6, align 8, !tbaa !93
+  %11 = getelementptr inbounds nuw %class.mpq, ptr %10, i32 0, i32 0
+  call void @_ZN11mpq_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11)
+  %12 = load ptr, ptr %5, align 8, !tbaa !93
+  %13 = getelementptr inbounds nuw %class.mpq, ptr %12, i32 0, i32 1
+  %14 = load ptr, ptr %6, align 8, !tbaa !93
+  %15 = getelementptr inbounds nuw %class.mpq, ptr %14, i32 0, i32 1
+  call void @_ZN11mpq_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %15)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3mpzC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 0
-  store i32 0, ptr %m_val, align 8
-  %m_kind = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 1
-  %bf.load = load i8, ptr %m_kind, align 4
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %m_kind, align 4
-  %m_owner = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 1
-  %bf.load2 = load i8, ptr %m_owner, align 4
-  %bf.clear3 = and i8 %bf.load2, -3
-  %bf.set4 = or i8 %bf.clear3, 0
-  store i8 %bf.set4, ptr %m_owner, align 4
-  %m_ptr = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 2
-  store ptr null, ptr %m_ptr, align 8
+define linkonce_odr hidden void @_ZN3mpzC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !95
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 0
+  store i32 0, ptr %4, align 8, !tbaa !97
+  %5 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 1
+  %6 = load i8, ptr %5, align 4
+  %7 = and i8 %6, -2
+  %8 = or i8 %7, 0
+  store i8 %8, ptr %5, align 4
+  %9 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 1
+  %10 = load i8, ptr %9, align 4
+  %11 = and i8 %10, -3
+  %12 = or i8 %11, 0
+  store i8 %12, ptr %9, align 4
+  %13 = getelementptr inbounds nuw %class.mpz, ptr %3, i32 0, i32 2
+  store ptr null, ptr %13, align 8, !tbaa !128
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN3mpzC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %v) unnamed_addr #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %v.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %v, ptr %v.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %v.addr, align 4
-  store i32 %0, ptr %m_val, align 8
-  %m_kind = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 1
-  %bf.load = load i8, ptr %m_kind, align 4
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %m_kind, align 4
-  %m_owner = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 1
-  %bf.load2 = load i8, ptr %m_owner, align 4
-  %bf.clear3 = and i8 %bf.load2, -3
-  %bf.set4 = or i8 %bf.clear3, 0
-  store i8 %bf.set4, ptr %m_owner, align 4
-  %m_ptr = getelementptr inbounds %class.mpz, ptr %this1, i32 0, i32 2
-  store ptr null, ptr %m_ptr, align 8
+define linkonce_odr hidden void @_ZN3mpzC2Ei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.mpz, ptr %5, i32 0, i32 0
+  %7 = load i32, ptr %4, align 4, !tbaa !8
+  store i32 %7, ptr %6, align 8, !tbaa !97
+  %8 = getelementptr inbounds nuw %class.mpz, ptr %5, i32 0, i32 1
+  %9 = load i8, ptr %8, align 4
+  %10 = and i8 %9, -2
+  %11 = or i8 %10, 0
+  store i8 %11, ptr %8, align 4
+  %12 = getelementptr inbounds nuw %class.mpz, ptr %5, i32 0, i32 1
+  %13 = load i8, ptr %12, align 4
+  %14 = and i8 %13, -3
+  %15 = or i8 %14, 0
+  store i8 %15, ptr %12, align 4
+  %16 = getelementptr inbounds nuw %class.mpz, ptr %5, i32 0, i32 2
+  store ptr null, ptr %16, align 8, !tbaa !128
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr noundef nonnull align 8 dereferenceable(16) %source) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %target.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %target, ptr %target.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %target.addr, align 8
-  %1 = load ptr, ptr %source.addr, align 8
-  call void @_ZN11mpz_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !95
+  store ptr %2, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !95
+  %9 = load ptr, ptr %6, align 8, !tbaa !95
+  call void @_ZN11mpz_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr noundef nonnull align 8 dereferenceable(16) %source) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %target.addr = alloca ptr, align 8
-  %source.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %target, ptr %target.addr, align 8
-  store ptr %source, ptr %source.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %source.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %call, label %if.then, label %if.else
+define linkonce_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !126
+  store ptr %1, ptr %5, align 8, !tbaa !95
+  store ptr %2, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %6, align 8, !tbaa !95
+  %9 = call noundef zeroext i1 @_ZN11mpz_managerILb1EE8is_smallERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %8)
+  br i1 %9, label %10, label %14
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %source.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %1, i32 0, i32 0
-  %2 = load i32, ptr %m_val, align 8
-  %3 = load ptr, ptr %target.addr, align 8
-  %m_val2 = getelementptr inbounds %class.mpz, ptr %3, i32 0, i32 0
-  store i32 %2, ptr %m_val2, align 8
-  %4 = load ptr, ptr %target.addr, align 8
-  %m_kind = getelementptr inbounds %class.mpz, ptr %4, i32 0, i32 1
-  %bf.load = load i8, ptr %m_kind, align 4
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %m_kind, align 4
-  br label %if.end
+10:                                               ; preds = %3
+  %11 = load ptr, ptr %5, align 8, !tbaa !95
+  %12 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = call noundef i32 @_ZNK3mpz5valueEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
+  call void @_ZN3mpz3setEi(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %13)
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %5 = load ptr, ptr %target.addr, align 8
-  %6 = load ptr, ptr %source.addr, align 8
-  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  br label %if.end
+14:                                               ; preds = %3
+  %15 = load ptr, ptr %5, align 8, !tbaa !95
+  %16 = load ptr, ptr %6, align 8, !tbaa !95
+  call void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  br label %17
 
-if.end:                                           ; preds = %if.else, %if.then
+17:                                               ; preds = %14, %10
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN3mpz3setEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !95
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !8
+  %7 = getelementptr inbounds nuw %class.mpz, ptr %5, i32 0, i32 0
+  store i32 %6, ptr %7, align 8, !tbaa !97
+  %8 = getelementptr inbounds nuw %class.mpz, ptr %5, i32 0, i32 1
+  %9 = load i8, ptr %8, align 4
+  %10 = and i8 %9, -2
+  %11 = or i8 %10, 0
+  store i8 %11, ptr %8, align 4
   ret void
 }
 
 declare void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3negER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  call void @_ZN11mpz_managerILb1EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3negER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !93
+  %7 = getelementptr inbounds nuw %class.mpq, ptr %6, i32 0, i32 0
+  call void @_ZN11mpz_managerILb1EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
   ret void
 }
 
 declare void @_ZN11mpz_managerILb1EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden { ptr, ptr } @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) #5 comdat align 2 {
-entry:
-  %retval = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
-  %this.addr = alloca ptr, align 8
-  %.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %0, ptr %.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %retval, ptr align 8 %this1, i64 16, i1 false)
-  %call = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  %1 = load { ptr, ptr }, ptr %retval, align 8
-  ret { ptr, ptr } %1
+define linkonce_odr hidden { ptr, ptr } @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #6 comdat align 2 {
+  %3 = alloca %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !114
+  store i32 %1, ptr %5, align 4, !tbaa !8
+  %6 = load ptr, ptr %4, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 16, i1 false), !tbaa.struct !84
+  %7 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %8 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_curr = getelementptr inbounds %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_curr, align 8
-  %incdec.ptr = getelementptr inbounds %class.default_map_entry, ptr %0, i32 1
-  store ptr %incdec.ptr, ptr %m_curr, align 8
-  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iterator12move_to_usedEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  ret ptr %this1
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !114
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.core_hashtable<default_map_entry<unsigned int, rational>, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_hash_proc, table2map<default_map_entry<unsigned int, rational>, u_hash, u_eq>::entry_eq_proc>::iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !116
+  %6 = getelementptr inbounds nuw %class.default_map_entry, ptr %5, i32 1
+  store ptr %6, ptr %4, align 8, !tbaa !116
+  call void @_ZN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iterator12move_to_usedEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3absER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  call void @_ZN11mpz_managerILb1EE3absER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3absER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !93
+  %7 = getelementptr inbounds nuw %class.mpq, ptr %6, i32 0, i32 0
+  call void @_ZN11mpz_managerILb1EE3absER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
   ret void
 }
 
 declare void @_ZN11mpz_managerILb1EE3absER3mpz(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %c) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %b.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br i1 %call, label %if.then, label %if.else
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !82
+  store ptr %1, ptr %6, align 8, !tbaa !93
+  store ptr %2, ptr %7, align 8, !tbaa !93
+  store ptr %3, ptr %8, align 8, !tbaa !93
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %7, align 8, !tbaa !93
+  %11 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  br i1 %11, label %12, label %15
 
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr %c.addr, align 8
-  %2 = load ptr, ptr %a.addr, align 8
-  call void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  br label %if.end12
+12:                                               ; preds = %4
+  %13 = load ptr, ptr %8, align 8, !tbaa !93
+  %14 = load ptr, ptr %6, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  br label %41
 
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %a.addr, align 8
-  %call2 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  br i1 %call2, label %if.then3, label %if.else4
+15:                                               ; preds = %4
+  %16 = load ptr, ptr %6, align 8, !tbaa !93
+  %17 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE7is_zeroERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br i1 %17, label %18, label %21
 
-if.then3:                                         ; preds = %if.else
-  %4 = load ptr, ptr %c.addr, align 8
-  %5 = load ptr, ptr %b.addr, align 8
-  call void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br label %if.end11
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %8, align 8, !tbaa !93
+  %20 = load ptr, ptr %7, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE3setER3mpqRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  br label %40
 
-if.else4:                                         ; preds = %if.else
-  %6 = load ptr, ptr %a.addr, align 8
-  %call5 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %6)
-  br i1 %call5, label %land.lhs.true, label %if.else10
+21:                                               ; preds = %15
+  %22 = load ptr, ptr %6, align 8, !tbaa !93
+  %23 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %22)
+  br i1 %23, label %24, label %35
 
-land.lhs.true:                                    ; preds = %if.else4
-  %7 = load ptr, ptr %b.addr, align 8
-  %call6 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %7)
-  br i1 %call6, label %if.then7, label %if.else10
+24:                                               ; preds = %21
+  %25 = load ptr, ptr %7, align 8, !tbaa !93
+  %26 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %25)
+  br i1 %26, label %27, label %35
 
-if.then7:                                         ; preds = %land.lhs.true
-  %8 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %8, i32 0, i32 0
-  %9 = load ptr, ptr %b.addr, align 8
-  %m_num8 = getelementptr inbounds %class.mpq, ptr %9, i32 0, i32 0
-  %10 = load ptr, ptr %c.addr, align 8
-  %m_num9 = getelementptr inbounds %class.mpq, ptr %10, i32 0, i32 0
-  call void @_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, ptr noundef nonnull align 8 dereferenceable(16) %m_num8, ptr noundef nonnull align 8 dereferenceable(16) %m_num9)
-  %11 = load ptr, ptr %c.addr, align 8
-  call void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %11)
-  br label %if.end
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %6, align 8, !tbaa !93
+  %29 = getelementptr inbounds nuw %class.mpq, ptr %28, i32 0, i32 0
+  %30 = load ptr, ptr %7, align 8, !tbaa !93
+  %31 = getelementptr inbounds nuw %class.mpq, ptr %30, i32 0, i32 0
+  %32 = load ptr, ptr %8, align 8, !tbaa !93
+  %33 = getelementptr inbounds nuw %class.mpq, ptr %32, i32 0, i32 0
+  call void @_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %33)
+  %34 = load ptr, ptr %8, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  br label %39
 
-if.else10:                                        ; preds = %land.lhs.true, %if.else4
-  %12 = load ptr, ptr %a.addr, align 8
-  %13 = load ptr, ptr %b.addr, align 8
-  %14 = load ptr, ptr %c.addr, align 8
-  call void @_ZN11mpq_managerILb1EE7rat_addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
-  br label %if.end
+35:                                               ; preds = %24, %21
+  %36 = load ptr, ptr %6, align 8, !tbaa !93
+  %37 = load ptr, ptr %7, align 8, !tbaa !93
+  %38 = load ptr, ptr %8, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE7rat_addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  br label %39
 
-if.end:                                           ; preds = %if.else10, %if.then7
-  br label %if.end11
+39:                                               ; preds = %35, %27
+  br label %40
 
-if.end11:                                         ; preds = %if.end, %if.then3
-  br label %if.end12
+40:                                               ; preds = %39, %18
+  br label %41
 
-if.end12:                                         ; preds = %if.end11, %if.then
+41:                                               ; preds = %40, %12
   ret void
 }
 
 declare void @_ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 1
-  call void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_den)
-  %1 = load ptr, ptr %a.addr, align 8
-  %m_den2 = getelementptr inbounds %class.mpq, ptr %1, i32 0, i32 1
-  %m_val = getelementptr inbounds %class.mpz, ptr %m_den2, i32 0, i32 0
-  store i32 1, ptr %m_val, align 8
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !93
+  %7 = getelementptr inbounds nuw %class.mpq, ptr %6, i32 0, i32 1
+  call void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %8 = load ptr, ptr %4, align 8, !tbaa !93
+  %9 = getelementptr inbounds nuw %class.mpq, ptr %8, i32 0, i32 1
+  call void @_ZN3mpz3setEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 1)
   ret void
 }
 
 declare void @_ZN11mpq_managerILb1EE7rat_addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %a) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  call void @_ZN11mpz_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !95
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !95
+  call void @_ZN11mpz_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpz_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
+define linkonce_odr hidden void @_ZN11mpz_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !126
+  store ptr %1, ptr %4, align 8, !tbaa !95
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8, !tbaa !95
+  call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpqii(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, i32 noundef %n, i32 noundef %d) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  %d.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  store i32 %d, ptr %d.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %d.addr, align 4
-  %cmp = icmp slt i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpqii(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8, !tbaa !82
+  store ptr %1, ptr %6, align 8, !tbaa !93
+  store i32 %2, ptr %7, align 4, !tbaa !8
+  store i32 %3, ptr %8, align 4, !tbaa !8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load i32, ptr %8, align 4, !tbaa !8
+  %11 = icmp slt i32 %10, 0
+  br i1 %11, label %12, label %17
 
-if.then:                                          ; preds = %entry
-  %1 = load i32, ptr %n.addr, align 4
-  %sub = sub nsw i32 0, %1
-  store i32 %sub, ptr %n.addr, align 4
-  %2 = load i32, ptr %d.addr, align 4
-  %sub2 = sub nsw i32 0, %2
-  store i32 %sub2, ptr %d.addr, align 4
-  br label %if.end
+12:                                               ; preds = %4
+  %13 = load i32, ptr %7, align 4, !tbaa !8
+  %14 = sub nsw i32 0, %13
+  store i32 %14, ptr %7, align 4, !tbaa !8
+  %15 = load i32, ptr %8, align 4, !tbaa !8
+  %16 = sub nsw i32 0, %15
+  store i32 %16, ptr %8, align 4, !tbaa !8
+  br label %17
 
-if.end:                                           ; preds = %if.then, %entry
-  %3 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %3, i32 0, i32 0
-  %4 = load i32, ptr %n.addr, align 4
-  call void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, i32 noundef %4)
-  %5 = load ptr, ptr %a.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %5, i32 0, i32 1
-  %6 = load i32, ptr %d.addr, align 4
-  call void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_den, i32 noundef %6)
-  %7 = load ptr, ptr %a.addr, align 8
-  call void @_ZN11mpq_managerILb1EE9normalizeER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %7)
+17:                                               ; preds = %12, %4
+  %18 = load ptr, ptr %6, align 8, !tbaa !93
+  %19 = getelementptr inbounds nuw %class.mpq, ptr %18, i32 0, i32 0
+  %20 = load i32, ptr %7, align 4, !tbaa !8
+  call void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef %20)
+  %21 = load ptr, ptr %6, align 8, !tbaa !93
+  %22 = getelementptr inbounds nuw %class.mpq, ptr %21, i32 0, i32 1
+  %23 = load i32, ptr %8, align 4, !tbaa !8
+  call void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(16) %22, i32 noundef %23)
+  %24 = load ptr, ptr %6, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE9normalizeER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %24)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %val) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load i32, ptr %val.addr, align 4
-  call void @_ZN11mpz_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !95
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !95
+  %9 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN11mpz_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE9normalizeER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %tmp = alloca %class.mpz, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  call void @_ZN3mpzC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  %1 = load ptr, ptr %a.addr, align 8
-  %m_den = getelementptr inbounds %class.mpq, ptr %1, i32 0, i32 1
-  call void @_ZN11mpq_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, ptr noundef nonnull align 8 dereferenceable(16) %m_den, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  %call = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  br i1 %call, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE9normalizeER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %class.mpz, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !82
+  store ptr %1, ptr %4, align 8, !tbaa !93
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr %5) #3
+  call void @_ZN3mpzC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %8 = load ptr, ptr %4, align 8, !tbaa !93
+  %9 = getelementptr inbounds nuw %class.mpq, ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %4, align 8, !tbaa !93
+  %11 = getelementptr inbounds nuw %class.mpq, ptr %10, i32 0, i32 1
+  call void @_ZN11mpq_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  %12 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_oneERK3mpz(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  call void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  br label %return
+13:                                               ; preds = %2
+  call void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i32 1, ptr %6, align 4
+  br label %23
 
-if.end:                                           ; preds = %entry
-  %2 = load ptr, ptr %a.addr, align 8
-  %m_num2 = getelementptr inbounds %class.mpq, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %a.addr, align 8
-  %m_num3 = getelementptr inbounds %class.mpq, ptr %3, i32 0, i32 0
-  call void @_ZN11mpq_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num2, ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %m_num3)
-  %4 = load ptr, ptr %a.addr, align 8
-  %m_den4 = getelementptr inbounds %class.mpq, ptr %4, i32 0, i32 1
-  %5 = load ptr, ptr %a.addr, align 8
-  %m_den5 = getelementptr inbounds %class.mpq, ptr %5, i32 0, i32 1
-  call void @_ZN11mpq_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_den4, ptr noundef nonnull align 8 dereferenceable(16) %tmp, ptr noundef nonnull align 8 dereferenceable(16) %m_den5)
-  call void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %tmp)
-  br label %return
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %4, align 8, !tbaa !93
+  %16 = getelementptr inbounds nuw %class.mpq, ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %4, align 8, !tbaa !93
+  %18 = getelementptr inbounds nuw %class.mpq, ptr %17, i32 0, i32 0
+  call void @_ZN11mpq_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %19 = load ptr, ptr %4, align 8, !tbaa !93
+  %20 = getelementptr inbounds nuw %class.mpq, ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %4, align 8, !tbaa !93
+  %22 = getelementptr inbounds nuw %class.mpq, ptr %21, i32 0, i32 1
+  call void @_ZN11mpq_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  call void @_ZN11mpq_managerILb1EE3delER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i32 0, ptr %6, align 4
+  br label %23
 
-return:                                           ; preds = %if.end, %if.then
+23:                                               ; preds = %14, %13
+  call void @llvm.lifetime.end.p0(i64 16, ptr %5) #3
+  %24 = load i32, ptr %6, align 4
+  switch i32 %24, label %26 [
+    i32 0, label %25
+    i32 1, label %25
+  ]
+
+25:                                               ; preds = %23, %23
   ret void
+
+26:                                               ; preds = %23
+  unreachable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %val) #4 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %0 = load i32, ptr %val.addr, align 4
-  %1 = load ptr, ptr %a.addr, align 8
-  %m_val = getelementptr inbounds %class.mpz, ptr %1, i32 0, i32 0
-  store i32 %0, ptr %m_val, align 8
-  %2 = load ptr, ptr %a.addr, align 8
-  %m_kind = getelementptr inbounds %class.mpz, ptr %2, i32 0, i32 1
-  %bf.load = load i8, ptr %m_kind, align 4
-  %bf.clear = and i8 %bf.load, -2
-  %bf.set = or i8 %bf.clear, 0
-  store i8 %bf.set, ptr %m_kind, align 4
+define linkonce_odr hidden void @_ZN11mpz_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !126
+  store ptr %1, ptr %5, align 8, !tbaa !95
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %5, align 8, !tbaa !95
+  %8 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN3mpz3setEi(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %c) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %b.addr, align 8
-  %2 = load ptr, ptr %c.addr, align 8
-  call void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !82
+  store ptr %1, ptr %6, align 8, !tbaa !95
+  store ptr %2, ptr %7, align 8, !tbaa !95
+  store ptr %3, ptr %8, align 8, !tbaa !95
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !95
+  %11 = load ptr, ptr %7, align 8, !tbaa !95
+  %12 = load ptr, ptr %8, align 8, !tbaa !95
+  call void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(16) %b, ptr noundef nonnull align 8 dereferenceable(16) %c) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %1 = load ptr, ptr %b.addr, align 8
-  %2 = load ptr, ptr %c.addr, align 8
-  call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !82
+  store ptr %1, ptr %6, align 8, !tbaa !95
+  store ptr %2, ptr %7, align 8, !tbaa !95
+  store ptr %3, ptr %8, align 8, !tbaa !95
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !95
+  %11 = load ptr, ptr %7, align 8, !tbaa !95
+  %12 = load ptr, ptr %8, align 8, !tbaa !95
+  call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
   ret void
 }
 
@@ -2850,46 +3054,45 @@ declare void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align
 declare void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %c) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %b.addr = alloca ptr, align 8
-  %c.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store ptr %b, ptr %b.addr, align 8
-  store ptr %c, ptr %c.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %call = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br i1 %call, label %land.lhs.true, label %if.else
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #6 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !82
+  store ptr %1, ptr %6, align 8, !tbaa !93
+  store ptr %2, ptr %7, align 8, !tbaa !93
+  store ptr %3, ptr %8, align 8, !tbaa !93
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8, !tbaa !93
+  %11 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  br i1 %11, label %12, label %23
 
-land.lhs.true:                                    ; preds = %entry
-  %1 = load ptr, ptr %b.addr, align 8
-  %call2 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %call2, label %if.then, label %if.else
+12:                                               ; preds = %4
+  %13 = load ptr, ptr %7, align 8, !tbaa !93
+  %14 = call noundef zeroext i1 @_ZN11mpq_managerILb1EE6is_intERK3mpq(ptr noundef nonnull align 8 dereferenceable(32) %13)
+  br i1 %14, label %15, label %23
 
-if.then:                                          ; preds = %land.lhs.true
-  %2 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %2, i32 0, i32 0
-  %3 = load ptr, ptr %b.addr, align 8
-  %m_num3 = getelementptr inbounds %class.mpq, ptr %3, i32 0, i32 0
-  %4 = load ptr, ptr %c.addr, align 8
-  %m_num4 = getelementptr inbounds %class.mpq, ptr %4, i32 0, i32 0
-  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, ptr noundef nonnull align 8 dereferenceable(16) %m_num3, ptr noundef nonnull align 8 dereferenceable(16) %m_num4)
-  %5 = load ptr, ptr %c.addr, align 8
-  call void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  br label %if.end
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %6, align 8, !tbaa !93
+  %17 = getelementptr inbounds nuw %class.mpq, ptr %16, i32 0, i32 0
+  %18 = load ptr, ptr %7, align 8, !tbaa !93
+  %19 = getelementptr inbounds nuw %class.mpq, ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %8, align 8, !tbaa !93
+  %21 = getelementptr inbounds nuw %class.mpq, ptr %20, i32 0, i32 0
+  call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %22 = load ptr, ptr %8, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  br label %27
 
-if.else:                                          ; preds = %land.lhs.true, %entry
-  %6 = load ptr, ptr %a.addr, align 8
-  %7 = load ptr, ptr %b.addr, align 8
-  %8 = load ptr, ptr %c.addr, align 8
-  call void @_ZN11mpq_managerILb1EE7rat_mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  br label %if.end
+23:                                               ; preds = %12, %4
+  %24 = load ptr, ptr %6, align 8, !tbaa !93
+  %25 = load ptr, ptr %7, align 8, !tbaa !93
+  %26 = load ptr, ptr %8, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE7rat_mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %9, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  br label %27
 
-if.end:                                           ; preds = %if.else, %if.then
+27:                                               ; preds = %23, %15
   ret void
 }
 
@@ -2898,234 +3101,375 @@ declare void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align
 declare void @_ZN11mpq_managerILb1EE7rat_mulERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv() #5 comdat align 2 {
-entry:
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rational4zeroEv()
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv() #6 comdat align 2 {
+  %1 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rational4zeroEv()
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rational4zeroEv() #4 comdat align 2 {
-entry:
   ret ptr @_ZN8rational6m_zeroE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE3oneEv() #5 comdat align 2 {
-entry:
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rational3oneEv()
-  ret ptr %call
+define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE3oneEv() #6 comdat align 2 {
+  %1 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rational3oneEv()
+  ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8rational3oneEv() #4 comdat align 2 {
-entry:
   ret ptr @_ZN8rational5m_oneE
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE7is_zeroERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %v) #5 comdat align 2 {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %x = getelementptr inbounds %"struct.lp::numeric_pair", ptr %0, i32 0, i32 0
-  %call = call noundef zeroext i1 @_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %x)
-  br i1 %call, label %land.rhs, label %land.end
+define linkonce_odr hidden noundef zeroext i1 @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE7is_zeroERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !58
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
+  %4 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %3, i32 0, i32 0
+  %5 = call noundef zeroext i1 @_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %4)
+  br i1 %5, label %6, label %10
 
-land.rhs:                                         ; preds = %entry
-  %1 = load ptr, ptr %v.addr, align 8
-  %y = getelementptr inbounds %"struct.lp::numeric_pair", ptr %1, i32 0, i32 1
-  %call1 = call noundef zeroext i1 @_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %y)
-  br label %land.end
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !58
+  %8 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %7, i32 0, i32 1
+  %9 = call noundef zeroext i1 @_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %8)
+  br label %10
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %call1, %land.rhs ]
-  ret i1 %2
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
+  ret i1 %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef zeroext i1 @_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %v) #5 comdat align 2 {
-entry:
-  %v.addr = alloca ptr, align 8
-  store ptr %v, ptr %v.addr, align 8
-  %0 = load ptr, ptr %v.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK8rational7is_zeroEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  ret i1 %call
+define linkonce_odr hidden noundef zeroext i1 @_ZN2lp14numeric_traitsI8rationalE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0) #6 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !56
+  %3 = load ptr, ptr %2, align 8, !tbaa !56
+  %4 = call noundef zeroext i1 @_ZNK8rational7is_zeroEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  ret i1 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden noundef i32 @_ZNK6vectorIPN2lp8lar_termELb1EjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !45
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds nuw %class.vector.51, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %1
+  store i32 0, ptr %2, align 4
+  br label %14
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw %class.vector.51, ptr %4, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8, !tbaa !60
+  %12 = getelementptr inbounds i32, ptr %11, i64 -1
+  %13 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %13, ptr %2, align 4
+  br label %14
+
+14:                                               ; preds = %9, %8
+  %15 = load i32, ptr %2, align 4
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv(ptr noalias sret(%"struct.lp::numeric_pair") align 8 %agg.result) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %agg.tmp = alloca %class.rational, align 8
-  %agg.tmp1 = alloca %class.rational, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %agg.result, ptr %result.ptr, align 8
-  %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv()
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %call)
-  %call2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv()
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN2lp14numeric_traitsINS_12numeric_pairI8rationalEEE4zeroEv(ptr dead_on_unwind noalias writable sret(%"struct.lp::numeric_pair") align 8 %0) #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %class.rational, align 8
+  %4 = alloca %class.rational, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv()
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN2lp14numeric_traitsI8rationalE4zeroEv()
+          to label %9 unwind label %12
 
-invoke.cont:                                      ; preds = %entry
-  invoke void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %call2)
-          to label %invoke.cont3 unwind label %lpad
+9:                                                ; preds = %1
+  invoke void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %8)
+          to label %10 unwind label %12
 
-invoke.cont3:                                     ; preds = %invoke.cont
-  invoke void @_ZN2lp12numeric_pairI8rationalEC2ES1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef %agg.tmp, ptr noundef %agg.tmp1)
-          to label %invoke.cont5 unwind label %lpad4
+10:                                               ; preds = %9
+  invoke void @_ZN2lp12numeric_pairI8rationalEC2ES1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %3, ptr noundef %4)
+          to label %11 unwind label %16
 
-invoke.cont5:                                     ; preds = %invoke.cont3
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1) #3
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
+11:                                               ; preds = %10
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   ret void
 
-lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+12:                                               ; preds = %9, %1
+  %13 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  br label %ehcleanup
+  %14 = extractvalue { ptr, i32 } %13, 0
+  store ptr %14, ptr %5, align 8
+  %15 = extractvalue { ptr, i32 } %13, 1
+  store i32 %15, ptr %6, align 4
+  br label %20
 
-lpad4:                                            ; preds = %invoke.cont3
-  %3 = landingpad { ptr, i32 }
+16:                                               ; preds = %10
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %4 = extractvalue { ptr, i32 } %3, 0
-  store ptr %4, ptr %exn.slot, align 8
-  %5 = extractvalue { ptr, i32 } %3, 1
-  store i32 %5, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1) #3
-  br label %ehcleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %5, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %6, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  br label %20
 
-ehcleanup:                                        ; preds = %lpad4, %lpad
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #3
-  br label %eh.resume
+20:                                               ; preds = %16, %12
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  br label %21
 
-eh.resume:                                        ; preds = %ehcleanup
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val6 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val6
+21:                                               ; preds = %20
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i32, ptr %6, align 4
+  %24 = insertvalue { ptr, i32 } poison, ptr %22, 0
+  %25 = insertvalue { ptr, i32 } %24, i32 %23, 1
+  resume { ptr, i32 } %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalEC2ES1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %xp, ptr noundef %yp) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %xp.indirect_addr = alloca ptr, align 8
-  %yp.indirect_addr = alloca ptr, align 8
-  %exn.slot = alloca ptr, align 8
-  %ehselector.slot = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %xp, ptr %xp.indirect_addr, align 8
-  store ptr %yp, ptr %yp.indirect_addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %x = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 0
-  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %xp)
-  %y = getelementptr inbounds %"struct.lp::numeric_pair", ptr %this1, i32 0, i32 1
-  invoke void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %y, ptr noundef nonnull align 8 dereferenceable(32) %yp)
-          to label %invoke.cont unwind label %lpad
+define linkonce_odr hidden void @_ZN2lp12numeric_pairI8rationalEC2ES1_S1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !58
+  store ptr %1, ptr %5, align 8, !tbaa !56
+  store ptr %2, ptr %6, align 8, !tbaa !56
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %9, i32 0, i32 0
+  call void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %11 = getelementptr inbounds nuw %"struct.lp::numeric_pair", ptr %9, i32 0, i32 1
+  invoke void @_ZN8rationalC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %12 unwind label %13
 
-invoke.cont:                                      ; preds = %entry
+12:                                               ; preds = %3
   ret void
 
-lpad:                                             ; preds = %entry
-  %0 = landingpad { ptr, i32 }
+13:                                               ; preds = %3
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %1 = extractvalue { ptr, i32 } %0, 0
-  store ptr %1, ptr %exn.slot, align 8
-  %2 = extractvalue { ptr, i32 } %0, 1
-  store i32 %2, ptr %ehselector.slot, align 4
-  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %x) #3
-  br label %eh.resume
+  %15 = extractvalue { ptr, i32 } %14, 0
+  store ptr %15, ptr %7, align 8
+  %16 = extractvalue { ptr, i32 } %14, 1
+  store i32 %16, ptr %8, align 4
+  call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #3
+  br label %17
 
-eh.resume:                                        ; preds = %lpad
-  %exn = load ptr, ptr %exn.slot, align 8
-  %sel = load i32, ptr %ehselector.slot, align 4
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn, 0
-  %lpad.val2 = insertvalue { ptr, i32 } %lpad.val, i32 %sel, 1
-  resume { ptr, i32 } %lpad.val2
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %7, align 8
+  %19 = load i32, ptr %8, align 4
+  %20 = insertvalue { ptr, i32 } poison, ptr %18, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %19, 1
+  resume { ptr, i32 } %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN2lp14convert_structI8rationaliE7convertERKi(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(4) %y) #5 comdat align 2 {
-entry:
-  %result.ptr = alloca ptr, align 8
-  %y.addr = alloca ptr, align 8
-  store ptr %agg.result, ptr %result.ptr, align 8
-  store ptr %y, ptr %y.addr, align 8
-  %0 = load ptr, ptr %y.addr, align 8
-  %1 = load i32, ptr %0, align 4
-  call void @_ZN8rationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i32 noundef %1)
+define linkonce_odr hidden void @_ZN2lp14convert_structI8rationaliE7convertERKi(ptr dead_on_unwind noalias writable sret(%class.rational) align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %1) #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8, !tbaa !54
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
+  %6 = load i32, ptr %5, align 4, !tbaa !8
+  call void @_ZN8rationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %6)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN8rationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %n) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %n.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %n, ptr %n.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_val = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  call void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_val)
-  %call = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
-  %m_val2 = getelementptr inbounds %class.rational, ptr %this1, i32 0, i32 0
-  %0 = load i32, ptr %n.addr, align 4
-  call void @_ZN11mpq_managerILb1EE3setER3mpqi(ptr noundef nonnull align 8 dereferenceable(728) %call, ptr noundef nonnull align 8 dereferenceable(32) %m_val2, i32 noundef %0)
+define linkonce_odr hidden void @_ZN8rationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #6 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !56
+  store i32 %1, ptr %4, align 4, !tbaa !8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  call void @_ZN3mpqC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %7 = call noundef nonnull align 8 dereferenceable(728) ptr @_ZN8rational1mEv()
+  %8 = getelementptr inbounds nuw %class.rational, ptr %5, i32 0, i32 0
+  %9 = load i32, ptr %4, align 4, !tbaa !8
+  call void @_ZN11mpq_managerILb1EE3setER3mpqi(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpqi(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, i32 noundef %val) #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  %val.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  store i32 %val, ptr %val.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load ptr, ptr %a.addr, align 8
-  %m_num = getelementptr inbounds %class.mpq, ptr %0, i32 0, i32 0
-  %1 = load i32, ptr %val.addr, align 4
-  call void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(16) %m_num, i32 noundef %1)
-  %2 = load ptr, ptr %a.addr, align 8
-  call void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %this1, ptr noundef nonnull align 8 dereferenceable(32) %2)
+define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3setER3mpqi(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #6 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !82
+  store ptr %1, ptr %5, align 8, !tbaa !93
+  store i32 %2, ptr %6, align 4, !tbaa !8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8, !tbaa !93
+  %9 = getelementptr inbounds nuw %class.mpq, ptr %8, i32 0, i32 0
+  %10 = load i32, ptr %6, align 4, !tbaa !8
+  call void @_ZN11mpq_managerILb1EE3setER3mpzi(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %10)
+  %11 = load ptr, ptr %5, align 8, !tbaa !93
+  call void @_ZN11mpq_managerILb1EE17reset_denominatorER3mpq(ptr noundef nonnull align 8 dereferenceable(728) %7, ptr noundef nonnull align 8 dereferenceable(32) %11)
   ret void
 }
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_int_cube.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   call void @__cxx_global_var_init.1()
   call void @__cxx_global_var_init.2()
-  call void @__cxx_global_var_init.3()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { noreturn nounwind }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.linker.options = !{}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTSN3sat7literalE", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"bool", !6, i64 0}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = !{!15, !9, i64 0}
+!15 = !{!"_ZTSN3sat7literalE", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTSN2lp8int_cubeE", !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN2lp10int_solverE", !5, i64 0}
+!20 = !{!21, !22, i64 0}
+!21 = !{!"_ZTSN2lp10int_solverE", !22, i64 0, !23, i64 8, !24, i64 16, !25, i64 24}
+!22 = !{!"p1 _ZTSN2lp10lar_solverE", !5, i64 0}
+!23 = !{!"p1 _ZTSN2lp15lar_core_solverE", !5, i64 0}
+!24 = !{!"p1 _ZTSN2lp10int_solver3impE", !5, i64 0}
+!25 = !{!"_ZTS6vectorIN2lp8equalityELb1EjE", !26, i64 0}
+!26 = !{!"p1 _ZTSN2lp8equalityE", !5, i64 0}
+!27 = !{!22, !22, i64 0}
+!28 = !{!29, !19, i64 0}
+!29 = !{!"_ZTSN2lp8int_cubeE", !19, i64 0, !22, i64 8}
+!30 = !{!31, !9, i64 40}
+!31 = !{!"_ZTSN2lp10statisticsE", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !9, i64 64, !9, i64 68, !9, i64 72, !9, i64 76, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !9, i64 116, !9, i64 120, !9, i64 124, !9, i64 128, !9, i64 132, !9, i64 136, !9, i64 140, !9, i64 144, !9, i64 148, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !9, i64 168, !32, i64 176}
+!32 = !{!"_ZTS10statistics", !33, i64 0, !36, i64 8}
+!33 = !{!"_ZTS7svectorISt4pairIPKcjEjE", !34, i64 0}
+!34 = !{!"_ZTS6vectorISt4pairIPKcjELb0EjE", !35, i64 0}
+!35 = !{!"p1 _ZTSSt4pairIPKcjE", !5, i64 0}
+!36 = !{!"_ZTS7svectorISt4pairIPKcdEjE", !37, i64 0}
+!37 = !{!"_ZTS6vectorISt4pairIPKcdELb0EjE", !38, i64 0}
+!38 = !{!"p1 _ZTSSt4pairIPKcdE", !5, i64 0}
+!39 = !{!29, !22, i64 8}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"_ZTSN2lp9lp_statusE", !6, i64 0}
+!42 = !{!31, !9, i64 44}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTSN2lp11lp_settingsE", !5, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS6vectorIPN2lp8lar_termELb1EjE", !5, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p2 _ZTSN2lp8lar_termE", !49, i64 0}
+!49 = !{!"any p2 pointer", !5, i64 0}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTSN2lp8lar_termE", !5, i64 0}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 _ZTS6vectorIjLb1EjE", !5, i64 0}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 int", !5, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS8rational", !5, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTSN2lp12numeric_pairI8rationalEE", !5, i64 0}
+!60 = !{!61, !48, i64 0}
+!61 = !{!"_ZTS6vectorIPN2lp8lar_termELb1EjE", !48, i64 0}
+!62 = !{!63, !9, i64 24}
+!63 = !{!"_ZTSN2lp8lar_termE", !64, i64 0, !9, i64 24}
+!64 = !{!"_ZTS5u_mapI8rationalE", !65, i64 0}
+!65 = !{!"_ZTS3mapIj8rational6u_hash4u_eqE", !66, i64 0}
+!66 = !{!"_ZTS9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE", !67, i64 0}
+!67 = !{!"_ZTS14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE", !68, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!68 = !{!"p1 _ZTS17default_map_entryIj8rationalE", !5, i64 0}
+!69 = !{!70, !70, i64 0}
+!70 = !{!"p1 _ZTSN2lp8lar_term14const_iteratorE", !5, i64 0}
+!71 = !{!72, !9, i64 0}
+!72 = !{!"_ZTS9_key_dataIj8rationalE", !9, i64 0, !73, i64 8}
+!73 = !{!"_ZTS8rational", !74, i64 0}
+!74 = !{!"_ZTS3mpq", !75, i64 0, !75, i64 16}
+!75 = !{!"_ZTS3mpz", !9, i64 0, !9, i64 4, !9, i64 4, !76, i64 8}
+!76 = !{!"p1 _ZTS8mpz_cell", !5, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSN2lp8lar_term4ivalE", !5, i64 0}
+!79 = !{!80, !9, i64 0}
+!80 = !{!"_ZTSN2lp8lar_term4ivalE", !9, i64 0, !57, i64 8}
+!81 = !{!80, !57, i64 8}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p1 _ZTS11mpq_managerILb1EE", !5, i64 0}
+!84 = !{i64 0, i64 8, !85, i64 8, i64 8, !85}
+!85 = !{!68, !68, i64 0}
+!86 = !{!87, !55, i64 0}
+!87 = !{!"_ZTS6vectorIjLb1EjE", !55, i64 0}
+!88 = !{!23, !23, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS6vectorIN2lp12numeric_pairI8rationalEELb1EjE", !5, i64 0}
+!91 = !{!92, !59, i64 0}
+!92 = !{!"_ZTS6vectorIN2lp12numeric_pairI8rationalEELb1EjE", !59, i64 0}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTS3mpq", !5, i64 0}
+!95 = !{!96, !96, i64 0}
+!96 = !{!"p1 _ZTS3mpz", !5, i64 0}
+!97 = !{!75, !9, i64 0}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS6vectorIN2lp6columnELb0EjE", !5, i64 0}
+!100 = !{!101, !102, i64 0}
+!101 = !{!"_ZTS6vectorIN2lp6columnELb0EjE", !102, i64 0}
+!102 = !{!"p1 _ZTSN2lp6columnE", !5, i64 0}
+!103 = !{!102, !102, i64 0}
+!104 = !{!105, !51, i64 16}
+!105 = !{!"_ZTSN2lp6columnE", !106, i64 0, !106, i64 8, !51, i64 16}
+!106 = !{!"p1 _ZTSN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyE", !5, i64 0}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS9table2mapI17default_map_entryIj8rationalE6u_hash4u_eqE", !5, i64 0}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTS14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE", !5, i64 0}
+!111 = !{!67, !9, i64 12}
+!112 = !{!67, !68, i64 0}
+!113 = !{!67, !9, i64 8}
+!114 = !{!115, !115, i64 0}
+!115 = !{!"p1 _ZTSN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorE", !5, i64 0}
+!116 = !{!117, !68, i64 0}
+!117 = !{!"_ZTSN14core_hashtableI17default_map_entryIj8rationalEN9table2mapIS2_6u_hash4u_eqE15entry_hash_procENS6_13entry_eq_procEE8iteratorE", !68, i64 0, !68, i64 8}
+!118 = !{!117, !68, i64 8}
+!119 = distinct !{!119, !120}
+!120 = !{!"llvm.loop.mustprogress"}
+!121 = !{!122, !122, i64 0}
+!122 = !{!"p1 _ZTS18default_hash_entryI9_key_dataIj8rationalEE", !5, i64 0}
+!123 = !{!124, !125, i64 4}
+!124 = !{!"_ZTS18default_hash_entryI9_key_dataIj8rationalEE", !9, i64 0, !125, i64 4, !72, i64 8}
+!125 = !{!"_ZTS16hash_entry_state", !6, i64 0}
+!126 = !{!127, !127, i64 0}
+!127 = !{!"p1 _ZTS11mpz_managerILb1EE", !5, i64 0}
+!128 = !{!75, !76, i64 8}

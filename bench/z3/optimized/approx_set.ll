@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/z3/original/approx_set.ll'
 source_filename = "bench/z3/original/approx_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 
@@ -21,91 +21,93 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK10approx_set7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
-  %0 = load i64, ptr %this, align 8
-  br label %for.body
+define hidden void @_ZNK10approx_set7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str, i64 noundef 1)
+  %4 = load i64, ptr %0, align 8, !tbaa !3
+  br label %7
 
-for.body:                                         ; preds = %entry, %if.end6
-  %i.09 = phi i32 [ 0, %entry ], [ %inc, %if.end6 ]
-  %s.08 = phi i64 [ %0, %entry ], [ %shr, %if.end6 ]
-  %first.07 = phi i1 [ true, %entry ], [ %first.1, %if.end6 ]
-  %and = and i64 %s.08, 1
-  %cmp2.not = icmp eq i64 %and, 0
-  br i1 %cmp2.not, label %if.end6, label %if.then
-
-if.then:                                          ; preds = %for.body
-  br i1 %first.07, label %if.end, label %if.else
-
-if.else:                                          ; preds = %if.then
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.1)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %if.else
-  %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %i.09)
-  br label %if.end6
-
-if.end6:                                          ; preds = %if.end, %for.body
-  %first.1 = phi i1 [ false, %if.end ], [ %first.07, %for.body ]
-  %shr = lshr i64 %s.08, 1
-  %inc = add nuw nsw i32 %i.09, 1
-  %exitcond.not = icmp eq i32 %inc, 64
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
-
-for.end:                                          ; preds = %if.end6
-  %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
+5:                                                ; preds = %14
+  %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2, i64 noundef 1)
   ret void
+
+7:                                                ; preds = %2, %14
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %14 ]
+  %.01013 = phi i64 [ %4, %2 ], [ %15, %14 ]
+  %.01112 = phi i1 [ true, %2 ], [ %.1, %14 ]
+  %8 = and i64 %.01013, 1
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %14, label %9
+
+9:                                                ; preds = %7
+  br i1 %.01112, label %12, label %10
+
+10:                                               ; preds = %9
+  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1, i64 noundef 2)
+  br label %12
+
+12:                                               ; preds = %9, %10
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %indvars.iv)
+  br label %14
+
+14:                                               ; preds = %12, %7
+  %.1 = phi i1 [ false, %12 ], [ %.01112, %7 ]
+  %15 = lshr i64 %.01013, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 64
+  br i1 %exitcond.not, label %5, label %7, !llvm.loop !8
 }
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK10approx_set4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
-entry:
-  %0 = load i64, ptr %this, align 8
-  %cmp.not4 = icmp eq i64 %0, 0
-  br i1 %cmp.not4, label %while.end, label %while.body
+define hidden noundef i32 @_ZNK10approx_set4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #4 align 2 {
+  %2 = load i64, ptr %0, align 8, !tbaa !3
+  %.not7 = icmp eq i64 %2, 0
+  br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-while.body:                                       ; preds = %entry, %while.body
-  %r.06 = phi i32 [ %spec.select, %while.body ], [ 0, %entry ]
-  %tmp.05 = phi i64 [ %shr, %while.body ], [ %0, %entry ]
-  %1 = trunc i64 %tmp.05 to i32
-  %2 = and i32 %1, 1
-  %spec.select = add i32 %2, %r.06
-  %shr = lshr i64 %tmp.05, 1
-  %cmp.not = icmp ult i64 %tmp.05, 2
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !6
+.lr.ph:                                           ; preds = %1, %.lr.ph
+  %.09 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %1 ]
+  %.058 = phi i64 [ %5, %.lr.ph ], [ %2, %1 ]
+  %3 = trunc i64 %.058 to i32
+  %4 = and i32 %3, 1
+  %spec.select = add i32 %4, %.09
+  %5 = lshr i64 %.058, 1
+  %.not = icmp ult i64 %.058, 2
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-while.end:                                        ; preds = %while.body, %entry
-  %r.0.lcssa = phi i32 [ 0, %entry ], [ %spec.select, %while.body ]
-  ret i32 %r.0.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %1
+  %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
+  ret i32 %.0.lcssa
 }
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_approx_set.cpp() #5 section ".text.startup" {
-entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #6
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #6
   ret void
 }
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.linker.options = !{}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"_ZTS14approx_set_tplIj3u2uyE", !5, i64 0}
+!5 = !{!"long long", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9}

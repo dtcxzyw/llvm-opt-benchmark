@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/z3/original/sat_cutset.ll'
 source_filename = "bench/z3/original/sat_cutset.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.sat::cut" = type { i32, i32, [5 x i32], i64, i64 }
@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6insertEOS4_ = comdat any
 
-$_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEED2Ev = comdat any
+$_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev = comdat any
 
 $__clang_call_terminate = comdat any
 
@@ -45,6 +45,9 @@ $_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_pr
 @.str.9 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/z3/z3/src/sat/sat_cutset_compute_shift.h\00", align 1
 @.str.10 = private unnamed_addr constant [29 x i8] c"UNEXPECTED CODE WAS REACHED.\00", align 1
 @.str.11 = private unnamed_addr constant [104 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/z3/z3/src/util/hashtable.h\00", align 1
+@_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant [4 x ptr], align 8
+@_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [16 x ptr] }, align 8
+@_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_sat_cutset.cpp, ptr null }]
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -56,5360 +59,5478 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3sat7cut_set6insertERSt8functionIFvjRKNS_3cutEEES7_S4_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %on_add, ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 8 dereferenceable(48) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__args.addr.i.i = alloca i32, align 4
-  %__tmp.i53 = alloca %"class.sat::cut", align 8
-  %__tmp.i = alloca %"class.sat::cut", align 8
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i32, ptr %m_size, align 8
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %cmp68 = icmp eq i32 %0, 0
-  br i1 %cmp68, label %for.end, label %for.body.lr.ph
+define hidden noundef zeroext i1 @_ZN3sat7cut_set6insertERSt8functionIFvjRKNS_3cutEEES7_S4_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca i32, align 4
+  %6 = alloca %"class.sat::cut", align 8
+  %7 = alloca %"class.sat::cut", align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !3
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %m_cuts.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %c, i64 4
-  br label %for.body
+.lr.ph:                                           ; preds = %4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  br label %13
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %k.070 = phi i32 [ %0, %for.body.lr.ph ], [ %k.1, %for.inc ]
-  %i.069 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %1 = load ptr, ptr %m_cuts.i, align 8
-  %idxprom.i = zext i32 %i.069 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.sat::cut", ptr %1, i64 %idxprom.i
-  %2 = load i32, ptr %c, align 8
-  %3 = load i32, ptr %arrayidx.i, align 8
-  %or.i = or i32 %3, %2
-  %cmp.not.i = icmp eq i32 %2, %or.i
-  br i1 %cmp.not.i, label %if.end.i, label %if.end
+13:                                               ; preds = %.lr.ph, %.loopexit
+  %.01870 = phi i32 [ %9, %.lr.ph ], [ %.119.ph, %.loopexit ]
+  %.02169 = phi i32 [ 0, %.lr.ph ], [ %74, %.loopexit ]
+  %14 = load ptr, ptr %11, align 8, !tbaa !11
+  %15 = zext i32 %.02169 to i64
+  %16 = getelementptr inbounds nuw %"class.sat::cut", ptr %14, i64 %15
+  %17 = load i32, ptr %3, align 8, !tbaa !12
+  %18 = load i32, ptr %16, align 8, !tbaa !12
+  %19 = or i32 %18, %17
+  %.not.i = icmp eq i32 %17, %19
+  br i1 %.not.i, label %_ZNK3sat3cutixEj.exit.i, label %_ZNK3sat3cut9subset_ofERKS0_.exit
 
-if.end.i:                                         ; preds = %for.body
-  %4 = load i32, ptr %m_size.i.i, align 4
-  %m_size.i14.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
-  %5 = load i32, ptr %m_size.i14.i, align 4
-  %idx.ext.i.i = zext i32 %5 to i64
-  %add.ptr.i.idx.i = shl nuw nsw i64 %idx.ext.i.i, 2
-  %6 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 %add.ptr.i.idx.i
-  %add.ptr.i.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %cmp6.not32.i = icmp eq i32 %5, 0
-  br i1 %cmp6.not32.i, label %return, label %for.body.lr.ph.i
+_ZNK3sat3cutixEj.exit.i:                          ; preds = %13
+  %20 = load i32, ptr %12, align 4, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %22 = load i32, ptr %21, align 4, !tbaa !15
+  %23 = zext i32 %22 to i64
+  %.idx.i = shl nuw nsw i64 %23, 2
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
+  %.ptr52.i = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.not3244.i = icmp eq i32 %22, 0
+  br i1 %.not3244.i, label %_ZNK3sat3cut9subset_ofERKS0_.exit47, label %.lr.ph48.i
 
-for.body.lr.ph.i:                                 ; preds = %if.end.i
-  %m_elems.i12.ptr.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %cmp.not.i.not.i = icmp eq i32 %4, 0
-  %7 = load i32, ptr %invariant.gep, align 8
-  %cond.i.i = select i1 %cmp.not.i.not.i, i32 -1, i32 %7
-  br label %for.body.i
+.lr.ph48.i:                                       ; preds = %_ZNK3sat3cutixEj.exit.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.not.i.not.i = icmp eq i32 %20, 0
+  %25 = load i32, ptr %invariant.gep, align 8
+  %26 = select i1 %.not.i.not.i, i32 -1, i32 %25
+  br label %27
 
-for.body.i:                                       ; preds = %_ZNK3sat3cutixEj.exit28.i, %for.body.lr.ph.i
-  %i.035.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc12.i, %_ZNK3sat3cutixEj.exit28.i ]
-  %__begin2.034.i = phi ptr [ %m_elems.i12.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %_ZNK3sat3cutixEj.exit28.i ]
-  %other_id.033.i = phi i32 [ %cond.i.i, %for.body.lr.ph.i ], [ %cond.i23.i, %_ZNK3sat3cutixEj.exit28.i ]
-  %8 = load i32, ptr %__begin2.034.i, align 4
-  %cmp729.i = icmp ugt i32 %8, %other_id.033.i
-  br i1 %cmp729.i, label %while.body.i.preheader, label %while.end.i
+27:                                               ; preds = %43, %.lr.ph48.i
+  %.02447.i = phi i32 [ 0, %.lr.ph48.i ], [ %38, %43 ]
+  %.02746.i = phi ptr [ %.ptr.i, %.lr.ph48.i ], [ %44, %43 ]
+  %.02845.i = phi i32 [ %26, %.lr.ph48.i ], [ %.230.ph.i, %43 ]
+  %28 = load i32, ptr %.02746.i, align 4, !tbaa !16
+  %29 = icmp ugt i32 %28, %.02845.i
+  br i1 %29, label %.lr.ph.i.preheader, label %._crit_edge.i
 
-while.body.i.preheader:                           ; preds = %for.body.i
-  %9 = add i32 %i.035.i, 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %4, i32 %9)
-  %10 = add i32 %umax, -1
-  br label %while.body.i
+.lr.ph.i.preheader:                               ; preds = %27
+  %30 = add i32 %.02447.i, 1
+  %umax = tail call i32 @llvm.umax.i32(i32 %20, i32 %30)
+  %31 = add i32 %umax, -1
+  br label %.lr.ph.i
 
-while.body.i:                                     ; preds = %while.body.i.preheader, %_ZNK3sat3cutixEj.exit20.i
-  %i.130.i = phi i32 [ %inc.i, %_ZNK3sat3cutixEj.exit20.i ], [ %i.035.i, %while.body.i.preheader ]
-  %exitcond.not = icmp eq i32 %i.130.i, %10
-  br i1 %exitcond.not, label %while.end.i, label %_ZNK3sat3cutixEj.exit20.i
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNK3sat3cutixEj.exit35.i
+  %.12542.i = phi i32 [ %32, %_ZNK3sat3cutixEj.exit35.i ], [ %.02447.i, %.lr.ph.i.preheader ]
+  %exitcond.not = icmp eq i32 %.12542.i, %31
+  br i1 %exitcond.not, label %._crit_edge.i, label %_ZNK3sat3cutixEj.exit35.i
 
-_ZNK3sat3cutixEj.exit20.i:                        ; preds = %while.body.i
-  %inc.i = add i32 %i.130.i, 1
-  %idxprom.i.i = zext i32 %inc.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw [5 x i32], ptr %invariant.gep, i64 0, i64 %idxprom.i.i
-  %11 = load i32, ptr %arrayidx.i.i, align 4
-  %cmp7.i = icmp ugt i32 %8, %11
-  br i1 %cmp7.i, label %while.body.i, label %while.end.i, !llvm.loop !4
+_ZNK3sat3cutixEj.exit35.i:                        ; preds = %.lr.ph.i
+  %32 = add i32 %.12542.i, 1
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw [5 x i32], ptr %invariant.gep, i64 0, i64 %33
+  %35 = load i32, ptr %34, align 4, !tbaa !16
+  %36 = icmp ugt i32 %28, %35
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
-while.end.i:                                      ; preds = %_ZNK3sat3cutixEj.exit20.i, %while.body.i, %for.body.i
-  %other_id.1.lcssa.i = phi i32 [ %other_id.033.i, %for.body.i ], [ %11, %_ZNK3sat3cutixEj.exit20.i ], [ -1, %while.body.i ]
-  %i.1.lcssa.i = phi i32 [ %i.035.i, %for.body.i ], [ %inc.i, %_ZNK3sat3cutixEj.exit20.i ], [ %umax, %while.body.i ]
-  %cmp9.not.i = icmp eq i32 %8, %other_id.1.lcssa.i
-  br i1 %cmp9.not.i, label %if.end11.i, label %if.end
+._crit_edge.i:                                    ; preds = %_ZNK3sat3cutixEj.exit35.i, %.lr.ph.i, %27
+  %.129.lcssa.i = phi i32 [ %.02845.i, %27 ], [ %35, %_ZNK3sat3cutixEj.exit35.i ], [ -1, %.lr.ph.i ]
+  %.125.lcssa.i = phi i32 [ %.02447.i, %27 ], [ %32, %_ZNK3sat3cutixEj.exit35.i ], [ %umax, %.lr.ph.i ]
+  %.not33.i = icmp eq i32 %28, %.129.lcssa.i
+  br i1 %.not33.i, label %37, label %_ZNK3sat3cut9subset_ofERKS0_.exit
 
-if.end11.i:                                       ; preds = %while.end.i
-  %inc12.i = add i32 %i.1.lcssa.i, 1
-  %cmp.not.i22.i = icmp ult i32 %inc12.i, %4
-  br i1 %cmp.not.i22.i, label %cond.false.i24.i, label %_ZNK3sat3cutixEj.exit28.i
+37:                                               ; preds = %._crit_edge.i
+  %38 = add i32 %.125.lcssa.i, 1
+  %.not.i36.i = icmp ult i32 %38, %20
+  br i1 %.not.i36.i, label %39, label %43
 
-cond.false.i24.i:                                 ; preds = %if.end11.i
-  %idxprom.i26.i = zext i32 %inc12.i to i64
-  %arrayidx.i27.i = getelementptr inbounds nuw [5 x i32], ptr %invariant.gep, i64 0, i64 %idxprom.i26.i
-  %12 = load i32, ptr %arrayidx.i27.i, align 4
-  br label %_ZNK3sat3cutixEj.exit28.i
+39:                                               ; preds = %37
+  %40 = zext i32 %38 to i64
+  %41 = getelementptr inbounds nuw [5 x i32], ptr %invariant.gep, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !tbaa !16
+  br label %43
 
-_ZNK3sat3cutixEj.exit28.i:                        ; preds = %cond.false.i24.i, %if.end11.i
-  %cond.i23.i = phi i32 [ %12, %cond.false.i24.i ], [ -1, %if.end11.i ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.034.i, i64 4
-  %cmp6.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
-  br i1 %cmp6.not.i, label %return, label %for.body.i
+43:                                               ; preds = %39, %37
+  %.230.ph.i = phi i32 [ -1, %37 ], [ %42, %39 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.02746.i, i64 4
+  %.not32.i = icmp eq ptr %44, %.ptr52.i
+  br i1 %.not32.i, label %_ZNK3sat3cut9subset_ofERKS0_.exit47, label %27
 
-if.end:                                           ; preds = %while.end.i, %for.body
-  %cmp.not.i11 = icmp eq i32 %3, %or.i
-  br i1 %cmp.not.i11, label %if.end.i13, label %for.inc
+_ZNK3sat3cut9subset_ofERKS0_.exit:                ; preds = %._crit_edge.i, %13
+  %.not.i24 = icmp eq i32 %18, %19
+  br i1 %.not.i24, label %_ZNK3sat3cutixEj.exit.i26, label %.loopexit
 
-if.end.i13:                                       ; preds = %if.end
-  %m_size.i.i14 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
-  %13 = load i32, ptr %m_size.i.i14, align 4
-  %14 = load i32, ptr %m_size.i.i, align 4
-  %idx.ext.i.i16 = zext i32 %14 to i64
-  %add.ptr.i.idx.i17 = shl nuw nsw i64 %idx.ext.i.i16, 2
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %add.ptr.i.idx.i17
-  %cmp6.not32.i19 = icmp eq i32 %14, 0
-  br i1 %cmp6.not32.i19, label %if.then4, label %for.body.lr.ph.i20
+_ZNK3sat3cutixEj.exit.i26:                        ; preds = %_ZNK3sat3cut9subset_ofERKS0_.exit
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !15
+  %47 = load i32, ptr %12, align 4, !tbaa !15
+  %48 = zext i32 %47 to i64
+  %.idx.i27 = shl nuw nsw i64 %48, 2
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx.i27
+  %.not3244.i29 = icmp eq i32 %47, 0
+  br i1 %.not3244.i29, label %.loopexit61, label %.lr.ph48.i30
 
-for.body.lr.ph.i20:                               ; preds = %if.end.i13
-  %cmp.not.i.not.i22 = icmp eq i32 %13, 0
-  %m_elems.i.i23 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %15 = load i32, ptr %m_elems.i.i23, align 4
-  %cond.i.i24 = select i1 %cmp.not.i.not.i22, i32 -1, i32 %15
-  br label %for.body.i25
+.lr.ph48.i30:                                     ; preds = %_ZNK3sat3cutixEj.exit.i26
+  %.not.i.not.i32 = icmp eq i32 %46, 0
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %50 = load i32, ptr %49, align 4
+  %51 = select i1 %.not.i.not.i32, i32 -1, i32 %50
+  br label %52
 
-for.body.i25:                                     ; preds = %_ZNK3sat3cutixEj.exit28.i37, %for.body.lr.ph.i20
-  %i.035.i26 = phi i32 [ 0, %for.body.lr.ph.i20 ], [ %inc12.i35, %_ZNK3sat3cutixEj.exit28.i37 ]
-  %__begin2.034.i27 = phi ptr [ %invariant.gep, %for.body.lr.ph.i20 ], [ %incdec.ptr.i39, %_ZNK3sat3cutixEj.exit28.i37 ]
-  %other_id.033.i28 = phi i32 [ %cond.i.i24, %for.body.lr.ph.i20 ], [ %cond.i23.i38, %_ZNK3sat3cutixEj.exit28.i37 ]
-  %16 = load i32, ptr %__begin2.034.i27, align 4
-  %cmp729.i29 = icmp ugt i32 %16, %other_id.033.i28
-  br i1 %cmp729.i29, label %while.body.i44.preheader, label %while.end.i30
+52:                                               ; preds = %68, %.lr.ph48.i30
+  %.02447.i33 = phi i32 [ 0, %.lr.ph48.i30 ], [ %63, %68 ]
+  %.02746.i34 = phi ptr [ %invariant.gep, %.lr.ph48.i30 ], [ %69, %68 ]
+  %.02845.i35 = phi i32 [ %51, %.lr.ph48.i30 ], [ %.230.ph.i41, %68 ]
+  %53 = load i32, ptr %.02746.i34, align 4, !tbaa !16
+  %54 = icmp ugt i32 %53, %.02845.i35
+  br i1 %54, label %.lr.ph.i43.preheader, label %._crit_edge.i36
 
-while.body.i44.preheader:                         ; preds = %for.body.i25
-  %17 = add i32 %i.035.i26, 1
-  %umax74 = tail call i32 @llvm.umax.i32(i32 %13, i32 %17)
-  %18 = add i32 %umax74, -1
-  br label %while.body.i44
+.lr.ph.i43.preheader:                             ; preds = %52
+  %55 = add i32 %.02447.i33, 1
+  %umax75 = tail call i32 @llvm.umax.i32(i32 %46, i32 %55)
+  %56 = add i32 %umax75, -1
+  br label %.lr.ph.i43
 
-while.body.i44:                                   ; preds = %while.body.i44.preheader, %_ZNK3sat3cutixEj.exit20.i48
-  %i.130.i45 = phi i32 [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %i.035.i26, %while.body.i44.preheader ]
-  %exitcond75.not = icmp eq i32 %i.130.i45, %18
-  br i1 %exitcond75.not, label %while.end.i30, label %_ZNK3sat3cutixEj.exit20.i48
+.lr.ph.i43:                                       ; preds = %.lr.ph.i43.preheader, %_ZNK3sat3cutixEj.exit35.i46
+  %.12542.i44 = phi i32 [ %57, %_ZNK3sat3cutixEj.exit35.i46 ], [ %.02447.i33, %.lr.ph.i43.preheader ]
+  %exitcond76.not = icmp eq i32 %.12542.i44, %56
+  br i1 %exitcond76.not, label %._crit_edge.i36, label %_ZNK3sat3cutixEj.exit35.i46
 
-_ZNK3sat3cutixEj.exit20.i48:                      ; preds = %while.body.i44
-  %inc.i46 = add i32 %i.130.i45, 1
-  %idxprom.i.i49 = zext i32 %inc.i46 to i64
-  %arrayidx.i.i50 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i23, i64 0, i64 %idxprom.i.i49
-  %19 = load i32, ptr %arrayidx.i.i50, align 4
-  %cmp7.i51 = icmp ugt i32 %16, %19
-  br i1 %cmp7.i51, label %while.body.i44, label %while.end.i30, !llvm.loop !4
+_ZNK3sat3cutixEj.exit35.i46:                      ; preds = %.lr.ph.i43
+  %57 = add i32 %.12542.i44, 1
+  %58 = zext i32 %57 to i64
+  %59 = getelementptr inbounds nuw [5 x i32], ptr %49, i64 0, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !16
+  %61 = icmp ugt i32 %53, %60
+  br i1 %61, label %.lr.ph.i43, label %._crit_edge.i36, !llvm.loop !17
 
-while.end.i30:                                    ; preds = %_ZNK3sat3cutixEj.exit20.i48, %while.body.i44, %for.body.i25
-  %other_id.1.lcssa.i31 = phi i32 [ %other_id.033.i28, %for.body.i25 ], [ %19, %_ZNK3sat3cutixEj.exit20.i48 ], [ -1, %while.body.i44 ]
-  %i.1.lcssa.i32 = phi i32 [ %i.035.i26, %for.body.i25 ], [ %inc.i46, %_ZNK3sat3cutixEj.exit20.i48 ], [ %umax74, %while.body.i44 ]
-  %cmp9.not.i33 = icmp eq i32 %16, %other_id.1.lcssa.i31
-  br i1 %cmp9.not.i33, label %if.end11.i34, label %for.inc
+._crit_edge.i36:                                  ; preds = %_ZNK3sat3cutixEj.exit35.i46, %.lr.ph.i43, %52
+  %.129.lcssa.i37 = phi i32 [ %.02845.i35, %52 ], [ %60, %_ZNK3sat3cutixEj.exit35.i46 ], [ -1, %.lr.ph.i43 ]
+  %.125.lcssa.i38 = phi i32 [ %.02447.i33, %52 ], [ %57, %_ZNK3sat3cutixEj.exit35.i46 ], [ %umax75, %.lr.ph.i43 ]
+  %.not33.i39 = icmp eq i32 %53, %.129.lcssa.i37
+  br i1 %.not33.i39, label %62, label %.loopexit
 
-if.end11.i34:                                     ; preds = %while.end.i30
-  %inc12.i35 = add i32 %i.1.lcssa.i32, 1
-  %cmp.not.i22.i36 = icmp ult i32 %inc12.i35, %13
-  br i1 %cmp.not.i22.i36, label %cond.false.i24.i41, label %_ZNK3sat3cutixEj.exit28.i37
+62:                                               ; preds = %._crit_edge.i36
+  %63 = add i32 %.125.lcssa.i38, 1
+  %.not.i36.i40 = icmp ult i32 %63, %46
+  br i1 %.not.i36.i40, label %64, label %68
 
-cond.false.i24.i41:                               ; preds = %if.end11.i34
-  %idxprom.i26.i42 = zext i32 %inc12.i35 to i64
-  %arrayidx.i27.i43 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i23, i64 0, i64 %idxprom.i26.i42
-  %20 = load i32, ptr %arrayidx.i27.i43, align 4
-  br label %_ZNK3sat3cutixEj.exit28.i37
+64:                                               ; preds = %62
+  %65 = zext i32 %63 to i64
+  %66 = getelementptr inbounds nuw [5 x i32], ptr %49, i64 0, i64 %65
+  %67 = load i32, ptr %66, align 4, !tbaa !16
+  br label %68
 
-_ZNK3sat3cutixEj.exit28.i37:                      ; preds = %cond.false.i24.i41, %if.end11.i34
-  %cond.i23.i38 = phi i32 [ %20, %cond.false.i24.i41 ], [ -1, %if.end11.i34 ]
-  %incdec.ptr.i39 = getelementptr inbounds nuw i8, ptr %__begin2.034.i27, i64 4
-  %cmp6.not.i40 = icmp eq ptr %incdec.ptr.i39, %gep
-  br i1 %cmp6.not.i40, label %if.then4, label %for.body.i25
+68:                                               ; preds = %64, %62
+  %.230.ph.i41 = phi i32 [ -1, %62 ], [ %67, %64 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.02746.i34, i64 4
+  %.not32.i42 = icmp eq ptr %69, %gep
+  br i1 %.not32.i42, label %.loopexit61, label %52
 
-if.then4:                                         ; preds = %_ZNK3sat3cutixEj.exit28.i37, %if.end.i13
-  %dec = add i32 %i.069, -1
-  %dec6 = add i32 %k.070, -1
-  %idxprom7 = zext i32 %dec6 to i64
-  %arrayidx8 = getelementptr inbounds nuw %"class.sat::cut", ptr %1, i64 %idxprom7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx8, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i)
-  br label %for.inc
+.loopexit61:                                      ; preds = %68, %_ZNK3sat3cutixEj.exit.i26
+  %70 = add i32 %.02169, -1
+  %71 = add i32 %.01870, -1
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw %"class.sat::cut", ptr %14, i64 %72
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %73, i64 48, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !tbaa.struct !19
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
+  br label %.loopexit
 
-for.inc:                                          ; preds = %while.end.i30, %if.end, %if.then4
-  %i.1 = phi i32 [ %dec, %if.then4 ], [ %i.069, %if.end ], [ %i.069, %while.end.i30 ]
-  %k.1 = phi i32 [ %dec6, %if.then4 ], [ %k.070, %if.end ], [ %k.070, %while.end.i30 ]
-  %inc = add i32 %i.1, 1
-  %cmp.not = icmp ult i32 %inc, %k.1
-  br i1 %cmp.not, label %for.body, label %for.end, !llvm.loop !6
+.loopexit:                                        ; preds = %._crit_edge.i36, %.loopexit61, %_ZNK3sat3cut9subset_ofERKS0_.exit
+  %.122.ph = phi i32 [ %.02169, %_ZNK3sat3cut9subset_ofERKS0_.exit ], [ %70, %.loopexit61 ], [ %.02169, %._crit_edge.i36 ]
+  %.119.ph = phi i32 [ %.01870, %_ZNK3sat3cut9subset_ofERKS0_.exit ], [ %71, %.loopexit61 ], [ %.01870, %._crit_edge.i36 ]
+  %74 = add i32 %.122.ph, 1
+  %.not = icmp ult i32 %74, %.119.ph
+  br i1 %.not, label %13, label %._crit_edge, !llvm.loop !22
 
-for.end:                                          ; preds = %for.inc, %entry
-  %i.0.lcssa = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
-  tail call void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %on_add, ptr noundef nonnull align 8 dereferenceable(48) %c)
-  %m_cuts10 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %21 = load ptr, ptr %m_cuts10, align 8
-  %inc11 = add i32 %i.0.lcssa, 1
-  %idxprom12 = zext i32 %i.0.lcssa to i64
-  %arrayidx13 = getelementptr inbounds nuw %"class.sat::cut", ptr %21, i64 %idxprom12
-  %22 = load i32, ptr %m_size, align 8
-  %sub = add i32 %22, -1
-  %idxprom16 = zext i32 %sub to i64
-  %arrayidx17 = getelementptr inbounds nuw %"class.sat::cut", ptr %21, i64 %idxprom16
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %__tmp.i53)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i53, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx13, i64 48, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx13, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx17, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx17, ptr noundef nonnull align 8 dereferenceable(48) %__tmp.i53, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %__tmp.i53)
-  %23 = load i32, ptr %this, align 8
-  %cmp.not.i54 = icmp eq i32 %23, -1
-  br i1 %cmp.not.i54, label %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit, label %land.lhs.true.i
+._crit_edge:                                      ; preds = %.loopexit, %4
+  %.021.lcssa = phi i32 [ 0, %4 ], [ %74, %.loopexit ]
+  tail call void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %76 = load ptr, ptr %75, align 8, !tbaa !11
+  %77 = add i32 %.021.lcssa, 1
+  %78 = zext i32 %.021.lcssa to i64
+  %79 = getelementptr inbounds nuw %"class.sat::cut", ptr %76, i64 %78
+  %80 = load i32, ptr %8, align 8, !tbaa !3
+  %81 = add i32 %80, -1
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr inbounds nuw %"class.sat::cut", ptr %76, i64 %82
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull align 8 dereferenceable(48) %83, i64 48, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %83, ptr noundef nonnull align 8 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !19
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
+  %84 = load i32, ptr %0, align 8, !tbaa !23
+  %.not.i48 = icmp eq i32 %84, -1
+  br i1 %.not.i48, label %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit, label %85
 
-land.lhs.true.i:                                  ; preds = %for.end
-  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %on_del, i64 16
-  %24 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.not.i = icmp ne ptr %24, null
-  %25 = load i32, ptr %m_size, align 8
-  %cmp27.i = icmp ult i32 %inc11, %25
-  %or.cond = select i1 %tobool.not.i.i.not.i, i1 %cmp27.i, i1 false
-  br i1 %or.cond, label %for.body.lr.ph.i56, label %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
+85:                                               ; preds = %._crit_edge
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !24
+  %.not.i.i.not.i = icmp ne ptr %87, null
+  %88 = load i32, ptr %8, align 8
+  %89 = icmp ult i32 %77, %88
+  %or.cond = select i1 %.not.i.i.not.i, i1 %89, i1 false
+  br i1 %or.cond, label %.lr.ph.i49, label %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
 
-for.body.lr.ph.i56:                               ; preds = %land.lhs.true.i
-  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %on_del, i64 24
-  %26 = zext i32 %inc11 to i64
-  br label %for.body.i58
+.lr.ph.i49:                                       ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %91 = zext i32 %77 to i64
+  br label %92
 
-for.body.i58:                                     ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, %for.body.lr.ph.i56
-  %indvars.iv.i = phi i64 [ %26, %for.body.lr.ph.i56 ], [ %indvars.iv.next.i, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i ]
-  %27 = load i32, ptr %this, align 8
-  %28 = load ptr, ptr %m_cuts10, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i.i)
-  store i32 %27, ptr %__args.addr.i.i, align 4
-  %29 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i6.i = icmp eq ptr %29, null
-  br i1 %tobool.not.i.i6.i, label %if.then.i.i, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i
+92:                                               ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, %.lr.ph.i49
+  %indvars.iv.i = phi i64 [ %91, %.lr.ph.i49 ], [ %indvars.iv.next.i, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i ]
+  %93 = load i32, ptr %0, align 8, !tbaa !23
+  %94 = load ptr, ptr %75, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
+  store i32 %93, ptr %5, align 4, !tbaa !16
+  %95 = load ptr, ptr %86, align 8, !tbaa !24
+  %.not.i.i7.i = icmp eq ptr %95, null
+  br i1 %.not.i.i7.i, label %96, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i
 
-if.then.i.i:                                      ; preds = %for.body.i58
-  call void @_ZSt25__throw_bad_function_callv() #18
+96:                                               ; preds = %92
+  call void @_ZSt25__throw_bad_function_callv() #20
   unreachable
 
-_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %for.body.i58
-  %arrayidx.i59 = getelementptr inbounds nuw %"class.sat::cut", ptr %28, i64 %indvars.iv.i
-  %30 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx.i59)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i)
+_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %92
+  %97 = getelementptr inbounds nuw %"class.sat::cut", ptr %94, i64 %indvars.iv.i
+  %98 = load ptr, ptr %90, align 8, !tbaa !26
+  call void %98(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(48) %97)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %31 = load i32, ptr %m_size, align 8
+  %99 = load i32, ptr %8, align 8, !tbaa !3
+  %100 = zext i32 %99 to i64
+  %101 = icmp samesign ult i64 %indvars.iv.next.i, %100
+  br i1 %101, label %92, label %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit, !llvm.loop !28
+
+_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, %._crit_edge, %85
+  store i32 %77, ptr %8, align 8, !tbaa !3
+  br label %_ZNK3sat3cut9subset_ofERKS0_.exit47
+
+_ZNK3sat3cut9subset_ofERKS0_.exit47:              ; preds = %_ZNK3sat3cutixEj.exit.i, %43, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
+  %102 = phi i1 [ true, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit ], [ false, %43 ], [ false, %_ZNK3sat3cutixEj.exit.i ]
+  ret i1 %102
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i32, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !11
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %7, label %23
+
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = load i32, ptr %8, align 4, !tbaa !29
+  %10 = zext i32 %9 to i64
+  %11 = mul nuw nsw i64 %10, 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %14 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %13, i64 noundef %11)
+  %15 = icmp eq i32 %9, 0
+  br i1 %15, label %.loopexit12, label %16
+
+16:                                               ; preds = %7
+  %17 = getelementptr inbounds nuw %"class.sat::cut", ptr %14, i64 %10
+  br label %18
+
+18:                                               ; preds = %18, %16
+  %19 = phi ptr [ %14, %16 ], [ %21, %18 ]
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %22 = icmp eq ptr %21, %17
+  br i1 %22, label %.loopexit12, label %18
+
+.loopexit12:                                      ; preds = %18, %7
+  store ptr %14, ptr %5, align 8, !tbaa !11
+  br label %23
+
+23:                                               ; preds = %.loopexit12, %3
+  %24 = phi ptr [ %14, %.loopexit12 ], [ %6, %3 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i32, ptr %25, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %28 = load i32, ptr %27, align 4, !tbaa !29
+  %29 = icmp eq i32 %26, %28
+  br i1 %29, label %30, label %51
+
+30:                                               ; preds = %23
+  %31 = shl i32 %26, 1
+  store i32 %31, ptr %27, align 4, !tbaa !29
   %32 = zext i32 %31 to i64
-  %cmp2.i = icmp samesign ult i64 %indvars.iv.next.i, %32
-  br i1 %cmp2.i, label %for.body.i58, label %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit, !llvm.loop !7
+  %33 = mul nuw nsw i64 %32, 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !30
+  %36 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %35, i64 noundef %33)
+  %37 = icmp eq i32 %31, 0
+  br i1 %37, label %.loopexit, label %38
 
-_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, %for.end, %land.lhs.true.i
-  store i32 %inc11, ptr %m_size, align 8
-  br label %return
+38:                                               ; preds = %30
+  %39 = getelementptr inbounds nuw %"class.sat::cut", ptr %36, i64 %32
+  br label %40
 
-return:                                           ; preds = %if.end.i, %_ZNK3sat3cutixEj.exit28.i, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit
-  %cmp65 = phi i1 [ true, %_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj.exit ], [ false, %_ZNK3sat3cutixEj.exit28.i ], [ false, %if.end.i ]
-  ret i1 %cmp65
-}
+40:                                               ; preds = %40, %38
+  %41 = phi ptr [ %36, %38 ], [ %43, %40 ]
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, i8 0, i64 28, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 48
+  %44 = icmp eq ptr %43, %39
+  br i1 %44, label %.loopexit, label %40
 
-; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cut_set9push_backERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %on_add, ptr noundef nonnull align 8 dereferenceable(48) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__args.addr.i = alloca i32, align 4
-  %m_cuts = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %m_cuts, align 8
-  %tobool.not = icmp eq ptr %0, null
-  br i1 %tobool.not, label %if.then, label %if.end
+.loopexit:                                        ; preds = %40, %30
+  %45 = load ptr, ptr %5, align 8, !tbaa !11
+  %46 = load i32, ptr %25, align 8, !tbaa !3
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw %"class.sat::cut", ptr %45, i64 %47
+  %.not9.i.i.i = icmp eq i32 %46, 0
+  br i1 %.not9.i.i.i, label %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, label %.lr.ph.i.i.i
 
-if.then:                                          ; preds = %entry
-  %m_max_size = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %1 = load i32, ptr %m_max_size, align 4
-  %conv = zext i32 %1 to i64
-  %2 = mul nuw nsw i64 %conv, 48
-  %m_region = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %m_region, align 8
-  %call.i = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %2)
-  %isempty = icmp eq i32 %1, 0
-  br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
+.lr.ph.i.i.i:                                     ; preds = %.loopexit, %.lr.ph.i.i.i
+  %.011.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %36, %.loopexit ]
+  %.0810.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i ], [ %45, %.loopexit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.011.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %.0810.i.i.i, i64 48, i1 false), !tbaa.struct !19
+  %49 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 48
+  %.not.i.i.i = icmp eq ptr %49, %48
+  br i1 %.not.i.i.i, label %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, label %.lr.ph.i.i.i, !llvm.loop !31
 
-new.ctorloop:                                     ; preds = %if.then
-  %arrayctor.end = getelementptr inbounds nuw %"class.sat::cut", ptr %call.i, i64 %conv
-  br label %arrayctor.loop
+_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit: ; preds = %.lr.ph.i.i.i, %.loopexit
+  store ptr %36, ptr %5, align 8, !tbaa !11
+  br label %51
 
-arrayctor.loop:                                   ; preds = %arrayctor.loop, %new.ctorloop
-  %arrayctor.cur = phi ptr [ %call.i, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
-  %m_table.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayctor.cur, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_table.i, i8 0, i64 16, i1 false)
-  %arrayctor.next = getelementptr inbounds nuw i8, ptr %arrayctor.cur, i64 48
-  %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
-  br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
+51:                                               ; preds = %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, %23
+  %52 = phi ptr [ %36, %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit ], [ %24, %23 ]
+  %53 = load i32, ptr %0, align 8, !tbaa !23
+  %.not9 = icmp ne i32 %53, -1
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %.not.i.i = icmp ne ptr %55, null
+  %or.cond = select i1 %.not9, i1 %.not.i.i, i1 false
+  br i1 %or.cond, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, label %58
 
-arrayctor.cont:                                   ; preds = %arrayctor.loop, %if.then
-  store ptr %call.i, ptr %m_cuts, align 8
-  br label %if.end
+_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %51
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 %53, ptr %4, align 4, !tbaa !16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %57 = load ptr, ptr %56, align 8, !tbaa !26
+  call void %57(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %2)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %.pre = load ptr, ptr %5, align 8, !tbaa !11
+  br label %58
 
-if.end:                                           ; preds = %arrayctor.cont, %entry
-  %4 = phi ptr [ %call.i, %arrayctor.cont ], [ %0, %entry ]
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %5 = load i32, ptr %m_size, align 8
-  %m_max_size3 = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %6 = load i32, ptr %m_max_size3, align 4
-  %cmp = icmp eq i32 %5, %6
-  br i1 %cmp, label %if.then4, label %if.end25
-
-if.then4:                                         ; preds = %if.end
-  %mul = shl i32 %5, 1
-  store i32 %mul, ptr %m_max_size3, align 4
-  %conv7 = zext i32 %mul to i64
-  %7 = mul nuw nsw i64 %conv7, 48
-  %m_region8 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %8 = load ptr, ptr %m_region8, align 8
-  %call.i4 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %8, i64 noundef %7)
-  %isempty10 = icmp eq i32 %mul, 0
-  br i1 %isempty10, label %arrayctor.cont19, label %new.ctorloop11
-
-new.ctorloop11:                                   ; preds = %if.then4
-  %arrayctor.end12 = getelementptr inbounds nuw %"class.sat::cut", ptr %call.i4, i64 %conv7
-  br label %arrayctor.loop13
-
-arrayctor.loop13:                                 ; preds = %arrayctor.loop13, %new.ctorloop11
-  %arrayctor.cur14 = phi ptr [ %call.i4, %new.ctorloop11 ], [ %arrayctor.next17, %arrayctor.loop13 ]
-  %m_table.i5 = getelementptr inbounds nuw i8, ptr %arrayctor.cur14, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayctor.cur14, i8 0, i64 28, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_table.i5, i8 0, i64 16, i1 false)
-  %arrayctor.next17 = getelementptr inbounds nuw i8, ptr %arrayctor.cur14, i64 48
-  %arrayctor.done18 = icmp eq ptr %arrayctor.next17, %arrayctor.end12
-  br i1 %arrayctor.done18, label %arrayctor.cont19, label %arrayctor.loop13
-
-arrayctor.cont19:                                 ; preds = %arrayctor.loop13, %if.then4
-  %9 = load ptr, ptr %m_cuts, align 8
-  %10 = load i32, ptr %m_size, align 8
-  %idx.ext = zext i32 %10 to i64
-  %add.ptr = getelementptr inbounds nuw %"class.sat::cut", ptr %9, i64 %idx.ext
-  %cmp.not5.i.i.i = icmp eq i32 %10, 0
-  br i1 %cmp.not5.i.i.i, label %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, label %for.body.i.i.i
-
-for.body.i.i.i:                                   ; preds = %arrayctor.cont19, %for.body.i.i.i
-  %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %call.i4, %arrayctor.cont19 ]
-  %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %9, %arrayctor.cont19 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__cur.07.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %__first.addr.06.i.i.i, i64 48, i1 false)
-  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i, i64 48
-  %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i, i64 48
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr
-  br i1 %cmp.not.i.i.i, label %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, label %for.body.i.i.i, !llvm.loop !8
-
-_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit: ; preds = %for.body.i.i.i, %arrayctor.cont19
-  store ptr %call.i4, ptr %m_cuts, align 8
-  br label %if.end25
-
-if.end25:                                         ; preds = %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit, %if.end
-  %11 = phi ptr [ %call.i4, %_ZSt18uninitialized_copyIPN3sat3cutES2_ET0_T_S4_S3_.exit ], [ %4, %if.end ]
-  %12 = load i32, ptr %this, align 8
-  %cmp26.not = icmp ne i32 %12, -1
-  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %on_add, i64 16
-  %13 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp ne ptr %13, null
-  %or.cond = select i1 %cmp26.not, i1 %tobool.not.i.i, i1 false
-  br i1 %or.cond, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, label %if.end30
-
-_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %if.end25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  store i32 %12, ptr %__args.addr.i, align 4
-  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %on_add, i64 24
-  %14 = load ptr, ptr %_M_invoker.i, align 8
-  call void %14(ptr noundef nonnull align 8 dereferenceable(32) %on_add, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %c)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
-  %.pre = load ptr, ptr %m_cuts, align 8
-  br label %if.end30
-
-if.end30:                                         ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, %if.end25
-  %15 = phi ptr [ %.pre, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit ], [ %11, %if.end25 ]
-  %16 = load i32, ptr %m_size, align 8
-  %inc = add i32 %16, 1
-  store i32 %inc, ptr %m_size, align 8
-  %idxprom = zext i32 %16 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.sat::cut", ptr %15, i64 %idxprom
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx, ptr noundef nonnull align 8 dereferenceable(48) %c, i64 48, i1 false)
+58:                                               ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, %51
+  %59 = phi ptr [ %.pre, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit ], [ %52, %51 ]
+  %60 = load i32, ptr %25, align 8, !tbaa !3
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %25, align 8, !tbaa !3
+  %62 = zext i32 %60 to i64
+  %63 = getelementptr inbounds nuw %"class.sat::cut", ptr %59, i64 %62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !tbaa.struct !19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %on_del, i32 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__args.addr.i = alloca i32, align 4
-  %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp eq i32 %0, -1
-  br i1 %cmp.not, label %if.end, label %land.lhs.true
+define hidden void @_ZN3sat7cut_set6shrinkERSt8functionIFvjRKNS_3cutEEEj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i32, align 4
+  %5 = load i32, ptr %0, align 8, !tbaa !23
+  %.not = icmp eq i32 %5, -1
+  br i1 %.not, label %.loopexit, label %6
 
-land.lhs.true:                                    ; preds = %entry
-  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %on_del, i64 16
-  %1 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i.not = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.not, label %if.end, label %for.cond.preheader
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
+  %.not.i.i.not = icmp eq ptr %8, null
+  br i1 %.not.i.i.not, label %.loopexit, label %.preheader
 
-for.cond.preheader:                               ; preds = %land.lhs.true
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i32, ptr %m_size, align 8
-  %cmp27 = icmp ult i32 %j, %2
-  br i1 %cmp27, label %for.body.lr.ph, label %if.end
+.preheader:                                       ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !3
+  %11 = icmp ult i32 %2, %10
+  br i1 %11, label %.lr.ph, label %.loopexit
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %m_cuts = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %on_del, i64 24
-  %3 = zext i32 %j to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %.preheader
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = zext i32 %2 to i64
+  br label %15
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit
-  %indvars.iv = phi i64 [ %3, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit ]
-  %4 = load i32, ptr %this, align 8
-  %5 = load ptr, ptr %m_cuts, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  store i32 %4, ptr %__args.addr.i, align 4
-  %6 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i6 = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i6, label %if.then.i, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit
+15:                                               ; preds = %.lr.ph, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit
+  %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit ]
+  %16 = load i32, ptr %0, align 8, !tbaa !23
+  %17 = load ptr, ptr %12, align 8, !tbaa !11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 %16, ptr %4, align 4, !tbaa !16
+  %18 = load ptr, ptr %7, align 8, !tbaa !24
+  %.not.i.i7 = icmp eq ptr %18, null
+  br i1 %.not.i.i7, label %19, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit
 
-if.then.i:                                        ; preds = %for.body
-  call void @_ZSt25__throw_bad_function_callv() #18
+19:                                               ; preds = %15
+  call void @_ZSt25__throw_bad_function_callv() #20
   unreachable
 
-_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %for.body
-  %arrayidx = getelementptr inbounds nuw %"class.sat::cut", ptr %5, i64 %indvars.iv
-  %7 = load ptr, ptr %_M_invoker.i, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
+_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %15
+  %20 = getelementptr inbounds nuw %"class.sat::cut", ptr %17, i64 %indvars.iv
+  %21 = load ptr, ptr %13, align 8, !tbaa !26
+  call void %21(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %20)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %m_size, align 8
-  %9 = zext i32 %8 to i64
-  %cmp2 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %cmp2, label %for.body, label %if.end, !llvm.loop !7
+  %22 = load i32, ptr %9, align 8, !tbaa !3
+  %23 = zext i32 %22 to i64
+  %24 = icmp samesign ult i64 %indvars.iv.next, %23
+  br i1 %24, label %15, label %.loopexit, !llvm.loop !28
 
-if.end:                                           ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, %for.cond.preheader, %land.lhs.true, %entry
-  %m_size4 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 %j, ptr %m_size4, align 8
+.loopexit:                                        ; preds = %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, %.preheader, %6, %3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %2, ptr %25, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3sat7cut_set13no_duplicatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %table = alloca %class.hashtable, align 8
-  %ref.tmp5 = alloca ptr, align 8
-  %ref.tmp10 = alloca ptr, align 8
-  %call.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i.i.i.i, i8 0, i64 128, i1 false)
-  store ptr %call.i.i.i.i, ptr %table, align 8
-  %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %table, i64 8
-  store i32 8, ptr %m_capacity.i.i, align 8
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %table, i64 12
-  store i32 0, ptr %m_size.i.i, align 4
-  %m_num_deleted.i.i = getelementptr inbounds nuw i8, ptr %table, i64 16
-  store i32 0, ptr %m_num_deleted.i.i, align 8
-  %m_cuts.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %m_cuts.i, align 8
-  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i32, ptr %m_size.i, align 8
-  %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.sat::cut", ptr %0, i64 %idx.ext.i
-  %cmp.not9 = icmp eq i32 %1, 0
-  br i1 %cmp.not9, label %for.cond.preheader.i.i.i.i, label %for.body
+define hidden noundef zeroext i1 @_ZNK3sat7cut_set13no_duplicatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %class.hashtable, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
+  %5 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
+  br label %.lr.ph.i.i.i.i.i.i.i
 
-for.body:                                         ; preds = %entry, %for.inc
-  %__begin1.010 = phi ptr [ %incdec.ptr, %for.inc ], [ %0, %entry ]
-  store ptr %__begin1.010, ptr %ref.tmp5, align 8
-  %call.i6 = invoke noundef ptr @_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE9find_coreERKS4_(ptr noundef nonnull align 8 dereferenceable(20) %table, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
-          to label %invoke.cont6 unwind label %lpad.loopexit
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %1
+  %.08.i.i.i.i.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i.i.i.i.i ], [ %5, %1 ]
+  %.057.i.i.i.i.i.i.i = phi i32 [ %7, %.lr.ph.i.i.i.i.i.i.i ], [ 8, %1 ]
+  store i32 0, ptr %.08.i.i.i.i.i.i.i, align 8, !tbaa !32
+  %6 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i, i64 4
+  store i32 0, ptr %6, align 4, !tbaa !35
+  %7 = add nsw i32 %.057.i.i.i.i.i.i.i, -1
+  %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i = icmp eq i32 %7, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !36
 
-invoke.cont6:                                     ; preds = %for.body
-  %cmp.i.not = icmp eq ptr %call.i6, null
-  br i1 %cmp.i.not, label %if.end, label %if.then
+_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i
+  store ptr %5, ptr %2, align 8, !tbaa !37
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 8, ptr %9, align 8, !tbaa !40
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 0, ptr %10, align 4, !tbaa !41
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %11, align 8, !tbaa !42
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = load i32, ptr %14, align 8, !tbaa !3
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw %"class.sat::cut", ptr %13, i64 %16
+  %.not15 = icmp eq i32 %15, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
-if.then:                                          ; preds = %invoke.cont6
-  invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.1)
-          to label %invoke.cont9 unwind label %lpad.loopexit.split-lp
+._crit_edge.loopexit:                             ; preds = %33
+  %.pre = load ptr, ptr %2, align 8, !tbaa !37
+  br label %._crit_edge
 
-invoke.cont9:                                     ; preds = %if.then
-  call void @exit(i32 noundef 114) #19
-  unreachable
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit
+  %18 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit ]
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev.exit, label %20
 
-lpad.loopexit:                                    ; preds = %if.end, %for.body
-  %lpad.loopexit7 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
+20:                                               ; preds = %._crit_edge
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %18)
+          to label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev.exit unwind label %21
 
-lpad.loopexit.split-lp:                           ; preds = %if.then
-  %lpad.loopexit.split-lp8 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit7, %lpad.loopexit ], [ %lpad.loopexit.split-lp8, %lpad.loopexit.split-lp ]
-  call void @_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %table) #20
-  resume { ptr, i32 } %lpad.phi
-
-if.end:                                           ; preds = %invoke.cont6
-  store ptr %__begin1.010, ptr %ref.tmp10, align 8
-  invoke void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6insertEOS4_(ptr noundef nonnull align 8 dereferenceable(20) %table, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp10)
-          to label %for.inc unwind label %lpad.loopexit
-
-for.inc:                                          ; preds = %if.end
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.010, i64 48
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
-
-for.end:                                          ; preds = %for.inc
-  %.pre = load ptr, ptr %table, align 8
-  %cmp.i.i.i.i = icmp eq ptr %.pre, null
-  br i1 %cmp.i.i.i.i, label %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i.i
-
-for.cond.preheader.i.i.i.i:                       ; preds = %entry, %for.end
-  %2 = phi ptr [ %.pre, %for.end ], [ %call.i.i.i.i, %entry ]
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
-          to label %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEED2Ev.exit unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %for.cond.preheader.i.i.i.i
-  %3 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           catch ptr null
-  %4 = extractvalue { ptr, i32 } %3, 0
-  call void @__clang_call_terminate(ptr %4) #21
+  %23 = extractvalue { ptr, i32 } %22, 0
+  call void @__clang_call_terminate(ptr %23) #22
   unreachable
 
-_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEED2Ev.exit: ; preds = %for.end, %for.cond.preheader.i.i.i.i
+_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev.exit: ; preds = %._crit_edge, %20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #21
   ret i1 true
+
+.lr.ph:                                           ; preds = %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit, %33
+  %.016 = phi ptr [ %34, %33 ], [ %13, %_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEEC2EjRKS4_RKS5_.exit ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
+  store ptr %.016, ptr %3, align 8, !tbaa !43
+  %24 = invoke noundef ptr @_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE9find_coreERKS4_(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %25 unwind label %28
+
+25:                                               ; preds = %.lr.ph
+  %.not14 = icmp eq ptr %24, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  br i1 %.not14, label %32, label %26
+
+26:                                               ; preds = %25
+  invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 58, ptr noundef nonnull @.str.1)
+          to label %27 unwind label %30
+
+27:                                               ; preds = %26
+  invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
+          to label %32 unwind label %30
+
+28:                                               ; preds = %.lr.ph
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  br label %37
+
+30:                                               ; preds = %27, %26
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  br label %37
+
+32:                                               ; preds = %27, %25
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
+  store ptr %.016, ptr %4, align 8, !tbaa !43
+  invoke void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6insertEOS4_(ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %33 unwind label %35
+
+33:                                               ; preds = %32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  %34 = getelementptr inbounds nuw i8, ptr %.016, i64 48
+  %.not = icmp eq ptr %34, %17
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+
+35:                                               ; preds = %32
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
+  br label %37
+
+37:                                               ; preds = %35, %30, %28
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %31, %30 ], [ %29, %28 ]
+  call void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #21
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #21
+  resume { ptr, i32 } %.pn
 }
 
 declare i32 @__gxx_personality_v0(...)
 
 declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @_Z18invoke_exit_actionj(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6insertEOS4_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 12
-  %0 = load i32, ptr %m_size, align 4
-  %m_num_deleted = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i32, ptr %m_num_deleted, align 8
-  %add = add i32 %1, %0
-  %shl = shl i32 %add, 2
-  %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load i32, ptr %m_capacity, align 8
-  %mul = mul i32 %2, 3
-  %cmp = icmp ugt i32 %shl, %mul
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6insertEOS4_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i32, ptr %3, align 4, !tbaa !41
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !42
+  %7 = add i32 %6, %4
+  %8 = shl i32 %7, 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load i32, ptr %9, align 8, !tbaa !40
+  %11 = mul i32 %10, 3
+  %12 = icmp ugt i32 %8, %11
+  br i1 %12, label %13, label %14
 
-if.then:                                          ; preds = %entry
-  tail call void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(20) %this)
-  %.pre = load i32, ptr %m_capacity, align 8
-  br label %if.end
+13:                                               ; preds = %2
+  tail call void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(20) %0)
+  %.pre = load i32, ptr %9, align 8, !tbaa !40
+  br label %14
 
-if.end:                                           ; preds = %if.then, %entry
-  %3 = phi i32 [ %.pre, %if.then ], [ %2, %entry ]
-  %4 = load ptr, ptr %e, align 8
-  %call.i.i = tail call noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
-  %sub = add i32 %3, -1
-  %and = and i32 %sub, %call.i.i
-  %5 = load ptr, ptr %this, align 8
-  %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds nuw %class.default_hash_entry, ptr %5, i64 %idx.ext
-  %idx.ext5 = zext i32 %3 to i64
-  %add.ptr6 = getelementptr inbounds nuw %class.default_hash_entry, ptr %5, i64 %idx.ext5
-  %cmp7.not113 = icmp eq i32 %and, %3
-  br i1 %cmp7.not113, label %for.cond27.preheader, label %for.body.lr.ph
+14:                                               ; preds = %13, %2
+  %15 = phi i32 [ %.pre, %13 ], [ %10, %2 ]
+  %16 = load ptr, ptr %1, align 8, !tbaa !43
+  %17 = tail call noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %16)
+  %18 = add i32 %15, -1
+  %19 = and i32 %18, %17
+  %20 = load ptr, ptr %0, align 8, !tbaa !37
+  %21 = zext i32 %19 to i64
+  %22 = getelementptr inbounds nuw %class.default_hash_entry, ptr %20, i64 %21
+  %23 = zext i32 %15 to i64
+  %24 = getelementptr inbounds nuw %class.default_hash_entry, ptr %20, i64 %23
+  %.not88 = icmp eq i32 %19, %15
+  br i1 %.not88, label %.preheader, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %if.end
-  %m_table.i2.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %m_dont_care.i3.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %m_size.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %m_elems.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %for.body
+.lr.ph:                                           ; preds = %14
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br label %33
 
-for.cond27.preheader:                             ; preds = %for.inc, %if.end
-  %del_entry.0.lcssa = phi ptr [ null, %if.end ], [ %del_entry.1, %for.inc ]
-  %cmp28.not121 = icmp eq i32 %and, 0
-  br i1 %cmp28.not121, label %for.end56, label %for.body29.lr.ph
+.preheader:                                       ; preds = %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit, %14
+  %.044.lcssa = phi ptr [ null, %14 ], [ %.1, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit ]
+  %.not4794 = icmp eq i32 %19, 0
+  br i1 %.not4794, label %._crit_edge, label %.lr.ph97
 
-for.body29.lr.ph:                                 ; preds = %for.cond27.preheader
-  %m_table.i2.i.i.i52 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %m_dont_care.i3.i.i.i53 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %m_size.i.i5.i.i.i55 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %m_elems.i9.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %for.body29
+.lr.ph97:                                         ; preds = %.preheader
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  br label %81
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %del_entry.0115 = phi ptr [ null, %for.body.lr.ph ], [ %del_entry.1, %for.inc ]
-  %curr.0114 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %m_state.i = getelementptr inbounds nuw i8, ptr %curr.0114, i64 4
-  %6 = load i32, ptr %m_state.i, align 4
-  switch i32 %6, label %for.inc [
-    i32 2, label %if.then9
-    i32 0, label %if.then17
+33:                                               ; preds = %.lr.ph, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
+  %.04490 = phi ptr [ null, %.lr.ph ], [ %.1, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit ]
+  %.04589 = phi ptr [ %22, %.lr.ph ], [ %80, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit ]
+  %34 = getelementptr inbounds nuw i8, ptr %.04589, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !35
+  switch i32 %35, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit [
+    i32 2, label %36
+    i32 0, label %71
   ]
 
-if.then9:                                         ; preds = %for.body
-  %7 = load i32, ptr %curr.0114, align 8
-  %cmp11 = icmp eq i32 %7, %call.i.i
-  br i1 %cmp11, label %land.lhs.true, label %for.inc
+36:                                               ; preds = %33
+  %37 = load i32, ptr %.04589, align 8, !tbaa !32
+  %38 = icmp eq i32 %37, %17
+  br i1 %38, label %39, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
 
-land.lhs.true:                                    ; preds = %if.then9
-  %m_data.i = getelementptr inbounds nuw i8, ptr %curr.0114, i64 8
-  %8 = load ptr, ptr %m_data.i, align 8
-  %m_table.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %9 = load i64, ptr %m_table.i.i.i.i, align 8
-  %m_dont_care.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load i64, ptr %m_dont_care.i.i.i.i, align 8
-  %or.i.i.i.i = or i64 %10, %9
-  %m_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %11 = load i32, ptr %m_size.i.i.i.i.i, align 4
-  %sh_prom.i.i.i.i.i = zext nneg i32 %11 to i64
-  %shl.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i
-  %notmask.i.i.i.i.i = shl nsw i64 -1, %shl.i.i.i.i.i
-  %sub.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i, -1
-  %and.i.i.i.i = and i64 %or.i.i.i.i, %sub.i.i.i.i.i
-  %12 = load i64, ptr %m_table.i2.i.i.i, align 8
-  %13 = load i64, ptr %m_dont_care.i3.i.i.i, align 8
-  %or.i4.i.i.i = or i64 %13, %12
-  %14 = load i32, ptr %m_size.i.i5.i.i.i, align 4
-  %sh_prom.i.i6.i.i.i = zext nneg i32 %14 to i64
-  %shl.i.i7.i.i.i = shl nuw i64 1, %sh_prom.i.i6.i.i.i
-  %notmask.i.i8.i.i.i = shl nsw i64 -1, %shl.i.i7.i.i.i
-  %sub.i.i9.i.i.i = xor i64 %notmask.i.i8.i.i.i, -1
-  %and.i10.i.i.i = and i64 %or.i4.i.i.i, %sub.i.i9.i.i.i
-  %cmp.i.i.i = icmp eq i64 %and.i.i.i.i, %and.i10.i.i.i
-  %cmp.not.i.i.i.i = icmp eq i32 %11, %14
-  %or.cond.i.i.i = and i1 %cmp.not.i.i.i.i, %cmp.i.i.i
-  br i1 %or.cond.i.i.i, label %for.cond.preheader.i.i.i.i, label %for.inc
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %.04589, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !43
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %43 = load i64, ptr %42, align 8, !tbaa !44
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  %45 = load i64, ptr %44, align 8, !tbaa !45
+  %46 = or i64 %45, %43
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %48 = load i32, ptr %47, align 4, !tbaa !15
+  %49 = zext nneg i32 %48 to i64
+  %50 = shl nuw i64 1, %49
+  %notmask.i.i.i.i.i = shl nsw i64 -1, %50
+  %51 = xor i64 %notmask.i.i.i.i.i, -1
+  %52 = and i64 %46, %51
+  %53 = load i64, ptr %25, align 8, !tbaa !44
+  %54 = load i64, ptr %26, align 8, !tbaa !45
+  %55 = or i64 %54, %53
+  %56 = load i32, ptr %27, align 4, !tbaa !15
+  %57 = zext nneg i32 %56 to i64
+  %58 = shl nuw i64 1, %57
+  %notmask.i.i3.i.i.i = shl nsw i64 -1, %58
+  %59 = xor i64 %notmask.i.i3.i.i.i, -1
+  %60 = and i64 %55, %59
+  %61 = icmp eq i64 %52, %60
+  %.not.i.i.i.i = icmp eq i32 %48, %56
+  %or.cond.i.i.i = and i1 %.not.i.i.i.i, %61
+  br i1 %or.cond.i.i.i, label %.preheader.i.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
 
-for.cond.preheader.i.i.i.i:                       ; preds = %land.lhs.true
-  %cmp413.not.i.i.i.i = icmp eq i32 %11, 0
-  br i1 %cmp413.not.i.i.i.i, label %if.then14, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %39
+  %62 = icmp eq i32 %48, 0
+  br i1 %62, label %.loopexit63, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
 
-_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i:              ; preds = %for.cond.preheader.i.i.i.i
-  %m_elems.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i:              ; preds = %.preheader.i.i.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %_ZNK3sat3cutixEj.exit.i.i.i.i
 
-for.cond.i.i.i.i:                                 ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i
+64:                                               ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %sh_prom.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %if.then14, label %_ZNK3sat3cutixEj.exit.i.i.i.i, !llvm.loop !9
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %49
+  br i1 %exitcond.not.i.i.i.i, label %.loopexit63, label %_ZNK3sat3cutixEj.exit.i.i.i.i, !llvm.loop !46
 
-_ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %for.cond.i.i.i.i, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %15 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i11.i.i.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %16 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
-  %cmp6.not.i.i.i.i = icmp eq i32 %15, %16
-  br i1 %cmp6.not.i.i.i.i, label %for.cond.i.i.i.i, label %for.inc
+_ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %64, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %64 ]
+  %65 = getelementptr inbounds nuw [5 x i32], ptr %63, i64 0, i64 %indvars.iv.i.i.i.i
+  %66 = load i32, ptr %65, align 4, !tbaa !16
+  %67 = getelementptr inbounds nuw [5 x i32], ptr %28, i64 0, i64 %indvars.iv.i.i.i.i
+  %68 = load i32, ptr %67, align 4, !tbaa !16
+  %.not10.i.i.i.i = icmp eq i32 %66, %68
+  br i1 %.not10.i.i.i.i, label %64, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
 
-if.then14:                                        ; preds = %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i
-  %m_state.i.le170 = getelementptr inbounds nuw i8, ptr %curr.0114, i64 4
-  %m_data.i.le167 = getelementptr inbounds nuw i8, ptr %curr.0114, i64 8
-  store ptr %4, ptr %m_data.i.le167, align 8
-  store i32 2, ptr %m_state.i.le170, align 4
-  br label %return
+.loopexit63:                                      ; preds = %.preheader.i.i.i.i, %64
+  %69 = getelementptr inbounds nuw i8, ptr %.04589, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.04589, i64 8
+  store ptr %16, ptr %70, align 8, !tbaa !47
+  store i32 2, ptr %69, align 4, !tbaa !35
+  br label %129
 
-if.then17:                                        ; preds = %for.body
-  %tobool.not = icmp eq ptr %del_entry.0115, null
-  br i1 %tobool.not, label %if.end21, label %if.then18
+71:                                               ; preds = %33
+  %.not49 = icmp eq ptr %.04490, null
+  br i1 %.not49, label %75, label %72
 
-if.then18:                                        ; preds = %if.then17
-  %17 = load i32, ptr %m_num_deleted, align 8
-  %dec = add i32 %17, -1
-  store i32 %dec, ptr %m_num_deleted, align 8
-  %.pre138 = load ptr, ptr %e, align 8
-  br label %if.end21
+72:                                               ; preds = %71
+  %73 = load i32, ptr %5, align 8, !tbaa !42
+  %74 = add i32 %73, -1
+  store i32 %74, ptr %5, align 8, !tbaa !42
+  br label %75
 
-if.end21:                                         ; preds = %if.then17, %if.then18
-  %18 = phi ptr [ %.pre138, %if.then18 ], [ %4, %if.then17 ]
-  %new_entry.0 = phi ptr [ %del_entry.0115, %if.then18 ], [ %curr.0114, %if.then17 ]
-  %m_data.i38 = getelementptr inbounds nuw i8, ptr %new_entry.0, i64 8
-  store ptr %18, ptr %m_data.i38, align 8
-  %m_state.i39 = getelementptr inbounds nuw i8, ptr %new_entry.0, i64 4
-  store i32 2, ptr %m_state.i39, align 4
-  store i32 %call.i.i, ptr %new_entry.0, align 8
-  %19 = load i32, ptr %m_size, align 4
-  %inc = add i32 %19, 1
-  store i32 %inc, ptr %m_size, align 4
-  br label %return
+75:                                               ; preds = %71, %72
+  %.043 = phi ptr [ %.04490, %72 ], [ %.04589, %71 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.043, i64 8
+  store ptr %16, ptr %76, align 8, !tbaa !47
+  %77 = getelementptr inbounds nuw i8, ptr %.043, i64 4
+  store i32 2, ptr %77, align 4, !tbaa !35
+  store i32 %17, ptr %.043, align 8, !tbaa !32
+  %78 = load i32, ptr %3, align 4, !tbaa !41
+  %79 = add i32 %78, 1
+  store i32 %79, ptr %3, align 4, !tbaa !41
+  br label %129
 
-for.inc:                                          ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i, %for.body, %land.lhs.true, %if.then9
-  %del_entry.1 = phi ptr [ %del_entry.0115, %if.then9 ], [ %del_entry.0115, %land.lhs.true ], [ %curr.0114, %for.body ], [ %del_entry.0115, %_ZNK3sat3cutixEj.exit.i.i.i.i ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %curr.0114, i64 16
-  %cmp7.not = icmp eq ptr %incdec.ptr, %add.ptr6
-  br i1 %cmp7.not, label %for.cond27.preheader, label %for.body, !llvm.loop !10
+_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit: ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i, %33, %39, %36
+  %.1 = phi ptr [ %.04490, %36 ], [ %.04490, %39 ], [ %.04589, %33 ], [ %.04490, %_ZNK3sat3cutixEj.exit.i.i.i.i ]
+  %80 = getelementptr inbounds nuw i8, ptr %.04589, i64 16
+  %.not = icmp eq ptr %80, %24
+  br i1 %.not, label %.preheader, label %33, !llvm.loop !48
 
-for.body29:                                       ; preds = %for.body29.lr.ph, %for.inc54
-  %del_entry.2123 = phi ptr [ %del_entry.0.lcssa, %for.body29.lr.ph ], [ %del_entry.3, %for.inc54 ]
-  %curr.1122 = phi ptr [ %5, %for.body29.lr.ph ], [ %incdec.ptr55, %for.inc54 ]
-  %m_state.i40 = getelementptr inbounds nuw i8, ptr %curr.1122, i64 4
-  %20 = load i32, ptr %m_state.i40, align 4
-  switch i32 %20, label %for.inc54 [
-    i32 2, label %if.then31
-    i32 0, label %if.then41
+81:                                               ; preds = %.lr.ph97, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61
+  %.296 = phi ptr [ %.044.lcssa, %.lr.ph97 ], [ %.3, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61 ]
+  %.14695 = phi ptr [ %20, %.lr.ph97 ], [ %128, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.14695, i64 4
+  %83 = load i32, ptr %82, align 4, !tbaa !35
+  switch i32 %83, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61 [
+    i32 2, label %84
+    i32 0, label %119
   ]
 
-if.then31:                                        ; preds = %for.body29
-  %21 = load i32, ptr %curr.1122, align 8
-  %cmp33 = icmp eq i32 %21, %call.i.i
-  br i1 %cmp33, label %land.lhs.true34, label %for.inc54
+84:                                               ; preds = %81
+  %85 = load i32, ptr %.14695, align 8, !tbaa !32
+  %86 = icmp eq i32 %85, %17
+  br i1 %86, label %87, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61
 
-land.lhs.true34:                                  ; preds = %if.then31
-  %m_data.i42 = getelementptr inbounds nuw i8, ptr %curr.1122, i64 8
-  %22 = load ptr, ptr %m_data.i42, align 8
-  %m_table.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %23 = load i64, ptr %m_table.i.i.i.i43, align 8
-  %m_dont_care.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %24 = load i64, ptr %m_dont_care.i.i.i.i44, align 8
-  %or.i.i.i.i45 = or i64 %24, %23
-  %m_size.i.i.i.i.i46 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %25 = load i32, ptr %m_size.i.i.i.i.i46, align 4
-  %sh_prom.i.i.i.i.i47 = zext nneg i32 %25 to i64
-  %shl.i.i.i.i.i48 = shl nuw i64 1, %sh_prom.i.i.i.i.i47
-  %notmask.i.i.i.i.i49 = shl nsw i64 -1, %shl.i.i.i.i.i48
-  %sub.i.i.i.i.i50 = xor i64 %notmask.i.i.i.i.i49, -1
-  %and.i.i.i.i51 = and i64 %or.i.i.i.i45, %sub.i.i.i.i.i50
-  %26 = load i64, ptr %m_table.i2.i.i.i52, align 8
-  %27 = load i64, ptr %m_dont_care.i3.i.i.i53, align 8
-  %or.i4.i.i.i54 = or i64 %27, %26
-  %28 = load i32, ptr %m_size.i.i5.i.i.i55, align 4
-  %sh_prom.i.i6.i.i.i56 = zext nneg i32 %28 to i64
-  %shl.i.i7.i.i.i57 = shl nuw i64 1, %sh_prom.i.i6.i.i.i56
-  %notmask.i.i8.i.i.i58 = shl nsw i64 -1, %shl.i.i7.i.i.i57
-  %sub.i.i9.i.i.i59 = xor i64 %notmask.i.i8.i.i.i58, -1
-  %and.i10.i.i.i60 = and i64 %or.i4.i.i.i54, %sub.i.i9.i.i.i59
-  %cmp.i.i.i61 = icmp eq i64 %and.i.i.i.i51, %and.i10.i.i.i60
-  %cmp.not.i.i.i.i62 = icmp eq i32 %25, %28
-  %or.cond.i.i.i63 = and i1 %cmp.not.i.i.i.i62, %cmp.i.i.i61
-  br i1 %or.cond.i.i.i63, label %for.cond.preheader.i.i.i.i64, label %for.inc54
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %.14695, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !43
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %91 = load i64, ptr %90, align 8, !tbaa !44
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %93 = load i64, ptr %92, align 8, !tbaa !45
+  %94 = or i64 %93, %91
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  %96 = load i32, ptr %95, align 4, !tbaa !15
+  %97 = zext nneg i32 %96 to i64
+  %98 = shl nuw i64 1, %97
+  %notmask.i.i.i.i.i50 = shl nsw i64 -1, %98
+  %99 = xor i64 %notmask.i.i.i.i.i50, -1
+  %100 = and i64 %94, %99
+  %101 = load i64, ptr %29, align 8, !tbaa !44
+  %102 = load i64, ptr %30, align 8, !tbaa !45
+  %103 = or i64 %102, %101
+  %104 = load i32, ptr %31, align 4, !tbaa !15
+  %105 = zext nneg i32 %104 to i64
+  %106 = shl nuw i64 1, %105
+  %notmask.i.i3.i.i.i51 = shl nsw i64 -1, %106
+  %107 = xor i64 %notmask.i.i3.i.i.i51, -1
+  %108 = and i64 %103, %107
+  %109 = icmp eq i64 %100, %108
+  %.not.i.i.i.i52 = icmp eq i32 %96, %104
+  %or.cond.i.i.i53 = and i1 %.not.i.i.i.i52, %109
+  br i1 %or.cond.i.i.i53, label %.preheader.i.i.i.i54, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61
 
-for.cond.preheader.i.i.i.i64:                     ; preds = %land.lhs.true34
-  %cmp413.not.i.i.i.i65 = icmp eq i32 %25, 0
-  br i1 %cmp413.not.i.i.i.i65, label %if.then37, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i66
+.preheader.i.i.i.i54:                             ; preds = %87
+  %110 = icmp eq i32 %96, 0
+  br i1 %110, label %.loopexit, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55
 
-_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i66:            ; preds = %for.cond.preheader.i.i.i.i64
-  %m_elems.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  br label %_ZNK3sat3cutixEj.exit.i.i.i.i69
+_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55:            ; preds = %.preheader.i.i.i.i54
+  %111 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  br label %_ZNK3sat3cutixEj.exit.i.i.i.i56
 
-for.cond.i.i.i.i74:                               ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i69
-  %indvars.iv.next.i.i.i.i75 = add nuw nsw i64 %indvars.iv.i.i.i.i70, 1
-  %exitcond.not.i.i.i.i76 = icmp eq i64 %indvars.iv.next.i.i.i.i75, %sh_prom.i.i.i.i.i47
-  br i1 %exitcond.not.i.i.i.i76, label %if.then37, label %_ZNK3sat3cutixEj.exit.i.i.i.i69, !llvm.loop !9
+112:                                              ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i56
+  %indvars.iv.next.i.i.i.i59 = add nuw nsw i64 %indvars.iv.i.i.i.i57, 1
+  %exitcond.not.i.i.i.i60 = icmp eq i64 %indvars.iv.next.i.i.i.i59, %97
+  br i1 %exitcond.not.i.i.i.i60, label %.loopexit, label %_ZNK3sat3cutixEj.exit.i.i.i.i56, !llvm.loop !46
 
-_ZNK3sat3cutixEj.exit.i.i.i.i69:                  ; preds = %for.cond.i.i.i.i74, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i66
-  %indvars.iv.i.i.i.i70 = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i66 ], [ %indvars.iv.next.i.i.i.i75, %for.cond.i.i.i.i74 ]
-  %arrayidx.i.i.i.i.i71 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i.i.i.i67, i64 0, i64 %indvars.iv.i.i.i.i70
-  %29 = load i32, ptr %arrayidx.i.i.i.i.i71, align 4
-  %arrayidx.i11.i.i.i.i72 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9.i.i.i.i68, i64 0, i64 %indvars.iv.i.i.i.i70
-  %30 = load i32, ptr %arrayidx.i11.i.i.i.i72, align 4
-  %cmp6.not.i.i.i.i73 = icmp eq i32 %29, %30
-  br i1 %cmp6.not.i.i.i.i73, label %for.cond.i.i.i.i74, label %for.inc54
+_ZNK3sat3cutixEj.exit.i.i.i.i56:                  ; preds = %112, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55
+  %indvars.iv.i.i.i.i57 = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i55 ], [ %indvars.iv.next.i.i.i.i59, %112 ]
+  %113 = getelementptr inbounds nuw [5 x i32], ptr %111, i64 0, i64 %indvars.iv.i.i.i.i57
+  %114 = load i32, ptr %113, align 4, !tbaa !16
+  %115 = getelementptr inbounds nuw [5 x i32], ptr %32, i64 0, i64 %indvars.iv.i.i.i.i57
+  %116 = load i32, ptr %115, align 4, !tbaa !16
+  %.not10.i.i.i.i58 = icmp eq i32 %114, %116
+  br i1 %.not10.i.i.i.i58, label %112, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61
 
-if.then37:                                        ; preds = %for.cond.preheader.i.i.i.i64, %for.cond.i.i.i.i74
-  %m_state.i40.le176 = getelementptr inbounds nuw i8, ptr %curr.1122, i64 4
-  %m_data.i42.le173 = getelementptr inbounds nuw i8, ptr %curr.1122, i64 8
-  store ptr %4, ptr %m_data.i42.le173, align 8
-  store i32 2, ptr %m_state.i40.le176, align 4
-  br label %return
+.loopexit:                                        ; preds = %.preheader.i.i.i.i54, %112
+  %117 = getelementptr inbounds nuw i8, ptr %.14695, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.14695, i64 8
+  store ptr %16, ptr %118, align 8, !tbaa !47
+  store i32 2, ptr %117, align 4, !tbaa !35
+  br label %129
 
-if.then41:                                        ; preds = %for.body29
-  %tobool43.not = icmp eq ptr %del_entry.2123, null
-  br i1 %tobool43.not, label %if.end48, label %if.then44
+119:                                              ; preds = %81
+  %.not48 = icmp eq ptr %.296, null
+  br i1 %.not48, label %123, label %120
 
-if.then44:                                        ; preds = %if.then41
-  %31 = load i32, ptr %m_num_deleted, align 8
-  %dec46 = add i32 %31, -1
-  store i32 %dec46, ptr %m_num_deleted, align 8
-  %.pre139 = load ptr, ptr %e, align 8
-  br label %if.end48
+120:                                              ; preds = %119
+  %121 = load i32, ptr %5, align 8, !tbaa !42
+  %122 = add i32 %121, -1
+  store i32 %122, ptr %5, align 8, !tbaa !42
+  br label %123
 
-if.end48:                                         ; preds = %if.then41, %if.then44
-  %32 = phi ptr [ %.pre139, %if.then44 ], [ %4, %if.then41 ]
-  %new_entry42.0 = phi ptr [ %del_entry.2123, %if.then44 ], [ %curr.1122, %if.then41 ]
-  %m_data.i82 = getelementptr inbounds nuw i8, ptr %new_entry42.0, i64 8
-  store ptr %32, ptr %m_data.i82, align 8
-  %m_state.i83 = getelementptr inbounds nuw i8, ptr %new_entry42.0, i64 4
-  store i32 2, ptr %m_state.i83, align 4
-  store i32 %call.i.i, ptr %new_entry42.0, align 8
-  %33 = load i32, ptr %m_size, align 4
-  %inc50 = add i32 %33, 1
-  store i32 %inc50, ptr %m_size, align 4
-  br label %return
+123:                                              ; preds = %119, %120
+  %.0 = phi ptr [ %.296, %120 ], [ %.14695, %119 ]
+  %124 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %16, ptr %124, align 8, !tbaa !47
+  %125 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  store i32 2, ptr %125, align 4, !tbaa !35
+  store i32 %17, ptr %.0, align 8, !tbaa !32
+  %126 = load i32, ptr %3, align 4, !tbaa !41
+  %127 = add i32 %126, 1
+  store i32 %127, ptr %3, align 4, !tbaa !41
+  br label %129
 
-for.inc54:                                        ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i69, %for.body29, %land.lhs.true34, %if.then31
-  %del_entry.3 = phi ptr [ %del_entry.2123, %if.then31 ], [ %del_entry.2123, %land.lhs.true34 ], [ %curr.1122, %for.body29 ], [ %del_entry.2123, %_ZNK3sat3cutixEj.exit.i.i.i.i69 ]
-  %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %curr.1122, i64 16
-  %cmp28.not = icmp eq ptr %incdec.ptr55, %add.ptr
-  br i1 %cmp28.not, label %for.end56, label %for.body29, !llvm.loop !11
+_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61: ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i56, %81, %87, %84
+  %.3 = phi ptr [ %.296, %84 ], [ %.296, %87 ], [ %.14695, %81 ], [ %.296, %_ZNK3sat3cutixEj.exit.i.i.i.i56 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.14695, i64 16
+  %.not47 = icmp eq ptr %128, %22
+  br i1 %.not47, label %._crit_edge, label %81, !llvm.loop !49
 
-for.end56:                                        ; preds = %for.inc54, %for.cond27.preheader
-  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.11, i32 noundef 404, ptr noundef nonnull @.str.10)
-  tail call void @exit(i32 noundef 114) #19
-  unreachable
+._crit_edge:                                      ; preds = %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit61, %.preheader
+  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.11, i32 noundef 405, ptr noundef nonnull @.str.10)
+  tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
+  br label %129
 
-return:                                           ; preds = %if.end48, %if.then37, %if.end21, %if.then14
+129:                                              ; preds = %._crit_edge, %123, %.loopexit, %75, %.loopexit63
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN9hashtableIPKN3sat3cutENS1_9hash_procENS1_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load ptr, ptr %this, align 8
-  %cmp.i.i.i = icmp eq ptr %0, null
-  br i1 %cmp.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev.exit, label %for.cond.preheader.i.i.i
+define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = load ptr, ptr %0, align 8, !tbaa !37
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %5, label %4
 
-for.cond.preheader.i.i.i:                         ; preds = %entry
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %0)
-          to label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev.exit unwind label %terminate.lpad.i
+4:                                                ; preds = %1
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %2)
+          to label %5 unwind label %6
 
-terminate.lpad.i:                                 ; preds = %for.cond.preheader.i.i.i
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
-  unreachable
-
-_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEED2Ev.exit: ; preds = %entry, %for.cond.preheader.i.i.i
-  store ptr null, ptr %this, align 8
+5:                                                ; preds = %1, %4
+  store ptr null, ptr %0, align 8, !tbaa !37
   ret void
+
+6:                                                ; preds = %4
+  %7 = landingpad { ptr, i32 }
+          catch ptr null
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #22
+  unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat7cut_set7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
-entry:
-  %m_cuts.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load ptr, ptr %m_cuts.i, align 8
-  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i32, ptr %m_size.i, align 8
-  %idx.ext.i = zext i32 %1 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.sat::cut", ptr %0, i64 %idx.ext.i
-  %cmp.not6 = icmp eq i32 %1, 0
-  br i1 %cmp.not6, label %for.end, label %for.body
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat7cut_set7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = load ptr, ptr %3, align 8, !tbaa !11
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !3
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw %"class.sat::cut", ptr %4, i64 %7
+  %.not10 = icmp eq i32 %6, 0
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
-for.body:                                         ; preds = %entry, %for.body
-  %__begin1.07 = phi ptr [ %incdec.ptr, %for.body ], [ %0, %entry ]
-  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat3cut7displayERSo(ptr noundef nonnull align 8 dereferenceable(48) %__begin1.07, ptr noundef nonnull align 8 dereferenceable(8) %out)
-  %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.07, i64 48
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  ret ptr %1
 
-for.end:                                          ; preds = %for.body, %entry
-  ret ptr %out
+.lr.ph:                                           ; preds = %2, %.lr.ph
+  %.011 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat3cut7displayERSo(ptr noundef nonnull align 8 dereferenceable(48) %.011, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.2, i64 noundef 1)
+  %11 = getelementptr inbounds nuw i8, ptr %.011, i64 48
+  %.not = icmp eq ptr %11, %8
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat3cut7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
-entry:
-  %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.4)
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i32, ptr %m_size, align 4
-  %cmp10.not = icmp eq i32 %0, 0
-  br i1 %cmp10.not, label %for.end, label %_ZNK3sat3cutixEj.exit.lr.ph
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3sat3cut7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+  %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.4, i64 noundef 1)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = load i32, ptr %4, align 4, !tbaa !15
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %._crit_edge, label %_ZNK3sat3cutixEj.exit.lr.ph
 
-_ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %entry
-  %m_elems.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+_ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZNK3sat3cutixEj.exit
 
-_ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i, i64 0, i64 %indvars.iv
-  %1 = load i32, ptr %arrayidx.i, align 4
-  %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %1)
+._crit_edge:                                      ; preds = %34, %2
+  %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.6, i64 noundef 2)
+  %8 = load i32, ptr %4, align 4, !tbaa !15
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = load i64, ptr %11, align 8, !tbaa !45
+  %13 = or i64 %12, %10
+  %14 = zext nneg i32 %8 to i64
+  %15 = shl nuw i64 1, %14
+  %notmask.i.i = shl nsw i64 -1, %15
+  %16 = xor i64 %notmask.i.i, -1
+  %17 = and i64 %13, %16
+  br label %18
+
+18:                                               ; preds = %18, %._crit_edge
+  %.07.i = phi i32 [ 0, %._crit_edge ], [ %23, %18 ]
+  %19 = zext nneg i32 %.07.i to i64
+  %20 = shl nuw i64 1, %19
+  %21 = and i64 %17, %20
+  %.not.i = icmp eq i64 %21, 0
+  %.str.8..str.7.i = select i1 %.not.i, ptr @.str.8, ptr @.str.7
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.8..str.7.i, i64 noundef 1)
+  %23 = add i32 %.07.i, 1
+  %.0.highbits.i = lshr i32 %23, %8
+  %24 = icmp eq i32 %.0.highbits.i, 0
+  br i1 %24, label %18, label %_ZN3sat3cut13display_tableERSojm.exit, !llvm.loop !50
+
+_ZN3sat3cut13display_tableERSojm.exit:            ; preds = %18
+  ret ptr %1
+
+_ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit.lr.ph, %34
+  %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %34 ]
+  %25 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %26 = load i32, ptr %25, align 4, !tbaa !16
+  %27 = zext i32 %26 to i64
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = load i32, ptr %m_size, align 4
-  %3 = zext i32 %2 to i64
-  %cmp5 = icmp samesign ult i64 %indvars.iv.next, %3
-  br i1 %cmp5, label %if.then, label %for.inc
+  %29 = load i32, ptr %4, align 4, !tbaa !15
+  %30 = zext i32 %29 to i64
+  %31 = icmp samesign ult i64 %indvars.iv.next, %30
+  br i1 %31, label %32, label %34
 
-if.then:                                          ; preds = %_ZNK3sat3cutixEj.exit
-  %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.5)
-  %.pre = load i32, ptr %m_size, align 4
+32:                                               ; preds = %_ZNK3sat3cutixEj.exit
+  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, i64 noundef 1)
+  %.pre = load i32, ptr %4, align 4, !tbaa !15
   %.pre13 = zext i32 %.pre to i64
-  br label %for.inc
+  br label %34
 
-for.inc:                                          ; preds = %_ZNK3sat3cutixEj.exit, %if.then
-  %.pre-phi = phi i64 [ %3, %_ZNK3sat3cutixEj.exit ], [ %.pre13, %if.then ]
-  %cmp = icmp samesign ult i64 %indvars.iv.next, %.pre-phi
-  br i1 %cmp, label %_ZNK3sat3cutixEj.exit, label %for.end, !llvm.loop !12
-
-for.end:                                          ; preds = %for.inc, %entry
-  %call7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
-  %4 = load i32, ptr %m_size, align 4
-  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %5 = load i64, ptr %m_table.i, align 8
-  %m_dont_care.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %6 = load i64, ptr %m_dont_care.i, align 8
-  %or.i = or i64 %6, %5
-  %sh_prom.i.i = zext nneg i32 %4 to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %notmask.i.i = shl nsw i64 -1, %shl.i.i
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %and.i = and i64 %or.i, %sub.i.i
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.body.i, %for.end
-  %i.05.i = phi i32 [ 0, %for.end ], [ %inc.i, %for.body.i ]
-  %sh_prom.i = zext nneg i32 %i.05.i to i64
-  %shl1.i = shl nuw i64 1, %sh_prom.i
-  %and.i9 = and i64 %and.i, %shl1.i
-  %cmp2.not.i = icmp eq i64 %and.i9, 0
-  %.str.8..str.7.i = select i1 %cmp2.not.i, ptr @.str.8, ptr @.str.7
-  %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.8..str.7.i)
-  %inc.i = add i32 %i.05.i, 1
-  %i.0.highbits.i = lshr i32 %inc.i, %4
-  %cmp.i = icmp eq i32 %i.0.highbits.i, 0
-  br i1 %cmp.i, label %for.body.i, label %_ZN3sat3cut13display_tableERSojm.exit, !llvm.loop !13
-
-_ZN3sat3cut13display_tableERSojm.exit:            ; preds = %for.body.i
-  ret ptr %out
+34:                                               ; preds = %_ZNK3sat3cutixEj.exit, %32
+  %.pre-phi = phi i64 [ %30, %_ZNK3sat3cutixEj.exit ], [ %.pre13, %32 ]
+  %35 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi
+  br i1 %35, label %_ZNK3sat3cutixEj.exit, label %._crit_edge, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %c) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__args.addr.i.i = alloca i32, align 4
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load i32, ptr %m_size, align 8
-  %cmp17.not = icmp eq i32 %0, 0
-  br i1 %cmp17.not, label %for.end, label %for.body.lr.ph
+define hidden void @_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i32, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = load i32, ptr %5, align 8, !tbaa !3
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %.loopexit7, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %m_cuts = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %1 = load ptr, ptr %m_cuts, align 8
-  %m_table.i2.i = getelementptr inbounds nuw i8, ptr %c, i64 32
-  %2 = load i64, ptr %m_table.i2.i, align 8
-  %m_dont_care.i3.i = getelementptr inbounds nuw i8, ptr %c, i64 40
-  %3 = load i64, ptr %m_dont_care.i3.i, align 8
-  %or.i4.i = or i64 %3, %2
-  %m_size.i.i5.i = getelementptr inbounds nuw i8, ptr %c, i64 4
-  %4 = load i32, ptr %m_size.i.i5.i, align 4
-  %sh_prom.i.i6.i = zext nneg i32 %4 to i64
-  %shl.i.i7.i = shl nuw i64 1, %sh_prom.i.i6.i
-  %notmask.i.i8.i = shl nsw i64 -1, %shl.i.i7.i
-  %sub.i.i9.i = xor i64 %notmask.i.i8.i, -1
-  %and.i10.i = and i64 %or.i4.i, %sub.i.i9.i
-  %m_elems.i9.i.i = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %wide.trip.count = zext i32 %0 to i64
-  %cmp413.not.i.i = icmp eq i32 %4, 0
-  br label %for.body
+.lr.ph:                                           ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !44
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %12 = load i64, ptr %11, align 8, !tbaa !45
+  %13 = or i64 %12, %10
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %15 = load i32, ptr %14, align 4, !tbaa !15
+  %16 = zext nneg i32 %15 to i64
+  %17 = shl nuw i64 1, %16
+  %notmask.i.i3.i = shl nsw i64 -1, %17
+  %18 = xor i64 %notmask.i.i3.i, -1
+  %19 = and i64 %13, %18
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %wide.trip.count = zext i32 %6 to i64
+  %21 = icmp eq i32 %15, 0
+  br label %22
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds nuw %"class.sat::cut", ptr %1, i64 %indvars.iv
-  %m_table.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
-  %5 = load i64, ptr %m_table.i.i, align 8
-  %m_dont_care.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
-  %6 = load i64, ptr %m_dont_care.i.i, align 8
-  %or.i.i = or i64 %6, %5
-  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %7 = load i32, ptr %m_size.i.i.i, align 4
-  %sh_prom.i.i.i = zext nneg i32 %7 to i64
-  %shl.i.i.i = shl nuw i64 1, %sh_prom.i.i.i
-  %notmask.i.i.i = shl nsw i64 -1, %shl.i.i.i
-  %sub.i.i.i = xor i64 %notmask.i.i.i, -1
-  %and.i.i = and i64 %or.i.i, %sub.i.i.i
-  %cmp.i = icmp eq i64 %and.i.i, %and.i10.i
-  %cmp.not.i.i = icmp eq i32 %7, %4
-  %or.cond.i = and i1 %cmp.not.i.i, %cmp.i
-  br i1 %or.cond.i, label %for.cond.preheader.i.i, label %for.inc
+22:                                               ; preds = %.lr.ph, %_ZNK3sat3cuteqERKS0_.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK3sat3cuteqERKS0_.exit ]
+  %23 = getelementptr inbounds nuw %"class.sat::cut", ptr %8, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !44
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %27 = load i64, ptr %26, align 8, !tbaa !45
+  %28 = or i64 %27, %25
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !15
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw i64 1, %31
+  %notmask.i.i.i = shl nsw i64 -1, %32
+  %33 = xor i64 %notmask.i.i.i, -1
+  %34 = and i64 %28, %33
+  %35 = icmp eq i64 %34, %19
+  %.not.i.i = icmp eq i32 %30, %15
+  %or.cond.i = and i1 %.not.i.i, %35
+  br i1 %or.cond.i, label %.preheader.i.i, label %_ZNK3sat3cuteqERKS0_.exit
 
-for.cond.preheader.i.i:                           ; preds = %for.body
-  br i1 %cmp413.not.i.i, label %if.then, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i
+.preheader.i.i:                                   ; preds = %22
+  br i1 %21, label %.loopexit, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i
 
-_ZNK3sat3cutixEj.exit.lr.ph.i.i:                  ; preds = %for.cond.preheader.i.i
-  %m_elems.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+_ZNK3sat3cutixEj.exit.lr.ph.i.i:                  ; preds = %.preheader.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br label %_ZNK3sat3cutixEj.exit.i.i
 
-for.cond.i.i:                                     ; preds = %_ZNK3sat3cutixEj.exit.i.i
+37:                                               ; preds = %_ZNK3sat3cutixEj.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %sh_prom.i.i.i
-  br i1 %exitcond.not.i.i, label %if.then, label %_ZNK3sat3cutixEj.exit.i.i, !llvm.loop !9
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %31
+  br i1 %exitcond.not.i.i, label %.loopexit, label %_ZNK3sat3cutixEj.exit.i.i, !llvm.loop !46
 
-_ZNK3sat3cutixEj.exit.i.i:                        ; preds = %for.cond.i.i, %_ZNK3sat3cutixEj.exit.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.cond.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i.i, i64 0, i64 %indvars.iv.i.i
-  %8 = load i32, ptr %arrayidx.i.i.i, align 4
-  %arrayidx.i11.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9.i.i, i64 0, i64 %indvars.iv.i.i
-  %9 = load i32, ptr %arrayidx.i11.i.i, align 4
-  %cmp6.not.i.i = icmp eq i32 %8, %9
-  br i1 %cmp6.not.i.i, label %for.cond.i.i, label %for.inc
+_ZNK3sat3cutixEj.exit.i.i:                        ; preds = %37, %_ZNK3sat3cutixEj.exit.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
+  %38 = getelementptr inbounds nuw [5 x i32], ptr %36, i64 0, i64 %indvars.iv.i.i
+  %39 = load i32, ptr %38, align 4, !tbaa !16
+  %40 = getelementptr inbounds nuw [5 x i32], ptr %20, i64 0, i64 %indvars.iv.i.i
+  %41 = load i32, ptr %40, align 4, !tbaa !16
+  %.not10.i.i = icmp eq i32 %39, %41
+  br i1 %.not10.i.i, label %37, label %_ZNK3sat3cuteqERKS0_.exit
 
-if.then:                                          ; preds = %for.cond.preheader.i.i, %for.cond.i.i
-  %10 = load i32, ptr %this, align 8
-  %cmp.not.i = icmp ne i32 %10, -1
-  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %on_del, i64 16
-  %11 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp ne ptr %11, null
-  %or.cond.i4 = select i1 %cmp.not.i, i1 %tobool.not.i.i.i, i1 false
-  br i1 %or.cond.i4, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, label %_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit
+.loopexit:                                        ; preds = %.preheader.i.i, %37
+  %42 = load i32, ptr %0, align 8, !tbaa !23
+  %.not.i = icmp ne i32 %42, -1
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %.not.i.i.i = icmp ne ptr %44, null
+  %or.cond.i6 = select i1 %.not.i, i1 %.not.i.i.i, i1 false
+  br i1 %or.cond.i6, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i, label %_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit
 
-_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %if.then
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i.i)
-  store i32 %10, ptr %__args.addr.i.i, align 4
-  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %on_del, i64 24
-  %12 = load ptr, ptr %_M_invoker.i.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i.i)
-  %.pre = load ptr, ptr %m_cuts, align 8
-  %.pre26 = load i32, ptr %m_size, align 8
+_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i:  ; preds = %.loopexit
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 %42, ptr %4, align 4, !tbaa !16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !26
+  call void %46(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %23)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  %.pre = load ptr, ptr %7, align 8, !tbaa !11
+  %.pre24 = load i32, ptr %5, align 8, !tbaa !3
   br label %_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit
 
-_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %if.then, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i
-  %13 = phi i32 [ %0, %if.then ], [ %.pre26, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i ]
-  %14 = phi ptr [ %1, %if.then ], [ %.pre, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i ]
-  %dec.i = add i32 %13, -1
-  store i32 %dec.i, ptr %m_size, align 8
-  %idxprom4.i = zext i32 %dec.i to i64
-  %arrayidx5.i = getelementptr inbounds nuw %"class.sat::cut", ptr %14, i64 %idxprom4.i
-  %arrayidx8.i = getelementptr inbounds nuw %"class.sat::cut", ptr %14, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx8.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx5.i, i64 48, i1 false)
-  br label %for.end
+_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit: ; preds = %.loopexit, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i
+  %47 = phi i32 [ %6, %.loopexit ], [ %.pre24, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i ]
+  %48 = phi ptr [ %8, %.loopexit ], [ %.pre, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit.i ]
+  %49 = add i32 %47, -1
+  store i32 %49, ptr %5, align 8, !tbaa !3
+  %50 = zext i32 %49 to i64
+  %51 = getelementptr inbounds nuw %"class.sat::cut", ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw %"class.sat::cut", ptr %48, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %52, ptr noundef nonnull align 8 dereferenceable(48) %51, i64 48, i1 false), !tbaa.struct !19
+  br label %.loopexit7
 
-for.inc:                                          ; preds = %_ZNK3sat3cutixEj.exit.i.i, %for.body
+_ZNK3sat3cuteqERKS0_.exit:                        ; preds = %_ZNK3sat3cutixEj.exit.i.i, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit7, label %22, !llvm.loop !52
 
-for.end:                                          ; preds = %for.inc, %entry, %_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit
+.loopexit7:                                       ; preds = %_ZNK3sat3cuteqERKS0_.exit, %3, %_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3sat3cuteqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %other) local_unnamed_addr #7 align 2 {
-entry:
-  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load i64, ptr %m_table.i, align 8
-  %m_dont_care.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %m_dont_care.i, align 8
-  %or.i = or i64 %1, %0
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %2 = load i32, ptr %m_size.i.i, align 4
-  %sh_prom.i.i = zext nneg i32 %2 to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %notmask.i.i = shl nsw i64 -1, %shl.i.i
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %and.i = and i64 %or.i, %sub.i.i
-  %m_table.i2 = getelementptr inbounds nuw i8, ptr %other, i64 32
-  %3 = load i64, ptr %m_table.i2, align 8
-  %m_dont_care.i3 = getelementptr inbounds nuw i8, ptr %other, i64 40
-  %4 = load i64, ptr %m_dont_care.i3, align 8
-  %or.i4 = or i64 %4, %3
-  %m_size.i.i5 = getelementptr inbounds nuw i8, ptr %other, i64 4
-  %5 = load i32, ptr %m_size.i.i5, align 4
-  %sh_prom.i.i6 = zext nneg i32 %5 to i64
-  %shl.i.i7 = shl nuw i64 1, %sh_prom.i.i6
-  %notmask.i.i8 = shl nsw i64 -1, %shl.i.i7
-  %sub.i.i9 = xor i64 %notmask.i.i8, -1
-  %and.i10 = and i64 %or.i4, %sub.i.i9
-  %cmp = icmp eq i64 %and.i, %and.i10
-  %cmp.not.i = icmp eq i32 %2, %5
-  %or.cond = and i1 %cmp.not.i, %cmp
-  br i1 %or.cond, label %for.cond.preheader.i, label %land.end
+define hidden noundef zeroext i1 @_ZNK3sat3cuteqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load i64, ptr %3, align 8, !tbaa !44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load i64, ptr %5, align 8, !tbaa !45
+  %7 = or i64 %6, %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !15
+  %10 = zext nneg i32 %9 to i64
+  %11 = shl nuw i64 1, %10
+  %notmask.i.i = shl nsw i64 -1, %11
+  %12 = xor i64 %notmask.i.i, -1
+  %13 = and i64 %7, %12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = load i64, ptr %14, align 8, !tbaa !44
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %17 = load i64, ptr %16, align 8, !tbaa !45
+  %18 = or i64 %17, %15
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !15
+  %21 = zext nneg i32 %20 to i64
+  %22 = shl nuw i64 1, %21
+  %notmask.i.i3 = shl nsw i64 -1, %22
+  %23 = xor i64 %notmask.i.i3, -1
+  %24 = and i64 %18, %23
+  %25 = icmp eq i64 %13, %24
+  %.not.i = icmp eq i32 %9, %20
+  %or.cond = and i1 %.not.i, %25
+  br i1 %or.cond, label %.preheader.i, label %_ZNK3sat3cut6dom_eqERKS0_.exit
 
-for.cond.preheader.i:                             ; preds = %entry
-  %cmp413.not.i = icmp eq i32 %2, 0
-  br i1 %cmp413.not.i, label %land.end, label %_ZNK3sat3cutixEj.exit.lr.ph.i
+.preheader.i:                                     ; preds = %2
+  %26 = icmp eq i32 %9, 0
+  br i1 %26, label %_ZNK3sat3cut6dom_eqERKS0_.exit, label %_ZNK3sat3cutixEj.exit.lr.ph.i
 
-_ZNK3sat3cutixEj.exit.lr.ph.i:                    ; preds = %for.cond.preheader.i
-  %m_elems.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %m_elems.i9.i = getelementptr inbounds nuw i8, ptr %other, i64 8
+_ZNK3sat3cutixEj.exit.lr.ph.i:                    ; preds = %.preheader.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %_ZNK3sat3cutixEj.exit.i
 
 _ZNK3sat3cutixEj.exit.i:                          ; preds = %_ZNK3sat3cutixEj.exit.i, %_ZNK3sat3cutixEj.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK3sat3cutixEj.exit.i ]
-  %arrayidx.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i, i64 0, i64 %indvars.iv.i
-  %6 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx.i11.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9.i, i64 0, i64 %indvars.iv.i
-  %7 = load i32, ptr %arrayidx.i11.i, align 4
-  %cmp6.not.i = icmp eq i32 %6, %7
+  %29 = getelementptr inbounds nuw [5 x i32], ptr %27, i64 0, i64 %indvars.iv.i
+  %30 = load i32, ptr %29, align 4, !tbaa !16
+  %31 = getelementptr inbounds nuw [5 x i32], ptr %28, i64 0, i64 %indvars.iv.i
+  %32 = load i32, ptr %31, align 4, !tbaa !16
+  %.not10.i = icmp eq i32 %30, %32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %sh_prom.i.i
-  %or.cond11.not = select i1 %cmp6.not.i, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond11.not, label %_ZNK3sat3cutixEj.exit.i, label %land.end, !llvm.loop !9
+  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, %10
+  %or.cond4.not = select i1 %.not10.i, i1 %exitcond.not.i, i1 false
+  br i1 %or.cond4.not, label %_ZNK3sat3cutixEj.exit.i, label %_ZNK3sat3cut6dom_eqERKS0_.exit, !llvm.loop !46
 
-land.end:                                         ; preds = %_ZNK3sat3cutixEj.exit.i, %for.cond.preheader.i, %entry
-  %8 = phi i1 [ false, %entry ], [ true, %for.cond.preheader.i ], [ %cmp6.not.i, %_ZNK3sat3cutixEj.exit.i ]
-  ret i1 %8
+_ZNK3sat3cut6dom_eqERKS0_.exit:                   ; preds = %_ZNK3sat3cutixEj.exit.i, %.preheader.i, %2
+  %33 = phi i1 [ false, %2 ], [ true, %.preheader.i ], [ %.not10.i, %_ZNK3sat3cutixEj.exit.i ]
+  ret i1 %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %on_del, i32 noundef %idx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %__args.addr.i = alloca i32, align 4
-  %0 = load i32, ptr %this, align 8
-  %cmp.not = icmp ne i32 %0, -1
-  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %on_del, i64 16
-  %1 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i = icmp ne ptr %1, null
-  %or.cond = select i1 %cmp.not, i1 %tobool.not.i.i, i1 false
-  br i1 %or.cond, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, label %entry.if.end_crit_edge
+define hidden void @_ZN3sat7cut_set5evictERSt8functionIFvjRKNS_3cutEEEj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i32, align 4
+  %5 = load i32, ptr %0, align 8, !tbaa !23
+  %.not = icmp ne i32 %5, -1
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = load ptr, ptr %6, align 8
+  %.not.i.i = icmp ne ptr %7, null
+  %or.cond = select i1 %.not, i1 %.not.i.i, i1 false
+  br i1 %or.cond, label %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit, label %._crit_edge
 
-entry.if.end_crit_edge:                           ; preds = %entry
-  %.pre = zext i32 %idx to i64
-  br label %if.end
+._crit_edge:                                      ; preds = %3
+  %.pre = zext i32 %2 to i64
+  br label %14
 
-_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %entry
-  %m_cuts = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %2 = load ptr, ptr %m_cuts, align 8
-  %idxprom = zext i32 %idx to i64
-  %arrayidx = getelementptr inbounds nuw %"class.sat::cut", ptr %2, i64 %idxprom
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  store i32 %0, ptr %__args.addr.i, align 4
-  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %on_del, i64 24
-  %3 = load ptr, ptr %_M_invoker.i, align 8
-  call void %3(ptr noundef nonnull align 8 dereferenceable(32) %on_del, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i)
-  br label %if.end
+_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit:    ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = load ptr, ptr %8, align 8, !tbaa !11
+  %10 = zext i32 %2 to i64
+  %11 = getelementptr inbounds nuw %"class.sat::cut", ptr %9, i64 %10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
+  store i32 %5, ptr %4, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  call void %13(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(48) %11)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
+  br label %14
 
-if.end:                                           ; preds = %entry.if.end_crit_edge, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit
-  %idxprom7.pre-phi = phi i64 [ %.pre, %entry.if.end_crit_edge ], [ %idxprom, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit ]
-  %m_cuts3 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %4 = load ptr, ptr %m_cuts3, align 8
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %5 = load i32, ptr %m_size, align 8
-  %dec = add i32 %5, -1
-  store i32 %dec, ptr %m_size, align 8
-  %idxprom4 = zext i32 %dec to i64
-  %arrayidx5 = getelementptr inbounds nuw %"class.sat::cut", ptr %4, i64 %idxprom4
-  %arrayidx8 = getelementptr inbounds nuw %"class.sat::cut", ptr %4, i64 %idxprom7.pre-phi
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx5, i64 48, i1 false)
+14:                                               ; preds = %._crit_edge, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %10, %_ZNKSt8functionIFvjRKN3sat3cutEEEclEjS3_.exit ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %18 = load i32, ptr %17, align 8, !tbaa !3
+  %19 = add i32 %18, -1
+  store i32 %19, ptr %17, align 8, !tbaa !3
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr inbounds nuw %"class.sat::cut", ptr %16, i64 %20
+  %22 = getelementptr inbounds nuw %"class.sat::cut", ptr %16, i64 %.pre-phi
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %21, i64 48, i1 false), !tbaa.struct !19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cut_set4initER6regionjj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (16, 20)) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, i32 noundef %max_sz, i32 noundef %v) local_unnamed_addr #3 align 2 {
-entry:
-  store i32 %v, ptr %this, align 8
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 0, ptr %m_size, align 8
-  %m_region = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load ptr, ptr %m_region, align 8
-  %tobool.not = icmp ne ptr %0, null
-  %m_max_size = getelementptr inbounds nuw i8, ptr %this, i64 20
-  %1 = load i32, ptr %m_max_size, align 4
-  %cmp.not = icmp eq i32 %1, 0
-  %or.cond = select i1 %tobool.not, i1 %cmp.not, i1 false
-  br i1 %or.cond, label %if.then, label %if.end
+define hidden void @_ZN3sat7cut_set4initER6regionjj(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 4), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+  store i32 %3, ptr %0, align 8, !tbaa !23
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %5, align 8, !tbaa !3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
+  %.not = icmp ne ptr %7, null
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %9 = load i32, ptr %8, align 4
+  %.not2 = icmp eq i32 %9, 0
+  %or.cond = select i1 %.not, i1 %.not2, i1 false
+  br i1 %or.cond, label %10, label %11
 
-if.then:                                          ; preds = %entry
+10:                                               ; preds = %4
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 114, ptr noundef nonnull @.str.3)
-  tail call void @exit(i32 noundef 114) #19
-  unreachable
+  tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
+  %.pre = load ptr, ptr %6, align 8, !tbaa !30
+  br label %11
 
-if.end:                                           ; preds = %entry
-  %tobool3.not = icmp eq ptr %0, null
-  br i1 %tobool3.not, label %if.then4, label %if.end7
+11:                                               ; preds = %10, %4
+  %12 = phi ptr [ %.pre, %10 ], [ %7, %4 ]
+  %.not3 = icmp eq ptr %12, null
+  br i1 %.not3, label %13, label %15
 
-if.then4:                                         ; preds = %if.end
-  store i32 2, ptr %m_max_size, align 4
-  store ptr %r, ptr %m_region, align 8
-  %m_cuts = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr null, ptr %m_cuts, align 8
-  br label %if.end7
+13:                                               ; preds = %11
+  store i32 2, ptr %8, align 4, !tbaa !29
+  store ptr %1, ptr %6, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr null, ptr %14, align 8, !tbaa !11
+  br label %15
 
-if.end7:                                          ; preds = %if.then4, %if.end
+15:                                               ; preds = %13, %11
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK3sat3cut11shift_tableERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %c) local_unnamed_addr #3 align 2 {
-entry:
-  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i32, ptr %m_size.i, align 4
-  %cmp.not.i.not = icmp eq i32 %0, 0
-  %m_elems.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load i32, ptr %m_elems.i, align 8
-  %m_size.i9 = getelementptr inbounds nuw i8, ptr %c, i64 4
-  %2 = load i32, ptr %m_size.i9, align 4
-  %cmp.not3137 = icmp eq i32 %1, -1
-  %cmp.not31 = select i1 %cmp.not.i.not, i1 true, i1 %cmp.not3137
-  br i1 %cmp.not31, label %for.end, label %for.body.lr.ph
+define hidden noundef i64 @_ZNK3sat3cut11shift_tableERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+_ZNK3sat3cutixEj.exit:
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3 = load i32, ptr %2, align 4, !tbaa !15
+  %.not.i.not = icmp eq i32 %3, 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !15
+  %.not2632 = icmp eq i32 %5, -1
+  %.not26 = select i1 %.not.i.not, i1 true, i1 %.not2632
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %cmp.not.i10.not = icmp eq i32 %2, 0
-  %m_elems.i13 = getelementptr inbounds nuw i8, ptr %c, i64 8
-  %3 = load i32, ptr %m_elems.i13, align 8
-  %cond.i11 = select i1 %cmp.not.i10.not, i32 -1, i32 %3
-  br label %for.body
+.lr.ph:                                           ; preds = %_ZNK3sat3cutixEj.exit
+  %.not.i20.not = icmp eq i32 %7, 0
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = load i32, ptr %8, align 8
+  %10 = select i1 %.not.i20.not, i32 -1, i32 %9
+  br label %2656
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNK3sat3cutixEj.exit28
-  %y.036 = phi i32 [ %cond.i11, %for.body.lr.ph ], [ %cond.i23, %_ZNK3sat3cutixEj.exit28 ]
-  %x.035 = phi i32 [ %1, %for.body.lr.ph ], [ %x.1, %_ZNK3sat3cutixEj.exit28 ]
-  %j.034 = phi i32 [ 0, %for.body.lr.ph ], [ %inc5, %_ZNK3sat3cutixEj.exit28 ]
-  %i.033 = phi i32 [ 0, %for.body.lr.ph ], [ %i.1, %_ZNK3sat3cutixEj.exit28 ]
-  %index.032 = phi i32 [ 0, %for.body.lr.ph ], [ %index.1, %_ZNK3sat3cutixEj.exit28 ]
-  %cmp3 = icmp eq i32 %x.035, %y.036
-  br i1 %cmp3, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.body
-  %shl = shl nuw i32 1, %j.034
-  %or = or i32 %shl, %index.032
-  %inc = add i32 %i.033, 1
-  %cmp.not.i16 = icmp ult i32 %inc, %0
-  br i1 %cmp.not.i16, label %cond.false.i18, label %if.end
-
-cond.false.i18:                                   ; preds = %if.then
-  %idxprom.i = zext i32 %inc to i64
-  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i, i64 0, i64 %idxprom.i
-  %4 = load i32, ptr %arrayidx.i, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %cond.false.i18, %if.then, %for.body
-  %index.1 = phi i32 [ %index.032, %for.body ], [ %or, %if.then ], [ %or, %cond.false.i18 ]
-  %i.1 = phi i32 [ %i.033, %for.body ], [ %inc, %if.then ], [ %inc, %cond.false.i18 ]
-  %x.1 = phi i32 [ %x.035, %for.body ], [ -1, %if.then ], [ %4, %cond.false.i18 ]
-  %inc5 = add i32 %j.034, 1
-  %cmp.not.i22 = icmp ult i32 %inc5, %2
-  br i1 %cmp.not.i22, label %cond.false.i24, label %_ZNK3sat3cutixEj.exit28
-
-cond.false.i24:                                   ; preds = %if.end
-  %idxprom.i26 = zext i32 %inc5 to i64
-  %arrayidx.i27 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i13, i64 0, i64 %idxprom.i26
-  %5 = load i32, ptr %arrayidx.i27, align 4
-  br label %_ZNK3sat3cutixEj.exit28
-
-_ZNK3sat3cutixEj.exit28:                          ; preds = %if.end, %cond.false.i24
-  %cond.i23 = phi i32 [ %5, %cond.false.i24 ], [ -1, %if.end ]
-  %cmp.not = icmp eq i32 %x.1, -1
-  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
-
-for.end:                                          ; preds = %_ZNK3sat3cutixEj.exit28, %entry
-  %index.0.lcssa = phi i32 [ 0, %entry ], [ %index.1, %_ZNK3sat3cutixEj.exit28 ]
-  %shl7 = shl nuw i32 1, %2
-  %or8 = or i32 %index.0.lcssa, %shl7
-  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %6 = load i64, ptr %m_table.i, align 8
-  %m_dont_care.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %7 = load i64, ptr %m_dont_care.i, align 8
-  %or.i = or i64 %7, %6
-  %sh_prom.i.i = zext nneg i32 %0 to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %notmask.i.i = shl nsw i64 -1, %shl.i.i
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %and.i = and i64 %or.i, %sub.i.i
-  switch i32 %or8, label %sw.default.i [
-    i32 1, label %sw.bb.i
-    i32 2, label %sw.bb1.i
-    i32 3, label %sw.bb4.i
-    i32 4, label %sw.bb6.i
-    i32 5, label %sw.bb17.i
-    i32 6, label %sw.bb22.i
-    i32 7, label %sw.bb34.i
-    i32 8, label %sw.bb36.i
-    i32 9, label %sw.bb59.i
-    i32 10, label %sw.bb70.i
-    i32 11, label %sw.bb95.i
-    i32 12, label %sw.bb100.i
-    i32 13, label %sw.bb126.i
-    i32 14, label %sw.bb138.i
-    i32 15, label %sw.bb164.i
-    i32 16, label %sw.bb166.i
-    i32 17, label %sw.bb213.i
-    i32 18, label %sw.bb236.i
-    i32 19, label %sw.bb287.i
-    i32 20, label %sw.bb298.i
-    i32 21, label %sw.bb351.i
-    i32 22, label %sw.bb376.i
-    i32 23, label %sw.bb429.i
-    i32 24, label %sw.bb434.i
-    i32 25, label %sw.bb488.i
-    i32 26, label %sw.bb514.i
-    i32 27, label %sw.bb568.i
-    i32 28, label %sw.bb580.i
-    i32 29, label %sw.bb636.i
-    i32 30, label %sw.bb662.i
-    i32 31, label %sw.bb716.i
-    i32 32, label %sw.bb718.i
-    i32 33, label %sw.bb813.i
-    i32 34, label %sw.bb860.i
-    i32 35, label %sw.bb963.i
-    i32 36, label %sw.bb986.i
-    i32 37, label %sw.bb1093.i
-    i32 38, label %sw.bb1144.i
-    i32 39, label %sw.bb1251.i
-    i32 40, label %sw.bb1262.i
-    i32 41, label %sw.bb1371.i
-    i32 42, label %sw.bb1424.i
-    i32 43, label %sw.bb1533.i
-    i32 44, label %sw.bb1558.i
-    i32 45, label %sw.bb1671.i
-    i32 46, label %sw.bb1724.i
-    i32 47, label %sw.bb1833.i
-    i32 48, label %sw.bb1838.i
-    i32 49, label %sw.bb1948.i
-    i32 50, label %sw.bb2002.i
-    i32 51, label %sw.bb2112.i
-    i32 52, label %sw.bb2138.i
-    i32 53, label %sw.bb2252.i
-    i32 54, label %sw.bb2306.i
-    i32 55, label %sw.bb2416.i
-    i32 56, label %sw.bb2428.i
-    i32 57, label %sw.bb2544.i
-    i32 58, label %sw.bb2600.i
-    i32 59, label %sw.bb2712.i
-    i32 60, label %sw.bb2738.i
-    i32 61, label %sw.bb2854.i
-    i32 62, label %sw.bb2908.i
-    i32 63, label %sw.bb3018.i
-    i32 64, label %sw.bb3020.i
-    i32 65, label %sw.bb3211.i
-    i32 66, label %sw.bb3306.i
-    i32 67, label %sw.bb3513.i
-    i32 68, label %sw.bb3560.i
-    i32 69, label %sw.bb3775.i
-    i32 70, label %sw.bb3878.i
-    i32 71, label %sw.bb4093.i
-    i32 72, label %sw.bb4116.i
-    i32 73, label %sw.bb4335.i
-    i32 74, label %sw.bb4442.i
-    i32 75, label %sw.bb4661.i
-    i32 76, label %sw.bb4712.i
-    i32 77, label %sw.bb4939.i
-    i32 78, label %sw.bb5046.i
-    i32 79, label %sw.bb5265.i
-    i32 80, label %sw.bb5276.i
-    i32 81, label %sw.bb5497.i
-    i32 82, label %sw.bb5606.i
-    i32 83, label %sw.bb5827.i
-    i32 84, label %sw.bb5880.i
-    i32 85, label %sw.bb6109.i
-    i32 86, label %sw.bb6218.i
-    i32 87, label %sw.bb6439.i
-    i32 88, label %sw.bb6464.i
-    i32 89, label %sw.bb6697.i
-    i32 90, label %sw.bb6810.i
-    i32 91, label %sw.bb7035.i
-    i32 92, label %sw.bb7088.i
-    i32 93, label %sw.bb7321.i
-    i32 94, label %sw.bb7430.i
-    i32 95, label %sw.bb7651.i
-    i32 96, label %sw.bb7656.i
-    i32 97, label %sw.bb7878.i
-    i32 98, label %sw.bb7988.i
-    i32 99, label %sw.bb8210.i
-    i32 100, label %sw.bb8264.i
-    i32 101, label %sw.bb8494.i
-    i32 102, label %sw.bb8604.i
-    i32 103, label %sw.bb8826.i
-    i32 104, label %sw.bb8852.i
-    i32 105, label %sw.bb9086.i
-    i32 106, label %sw.bb9200.i
-    i32 107, label %sw.bb9426.i
-    i32 108, label %sw.bb9480.i
-    i32 109, label %sw.bb9714.i
-    i32 110, label %sw.bb9824.i
-    i32 111, label %sw.bb10046.i
-    i32 112, label %sw.bb10058.i
-    i32 113, label %sw.bb10294.i
-    i32 114, label %sw.bb10410.i
-    i32 115, label %sw.bb10638.i
-    i32 116, label %sw.bb10694.i
-    i32 117, label %sw.bb10930.i
-    i32 118, label %sw.bb11042.i
-    i32 119, label %sw.bb11266.i
-    i32 120, label %sw.bb11292.i
-    i32 121, label %sw.bb11532.i
-    i32 122, label %sw.bb11648.i
-    i32 123, label %sw.bb11876.i
-    i32 124, label %sw.bb11930.i
-    i32 125, label %sw.bb12166.i
-    i32 126, label %sw.bb12276.i
+._crit_edge:                                      ; preds = %_ZNK3sat3cutixEj.exit25, %_ZNK3sat3cutixEj.exit
+  %.018.lcssa = phi i32 [ 0, %_ZNK3sat3cutixEj.exit ], [ %.119, %_ZNK3sat3cutixEj.exit25 ]
+  %11 = shl nuw i32 1, %7
+  %12 = or i32 %.018.lcssa, %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %14 = load i64, ptr %13, align 8, !tbaa !44
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = load i64, ptr %15, align 8, !tbaa !45
+  %17 = or i64 %16, %14
+  %18 = zext nneg i32 %3 to i64
+  %19 = shl nuw i64 1, %18
+  %notmask.i.i = shl nsw i64 -1, %19
+  %20 = xor i64 %notmask.i.i, -1
+  %21 = and i64 %17, %20
+  switch i32 %12, label %2655 [
+    i32 1, label %22
+    i32 2, label %24
+    i32 3, label %27
+    i32 4, label %29
+    i32 5, label %32
+    i32 6, label %35
+    i32 7, label %44
+    i32 8, label %46
+    i32 9, label %49
+    i32 10, label %52
+    i32 11, label %62
+    i32 12, label %65
+    i32 13, label %75
+    i32 14, label %84
+    i32 15, label %100
+    i32 16, label %102
+    i32 17, label %105
+    i32 18, label %108
+    i32 19, label %118
+    i32 20, label %121
+    i32 21, label %132
+    i32 22, label %142
+    i32 23, label %160
+    i32 24, label %163
+    i32 25, label %173
+    i32 26, label %183
+    i32 27, label %204
+    i32 28, label %213
+    i32 29, label %233
+    i32 30, label %249
+    i32 31, label %281
+    i32 32, label %283
+    i32 33, label %286
+    i32 34, label %289
+    i32 35, label %301
+    i32 36, label %304
+    i32 37, label %317
+    i32 38, label %327
+    i32 39, label %347
+    i32 40, label %350
+    i32 41, label %361
+    i32 42, label %372
+    i32 43, label %395
+    i32 44, label %405
+    i32 45, label %427
+    i32 46, label %445
+    i32 47, label %479
+    i32 48, label %482
+    i32 49, label %492
+    i32 50, label %502
+    i32 51, label %525
+    i32 52, label %535
+    i32 53, label %559
+    i32 54, label %580
+    i32 55, label %616
+    i32 56, label %625
+    i32 57, label %645
+    i32 58, label %665
+    i32 59, label %706
+    i32 60, label %722
+    i32 61, label %762
+    i32 62, label %794
+    i32 63, label %858
+    i32 64, label %860
+    i32 65, label %863
+    i32 66, label %866
+    i32 67, label %880
+    i32 68, label %883
+    i32 69, label %898
+    i32 70, label %910
+    i32 71, label %932
+    i32 72, label %935
+    i32 73, label %948
+    i32 74, label %961
+    i32 75, label %986
+    i32 76, label %996
+    i32 77, label %1020
+    i32 78, label %1040
+    i32 79, label %1076
+    i32 80, label %1079
+    i32 81, label %1090
+    i32 82, label %1101
+    i32 83, label %1126
+    i32 84, label %1137
+    i32 85, label %1163
+    i32 86, label %1186
+    i32 87, label %1224
+    i32 88, label %1234
+    i32 89, label %1256
+    i32 90, label %1278
+    i32 91, label %1321
+    i32 92, label %1339
+    i32 93, label %1381
+    i32 94, label %1415
+    i32 95, label %1481
+    i32 96, label %1484
+    i32 97, label %1494
+    i32 98, label %1504
+    i32 99, label %1527
+    i32 100, label %1537
+    i32 101, label %1564
+    i32 102, label %1587
+    i32 103, label %1627
+    i32 104, label %1637
+    i32 105, label %1661
+    i32 106, label %1685
+    i32 107, label %1730
+    i32 108, label %1751
+    i32 109, label %1795
+    i32 110, label %1831
+    i32 111, label %1899
+    i32 112, label %1908
+    i32 113, label %1928
+    i32 114, label %1948
+    i32 115, label %1993
+    i32 116, label %2013
+    i32 117, label %2061
+    i32 118, label %2102
+    i32 119, label %2174
+    i32 120, label %2190
+    i32 121, label %2230
+    i32 122, label %2270
+    i32 123, label %2351
+    i32 124, label %2383
+    i32 125, label %2463
+    i32 126, label %2527
     i32 127, label %_ZL13compute_shiftmj.exit
   ]
 
-sw.bb.i:                                          ; preds = %for.end
-  %and.i30 = and i64 %and.i, 1
+22:                                               ; preds = %._crit_edge
+  %23 = and i64 %21, 1
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb1.i:                                         ; preds = %for.end
-  %8 = trunc i64 %and.i to i1
-  %or.i29 = select i1 %8, i64 3, i64 0
+24:                                               ; preds = %._crit_edge
+  %25 = trunc i64 %21 to i1
+  %26 = select i1 %25, i64 3, i64 0
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb4.i:                                         ; preds = %for.end
-  %and5.i = and i64 %and.i, 3
+27:                                               ; preds = %._crit_edge
+  %28 = and i64 %21, 3
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb6.i:                                         ; preds = %for.end
-  %9 = trunc i64 %and.i to i1
-  %or16.i = select i1 %9, i64 15, i64 0
+29:                                               ; preds = %._crit_edge
+  %30 = trunc i64 %21 to i1
+  %31 = select i1 %30, i64 15, i64 0
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb17.i:                                        ; preds = %for.end
-  %and18.i = and i64 %and.i, 3
-  %or21.i = mul nuw nsw i64 %and18.i, 5
+32:                                               ; preds = %._crit_edge
+  %33 = and i64 %21, 3
+  %34 = mul nuw nsw i64 %33, 5
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb22.i:                                        ; preds = %for.end
-  %and23.i = and i64 %and.i, 1
-  %and27.i = shl nuw i64 %and.i, 1
-  %shl28.i = and i64 %and27.i, 4
-  %10 = and i64 %and.i, 2
-  %11 = or disjoint i64 %10, %shl28.i
-  %12 = or disjoint i64 %11, %and23.i
-  %13 = shl nuw nsw i64 %12, 1
-  %or33.i = or disjoint i64 %13, %and23.i
+35:                                               ; preds = %._crit_edge
+  %36 = and i64 %21, 1
+  %37 = shl nuw i64 %21, 1
+  %38 = and i64 %37, 4
+  %39 = and i64 %21, 2
+  %40 = or disjoint i64 %39, %38
+  %41 = or disjoint i64 %40, %36
+  %42 = shl nuw nsw i64 %41, 1
+  %43 = or disjoint i64 %42, %36
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb34.i:                                        ; preds = %for.end
-  %and35.i = and i64 %and.i, 15
+44:                                               ; preds = %._crit_edge
+  %45 = and i64 %21, 15
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb36.i:                                        ; preds = %for.end
-  %14 = trunc i64 %and.i to i1
-  %or58.i = select i1 %14, i64 255, i64 0
+46:                                               ; preds = %._crit_edge
+  %47 = trunc i64 %21 to i1
+  %48 = select i1 %47, i64 255, i64 0
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb59.i:                                        ; preds = %for.end
-  %and60.i = and i64 %and.i, 3
-  %or69.i = mul nuw nsw i64 %and60.i, 85
+49:                                               ; preds = %._crit_edge
+  %50 = and i64 %21, 3
+  %51 = mul nuw nsw i64 %50, 85
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb70.i:                                        ; preds = %for.end
-  %and71.i = and i64 %and.i, 1
-  %and75.i = shl nuw i64 %and.i, 1
-  %shl76.i = and i64 %and75.i, 4
-  %15 = and i64 %and.i, 2
-  %16 = or disjoint i64 %15, %shl76.i
-  %17 = or disjoint i64 %16, %and71.i
-  %18 = shl nuw nsw i64 %17, 1
-  %or81.i = or disjoint i64 %18, %and71.i
-  %or94.i = mul nuw nsw i64 %or81.i, 17
+52:                                               ; preds = %._crit_edge
+  %53 = and i64 %21, 1
+  %54 = shl nuw i64 %21, 1
+  %55 = and i64 %54, 4
+  %56 = and i64 %21, 2
+  %57 = or disjoint i64 %56, %55
+  %58 = or disjoint i64 %57, %53
+  %59 = shl nuw nsw i64 %58, 1
+  %60 = or disjoint i64 %59, %53
+  %61 = mul nuw nsw i64 %60, 17
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb95.i:                                        ; preds = %for.end
-  %and96.i = and i64 %and.i, 15
-  %or99.i = mul nuw nsw i64 %and96.i, 17
+62:                                               ; preds = %._crit_edge
+  %63 = and i64 %21, 15
+  %64 = mul nuw nsw i64 %63, 17
   br label %_ZL13compute_shiftmj.exit
 
-sw.bb100.i:                                       ; preds = %for.end
-  %19 = trunc i64 %and.i to i1
-  %or104.i = select i1 %19, i64 3, i64 0
-  %and111.i = shl i64 %and.i, 3
-  %shl112.i = and i64 %and111.i, 16
-  %or116.i = mul nuw nsw i64 %shl112.i, 3
-  %20 = or disjoint i64 %or116.i, %or104.i
-  %21 = shl nuw nsw i64 %20, 2
-  %22 = or disjoint i64 %21, %or116.i
-  %or125.i = or disjoint i64 %22, %or104.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb126.i:                                       ; preds = %for.end
-  %and127.i = and i64 %and.i, 3
-  %and131.i = shl i64 %and.i, 2
-  %shl132.i = and i64 %and131.i, 48
-  %23 = and i64 %and.i, 12
-  %24 = or disjoint i64 %23, %shl132.i
-  %25 = or disjoint i64 %24, %and127.i
-  %26 = shl nuw nsw i64 %25, 2
-  %or137.i = or disjoint i64 %26, %and127.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb138.i:                                       ; preds = %for.end
-  %and139.i = and i64 %and.i, 1
-  %and143.i = shl nuw i64 %and.i, 1
-  %shl144.i = and i64 %and143.i, 4
-  %and150.i = shl i64 %and.i, 2
-  %shl151.i = and i64 %and150.i, 16
-  %and156.i = shl i64 %and.i, 3
-  %shl157.i = and i64 %and156.i, 64
-  %27 = and i64 %and.i, 3
-  %28 = or disjoint i64 %shl144.i, %27
-  %29 = or disjoint i64 %28, %shl151.i
-  %30 = or disjoint i64 %29, %shl157.i
-  %31 = shl nuw nsw i64 %30, 1
-  %32 = or disjoint i64 %31, %and139.i
-  %33 = or disjoint i64 %32, %shl157.i
-  %or163.i = or i64 %33, %shl151.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb164.i:                                       ; preds = %for.end
-  %and165.i = and i64 %and.i, 255
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb166.i:                                       ; preds = %for.end
-  %34 = trunc i64 %and.i to i1
-  %or212.i = select i1 %34, i64 65535, i64 0
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb213.i:                                       ; preds = %for.end
-  %and214.i = and i64 %and.i, 3
-  %or235.i = mul nuw nsw i64 %and214.i, 21845
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb236.i:                                       ; preds = %for.end
-  %and237.i = and i64 %and.i, 1
-  %and241.i = shl nuw i64 %and.i, 1
-  %shl242.i = and i64 %and241.i, 4
-  %35 = and i64 %and.i, 2
-  %36 = or disjoint i64 %35, %shl242.i
-  %37 = or disjoint i64 %36, %and237.i
-  %38 = shl nuw nsw i64 %37, 1
-  %or247.i = or disjoint i64 %38, %and237.i
-  %or286.i = mul nuw nsw i64 %or247.i, 4369
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb287.i:                                       ; preds = %for.end
-  %and288.i = and i64 %and.i, 15
-  %or297.i = mul nuw nsw i64 %and288.i, 4369
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb298.i:                                       ; preds = %for.end
-  %39 = trunc i64 %and.i to i1
-  %or302.i = select i1 %39, i64 3, i64 0
-  %and309.i = shl i64 %and.i, 3
-  %shl310.i = and i64 %and309.i, 16
-  %or314.i = mul nuw nsw i64 %shl310.i, 3
-  %40 = or disjoint i64 %or314.i, %or302.i
-  %41 = shl nuw nsw i64 %40, 2
-  %42 = or disjoint i64 %41, %or314.i
-  %or323.i = or disjoint i64 %42, %or302.i
-  %or350.i = mul nuw nsw i64 %or323.i, 257
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb351.i:                                       ; preds = %for.end
-  %and352.i = and i64 %and.i, 3
-  %and356.i = shl i64 %and.i, 2
-  %shl357.i = and i64 %and356.i, 48
-  %43 = and i64 %and.i, 12
-  %44 = or disjoint i64 %43, %shl357.i
-  %45 = or disjoint i64 %44, %and352.i
-  %46 = shl nuw nsw i64 %45, 2
-  %or362.i = or disjoint i64 %46, %and352.i
-  %or375.i = mul nuw nsw i64 %or362.i, 257
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb376.i:                                       ; preds = %for.end
-  %and377.i = and i64 %and.i, 1
-  %and381.i = shl nuw i64 %and.i, 1
-  %shl382.i = and i64 %and381.i, 4
-  %and388.i = shl i64 %and.i, 2
-  %shl389.i = and i64 %and388.i, 16
-  %and394.i = shl i64 %and.i, 3
-  %shl395.i = and i64 %and394.i, 64
-  %47 = and i64 %and.i, 3
-  %48 = or disjoint i64 %shl382.i, %47
-  %49 = or disjoint i64 %48, %shl389.i
-  %50 = or disjoint i64 %49, %shl395.i
-  %51 = shl nuw nsw i64 %50, 1
-  %52 = or disjoint i64 %51, %and377.i
-  %53 = or disjoint i64 %52, %shl395.i
-  %or401.i = or i64 %53, %shl389.i
-  %shl427.i = shl nuw nsw i64 %or401.i, 8
-  %or428.i = or i64 %shl427.i, %or401.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb429.i:                                       ; preds = %for.end
-  %and430.i = and i64 %and.i, 255
-  %or433.i = mul nuw nsw i64 %and430.i, 257
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb434.i:                                       ; preds = %for.end
-  %54 = trunc i64 %and.i to i1
-  %or444.i = select i1 %54, i64 15, i64 0
-  %and457.i = shl i64 %and.i, 7
-  %shl458.i = and i64 %and457.i, 256
-  %or470.i = mul nuw nsw i64 %shl458.i, 15
-  %55 = or disjoint i64 %or470.i, %or444.i
-  %56 = shl nuw nsw i64 %55, 4
-  %57 = or disjoint i64 %56, %or444.i
-  %or487.i = or disjoint i64 %57, %or470.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb488.i:                                       ; preds = %for.end
-  %and489.i = and i64 %and.i, 3
-  %or492.i = mul nuw nsw i64 %and489.i, 5
-  %and499.i = shl i64 %and.i, 6
-  %shl500.i = and i64 %and499.i, 768
-  %or504.i = mul nuw nsw i64 %shl500.i, 5
-  %58 = or disjoint i64 %or504.i, %or492.i
-  %59 = shl nuw nsw i64 %58, 4
-  %60 = or disjoint i64 %59, %or504.i
-  %or513.i = or disjoint i64 %60, %or492.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb514.i:                                       ; preds = %for.end
-  %and515.i = and i64 %and.i, 1
-  %and519.i = shl nuw i64 %and.i, 1
-  %shl520.i = and i64 %and519.i, 4
-  %61 = and i64 %and.i, 2
-  %62 = or disjoint i64 %61, %shl520.i
-  %63 = or disjoint i64 %62, %and515.i
-  %64 = shl nuw nsw i64 %63, 1
-  %or525.i = or disjoint i64 %64, %and515.i
-  %and539.i = shl i64 %and.i, 6
-  %shl540.i = and i64 %and539.i, 256
-  %and545.i = shl i64 %and.i, 7
-  %shl546.i = and i64 %and545.i, 1024
-  %65 = or disjoint i64 %shl546.i, %shl540.i
-  %66 = shl nuw nsw i64 %65, 1
-  %67 = or disjoint i64 %66, %shl546.i
-  %or551.i = or disjoint i64 %67, %shl540.i
-  %68 = or disjoint i64 %or551.i, %or525.i
-  %69 = shl nuw nsw i64 %68, 4
-  %70 = or i64 %or551.i, %69
-  %or567.i = or i64 %70, %or525.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb568.i:                                       ; preds = %for.end
-  %and569.i = and i64 %and.i, 15
-  %and573.i = shl i64 %and.i, 4
-  %shl574.i = and i64 %and573.i, 3840
-  %71 = and i64 %and.i, 240
-  %72 = or disjoint i64 %71, %shl574.i
-  %73 = or disjoint i64 %72, %and569.i
-  %74 = shl nuw nsw i64 %73, 4
-  %or579.i = or disjoint i64 %74, %and569.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb580.i:                                       ; preds = %for.end
-  %75 = trunc i64 %and.i to i1
-  %or584.i = select i1 %75, i64 3, i64 0
-  %and591.i = shl i64 %and.i, 3
-  %shl592.i = and i64 %and591.i, 16
-  %or596.i = mul nuw nsw i64 %shl592.i, 3
-  %and606.i = shl i64 %and.i, 6
-  %shl607.i = and i64 %and606.i, 256
-  %or611.i = mul nuw nsw i64 %shl607.i, 3
-  %and620.i = shl i64 %and.i, 9
-  %shl621.i = and i64 %and620.i, 4096
-  %or625.i = mul nuw nsw i64 %shl621.i, 3
-  %76 = or disjoint i64 %or596.i, %or584.i
-  %77 = or disjoint i64 %76, %or611.i
-  %78 = or disjoint i64 %77, %or625.i
-  %79 = shl nuw nsw i64 %78, 2
-  %80 = or disjoint i64 %79, %or584.i
-  %81 = or i64 %or625.i, %80
-  %82 = or i64 %81, %or611.i
-  %or635.i = or i64 %82, %or596.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb636.i:                                       ; preds = %for.end
-  %and637.i = and i64 %and.i, 3
-  %and641.i = shl i64 %and.i, 2
-  %shl642.i = and i64 %and641.i, 48
-  %and648.i = shl i64 %and.i, 4
-  %shl649.i = and i64 %and648.i, 768
-  %and654.i = shl i64 %and.i, 6
-  %shl655.i = and i64 %and654.i, 12288
-  %83 = and i64 %and.i, 15
-  %84 = or disjoint i64 %shl642.i, %83
-  %85 = or disjoint i64 %84, %shl649.i
-  %86 = or disjoint i64 %85, %shl655.i
-  %87 = shl nuw nsw i64 %86, 2
-  %88 = or disjoint i64 %87, %and637.i
-  %89 = or disjoint i64 %88, %shl655.i
-  %or661.i = or i64 %89, %shl649.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb662.i:                                       ; preds = %for.end
-  %and663.i = and i64 %and.i, 1
-  %and667.i = shl nuw i64 %and.i, 1
-  %shl668.i = and i64 %and667.i, 4
-  %and674.i = shl i64 %and.i, 2
-  %shl675.i = and i64 %and674.i, 16
-  %and680.i = shl i64 %and.i, 3
-  %shl681.i = and i64 %and680.i, 64
-  %and688.i = shl i64 %and.i, 4
-  %shl689.i = and i64 %and688.i, 256
-  %and694.i = shl i64 %and.i, 5
-  %shl695.i = and i64 %and694.i, 1024
-  %and701.i = shl i64 %and.i, 6
-  %shl702.i = and i64 %and701.i, 4096
-  %and707.i = shl i64 %and.i, 7
-  %shl708.i = and i64 %and707.i, 16384
-  %90 = and i64 %and.i, 3
-  %91 = or disjoint i64 %90, %shl668.i
-  %92 = or disjoint i64 %91, %shl675.i
-  %93 = or disjoint i64 %92, %shl681.i
-  %94 = or disjoint i64 %93, %shl689.i
-  %95 = or disjoint i64 %94, %shl695.i
-  %96 = or i64 %95, %shl702.i
-  %97 = or i64 %96, %shl708.i
-  %98 = shl nuw nsw i64 %97, 1
-  %99 = or disjoint i64 %98, %and663.i
-  %100 = or i64 %shl708.i, %99
-  %101 = or i64 %100, %shl702.i
-  %102 = or i64 %101, %shl695.i
-  %103 = or i64 %102, %shl689.i
-  %104 = or i64 %103, %shl681.i
-  %or715.i = or i64 %104, %shl675.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb716.i:                                       ; preds = %for.end
-  %and717.i = and i64 %and.i, 65535
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb718.i:                                       ; preds = %for.end
-  %105 = trunc i64 %and.i to i1
-  %or812.i = select i1 %105, i64 4294967295, i64 0
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb813.i:                                       ; preds = %for.end
-  %and814.i = and i64 %and.i, 3
-  %or859.i = mul nuw nsw i64 %and814.i, 1431655765
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb860.i:                                       ; preds = %for.end
-  %and861.i = and i64 %and.i, 1
-  %and865.i = shl nuw i64 %and.i, 1
-  %shl866.i = and i64 %and865.i, 4
-  %106 = and i64 %and.i, 2
-  %107 = or disjoint i64 %106, %shl866.i
-  %108 = or disjoint i64 %107, %and861.i
-  %109 = shl nuw nsw i64 %108, 1
-  %or871.i = or disjoint i64 %109, %and861.i
-  %or910.i = mul nuw nsw i64 %or871.i, 4369
-  %shl961.i = mul nuw nsw i64 %or871.i, 286326784
-  %or962.i = or i64 %shl961.i, %or910.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb963.i:                                       ; preds = %for.end
-  %and964.i = and i64 %and.i, 15
-  %or985.i = mul nuw nsw i64 %and964.i, 286331153
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb986.i:                                       ; preds = %for.end
-  %110 = trunc i64 %and.i to i1
-  %or990.i = select i1 %110, i64 3, i64 0
-  %and997.i = shl i64 %and.i, 3
-  %shl998.i = and i64 %and997.i, 16
-  %or1002.i = mul nuw nsw i64 %shl998.i, 3
-  %111 = or disjoint i64 %or1002.i, %or990.i
-  %112 = shl nuw nsw i64 %111, 2
-  %113 = or disjoint i64 %112, %or1002.i
-  %or1011.i = or disjoint i64 %113, %or990.i
-  %or1038.i = mul nuw nsw i64 %or1011.i, 257
-  %shl1091.i = mul nuw nsw i64 %or1011.i, 16842752
-  %or1092.i = or i64 %shl1091.i, %or1038.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1093.i:                                      ; preds = %for.end
-  %and1094.i = and i64 %and.i, 3
-  %and1098.i = shl i64 %and.i, 2
-  %shl1099.i = and i64 %and1098.i, 48
-  %114 = and i64 %and.i, 12
-  %115 = or disjoint i64 %114, %shl1099.i
-  %116 = or disjoint i64 %115, %and1094.i
-  %117 = shl nuw nsw i64 %116, 2
-  %or1104.i = or disjoint i64 %117, %and1094.i
-  %or1143.i = mul nuw nsw i64 %or1104.i, 16843009
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1144.i:                                      ; preds = %for.end
-  %and1145.i = and i64 %and.i, 1
-  %and1149.i = shl nuw i64 %and.i, 1
-  %shl1150.i = and i64 %and1149.i, 4
-  %and1156.i = shl i64 %and.i, 2
-  %shl1157.i = and i64 %and1156.i, 16
-  %and1162.i = shl i64 %and.i, 3
-  %shl1163.i = and i64 %and1162.i, 64
-  %118 = and i64 %and.i, 3
-  %119 = or disjoint i64 %shl1150.i, %118
-  %120 = or disjoint i64 %119, %shl1157.i
-  %121 = or disjoint i64 %120, %shl1163.i
-  %122 = shl nuw nsw i64 %121, 1
-  %123 = or disjoint i64 %122, %and1145.i
-  %124 = or disjoint i64 %123, %shl1163.i
-  %or1169.i = or i64 %124, %shl1157.i
-  %shl1195.i = shl nuw nsw i64 %or1169.i, 8
-  %or1196.i = or i64 %shl1195.i, %or1169.i
-  %shl1249.i = shl nuw nsw i64 %or1196.i, 16
-  %or1250.i = or i64 %shl1249.i, %or1196.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1251.i:                                      ; preds = %for.end
-  %and1252.i = and i64 %and.i, 255
-  %or1261.i = mul nuw nsw i64 %and1252.i, 16843009
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1262.i:                                      ; preds = %for.end
-  %125 = trunc i64 %and.i to i1
-  %or1272.i = select i1 %125, i64 15, i64 0
-  %and1285.i = shl i64 %and.i, 7
-  %shl1286.i = and i64 %and1285.i, 256
-  %or1298.i = mul nuw nsw i64 %shl1286.i, 15
-  %126 = or disjoint i64 %or1298.i, %or1272.i
-  %127 = shl nuw nsw i64 %126, 4
-  %128 = or disjoint i64 %127, %or1272.i
-  %or1315.i = or disjoint i64 %128, %or1298.i
-  %or1370.i = mul nuw nsw i64 %or1315.i, 65537
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1371.i:                                      ; preds = %for.end
-  %and1372.i = and i64 %and.i, 3
-  %or1375.i = mul nuw nsw i64 %and1372.i, 5
-  %and1382.i = shl i64 %and.i, 6
-  %shl1383.i = and i64 %and1382.i, 768
-  %or1387.i = mul nuw nsw i64 %shl1383.i, 5
-  %129 = or disjoint i64 %or1387.i, %or1375.i
-  %130 = shl nuw nsw i64 %129, 4
-  %131 = or disjoint i64 %130, %or1387.i
-  %or1396.i = or disjoint i64 %131, %or1375.i
-  %or1423.i = mul nuw nsw i64 %or1396.i, 65537
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1424.i:                                      ; preds = %for.end
-  %and1425.i = and i64 %and.i, 1
-  %and1429.i = shl nuw i64 %and.i, 1
-  %shl1430.i = and i64 %and1429.i, 4
-  %132 = and i64 %and.i, 2
-  %133 = or disjoint i64 %132, %shl1430.i
-  %134 = or disjoint i64 %133, %and1425.i
-  %135 = shl nuw nsw i64 %134, 1
-  %or1435.i = or disjoint i64 %135, %and1425.i
-  %and1449.i = shl i64 %and.i, 6
-  %shl1450.i = and i64 %and1449.i, 256
-  %and1455.i = shl i64 %and.i, 7
-  %shl1456.i = and i64 %and1455.i, 1024
-  %136 = or disjoint i64 %shl1456.i, %shl1450.i
-  %137 = shl nuw nsw i64 %136, 1
-  %138 = or disjoint i64 %137, %shl1456.i
-  %or1461.i = or disjoint i64 %138, %shl1450.i
-  %139 = or disjoint i64 %or1461.i, %or1435.i
-  %140 = shl nuw nsw i64 %139, 4
-  %141 = or i64 %or1461.i, %140
-  %or1477.i = or i64 %141, %or1435.i
-  %shl1531.i = shl nuw nsw i64 %or1477.i, 16
-  %or1532.i = or i64 %shl1531.i, %or1477.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1533.i:                                      ; preds = %for.end
-  %and1534.i = and i64 %and.i, 15
-  %and1538.i = shl i64 %and.i, 4
-  %shl1539.i = and i64 %and1538.i, 3840
-  %142 = and i64 %and.i, 240
-  %143 = or disjoint i64 %142, %shl1539.i
-  %144 = or disjoint i64 %143, %and1534.i
-  %145 = shl nuw nsw i64 %144, 4
-  %or1544.i = or disjoint i64 %145, %and1534.i
-  %or1557.i = mul nuw nsw i64 %or1544.i, 65537
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1558.i:                                      ; preds = %for.end
-  %146 = trunc i64 %and.i to i1
-  %or1562.i = select i1 %146, i64 3, i64 0
-  %and1569.i = shl i64 %and.i, 3
-  %shl1570.i = and i64 %and1569.i, 16
-  %or1574.i = mul nuw nsw i64 %shl1570.i, 3
-  %and1584.i = shl i64 %and.i, 6
-  %shl1585.i = and i64 %and1584.i, 256
-  %or1589.i = mul nuw nsw i64 %shl1585.i, 3
-  %and1598.i = shl i64 %and.i, 9
-  %shl1599.i = and i64 %and1598.i, 4096
-  %or1603.i = mul nuw nsw i64 %shl1599.i, 3
-  %147 = or disjoint i64 %or1574.i, %or1562.i
-  %148 = or disjoint i64 %147, %or1589.i
-  %149 = or disjoint i64 %148, %or1603.i
-  %150 = shl nuw nsw i64 %149, 2
-  %151 = or disjoint i64 %150, %or1562.i
-  %152 = or i64 %or1603.i, %151
-  %153 = or i64 %152, %or1589.i
-  %or1613.i = or i64 %153, %or1574.i
-  %shl1669.i = shl nuw nsw i64 %or1613.i, 16
-  %or1670.i = or i64 %shl1669.i, %or1613.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1671.i:                                      ; preds = %for.end
-  %and1672.i = and i64 %and.i, 3
-  %and1676.i = shl i64 %and.i, 2
-  %shl1677.i = and i64 %and1676.i, 48
-  %and1683.i = shl i64 %and.i, 4
-  %shl1684.i = and i64 %and1683.i, 768
-  %and1689.i = shl i64 %and.i, 6
-  %shl1690.i = and i64 %and1689.i, 12288
-  %154 = and i64 %and.i, 15
-  %155 = or disjoint i64 %shl1677.i, %154
-  %156 = or disjoint i64 %155, %shl1684.i
-  %157 = or disjoint i64 %156, %shl1690.i
-  %158 = shl nuw nsw i64 %157, 2
-  %159 = or disjoint i64 %158, %and1672.i
-  %160 = or disjoint i64 %159, %shl1690.i
-  %or1696.i = or i64 %160, %shl1684.i
-  %shl1722.i = shl nuw nsw i64 %or1696.i, 16
-  %or1723.i = or i64 %shl1722.i, %or1696.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1724.i:                                      ; preds = %for.end
-  %and1725.i = and i64 %and.i, 1
-  %and1729.i = shl nuw i64 %and.i, 1
-  %shl1730.i = and i64 %and1729.i, 4
-  %and1736.i = shl i64 %and.i, 2
-  %shl1737.i = and i64 %and1736.i, 16
-  %and1742.i = shl i64 %and.i, 3
-  %shl1743.i = and i64 %and1742.i, 64
-  %and1750.i = shl i64 %and.i, 4
-  %shl1751.i = and i64 %and1750.i, 256
-  %and1756.i = shl i64 %and.i, 5
-  %shl1757.i = and i64 %and1756.i, 1024
-  %and1763.i = shl i64 %and.i, 6
-  %shl1764.i = and i64 %and1763.i, 4096
-  %and1769.i = shl i64 %and.i, 7
-  %shl1770.i = and i64 %and1769.i, 16384
-  %161 = and i64 %and.i, 3
-  %162 = or disjoint i64 %161, %shl1730.i
-  %163 = or disjoint i64 %162, %shl1737.i
-  %164 = or disjoint i64 %163, %shl1743.i
-  %165 = or disjoint i64 %164, %shl1751.i
-  %166 = or disjoint i64 %165, %shl1757.i
-  %167 = or i64 %166, %shl1764.i
-  %168 = or i64 %167, %shl1770.i
-  %169 = shl nuw nsw i64 %168, 1
-  %170 = or disjoint i64 %169, %and1725.i
-  %171 = or i64 %shl1770.i, %170
-  %172 = or i64 %171, %shl1764.i
-  %173 = or i64 %172, %shl1757.i
-  %174 = or i64 %173, %shl1751.i
-  %175 = or i64 %174, %shl1743.i
-  %or1777.i = or i64 %175, %shl1737.i
-  %shl1831.i = shl nuw nsw i64 %or1777.i, 16
-  %or1832.i = or i64 %shl1831.i, %or1777.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1833.i:                                      ; preds = %for.end
-  %and1834.i = and i64 %and.i, 65535
-  %or1837.i = mul nuw nsw i64 %and1834.i, 65537
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1838.i:                                      ; preds = %for.end
-  %176 = trunc i64 %and.i to i1
-  %or1860.i = select i1 %176, i64 255, i64 0
-  %and1885.i = shl i64 %and.i, 15
-  %shl1886.i = and i64 %and1885.i, 65536
-  %or1914.i = mul nuw nsw i64 %shl1886.i, 255
-  %177 = or disjoint i64 %or1914.i, %or1860.i
-  %178 = shl nuw nsw i64 %177, 8
-  %179 = or disjoint i64 %178, %or1860.i
-  %or1947.i = or disjoint i64 %179, %or1914.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb1948.i:                                      ; preds = %for.end
-  %and1949.i = and i64 %and.i, 3
-  %or1958.i = mul nuw nsw i64 %and1949.i, 85
-  %and1971.i = shl i64 %and.i, 14
-  %shl1972.i = and i64 %and1971.i, 196608
-  %or1984.i = mul nuw nsw i64 %shl1972.i, 85
-  %180 = or disjoint i64 %or1984.i, %or1958.i
-  %181 = shl nuw nsw i64 %180, 8
-  %182 = or disjoint i64 %181, %or1958.i
-  %or2001.i = or disjoint i64 %182, %or1984.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2002.i:                                      ; preds = %for.end
-  %and2003.i = and i64 %and.i, 1
-  %and2007.i = shl nuw i64 %and.i, 1
-  %shl2008.i = and i64 %and2007.i, 4
-  %183 = and i64 %and.i, 2
-  %184 = or disjoint i64 %183, %shl2008.i
-  %185 = or disjoint i64 %184, %and2003.i
-  %186 = shl nuw nsw i64 %185, 1
-  %or2013.i = or disjoint i64 %186, %and2003.i
-  %or2026.i = mul nuw nsw i64 %or2013.i, 17
-  %and2053.i = shl i64 %and.i, 14
-  %shl2054.i = and i64 %and2053.i, 65536
-  %and2059.i = shl i64 %and.i, 15
-  %shl2060.i = and i64 %and2059.i, 262144
-  %187 = or disjoint i64 %shl2060.i, %shl2054.i
-  %188 = shl nuw nsw i64 %187, 1
-  %189 = or disjoint i64 %188, %shl2060.i
-  %or2065.i = or disjoint i64 %189, %shl2054.i
-  %or2080.i = mul nuw nsw i64 %or2065.i, 17
-  %190 = or disjoint i64 %or2080.i, %or2026.i
-  %191 = shl nuw nsw i64 %190, 8
-  %192 = or i64 %or2080.i, %191
-  %or2111.i = or i64 %192, %or2026.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2112.i:                                      ; preds = %for.end
-  %and2113.i = and i64 %and.i, 15
-  %or2116.i = mul nuw nsw i64 %and2113.i, 17
-  %and2123.i = shl i64 %and.i, 12
-  %shl2124.i = and i64 %and2123.i, 983040
-  %or2128.i = mul nuw nsw i64 %shl2124.i, 17
-  %193 = or disjoint i64 %or2128.i, %or2116.i
-  %194 = shl nuw nsw i64 %193, 8
-  %195 = or disjoint i64 %194, %or2128.i
-  %or2137.i = or disjoint i64 %195, %or2116.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2138.i:                                      ; preds = %for.end
-  %196 = trunc i64 %and.i to i1
-  %or2142.i = select i1 %196, i64 3, i64 0
-  %and2149.i = shl i64 %and.i, 3
-  %shl2150.i = and i64 %and2149.i, 16
-  %or2154.i = mul nuw nsw i64 %shl2150.i, 3
-  %197 = or disjoint i64 %or2154.i, %or2142.i
-  %198 = shl nuw nsw i64 %197, 2
-  %199 = or disjoint i64 %198, %or2154.i
-  %or2163.i = or disjoint i64 %199, %or2142.i
-  %and2191.i = shl i64 %and.i, 14
-  %shl2192.i = and i64 %and2191.i, 65536
-  %or2196.i = mul nuw nsw i64 %shl2192.i, 3
-  %and2205.i = shl i64 %and.i, 17
-  %shl2206.i = and i64 %and2205.i, 1048576
-  %or2210.i = mul nuw nsw i64 %shl2206.i, 3
-  %200 = or disjoint i64 %or2210.i, %or2196.i
-  %201 = shl nuw nsw i64 %200, 2
-  %202 = or disjoint i64 %201, %or2210.i
-  %or2219.i = or disjoint i64 %202, %or2196.i
-  %203 = or disjoint i64 %or2219.i, %or2163.i
-  %204 = shl nuw nsw i64 %203, 8
-  %205 = or i64 %or2219.i, %204
-  %or2251.i = or i64 %205, %or2163.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2252.i:                                      ; preds = %for.end
-  %and2253.i = and i64 %and.i, 3
-  %and2257.i = shl i64 %and.i, 2
-  %shl2258.i = and i64 %and2257.i, 48
-  %206 = and i64 %and.i, 12
-  %207 = or disjoint i64 %206, %shl2258.i
-  %208 = or disjoint i64 %207, %and2253.i
-  %209 = shl nuw nsw i64 %208, 2
-  %or2263.i = or disjoint i64 %209, %and2253.i
-  %and2277.i = shl i64 %and.i, 12
-  %shl2278.i = and i64 %and2277.i, 196608
-  %and2283.i = shl i64 %and.i, 14
-  %shl2284.i = and i64 %and2283.i, 3145728
-  %210 = or disjoint i64 %shl2284.i, %shl2278.i
-  %211 = shl nuw nsw i64 %210, 2
-  %212 = or disjoint i64 %211, %shl2284.i
-  %or2289.i = or disjoint i64 %212, %shl2278.i
-  %213 = or disjoint i64 %or2289.i, %or2263.i
-  %214 = shl nuw nsw i64 %213, 8
-  %215 = or i64 %or2289.i, %214
-  %or2305.i = or i64 %215, %or2263.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2306.i:                                      ; preds = %for.end
-  %and2307.i = and i64 %and.i, 1
-  %and2311.i = shl nuw i64 %and.i, 1
-  %shl2312.i = and i64 %and2311.i, 4
-  %and2318.i = shl i64 %and.i, 2
-  %shl2319.i = and i64 %and2318.i, 16
-  %and2324.i = shl i64 %and.i, 3
-  %shl2325.i = and i64 %and2324.i, 64
-  %216 = and i64 %and.i, 3
-  %217 = or disjoint i64 %shl2312.i, %216
-  %218 = or disjoint i64 %217, %shl2319.i
-  %219 = or disjoint i64 %218, %shl2325.i
-  %220 = shl nuw nsw i64 %219, 1
-  %221 = or disjoint i64 %220, %and2307.i
-  %222 = or disjoint i64 %221, %shl2325.i
-  %or2331.i = or i64 %222, %shl2319.i
-  %and2359.i = shl i64 %and.i, 12
-  %shl2360.i = and i64 %and2359.i, 65536
-  %and2365.i = shl i64 %and.i, 13
-  %shl2366.i = and i64 %and2365.i, 262144
-  %and2372.i = shl i64 %and.i, 14
-  %shl2373.i = and i64 %and2372.i, 1048576
-  %and2378.i = shl i64 %and.i, 15
-  %shl2379.i = and i64 %and2378.i, 4194304
-  %223 = or disjoint i64 %shl2366.i, %shl2360.i
-  %224 = or disjoint i64 %223, %shl2373.i
-  %225 = or disjoint i64 %224, %shl2379.i
-  %226 = shl nuw nsw i64 %225, 1
-  %227 = or disjoint i64 %226, %shl2379.i
-  %228 = or disjoint i64 %227, %shl2373.i
-  %229 = or i64 %shl2366.i, %228
-  %or2385.i = or i64 %229, %shl2360.i
-  %230 = or i64 %or2385.i, %or2331.i
-  %231 = shl nuw nsw i64 %230, 8
-  %232 = or i64 %or2331.i, %231
-  %or2415.i = or i64 %232, %or2385.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2416.i:                                      ; preds = %for.end
-  %and2417.i = and i64 %and.i, 255
-  %and2421.i = shl i64 %and.i, 8
-  %shl2422.i = and i64 %and2421.i, 16711680
-  %233 = and i64 %and.i, 65280
-  %234 = or disjoint i64 %233, %shl2422.i
-  %235 = or disjoint i64 %234, %and2417.i
-  %236 = shl nuw nsw i64 %235, 8
-  %or2427.i = or disjoint i64 %236, %and2417.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2428.i:                                      ; preds = %for.end
-  %237 = trunc i64 %and.i to i1
-  %or2438.i = select i1 %237, i64 15, i64 0
-  %and2451.i = shl i64 %and.i, 7
-  %shl2452.i = and i64 %and2451.i, 256
-  %or2464.i = mul nuw nsw i64 %shl2452.i, 15
-  %and2482.i = shl i64 %and.i, 14
-  %shl2483.i = and i64 %and2482.i, 65536
-  %or2495.i = mul nuw nsw i64 %shl2483.i, 15
-  %and2512.i = shl i64 %and.i, 21
-  %shl2513.i = and i64 %and2512.i, 16777216
-  %or2525.i = mul nuw nsw i64 %shl2513.i, 15
-  %238 = or disjoint i64 %or2464.i, %or2438.i
-  %239 = or disjoint i64 %238, %or2495.i
-  %240 = or disjoint i64 %239, %or2525.i
-  %241 = shl nuw nsw i64 %240, 4
-  %242 = or disjoint i64 %241, %or2438.i
-  %243 = or i64 %or2525.i, %242
-  %244 = or i64 %243, %or2495.i
-  %or2543.i = or i64 %244, %or2464.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2544.i:                                      ; preds = %for.end
-  %and2545.i = and i64 %and.i, 3
-  %or2548.i = mul nuw nsw i64 %and2545.i, 5
-  %and2555.i = shl i64 %and.i, 6
-  %shl2556.i = and i64 %and2555.i, 768
-  %or2560.i = mul nuw nsw i64 %shl2556.i, 5
-  %and2570.i = shl i64 %and.i, 12
-  %shl2571.i = and i64 %and2570.i, 196608
-  %or2575.i = mul nuw nsw i64 %shl2571.i, 5
-  %and2584.i = shl i64 %and.i, 18
-  %shl2585.i = and i64 %and2584.i, 50331648
-  %or2589.i = mul nuw nsw i64 %shl2585.i, 5
-  %245 = or disjoint i64 %or2560.i, %or2548.i
-  %246 = or disjoint i64 %245, %or2575.i
-  %247 = or disjoint i64 %246, %or2589.i
-  %248 = shl nuw nsw i64 %247, 4
-  %249 = or disjoint i64 %248, %or2548.i
-  %250 = or i64 %or2589.i, %249
-  %251 = or i64 %250, %or2575.i
-  %or2599.i = or i64 %251, %or2560.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2600.i:                                      ; preds = %for.end
-  %and2601.i = and i64 %and.i, 1
-  %and2605.i = shl nuw i64 %and.i, 1
-  %shl2606.i = and i64 %and2605.i, 4
-  %252 = and i64 %and.i, 2
-  %253 = or disjoint i64 %252, %shl2606.i
-  %254 = or disjoint i64 %253, %and2601.i
-  %255 = shl nuw nsw i64 %254, 1
-  %or2611.i = or disjoint i64 %255, %and2601.i
-  %and2625.i = shl i64 %and.i, 6
-  %shl2626.i = and i64 %and2625.i, 256
-  %and2631.i = shl i64 %and.i, 7
-  %shl2632.i = and i64 %and2631.i, 1024
-  %256 = or disjoint i64 %shl2632.i, %shl2626.i
-  %257 = shl nuw nsw i64 %256, 1
-  %258 = or disjoint i64 %257, %shl2632.i
-  %or2637.i = or disjoint i64 %258, %shl2626.i
-  %259 = or disjoint i64 %or2637.i, %or2611.i
-  %and2654.i = shl i64 %and.i, 12
-  %shl2655.i = and i64 %and2654.i, 65536
-  %and2660.i = shl i64 %and.i, 13
-  %shl2661.i = and i64 %and2660.i, 262144
-  %260 = or disjoint i64 %shl2661.i, %shl2655.i
-  %261 = shl nuw nsw i64 %260, 1
-  %262 = or disjoint i64 %261, %shl2661.i
-  %or2666.i = or disjoint i64 %262, %shl2655.i
-  %and2682.i = shl i64 %and.i, 18
-  %shl2683.i = and i64 %and2682.i, 16777216
-  %and2688.i = shl i64 %and.i, 19
-  %shl2689.i = and i64 %and2688.i, 67108864
-  %263 = or disjoint i64 %shl2689.i, %shl2683.i
-  %264 = shl nuw nsw i64 %263, 1
-  %265 = or disjoint i64 %264, %shl2689.i
-  %or2694.i = or disjoint i64 %265, %shl2683.i
-  %266 = or i64 %259, %or2666.i
-  %267 = or i64 %266, %or2694.i
-  %268 = shl nuw nsw i64 %267, 4
-  %269 = or i64 %or2694.i, %268
-  %270 = or i64 %269, %or2666.i
-  %271 = or i64 %270, %or2637.i
-  %or2711.i = or i64 %271, %or2611.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2712.i:                                      ; preds = %for.end
-  %and2713.i = and i64 %and.i, 15
-  %and2717.i = shl i64 %and.i, 4
-  %shl2718.i = and i64 %and2717.i, 3840
-  %and2724.i = shl i64 %and.i, 8
-  %shl2725.i = and i64 %and2724.i, 983040
-  %and2730.i = shl i64 %and.i, 12
-  %shl2731.i = and i64 %and2730.i, 251658240
-  %272 = and i64 %and.i, 255
-  %273 = or disjoint i64 %shl2718.i, %272
-  %274 = or disjoint i64 %273, %shl2725.i
-  %275 = or disjoint i64 %274, %shl2731.i
-  %276 = shl nuw nsw i64 %275, 4
-  %277 = or disjoint i64 %276, %and2713.i
-  %278 = or disjoint i64 %277, %shl2731.i
-  %or2737.i = or i64 %278, %shl2725.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2738.i:                                      ; preds = %for.end
-  %279 = trunc i64 %and.i to i1
-  %or2742.i = select i1 %279, i64 3, i64 0
-  %and2749.i = shl i64 %and.i, 3
-  %shl2750.i = and i64 %and2749.i, 16
-  %or2754.i = mul nuw nsw i64 %shl2750.i, 3
-  %280 = or disjoint i64 %or2754.i, %or2742.i
-  %and2764.i = shl i64 %and.i, 6
-  %shl2765.i = and i64 %and2764.i, 256
-  %or2769.i = mul nuw nsw i64 %shl2765.i, 3
-  %and2778.i = shl i64 %and.i, 9
-  %shl2779.i = and i64 %and2778.i, 4096
-  %or2783.i = mul nuw nsw i64 %shl2779.i, 3
-  %281 = or disjoint i64 %280, %or2769.i
-  %282 = or disjoint i64 %281, %or2783.i
-  %and2794.i = shl i64 %and.i, 12
-  %shl2795.i = and i64 %and2794.i, 65536
-  %or2799.i = mul nuw nsw i64 %shl2795.i, 3
-  %and2808.i = shl i64 %and.i, 15
-  %shl2809.i = and i64 %and2808.i, 1048576
-  %or2813.i = mul nuw nsw i64 %shl2809.i, 3
-  %and2823.i = shl i64 %and.i, 18
-  %shl2824.i = and i64 %and2823.i, 16777216
-  %or2828.i = mul nuw nsw i64 %shl2824.i, 3
-  %and2837.i = shl i64 %and.i, 21
-  %shl2838.i = and i64 %and2837.i, 268435456
-  %or2842.i = mul nuw nsw i64 %shl2838.i, 3
-  %283 = or disjoint i64 %282, %or2799.i
-  %284 = or i64 %283, %or2813.i
-  %285 = or i64 %284, %or2828.i
-  %286 = or i64 %285, %or2842.i
-  %287 = shl nuw nsw i64 %286, 2
-  %288 = or disjoint i64 %287, %or2742.i
-  %289 = or i64 %or2842.i, %288
-  %290 = or i64 %289, %or2828.i
-  %291 = or i64 %290, %or2813.i
-  %292 = or i64 %291, %or2799.i
-  %293 = or i64 %292, %or2783.i
-  %294 = or i64 %293, %or2769.i
-  %or2853.i = or i64 %294, %or2754.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2854.i:                                      ; preds = %for.end
-  %and2855.i = and i64 %and.i, 3
-  %and2859.i = shl i64 %and.i, 2
-  %shl2860.i = and i64 %and2859.i, 48
-  %and2866.i = shl i64 %and.i, 4
-  %shl2867.i = and i64 %and2866.i, 768
-  %and2872.i = shl i64 %and.i, 6
-  %shl2873.i = and i64 %and2872.i, 12288
-  %and2880.i = shl i64 %and.i, 8
-  %shl2881.i = and i64 %and2880.i, 196608
-  %and2886.i = shl i64 %and.i, 10
-  %shl2887.i = and i64 %and2886.i, 3145728
-  %and2893.i = shl i64 %and.i, 12
-  %shl2894.i = and i64 %and2893.i, 50331648
-  %and2899.i = shl i64 %and.i, 14
-  %shl2900.i = and i64 %and2899.i, 805306368
-  %295 = and i64 %and.i, 15
-  %296 = or disjoint i64 %295, %shl2860.i
-  %297 = or disjoint i64 %296, %shl2867.i
-  %298 = or disjoint i64 %297, %shl2873.i
-  %299 = or disjoint i64 %298, %shl2881.i
-  %300 = or disjoint i64 %299, %shl2887.i
-  %301 = or i64 %300, %shl2894.i
-  %302 = or i64 %301, %shl2900.i
-  %303 = shl nuw nsw i64 %302, 2
-  %304 = or disjoint i64 %303, %and2855.i
-  %305 = or i64 %shl2900.i, %304
-  %306 = or i64 %305, %shl2894.i
-  %307 = or i64 %306, %shl2887.i
-  %308 = or i64 %307, %shl2881.i
-  %309 = or i64 %308, %shl2873.i
-  %or2907.i = or i64 %309, %shl2867.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb2908.i:                                      ; preds = %for.end
-  %and2909.i = and i64 %and.i, 1
-  %and2913.i = shl nuw i64 %and.i, 1
-  %shl2914.i = and i64 %and2913.i, 4
-  %and2920.i = shl i64 %and.i, 2
-  %shl2921.i = and i64 %and2920.i, 16
-  %and2926.i = shl i64 %and.i, 3
-  %shl2927.i = and i64 %and2926.i, 64
-  %and2934.i = shl i64 %and.i, 4
-  %shl2935.i = and i64 %and2934.i, 256
-  %and2940.i = shl i64 %and.i, 5
-  %shl2941.i = and i64 %and2940.i, 1024
-  %and2947.i = shl i64 %and.i, 6
-  %shl2948.i = and i64 %and2947.i, 4096
-  %and2953.i = shl i64 %and.i, 7
-  %shl2954.i = and i64 %and2953.i, 16384
-  %and2962.i = shl i64 %and.i, 8
-  %shl2963.i = and i64 %and2962.i, 65536
-  %and2968.i = shl i64 %and.i, 9
-  %shl2969.i = and i64 %and2968.i, 262144
-  %and2975.i = shl i64 %and.i, 10
-  %shl2976.i = and i64 %and2975.i, 1048576
-  %and2981.i = shl i64 %and.i, 11
-  %shl2982.i = and i64 %and2981.i, 4194304
-  %and2989.i = shl i64 %and.i, 12
-  %shl2990.i = and i64 %and2989.i, 16777216
-  %and2995.i = shl i64 %and.i, 13
-  %shl2996.i = and i64 %and2995.i, 67108864
-  %and3002.i = shl i64 %and.i, 14
-  %shl3003.i = and i64 %and3002.i, 268435456
-  %and3008.i = shl i64 %and.i, 15
-  %shl3009.i = and i64 %and3008.i, 1073741824
-  %310 = and i64 %and.i, 3
-  %311 = or disjoint i64 %shl2914.i, %310
-  %312 = or disjoint i64 %311, %shl2921.i
-  %313 = or disjoint i64 %312, %shl2927.i
-  %314 = or disjoint i64 %313, %shl2935.i
-  %315 = or disjoint i64 %314, %shl2941.i
-  %316 = or i64 %315, %shl2948.i
-  %317 = or i64 %316, %shl2954.i
-  %318 = or i64 %317, %shl2963.i
-  %319 = or i64 %318, %shl2969.i
-  %320 = or i64 %319, %shl2976.i
-  %321 = or i64 %320, %shl2982.i
-  %322 = or i64 %321, %shl2990.i
-  %323 = or i64 %322, %shl2996.i
-  %324 = or i64 %323, %shl3003.i
-  %325 = or i64 %324, %shl3009.i
-  %326 = shl nuw nsw i64 %325, 1
-  %327 = or disjoint i64 %326, %and2909.i
-  %328 = or i64 %shl3009.i, %327
-  %329 = or i64 %328, %shl3003.i
-  %330 = or i64 %329, %shl2996.i
-  %331 = or i64 %330, %shl2990.i
-  %332 = or i64 %331, %shl2982.i
-  %333 = or i64 %332, %shl2976.i
-  %334 = or i64 %333, %shl2969.i
-  %335 = or i64 %334, %shl2963.i
-  %336 = or i64 %335, %shl2954.i
-  %337 = or i64 %336, %shl2948.i
-  %338 = or i64 %337, %shl2941.i
-  %339 = or i64 %338, %shl2935.i
-  %340 = or i64 %339, %shl2927.i
-  %or3017.i = or i64 %340, %shl2921.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3018.i:                                      ; preds = %for.end
-  %and3019.i = and i64 %and.i, 4294967295
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3020.i:                                      ; preds = %for.end
-  %341 = and i64 %and.i, 1
-  %or3210.i = sub nsw i64 0, %341
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3211.i:                                      ; preds = %for.end
-  %and3212.i = and i64 %and.i, 3
-  %or3305.i = mul nuw i64 %and3212.i, 6148914691236517205
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3306.i:                                      ; preds = %for.end
-  %and3307.i = and i64 %and.i, 1
-  %and3311.i = shl nuw i64 %and.i, 1
-  %shl3312.i = and i64 %and3311.i, 4
-  %342 = and i64 %and.i, 2
-  %343 = or disjoint i64 %342, %shl3312.i
-  %344 = or disjoint i64 %343, %and3307.i
-  %345 = shl nuw nsw i64 %344, 1
-  %or3317.i = or disjoint i64 %345, %and3307.i
-  %or3356.i = mul nuw nsw i64 %or3317.i, 4369
-  %shl3407.i = mul nuw nsw i64 %or3317.i, 286326784
-  %or3408.i = or i64 %shl3407.i, %or3356.i
-  %shl3511.i = shl nuw i64 %or3408.i, 32
-  %or3512.i = or i64 %shl3511.i, %or3408.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3513.i:                                      ; preds = %for.end
-  %and3514.i = and i64 %and.i, 15
-  %or3559.i = mul nuw i64 %and3514.i, 1229782938247303441
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3560.i:                                      ; preds = %for.end
-  %346 = trunc i64 %and.i to i1
-  %or3564.i = select i1 %346, i64 3, i64 0
-  %and3571.i = shl i64 %and.i, 3
-  %shl3572.i = and i64 %and3571.i, 16
-  %or3576.i = mul nuw nsw i64 %shl3572.i, 3
-  %347 = or disjoint i64 %or3576.i, %or3564.i
-  %348 = shl nuw nsw i64 %347, 2
-  %349 = or disjoint i64 %348, %or3576.i
-  %or3585.i = or disjoint i64 %349, %or3564.i
-  %or3612.i = mul nuw nsw i64 %or3585.i, 257
-  %shl3665.i = mul nuw nsw i64 %or3585.i, 16842752
-  %or3666.i = or i64 %shl3665.i, %or3612.i
-  %shl3773.i = shl nuw i64 %or3666.i, 32
-  %or3774.i = or i64 %shl3773.i, %or3666.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3775.i:                                      ; preds = %for.end
-  %and3776.i = and i64 %and.i, 3
-  %and3780.i = shl i64 %and.i, 2
-  %shl3781.i = and i64 %and3780.i, 48
-  %350 = and i64 %and.i, 12
-  %351 = or disjoint i64 %350, %shl3781.i
-  %352 = or disjoint i64 %351, %and3776.i
-  %353 = shl nuw nsw i64 %352, 2
-  %or3786.i = or disjoint i64 %353, %and3776.i
-  %or3825.i = mul nuw nsw i64 %or3786.i, 16843009
-  %shl3876.i = mul nuw i64 %or3786.i, 72340172821233664
-  %or3877.i = or i64 %shl3876.i, %or3825.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb3878.i:                                      ; preds = %for.end
-  %and3879.i = and i64 %and.i, 1
-  %and3883.i = shl nuw i64 %and.i, 1
-  %shl3884.i = and i64 %and3883.i, 4
-  %and3890.i = shl i64 %and.i, 2
-  %shl3891.i = and i64 %and3890.i, 16
-  %and3896.i = shl i64 %and.i, 3
-  %shl3897.i = and i64 %and3896.i, 64
-  %354 = and i64 %and.i, 3
-  %355 = or disjoint i64 %shl3884.i, %354
-  %356 = or disjoint i64 %355, %shl3891.i
-  %357 = or disjoint i64 %356, %shl3897.i
-  %358 = shl nuw nsw i64 %357, 1
-  %359 = or disjoint i64 %358, %and3879.i
-  %360 = or disjoint i64 %359, %shl3897.i
-  %or3903.i = or i64 %360, %shl3891.i
-  %shl3929.i = shl nuw nsw i64 %or3903.i, 8
-  %or3930.i = or i64 %shl3929.i, %or3903.i
-  %shl3983.i = shl nuw nsw i64 %or3930.i, 16
-  %or3984.i = or i64 %shl3983.i, %or3930.i
-  %shl4091.i = shl nuw i64 %or3984.i, 32
-  %or4092.i = or i64 %shl4091.i, %or3984.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4093.i:                                      ; preds = %for.end
-  %and4094.i = and i64 %and.i, 255
-  %or4115.i = mul nuw i64 %and4094.i, 72340172838076673
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4116.i:                                      ; preds = %for.end
-  %361 = trunc i64 %and.i to i1
-  %or4126.i = select i1 %361, i64 15, i64 0
-  %and4139.i = shl i64 %and.i, 7
-  %shl4140.i = and i64 %and4139.i, 256
-  %or4152.i = mul nuw nsw i64 %shl4140.i, 15
-  %362 = or disjoint i64 %or4152.i, %or4126.i
-  %363 = shl nuw nsw i64 %362, 4
-  %364 = or disjoint i64 %363, %or4126.i
-  %or4169.i = or disjoint i64 %364, %or4152.i
-  %or4224.i = mul nuw nsw i64 %or4169.i, 65537
-  %shl4333.i = mul nuw i64 %or4169.i, 281479271677952
-  %or4334.i = or i64 %shl4333.i, %or4224.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4335.i:                                      ; preds = %for.end
-  %and4336.i = and i64 %and.i, 3
-  %or4339.i = mul nuw nsw i64 %and4336.i, 5
-  %and4346.i = shl i64 %and.i, 6
-  %shl4347.i = and i64 %and4346.i, 768
-  %or4351.i = mul nuw nsw i64 %shl4347.i, 5
-  %365 = or disjoint i64 %or4351.i, %or4339.i
-  %366 = shl nuw nsw i64 %365, 4
-  %367 = or disjoint i64 %366, %or4351.i
-  %or4360.i = or disjoint i64 %367, %or4339.i
-  %or4387.i = mul nuw nsw i64 %or4360.i, 65537
-  %shl4440.i = mul nuw i64 %or4360.i, 281479271677952
-  %or4441.i = or i64 %shl4440.i, %or4387.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4442.i:                                      ; preds = %for.end
-  %and4443.i = and i64 %and.i, 1
-  %and4447.i = shl nuw i64 %and.i, 1
-  %shl4448.i = and i64 %and4447.i, 4
-  %368 = and i64 %and.i, 2
-  %369 = or disjoint i64 %368, %shl4448.i
-  %370 = or disjoint i64 %369, %and4443.i
-  %371 = shl nuw nsw i64 %370, 1
-  %or4453.i = or disjoint i64 %371, %and4443.i
-  %and4467.i = shl i64 %and.i, 6
-  %shl4468.i = and i64 %and4467.i, 256
-  %and4473.i = shl i64 %and.i, 7
-  %shl4474.i = and i64 %and4473.i, 1024
-  %372 = or disjoint i64 %shl4474.i, %shl4468.i
-  %373 = shl nuw nsw i64 %372, 1
-  %374 = or disjoint i64 %373, %shl4474.i
-  %or4479.i = or disjoint i64 %374, %shl4468.i
-  %375 = or disjoint i64 %or4479.i, %or4453.i
-  %376 = shl nuw nsw i64 %375, 4
-  %377 = or i64 %or4479.i, %376
-  %or4495.i = or i64 %377, %or4453.i
-  %shl4549.i = shl nuw nsw i64 %or4495.i, 16
-  %or4550.i = or i64 %shl4549.i, %or4495.i
-  %shl4659.i = shl nuw i64 %or4550.i, 32
-  %or4660.i = or i64 %shl4659.i, %or4550.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4661.i:                                      ; preds = %for.end
-  %and4662.i = and i64 %and.i, 15
-  %and4666.i = shl i64 %and.i, 4
-  %shl4667.i = and i64 %and4666.i, 3840
-  %378 = and i64 %and.i, 240
-  %379 = or disjoint i64 %378, %shl4667.i
-  %380 = or disjoint i64 %379, %and4662.i
-  %381 = shl nuw nsw i64 %380, 4
-  %or4672.i = or disjoint i64 %381, %and4662.i
-  %or4711.i = mul nuw i64 %or4672.i, 281479271743489
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4712.i:                                      ; preds = %for.end
-  %382 = trunc i64 %and.i to i1
-  %or4716.i = select i1 %382, i64 3, i64 0
-  %and4723.i = shl i64 %and.i, 3
-  %shl4724.i = and i64 %and4723.i, 16
-  %or4728.i = mul nuw nsw i64 %shl4724.i, 3
-  %and4738.i = shl i64 %and.i, 6
-  %shl4739.i = and i64 %and4738.i, 256
-  %or4743.i = mul nuw nsw i64 %shl4739.i, 3
-  %and4752.i = shl i64 %and.i, 9
-  %shl4753.i = and i64 %and4752.i, 4096
-  %or4757.i = mul nuw nsw i64 %shl4753.i, 3
-  %383 = or disjoint i64 %or4728.i, %or4716.i
-  %384 = or disjoint i64 %383, %or4743.i
-  %385 = or disjoint i64 %384, %or4757.i
-  %386 = shl nuw nsw i64 %385, 2
-  %387 = or disjoint i64 %386, %or4716.i
-  %388 = or i64 %or4757.i, %387
-  %389 = or i64 %388, %or4743.i
-  %or4767.i = or i64 %389, %or4728.i
-  %shl4823.i = shl nuw nsw i64 %or4767.i, 16
-  %or4824.i = or i64 %shl4823.i, %or4767.i
-  %shl4937.i = shl nuw i64 %or4824.i, 32
-  %or4938.i = or i64 %shl4937.i, %or4824.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb4939.i:                                      ; preds = %for.end
-  %and4940.i = and i64 %and.i, 3
-  %and4944.i = shl i64 %and.i, 2
-  %shl4945.i = and i64 %and4944.i, 48
-  %and4951.i = shl i64 %and.i, 4
-  %shl4952.i = and i64 %and4951.i, 768
-  %and4957.i = shl i64 %and.i, 6
-  %shl4958.i = and i64 %and4957.i, 12288
-  %390 = and i64 %and.i, 15
-  %391 = or disjoint i64 %shl4945.i, %390
-  %392 = or disjoint i64 %391, %shl4952.i
-  %393 = or disjoint i64 %392, %shl4958.i
-  %394 = shl nuw nsw i64 %393, 2
-  %395 = or disjoint i64 %394, %and4940.i
-  %396 = or disjoint i64 %395, %shl4958.i
-  %or4964.i = or i64 %396, %shl4952.i
-  %shl4990.i = shl nuw nsw i64 %or4964.i, 16
-  %or4991.i = or i64 %shl4990.i, %or4964.i
-  %shl5044.i = shl nuw i64 %or4991.i, 32
-  %or5045.i = or i64 %shl5044.i, %or4991.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5046.i:                                      ; preds = %for.end
-  %and5047.i = and i64 %and.i, 1
-  %and5051.i = shl nuw i64 %and.i, 1
-  %shl5052.i = and i64 %and5051.i, 4
-  %and5058.i = shl i64 %and.i, 2
-  %shl5059.i = and i64 %and5058.i, 16
-  %and5064.i = shl i64 %and.i, 3
-  %shl5065.i = and i64 %and5064.i, 64
-  %and5072.i = shl i64 %and.i, 4
-  %shl5073.i = and i64 %and5072.i, 256
-  %and5078.i = shl i64 %and.i, 5
-  %shl5079.i = and i64 %and5078.i, 1024
-  %and5085.i = shl i64 %and.i, 6
-  %shl5086.i = and i64 %and5085.i, 4096
-  %and5091.i = shl i64 %and.i, 7
-  %shl5092.i = and i64 %and5091.i, 16384
-  %397 = and i64 %and.i, 3
-  %398 = or disjoint i64 %397, %shl5052.i
-  %399 = or disjoint i64 %398, %shl5059.i
-  %400 = or disjoint i64 %399, %shl5065.i
-  %401 = or disjoint i64 %400, %shl5073.i
-  %402 = or disjoint i64 %401, %shl5079.i
-  %403 = or i64 %402, %shl5086.i
-  %404 = or i64 %403, %shl5092.i
-  %405 = shl nuw nsw i64 %404, 1
-  %406 = or disjoint i64 %405, %and5047.i
-  %407 = or i64 %shl5092.i, %406
-  %408 = or i64 %407, %shl5086.i
-  %409 = or i64 %408, %shl5079.i
-  %410 = or i64 %409, %shl5073.i
-  %411 = or i64 %410, %shl5065.i
-  %or5099.i = or i64 %411, %shl5059.i
-  %shl5153.i = shl nuw nsw i64 %or5099.i, 16
-  %or5154.i = or i64 %shl5153.i, %or5099.i
-  %shl5263.i = shl nuw i64 %or5154.i, 32
-  %or5264.i = or i64 %shl5263.i, %or5154.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5265.i:                                      ; preds = %for.end
-  %and5266.i = and i64 %and.i, 65535
-  %or5275.i = mul nuw i64 %and5266.i, 281479271743489
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5276.i:                                      ; preds = %for.end
-  %412 = trunc i64 %and.i to i1
-  %or5298.i = select i1 %412, i64 255, i64 0
-  %and5323.i = shl i64 %and.i, 15
-  %shl5324.i = and i64 %and5323.i, 65536
-  %or5352.i = mul nuw nsw i64 %shl5324.i, 255
-  %413 = or disjoint i64 %or5352.i, %or5298.i
-  %414 = shl nuw nsw i64 %413, 8
-  %415 = or disjoint i64 %414, %or5298.i
-  %or5385.i = or disjoint i64 %415, %or5352.i
-  %or5496.i = mul nuw i64 %or5385.i, 4294967297
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5497.i:                                      ; preds = %for.end
-  %and5498.i = and i64 %and.i, 3
-  %or5507.i = mul nuw nsw i64 %and5498.i, 85
-  %and5520.i = shl i64 %and.i, 14
-  %shl5521.i = and i64 %and5520.i, 196608
-  %or5533.i = mul nuw nsw i64 %shl5521.i, 85
-  %416 = or disjoint i64 %or5533.i, %or5507.i
-  %417 = shl nuw nsw i64 %416, 8
-  %418 = or disjoint i64 %417, %or5507.i
-  %or5550.i = or disjoint i64 %418, %or5533.i
-  %or5605.i = mul nuw i64 %or5550.i, 4294967297
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5606.i:                                      ; preds = %for.end
-  %and5607.i = and i64 %and.i, 1
-  %and5611.i = shl nuw i64 %and.i, 1
-  %shl5612.i = and i64 %and5611.i, 4
-  %419 = and i64 %and.i, 2
-  %420 = or disjoint i64 %419, %shl5612.i
-  %421 = or disjoint i64 %420, %and5607.i
-  %422 = shl nuw nsw i64 %421, 1
-  %or5617.i = or disjoint i64 %422, %and5607.i
-  %or5630.i = mul nuw nsw i64 %or5617.i, 17
-  %and5657.i = shl i64 %and.i, 14
-  %shl5658.i = and i64 %and5657.i, 65536
-  %and5663.i = shl i64 %and.i, 15
-  %shl5664.i = and i64 %and5663.i, 262144
-  %423 = or disjoint i64 %shl5664.i, %shl5658.i
-  %424 = shl nuw nsw i64 %423, 1
-  %425 = or disjoint i64 %424, %shl5664.i
-  %or5669.i = or disjoint i64 %425, %shl5658.i
-  %or5684.i = mul nuw nsw i64 %or5669.i, 17
-  %426 = or disjoint i64 %or5684.i, %or5630.i
-  %427 = shl nuw nsw i64 %426, 8
-  %428 = or i64 %or5684.i, %427
-  %or5715.i = or i64 %428, %or5630.i
-  %shl5825.i = shl nuw i64 %or5715.i, 32
-  %or5826.i = or i64 %shl5825.i, %or5715.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5827.i:                                      ; preds = %for.end
-  %and5828.i = and i64 %and.i, 15
-  %or5831.i = mul nuw nsw i64 %and5828.i, 17
-  %and5838.i = shl i64 %and.i, 12
-  %shl5839.i = and i64 %and5838.i, 983040
-  %or5843.i = mul nuw nsw i64 %shl5839.i, 17
-  %429 = or disjoint i64 %or5843.i, %or5831.i
-  %430 = shl nuw nsw i64 %429, 8
-  %431 = or disjoint i64 %430, %or5843.i
-  %or5852.i = or disjoint i64 %431, %or5831.i
-  %or5879.i = mul nuw i64 %or5852.i, 4294967297
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb5880.i:                                      ; preds = %for.end
-  %432 = trunc i64 %and.i to i1
-  %or5884.i = select i1 %432, i64 3, i64 0
-  %and5891.i = shl i64 %and.i, 3
-  %shl5892.i = and i64 %and5891.i, 16
-  %or5896.i = mul nuw nsw i64 %shl5892.i, 3
-  %433 = or disjoint i64 %or5896.i, %or5884.i
-  %434 = shl nuw nsw i64 %433, 2
-  %435 = or disjoint i64 %434, %or5896.i
-  %or5905.i = or disjoint i64 %435, %or5884.i
-  %and5933.i = shl i64 %and.i, 14
-  %shl5934.i = and i64 %and5933.i, 65536
-  %or5938.i = mul nuw nsw i64 %shl5934.i, 3
-  %and5947.i = shl i64 %and.i, 17
-  %shl5948.i = and i64 %and5947.i, 1048576
-  %or5952.i = mul nuw nsw i64 %shl5948.i, 3
-  %436 = or disjoint i64 %or5952.i, %or5938.i
-  %437 = shl nuw nsw i64 %436, 2
-  %438 = or disjoint i64 %437, %or5952.i
-  %or5961.i = or disjoint i64 %438, %or5938.i
-  %439 = or disjoint i64 %or5961.i, %or5905.i
-  %440 = shl nuw nsw i64 %439, 8
-  %441 = or i64 %or5961.i, %440
-  %or5993.i = or i64 %441, %or5905.i
-  %shl6107.i = shl nuw i64 %or5993.i, 32
-  %or6108.i = or i64 %shl6107.i, %or5993.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb6109.i:                                      ; preds = %for.end
-  %and6110.i = and i64 %and.i, 3
-  %and6114.i = shl i64 %and.i, 2
-  %shl6115.i = and i64 %and6114.i, 48
-  %442 = and i64 %and.i, 12
-  %443 = or disjoint i64 %442, %shl6115.i
-  %444 = or disjoint i64 %443, %and6110.i
-  %445 = shl nuw nsw i64 %444, 2
-  %or6120.i = or disjoint i64 %445, %and6110.i
-  %and6134.i = shl i64 %and.i, 12
-  %shl6135.i = and i64 %and6134.i, 196608
-  %and6140.i = shl i64 %and.i, 14
-  %shl6141.i = and i64 %and6140.i, 3145728
-  %446 = or disjoint i64 %shl6141.i, %shl6135.i
-  %447 = shl nuw nsw i64 %446, 2
-  %448 = or disjoint i64 %447, %shl6141.i
-  %or6146.i = or disjoint i64 %448, %shl6135.i
-  %449 = or disjoint i64 %or6146.i, %or6120.i
-  %450 = shl nuw nsw i64 %449, 8
-  %451 = or i64 %or6146.i, %450
-  %or6162.i = or i64 %451, %or6120.i
-  %shl6216.i = shl nuw i64 %or6162.i, 32
-  %or6217.i = or i64 %shl6216.i, %or6162.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb6218.i:                                      ; preds = %for.end
-  %and6219.i = and i64 %and.i, 1
-  %and6223.i = shl nuw i64 %and.i, 1
-  %shl6224.i = and i64 %and6223.i, 4
-  %and6230.i = shl i64 %and.i, 2
-  %shl6231.i = and i64 %and6230.i, 16
-  %and6236.i = shl i64 %and.i, 3
-  %shl6237.i = and i64 %and6236.i, 64
-  %452 = and i64 %and.i, 3
-  %453 = or disjoint i64 %shl6224.i, %452
-  %454 = or disjoint i64 %453, %shl6231.i
-  %455 = or disjoint i64 %454, %shl6237.i
-  %456 = shl nuw nsw i64 %455, 1
-  %457 = or disjoint i64 %456, %and6219.i
-  %458 = or disjoint i64 %457, %shl6237.i
-  %or6243.i = or i64 %458, %shl6231.i
-  %and6271.i = shl i64 %and.i, 12
-  %shl6272.i = and i64 %and6271.i, 65536
-  %and6277.i = shl i64 %and.i, 13
-  %shl6278.i = and i64 %and6277.i, 262144
-  %and6284.i = shl i64 %and.i, 14
-  %shl6285.i = and i64 %and6284.i, 1048576
-  %and6290.i = shl i64 %and.i, 15
-  %shl6291.i = and i64 %and6290.i, 4194304
-  %459 = or disjoint i64 %shl6278.i, %shl6272.i
-  %460 = or disjoint i64 %459, %shl6285.i
-  %461 = or disjoint i64 %460, %shl6291.i
-  %462 = shl nuw nsw i64 %461, 1
-  %463 = or disjoint i64 %462, %shl6291.i
-  %464 = or disjoint i64 %463, %shl6285.i
-  %465 = or i64 %shl6278.i, %464
-  %or6297.i = or i64 %465, %shl6272.i
-  %466 = or i64 %or6297.i, %or6243.i
-  %467 = shl nuw nsw i64 %466, 8
-  %468 = or i64 %or6243.i, %467
-  %or6327.i = or i64 %468, %or6297.i
-  %shl6437.i = shl nuw i64 %or6327.i, 32
-  %or6438.i = or i64 %shl6437.i, %or6327.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb6439.i:                                      ; preds = %for.end
-  %and6440.i = and i64 %and.i, 255
-  %and6444.i = shl i64 %and.i, 8
-  %shl6445.i = and i64 %and6444.i, 16711680
-  %469 = and i64 %and.i, 65280
-  %470 = or disjoint i64 %469, %shl6445.i
-  %471 = or disjoint i64 %470, %and6440.i
-  %472 = shl nuw nsw i64 %471, 8
-  %or6450.i = or disjoint i64 %472, %and6440.i
-  %or6463.i = mul nuw i64 %or6450.i, 4294967297
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb6464.i:                                      ; preds = %for.end
-  %473 = trunc i64 %and.i to i1
-  %or6474.i = select i1 %473, i64 15, i64 0
-  %and6487.i = shl i64 %and.i, 7
-  %shl6488.i = and i64 %and6487.i, 256
-  %or6500.i = mul nuw nsw i64 %shl6488.i, 15
-  %and6518.i = shl i64 %and.i, 14
-  %shl6519.i = and i64 %and6518.i, 65536
-  %or6531.i = mul nuw nsw i64 %shl6519.i, 15
-  %and6548.i = shl i64 %and.i, 21
-  %shl6549.i = and i64 %and6548.i, 16777216
-  %or6561.i = mul nuw nsw i64 %shl6549.i, 15
-  %474 = or disjoint i64 %or6500.i, %or6474.i
-  %475 = or disjoint i64 %474, %or6531.i
-  %476 = or disjoint i64 %475, %or6561.i
-  %477 = shl nuw nsw i64 %476, 4
-  %478 = or disjoint i64 %477, %or6474.i
-  %479 = or i64 %or6561.i, %478
-  %480 = or i64 %479, %or6531.i
-  %or6579.i = or i64 %480, %or6500.i
-  %shl6695.i = shl nuw i64 %or6579.i, 32
-  %or6696.i = or i64 %shl6695.i, %or6579.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb6697.i:                                      ; preds = %for.end
-  %and6698.i = and i64 %and.i, 3
-  %or6701.i = mul nuw nsw i64 %and6698.i, 5
-  %and6708.i = shl i64 %and.i, 6
-  %shl6709.i = and i64 %and6708.i, 768
-  %or6713.i = mul nuw nsw i64 %shl6709.i, 5
-  %and6723.i = shl i64 %and.i, 12
-  %shl6724.i = and i64 %and6723.i, 196608
-  %or6728.i = mul nuw nsw i64 %shl6724.i, 5
-  %and6737.i = shl i64 %and.i, 18
-  %shl6738.i = and i64 %and6737.i, 50331648
-  %or6742.i = mul nuw nsw i64 %shl6738.i, 5
-  %481 = or disjoint i64 %or6713.i, %or6701.i
-  %482 = or disjoint i64 %481, %or6728.i
-  %483 = or disjoint i64 %482, %or6742.i
-  %484 = shl nuw nsw i64 %483, 4
-  %485 = or disjoint i64 %484, %or6701.i
-  %486 = or i64 %or6742.i, %485
-  %487 = or i64 %486, %or6728.i
-  %or6752.i = or i64 %487, %or6713.i
-  %shl6808.i = shl nuw i64 %or6752.i, 32
-  %or6809.i = or i64 %shl6808.i, %or6752.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb6810.i:                                      ; preds = %for.end
-  %and6811.i = and i64 %and.i, 1
-  %and6815.i = shl nuw i64 %and.i, 1
-  %shl6816.i = and i64 %and6815.i, 4
-  %488 = and i64 %and.i, 2
-  %489 = or disjoint i64 %488, %shl6816.i
-  %490 = or disjoint i64 %489, %and6811.i
-  %491 = shl nuw nsw i64 %490, 1
-  %or6821.i = or disjoint i64 %491, %and6811.i
-  %and6835.i = shl i64 %and.i, 6
-  %shl6836.i = and i64 %and6835.i, 256
-  %and6841.i = shl i64 %and.i, 7
-  %shl6842.i = and i64 %and6841.i, 1024
-  %492 = or disjoint i64 %shl6842.i, %shl6836.i
-  %493 = shl nuw nsw i64 %492, 1
-  %494 = or disjoint i64 %493, %shl6842.i
-  %or6847.i = or disjoint i64 %494, %shl6836.i
-  %495 = or disjoint i64 %or6847.i, %or6821.i
-  %and6864.i = shl i64 %and.i, 12
-  %shl6865.i = and i64 %and6864.i, 65536
-  %and6870.i = shl i64 %and.i, 13
-  %shl6871.i = and i64 %and6870.i, 262144
-  %496 = or disjoint i64 %shl6871.i, %shl6865.i
-  %497 = shl nuw nsw i64 %496, 1
-  %498 = or disjoint i64 %497, %shl6871.i
-  %or6876.i = or disjoint i64 %498, %shl6865.i
-  %and6892.i = shl i64 %and.i, 18
-  %shl6893.i = and i64 %and6892.i, 16777216
-  %and6898.i = shl i64 %and.i, 19
-  %shl6899.i = and i64 %and6898.i, 67108864
-  %499 = or disjoint i64 %shl6899.i, %shl6893.i
-  %500 = shl nuw nsw i64 %499, 1
-  %501 = or disjoint i64 %500, %shl6899.i
-  %or6904.i = or disjoint i64 %501, %shl6893.i
-  %502 = or i64 %495, %or6876.i
-  %503 = or i64 %502, %or6904.i
-  %504 = shl nuw nsw i64 %503, 4
-  %505 = or i64 %or6904.i, %504
-  %506 = or i64 %505, %or6876.i
-  %507 = or i64 %506, %or6847.i
-  %or6921.i = or i64 %507, %or6821.i
-  %shl7033.i = shl nuw i64 %or6921.i, 32
-  %or7034.i = or i64 %shl7033.i, %or6921.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7035.i:                                      ; preds = %for.end
-  %and7036.i = and i64 %and.i, 15
-  %and7040.i = shl i64 %and.i, 4
-  %shl7041.i = and i64 %and7040.i, 3840
-  %and7047.i = shl i64 %and.i, 8
-  %shl7048.i = and i64 %and7047.i, 983040
-  %and7053.i = shl i64 %and.i, 12
-  %shl7054.i = and i64 %and7053.i, 251658240
-  %508 = and i64 %and.i, 255
-  %509 = or disjoint i64 %shl7041.i, %508
-  %510 = or disjoint i64 %509, %shl7048.i
-  %511 = or disjoint i64 %510, %shl7054.i
-  %512 = shl nuw nsw i64 %511, 4
-  %513 = or disjoint i64 %512, %and7036.i
-  %514 = or disjoint i64 %513, %shl7054.i
-  %or7060.i = or i64 %514, %shl7048.i
-  %shl7086.i = shl nuw i64 %or7060.i, 32
-  %or7087.i = or i64 %shl7086.i, %or7060.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7088.i:                                      ; preds = %for.end
-  %515 = trunc i64 %and.i to i1
-  %or7092.i = select i1 %515, i64 3, i64 0
-  %and7099.i = shl i64 %and.i, 3
-  %shl7100.i = and i64 %and7099.i, 16
-  %or7104.i = mul nuw nsw i64 %shl7100.i, 3
-  %516 = or disjoint i64 %or7104.i, %or7092.i
-  %and7114.i = shl i64 %and.i, 6
-  %shl7115.i = and i64 %and7114.i, 256
-  %or7119.i = mul nuw nsw i64 %shl7115.i, 3
-  %and7128.i = shl i64 %and.i, 9
-  %shl7129.i = and i64 %and7128.i, 4096
-  %or7133.i = mul nuw nsw i64 %shl7129.i, 3
-  %517 = or disjoint i64 %516, %or7119.i
-  %518 = or disjoint i64 %517, %or7133.i
-  %and7144.i = shl i64 %and.i, 12
-  %shl7145.i = and i64 %and7144.i, 65536
-  %or7149.i = mul nuw nsw i64 %shl7145.i, 3
-  %and7158.i = shl i64 %and.i, 15
-  %shl7159.i = and i64 %and7158.i, 1048576
-  %or7163.i = mul nuw nsw i64 %shl7159.i, 3
-  %and7173.i = shl i64 %and.i, 18
-  %shl7174.i = and i64 %and7173.i, 16777216
-  %or7178.i = mul nuw nsw i64 %shl7174.i, 3
-  %and7187.i = shl i64 %and.i, 21
-  %shl7188.i = and i64 %and7187.i, 268435456
-  %or7192.i = mul nuw nsw i64 %shl7188.i, 3
-  %519 = or disjoint i64 %518, %or7149.i
-  %520 = or i64 %519, %or7163.i
-  %521 = or i64 %520, %or7178.i
-  %522 = or i64 %521, %or7192.i
-  %523 = shl nuw nsw i64 %522, 2
-  %524 = or disjoint i64 %523, %or7092.i
-  %525 = or i64 %or7192.i, %524
-  %526 = or i64 %525, %or7178.i
-  %527 = or i64 %526, %or7163.i
-  %528 = or i64 %527, %or7149.i
-  %529 = or i64 %528, %or7133.i
-  %530 = or i64 %529, %or7119.i
-  %or7203.i = or i64 %530, %or7104.i
-  %shl7319.i = shl nuw i64 %or7203.i, 32
-  %or7320.i = or i64 %shl7319.i, %or7203.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7321.i:                                      ; preds = %for.end
-  %and7322.i = and i64 %and.i, 3
-  %and7326.i = shl i64 %and.i, 2
-  %shl7327.i = and i64 %and7326.i, 48
-  %and7333.i = shl i64 %and.i, 4
-  %shl7334.i = and i64 %and7333.i, 768
-  %and7339.i = shl i64 %and.i, 6
-  %shl7340.i = and i64 %and7339.i, 12288
-  %and7347.i = shl i64 %and.i, 8
-  %shl7348.i = and i64 %and7347.i, 196608
-  %and7353.i = shl i64 %and.i, 10
-  %shl7354.i = and i64 %and7353.i, 3145728
-  %and7360.i = shl i64 %and.i, 12
-  %shl7361.i = and i64 %and7360.i, 50331648
-  %and7366.i = shl i64 %and.i, 14
-  %shl7367.i = and i64 %and7366.i, 805306368
-  %531 = and i64 %and.i, 15
-  %532 = or disjoint i64 %531, %shl7327.i
-  %533 = or disjoint i64 %532, %shl7334.i
-  %534 = or disjoint i64 %533, %shl7340.i
-  %535 = or disjoint i64 %534, %shl7348.i
-  %536 = or disjoint i64 %535, %shl7354.i
-  %537 = or i64 %536, %shl7361.i
-  %538 = or i64 %537, %shl7367.i
-  %539 = shl nuw nsw i64 %538, 2
-  %540 = or disjoint i64 %539, %and7322.i
-  %541 = or i64 %shl7367.i, %540
-  %542 = or i64 %541, %shl7361.i
-  %543 = or i64 %542, %shl7354.i
-  %544 = or i64 %543, %shl7348.i
-  %545 = or i64 %544, %shl7340.i
-  %or7374.i = or i64 %545, %shl7334.i
-  %shl7428.i = shl nuw i64 %or7374.i, 32
-  %or7429.i = or i64 %shl7428.i, %or7374.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7430.i:                                      ; preds = %for.end
-  %and7431.i = and i64 %and.i, 1
-  %and7435.i = shl nuw i64 %and.i, 1
-  %shl7436.i = and i64 %and7435.i, 4
-  %and7442.i = shl i64 %and.i, 2
-  %shl7443.i = and i64 %and7442.i, 16
-  %and7448.i = shl i64 %and.i, 3
-  %shl7449.i = and i64 %and7448.i, 64
-  %and7456.i = shl i64 %and.i, 4
-  %shl7457.i = and i64 %and7456.i, 256
-  %and7462.i = shl i64 %and.i, 5
-  %shl7463.i = and i64 %and7462.i, 1024
-  %and7469.i = shl i64 %and.i, 6
-  %shl7470.i = and i64 %and7469.i, 4096
-  %and7475.i = shl i64 %and.i, 7
-  %shl7476.i = and i64 %and7475.i, 16384
-  %and7484.i = shl i64 %and.i, 8
-  %shl7485.i = and i64 %and7484.i, 65536
-  %and7490.i = shl i64 %and.i, 9
-  %shl7491.i = and i64 %and7490.i, 262144
-  %and7497.i = shl i64 %and.i, 10
-  %shl7498.i = and i64 %and7497.i, 1048576
-  %and7503.i = shl i64 %and.i, 11
-  %shl7504.i = and i64 %and7503.i, 4194304
-  %and7511.i = shl i64 %and.i, 12
-  %shl7512.i = and i64 %and7511.i, 16777216
-  %and7517.i = shl i64 %and.i, 13
-  %shl7518.i = and i64 %and7517.i, 67108864
-  %and7524.i = shl i64 %and.i, 14
-  %shl7525.i = and i64 %and7524.i, 268435456
-  %and7530.i = shl i64 %and.i, 15
-  %shl7531.i = and i64 %and7530.i, 1073741824
-  %546 = and i64 %and.i, 3
-  %547 = or disjoint i64 %shl7436.i, %546
-  %548 = or disjoint i64 %547, %shl7443.i
-  %549 = or disjoint i64 %548, %shl7449.i
-  %550 = or disjoint i64 %549, %shl7457.i
-  %551 = or disjoint i64 %550, %shl7463.i
-  %552 = or i64 %551, %shl7470.i
-  %553 = or i64 %552, %shl7476.i
-  %554 = or i64 %553, %shl7485.i
-  %555 = or i64 %554, %shl7491.i
-  %556 = or i64 %555, %shl7498.i
-  %557 = or i64 %556, %shl7504.i
-  %558 = or i64 %557, %shl7512.i
-  %559 = or i64 %558, %shl7518.i
-  %560 = or i64 %559, %shl7525.i
-  %561 = or i64 %560, %shl7531.i
-  %562 = shl nuw nsw i64 %561, 1
-  %563 = or disjoint i64 %562, %and7431.i
-  %564 = or i64 %shl7531.i, %563
-  %565 = or i64 %564, %shl7525.i
-  %566 = or i64 %565, %shl7518.i
-  %567 = or i64 %566, %shl7512.i
-  %568 = or i64 %567, %shl7504.i
-  %569 = or i64 %568, %shl7498.i
-  %570 = or i64 %569, %shl7491.i
-  %571 = or i64 %570, %shl7485.i
-  %572 = or i64 %571, %shl7476.i
-  %573 = or i64 %572, %shl7470.i
-  %574 = or i64 %573, %shl7463.i
-  %575 = or i64 %574, %shl7457.i
-  %576 = or i64 %575, %shl7449.i
-  %or7539.i = or i64 %576, %shl7443.i
-  %shl7649.i = shl nuw i64 %or7539.i, 32
-  %or7650.i = or i64 %shl7649.i, %or7539.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7651.i:                                      ; preds = %for.end
-  %and7652.i = and i64 %and.i, 4294967295
-  %or7655.i = mul nuw i64 %and7652.i, 4294967297
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7656.i:                                      ; preds = %for.end
-  %577 = trunc i64 %and.i to i1
-  %or7702.i = select i1 %577, i64 65535, i64 0
-  %and7751.i = shl i64 %and.i, 31
-  %shl7752.i = and i64 %and7751.i, 4294967296
-  %or7812.i = mul nuw nsw i64 %shl7752.i, 65535
-  %578 = or disjoint i64 %or7812.i, %or7702.i
-  %579 = shl nuw i64 %578, 16
-  %580 = or disjoint i64 %579, %or7702.i
-  %or7877.i = or disjoint i64 %580, %or7812.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7878.i:                                      ; preds = %for.end
-  %and7879.i = and i64 %and.i, 3
-  %or7900.i = mul nuw nsw i64 %and7879.i, 21845
-  %and7925.i = shl i64 %and.i, 30
-  %shl7926.i = and i64 %and7925.i, 12884901888
-  %or7954.i = mul nuw nsw i64 %shl7926.i, 21845
-  %581 = or disjoint i64 %or7954.i, %or7900.i
-  %582 = shl nuw i64 %581, 16
-  %583 = or disjoint i64 %582, %or7900.i
-  %or7987.i = or disjoint i64 %583, %or7954.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb7988.i:                                      ; preds = %for.end
-  %and7989.i = and i64 %and.i, 1
-  %and7993.i = shl nuw i64 %and.i, 1
-  %shl7994.i = and i64 %and7993.i, 4
-  %584 = and i64 %and.i, 2
-  %585 = or disjoint i64 %584, %shl7994.i
-  %586 = or disjoint i64 %585, %and7989.i
-  %587 = shl nuw nsw i64 %586, 1
-  %or7999.i = or disjoint i64 %587, %and7989.i
-  %or8038.i = mul nuw nsw i64 %or7999.i, 4369
-  %and8091.i = shl i64 %and.i, 30
-  %shl8092.i = and i64 %and8091.i, 4294967296
-  %and8097.i = shl i64 %and.i, 31
-  %shl8098.i = and i64 %and8097.i, 17179869184
-  %588 = or disjoint i64 %shl8098.i, %shl8092.i
-  %589 = shl nuw nsw i64 %588, 1
-  %590 = or disjoint i64 %589, %shl8098.i
-  %or8103.i = or disjoint i64 %590, %shl8092.i
-  %or8148.i = mul nuw nsw i64 %or8103.i, 4369
-  %591 = or i64 %or8148.i, %or8038.i
-  %592 = shl nuw i64 %591, 16
-  %593 = or i64 %or8148.i, %592
-  %or8209.i = or i64 %593, %or8038.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb8210.i:                                      ; preds = %for.end
-  %and8211.i = and i64 %and.i, 15
-  %or8220.i = mul nuw nsw i64 %and8211.i, 4369
-  %and8233.i = shl i64 %and.i, 28
-  %shl8234.i = and i64 %and8233.i, 64424509440
-  %or8246.i = mul nuw nsw i64 %shl8234.i, 4369
-  %594 = or disjoint i64 %or8246.i, %or8220.i
-  %595 = shl nuw i64 %594, 16
-  %596 = or disjoint i64 %595, %or8220.i
-  %or8263.i = or disjoint i64 %596, %or8246.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb8264.i:                                      ; preds = %for.end
-  %597 = trunc i64 %and.i to i1
-  %or8268.i = select i1 %597, i64 3, i64 0
-  %and8275.i = shl i64 %and.i, 3
-  %shl8276.i = and i64 %and8275.i, 16
-  %or8280.i = mul nuw nsw i64 %shl8276.i, 3
-  %598 = or disjoint i64 %or8280.i, %or8268.i
-  %599 = shl nuw nsw i64 %598, 2
-  %600 = or disjoint i64 %599, %or8280.i
-  %or8289.i = or disjoint i64 %600, %or8268.i
-  %or8316.i = mul nuw nsw i64 %or8289.i, 257
-  %and8371.i = shl i64 %and.i, 30
-  %shl8372.i = and i64 %and8371.i, 4294967296
-  %or8376.i = mul nuw nsw i64 %shl8372.i, 3
-  %and8385.i = shl i64 %and.i, 33
-  %shl8386.i = and i64 %and8385.i, 68719476736
-  %or8390.i = mul nuw nsw i64 %shl8386.i, 3
-  %601 = or disjoint i64 %or8390.i, %or8376.i
-  %602 = shl nuw nsw i64 %601, 2
-  %603 = or disjoint i64 %602, %or8390.i
-  %or8399.i = or disjoint i64 %603, %or8376.i
-  %shl8429.i = shl nuw nsw i64 %or8399.i, 8
-  %or8430.i = or i64 %shl8429.i, %or8399.i
-  %604 = or i64 %or8430.i, %or8316.i
-  %605 = shl nuw i64 %604, 16
-  %606 = or i64 %or8430.i, %605
-  %or8493.i = or i64 %606, %or8316.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb8494.i:                                      ; preds = %for.end
-  %and8495.i = and i64 %and.i, 3
-  %and8499.i = shl i64 %and.i, 2
-  %shl8500.i = and i64 %and8499.i, 48
-  %607 = and i64 %and.i, 12
-  %608 = or disjoint i64 %607, %shl8500.i
-  %609 = or disjoint i64 %608, %and8495.i
-  %610 = shl nuw nsw i64 %609, 2
-  %or8505.i = or disjoint i64 %610, %and8495.i
-  %or8518.i = mul nuw nsw i64 %or8505.i, 257
-  %and8545.i = shl i64 %and.i, 28
-  %shl8546.i = and i64 %and8545.i, 12884901888
-  %and8551.i = shl i64 %and.i, 30
-  %shl8552.i = and i64 %and8551.i, 206158430208
-  %611 = or disjoint i64 %shl8552.i, %shl8546.i
-  %612 = shl nuw nsw i64 %611, 2
-  %613 = or disjoint i64 %612, %shl8552.i
-  %or8557.i = or disjoint i64 %613, %shl8546.i
-  %or8572.i = mul nuw nsw i64 %or8557.i, 257
-  %614 = or disjoint i64 %or8572.i, %or8518.i
-  %615 = shl nuw i64 %614, 16
-  %616 = or i64 %or8572.i, %615
-  %or8603.i = or i64 %616, %or8518.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb8604.i:                                      ; preds = %for.end
-  %and8605.i = and i64 %and.i, 1
-  %and8609.i = shl nuw i64 %and.i, 1
-  %shl8610.i = and i64 %and8609.i, 4
-  %and8616.i = shl i64 %and.i, 2
-  %shl8617.i = and i64 %and8616.i, 16
-  %and8622.i = shl i64 %and.i, 3
-  %shl8623.i = and i64 %and8622.i, 64
-  %617 = and i64 %and.i, 3
-  %618 = or disjoint i64 %shl8610.i, %617
-  %619 = or disjoint i64 %618, %shl8617.i
-  %620 = or disjoint i64 %619, %shl8623.i
-  %621 = shl nuw nsw i64 %620, 1
-  %622 = or disjoint i64 %621, %and8605.i
-  %623 = or disjoint i64 %622, %shl8623.i
-  %or8629.i = or i64 %623, %shl8617.i
-  %shl8655.i = shl nuw nsw i64 %or8629.i, 8
-  %or8656.i = or i64 %shl8655.i, %or8629.i
-  %and8711.i = shl i64 %and.i, 28
-  %shl8712.i = and i64 %and8711.i, 4294967296
-  %and8717.i = shl i64 %and.i, 29
-  %shl8718.i = and i64 %and8717.i, 17179869184
-  %and8724.i = shl i64 %and.i, 30
-  %shl8725.i = and i64 %and8724.i, 68719476736
-  %and8730.i = shl i64 %and.i, 31
-  %shl8731.i = and i64 %and8730.i, 274877906944
-  %624 = or disjoint i64 %shl8718.i, %shl8712.i
-  %625 = or disjoint i64 %624, %shl8725.i
-  %626 = or disjoint i64 %625, %shl8731.i
-  %627 = shl nuw nsw i64 %626, 1
-  %628 = or disjoint i64 %627, %shl8731.i
-  %629 = or disjoint i64 %628, %shl8725.i
-  %630 = or i64 %shl8718.i, %629
-  %or8737.i = or i64 %630, %shl8712.i
-  %shl8765.i = shl nuw nsw i64 %or8737.i, 8
-  %or8766.i = or i64 %shl8765.i, %or8737.i
-  %631 = or i64 %or8766.i, %or8656.i
-  %632 = shl nuw i64 %631, 16
-  %633 = or i64 %or8656.i, %632
-  %or8825.i = or i64 %633, %or8766.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb8826.i:                                      ; preds = %for.end
-  %and8827.i = and i64 %and.i, 255
-  %or8830.i = mul nuw nsw i64 %and8827.i, 257
-  %and8837.i = shl i64 %and.i, 24
-  %shl8838.i = and i64 %and8837.i, 1095216660480
-  %or8842.i = mul nuw nsw i64 %shl8838.i, 257
-  %634 = or disjoint i64 %or8842.i, %or8830.i
-  %635 = shl nuw i64 %634, 16
-  %636 = or disjoint i64 %635, %or8842.i
-  %or8851.i = or disjoint i64 %636, %or8830.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb8852.i:                                      ; preds = %for.end
-  %637 = trunc i64 %and.i to i1
-  %or8862.i = select i1 %637, i64 15, i64 0
-  %and8875.i = shl i64 %and.i, 7
-  %shl8876.i = and i64 %and8875.i, 256
-  %or8888.i = mul nuw nsw i64 %shl8876.i, 15
-  %638 = or disjoint i64 %or8888.i, %or8862.i
-  %639 = shl nuw nsw i64 %638, 4
-  %640 = or disjoint i64 %639, %or8862.i
-  %or8905.i = or disjoint i64 %640, %or8888.i
-  %and8961.i = shl i64 %and.i, 30
-  %shl8962.i = and i64 %and8961.i, 4294967296
-  %or8974.i = mul nuw nsw i64 %shl8962.i, 15
-  %and8991.i = shl i64 %and.i, 37
-  %shl8992.i = and i64 %and8991.i, 1099511627776
-  %or9004.i = mul nuw nsw i64 %shl8992.i, 15
-  %641 = or disjoint i64 %or9004.i, %or8974.i
-  %642 = shl nuw nsw i64 %641, 4
-  %643 = or disjoint i64 %642, %or9004.i
-  %or9021.i = or disjoint i64 %643, %or8974.i
-  %644 = or disjoint i64 %or9021.i, %or8905.i
-  %645 = shl nuw i64 %644, 16
-  %646 = or i64 %or9021.i, %645
-  %or9085.i = or i64 %646, %or8905.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb9086.i:                                      ; preds = %for.end
-  %and9087.i = and i64 %and.i, 3
-  %or9090.i = mul nuw nsw i64 %and9087.i, 5
-  %and9097.i = shl i64 %and.i, 6
-  %shl9098.i = and i64 %and9097.i, 768
-  %or9102.i = mul nuw nsw i64 %shl9098.i, 5
-  %647 = or disjoint i64 %or9102.i, %or9090.i
-  %648 = shl nuw nsw i64 %647, 4
-  %649 = or disjoint i64 %648, %or9102.i
-  %or9111.i = or disjoint i64 %649, %or9090.i
-  %and9139.i = shl i64 %and.i, 28
-  %shl9140.i = and i64 %and9139.i, 12884901888
-  %or9144.i = mul nuw nsw i64 %shl9140.i, 5
-  %and9153.i = shl i64 %and.i, 34
-  %shl9154.i = and i64 %and9153.i, 3298534883328
-  %or9158.i = mul nuw nsw i64 %shl9154.i, 5
-  %650 = or disjoint i64 %or9158.i, %or9144.i
-  %651 = shl nuw nsw i64 %650, 4
-  %652 = or disjoint i64 %651, %or9158.i
-  %or9167.i = or disjoint i64 %652, %or9144.i
-  %653 = or disjoint i64 %or9167.i, %or9111.i
-  %654 = shl nuw i64 %653, 16
-  %655 = or i64 %or9167.i, %654
-  %or9199.i = or i64 %655, %or9111.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb9200.i:                                      ; preds = %for.end
-  %and9201.i = and i64 %and.i, 1
-  %and9205.i = shl nuw i64 %and.i, 1
-  %shl9206.i = and i64 %and9205.i, 4
-  %656 = and i64 %and.i, 2
-  %657 = or disjoint i64 %656, %shl9206.i
-  %658 = or disjoint i64 %657, %and9201.i
-  %659 = shl nuw nsw i64 %658, 1
-  %or9211.i = or disjoint i64 %659, %and9201.i
-  %and9225.i = shl i64 %and.i, 6
-  %shl9226.i = and i64 %and9225.i, 256
-  %and9231.i = shl i64 %and.i, 7
-  %shl9232.i = and i64 %and9231.i, 1024
-  %660 = or disjoint i64 %shl9232.i, %shl9226.i
-  %661 = shl nuw nsw i64 %660, 1
-  %662 = or disjoint i64 %661, %shl9232.i
-  %or9237.i = or disjoint i64 %662, %shl9226.i
-  %663 = or disjoint i64 %or9237.i, %or9211.i
-  %664 = shl nuw nsw i64 %663, 4
-  %665 = or i64 %or9237.i, %664
-  %or9253.i = or i64 %665, %or9211.i
-  %and9309.i = shl i64 %and.i, 28
-  %shl9310.i = and i64 %and9309.i, 4294967296
-  %and9315.i = shl i64 %and.i, 29
-  %shl9316.i = and i64 %and9315.i, 17179869184
-  %666 = or disjoint i64 %shl9316.i, %shl9310.i
-  %667 = shl nuw nsw i64 %666, 1
-  %668 = or disjoint i64 %667, %shl9316.i
-  %or9321.i = or disjoint i64 %668, %shl9310.i
-  %and9337.i = shl i64 %and.i, 34
-  %shl9338.i = and i64 %and9337.i, 1099511627776
-  %and9343.i = shl i64 %and.i, 35
-  %shl9344.i = and i64 %and9343.i, 4398046511104
-  %669 = or disjoint i64 %shl9344.i, %shl9338.i
-  %670 = shl nuw nsw i64 %669, 1
-  %671 = or disjoint i64 %670, %shl9344.i
-  %or9349.i = or disjoint i64 %671, %shl9338.i
-  %672 = or disjoint i64 %or9349.i, %or9321.i
-  %673 = shl nuw nsw i64 %672, 4
-  %674 = or i64 %or9349.i, %673
-  %or9365.i = or i64 %674, %or9321.i
-  %675 = or i64 %or9365.i, %or9253.i
-  %676 = shl nuw i64 %675, 16
-  %677 = or i64 %or9365.i, %676
-  %or9425.i = or i64 %677, %or9253.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb9426.i:                                      ; preds = %for.end
-  %and9427.i = and i64 %and.i, 15
-  %and9431.i = shl i64 %and.i, 4
-  %shl9432.i = and i64 %and9431.i, 3840
-  %678 = and i64 %and.i, 240
-  %679 = or disjoint i64 %678, %shl9432.i
-  %680 = or disjoint i64 %679, %and9427.i
-  %681 = shl nuw nsw i64 %680, 4
-  %or9437.i = or disjoint i64 %681, %and9427.i
-  %and9451.i = shl i64 %and.i, 24
-  %shl9452.i = and i64 %and9451.i, 64424509440
-  %and9457.i = shl i64 %and.i, 28
-  %shl9458.i = and i64 %and9457.i, 16492674416640
-  %682 = or disjoint i64 %shl9458.i, %shl9452.i
-  %683 = shl nuw nsw i64 %682, 4
-  %684 = or disjoint i64 %683, %shl9458.i
-  %or9463.i = or disjoint i64 %684, %shl9452.i
-  %685 = or disjoint i64 %or9463.i, %or9437.i
-  %686 = shl nuw i64 %685, 16
-  %687 = or i64 %or9463.i, %686
-  %or9479.i = or i64 %687, %or9437.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb9480.i:                                      ; preds = %for.end
-  %688 = trunc i64 %and.i to i1
-  %or9484.i = select i1 %688, i64 3, i64 0
-  %and9491.i = shl i64 %and.i, 3
-  %shl9492.i = and i64 %and9491.i, 16
-  %or9496.i = mul nuw nsw i64 %shl9492.i, 3
-  %and9506.i = shl i64 %and.i, 6
-  %shl9507.i = and i64 %and9506.i, 256
-  %or9511.i = mul nuw nsw i64 %shl9507.i, 3
-  %and9520.i = shl i64 %and.i, 9
-  %shl9521.i = and i64 %and9520.i, 4096
-  %or9525.i = mul nuw nsw i64 %shl9521.i, 3
-  %689 = or disjoint i64 %or9496.i, %or9484.i
-  %690 = or disjoint i64 %689, %or9511.i
-  %691 = or disjoint i64 %690, %or9525.i
-  %692 = shl nuw nsw i64 %691, 2
-  %693 = or disjoint i64 %692, %or9484.i
-  %694 = or i64 %or9525.i, %693
-  %695 = or i64 %694, %or9511.i
-  %or9535.i = or i64 %695, %or9496.i
-  %and9593.i = shl i64 %and.i, 28
-  %shl9594.i = and i64 %and9593.i, 4294967296
-  %or9598.i = mul nuw nsw i64 %shl9594.i, 3
-  %and9607.i = shl i64 %and.i, 31
-  %shl9608.i = and i64 %and9607.i, 68719476736
-  %or9612.i = mul nuw nsw i64 %shl9608.i, 3
-  %and9622.i = shl i64 %and.i, 34
-  %shl9623.i = and i64 %and9622.i, 1099511627776
-  %or9627.i = mul nuw nsw i64 %shl9623.i, 3
-  %and9636.i = shl i64 %and.i, 37
-  %shl9637.i = and i64 %and9636.i, 17592186044416
-  %or9641.i = mul nuw nsw i64 %shl9637.i, 3
-  %696 = or disjoint i64 %or9612.i, %or9598.i
-  %697 = or disjoint i64 %696, %or9627.i
-  %698 = or disjoint i64 %697, %or9641.i
-  %699 = shl nuw nsw i64 %698, 2
-  %700 = or disjoint i64 %699, %or9641.i
-  %701 = or i64 %or9627.i, %700
-  %702 = or i64 %701, %or9612.i
-  %or9651.i = or i64 %702, %or9598.i
-  %703 = or i64 %or9651.i, %or9535.i
-  %704 = shl nuw i64 %703, 16
-  %705 = or i64 %or9651.i, %704
-  %or9713.i = or i64 %705, %or9535.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb9714.i:                                      ; preds = %for.end
-  %and9715.i = and i64 %and.i, 3
-  %and9719.i = shl i64 %and.i, 2
-  %shl9720.i = and i64 %and9719.i, 48
-  %and9726.i = shl i64 %and.i, 4
-  %shl9727.i = and i64 %and9726.i, 768
-  %and9732.i = shl i64 %and.i, 6
-  %shl9733.i = and i64 %and9732.i, 12288
-  %706 = and i64 %and.i, 15
-  %707 = or disjoint i64 %shl9720.i, %706
-  %708 = or disjoint i64 %707, %shl9727.i
-  %709 = or disjoint i64 %708, %shl9733.i
-  %710 = shl nuw nsw i64 %709, 2
-  %711 = or disjoint i64 %710, %and9715.i
-  %712 = or disjoint i64 %711, %shl9733.i
-  %or9739.i = or i64 %712, %shl9727.i
-  %and9767.i = shl i64 %and.i, 24
-  %shl9768.i = and i64 %and9767.i, 12884901888
-  %and9773.i = shl i64 %and.i, 26
-  %shl9774.i = and i64 %and9773.i, 206158430208
-  %and9780.i = shl i64 %and.i, 28
-  %shl9781.i = and i64 %and9780.i, 3298534883328
-  %and9786.i = shl i64 %and.i, 30
-  %shl9787.i = and i64 %and9786.i, 52776558133248
-  %713 = or disjoint i64 %shl9774.i, %shl9768.i
-  %714 = or disjoint i64 %713, %shl9781.i
-  %715 = or disjoint i64 %714, %shl9787.i
-  %716 = shl nuw nsw i64 %715, 2
-  %717 = or disjoint i64 %716, %shl9787.i
-  %718 = or disjoint i64 %717, %shl9781.i
-  %719 = or i64 %shl9774.i, %718
-  %or9793.i = or i64 %719, %shl9768.i
-  %720 = or i64 %or9793.i, %or9739.i
-  %721 = shl nuw i64 %720, 16
-  %722 = or i64 %or9739.i, %721
-  %or9823.i = or i64 %722, %or9793.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb9824.i:                                      ; preds = %for.end
-  %and9825.i = and i64 %and.i, 1
-  %and9829.i = shl nuw i64 %and.i, 1
-  %shl9830.i = and i64 %and9829.i, 4
-  %and9836.i = shl i64 %and.i, 2
-  %shl9837.i = and i64 %and9836.i, 16
-  %and9842.i = shl i64 %and.i, 3
-  %shl9843.i = and i64 %and9842.i, 64
-  %and9850.i = shl i64 %and.i, 4
-  %shl9851.i = and i64 %and9850.i, 256
-  %and9856.i = shl i64 %and.i, 5
-  %shl9857.i = and i64 %and9856.i, 1024
-  %and9863.i = shl i64 %and.i, 6
-  %shl9864.i = and i64 %and9863.i, 4096
-  %and9869.i = shl i64 %and.i, 7
-  %shl9870.i = and i64 %and9869.i, 16384
-  %723 = and i64 %and.i, 3
-  %724 = or disjoint i64 %723, %shl9830.i
-  %725 = or disjoint i64 %724, %shl9837.i
-  %726 = or disjoint i64 %725, %shl9843.i
-  %727 = or disjoint i64 %726, %shl9851.i
-  %728 = or disjoint i64 %727, %shl9857.i
-  %729 = or i64 %728, %shl9864.i
-  %730 = or i64 %729, %shl9870.i
-  %731 = shl nuw nsw i64 %730, 1
-  %732 = or disjoint i64 %731, %and9825.i
-  %733 = or i64 %shl9870.i, %732
-  %734 = or i64 %733, %shl9864.i
-  %735 = or i64 %734, %shl9857.i
-  %736 = or i64 %735, %shl9851.i
-  %737 = or i64 %736, %shl9843.i
-  %or9877.i = or i64 %737, %shl9837.i
-  %and9933.i = shl i64 %and.i, 24
-  %shl9934.i = and i64 %and9933.i, 4294967296
-  %and9939.i = shl i64 %and.i, 25
-  %shl9940.i = and i64 %and9939.i, 17179869184
-  %738 = or disjoint i64 %shl9940.i, %shl9934.i
-  %and9946.i = shl i64 %and.i, 26
-  %shl9947.i = and i64 %and9946.i, 68719476736
-  %and9952.i = shl i64 %and.i, 27
-  %shl9953.i = and i64 %and9952.i, 274877906944
-  %739 = or disjoint i64 %738, %shl9947.i
-  %740 = or disjoint i64 %739, %shl9953.i
-  %and9960.i = shl i64 %and.i, 28
-  %shl9961.i = and i64 %and9960.i, 1099511627776
-  %and9966.i = shl i64 %and.i, 29
-  %shl9967.i = and i64 %and9966.i, 4398046511104
-  %and9973.i = shl i64 %and.i, 30
-  %shl9974.i = and i64 %and9973.i, 17592186044416
-  %and9979.i = shl i64 %and.i, 31
-  %shl9980.i = and i64 %and9979.i, 70368744177664
-  %741 = or disjoint i64 %740, %shl9961.i
-  %742 = or disjoint i64 %741, %shl9967.i
-  %743 = or i64 %742, %shl9974.i
-  %744 = or i64 %743, %shl9980.i
-  %745 = shl nuw nsw i64 %744, 1
-  %746 = or i64 %shl9980.i, %745
-  %747 = or i64 %746, %shl9974.i
-  %748 = or i64 %747, %shl9967.i
-  %749 = or i64 %748, %shl9961.i
-  %750 = or i64 %749, %shl9953.i
-  %751 = or i64 %750, %shl9947.i
-  %752 = or i64 %751, %shl9940.i
-  %or9987.i = or i64 %752, %shl9934.i
-  %753 = or i64 %or9987.i, %or9877.i
-  %754 = shl nuw i64 %753, 16
-  %755 = or i64 %or9877.i, %754
-  %or10045.i = or i64 %755, %or9987.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10046.i:                                     ; preds = %for.end
-  %and10047.i = and i64 %and.i, 65535
-  %and10051.i = shl i64 %and.i, 16
-  %shl10052.i = and i64 %and10051.i, 281470681743360
-  %756 = and i64 %and.i, 4294901760
-  %757 = or disjoint i64 %756, %shl10052.i
-  %758 = or disjoint i64 %757, %and10047.i
-  %759 = shl nuw i64 %758, 16
-  %or10057.i = or disjoint i64 %759, %and10047.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10058.i:                                     ; preds = %for.end
-  %760 = trunc i64 %and.i to i1
-  %or10080.i = select i1 %760, i64 255, i64 0
-  %and10105.i = shl i64 %and.i, 15
-  %shl10106.i = and i64 %and10105.i, 65536
-  %or10134.i = mul nuw nsw i64 %shl10106.i, 255
-  %and10168.i = shl i64 %and.i, 30
-  %shl10169.i = and i64 %and10168.i, 4294967296
-  %or10197.i = mul nuw nsw i64 %shl10169.i, 255
-  %and10230.i = shl i64 %and.i, 45
-  %shl10231.i = and i64 %and10230.i, 281474976710656
-  %or10259.i = mul nuw nsw i64 %shl10231.i, 255
-  %761 = or disjoint i64 %or10134.i, %or10080.i
-  %762 = or disjoint i64 %761, %or10197.i
-  %763 = or disjoint i64 %762, %or10259.i
-  %764 = shl nuw i64 %763, 8
-  %765 = or disjoint i64 %764, %or10080.i
-  %766 = or i64 %or10259.i, %765
-  %767 = or i64 %766, %or10197.i
-  %or10293.i = or i64 %767, %or10134.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10294.i:                                     ; preds = %for.end
-  %and10295.i = and i64 %and.i, 3
-  %or10304.i = mul nuw nsw i64 %and10295.i, 85
-  %and10317.i = shl i64 %and.i, 14
-  %shl10318.i = and i64 %and10317.i, 196608
-  %or10330.i = mul nuw nsw i64 %shl10318.i, 85
-  %and10348.i = shl i64 %and.i, 28
-  %shl10349.i = and i64 %and10348.i, 12884901888
-  %or10361.i = mul nuw nsw i64 %shl10349.i, 85
-  %and10378.i = shl i64 %and.i, 42
-  %shl10379.i = and i64 %and10378.i, 844424930131968
-  %or10391.i = mul nuw nsw i64 %shl10379.i, 85
-  %768 = or disjoint i64 %or10330.i, %or10304.i
-  %769 = or disjoint i64 %768, %or10361.i
-  %770 = or disjoint i64 %769, %or10391.i
-  %771 = shl nuw i64 %770, 8
-  %772 = or disjoint i64 %771, %or10304.i
-  %773 = or i64 %or10391.i, %772
-  %774 = or i64 %773, %or10361.i
-  %or10409.i = or i64 %774, %or10330.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10410.i:                                     ; preds = %for.end
-  %and10411.i = and i64 %and.i, 1
-  %and10415.i = shl nuw i64 %and.i, 1
-  %shl10416.i = and i64 %and10415.i, 4
-  %775 = and i64 %and.i, 2
-  %776 = or disjoint i64 %775, %shl10416.i
-  %777 = or disjoint i64 %776, %and10411.i
-  %778 = shl nuw nsw i64 %777, 1
-  %or10421.i = or disjoint i64 %778, %and10411.i
-  %or10434.i = mul nuw nsw i64 %or10421.i, 17
-  %and10461.i = shl i64 %and.i, 14
-  %shl10462.i = and i64 %and10461.i, 65536
-  %and10467.i = shl i64 %and.i, 15
-  %shl10468.i = and i64 %and10467.i, 262144
-  %779 = or disjoint i64 %shl10468.i, %shl10462.i
-  %780 = shl nuw nsw i64 %779, 1
-  %781 = or disjoint i64 %780, %shl10468.i
-  %or10473.i = or disjoint i64 %781, %shl10462.i
-  %or10488.i = mul nuw nsw i64 %or10473.i, 17
-  %782 = or i64 %or10488.i, %or10434.i
-  %and10520.i = shl i64 %and.i, 28
-  %shl10521.i = and i64 %and10520.i, 4294967296
-  %and10526.i = shl i64 %and.i, 29
-  %shl10527.i = and i64 %and10526.i, 17179869184
-  %783 = or disjoint i64 %shl10527.i, %shl10521.i
-  %784 = shl nuw nsw i64 %783, 1
-  %785 = or disjoint i64 %784, %shl10527.i
-  %or10532.i = or disjoint i64 %785, %shl10521.i
-  %or10547.i = mul nuw nsw i64 %or10532.i, 17
-  %and10578.i = shl i64 %and.i, 42
-  %shl10579.i = and i64 %and10578.i, 281474976710656
-  %and10584.i = shl i64 %and.i, 43
-  %shl10585.i = and i64 %and10584.i, 1125899906842624
-  %786 = or disjoint i64 %shl10585.i, %shl10579.i
-  %787 = shl nuw nsw i64 %786, 1
-  %788 = or disjoint i64 %787, %shl10585.i
-  %or10590.i = or disjoint i64 %788, %shl10579.i
-  %or10605.i = mul nuw nsw i64 %or10590.i, 17
-  %789 = or i64 %782, %or10547.i
-  %790 = or i64 %789, %or10605.i
-  %791 = shl nuw i64 %790, 8
-  %792 = or i64 %or10605.i, %791
-  %793 = or i64 %792, %or10547.i
-  %794 = or i64 %793, %or10488.i
-  %or10637.i = or i64 %794, %or10434.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10638.i:                                     ; preds = %for.end
-  %and10639.i = and i64 %and.i, 15
-  %or10642.i = mul nuw nsw i64 %and10639.i, 17
-  %and10649.i = shl i64 %and.i, 12
-  %shl10650.i = and i64 %and10649.i, 983040
-  %or10654.i = mul nuw nsw i64 %shl10650.i, 17
-  %and10664.i = shl i64 %and.i, 24
-  %shl10665.i = and i64 %and10664.i, 64424509440
-  %or10669.i = mul nuw nsw i64 %shl10665.i, 17
-  %and10678.i = shl i64 %and.i, 36
-  %shl10679.i = and i64 %and10678.i, 4222124650659840
-  %or10683.i = mul nuw nsw i64 %shl10679.i, 17
-  %795 = or disjoint i64 %or10654.i, %or10642.i
-  %796 = or disjoint i64 %795, %or10669.i
-  %797 = or disjoint i64 %796, %or10683.i
-  %798 = shl nuw i64 %797, 8
-  %799 = or disjoint i64 %798, %or10642.i
-  %800 = or i64 %or10683.i, %799
-  %801 = or i64 %800, %or10669.i
-  %or10693.i = or i64 %801, %or10654.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10694.i:                                     ; preds = %for.end
-  %802 = trunc i64 %and.i to i1
-  %or10698.i = select i1 %802, i64 3, i64 0
-  %and10705.i = shl i64 %and.i, 3
-  %shl10706.i = and i64 %and10705.i, 16
-  %or10710.i = mul nuw nsw i64 %shl10706.i, 3
-  %803 = or disjoint i64 %or10710.i, %or10698.i
-  %804 = shl nuw nsw i64 %803, 2
-  %805 = or disjoint i64 %804, %or10710.i
-  %or10719.i = or disjoint i64 %805, %or10698.i
-  %and10747.i = shl i64 %and.i, 14
-  %shl10748.i = and i64 %and10747.i, 65536
-  %or10752.i = mul nuw nsw i64 %shl10748.i, 3
-  %and10761.i = shl i64 %and.i, 17
-  %shl10762.i = and i64 %and10761.i, 1048576
-  %or10766.i = mul nuw nsw i64 %shl10762.i, 3
-  %806 = or disjoint i64 %or10766.i, %or10752.i
-  %807 = shl nuw nsw i64 %806, 2
-  %808 = or disjoint i64 %807, %or10766.i
-  %or10775.i = or disjoint i64 %808, %or10752.i
-  %809 = or i64 %or10775.i, %or10719.i
-  %and10808.i = shl i64 %and.i, 28
-  %shl10809.i = and i64 %and10808.i, 4294967296
-  %or10813.i = mul nuw nsw i64 %shl10809.i, 3
-  %and10822.i = shl i64 %and.i, 31
-  %shl10823.i = and i64 %and10822.i, 68719476736
-  %or10827.i = mul nuw nsw i64 %shl10823.i, 3
-  %810 = or disjoint i64 %or10827.i, %or10813.i
-  %811 = shl nuw nsw i64 %810, 2
-  %812 = or disjoint i64 %811, %or10827.i
-  %or10836.i = or disjoint i64 %812, %or10813.i
-  %and10868.i = shl i64 %and.i, 42
-  %shl10869.i = and i64 %and10868.i, 281474976710656
-  %or10873.i = mul nuw nsw i64 %shl10869.i, 3
-  %and10882.i = shl i64 %and.i, 45
-  %shl10883.i = and i64 %and10882.i, 4503599627370496
-  %or10887.i = mul nuw nsw i64 %shl10883.i, 3
-  %813 = or disjoint i64 %or10887.i, %or10873.i
-  %814 = shl nuw nsw i64 %813, 2
-  %815 = or disjoint i64 %814, %or10887.i
-  %or10896.i = or disjoint i64 %815, %or10873.i
-  %816 = or i64 %809, %or10836.i
-  %817 = or i64 %816, %or10896.i
-  %818 = shl nuw i64 %817, 8
-  %819 = or i64 %or10896.i, %818
-  %820 = or i64 %819, %or10836.i
-  %821 = or i64 %820, %or10775.i
-  %or10929.i = or i64 %821, %or10719.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb10930.i:                                     ; preds = %for.end
-  %and10931.i = and i64 %and.i, 3
-  %and10935.i = shl i64 %and.i, 2
-  %shl10936.i = and i64 %and10935.i, 48
-  %822 = and i64 %and.i, 12
-  %823 = or disjoint i64 %822, %shl10936.i
-  %824 = or disjoint i64 %823, %and10931.i
-  %825 = shl nuw nsw i64 %824, 2
-  %or10941.i = or disjoint i64 %825, %and10931.i
-  %and10955.i = shl i64 %and.i, 12
-  %shl10956.i = and i64 %and10955.i, 196608
-  %and10961.i = shl i64 %and.i, 14
-  %shl10962.i = and i64 %and10961.i, 3145728
-  %826 = or disjoint i64 %shl10962.i, %shl10956.i
-  %827 = shl nuw nsw i64 %826, 2
-  %828 = or disjoint i64 %827, %shl10962.i
-  %or10967.i = or disjoint i64 %828, %shl10956.i
-  %829 = or disjoint i64 %or10967.i, %or10941.i
-  %and10984.i = shl i64 %and.i, 24
-  %shl10985.i = and i64 %and10984.i, 12884901888
-  %and10990.i = shl i64 %and.i, 26
-  %shl10991.i = and i64 %and10990.i, 206158430208
-  %830 = or disjoint i64 %shl10991.i, %shl10985.i
-  %831 = shl nuw nsw i64 %830, 2
-  %832 = or disjoint i64 %831, %shl10991.i
-  %or10996.i = or disjoint i64 %832, %shl10985.i
-  %and11012.i = shl i64 %and.i, 36
-  %shl11013.i = and i64 %and11012.i, 844424930131968
-  %and11018.i = shl i64 %and.i, 38
-  %shl11019.i = and i64 %and11018.i, 13510798882111488
-  %833 = or disjoint i64 %shl11019.i, %shl11013.i
-  %834 = shl nuw nsw i64 %833, 2
-  %835 = or disjoint i64 %834, %shl11019.i
-  %or11024.i = or disjoint i64 %835, %shl11013.i
-  %836 = or i64 %829, %or10996.i
-  %837 = or i64 %836, %or11024.i
-  %838 = shl nuw i64 %837, 8
-  %839 = or i64 %or11024.i, %838
-  %840 = or i64 %839, %or10996.i
-  %841 = or i64 %840, %or10967.i
-  %or11041.i = or i64 %841, %or10941.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11042.i:                                     ; preds = %for.end
-  %and11043.i = and i64 %and.i, 1
-  %and11047.i = shl nuw i64 %and.i, 1
-  %shl11048.i = and i64 %and11047.i, 4
-  %and11054.i = shl i64 %and.i, 2
-  %shl11055.i = and i64 %and11054.i, 16
-  %and11060.i = shl i64 %and.i, 3
-  %shl11061.i = and i64 %and11060.i, 64
-  %842 = and i64 %and.i, 3
-  %843 = or disjoint i64 %shl11048.i, %842
-  %844 = or disjoint i64 %843, %shl11055.i
-  %845 = or disjoint i64 %844, %shl11061.i
-  %846 = shl nuw nsw i64 %845, 1
-  %847 = or disjoint i64 %846, %and11043.i
-  %848 = or disjoint i64 %847, %shl11061.i
-  %or11067.i = or i64 %848, %shl11055.i
-  %and11095.i = shl i64 %and.i, 12
-  %shl11096.i = and i64 %and11095.i, 65536
-  %and11101.i = shl i64 %and.i, 13
-  %shl11102.i = and i64 %and11101.i, 262144
-  %and11108.i = shl i64 %and.i, 14
-  %shl11109.i = and i64 %and11108.i, 1048576
-  %and11114.i = shl i64 %and.i, 15
-  %shl11115.i = and i64 %and11114.i, 4194304
-  %849 = or disjoint i64 %shl11102.i, %shl11096.i
-  %850 = or disjoint i64 %849, %shl11109.i
-  %851 = or disjoint i64 %850, %shl11115.i
-  %852 = shl nuw nsw i64 %851, 1
-  %853 = or disjoint i64 %852, %shl11115.i
-  %854 = or disjoint i64 %853, %shl11109.i
-  %855 = or i64 %shl11102.i, %854
-  %or11121.i = or i64 %855, %shl11096.i
-  %856 = or i64 %or11121.i, %or11067.i
-  %and11152.i = shl i64 %and.i, 24
-  %shl11153.i = and i64 %and11152.i, 4294967296
-  %and11158.i = shl i64 %and.i, 25
-  %shl11159.i = and i64 %and11158.i, 17179869184
-  %and11165.i = shl i64 %and.i, 26
-  %shl11166.i = and i64 %and11165.i, 68719476736
-  %and11171.i = shl i64 %and.i, 27
-  %shl11172.i = and i64 %and11171.i, 274877906944
-  %857 = or disjoint i64 %shl11159.i, %shl11153.i
-  %858 = or disjoint i64 %857, %shl11166.i
-  %859 = or disjoint i64 %858, %shl11172.i
-  %860 = shl nuw nsw i64 %859, 1
-  %861 = or disjoint i64 %860, %shl11172.i
-  %862 = or disjoint i64 %861, %shl11166.i
-  %863 = or i64 %shl11159.i, %862
-  %or11178.i = or i64 %863, %shl11153.i
-  %and11208.i = shl i64 %and.i, 36
-  %shl11209.i = and i64 %and11208.i, 281474976710656
-  %and11214.i = shl i64 %and.i, 37
-  %shl11215.i = and i64 %and11214.i, 1125899906842624
-  %and11221.i = shl i64 %and.i, 38
-  %shl11222.i = and i64 %and11221.i, 4503599627370496
-  %and11227.i = shl i64 %and.i, 39
-  %shl11228.i = and i64 %and11227.i, 18014398509481984
-  %864 = or disjoint i64 %shl11215.i, %shl11209.i
-  %865 = or disjoint i64 %864, %shl11222.i
-  %866 = or disjoint i64 %865, %shl11228.i
-  %867 = shl nuw nsw i64 %866, 1
-  %868 = or disjoint i64 %867, %shl11228.i
-  %869 = or disjoint i64 %868, %shl11222.i
-  %870 = or i64 %shl11215.i, %869
-  %or11234.i = or i64 %870, %shl11209.i
-  %871 = or i64 %856, %or11178.i
-  %872 = or i64 %871, %or11234.i
-  %873 = shl nuw i64 %872, 8
-  %874 = or i64 %or11067.i, %873
-  %875 = or i64 %874, %or11234.i
-  %876 = or i64 %875, %or11178.i
-  %or11265.i = or i64 %876, %or11121.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11266.i:                                     ; preds = %for.end
-  %and11267.i = and i64 %and.i, 255
-  %and11271.i = shl i64 %and.i, 8
-  %shl11272.i = and i64 %and11271.i, 16711680
-  %and11278.i = shl i64 %and.i, 16
-  %shl11279.i = and i64 %and11278.i, 1095216660480
-  %and11284.i = shl i64 %and.i, 24
-  %shl11285.i = and i64 %and11284.i, 71776119061217280
-  %877 = and i64 %and.i, 65535
-  %878 = or disjoint i64 %shl11272.i, %877
-  %879 = or disjoint i64 %878, %shl11279.i
-  %880 = or disjoint i64 %879, %shl11285.i
-  %881 = shl nuw i64 %880, 8
-  %882 = or disjoint i64 %881, %and11267.i
-  %883 = or disjoint i64 %882, %shl11285.i
-  %or11291.i = or i64 %883, %shl11279.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11292.i:                                     ; preds = %for.end
-  %884 = trunc i64 %and.i to i1
-  %or11302.i = select i1 %884, i64 15, i64 0
-  %and11315.i = shl i64 %and.i, 7
-  %shl11316.i = and i64 %and11315.i, 256
-  %or11328.i = mul nuw nsw i64 %shl11316.i, 15
-  %885 = or disjoint i64 %or11328.i, %or11302.i
-  %and11346.i = shl i64 %and.i, 14
-  %shl11347.i = and i64 %and11346.i, 65536
-  %or11359.i = mul nuw nsw i64 %shl11347.i, 15
-  %and11376.i = shl i64 %and.i, 21
-  %shl11377.i = and i64 %and11376.i, 16777216
-  %or11389.i = mul nuw nsw i64 %shl11377.i, 15
-  %886 = or disjoint i64 %885, %or11359.i
-  %887 = or disjoint i64 %886, %or11389.i
-  %and11408.i = shl i64 %and.i, 28
-  %shl11409.i = and i64 %and11408.i, 4294967296
-  %or11421.i = mul nuw nsw i64 %shl11409.i, 15
-  %and11438.i = shl i64 %and.i, 35
-  %shl11439.i = and i64 %and11438.i, 1099511627776
-  %or11451.i = mul nuw nsw i64 %shl11439.i, 15
-  %and11469.i = shl i64 %and.i, 42
-  %shl11470.i = and i64 %and11469.i, 281474976710656
-  %or11482.i = mul nuw nsw i64 %shl11470.i, 15
-  %and11499.i = shl i64 %and.i, 49
-  %shl11500.i = and i64 %and11499.i, 72057594037927936
-  %or11512.i = mul nuw nsw i64 %shl11500.i, 15
-  %888 = or disjoint i64 %887, %or11421.i
-  %889 = or i64 %888, %or11451.i
-  %890 = or i64 %889, %or11482.i
-  %891 = or i64 %890, %or11512.i
-  %892 = shl nuw i64 %891, 4
-  %893 = or disjoint i64 %892, %or11302.i
-  %894 = or i64 %or11512.i, %893
-  %895 = or i64 %894, %or11482.i
-  %896 = or i64 %895, %or11451.i
-  %897 = or i64 %896, %or11421.i
-  %898 = or i64 %897, %or11389.i
-  %899 = or i64 %898, %or11359.i
-  %or11531.i = or i64 %899, %or11328.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11532.i:                                     ; preds = %for.end
-  %and11533.i = and i64 %and.i, 3
-  %or11536.i = mul nuw nsw i64 %and11533.i, 5
-  %and11543.i = shl i64 %and.i, 6
-  %shl11544.i = and i64 %and11543.i, 768
-  %or11548.i = mul nuw nsw i64 %shl11544.i, 5
-  %900 = or disjoint i64 %or11548.i, %or11536.i
-  %and11558.i = shl i64 %and.i, 12
-  %shl11559.i = and i64 %and11558.i, 196608
-  %or11563.i = mul nuw nsw i64 %shl11559.i, 5
-  %and11572.i = shl i64 %and.i, 18
-  %shl11573.i = and i64 %and11572.i, 50331648
-  %or11577.i = mul nuw nsw i64 %shl11573.i, 5
-  %901 = or disjoint i64 %900, %or11563.i
-  %902 = or disjoint i64 %901, %or11577.i
-  %and11588.i = shl i64 %and.i, 24
-  %shl11589.i = and i64 %and11588.i, 12884901888
-  %or11593.i = mul nuw nsw i64 %shl11589.i, 5
-  %and11602.i = shl i64 %and.i, 30
-  %shl11603.i = and i64 %and11602.i, 3298534883328
-  %or11607.i = mul nuw nsw i64 %shl11603.i, 5
-  %and11617.i = shl i64 %and.i, 36
-  %shl11618.i = and i64 %and11617.i, 844424930131968
-  %or11622.i = mul nuw nsw i64 %shl11618.i, 5
-  %and11631.i = shl i64 %and.i, 42
-  %shl11632.i = and i64 %and11631.i, 216172782113783808
-  %or11636.i = mul nuw nsw i64 %shl11632.i, 5
-  %903 = or disjoint i64 %902, %or11593.i
-  %904 = or i64 %903, %or11607.i
-  %905 = or i64 %904, %or11622.i
-  %906 = or i64 %905, %or11636.i
-  %907 = shl nuw i64 %906, 4
-  %908 = or disjoint i64 %907, %or11536.i
-  %909 = or i64 %or11636.i, %908
-  %910 = or i64 %909, %or11622.i
-  %911 = or i64 %910, %or11607.i
-  %912 = or i64 %911, %or11593.i
-  %913 = or i64 %912, %or11577.i
-  %914 = or i64 %913, %or11563.i
-  %or11647.i = or i64 %914, %or11548.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11648.i:                                     ; preds = %for.end
-  %and11649.i = and i64 %and.i, 1
-  %and11653.i = shl nuw i64 %and.i, 1
-  %shl11654.i = and i64 %and11653.i, 4
-  %915 = and i64 %and.i, 2
-  %916 = or disjoint i64 %915, %shl11654.i
-  %917 = or disjoint i64 %916, %and11649.i
-  %918 = shl nuw nsw i64 %917, 1
-  %or11659.i = or disjoint i64 %918, %and11649.i
-  %and11673.i = shl i64 %and.i, 6
-  %shl11674.i = and i64 %and11673.i, 256
-  %and11679.i = shl i64 %and.i, 7
-  %shl11680.i = and i64 %and11679.i, 1024
-  %919 = or disjoint i64 %shl11680.i, %shl11674.i
-  %920 = shl nuw nsw i64 %919, 1
-  %921 = or disjoint i64 %920, %shl11680.i
-  %or11685.i = or disjoint i64 %921, %shl11674.i
-  %922 = or disjoint i64 %or11685.i, %or11659.i
-  %and11702.i = shl i64 %and.i, 12
-  %shl11703.i = and i64 %and11702.i, 65536
-  %and11708.i = shl i64 %and.i, 13
-  %shl11709.i = and i64 %and11708.i, 262144
-  %923 = or disjoint i64 %shl11709.i, %shl11703.i
-  %924 = shl nuw nsw i64 %923, 1
-  %925 = or disjoint i64 %924, %shl11709.i
-  %or11714.i = or disjoint i64 %925, %shl11703.i
-  %and11730.i = shl i64 %and.i, 18
-  %shl11731.i = and i64 %and11730.i, 16777216
-  %and11736.i = shl i64 %and.i, 19
-  %shl11737.i = and i64 %and11736.i, 67108864
-  %926 = or disjoint i64 %shl11737.i, %shl11731.i
-  %927 = shl nuw nsw i64 %926, 1
-  %928 = or disjoint i64 %927, %shl11737.i
-  %or11742.i = or disjoint i64 %928, %shl11731.i
-  %929 = or i64 %922, %or11714.i
-  %930 = or i64 %929, %or11742.i
-  %and11760.i = shl i64 %and.i, 24
-  %shl11761.i = and i64 %and11760.i, 4294967296
-  %and11766.i = shl i64 %and.i, 25
-  %shl11767.i = and i64 %and11766.i, 17179869184
-  %931 = or disjoint i64 %shl11767.i, %shl11761.i
-  %932 = shl nuw nsw i64 %931, 1
-  %933 = or disjoint i64 %932, %shl11767.i
-  %or11772.i = or disjoint i64 %933, %shl11761.i
-  %and11788.i = shl i64 %and.i, 30
-  %shl11789.i = and i64 %and11788.i, 1099511627776
-  %and11794.i = shl i64 %and.i, 31
-  %shl11795.i = and i64 %and11794.i, 4398046511104
-  %934 = or disjoint i64 %shl11795.i, %shl11789.i
-  %935 = shl nuw nsw i64 %934, 1
-  %936 = or disjoint i64 %935, %shl11795.i
-  %or11800.i = or disjoint i64 %936, %shl11789.i
-  %and11817.i = shl i64 %and.i, 36
-  %shl11818.i = and i64 %and11817.i, 281474976710656
-  %and11823.i = shl i64 %and.i, 37
-  %shl11824.i = and i64 %and11823.i, 1125899906842624
-  %937 = or disjoint i64 %shl11824.i, %shl11818.i
-  %938 = shl nuw nsw i64 %937, 1
-  %939 = or disjoint i64 %938, %shl11824.i
-  %or11829.i = or disjoint i64 %939, %shl11818.i
-  %and11845.i = shl i64 %and.i, 42
-  %shl11846.i = and i64 %and11845.i, 72057594037927936
-  %and11851.i = shl i64 %and.i, 43
-  %shl11852.i = and i64 %and11851.i, 288230376151711744
-  %940 = or disjoint i64 %shl11852.i, %shl11846.i
-  %941 = shl nuw nsw i64 %940, 1
-  %942 = or disjoint i64 %941, %shl11852.i
-  %or11857.i = or disjoint i64 %942, %shl11846.i
-  %943 = or i64 %930, %or11772.i
-  %944 = or i64 %943, %or11800.i
-  %945 = or i64 %944, %or11829.i
-  %946 = or i64 %945, %or11857.i
-  %947 = shl nuw i64 %946, 4
-  %948 = or i64 %or11857.i, %947
-  %949 = or i64 %948, %or11829.i
-  %950 = or i64 %949, %or11800.i
-  %951 = or i64 %950, %or11772.i
-  %952 = or i64 %951, %or11742.i
-  %953 = or i64 %952, %or11714.i
-  %954 = or i64 %953, %or11685.i
-  %or11875.i = or i64 %954, %or11659.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11876.i:                                     ; preds = %for.end
-  %and11877.i = and i64 %and.i, 15
-  %and11881.i = shl i64 %and.i, 4
-  %shl11882.i = and i64 %and11881.i, 3840
-  %and11888.i = shl i64 %and.i, 8
-  %shl11889.i = and i64 %and11888.i, 983040
-  %and11894.i = shl i64 %and.i, 12
-  %shl11895.i = and i64 %and11894.i, 251658240
-  %and11902.i = shl i64 %and.i, 16
-  %shl11903.i = and i64 %and11902.i, 64424509440
-  %and11908.i = shl i64 %and.i, 20
-  %shl11909.i = and i64 %and11908.i, 16492674416640
-  %and11915.i = shl i64 %and.i, 24
-  %shl11916.i = and i64 %and11915.i, 4222124650659840
-  %and11921.i = shl i64 %and.i, 28
-  %shl11922.i = and i64 %and11921.i, 1080863910568919040
-  %955 = and i64 %and.i, 255
-  %956 = or disjoint i64 %955, %shl11882.i
-  %957 = or disjoint i64 %956, %shl11889.i
-  %958 = or disjoint i64 %957, %shl11895.i
-  %959 = or disjoint i64 %958, %shl11903.i
-  %960 = or disjoint i64 %959, %shl11909.i
-  %961 = or i64 %960, %shl11916.i
-  %962 = or i64 %961, %shl11922.i
-  %963 = shl nuw i64 %962, 4
-  %964 = or disjoint i64 %963, %and11877.i
-  %965 = or i64 %shl11922.i, %964
-  %966 = or i64 %965, %shl11916.i
-  %967 = or i64 %966, %shl11909.i
-  %968 = or i64 %967, %shl11903.i
-  %969 = or i64 %968, %shl11895.i
-  %or11929.i = or i64 %969, %shl11889.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb11930.i:                                     ; preds = %for.end
-  %970 = trunc i64 %and.i to i1
-  %or11934.i = select i1 %970, i64 3, i64 0
-  %and11941.i = shl i64 %and.i, 3
-  %shl11942.i = and i64 %and11941.i, 16
-  %or11946.i = mul nuw nsw i64 %shl11942.i, 3
-  %971 = or disjoint i64 %or11946.i, %or11934.i
-  %and11956.i = shl i64 %and.i, 6
-  %shl11957.i = and i64 %and11956.i, 256
-  %or11961.i = mul nuw nsw i64 %shl11957.i, 3
-  %and11970.i = shl i64 %and.i, 9
-  %shl11971.i = and i64 %and11970.i, 4096
-  %or11975.i = mul nuw nsw i64 %shl11971.i, 3
-  %972 = or disjoint i64 %971, %or11961.i
-  %973 = or disjoint i64 %972, %or11975.i
-  %and11986.i = shl i64 %and.i, 12
-  %shl11987.i = and i64 %and11986.i, 65536
-  %or11991.i = mul nuw nsw i64 %shl11987.i, 3
-  %and12000.i = shl i64 %and.i, 15
-  %shl12001.i = and i64 %and12000.i, 1048576
-  %or12005.i = mul nuw nsw i64 %shl12001.i, 3
-  %and12015.i = shl i64 %and.i, 18
-  %shl12016.i = and i64 %and12015.i, 16777216
-  %or12020.i = mul nuw nsw i64 %shl12016.i, 3
-  %and12029.i = shl i64 %and.i, 21
-  %shl12030.i = and i64 %and12029.i, 268435456
-  %or12034.i = mul nuw nsw i64 %shl12030.i, 3
-  %974 = or disjoint i64 %973, %or11991.i
-  %975 = or i64 %974, %or12005.i
-  %976 = or i64 %975, %or12020.i
-  %977 = or i64 %976, %or12034.i
-  %and12046.i = shl i64 %and.i, 24
-  %shl12047.i = and i64 %and12046.i, 4294967296
-  %or12051.i = mul nuw nsw i64 %shl12047.i, 3
-  %and12060.i = shl i64 %and.i, 27
-  %shl12061.i = and i64 %and12060.i, 68719476736
-  %or12065.i = mul nuw nsw i64 %shl12061.i, 3
-  %and12075.i = shl i64 %and.i, 30
-  %shl12076.i = and i64 %and12075.i, 1099511627776
-  %or12080.i = mul nuw nsw i64 %shl12076.i, 3
-  %and12089.i = shl i64 %and.i, 33
-  %shl12090.i = and i64 %and12089.i, 17592186044416
-  %or12094.i = mul nuw nsw i64 %shl12090.i, 3
-  %and12105.i = shl i64 %and.i, 36
-  %shl12106.i = and i64 %and12105.i, 281474976710656
-  %or12110.i = mul nuw nsw i64 %shl12106.i, 3
-  %and12119.i = shl i64 %and.i, 39
-  %shl12120.i = and i64 %and12119.i, 4503599627370496
-  %or12124.i = mul nuw nsw i64 %shl12120.i, 3
-  %and12134.i = shl i64 %and.i, 42
-  %shl12135.i = and i64 %and12134.i, 72057594037927936
-  %or12139.i = mul nuw nsw i64 %shl12135.i, 3
-  %and12148.i = shl i64 %and.i, 45
-  %shl12149.i = and i64 %and12148.i, 1152921504606846976
-  %or12153.i = mul nuw nsw i64 %shl12149.i, 3
-  %978 = or i64 %977, %or12051.i
-  %979 = or i64 %978, %or12065.i
-  %980 = or i64 %979, %or12080.i
-  %981 = or i64 %980, %or12094.i
-  %982 = or i64 %981, %or12110.i
-  %983 = or i64 %982, %or12124.i
-  %984 = or i64 %983, %or12139.i
-  %985 = or i64 %984, %or12153.i
-  %986 = shl nuw i64 %985, 2
-  %987 = or disjoint i64 %986, %or11934.i
-  %988 = or i64 %or12153.i, %987
-  %989 = or i64 %988, %or12139.i
-  %990 = or i64 %989, %or12124.i
-  %991 = or i64 %990, %or12110.i
-  %992 = or i64 %991, %or12094.i
-  %993 = or i64 %992, %or12080.i
-  %994 = or i64 %993, %or12065.i
-  %995 = or i64 %994, %or12051.i
-  %996 = or i64 %995, %or12034.i
-  %997 = or i64 %996, %or12020.i
-  %998 = or i64 %997, %or12005.i
-  %999 = or i64 %998, %or11991.i
-  %1000 = or i64 %999, %or11975.i
-  %1001 = or i64 %1000, %or11961.i
-  %or12165.i = or i64 %1001, %or11946.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb12166.i:                                     ; preds = %for.end
-  %and12167.i = and i64 %and.i, 3
-  %and12171.i = shl i64 %and.i, 2
-  %shl12172.i = and i64 %and12171.i, 48
-  %and12178.i = shl i64 %and.i, 4
-  %shl12179.i = and i64 %and12178.i, 768
-  %and12184.i = shl i64 %and.i, 6
-  %shl12185.i = and i64 %and12184.i, 12288
-  %and12192.i = shl i64 %and.i, 8
-  %shl12193.i = and i64 %and12192.i, 196608
-  %and12198.i = shl i64 %and.i, 10
-  %shl12199.i = and i64 %and12198.i, 3145728
-  %and12205.i = shl i64 %and.i, 12
-  %shl12206.i = and i64 %and12205.i, 50331648
-  %and12211.i = shl i64 %and.i, 14
-  %shl12212.i = and i64 %and12211.i, 805306368
-  %and12220.i = shl i64 %and.i, 16
-  %shl12221.i = and i64 %and12220.i, 12884901888
-  %and12226.i = shl i64 %and.i, 18
-  %shl12227.i = and i64 %and12226.i, 206158430208
-  %and12233.i = shl i64 %and.i, 20
-  %shl12234.i = and i64 %and12233.i, 3298534883328
-  %and12239.i = shl i64 %and.i, 22
-  %shl12240.i = and i64 %and12239.i, 52776558133248
-  %and12247.i = shl i64 %and.i, 24
-  %shl12248.i = and i64 %and12247.i, 844424930131968
-  %and12253.i = shl i64 %and.i, 26
-  %shl12254.i = and i64 %and12253.i, 13510798882111488
-  %and12260.i = shl i64 %and.i, 28
-  %shl12261.i = and i64 %and12260.i, 216172782113783808
-  %and12266.i = shl i64 %and.i, 30
-  %shl12267.i = and i64 %and12266.i, 3458764513820540928
-  %1002 = and i64 %and.i, 15
-  %1003 = or disjoint i64 %shl12172.i, %1002
-  %1004 = or disjoint i64 %1003, %shl12179.i
-  %1005 = or disjoint i64 %1004, %shl12185.i
-  %1006 = or disjoint i64 %1005, %shl12193.i
-  %1007 = or disjoint i64 %1006, %shl12199.i
-  %1008 = or i64 %1007, %shl12206.i
-  %1009 = or i64 %1008, %shl12212.i
-  %1010 = or i64 %1009, %shl12221.i
-  %1011 = or i64 %1010, %shl12227.i
-  %1012 = or i64 %1011, %shl12234.i
-  %1013 = or i64 %1012, %shl12240.i
-  %1014 = or i64 %1013, %shl12248.i
-  %1015 = or i64 %1014, %shl12254.i
-  %1016 = or i64 %1015, %shl12261.i
-  %1017 = or i64 %1016, %shl12267.i
-  %1018 = shl nuw i64 %1017, 2
-  %1019 = or disjoint i64 %1018, %and12167.i
-  %1020 = or i64 %shl12267.i, %1019
-  %1021 = or i64 %1020, %shl12261.i
-  %1022 = or i64 %1021, %shl12254.i
-  %1023 = or i64 %1022, %shl12248.i
-  %1024 = or i64 %1023, %shl12240.i
-  %1025 = or i64 %1024, %shl12234.i
-  %1026 = or i64 %1025, %shl12227.i
-  %1027 = or i64 %1026, %shl12221.i
-  %1028 = or i64 %1027, %shl12212.i
-  %1029 = or i64 %1028, %shl12206.i
-  %1030 = or i64 %1029, %shl12199.i
-  %1031 = or i64 %1030, %shl12193.i
-  %1032 = or i64 %1031, %shl12185.i
-  %or12275.i = or i64 %1032, %shl12179.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.bb12276.i:                                     ; preds = %for.end
-  %and12277.i = and i64 %and.i, 1
-  %and12281.i = shl nuw i64 %and.i, 1
-  %shl12282.i = and i64 %and12281.i, 4
-  %and12288.i = shl i64 %and.i, 2
-  %shl12289.i = and i64 %and12288.i, 16
-  %and12294.i = shl i64 %and.i, 3
-  %shl12295.i = and i64 %and12294.i, 64
-  %and12302.i = shl i64 %and.i, 4
-  %shl12303.i = and i64 %and12302.i, 256
-  %and12308.i = shl i64 %and.i, 5
-  %shl12309.i = and i64 %and12308.i, 1024
-  %and12315.i = shl i64 %and.i, 6
-  %shl12316.i = and i64 %and12315.i, 4096
-  %and12321.i = shl i64 %and.i, 7
-  %shl12322.i = and i64 %and12321.i, 16384
-  %and12330.i = shl i64 %and.i, 8
-  %shl12331.i = and i64 %and12330.i, 65536
-  %and12336.i = shl i64 %and.i, 9
-  %shl12337.i = and i64 %and12336.i, 262144
-  %and12343.i = shl i64 %and.i, 10
-  %shl12344.i = and i64 %and12343.i, 1048576
-  %and12349.i = shl i64 %and.i, 11
-  %shl12350.i = and i64 %and12349.i, 4194304
-  %and12357.i = shl i64 %and.i, 12
-  %shl12358.i = and i64 %and12357.i, 16777216
-  %and12363.i = shl i64 %and.i, 13
-  %shl12364.i = and i64 %and12363.i, 67108864
-  %and12370.i = shl i64 %and.i, 14
-  %shl12371.i = and i64 %and12370.i, 268435456
-  %and12376.i = shl i64 %and.i, 15
-  %shl12377.i = and i64 %and12376.i, 1073741824
-  %and12386.i = shl i64 %and.i, 16
-  %shl12387.i = and i64 %and12386.i, 4294967296
-  %and12392.i = shl i64 %and.i, 17
-  %shl12393.i = and i64 %and12392.i, 17179869184
-  %and12399.i = shl i64 %and.i, 18
-  %shl12400.i = and i64 %and12399.i, 68719476736
-  %and12405.i = shl i64 %and.i, 19
-  %shl12406.i = and i64 %and12405.i, 274877906944
-  %and12413.i = shl i64 %and.i, 20
-  %shl12414.i = and i64 %and12413.i, 1099511627776
-  %and12419.i = shl i64 %and.i, 21
-  %shl12420.i = and i64 %and12419.i, 4398046511104
-  %and12426.i = shl i64 %and.i, 22
-  %shl12427.i = and i64 %and12426.i, 17592186044416
-  %and12432.i = shl i64 %and.i, 23
-  %shl12433.i = and i64 %and12432.i, 70368744177664
-  %and12441.i = shl i64 %and.i, 24
-  %shl12442.i = and i64 %and12441.i, 281474976710656
-  %and12447.i = shl i64 %and.i, 25
-  %shl12448.i = and i64 %and12447.i, 1125899906842624
-  %and12454.i = shl i64 %and.i, 26
-  %shl12455.i = and i64 %and12454.i, 4503599627370496
-  %and12460.i = shl i64 %and.i, 27
-  %shl12461.i = and i64 %and12460.i, 18014398509481984
-  %and12468.i = shl i64 %and.i, 28
-  %shl12469.i = and i64 %and12468.i, 72057594037927936
-  %and12474.i = shl i64 %and.i, 29
-  %shl12475.i = and i64 %and12474.i, 288230376151711744
-  %and12481.i = shl i64 %and.i, 30
-  %shl12482.i = and i64 %and12481.i, 1152921504606846976
-  %and12487.i = shl i64 %and.i, 31
-  %shl12488.i = and i64 %and12487.i, 4611686018427387904
-  %1033 = and i64 %and.i, 3
-  %1034 = or disjoint i64 %shl12282.i, %1033
-  %1035 = or disjoint i64 %1034, %shl12289.i
-  %1036 = or disjoint i64 %1035, %shl12295.i
-  %1037 = or disjoint i64 %1036, %shl12303.i
-  %1038 = or disjoint i64 %1037, %shl12309.i
-  %1039 = or i64 %1038, %shl12316.i
-  %1040 = or i64 %1039, %shl12322.i
-  %1041 = or i64 %1040, %shl12331.i
-  %1042 = or i64 %1041, %shl12337.i
-  %1043 = or i64 %1042, %shl12344.i
-  %1044 = or i64 %1043, %shl12350.i
-  %1045 = or i64 %1044, %shl12358.i
-  %1046 = or i64 %1045, %shl12364.i
-  %1047 = or i64 %1046, %shl12371.i
-  %1048 = or i64 %1047, %shl12377.i
-  %1049 = or i64 %1048, %shl12387.i
-  %1050 = or i64 %1049, %shl12393.i
-  %1051 = or i64 %1050, %shl12400.i
-  %1052 = or i64 %1051, %shl12406.i
-  %1053 = or i64 %1052, %shl12414.i
-  %1054 = or i64 %1053, %shl12420.i
-  %1055 = or i64 %1054, %shl12427.i
-  %1056 = or i64 %1055, %shl12433.i
-  %1057 = or i64 %1056, %shl12442.i
-  %1058 = or i64 %1057, %shl12448.i
-  %1059 = or i64 %1058, %shl12455.i
-  %1060 = or i64 %1059, %shl12461.i
-  %1061 = or i64 %1060, %shl12469.i
-  %1062 = or i64 %1061, %shl12475.i
-  %1063 = or i64 %1062, %shl12482.i
-  %1064 = or i64 %1063, %shl12488.i
-  %1065 = shl nuw i64 %1064, 1
-  %1066 = or disjoint i64 %1065, %and12277.i
-  %1067 = or i64 %shl12488.i, %1066
-  %1068 = or i64 %1067, %shl12482.i
-  %1069 = or i64 %1068, %shl12475.i
-  %1070 = or i64 %1069, %shl12469.i
-  %1071 = or i64 %1070, %shl12461.i
-  %1072 = or i64 %1071, %shl12455.i
-  %1073 = or i64 %1072, %shl12448.i
-  %1074 = or i64 %1073, %shl12442.i
-  %1075 = or i64 %1074, %shl12433.i
-  %1076 = or i64 %1075, %shl12427.i
-  %1077 = or i64 %1076, %shl12420.i
-  %1078 = or i64 %1077, %shl12414.i
-  %1079 = or i64 %1078, %shl12406.i
-  %1080 = or i64 %1079, %shl12400.i
-  %1081 = or i64 %1080, %shl12393.i
-  %1082 = or i64 %1081, %shl12387.i
-  %1083 = or i64 %1082, %shl12377.i
-  %1084 = or i64 %1083, %shl12371.i
-  %1085 = or i64 %1084, %shl12364.i
-  %1086 = or i64 %1085, %shl12358.i
-  %1087 = or i64 %1086, %shl12350.i
-  %1088 = or i64 %1087, %shl12344.i
-  %1089 = or i64 %1088, %shl12337.i
-  %1090 = or i64 %1089, %shl12331.i
-  %1091 = or i64 %1090, %shl12322.i
-  %1092 = or i64 %1091, %shl12316.i
-  %1093 = or i64 %1092, %shl12309.i
-  %1094 = or i64 %1093, %shl12303.i
-  %1095 = or i64 %1094, %shl12295.i
-  %or12497.i = or i64 %1095, %shl12289.i
-  br label %_ZL13compute_shiftmj.exit
-
-sw.default.i:                                     ; preds = %for.end
+65:                                               ; preds = %._crit_edge
+  %66 = trunc i64 %21 to i1
+  %67 = select i1 %66, i64 3, i64 0
+  %68 = shl i64 %21, 3
+  %69 = and i64 %68, 16
+  %70 = mul nuw nsw i64 %69, 3
+  %71 = or disjoint i64 %70, %67
+  %72 = shl nuw nsw i64 %71, 2
+  %73 = or disjoint i64 %72, %70
+  %74 = or disjoint i64 %73, %67
+  br label %_ZL13compute_shiftmj.exit
+
+75:                                               ; preds = %._crit_edge
+  %76 = and i64 %21, 3
+  %77 = shl i64 %21, 2
+  %78 = and i64 %77, 48
+  %79 = and i64 %21, 12
+  %80 = or disjoint i64 %79, %78
+  %81 = or disjoint i64 %80, %76
+  %82 = shl nuw nsw i64 %81, 2
+  %83 = or disjoint i64 %82, %76
+  br label %_ZL13compute_shiftmj.exit
+
+84:                                               ; preds = %._crit_edge
+  %85 = and i64 %21, 1
+  %86 = shl nuw i64 %21, 1
+  %87 = and i64 %86, 4
+  %88 = shl i64 %21, 2
+  %89 = and i64 %88, 16
+  %90 = shl i64 %21, 3
+  %91 = and i64 %90, 64
+  %92 = and i64 %21, 3
+  %93 = or disjoint i64 %87, %92
+  %94 = or disjoint i64 %93, %89
+  %95 = or disjoint i64 %94, %91
+  %96 = shl nuw nsw i64 %95, 1
+  %97 = or disjoint i64 %96, %85
+  %98 = or disjoint i64 %97, %91
+  %99 = or i64 %98, %89
+  br label %_ZL13compute_shiftmj.exit
+
+100:                                              ; preds = %._crit_edge
+  %101 = and i64 %21, 255
+  br label %_ZL13compute_shiftmj.exit
+
+102:                                              ; preds = %._crit_edge
+  %103 = trunc i64 %21 to i1
+  %104 = select i1 %103, i64 65535, i64 0
+  br label %_ZL13compute_shiftmj.exit
+
+105:                                              ; preds = %._crit_edge
+  %106 = and i64 %21, 3
+  %107 = mul nuw nsw i64 %106, 21845
+  br label %_ZL13compute_shiftmj.exit
+
+108:                                              ; preds = %._crit_edge
+  %109 = and i64 %21, 1
+  %110 = shl nuw i64 %21, 1
+  %111 = and i64 %110, 4
+  %112 = and i64 %21, 2
+  %113 = or disjoint i64 %112, %111
+  %114 = or disjoint i64 %113, %109
+  %115 = shl nuw nsw i64 %114, 1
+  %116 = or disjoint i64 %115, %109
+  %117 = mul nuw nsw i64 %116, 4369
+  br label %_ZL13compute_shiftmj.exit
+
+118:                                              ; preds = %._crit_edge
+  %119 = and i64 %21, 15
+  %120 = mul nuw nsw i64 %119, 4369
+  br label %_ZL13compute_shiftmj.exit
+
+121:                                              ; preds = %._crit_edge
+  %122 = trunc i64 %21 to i1
+  %123 = select i1 %122, i64 3, i64 0
+  %124 = shl i64 %21, 3
+  %125 = and i64 %124, 16
+  %126 = mul nuw nsw i64 %125, 3
+  %127 = or disjoint i64 %126, %123
+  %128 = shl nuw nsw i64 %127, 2
+  %129 = or disjoint i64 %128, %126
+  %130 = or disjoint i64 %129, %123
+  %131 = mul nuw nsw i64 %130, 257
+  br label %_ZL13compute_shiftmj.exit
+
+132:                                              ; preds = %._crit_edge
+  %133 = and i64 %21, 3
+  %134 = shl i64 %21, 2
+  %135 = and i64 %134, 48
+  %136 = and i64 %21, 12
+  %137 = or disjoint i64 %136, %135
+  %138 = or disjoint i64 %137, %133
+  %139 = shl nuw nsw i64 %138, 2
+  %140 = or disjoint i64 %139, %133
+  %141 = mul nuw nsw i64 %140, 257
+  br label %_ZL13compute_shiftmj.exit
+
+142:                                              ; preds = %._crit_edge
+  %143 = and i64 %21, 1
+  %144 = shl nuw i64 %21, 1
+  %145 = and i64 %144, 4
+  %146 = shl i64 %21, 2
+  %147 = and i64 %146, 16
+  %148 = shl i64 %21, 3
+  %149 = and i64 %148, 64
+  %150 = and i64 %21, 3
+  %151 = or disjoint i64 %145, %150
+  %152 = or disjoint i64 %151, %147
+  %153 = or disjoint i64 %152, %149
+  %154 = shl nuw nsw i64 %153, 1
+  %155 = or disjoint i64 %154, %143
+  %156 = or disjoint i64 %155, %149
+  %157 = or i64 %156, %147
+  %158 = shl nuw nsw i64 %157, 8
+  %159 = or i64 %158, %157
+  br label %_ZL13compute_shiftmj.exit
+
+160:                                              ; preds = %._crit_edge
+  %161 = and i64 %21, 255
+  %162 = mul nuw nsw i64 %161, 257
+  br label %_ZL13compute_shiftmj.exit
+
+163:                                              ; preds = %._crit_edge
+  %164 = trunc i64 %21 to i1
+  %165 = select i1 %164, i64 15, i64 0
+  %166 = shl i64 %21, 7
+  %167 = and i64 %166, 256
+  %168 = mul nuw nsw i64 %167, 15
+  %169 = or disjoint i64 %168, %165
+  %170 = shl nuw nsw i64 %169, 4
+  %171 = or disjoint i64 %170, %165
+  %172 = or disjoint i64 %171, %168
+  br label %_ZL13compute_shiftmj.exit
+
+173:                                              ; preds = %._crit_edge
+  %174 = and i64 %21, 3
+  %175 = mul nuw nsw i64 %174, 5
+  %176 = shl i64 %21, 6
+  %177 = and i64 %176, 768
+  %178 = mul nuw nsw i64 %177, 5
+  %179 = or disjoint i64 %178, %175
+  %180 = shl nuw nsw i64 %179, 4
+  %181 = or disjoint i64 %180, %178
+  %182 = or disjoint i64 %181, %175
+  br label %_ZL13compute_shiftmj.exit
+
+183:                                              ; preds = %._crit_edge
+  %184 = and i64 %21, 1
+  %185 = shl nuw i64 %21, 1
+  %186 = and i64 %185, 4
+  %187 = and i64 %21, 2
+  %188 = or disjoint i64 %187, %186
+  %189 = or disjoint i64 %188, %184
+  %190 = shl nuw nsw i64 %189, 1
+  %191 = or disjoint i64 %190, %184
+  %192 = shl i64 %21, 6
+  %193 = and i64 %192, 256
+  %194 = shl i64 %21, 7
+  %195 = and i64 %194, 1024
+  %196 = or disjoint i64 %195, %193
+  %197 = shl nuw nsw i64 %196, 1
+  %198 = or disjoint i64 %197, %195
+  %199 = or disjoint i64 %198, %193
+  %200 = or disjoint i64 %199, %191
+  %201 = shl nuw nsw i64 %200, 4
+  %202 = or i64 %199, %201
+  %203 = or i64 %202, %191
+  br label %_ZL13compute_shiftmj.exit
+
+204:                                              ; preds = %._crit_edge
+  %205 = and i64 %21, 15
+  %206 = shl i64 %21, 4
+  %207 = and i64 %206, 3840
+  %208 = and i64 %21, 240
+  %209 = or disjoint i64 %208, %207
+  %210 = or disjoint i64 %209, %205
+  %211 = shl nuw nsw i64 %210, 4
+  %212 = or disjoint i64 %211, %205
+  br label %_ZL13compute_shiftmj.exit
+
+213:                                              ; preds = %._crit_edge
+  %214 = trunc i64 %21 to i1
+  %215 = select i1 %214, i64 3, i64 0
+  %216 = shl i64 %21, 3
+  %217 = and i64 %216, 16
+  %218 = mul nuw nsw i64 %217, 3
+  %219 = shl i64 %21, 6
+  %220 = and i64 %219, 256
+  %221 = mul nuw nsw i64 %220, 3
+  %222 = shl i64 %21, 9
+  %223 = and i64 %222, 4096
+  %224 = mul nuw nsw i64 %223, 3
+  %225 = or disjoint i64 %218, %215
+  %226 = or disjoint i64 %225, %221
+  %227 = or disjoint i64 %226, %224
+  %228 = shl nuw nsw i64 %227, 2
+  %229 = or disjoint i64 %228, %215
+  %230 = or i64 %224, %229
+  %231 = or i64 %230, %221
+  %232 = or i64 %231, %218
+  br label %_ZL13compute_shiftmj.exit
+
+233:                                              ; preds = %._crit_edge
+  %234 = and i64 %21, 3
+  %235 = shl i64 %21, 2
+  %236 = and i64 %235, 48
+  %237 = shl i64 %21, 4
+  %238 = and i64 %237, 768
+  %239 = shl i64 %21, 6
+  %240 = and i64 %239, 12288
+  %241 = and i64 %21, 15
+  %242 = or disjoint i64 %236, %241
+  %243 = or disjoint i64 %242, %238
+  %244 = or disjoint i64 %243, %240
+  %245 = shl nuw nsw i64 %244, 2
+  %246 = or disjoint i64 %245, %234
+  %247 = or disjoint i64 %246, %240
+  %248 = or i64 %247, %238
+  br label %_ZL13compute_shiftmj.exit
+
+249:                                              ; preds = %._crit_edge
+  %250 = and i64 %21, 1
+  %251 = shl nuw i64 %21, 1
+  %252 = and i64 %251, 4
+  %253 = shl i64 %21, 2
+  %254 = and i64 %253, 16
+  %255 = shl i64 %21, 3
+  %256 = and i64 %255, 64
+  %257 = shl i64 %21, 4
+  %258 = and i64 %257, 256
+  %259 = shl i64 %21, 5
+  %260 = and i64 %259, 1024
+  %261 = shl i64 %21, 6
+  %262 = and i64 %261, 4096
+  %263 = shl i64 %21, 7
+  %264 = and i64 %263, 16384
+  %265 = and i64 %21, 3
+  %266 = or disjoint i64 %265, %252
+  %267 = or disjoint i64 %266, %254
+  %268 = or disjoint i64 %267, %256
+  %269 = or disjoint i64 %268, %258
+  %270 = or disjoint i64 %269, %260
+  %271 = or i64 %270, %262
+  %272 = or i64 %271, %264
+  %273 = shl nuw nsw i64 %272, 1
+  %274 = or disjoint i64 %273, %250
+  %275 = or i64 %264, %274
+  %276 = or i64 %275, %262
+  %277 = or i64 %276, %260
+  %278 = or i64 %277, %258
+  %279 = or i64 %278, %256
+  %280 = or i64 %279, %254
+  br label %_ZL13compute_shiftmj.exit
+
+281:                                              ; preds = %._crit_edge
+  %282 = and i64 %21, 65535
+  br label %_ZL13compute_shiftmj.exit
+
+283:                                              ; preds = %._crit_edge
+  %284 = trunc i64 %21 to i1
+  %285 = select i1 %284, i64 4294967295, i64 0
+  br label %_ZL13compute_shiftmj.exit
+
+286:                                              ; preds = %._crit_edge
+  %287 = and i64 %21, 3
+  %288 = mul nuw nsw i64 %287, 1431655765
+  br label %_ZL13compute_shiftmj.exit
+
+289:                                              ; preds = %._crit_edge
+  %290 = and i64 %21, 1
+  %291 = shl nuw i64 %21, 1
+  %292 = and i64 %291, 4
+  %293 = and i64 %21, 2
+  %294 = or disjoint i64 %293, %292
+  %295 = or disjoint i64 %294, %290
+  %296 = shl nuw nsw i64 %295, 1
+  %297 = or disjoint i64 %296, %290
+  %298 = mul nuw nsw i64 %297, 4369
+  %299 = mul nuw nsw i64 %297, 286326784
+  %300 = or i64 %299, %298
+  br label %_ZL13compute_shiftmj.exit
+
+301:                                              ; preds = %._crit_edge
+  %302 = and i64 %21, 15
+  %303 = mul nuw nsw i64 %302, 286331153
+  br label %_ZL13compute_shiftmj.exit
+
+304:                                              ; preds = %._crit_edge
+  %305 = trunc i64 %21 to i1
+  %306 = select i1 %305, i64 3, i64 0
+  %307 = shl i64 %21, 3
+  %308 = and i64 %307, 16
+  %309 = mul nuw nsw i64 %308, 3
+  %310 = or disjoint i64 %309, %306
+  %311 = shl nuw nsw i64 %310, 2
+  %312 = or disjoint i64 %311, %309
+  %313 = or disjoint i64 %312, %306
+  %314 = mul nuw nsw i64 %313, 257
+  %315 = mul nuw nsw i64 %313, 16842752
+  %316 = or i64 %315, %314
+  br label %_ZL13compute_shiftmj.exit
+
+317:                                              ; preds = %._crit_edge
+  %318 = and i64 %21, 3
+  %319 = shl i64 %21, 2
+  %320 = and i64 %319, 48
+  %321 = and i64 %21, 12
+  %322 = or disjoint i64 %321, %320
+  %323 = or disjoint i64 %322, %318
+  %324 = shl nuw nsw i64 %323, 2
+  %325 = or disjoint i64 %324, %318
+  %326 = mul nuw nsw i64 %325, 16843009
+  br label %_ZL13compute_shiftmj.exit
+
+327:                                              ; preds = %._crit_edge
+  %328 = and i64 %21, 1
+  %329 = shl nuw i64 %21, 1
+  %330 = and i64 %329, 4
+  %331 = shl i64 %21, 2
+  %332 = and i64 %331, 16
+  %333 = shl i64 %21, 3
+  %334 = and i64 %333, 64
+  %335 = and i64 %21, 3
+  %336 = or disjoint i64 %330, %335
+  %337 = or disjoint i64 %336, %332
+  %338 = or disjoint i64 %337, %334
+  %339 = shl nuw nsw i64 %338, 1
+  %340 = or disjoint i64 %339, %328
+  %341 = or disjoint i64 %340, %334
+  %342 = or i64 %341, %332
+  %343 = shl nuw nsw i64 %342, 8
+  %344 = or i64 %343, %342
+  %345 = shl nuw nsw i64 %344, 16
+  %346 = or i64 %345, %344
+  br label %_ZL13compute_shiftmj.exit
+
+347:                                              ; preds = %._crit_edge
+  %348 = and i64 %21, 255
+  %349 = mul nuw nsw i64 %348, 16843009
+  br label %_ZL13compute_shiftmj.exit
+
+350:                                              ; preds = %._crit_edge
+  %351 = trunc i64 %21 to i1
+  %352 = select i1 %351, i64 15, i64 0
+  %353 = shl i64 %21, 7
+  %354 = and i64 %353, 256
+  %355 = mul nuw nsw i64 %354, 15
+  %356 = or disjoint i64 %355, %352
+  %357 = shl nuw nsw i64 %356, 4
+  %358 = or disjoint i64 %357, %352
+  %359 = or disjoint i64 %358, %355
+  %360 = mul nuw nsw i64 %359, 65537
+  br label %_ZL13compute_shiftmj.exit
+
+361:                                              ; preds = %._crit_edge
+  %362 = and i64 %21, 3
+  %363 = mul nuw nsw i64 %362, 5
+  %364 = shl i64 %21, 6
+  %365 = and i64 %364, 768
+  %366 = mul nuw nsw i64 %365, 5
+  %367 = or disjoint i64 %366, %363
+  %368 = shl nuw nsw i64 %367, 4
+  %369 = or disjoint i64 %368, %366
+  %370 = or disjoint i64 %369, %363
+  %371 = mul nuw nsw i64 %370, 65537
+  br label %_ZL13compute_shiftmj.exit
+
+372:                                              ; preds = %._crit_edge
+  %373 = and i64 %21, 1
+  %374 = shl nuw i64 %21, 1
+  %375 = and i64 %374, 4
+  %376 = and i64 %21, 2
+  %377 = or disjoint i64 %376, %375
+  %378 = or disjoint i64 %377, %373
+  %379 = shl nuw nsw i64 %378, 1
+  %380 = or disjoint i64 %379, %373
+  %381 = shl i64 %21, 6
+  %382 = and i64 %381, 256
+  %383 = shl i64 %21, 7
+  %384 = and i64 %383, 1024
+  %385 = or disjoint i64 %384, %382
+  %386 = shl nuw nsw i64 %385, 1
+  %387 = or disjoint i64 %386, %384
+  %388 = or disjoint i64 %387, %382
+  %389 = or disjoint i64 %388, %380
+  %390 = shl nuw nsw i64 %389, 4
+  %391 = or i64 %388, %390
+  %392 = or i64 %391, %380
+  %393 = shl nuw nsw i64 %392, 16
+  %394 = or i64 %393, %392
+  br label %_ZL13compute_shiftmj.exit
+
+395:                                              ; preds = %._crit_edge
+  %396 = and i64 %21, 15
+  %397 = shl i64 %21, 4
+  %398 = and i64 %397, 3840
+  %399 = and i64 %21, 240
+  %400 = or disjoint i64 %399, %398
+  %401 = or disjoint i64 %400, %396
+  %402 = shl nuw nsw i64 %401, 4
+  %403 = or disjoint i64 %402, %396
+  %404 = mul nuw nsw i64 %403, 65537
+  br label %_ZL13compute_shiftmj.exit
+
+405:                                              ; preds = %._crit_edge
+  %406 = trunc i64 %21 to i1
+  %407 = select i1 %406, i64 3, i64 0
+  %408 = shl i64 %21, 3
+  %409 = and i64 %408, 16
+  %410 = mul nuw nsw i64 %409, 3
+  %411 = shl i64 %21, 6
+  %412 = and i64 %411, 256
+  %413 = mul nuw nsw i64 %412, 3
+  %414 = shl i64 %21, 9
+  %415 = and i64 %414, 4096
+  %416 = mul nuw nsw i64 %415, 3
+  %417 = or disjoint i64 %410, %407
+  %418 = or disjoint i64 %417, %413
+  %419 = or disjoint i64 %418, %416
+  %420 = shl nuw nsw i64 %419, 2
+  %421 = or disjoint i64 %420, %407
+  %422 = or i64 %416, %421
+  %423 = or i64 %422, %413
+  %424 = or i64 %423, %410
+  %425 = shl nuw nsw i64 %424, 16
+  %426 = or i64 %425, %424
+  br label %_ZL13compute_shiftmj.exit
+
+427:                                              ; preds = %._crit_edge
+  %428 = and i64 %21, 3
+  %429 = shl i64 %21, 2
+  %430 = and i64 %429, 48
+  %431 = shl i64 %21, 4
+  %432 = and i64 %431, 768
+  %433 = shl i64 %21, 6
+  %434 = and i64 %433, 12288
+  %435 = and i64 %21, 15
+  %436 = or disjoint i64 %430, %435
+  %437 = or disjoint i64 %436, %432
+  %438 = or disjoint i64 %437, %434
+  %439 = shl nuw nsw i64 %438, 2
+  %440 = or disjoint i64 %439, %428
+  %441 = or disjoint i64 %440, %434
+  %442 = or i64 %441, %432
+  %443 = shl nuw nsw i64 %442, 16
+  %444 = or i64 %443, %442
+  br label %_ZL13compute_shiftmj.exit
+
+445:                                              ; preds = %._crit_edge
+  %446 = and i64 %21, 1
+  %447 = shl nuw i64 %21, 1
+  %448 = and i64 %447, 4
+  %449 = shl i64 %21, 2
+  %450 = and i64 %449, 16
+  %451 = shl i64 %21, 3
+  %452 = and i64 %451, 64
+  %453 = shl i64 %21, 4
+  %454 = and i64 %453, 256
+  %455 = shl i64 %21, 5
+  %456 = and i64 %455, 1024
+  %457 = shl i64 %21, 6
+  %458 = and i64 %457, 4096
+  %459 = shl i64 %21, 7
+  %460 = and i64 %459, 16384
+  %461 = and i64 %21, 3
+  %462 = or disjoint i64 %461, %448
+  %463 = or disjoint i64 %462, %450
+  %464 = or disjoint i64 %463, %452
+  %465 = or disjoint i64 %464, %454
+  %466 = or disjoint i64 %465, %456
+  %467 = or i64 %466, %458
+  %468 = or i64 %467, %460
+  %469 = shl nuw nsw i64 %468, 1
+  %470 = or disjoint i64 %469, %446
+  %471 = or i64 %460, %470
+  %472 = or i64 %471, %458
+  %473 = or i64 %472, %456
+  %474 = or i64 %473, %454
+  %475 = or i64 %474, %452
+  %476 = or i64 %475, %450
+  %477 = shl nuw nsw i64 %476, 16
+  %478 = or i64 %477, %476
+  br label %_ZL13compute_shiftmj.exit
+
+479:                                              ; preds = %._crit_edge
+  %480 = and i64 %21, 65535
+  %481 = mul nuw nsw i64 %480, 65537
+  br label %_ZL13compute_shiftmj.exit
+
+482:                                              ; preds = %._crit_edge
+  %483 = trunc i64 %21 to i1
+  %484 = select i1 %483, i64 255, i64 0
+  %485 = shl i64 %21, 15
+  %486 = and i64 %485, 65536
+  %487 = mul nuw nsw i64 %486, 255
+  %488 = or disjoint i64 %487, %484
+  %489 = shl nuw nsw i64 %488, 8
+  %490 = or disjoint i64 %489, %484
+  %491 = or disjoint i64 %490, %487
+  br label %_ZL13compute_shiftmj.exit
+
+492:                                              ; preds = %._crit_edge
+  %493 = and i64 %21, 3
+  %494 = mul nuw nsw i64 %493, 85
+  %495 = shl i64 %21, 14
+  %496 = and i64 %495, 196608
+  %497 = mul nuw nsw i64 %496, 85
+  %498 = or disjoint i64 %497, %494
+  %499 = shl nuw nsw i64 %498, 8
+  %500 = or disjoint i64 %499, %494
+  %501 = or disjoint i64 %500, %497
+  br label %_ZL13compute_shiftmj.exit
+
+502:                                              ; preds = %._crit_edge
+  %503 = and i64 %21, 1
+  %504 = shl nuw i64 %21, 1
+  %505 = and i64 %504, 4
+  %506 = and i64 %21, 2
+  %507 = or disjoint i64 %506, %505
+  %508 = or disjoint i64 %507, %503
+  %509 = shl nuw nsw i64 %508, 1
+  %510 = or disjoint i64 %509, %503
+  %511 = mul nuw nsw i64 %510, 17
+  %512 = shl i64 %21, 14
+  %513 = and i64 %512, 65536
+  %514 = shl i64 %21, 15
+  %515 = and i64 %514, 262144
+  %516 = or disjoint i64 %515, %513
+  %517 = shl nuw nsw i64 %516, 1
+  %518 = or disjoint i64 %517, %515
+  %519 = or disjoint i64 %518, %513
+  %520 = mul nuw nsw i64 %519, 17
+  %521 = or disjoint i64 %520, %511
+  %522 = shl nuw nsw i64 %521, 8
+  %523 = or i64 %520, %522
+  %524 = or i64 %523, %511
+  br label %_ZL13compute_shiftmj.exit
+
+525:                                              ; preds = %._crit_edge
+  %526 = and i64 %21, 15
+  %527 = mul nuw nsw i64 %526, 17
+  %528 = shl i64 %21, 12
+  %529 = and i64 %528, 983040
+  %530 = mul nuw nsw i64 %529, 17
+  %531 = or disjoint i64 %530, %527
+  %532 = shl nuw nsw i64 %531, 8
+  %533 = or disjoint i64 %532, %530
+  %534 = or disjoint i64 %533, %527
+  br label %_ZL13compute_shiftmj.exit
+
+535:                                              ; preds = %._crit_edge
+  %536 = trunc i64 %21 to i1
+  %537 = select i1 %536, i64 3, i64 0
+  %538 = shl i64 %21, 3
+  %539 = and i64 %538, 16
+  %540 = mul nuw nsw i64 %539, 3
+  %541 = or disjoint i64 %540, %537
+  %542 = shl nuw nsw i64 %541, 2
+  %543 = or disjoint i64 %542, %540
+  %544 = or disjoint i64 %543, %537
+  %545 = shl i64 %21, 14
+  %546 = and i64 %545, 65536
+  %547 = mul nuw nsw i64 %546, 3
+  %548 = shl i64 %21, 17
+  %549 = and i64 %548, 1048576
+  %550 = mul nuw nsw i64 %549, 3
+  %551 = or disjoint i64 %550, %547
+  %552 = shl nuw nsw i64 %551, 2
+  %553 = or disjoint i64 %552, %550
+  %554 = or disjoint i64 %553, %547
+  %555 = or disjoint i64 %554, %544
+  %556 = shl nuw nsw i64 %555, 8
+  %557 = or i64 %554, %556
+  %558 = or i64 %557, %544
+  br label %_ZL13compute_shiftmj.exit
+
+559:                                              ; preds = %._crit_edge
+  %560 = and i64 %21, 3
+  %561 = shl i64 %21, 2
+  %562 = and i64 %561, 48
+  %563 = and i64 %21, 12
+  %564 = or disjoint i64 %563, %562
+  %565 = or disjoint i64 %564, %560
+  %566 = shl nuw nsw i64 %565, 2
+  %567 = or disjoint i64 %566, %560
+  %568 = shl i64 %21, 12
+  %569 = and i64 %568, 196608
+  %570 = shl i64 %21, 14
+  %571 = and i64 %570, 3145728
+  %572 = or disjoint i64 %571, %569
+  %573 = shl nuw nsw i64 %572, 2
+  %574 = or disjoint i64 %573, %571
+  %575 = or disjoint i64 %574, %569
+  %576 = or disjoint i64 %575, %567
+  %577 = shl nuw nsw i64 %576, 8
+  %578 = or i64 %575, %577
+  %579 = or i64 %578, %567
+  br label %_ZL13compute_shiftmj.exit
+
+580:                                              ; preds = %._crit_edge
+  %581 = and i64 %21, 1
+  %582 = shl nuw i64 %21, 1
+  %583 = and i64 %582, 4
+  %584 = shl i64 %21, 2
+  %585 = and i64 %584, 16
+  %586 = shl i64 %21, 3
+  %587 = and i64 %586, 64
+  %588 = and i64 %21, 3
+  %589 = or disjoint i64 %583, %588
+  %590 = or disjoint i64 %589, %585
+  %591 = or disjoint i64 %590, %587
+  %592 = shl nuw nsw i64 %591, 1
+  %593 = or disjoint i64 %592, %581
+  %594 = or disjoint i64 %593, %587
+  %595 = or i64 %594, %585
+  %596 = shl i64 %21, 12
+  %597 = and i64 %596, 65536
+  %598 = shl i64 %21, 13
+  %599 = and i64 %598, 262144
+  %600 = shl i64 %21, 14
+  %601 = and i64 %600, 1048576
+  %602 = shl i64 %21, 15
+  %603 = and i64 %602, 4194304
+  %604 = or disjoint i64 %599, %597
+  %605 = or disjoint i64 %604, %601
+  %606 = or disjoint i64 %605, %603
+  %607 = shl nuw nsw i64 %606, 1
+  %608 = or disjoint i64 %607, %603
+  %609 = or disjoint i64 %608, %601
+  %610 = or i64 %599, %609
+  %611 = or i64 %610, %597
+  %612 = or i64 %611, %595
+  %613 = shl nuw nsw i64 %612, 8
+  %614 = or i64 %595, %613
+  %615 = or i64 %614, %611
+  br label %_ZL13compute_shiftmj.exit
+
+616:                                              ; preds = %._crit_edge
+  %617 = and i64 %21, 255
+  %618 = shl i64 %21, 8
+  %619 = and i64 %618, 16711680
+  %620 = and i64 %21, 65280
+  %621 = or disjoint i64 %620, %619
+  %622 = or disjoint i64 %621, %617
+  %623 = shl nuw nsw i64 %622, 8
+  %624 = or disjoint i64 %623, %617
+  br label %_ZL13compute_shiftmj.exit
+
+625:                                              ; preds = %._crit_edge
+  %626 = trunc i64 %21 to i1
+  %627 = select i1 %626, i64 15, i64 0
+  %628 = shl i64 %21, 7
+  %629 = and i64 %628, 256
+  %630 = mul nuw nsw i64 %629, 15
+  %631 = shl i64 %21, 14
+  %632 = and i64 %631, 65536
+  %633 = mul nuw nsw i64 %632, 15
+  %634 = shl i64 %21, 21
+  %635 = and i64 %634, 16777216
+  %636 = mul nuw nsw i64 %635, 15
+  %637 = or disjoint i64 %630, %627
+  %638 = or disjoint i64 %637, %633
+  %639 = or disjoint i64 %638, %636
+  %640 = shl nuw nsw i64 %639, 4
+  %641 = or disjoint i64 %640, %627
+  %642 = or i64 %636, %641
+  %643 = or i64 %642, %633
+  %644 = or i64 %643, %630
+  br label %_ZL13compute_shiftmj.exit
+
+645:                                              ; preds = %._crit_edge
+  %646 = and i64 %21, 3
+  %647 = mul nuw nsw i64 %646, 5
+  %648 = shl i64 %21, 6
+  %649 = and i64 %648, 768
+  %650 = mul nuw nsw i64 %649, 5
+  %651 = shl i64 %21, 12
+  %652 = and i64 %651, 196608
+  %653 = mul nuw nsw i64 %652, 5
+  %654 = shl i64 %21, 18
+  %655 = and i64 %654, 50331648
+  %656 = mul nuw nsw i64 %655, 5
+  %657 = or disjoint i64 %650, %647
+  %658 = or disjoint i64 %657, %653
+  %659 = or disjoint i64 %658, %656
+  %660 = shl nuw nsw i64 %659, 4
+  %661 = or disjoint i64 %660, %647
+  %662 = or i64 %656, %661
+  %663 = or i64 %662, %653
+  %664 = or i64 %663, %650
+  br label %_ZL13compute_shiftmj.exit
+
+665:                                              ; preds = %._crit_edge
+  %666 = and i64 %21, 1
+  %667 = shl nuw i64 %21, 1
+  %668 = and i64 %667, 4
+  %669 = and i64 %21, 2
+  %670 = or disjoint i64 %669, %668
+  %671 = or disjoint i64 %670, %666
+  %672 = shl nuw nsw i64 %671, 1
+  %673 = or disjoint i64 %672, %666
+  %674 = shl i64 %21, 6
+  %675 = and i64 %674, 256
+  %676 = shl i64 %21, 7
+  %677 = and i64 %676, 1024
+  %678 = or disjoint i64 %677, %675
+  %679 = shl nuw nsw i64 %678, 1
+  %680 = or disjoint i64 %679, %677
+  %681 = or disjoint i64 %680, %675
+  %682 = or disjoint i64 %681, %673
+  %683 = shl i64 %21, 12
+  %684 = and i64 %683, 65536
+  %685 = shl i64 %21, 13
+  %686 = and i64 %685, 262144
+  %687 = or disjoint i64 %686, %684
+  %688 = shl nuw nsw i64 %687, 1
+  %689 = or disjoint i64 %688, %686
+  %690 = or disjoint i64 %689, %684
+  %691 = shl i64 %21, 18
+  %692 = and i64 %691, 16777216
+  %693 = shl i64 %21, 19
+  %694 = and i64 %693, 67108864
+  %695 = or disjoint i64 %694, %692
+  %696 = shl nuw nsw i64 %695, 1
+  %697 = or disjoint i64 %696, %694
+  %698 = or disjoint i64 %697, %692
+  %699 = or i64 %682, %690
+  %700 = or i64 %699, %698
+  %701 = shl nuw nsw i64 %700, 4
+  %702 = or i64 %698, %701
+  %703 = or i64 %702, %690
+  %704 = or i64 %703, %681
+  %705 = or i64 %704, %673
+  br label %_ZL13compute_shiftmj.exit
+
+706:                                              ; preds = %._crit_edge
+  %707 = and i64 %21, 15
+  %708 = shl i64 %21, 4
+  %709 = and i64 %708, 3840
+  %710 = shl i64 %21, 8
+  %711 = and i64 %710, 983040
+  %712 = shl i64 %21, 12
+  %713 = and i64 %712, 251658240
+  %714 = and i64 %21, 255
+  %715 = or disjoint i64 %709, %714
+  %716 = or disjoint i64 %715, %711
+  %717 = or disjoint i64 %716, %713
+  %718 = shl nuw nsw i64 %717, 4
+  %719 = or disjoint i64 %718, %707
+  %720 = or disjoint i64 %719, %713
+  %721 = or i64 %720, %711
+  br label %_ZL13compute_shiftmj.exit
+
+722:                                              ; preds = %._crit_edge
+  %723 = trunc i64 %21 to i1
+  %724 = select i1 %723, i64 3, i64 0
+  %725 = shl i64 %21, 3
+  %726 = and i64 %725, 16
+  %727 = mul nuw nsw i64 %726, 3
+  %728 = or disjoint i64 %727, %724
+  %729 = shl i64 %21, 6
+  %730 = and i64 %729, 256
+  %731 = mul nuw nsw i64 %730, 3
+  %732 = shl i64 %21, 9
+  %733 = and i64 %732, 4096
+  %734 = mul nuw nsw i64 %733, 3
+  %735 = or disjoint i64 %728, %731
+  %736 = or disjoint i64 %735, %734
+  %737 = shl i64 %21, 12
+  %738 = and i64 %737, 65536
+  %739 = mul nuw nsw i64 %738, 3
+  %740 = shl i64 %21, 15
+  %741 = and i64 %740, 1048576
+  %742 = mul nuw nsw i64 %741, 3
+  %743 = shl i64 %21, 18
+  %744 = and i64 %743, 16777216
+  %745 = mul nuw nsw i64 %744, 3
+  %746 = shl i64 %21, 21
+  %747 = and i64 %746, 268435456
+  %748 = mul nuw nsw i64 %747, 3
+  %749 = or disjoint i64 %736, %739
+  %750 = or i64 %749, %742
+  %751 = or i64 %750, %745
+  %752 = or i64 %751, %748
+  %753 = shl nuw nsw i64 %752, 2
+  %754 = or disjoint i64 %753, %724
+  %755 = or i64 %748, %754
+  %756 = or i64 %755, %745
+  %757 = or i64 %756, %742
+  %758 = or i64 %757, %739
+  %759 = or i64 %758, %734
+  %760 = or i64 %759, %731
+  %761 = or i64 %760, %727
+  br label %_ZL13compute_shiftmj.exit
+
+762:                                              ; preds = %._crit_edge
+  %763 = and i64 %21, 3
+  %764 = shl i64 %21, 2
+  %765 = and i64 %764, 48
+  %766 = shl i64 %21, 4
+  %767 = and i64 %766, 768
+  %768 = shl i64 %21, 6
+  %769 = and i64 %768, 12288
+  %770 = shl i64 %21, 8
+  %771 = and i64 %770, 196608
+  %772 = shl i64 %21, 10
+  %773 = and i64 %772, 3145728
+  %774 = shl i64 %21, 12
+  %775 = and i64 %774, 50331648
+  %776 = shl i64 %21, 14
+  %777 = and i64 %776, 805306368
+  %778 = and i64 %21, 15
+  %779 = or disjoint i64 %778, %765
+  %780 = or disjoint i64 %779, %767
+  %781 = or disjoint i64 %780, %769
+  %782 = or disjoint i64 %781, %771
+  %783 = or disjoint i64 %782, %773
+  %784 = or i64 %783, %775
+  %785 = or i64 %784, %777
+  %786 = shl nuw nsw i64 %785, 2
+  %787 = or disjoint i64 %786, %763
+  %788 = or i64 %777, %787
+  %789 = or i64 %788, %775
+  %790 = or i64 %789, %773
+  %791 = or i64 %790, %771
+  %792 = or i64 %791, %769
+  %793 = or i64 %792, %767
+  br label %_ZL13compute_shiftmj.exit
+
+794:                                              ; preds = %._crit_edge
+  %795 = and i64 %21, 1
+  %796 = shl nuw i64 %21, 1
+  %797 = and i64 %796, 4
+  %798 = shl i64 %21, 2
+  %799 = and i64 %798, 16
+  %800 = shl i64 %21, 3
+  %801 = and i64 %800, 64
+  %802 = shl i64 %21, 4
+  %803 = and i64 %802, 256
+  %804 = shl i64 %21, 5
+  %805 = and i64 %804, 1024
+  %806 = shl i64 %21, 6
+  %807 = and i64 %806, 4096
+  %808 = shl i64 %21, 7
+  %809 = and i64 %808, 16384
+  %810 = shl i64 %21, 8
+  %811 = and i64 %810, 65536
+  %812 = shl i64 %21, 9
+  %813 = and i64 %812, 262144
+  %814 = shl i64 %21, 10
+  %815 = and i64 %814, 1048576
+  %816 = shl i64 %21, 11
+  %817 = and i64 %816, 4194304
+  %818 = shl i64 %21, 12
+  %819 = and i64 %818, 16777216
+  %820 = shl i64 %21, 13
+  %821 = and i64 %820, 67108864
+  %822 = shl i64 %21, 14
+  %823 = and i64 %822, 268435456
+  %824 = shl i64 %21, 15
+  %825 = and i64 %824, 1073741824
+  %826 = and i64 %21, 3
+  %827 = or disjoint i64 %797, %826
+  %828 = or disjoint i64 %827, %799
+  %829 = or disjoint i64 %828, %801
+  %830 = or disjoint i64 %829, %803
+  %831 = or disjoint i64 %830, %805
+  %832 = or i64 %831, %807
+  %833 = or i64 %832, %809
+  %834 = or i64 %833, %811
+  %835 = or i64 %834, %813
+  %836 = or i64 %835, %815
+  %837 = or i64 %836, %817
+  %838 = or i64 %837, %819
+  %839 = or i64 %838, %821
+  %840 = or i64 %839, %823
+  %841 = or i64 %840, %825
+  %842 = shl nuw nsw i64 %841, 1
+  %843 = or disjoint i64 %842, %795
+  %844 = or i64 %825, %843
+  %845 = or i64 %844, %823
+  %846 = or i64 %845, %821
+  %847 = or i64 %846, %819
+  %848 = or i64 %847, %817
+  %849 = or i64 %848, %815
+  %850 = or i64 %849, %813
+  %851 = or i64 %850, %811
+  %852 = or i64 %851, %809
+  %853 = or i64 %852, %807
+  %854 = or i64 %853, %805
+  %855 = or i64 %854, %803
+  %856 = or i64 %855, %801
+  %857 = or i64 %856, %799
+  br label %_ZL13compute_shiftmj.exit
+
+858:                                              ; preds = %._crit_edge
+  %859 = and i64 %21, 4294967295
+  br label %_ZL13compute_shiftmj.exit
+
+860:                                              ; preds = %._crit_edge
+  %861 = and i64 %21, 1
+  %862 = sub nsw i64 0, %861
+  br label %_ZL13compute_shiftmj.exit
+
+863:                                              ; preds = %._crit_edge
+  %864 = and i64 %21, 3
+  %865 = mul nuw i64 %864, 6148914691236517205
+  br label %_ZL13compute_shiftmj.exit
+
+866:                                              ; preds = %._crit_edge
+  %867 = and i64 %21, 1
+  %868 = shl nuw i64 %21, 1
+  %869 = and i64 %868, 4
+  %870 = and i64 %21, 2
+  %871 = or disjoint i64 %870, %869
+  %872 = or disjoint i64 %871, %867
+  %873 = shl nuw nsw i64 %872, 1
+  %874 = or disjoint i64 %873, %867
+  %875 = mul nuw nsw i64 %874, 4369
+  %876 = mul nuw nsw i64 %874, 286326784
+  %877 = or i64 %876, %875
+  %878 = shl nuw i64 %877, 32
+  %879 = or i64 %878, %877
+  br label %_ZL13compute_shiftmj.exit
+
+880:                                              ; preds = %._crit_edge
+  %881 = and i64 %21, 15
+  %882 = mul nuw i64 %881, 1229782938247303441
+  br label %_ZL13compute_shiftmj.exit
+
+883:                                              ; preds = %._crit_edge
+  %884 = trunc i64 %21 to i1
+  %885 = select i1 %884, i64 3, i64 0
+  %886 = shl i64 %21, 3
+  %887 = and i64 %886, 16
+  %888 = mul nuw nsw i64 %887, 3
+  %889 = or disjoint i64 %888, %885
+  %890 = shl nuw nsw i64 %889, 2
+  %891 = or disjoint i64 %890, %888
+  %892 = or disjoint i64 %891, %885
+  %893 = mul nuw nsw i64 %892, 257
+  %894 = mul nuw nsw i64 %892, 16842752
+  %895 = or i64 %894, %893
+  %896 = shl nuw i64 %895, 32
+  %897 = or i64 %896, %895
+  br label %_ZL13compute_shiftmj.exit
+
+898:                                              ; preds = %._crit_edge
+  %899 = and i64 %21, 3
+  %900 = shl i64 %21, 2
+  %901 = and i64 %900, 48
+  %902 = and i64 %21, 12
+  %903 = or disjoint i64 %902, %901
+  %904 = or disjoint i64 %903, %899
+  %905 = shl nuw nsw i64 %904, 2
+  %906 = or disjoint i64 %905, %899
+  %907 = mul nuw nsw i64 %906, 16843009
+  %908 = mul nuw i64 %906, 72340172821233664
+  %909 = or i64 %908, %907
+  br label %_ZL13compute_shiftmj.exit
+
+910:                                              ; preds = %._crit_edge
+  %911 = and i64 %21, 1
+  %912 = shl nuw i64 %21, 1
+  %913 = and i64 %912, 4
+  %914 = shl i64 %21, 2
+  %915 = and i64 %914, 16
+  %916 = shl i64 %21, 3
+  %917 = and i64 %916, 64
+  %918 = and i64 %21, 3
+  %919 = or disjoint i64 %913, %918
+  %920 = or disjoint i64 %919, %915
+  %921 = or disjoint i64 %920, %917
+  %922 = shl nuw nsw i64 %921, 1
+  %923 = or disjoint i64 %922, %911
+  %924 = or disjoint i64 %923, %917
+  %925 = or i64 %924, %915
+  %926 = shl nuw nsw i64 %925, 8
+  %927 = or i64 %926, %925
+  %928 = shl nuw nsw i64 %927, 16
+  %929 = or i64 %928, %927
+  %930 = shl nuw i64 %929, 32
+  %931 = or i64 %930, %929
+  br label %_ZL13compute_shiftmj.exit
+
+932:                                              ; preds = %._crit_edge
+  %933 = and i64 %21, 255
+  %934 = mul nuw i64 %933, 72340172838076673
+  br label %_ZL13compute_shiftmj.exit
+
+935:                                              ; preds = %._crit_edge
+  %936 = trunc i64 %21 to i1
+  %937 = select i1 %936, i64 15, i64 0
+  %938 = shl i64 %21, 7
+  %939 = and i64 %938, 256
+  %940 = mul nuw nsw i64 %939, 15
+  %941 = or disjoint i64 %940, %937
+  %942 = shl nuw nsw i64 %941, 4
+  %943 = or disjoint i64 %942, %937
+  %944 = or disjoint i64 %943, %940
+  %945 = mul nuw nsw i64 %944, 65537
+  %946 = mul nuw i64 %944, 281479271677952
+  %947 = or i64 %946, %945
+  br label %_ZL13compute_shiftmj.exit
+
+948:                                              ; preds = %._crit_edge
+  %949 = and i64 %21, 3
+  %950 = mul nuw nsw i64 %949, 5
+  %951 = shl i64 %21, 6
+  %952 = and i64 %951, 768
+  %953 = mul nuw nsw i64 %952, 5
+  %954 = or disjoint i64 %953, %950
+  %955 = shl nuw nsw i64 %954, 4
+  %956 = or disjoint i64 %955, %953
+  %957 = or disjoint i64 %956, %950
+  %958 = mul nuw nsw i64 %957, 65537
+  %959 = mul nuw i64 %957, 281479271677952
+  %960 = or i64 %959, %958
+  br label %_ZL13compute_shiftmj.exit
+
+961:                                              ; preds = %._crit_edge
+  %962 = and i64 %21, 1
+  %963 = shl nuw i64 %21, 1
+  %964 = and i64 %963, 4
+  %965 = and i64 %21, 2
+  %966 = or disjoint i64 %965, %964
+  %967 = or disjoint i64 %966, %962
+  %968 = shl nuw nsw i64 %967, 1
+  %969 = or disjoint i64 %968, %962
+  %970 = shl i64 %21, 6
+  %971 = and i64 %970, 256
+  %972 = shl i64 %21, 7
+  %973 = and i64 %972, 1024
+  %974 = or disjoint i64 %973, %971
+  %975 = shl nuw nsw i64 %974, 1
+  %976 = or disjoint i64 %975, %973
+  %977 = or disjoint i64 %976, %971
+  %978 = or disjoint i64 %977, %969
+  %979 = shl nuw nsw i64 %978, 4
+  %980 = or i64 %977, %979
+  %981 = or i64 %980, %969
+  %982 = shl nuw nsw i64 %981, 16
+  %983 = or i64 %982, %981
+  %984 = shl nuw i64 %983, 32
+  %985 = or i64 %984, %983
+  br label %_ZL13compute_shiftmj.exit
+
+986:                                              ; preds = %._crit_edge
+  %987 = and i64 %21, 15
+  %988 = shl i64 %21, 4
+  %989 = and i64 %988, 3840
+  %990 = and i64 %21, 240
+  %991 = or disjoint i64 %990, %989
+  %992 = or disjoint i64 %991, %987
+  %993 = shl nuw nsw i64 %992, 4
+  %994 = or disjoint i64 %993, %987
+  %995 = mul nuw i64 %994, 281479271743489
+  br label %_ZL13compute_shiftmj.exit
+
+996:                                              ; preds = %._crit_edge
+  %997 = trunc i64 %21 to i1
+  %998 = select i1 %997, i64 3, i64 0
+  %999 = shl i64 %21, 3
+  %1000 = and i64 %999, 16
+  %1001 = mul nuw nsw i64 %1000, 3
+  %1002 = shl i64 %21, 6
+  %1003 = and i64 %1002, 256
+  %1004 = mul nuw nsw i64 %1003, 3
+  %1005 = shl i64 %21, 9
+  %1006 = and i64 %1005, 4096
+  %1007 = mul nuw nsw i64 %1006, 3
+  %1008 = or disjoint i64 %1001, %998
+  %1009 = or disjoint i64 %1008, %1004
+  %1010 = or disjoint i64 %1009, %1007
+  %1011 = shl nuw nsw i64 %1010, 2
+  %1012 = or disjoint i64 %1011, %998
+  %1013 = or i64 %1007, %1012
+  %1014 = or i64 %1013, %1004
+  %1015 = or i64 %1014, %1001
+  %1016 = shl nuw nsw i64 %1015, 16
+  %1017 = or i64 %1016, %1015
+  %1018 = shl nuw i64 %1017, 32
+  %1019 = or i64 %1018, %1017
+  br label %_ZL13compute_shiftmj.exit
+
+1020:                                             ; preds = %._crit_edge
+  %1021 = and i64 %21, 3
+  %1022 = shl i64 %21, 2
+  %1023 = and i64 %1022, 48
+  %1024 = shl i64 %21, 4
+  %1025 = and i64 %1024, 768
+  %1026 = shl i64 %21, 6
+  %1027 = and i64 %1026, 12288
+  %1028 = and i64 %21, 15
+  %1029 = or disjoint i64 %1023, %1028
+  %1030 = or disjoint i64 %1029, %1025
+  %1031 = or disjoint i64 %1030, %1027
+  %1032 = shl nuw nsw i64 %1031, 2
+  %1033 = or disjoint i64 %1032, %1021
+  %1034 = or disjoint i64 %1033, %1027
+  %1035 = or i64 %1034, %1025
+  %1036 = shl nuw nsw i64 %1035, 16
+  %1037 = or i64 %1036, %1035
+  %1038 = shl nuw i64 %1037, 32
+  %1039 = or i64 %1038, %1037
+  br label %_ZL13compute_shiftmj.exit
+
+1040:                                             ; preds = %._crit_edge
+  %1041 = and i64 %21, 1
+  %1042 = shl nuw i64 %21, 1
+  %1043 = and i64 %1042, 4
+  %1044 = shl i64 %21, 2
+  %1045 = and i64 %1044, 16
+  %1046 = shl i64 %21, 3
+  %1047 = and i64 %1046, 64
+  %1048 = shl i64 %21, 4
+  %1049 = and i64 %1048, 256
+  %1050 = shl i64 %21, 5
+  %1051 = and i64 %1050, 1024
+  %1052 = shl i64 %21, 6
+  %1053 = and i64 %1052, 4096
+  %1054 = shl i64 %21, 7
+  %1055 = and i64 %1054, 16384
+  %1056 = and i64 %21, 3
+  %1057 = or disjoint i64 %1056, %1043
+  %1058 = or disjoint i64 %1057, %1045
+  %1059 = or disjoint i64 %1058, %1047
+  %1060 = or disjoint i64 %1059, %1049
+  %1061 = or disjoint i64 %1060, %1051
+  %1062 = or i64 %1061, %1053
+  %1063 = or i64 %1062, %1055
+  %1064 = shl nuw nsw i64 %1063, 1
+  %1065 = or disjoint i64 %1064, %1041
+  %1066 = or i64 %1055, %1065
+  %1067 = or i64 %1066, %1053
+  %1068 = or i64 %1067, %1051
+  %1069 = or i64 %1068, %1049
+  %1070 = or i64 %1069, %1047
+  %1071 = or i64 %1070, %1045
+  %1072 = shl nuw nsw i64 %1071, 16
+  %1073 = or i64 %1072, %1071
+  %1074 = shl nuw i64 %1073, 32
+  %1075 = or i64 %1074, %1073
+  br label %_ZL13compute_shiftmj.exit
+
+1076:                                             ; preds = %._crit_edge
+  %1077 = and i64 %21, 65535
+  %1078 = mul nuw i64 %1077, 281479271743489
+  br label %_ZL13compute_shiftmj.exit
+
+1079:                                             ; preds = %._crit_edge
+  %1080 = trunc i64 %21 to i1
+  %1081 = select i1 %1080, i64 255, i64 0
+  %1082 = shl i64 %21, 15
+  %1083 = and i64 %1082, 65536
+  %1084 = mul nuw nsw i64 %1083, 255
+  %1085 = or disjoint i64 %1084, %1081
+  %1086 = shl nuw nsw i64 %1085, 8
+  %1087 = or disjoint i64 %1086, %1081
+  %1088 = or disjoint i64 %1087, %1084
+  %1089 = mul nuw i64 %1088, 4294967297
+  br label %_ZL13compute_shiftmj.exit
+
+1090:                                             ; preds = %._crit_edge
+  %1091 = and i64 %21, 3
+  %1092 = mul nuw nsw i64 %1091, 85
+  %1093 = shl i64 %21, 14
+  %1094 = and i64 %1093, 196608
+  %1095 = mul nuw nsw i64 %1094, 85
+  %1096 = or disjoint i64 %1095, %1092
+  %1097 = shl nuw nsw i64 %1096, 8
+  %1098 = or disjoint i64 %1097, %1092
+  %1099 = or disjoint i64 %1098, %1095
+  %1100 = mul nuw i64 %1099, 4294967297
+  br label %_ZL13compute_shiftmj.exit
+
+1101:                                             ; preds = %._crit_edge
+  %1102 = and i64 %21, 1
+  %1103 = shl nuw i64 %21, 1
+  %1104 = and i64 %1103, 4
+  %1105 = and i64 %21, 2
+  %1106 = or disjoint i64 %1105, %1104
+  %1107 = or disjoint i64 %1106, %1102
+  %1108 = shl nuw nsw i64 %1107, 1
+  %1109 = or disjoint i64 %1108, %1102
+  %1110 = mul nuw nsw i64 %1109, 17
+  %1111 = shl i64 %21, 14
+  %1112 = and i64 %1111, 65536
+  %1113 = shl i64 %21, 15
+  %1114 = and i64 %1113, 262144
+  %1115 = or disjoint i64 %1114, %1112
+  %1116 = shl nuw nsw i64 %1115, 1
+  %1117 = or disjoint i64 %1116, %1114
+  %1118 = or disjoint i64 %1117, %1112
+  %1119 = mul nuw nsw i64 %1118, 17
+  %1120 = or disjoint i64 %1119, %1110
+  %1121 = shl nuw nsw i64 %1120, 8
+  %1122 = or i64 %1119, %1121
+  %1123 = or i64 %1122, %1110
+  %1124 = shl nuw i64 %1123, 32
+  %1125 = or i64 %1124, %1123
+  br label %_ZL13compute_shiftmj.exit
+
+1126:                                             ; preds = %._crit_edge
+  %1127 = and i64 %21, 15
+  %1128 = mul nuw nsw i64 %1127, 17
+  %1129 = shl i64 %21, 12
+  %1130 = and i64 %1129, 983040
+  %1131 = mul nuw nsw i64 %1130, 17
+  %1132 = or disjoint i64 %1131, %1128
+  %1133 = shl nuw nsw i64 %1132, 8
+  %1134 = or disjoint i64 %1133, %1131
+  %1135 = or disjoint i64 %1134, %1128
+  %1136 = mul nuw i64 %1135, 4294967297
+  br label %_ZL13compute_shiftmj.exit
+
+1137:                                             ; preds = %._crit_edge
+  %1138 = trunc i64 %21 to i1
+  %1139 = select i1 %1138, i64 3, i64 0
+  %1140 = shl i64 %21, 3
+  %1141 = and i64 %1140, 16
+  %1142 = mul nuw nsw i64 %1141, 3
+  %1143 = or disjoint i64 %1142, %1139
+  %1144 = shl nuw nsw i64 %1143, 2
+  %1145 = or disjoint i64 %1144, %1142
+  %1146 = or disjoint i64 %1145, %1139
+  %1147 = shl i64 %21, 14
+  %1148 = and i64 %1147, 65536
+  %1149 = mul nuw nsw i64 %1148, 3
+  %1150 = shl i64 %21, 17
+  %1151 = and i64 %1150, 1048576
+  %1152 = mul nuw nsw i64 %1151, 3
+  %1153 = or disjoint i64 %1152, %1149
+  %1154 = shl nuw nsw i64 %1153, 2
+  %1155 = or disjoint i64 %1154, %1152
+  %1156 = or disjoint i64 %1155, %1149
+  %1157 = or disjoint i64 %1156, %1146
+  %1158 = shl nuw nsw i64 %1157, 8
+  %1159 = or i64 %1156, %1158
+  %1160 = or i64 %1159, %1146
+  %1161 = shl nuw i64 %1160, 32
+  %1162 = or i64 %1161, %1160
+  br label %_ZL13compute_shiftmj.exit
+
+1163:                                             ; preds = %._crit_edge
+  %1164 = and i64 %21, 3
+  %1165 = shl i64 %21, 2
+  %1166 = and i64 %1165, 48
+  %1167 = and i64 %21, 12
+  %1168 = or disjoint i64 %1167, %1166
+  %1169 = or disjoint i64 %1168, %1164
+  %1170 = shl nuw nsw i64 %1169, 2
+  %1171 = or disjoint i64 %1170, %1164
+  %1172 = shl i64 %21, 12
+  %1173 = and i64 %1172, 196608
+  %1174 = shl i64 %21, 14
+  %1175 = and i64 %1174, 3145728
+  %1176 = or disjoint i64 %1175, %1173
+  %1177 = shl nuw nsw i64 %1176, 2
+  %1178 = or disjoint i64 %1177, %1175
+  %1179 = or disjoint i64 %1178, %1173
+  %1180 = or disjoint i64 %1179, %1171
+  %1181 = shl nuw nsw i64 %1180, 8
+  %1182 = or i64 %1179, %1181
+  %1183 = or i64 %1182, %1171
+  %1184 = shl nuw i64 %1183, 32
+  %1185 = or i64 %1184, %1183
+  br label %_ZL13compute_shiftmj.exit
+
+1186:                                             ; preds = %._crit_edge
+  %1187 = and i64 %21, 1
+  %1188 = shl nuw i64 %21, 1
+  %1189 = and i64 %1188, 4
+  %1190 = shl i64 %21, 2
+  %1191 = and i64 %1190, 16
+  %1192 = shl i64 %21, 3
+  %1193 = and i64 %1192, 64
+  %1194 = and i64 %21, 3
+  %1195 = or disjoint i64 %1189, %1194
+  %1196 = or disjoint i64 %1195, %1191
+  %1197 = or disjoint i64 %1196, %1193
+  %1198 = shl nuw nsw i64 %1197, 1
+  %1199 = or disjoint i64 %1198, %1187
+  %1200 = or disjoint i64 %1199, %1193
+  %1201 = or i64 %1200, %1191
+  %1202 = shl i64 %21, 12
+  %1203 = and i64 %1202, 65536
+  %1204 = shl i64 %21, 13
+  %1205 = and i64 %1204, 262144
+  %1206 = shl i64 %21, 14
+  %1207 = and i64 %1206, 1048576
+  %1208 = shl i64 %21, 15
+  %1209 = and i64 %1208, 4194304
+  %1210 = or disjoint i64 %1205, %1203
+  %1211 = or disjoint i64 %1210, %1207
+  %1212 = or disjoint i64 %1211, %1209
+  %1213 = shl nuw nsw i64 %1212, 1
+  %1214 = or disjoint i64 %1213, %1209
+  %1215 = or disjoint i64 %1214, %1207
+  %1216 = or i64 %1205, %1215
+  %1217 = or i64 %1216, %1203
+  %1218 = or i64 %1217, %1201
+  %1219 = shl nuw nsw i64 %1218, 8
+  %1220 = or i64 %1201, %1219
+  %1221 = or i64 %1220, %1217
+  %1222 = shl nuw i64 %1221, 32
+  %1223 = or i64 %1222, %1221
+  br label %_ZL13compute_shiftmj.exit
+
+1224:                                             ; preds = %._crit_edge
+  %1225 = and i64 %21, 255
+  %1226 = shl i64 %21, 8
+  %1227 = and i64 %1226, 16711680
+  %1228 = and i64 %21, 65280
+  %1229 = or disjoint i64 %1228, %1227
+  %1230 = or disjoint i64 %1229, %1225
+  %1231 = shl nuw nsw i64 %1230, 8
+  %1232 = or disjoint i64 %1231, %1225
+  %1233 = mul nuw i64 %1232, 4294967297
+  br label %_ZL13compute_shiftmj.exit
+
+1234:                                             ; preds = %._crit_edge
+  %1235 = trunc i64 %21 to i1
+  %1236 = select i1 %1235, i64 15, i64 0
+  %1237 = shl i64 %21, 7
+  %1238 = and i64 %1237, 256
+  %1239 = mul nuw nsw i64 %1238, 15
+  %1240 = shl i64 %21, 14
+  %1241 = and i64 %1240, 65536
+  %1242 = mul nuw nsw i64 %1241, 15
+  %1243 = shl i64 %21, 21
+  %1244 = and i64 %1243, 16777216
+  %1245 = mul nuw nsw i64 %1244, 15
+  %1246 = or disjoint i64 %1239, %1236
+  %1247 = or disjoint i64 %1246, %1242
+  %1248 = or disjoint i64 %1247, %1245
+  %1249 = shl nuw nsw i64 %1248, 4
+  %1250 = or disjoint i64 %1249, %1236
+  %1251 = or i64 %1245, %1250
+  %1252 = or i64 %1251, %1242
+  %1253 = or i64 %1252, %1239
+  %1254 = shl nuw i64 %1253, 32
+  %1255 = or i64 %1254, %1253
+  br label %_ZL13compute_shiftmj.exit
+
+1256:                                             ; preds = %._crit_edge
+  %1257 = and i64 %21, 3
+  %1258 = mul nuw nsw i64 %1257, 5
+  %1259 = shl i64 %21, 6
+  %1260 = and i64 %1259, 768
+  %1261 = mul nuw nsw i64 %1260, 5
+  %1262 = shl i64 %21, 12
+  %1263 = and i64 %1262, 196608
+  %1264 = mul nuw nsw i64 %1263, 5
+  %1265 = shl i64 %21, 18
+  %1266 = and i64 %1265, 50331648
+  %1267 = mul nuw nsw i64 %1266, 5
+  %1268 = or disjoint i64 %1261, %1258
+  %1269 = or disjoint i64 %1268, %1264
+  %1270 = or disjoint i64 %1269, %1267
+  %1271 = shl nuw nsw i64 %1270, 4
+  %1272 = or disjoint i64 %1271, %1258
+  %1273 = or i64 %1267, %1272
+  %1274 = or i64 %1273, %1264
+  %1275 = or i64 %1274, %1261
+  %1276 = shl nuw i64 %1275, 32
+  %1277 = or i64 %1276, %1275
+  br label %_ZL13compute_shiftmj.exit
+
+1278:                                             ; preds = %._crit_edge
+  %1279 = and i64 %21, 1
+  %1280 = shl nuw i64 %21, 1
+  %1281 = and i64 %1280, 4
+  %1282 = and i64 %21, 2
+  %1283 = or disjoint i64 %1282, %1281
+  %1284 = or disjoint i64 %1283, %1279
+  %1285 = shl nuw nsw i64 %1284, 1
+  %1286 = or disjoint i64 %1285, %1279
+  %1287 = shl i64 %21, 6
+  %1288 = and i64 %1287, 256
+  %1289 = shl i64 %21, 7
+  %1290 = and i64 %1289, 1024
+  %1291 = or disjoint i64 %1290, %1288
+  %1292 = shl nuw nsw i64 %1291, 1
+  %1293 = or disjoint i64 %1292, %1290
+  %1294 = or disjoint i64 %1293, %1288
+  %1295 = or disjoint i64 %1294, %1286
+  %1296 = shl i64 %21, 12
+  %1297 = and i64 %1296, 65536
+  %1298 = shl i64 %21, 13
+  %1299 = and i64 %1298, 262144
+  %1300 = or disjoint i64 %1299, %1297
+  %1301 = shl nuw nsw i64 %1300, 1
+  %1302 = or disjoint i64 %1301, %1299
+  %1303 = or disjoint i64 %1302, %1297
+  %1304 = shl i64 %21, 18
+  %1305 = and i64 %1304, 16777216
+  %1306 = shl i64 %21, 19
+  %1307 = and i64 %1306, 67108864
+  %1308 = or disjoint i64 %1307, %1305
+  %1309 = shl nuw nsw i64 %1308, 1
+  %1310 = or disjoint i64 %1309, %1307
+  %1311 = or disjoint i64 %1310, %1305
+  %1312 = or i64 %1295, %1303
+  %1313 = or i64 %1312, %1311
+  %1314 = shl nuw nsw i64 %1313, 4
+  %1315 = or i64 %1311, %1314
+  %1316 = or i64 %1315, %1303
+  %1317 = or i64 %1316, %1294
+  %1318 = or i64 %1317, %1286
+  %1319 = shl nuw i64 %1318, 32
+  %1320 = or i64 %1319, %1318
+  br label %_ZL13compute_shiftmj.exit
+
+1321:                                             ; preds = %._crit_edge
+  %1322 = and i64 %21, 15
+  %1323 = shl i64 %21, 4
+  %1324 = and i64 %1323, 3840
+  %1325 = shl i64 %21, 8
+  %1326 = and i64 %1325, 983040
+  %1327 = shl i64 %21, 12
+  %1328 = and i64 %1327, 251658240
+  %1329 = and i64 %21, 255
+  %1330 = or disjoint i64 %1324, %1329
+  %1331 = or disjoint i64 %1330, %1326
+  %1332 = or disjoint i64 %1331, %1328
+  %1333 = shl nuw nsw i64 %1332, 4
+  %1334 = or disjoint i64 %1333, %1322
+  %1335 = or disjoint i64 %1334, %1328
+  %1336 = or i64 %1335, %1326
+  %1337 = shl nuw i64 %1336, 32
+  %1338 = or i64 %1337, %1336
+  br label %_ZL13compute_shiftmj.exit
+
+1339:                                             ; preds = %._crit_edge
+  %1340 = trunc i64 %21 to i1
+  %1341 = select i1 %1340, i64 3, i64 0
+  %1342 = shl i64 %21, 3
+  %1343 = and i64 %1342, 16
+  %1344 = mul nuw nsw i64 %1343, 3
+  %1345 = or disjoint i64 %1344, %1341
+  %1346 = shl i64 %21, 6
+  %1347 = and i64 %1346, 256
+  %1348 = mul nuw nsw i64 %1347, 3
+  %1349 = shl i64 %21, 9
+  %1350 = and i64 %1349, 4096
+  %1351 = mul nuw nsw i64 %1350, 3
+  %1352 = or disjoint i64 %1345, %1348
+  %1353 = or disjoint i64 %1352, %1351
+  %1354 = shl i64 %21, 12
+  %1355 = and i64 %1354, 65536
+  %1356 = mul nuw nsw i64 %1355, 3
+  %1357 = shl i64 %21, 15
+  %1358 = and i64 %1357, 1048576
+  %1359 = mul nuw nsw i64 %1358, 3
+  %1360 = shl i64 %21, 18
+  %1361 = and i64 %1360, 16777216
+  %1362 = mul nuw nsw i64 %1361, 3
+  %1363 = shl i64 %21, 21
+  %1364 = and i64 %1363, 268435456
+  %1365 = mul nuw nsw i64 %1364, 3
+  %1366 = or disjoint i64 %1353, %1356
+  %1367 = or i64 %1366, %1359
+  %1368 = or i64 %1367, %1362
+  %1369 = or i64 %1368, %1365
+  %1370 = shl nuw nsw i64 %1369, 2
+  %1371 = or disjoint i64 %1370, %1341
+  %1372 = or i64 %1365, %1371
+  %1373 = or i64 %1372, %1362
+  %1374 = or i64 %1373, %1359
+  %1375 = or i64 %1374, %1356
+  %1376 = or i64 %1375, %1351
+  %1377 = or i64 %1376, %1348
+  %1378 = or i64 %1377, %1344
+  %1379 = shl nuw i64 %1378, 32
+  %1380 = or i64 %1379, %1378
+  br label %_ZL13compute_shiftmj.exit
+
+1381:                                             ; preds = %._crit_edge
+  %1382 = and i64 %21, 3
+  %1383 = shl i64 %21, 2
+  %1384 = and i64 %1383, 48
+  %1385 = shl i64 %21, 4
+  %1386 = and i64 %1385, 768
+  %1387 = shl i64 %21, 6
+  %1388 = and i64 %1387, 12288
+  %1389 = shl i64 %21, 8
+  %1390 = and i64 %1389, 196608
+  %1391 = shl i64 %21, 10
+  %1392 = and i64 %1391, 3145728
+  %1393 = shl i64 %21, 12
+  %1394 = and i64 %1393, 50331648
+  %1395 = shl i64 %21, 14
+  %1396 = and i64 %1395, 805306368
+  %1397 = and i64 %21, 15
+  %1398 = or disjoint i64 %1397, %1384
+  %1399 = or disjoint i64 %1398, %1386
+  %1400 = or disjoint i64 %1399, %1388
+  %1401 = or disjoint i64 %1400, %1390
+  %1402 = or disjoint i64 %1401, %1392
+  %1403 = or i64 %1402, %1394
+  %1404 = or i64 %1403, %1396
+  %1405 = shl nuw nsw i64 %1404, 2
+  %1406 = or disjoint i64 %1405, %1382
+  %1407 = or i64 %1396, %1406
+  %1408 = or i64 %1407, %1394
+  %1409 = or i64 %1408, %1392
+  %1410 = or i64 %1409, %1390
+  %1411 = or i64 %1410, %1388
+  %1412 = or i64 %1411, %1386
+  %1413 = shl nuw i64 %1412, 32
+  %1414 = or i64 %1413, %1412
+  br label %_ZL13compute_shiftmj.exit
+
+1415:                                             ; preds = %._crit_edge
+  %1416 = and i64 %21, 1
+  %1417 = shl nuw i64 %21, 1
+  %1418 = and i64 %1417, 4
+  %1419 = shl i64 %21, 2
+  %1420 = and i64 %1419, 16
+  %1421 = shl i64 %21, 3
+  %1422 = and i64 %1421, 64
+  %1423 = shl i64 %21, 4
+  %1424 = and i64 %1423, 256
+  %1425 = shl i64 %21, 5
+  %1426 = and i64 %1425, 1024
+  %1427 = shl i64 %21, 6
+  %1428 = and i64 %1427, 4096
+  %1429 = shl i64 %21, 7
+  %1430 = and i64 %1429, 16384
+  %1431 = shl i64 %21, 8
+  %1432 = and i64 %1431, 65536
+  %1433 = shl i64 %21, 9
+  %1434 = and i64 %1433, 262144
+  %1435 = shl i64 %21, 10
+  %1436 = and i64 %1435, 1048576
+  %1437 = shl i64 %21, 11
+  %1438 = and i64 %1437, 4194304
+  %1439 = shl i64 %21, 12
+  %1440 = and i64 %1439, 16777216
+  %1441 = shl i64 %21, 13
+  %1442 = and i64 %1441, 67108864
+  %1443 = shl i64 %21, 14
+  %1444 = and i64 %1443, 268435456
+  %1445 = shl i64 %21, 15
+  %1446 = and i64 %1445, 1073741824
+  %1447 = and i64 %21, 3
+  %1448 = or disjoint i64 %1418, %1447
+  %1449 = or disjoint i64 %1448, %1420
+  %1450 = or disjoint i64 %1449, %1422
+  %1451 = or disjoint i64 %1450, %1424
+  %1452 = or disjoint i64 %1451, %1426
+  %1453 = or i64 %1452, %1428
+  %1454 = or i64 %1453, %1430
+  %1455 = or i64 %1454, %1432
+  %1456 = or i64 %1455, %1434
+  %1457 = or i64 %1456, %1436
+  %1458 = or i64 %1457, %1438
+  %1459 = or i64 %1458, %1440
+  %1460 = or i64 %1459, %1442
+  %1461 = or i64 %1460, %1444
+  %1462 = or i64 %1461, %1446
+  %1463 = shl nuw nsw i64 %1462, 1
+  %1464 = or disjoint i64 %1463, %1416
+  %1465 = or i64 %1446, %1464
+  %1466 = or i64 %1465, %1444
+  %1467 = or i64 %1466, %1442
+  %1468 = or i64 %1467, %1440
+  %1469 = or i64 %1468, %1438
+  %1470 = or i64 %1469, %1436
+  %1471 = or i64 %1470, %1434
+  %1472 = or i64 %1471, %1432
+  %1473 = or i64 %1472, %1430
+  %1474 = or i64 %1473, %1428
+  %1475 = or i64 %1474, %1426
+  %1476 = or i64 %1475, %1424
+  %1477 = or i64 %1476, %1422
+  %1478 = or i64 %1477, %1420
+  %1479 = shl nuw i64 %1478, 32
+  %1480 = or i64 %1479, %1478
+  br label %_ZL13compute_shiftmj.exit
+
+1481:                                             ; preds = %._crit_edge
+  %1482 = and i64 %21, 4294967295
+  %1483 = mul nuw i64 %1482, 4294967297
+  br label %_ZL13compute_shiftmj.exit
+
+1484:                                             ; preds = %._crit_edge
+  %1485 = trunc i64 %21 to i1
+  %1486 = select i1 %1485, i64 65535, i64 0
+  %1487 = shl i64 %21, 31
+  %1488 = and i64 %1487, 4294967296
+  %1489 = mul nuw nsw i64 %1488, 65535
+  %1490 = or disjoint i64 %1489, %1486
+  %1491 = shl nuw i64 %1490, 16
+  %1492 = or disjoint i64 %1491, %1486
+  %1493 = or disjoint i64 %1492, %1489
+  br label %_ZL13compute_shiftmj.exit
+
+1494:                                             ; preds = %._crit_edge
+  %1495 = and i64 %21, 3
+  %1496 = mul nuw nsw i64 %1495, 21845
+  %1497 = shl i64 %21, 30
+  %1498 = and i64 %1497, 12884901888
+  %1499 = mul nuw nsw i64 %1498, 21845
+  %1500 = or disjoint i64 %1499, %1496
+  %1501 = shl nuw i64 %1500, 16
+  %1502 = or disjoint i64 %1501, %1496
+  %1503 = or disjoint i64 %1502, %1499
+  br label %_ZL13compute_shiftmj.exit
+
+1504:                                             ; preds = %._crit_edge
+  %1505 = and i64 %21, 1
+  %1506 = shl nuw i64 %21, 1
+  %1507 = and i64 %1506, 4
+  %1508 = and i64 %21, 2
+  %1509 = or disjoint i64 %1508, %1507
+  %1510 = or disjoint i64 %1509, %1505
+  %1511 = shl nuw nsw i64 %1510, 1
+  %1512 = or disjoint i64 %1511, %1505
+  %1513 = mul nuw nsw i64 %1512, 4369
+  %1514 = shl i64 %21, 30
+  %1515 = and i64 %1514, 4294967296
+  %1516 = shl i64 %21, 31
+  %1517 = and i64 %1516, 17179869184
+  %1518 = or disjoint i64 %1517, %1515
+  %1519 = shl nuw nsw i64 %1518, 1
+  %1520 = or disjoint i64 %1519, %1517
+  %1521 = or disjoint i64 %1520, %1515
+  %1522 = mul nuw nsw i64 %1521, 4369
+  %1523 = or i64 %1522, %1513
+  %1524 = shl nuw i64 %1523, 16
+  %1525 = or i64 %1522, %1524
+  %1526 = or i64 %1525, %1513
+  br label %_ZL13compute_shiftmj.exit
+
+1527:                                             ; preds = %._crit_edge
+  %1528 = and i64 %21, 15
+  %1529 = mul nuw nsw i64 %1528, 4369
+  %1530 = shl i64 %21, 28
+  %1531 = and i64 %1530, 64424509440
+  %1532 = mul nuw nsw i64 %1531, 4369
+  %1533 = or disjoint i64 %1532, %1529
+  %1534 = shl nuw i64 %1533, 16
+  %1535 = or disjoint i64 %1534, %1529
+  %1536 = or disjoint i64 %1535, %1532
+  br label %_ZL13compute_shiftmj.exit
+
+1537:                                             ; preds = %._crit_edge
+  %1538 = trunc i64 %21 to i1
+  %1539 = select i1 %1538, i64 3, i64 0
+  %1540 = shl i64 %21, 3
+  %1541 = and i64 %1540, 16
+  %1542 = mul nuw nsw i64 %1541, 3
+  %1543 = or disjoint i64 %1542, %1539
+  %1544 = shl nuw nsw i64 %1543, 2
+  %1545 = or disjoint i64 %1544, %1542
+  %1546 = or disjoint i64 %1545, %1539
+  %1547 = mul nuw nsw i64 %1546, 257
+  %1548 = shl i64 %21, 30
+  %1549 = and i64 %1548, 4294967296
+  %1550 = mul nuw nsw i64 %1549, 3
+  %1551 = shl i64 %21, 33
+  %1552 = and i64 %1551, 68719476736
+  %1553 = mul nuw nsw i64 %1552, 3
+  %1554 = or disjoint i64 %1553, %1550
+  %1555 = shl nuw nsw i64 %1554, 2
+  %1556 = or disjoint i64 %1555, %1553
+  %1557 = or disjoint i64 %1556, %1550
+  %1558 = shl nuw nsw i64 %1557, 8
+  %1559 = or i64 %1558, %1557
+  %1560 = or i64 %1559, %1547
+  %1561 = shl nuw i64 %1560, 16
+  %1562 = or i64 %1559, %1561
+  %1563 = or i64 %1562, %1547
+  br label %_ZL13compute_shiftmj.exit
+
+1564:                                             ; preds = %._crit_edge
+  %1565 = and i64 %21, 3
+  %1566 = shl i64 %21, 2
+  %1567 = and i64 %1566, 48
+  %1568 = and i64 %21, 12
+  %1569 = or disjoint i64 %1568, %1567
+  %1570 = or disjoint i64 %1569, %1565
+  %1571 = shl nuw nsw i64 %1570, 2
+  %1572 = or disjoint i64 %1571, %1565
+  %1573 = mul nuw nsw i64 %1572, 257
+  %1574 = shl i64 %21, 28
+  %1575 = and i64 %1574, 12884901888
+  %1576 = shl i64 %21, 30
+  %1577 = and i64 %1576, 206158430208
+  %1578 = or disjoint i64 %1577, %1575
+  %1579 = shl nuw nsw i64 %1578, 2
+  %1580 = or disjoint i64 %1579, %1577
+  %1581 = or disjoint i64 %1580, %1575
+  %1582 = mul nuw nsw i64 %1581, 257
+  %1583 = or disjoint i64 %1582, %1573
+  %1584 = shl nuw i64 %1583, 16
+  %1585 = or i64 %1582, %1584
+  %1586 = or i64 %1585, %1573
+  br label %_ZL13compute_shiftmj.exit
+
+1587:                                             ; preds = %._crit_edge
+  %1588 = and i64 %21, 1
+  %1589 = shl nuw i64 %21, 1
+  %1590 = and i64 %1589, 4
+  %1591 = shl i64 %21, 2
+  %1592 = and i64 %1591, 16
+  %1593 = shl i64 %21, 3
+  %1594 = and i64 %1593, 64
+  %1595 = and i64 %21, 3
+  %1596 = or disjoint i64 %1590, %1595
+  %1597 = or disjoint i64 %1596, %1592
+  %1598 = or disjoint i64 %1597, %1594
+  %1599 = shl nuw nsw i64 %1598, 1
+  %1600 = or disjoint i64 %1599, %1588
+  %1601 = or disjoint i64 %1600, %1594
+  %1602 = or i64 %1601, %1592
+  %1603 = shl nuw nsw i64 %1602, 8
+  %1604 = or i64 %1603, %1602
+  %1605 = shl i64 %21, 28
+  %1606 = and i64 %1605, 4294967296
+  %1607 = shl i64 %21, 29
+  %1608 = and i64 %1607, 17179869184
+  %1609 = shl i64 %21, 30
+  %1610 = and i64 %1609, 68719476736
+  %1611 = shl i64 %21, 31
+  %1612 = and i64 %1611, 274877906944
+  %1613 = or disjoint i64 %1608, %1606
+  %1614 = or disjoint i64 %1613, %1610
+  %1615 = or disjoint i64 %1614, %1612
+  %1616 = shl nuw nsw i64 %1615, 1
+  %1617 = or disjoint i64 %1616, %1612
+  %1618 = or disjoint i64 %1617, %1610
+  %1619 = or i64 %1608, %1618
+  %1620 = or i64 %1619, %1606
+  %1621 = shl nuw nsw i64 %1620, 8
+  %1622 = or i64 %1621, %1620
+  %1623 = or i64 %1622, %1604
+  %1624 = shl nuw i64 %1623, 16
+  %1625 = or i64 %1604, %1624
+  %1626 = or i64 %1625, %1622
+  br label %_ZL13compute_shiftmj.exit
+
+1627:                                             ; preds = %._crit_edge
+  %1628 = and i64 %21, 255
+  %1629 = mul nuw nsw i64 %1628, 257
+  %1630 = shl i64 %21, 24
+  %1631 = and i64 %1630, 1095216660480
+  %1632 = mul nuw nsw i64 %1631, 257
+  %1633 = or disjoint i64 %1632, %1629
+  %1634 = shl nuw i64 %1633, 16
+  %1635 = or disjoint i64 %1634, %1632
+  %1636 = or disjoint i64 %1635, %1629
+  br label %_ZL13compute_shiftmj.exit
+
+1637:                                             ; preds = %._crit_edge
+  %1638 = trunc i64 %21 to i1
+  %1639 = select i1 %1638, i64 15, i64 0
+  %1640 = shl i64 %21, 7
+  %1641 = and i64 %1640, 256
+  %1642 = mul nuw nsw i64 %1641, 15
+  %1643 = or disjoint i64 %1642, %1639
+  %1644 = shl nuw nsw i64 %1643, 4
+  %1645 = or disjoint i64 %1644, %1639
+  %1646 = or disjoint i64 %1645, %1642
+  %1647 = shl i64 %21, 30
+  %1648 = and i64 %1647, 4294967296
+  %1649 = mul nuw nsw i64 %1648, 15
+  %1650 = shl i64 %21, 37
+  %1651 = and i64 %1650, 1099511627776
+  %1652 = mul nuw nsw i64 %1651, 15
+  %1653 = or disjoint i64 %1652, %1649
+  %1654 = shl nuw nsw i64 %1653, 4
+  %1655 = or disjoint i64 %1654, %1652
+  %1656 = or disjoint i64 %1655, %1649
+  %1657 = or disjoint i64 %1656, %1646
+  %1658 = shl nuw i64 %1657, 16
+  %1659 = or i64 %1656, %1658
+  %1660 = or i64 %1659, %1646
+  br label %_ZL13compute_shiftmj.exit
+
+1661:                                             ; preds = %._crit_edge
+  %1662 = and i64 %21, 3
+  %1663 = mul nuw nsw i64 %1662, 5
+  %1664 = shl i64 %21, 6
+  %1665 = and i64 %1664, 768
+  %1666 = mul nuw nsw i64 %1665, 5
+  %1667 = or disjoint i64 %1666, %1663
+  %1668 = shl nuw nsw i64 %1667, 4
+  %1669 = or disjoint i64 %1668, %1666
+  %1670 = or disjoint i64 %1669, %1663
+  %1671 = shl i64 %21, 28
+  %1672 = and i64 %1671, 12884901888
+  %1673 = mul nuw nsw i64 %1672, 5
+  %1674 = shl i64 %21, 34
+  %1675 = and i64 %1674, 3298534883328
+  %1676 = mul nuw nsw i64 %1675, 5
+  %1677 = or disjoint i64 %1676, %1673
+  %1678 = shl nuw nsw i64 %1677, 4
+  %1679 = or disjoint i64 %1678, %1676
+  %1680 = or disjoint i64 %1679, %1673
+  %1681 = or disjoint i64 %1680, %1670
+  %1682 = shl nuw i64 %1681, 16
+  %1683 = or i64 %1680, %1682
+  %1684 = or i64 %1683, %1670
+  br label %_ZL13compute_shiftmj.exit
+
+1685:                                             ; preds = %._crit_edge
+  %1686 = and i64 %21, 1
+  %1687 = shl nuw i64 %21, 1
+  %1688 = and i64 %1687, 4
+  %1689 = and i64 %21, 2
+  %1690 = or disjoint i64 %1689, %1688
+  %1691 = or disjoint i64 %1690, %1686
+  %1692 = shl nuw nsw i64 %1691, 1
+  %1693 = or disjoint i64 %1692, %1686
+  %1694 = shl i64 %21, 6
+  %1695 = and i64 %1694, 256
+  %1696 = shl i64 %21, 7
+  %1697 = and i64 %1696, 1024
+  %1698 = or disjoint i64 %1697, %1695
+  %1699 = shl nuw nsw i64 %1698, 1
+  %1700 = or disjoint i64 %1699, %1697
+  %1701 = or disjoint i64 %1700, %1695
+  %1702 = or disjoint i64 %1701, %1693
+  %1703 = shl nuw nsw i64 %1702, 4
+  %1704 = or i64 %1701, %1703
+  %1705 = or i64 %1704, %1693
+  %1706 = shl i64 %21, 28
+  %1707 = and i64 %1706, 4294967296
+  %1708 = shl i64 %21, 29
+  %1709 = and i64 %1708, 17179869184
+  %1710 = or disjoint i64 %1709, %1707
+  %1711 = shl nuw nsw i64 %1710, 1
+  %1712 = or disjoint i64 %1711, %1709
+  %1713 = or disjoint i64 %1712, %1707
+  %1714 = shl i64 %21, 34
+  %1715 = and i64 %1714, 1099511627776
+  %1716 = shl i64 %21, 35
+  %1717 = and i64 %1716, 4398046511104
+  %1718 = or disjoint i64 %1717, %1715
+  %1719 = shl nuw nsw i64 %1718, 1
+  %1720 = or disjoint i64 %1719, %1717
+  %1721 = or disjoint i64 %1720, %1715
+  %1722 = or disjoint i64 %1721, %1713
+  %1723 = shl nuw nsw i64 %1722, 4
+  %1724 = or i64 %1721, %1723
+  %1725 = or i64 %1724, %1713
+  %1726 = or i64 %1725, %1705
+  %1727 = shl nuw i64 %1726, 16
+  %1728 = or i64 %1725, %1727
+  %1729 = or i64 %1728, %1705
+  br label %_ZL13compute_shiftmj.exit
+
+1730:                                             ; preds = %._crit_edge
+  %1731 = and i64 %21, 15
+  %1732 = shl i64 %21, 4
+  %1733 = and i64 %1732, 3840
+  %1734 = and i64 %21, 240
+  %1735 = or disjoint i64 %1734, %1733
+  %1736 = or disjoint i64 %1735, %1731
+  %1737 = shl nuw nsw i64 %1736, 4
+  %1738 = or disjoint i64 %1737, %1731
+  %1739 = shl i64 %21, 24
+  %1740 = and i64 %1739, 64424509440
+  %1741 = shl i64 %21, 28
+  %1742 = and i64 %1741, 16492674416640
+  %1743 = or disjoint i64 %1742, %1740
+  %1744 = shl nuw nsw i64 %1743, 4
+  %1745 = or disjoint i64 %1744, %1742
+  %1746 = or disjoint i64 %1745, %1740
+  %1747 = or disjoint i64 %1746, %1738
+  %1748 = shl nuw i64 %1747, 16
+  %1749 = or i64 %1746, %1748
+  %1750 = or i64 %1749, %1738
+  br label %_ZL13compute_shiftmj.exit
+
+1751:                                             ; preds = %._crit_edge
+  %1752 = trunc i64 %21 to i1
+  %1753 = select i1 %1752, i64 3, i64 0
+  %1754 = shl i64 %21, 3
+  %1755 = and i64 %1754, 16
+  %1756 = mul nuw nsw i64 %1755, 3
+  %1757 = shl i64 %21, 6
+  %1758 = and i64 %1757, 256
+  %1759 = mul nuw nsw i64 %1758, 3
+  %1760 = shl i64 %21, 9
+  %1761 = and i64 %1760, 4096
+  %1762 = mul nuw nsw i64 %1761, 3
+  %1763 = or disjoint i64 %1756, %1753
+  %1764 = or disjoint i64 %1763, %1759
+  %1765 = or disjoint i64 %1764, %1762
+  %1766 = shl nuw nsw i64 %1765, 2
+  %1767 = or disjoint i64 %1766, %1753
+  %1768 = or i64 %1762, %1767
+  %1769 = or i64 %1768, %1759
+  %1770 = or i64 %1769, %1756
+  %1771 = shl i64 %21, 28
+  %1772 = and i64 %1771, 4294967296
+  %1773 = mul nuw nsw i64 %1772, 3
+  %1774 = shl i64 %21, 31
+  %1775 = and i64 %1774, 68719476736
+  %1776 = mul nuw nsw i64 %1775, 3
+  %1777 = shl i64 %21, 34
+  %1778 = and i64 %1777, 1099511627776
+  %1779 = mul nuw nsw i64 %1778, 3
+  %1780 = shl i64 %21, 37
+  %1781 = and i64 %1780, 17592186044416
+  %1782 = mul nuw nsw i64 %1781, 3
+  %1783 = or disjoint i64 %1776, %1773
+  %1784 = or disjoint i64 %1783, %1779
+  %1785 = or disjoint i64 %1784, %1782
+  %1786 = shl nuw nsw i64 %1785, 2
+  %1787 = or disjoint i64 %1786, %1782
+  %1788 = or i64 %1779, %1787
+  %1789 = or i64 %1788, %1776
+  %1790 = or i64 %1789, %1773
+  %1791 = or i64 %1790, %1770
+  %1792 = shl nuw i64 %1791, 16
+  %1793 = or i64 %1790, %1792
+  %1794 = or i64 %1793, %1770
+  br label %_ZL13compute_shiftmj.exit
+
+1795:                                             ; preds = %._crit_edge
+  %1796 = and i64 %21, 3
+  %1797 = shl i64 %21, 2
+  %1798 = and i64 %1797, 48
+  %1799 = shl i64 %21, 4
+  %1800 = and i64 %1799, 768
+  %1801 = shl i64 %21, 6
+  %1802 = and i64 %1801, 12288
+  %1803 = and i64 %21, 15
+  %1804 = or disjoint i64 %1798, %1803
+  %1805 = or disjoint i64 %1804, %1800
+  %1806 = or disjoint i64 %1805, %1802
+  %1807 = shl nuw nsw i64 %1806, 2
+  %1808 = or disjoint i64 %1807, %1796
+  %1809 = or disjoint i64 %1808, %1802
+  %1810 = or i64 %1809, %1800
+  %1811 = shl i64 %21, 24
+  %1812 = and i64 %1811, 12884901888
+  %1813 = shl i64 %21, 26
+  %1814 = and i64 %1813, 206158430208
+  %1815 = shl i64 %21, 28
+  %1816 = and i64 %1815, 3298534883328
+  %1817 = shl i64 %21, 30
+  %1818 = and i64 %1817, 52776558133248
+  %1819 = or disjoint i64 %1814, %1812
+  %1820 = or disjoint i64 %1819, %1816
+  %1821 = or disjoint i64 %1820, %1818
+  %1822 = shl nuw nsw i64 %1821, 2
+  %1823 = or disjoint i64 %1822, %1818
+  %1824 = or disjoint i64 %1823, %1816
+  %1825 = or i64 %1814, %1824
+  %1826 = or i64 %1825, %1812
+  %1827 = or i64 %1826, %1810
+  %1828 = shl nuw i64 %1827, 16
+  %1829 = or i64 %1810, %1828
+  %1830 = or i64 %1829, %1826
+  br label %_ZL13compute_shiftmj.exit
+
+1831:                                             ; preds = %._crit_edge
+  %1832 = and i64 %21, 1
+  %1833 = shl nuw i64 %21, 1
+  %1834 = and i64 %1833, 4
+  %1835 = shl i64 %21, 2
+  %1836 = and i64 %1835, 16
+  %1837 = shl i64 %21, 3
+  %1838 = and i64 %1837, 64
+  %1839 = shl i64 %21, 4
+  %1840 = and i64 %1839, 256
+  %1841 = shl i64 %21, 5
+  %1842 = and i64 %1841, 1024
+  %1843 = shl i64 %21, 6
+  %1844 = and i64 %1843, 4096
+  %1845 = shl i64 %21, 7
+  %1846 = and i64 %1845, 16384
+  %1847 = and i64 %21, 3
+  %1848 = or disjoint i64 %1847, %1834
+  %1849 = or disjoint i64 %1848, %1836
+  %1850 = or disjoint i64 %1849, %1838
+  %1851 = or disjoint i64 %1850, %1840
+  %1852 = or disjoint i64 %1851, %1842
+  %1853 = or i64 %1852, %1844
+  %1854 = or i64 %1853, %1846
+  %1855 = shl nuw nsw i64 %1854, 1
+  %1856 = or disjoint i64 %1855, %1832
+  %1857 = or i64 %1846, %1856
+  %1858 = or i64 %1857, %1844
+  %1859 = or i64 %1858, %1842
+  %1860 = or i64 %1859, %1840
+  %1861 = or i64 %1860, %1838
+  %1862 = or i64 %1861, %1836
+  %1863 = shl i64 %21, 24
+  %1864 = and i64 %1863, 4294967296
+  %1865 = shl i64 %21, 25
+  %1866 = and i64 %1865, 17179869184
+  %1867 = or disjoint i64 %1866, %1864
+  %1868 = shl i64 %21, 26
+  %1869 = and i64 %1868, 68719476736
+  %1870 = shl i64 %21, 27
+  %1871 = and i64 %1870, 274877906944
+  %1872 = or disjoint i64 %1867, %1869
+  %1873 = or disjoint i64 %1872, %1871
+  %1874 = shl i64 %21, 28
+  %1875 = and i64 %1874, 1099511627776
+  %1876 = shl i64 %21, 29
+  %1877 = and i64 %1876, 4398046511104
+  %1878 = shl i64 %21, 30
+  %1879 = and i64 %1878, 17592186044416
+  %1880 = shl i64 %21, 31
+  %1881 = and i64 %1880, 70368744177664
+  %1882 = or disjoint i64 %1873, %1875
+  %1883 = or disjoint i64 %1882, %1877
+  %1884 = or i64 %1883, %1879
+  %1885 = or i64 %1884, %1881
+  %1886 = shl nuw nsw i64 %1885, 1
+  %1887 = or i64 %1881, %1886
+  %1888 = or i64 %1887, %1879
+  %1889 = or i64 %1888, %1877
+  %1890 = or i64 %1889, %1875
+  %1891 = or i64 %1890, %1871
+  %1892 = or i64 %1891, %1869
+  %1893 = or i64 %1892, %1866
+  %1894 = or i64 %1893, %1864
+  %1895 = or i64 %1894, %1862
+  %1896 = shl nuw i64 %1895, 16
+  %1897 = or i64 %1862, %1896
+  %1898 = or i64 %1897, %1894
+  br label %_ZL13compute_shiftmj.exit
+
+1899:                                             ; preds = %._crit_edge
+  %1900 = and i64 %21, 65535
+  %1901 = shl i64 %21, 16
+  %1902 = and i64 %1901, 281470681743360
+  %1903 = and i64 %21, 4294901760
+  %1904 = or disjoint i64 %1903, %1902
+  %1905 = or disjoint i64 %1904, %1900
+  %1906 = shl nuw i64 %1905, 16
+  %1907 = or disjoint i64 %1906, %1900
+  br label %_ZL13compute_shiftmj.exit
+
+1908:                                             ; preds = %._crit_edge
+  %1909 = trunc i64 %21 to i1
+  %1910 = select i1 %1909, i64 255, i64 0
+  %1911 = shl i64 %21, 15
+  %1912 = and i64 %1911, 65536
+  %1913 = mul nuw nsw i64 %1912, 255
+  %1914 = shl i64 %21, 30
+  %1915 = and i64 %1914, 4294967296
+  %1916 = mul nuw nsw i64 %1915, 255
+  %1917 = shl i64 %21, 45
+  %1918 = and i64 %1917, 281474976710656
+  %1919 = mul nuw nsw i64 %1918, 255
+  %1920 = or disjoint i64 %1913, %1910
+  %1921 = or disjoint i64 %1920, %1916
+  %1922 = or disjoint i64 %1921, %1919
+  %1923 = shl nuw i64 %1922, 8
+  %1924 = or disjoint i64 %1923, %1910
+  %1925 = or i64 %1919, %1924
+  %1926 = or i64 %1925, %1916
+  %1927 = or i64 %1926, %1913
+  br label %_ZL13compute_shiftmj.exit
+
+1928:                                             ; preds = %._crit_edge
+  %1929 = and i64 %21, 3
+  %1930 = mul nuw nsw i64 %1929, 85
+  %1931 = shl i64 %21, 14
+  %1932 = and i64 %1931, 196608
+  %1933 = mul nuw nsw i64 %1932, 85
+  %1934 = shl i64 %21, 28
+  %1935 = and i64 %1934, 12884901888
+  %1936 = mul nuw nsw i64 %1935, 85
+  %1937 = shl i64 %21, 42
+  %1938 = and i64 %1937, 844424930131968
+  %1939 = mul nuw nsw i64 %1938, 85
+  %1940 = or disjoint i64 %1933, %1930
+  %1941 = or disjoint i64 %1940, %1936
+  %1942 = or disjoint i64 %1941, %1939
+  %1943 = shl nuw i64 %1942, 8
+  %1944 = or disjoint i64 %1943, %1930
+  %1945 = or i64 %1939, %1944
+  %1946 = or i64 %1945, %1936
+  %1947 = or i64 %1946, %1933
+  br label %_ZL13compute_shiftmj.exit
+
+1948:                                             ; preds = %._crit_edge
+  %1949 = and i64 %21, 1
+  %1950 = shl nuw i64 %21, 1
+  %1951 = and i64 %1950, 4
+  %1952 = and i64 %21, 2
+  %1953 = or disjoint i64 %1952, %1951
+  %1954 = or disjoint i64 %1953, %1949
+  %1955 = shl nuw nsw i64 %1954, 1
+  %1956 = or disjoint i64 %1955, %1949
+  %1957 = mul nuw nsw i64 %1956, 17
+  %1958 = shl i64 %21, 14
+  %1959 = and i64 %1958, 65536
+  %1960 = shl i64 %21, 15
+  %1961 = and i64 %1960, 262144
+  %1962 = or disjoint i64 %1961, %1959
+  %1963 = shl nuw nsw i64 %1962, 1
+  %1964 = or disjoint i64 %1963, %1961
+  %1965 = or disjoint i64 %1964, %1959
+  %1966 = mul nuw nsw i64 %1965, 17
+  %1967 = or i64 %1966, %1957
+  %1968 = shl i64 %21, 28
+  %1969 = and i64 %1968, 4294967296
+  %1970 = shl i64 %21, 29
+  %1971 = and i64 %1970, 17179869184
+  %1972 = or disjoint i64 %1971, %1969
+  %1973 = shl nuw nsw i64 %1972, 1
+  %1974 = or disjoint i64 %1973, %1971
+  %1975 = or disjoint i64 %1974, %1969
+  %1976 = mul nuw nsw i64 %1975, 17
+  %1977 = shl i64 %21, 42
+  %1978 = and i64 %1977, 281474976710656
+  %1979 = shl i64 %21, 43
+  %1980 = and i64 %1979, 1125899906842624
+  %1981 = or disjoint i64 %1980, %1978
+  %1982 = shl nuw nsw i64 %1981, 1
+  %1983 = or disjoint i64 %1982, %1980
+  %1984 = or disjoint i64 %1983, %1978
+  %1985 = mul nuw nsw i64 %1984, 17
+  %1986 = or i64 %1967, %1976
+  %1987 = or i64 %1986, %1985
+  %1988 = shl nuw i64 %1987, 8
+  %1989 = or i64 %1985, %1988
+  %1990 = or i64 %1989, %1976
+  %1991 = or i64 %1990, %1966
+  %1992 = or i64 %1991, %1957
+  br label %_ZL13compute_shiftmj.exit
+
+1993:                                             ; preds = %._crit_edge
+  %1994 = and i64 %21, 15
+  %1995 = mul nuw nsw i64 %1994, 17
+  %1996 = shl i64 %21, 12
+  %1997 = and i64 %1996, 983040
+  %1998 = mul nuw nsw i64 %1997, 17
+  %1999 = shl i64 %21, 24
+  %2000 = and i64 %1999, 64424509440
+  %2001 = mul nuw nsw i64 %2000, 17
+  %2002 = shl i64 %21, 36
+  %2003 = and i64 %2002, 4222124650659840
+  %2004 = mul nuw nsw i64 %2003, 17
+  %2005 = or disjoint i64 %1998, %1995
+  %2006 = or disjoint i64 %2005, %2001
+  %2007 = or disjoint i64 %2006, %2004
+  %2008 = shl nuw i64 %2007, 8
+  %2009 = or disjoint i64 %2008, %1995
+  %2010 = or i64 %2004, %2009
+  %2011 = or i64 %2010, %2001
+  %2012 = or i64 %2011, %1998
+  br label %_ZL13compute_shiftmj.exit
+
+2013:                                             ; preds = %._crit_edge
+  %2014 = trunc i64 %21 to i1
+  %2015 = select i1 %2014, i64 3, i64 0
+  %2016 = shl i64 %21, 3
+  %2017 = and i64 %2016, 16
+  %2018 = mul nuw nsw i64 %2017, 3
+  %2019 = or disjoint i64 %2018, %2015
+  %2020 = shl nuw nsw i64 %2019, 2
+  %2021 = or disjoint i64 %2020, %2018
+  %2022 = or disjoint i64 %2021, %2015
+  %2023 = shl i64 %21, 14
+  %2024 = and i64 %2023, 65536
+  %2025 = mul nuw nsw i64 %2024, 3
+  %2026 = shl i64 %21, 17
+  %2027 = and i64 %2026, 1048576
+  %2028 = mul nuw nsw i64 %2027, 3
+  %2029 = or disjoint i64 %2028, %2025
+  %2030 = shl nuw nsw i64 %2029, 2
+  %2031 = or disjoint i64 %2030, %2028
+  %2032 = or disjoint i64 %2031, %2025
+  %2033 = or i64 %2032, %2022
+  %2034 = shl i64 %21, 28
+  %2035 = and i64 %2034, 4294967296
+  %2036 = mul nuw nsw i64 %2035, 3
+  %2037 = shl i64 %21, 31
+  %2038 = and i64 %2037, 68719476736
+  %2039 = mul nuw nsw i64 %2038, 3
+  %2040 = or disjoint i64 %2039, %2036
+  %2041 = shl nuw nsw i64 %2040, 2
+  %2042 = or disjoint i64 %2041, %2039
+  %2043 = or disjoint i64 %2042, %2036
+  %2044 = shl i64 %21, 42
+  %2045 = and i64 %2044, 281474976710656
+  %2046 = mul nuw nsw i64 %2045, 3
+  %2047 = shl i64 %21, 45
+  %2048 = and i64 %2047, 4503599627370496
+  %2049 = mul nuw nsw i64 %2048, 3
+  %2050 = or disjoint i64 %2049, %2046
+  %2051 = shl nuw nsw i64 %2050, 2
+  %2052 = or disjoint i64 %2051, %2049
+  %2053 = or disjoint i64 %2052, %2046
+  %2054 = or i64 %2033, %2043
+  %2055 = or i64 %2054, %2053
+  %2056 = shl nuw i64 %2055, 8
+  %2057 = or i64 %2053, %2056
+  %2058 = or i64 %2057, %2043
+  %2059 = or i64 %2058, %2032
+  %2060 = or i64 %2059, %2022
+  br label %_ZL13compute_shiftmj.exit
+
+2061:                                             ; preds = %._crit_edge
+  %2062 = and i64 %21, 3
+  %2063 = shl i64 %21, 2
+  %2064 = and i64 %2063, 48
+  %2065 = and i64 %21, 12
+  %2066 = or disjoint i64 %2065, %2064
+  %2067 = or disjoint i64 %2066, %2062
+  %2068 = shl nuw nsw i64 %2067, 2
+  %2069 = or disjoint i64 %2068, %2062
+  %2070 = shl i64 %21, 12
+  %2071 = and i64 %2070, 196608
+  %2072 = shl i64 %21, 14
+  %2073 = and i64 %2072, 3145728
+  %2074 = or disjoint i64 %2073, %2071
+  %2075 = shl nuw nsw i64 %2074, 2
+  %2076 = or disjoint i64 %2075, %2073
+  %2077 = or disjoint i64 %2076, %2071
+  %2078 = or disjoint i64 %2077, %2069
+  %2079 = shl i64 %21, 24
+  %2080 = and i64 %2079, 12884901888
+  %2081 = shl i64 %21, 26
+  %2082 = and i64 %2081, 206158430208
+  %2083 = or disjoint i64 %2082, %2080
+  %2084 = shl nuw nsw i64 %2083, 2
+  %2085 = or disjoint i64 %2084, %2082
+  %2086 = or disjoint i64 %2085, %2080
+  %2087 = shl i64 %21, 36
+  %2088 = and i64 %2087, 844424930131968
+  %2089 = shl i64 %21, 38
+  %2090 = and i64 %2089, 13510798882111488
+  %2091 = or disjoint i64 %2090, %2088
+  %2092 = shl nuw nsw i64 %2091, 2
+  %2093 = or disjoint i64 %2092, %2090
+  %2094 = or disjoint i64 %2093, %2088
+  %2095 = or i64 %2078, %2086
+  %2096 = or i64 %2095, %2094
+  %2097 = shl nuw i64 %2096, 8
+  %2098 = or i64 %2094, %2097
+  %2099 = or i64 %2098, %2086
+  %2100 = or i64 %2099, %2077
+  %2101 = or i64 %2100, %2069
+  br label %_ZL13compute_shiftmj.exit
+
+2102:                                             ; preds = %._crit_edge
+  %2103 = and i64 %21, 1
+  %2104 = shl nuw i64 %21, 1
+  %2105 = and i64 %2104, 4
+  %2106 = shl i64 %21, 2
+  %2107 = and i64 %2106, 16
+  %2108 = shl i64 %21, 3
+  %2109 = and i64 %2108, 64
+  %2110 = and i64 %21, 3
+  %2111 = or disjoint i64 %2105, %2110
+  %2112 = or disjoint i64 %2111, %2107
+  %2113 = or disjoint i64 %2112, %2109
+  %2114 = shl nuw nsw i64 %2113, 1
+  %2115 = or disjoint i64 %2114, %2103
+  %2116 = or disjoint i64 %2115, %2109
+  %2117 = or i64 %2116, %2107
+  %2118 = shl i64 %21, 12
+  %2119 = and i64 %2118, 65536
+  %2120 = shl i64 %21, 13
+  %2121 = and i64 %2120, 262144
+  %2122 = shl i64 %21, 14
+  %2123 = and i64 %2122, 1048576
+  %2124 = shl i64 %21, 15
+  %2125 = and i64 %2124, 4194304
+  %2126 = or disjoint i64 %2121, %2119
+  %2127 = or disjoint i64 %2126, %2123
+  %2128 = or disjoint i64 %2127, %2125
+  %2129 = shl nuw nsw i64 %2128, 1
+  %2130 = or disjoint i64 %2129, %2125
+  %2131 = or disjoint i64 %2130, %2123
+  %2132 = or i64 %2121, %2131
+  %2133 = or i64 %2132, %2119
+  %2134 = or i64 %2133, %2117
+  %2135 = shl i64 %21, 24
+  %2136 = and i64 %2135, 4294967296
+  %2137 = shl i64 %21, 25
+  %2138 = and i64 %2137, 17179869184
+  %2139 = shl i64 %21, 26
+  %2140 = and i64 %2139, 68719476736
+  %2141 = shl i64 %21, 27
+  %2142 = and i64 %2141, 274877906944
+  %2143 = or disjoint i64 %2138, %2136
+  %2144 = or disjoint i64 %2143, %2140
+  %2145 = or disjoint i64 %2144, %2142
+  %2146 = shl nuw nsw i64 %2145, 1
+  %2147 = or disjoint i64 %2146, %2142
+  %2148 = or disjoint i64 %2147, %2140
+  %2149 = or i64 %2138, %2148
+  %2150 = or i64 %2149, %2136
+  %2151 = shl i64 %21, 36
+  %2152 = and i64 %2151, 281474976710656
+  %2153 = shl i64 %21, 37
+  %2154 = and i64 %2153, 1125899906842624
+  %2155 = shl i64 %21, 38
+  %2156 = and i64 %2155, 4503599627370496
+  %2157 = shl i64 %21, 39
+  %2158 = and i64 %2157, 18014398509481984
+  %2159 = or disjoint i64 %2154, %2152
+  %2160 = or disjoint i64 %2159, %2156
+  %2161 = or disjoint i64 %2160, %2158
+  %2162 = shl nuw nsw i64 %2161, 1
+  %2163 = or disjoint i64 %2162, %2158
+  %2164 = or disjoint i64 %2163, %2156
+  %2165 = or i64 %2154, %2164
+  %2166 = or i64 %2165, %2152
+  %2167 = or i64 %2134, %2150
+  %2168 = or i64 %2167, %2166
+  %2169 = shl nuw i64 %2168, 8
+  %2170 = or i64 %2117, %2169
+  %2171 = or i64 %2170, %2166
+  %2172 = or i64 %2171, %2150
+  %2173 = or i64 %2172, %2133
+  br label %_ZL13compute_shiftmj.exit
+
+2174:                                             ; preds = %._crit_edge
+  %2175 = and i64 %21, 255
+  %2176 = shl i64 %21, 8
+  %2177 = and i64 %2176, 16711680
+  %2178 = shl i64 %21, 16
+  %2179 = and i64 %2178, 1095216660480
+  %2180 = shl i64 %21, 24
+  %2181 = and i64 %2180, 71776119061217280
+  %2182 = and i64 %21, 65535
+  %2183 = or disjoint i64 %2177, %2182
+  %2184 = or disjoint i64 %2183, %2179
+  %2185 = or disjoint i64 %2184, %2181
+  %2186 = shl nuw i64 %2185, 8
+  %2187 = or disjoint i64 %2186, %2175
+  %2188 = or disjoint i64 %2187, %2181
+  %2189 = or i64 %2188, %2179
+  br label %_ZL13compute_shiftmj.exit
+
+2190:                                             ; preds = %._crit_edge
+  %2191 = trunc i64 %21 to i1
+  %2192 = select i1 %2191, i64 15, i64 0
+  %2193 = shl i64 %21, 7
+  %2194 = and i64 %2193, 256
+  %2195 = mul nuw nsw i64 %2194, 15
+  %2196 = or disjoint i64 %2195, %2192
+  %2197 = shl i64 %21, 14
+  %2198 = and i64 %2197, 65536
+  %2199 = mul nuw nsw i64 %2198, 15
+  %2200 = shl i64 %21, 21
+  %2201 = and i64 %2200, 16777216
+  %2202 = mul nuw nsw i64 %2201, 15
+  %2203 = or disjoint i64 %2196, %2199
+  %2204 = or disjoint i64 %2203, %2202
+  %2205 = shl i64 %21, 28
+  %2206 = and i64 %2205, 4294967296
+  %2207 = mul nuw nsw i64 %2206, 15
+  %2208 = shl i64 %21, 35
+  %2209 = and i64 %2208, 1099511627776
+  %2210 = mul nuw nsw i64 %2209, 15
+  %2211 = shl i64 %21, 42
+  %2212 = and i64 %2211, 281474976710656
+  %2213 = mul nuw nsw i64 %2212, 15
+  %2214 = shl i64 %21, 49
+  %2215 = and i64 %2214, 72057594037927936
+  %2216 = mul nuw nsw i64 %2215, 15
+  %2217 = or disjoint i64 %2204, %2207
+  %2218 = or i64 %2217, %2210
+  %2219 = or i64 %2218, %2213
+  %2220 = or i64 %2219, %2216
+  %2221 = shl nuw i64 %2220, 4
+  %2222 = or disjoint i64 %2221, %2192
+  %2223 = or i64 %2216, %2222
+  %2224 = or i64 %2223, %2213
+  %2225 = or i64 %2224, %2210
+  %2226 = or i64 %2225, %2207
+  %2227 = or i64 %2226, %2202
+  %2228 = or i64 %2227, %2199
+  %2229 = or i64 %2228, %2195
+  br label %_ZL13compute_shiftmj.exit
+
+2230:                                             ; preds = %._crit_edge
+  %2231 = and i64 %21, 3
+  %2232 = mul nuw nsw i64 %2231, 5
+  %2233 = shl i64 %21, 6
+  %2234 = and i64 %2233, 768
+  %2235 = mul nuw nsw i64 %2234, 5
+  %2236 = or disjoint i64 %2235, %2232
+  %2237 = shl i64 %21, 12
+  %2238 = and i64 %2237, 196608
+  %2239 = mul nuw nsw i64 %2238, 5
+  %2240 = shl i64 %21, 18
+  %2241 = and i64 %2240, 50331648
+  %2242 = mul nuw nsw i64 %2241, 5
+  %2243 = or disjoint i64 %2236, %2239
+  %2244 = or disjoint i64 %2243, %2242
+  %2245 = shl i64 %21, 24
+  %2246 = and i64 %2245, 12884901888
+  %2247 = mul nuw nsw i64 %2246, 5
+  %2248 = shl i64 %21, 30
+  %2249 = and i64 %2248, 3298534883328
+  %2250 = mul nuw nsw i64 %2249, 5
+  %2251 = shl i64 %21, 36
+  %2252 = and i64 %2251, 844424930131968
+  %2253 = mul nuw nsw i64 %2252, 5
+  %2254 = shl i64 %21, 42
+  %2255 = and i64 %2254, 216172782113783808
+  %2256 = mul nuw nsw i64 %2255, 5
+  %2257 = or disjoint i64 %2244, %2247
+  %2258 = or i64 %2257, %2250
+  %2259 = or i64 %2258, %2253
+  %2260 = or i64 %2259, %2256
+  %2261 = shl nuw i64 %2260, 4
+  %2262 = or disjoint i64 %2261, %2232
+  %2263 = or i64 %2256, %2262
+  %2264 = or i64 %2263, %2253
+  %2265 = or i64 %2264, %2250
+  %2266 = or i64 %2265, %2247
+  %2267 = or i64 %2266, %2242
+  %2268 = or i64 %2267, %2239
+  %2269 = or i64 %2268, %2235
+  br label %_ZL13compute_shiftmj.exit
+
+2270:                                             ; preds = %._crit_edge
+  %2271 = and i64 %21, 1
+  %2272 = shl nuw i64 %21, 1
+  %2273 = and i64 %2272, 4
+  %2274 = and i64 %21, 2
+  %2275 = or disjoint i64 %2274, %2273
+  %2276 = or disjoint i64 %2275, %2271
+  %2277 = shl nuw nsw i64 %2276, 1
+  %2278 = or disjoint i64 %2277, %2271
+  %2279 = shl i64 %21, 6
+  %2280 = and i64 %2279, 256
+  %2281 = shl i64 %21, 7
+  %2282 = and i64 %2281, 1024
+  %2283 = or disjoint i64 %2282, %2280
+  %2284 = shl nuw nsw i64 %2283, 1
+  %2285 = or disjoint i64 %2284, %2282
+  %2286 = or disjoint i64 %2285, %2280
+  %2287 = or disjoint i64 %2286, %2278
+  %2288 = shl i64 %21, 12
+  %2289 = and i64 %2288, 65536
+  %2290 = shl i64 %21, 13
+  %2291 = and i64 %2290, 262144
+  %2292 = or disjoint i64 %2291, %2289
+  %2293 = shl nuw nsw i64 %2292, 1
+  %2294 = or disjoint i64 %2293, %2291
+  %2295 = or disjoint i64 %2294, %2289
+  %2296 = shl i64 %21, 18
+  %2297 = and i64 %2296, 16777216
+  %2298 = shl i64 %21, 19
+  %2299 = and i64 %2298, 67108864
+  %2300 = or disjoint i64 %2299, %2297
+  %2301 = shl nuw nsw i64 %2300, 1
+  %2302 = or disjoint i64 %2301, %2299
+  %2303 = or disjoint i64 %2302, %2297
+  %2304 = or i64 %2287, %2295
+  %2305 = or i64 %2304, %2303
+  %2306 = shl i64 %21, 24
+  %2307 = and i64 %2306, 4294967296
+  %2308 = shl i64 %21, 25
+  %2309 = and i64 %2308, 17179869184
+  %2310 = or disjoint i64 %2309, %2307
+  %2311 = shl nuw nsw i64 %2310, 1
+  %2312 = or disjoint i64 %2311, %2309
+  %2313 = or disjoint i64 %2312, %2307
+  %2314 = shl i64 %21, 30
+  %2315 = and i64 %2314, 1099511627776
+  %2316 = shl i64 %21, 31
+  %2317 = and i64 %2316, 4398046511104
+  %2318 = or disjoint i64 %2317, %2315
+  %2319 = shl nuw nsw i64 %2318, 1
+  %2320 = or disjoint i64 %2319, %2317
+  %2321 = or disjoint i64 %2320, %2315
+  %2322 = shl i64 %21, 36
+  %2323 = and i64 %2322, 281474976710656
+  %2324 = shl i64 %21, 37
+  %2325 = and i64 %2324, 1125899906842624
+  %2326 = or disjoint i64 %2325, %2323
+  %2327 = shl nuw nsw i64 %2326, 1
+  %2328 = or disjoint i64 %2327, %2325
+  %2329 = or disjoint i64 %2328, %2323
+  %2330 = shl i64 %21, 42
+  %2331 = and i64 %2330, 72057594037927936
+  %2332 = shl i64 %21, 43
+  %2333 = and i64 %2332, 288230376151711744
+  %2334 = or disjoint i64 %2333, %2331
+  %2335 = shl nuw nsw i64 %2334, 1
+  %2336 = or disjoint i64 %2335, %2333
+  %2337 = or disjoint i64 %2336, %2331
+  %2338 = or i64 %2305, %2313
+  %2339 = or i64 %2338, %2321
+  %2340 = or i64 %2339, %2329
+  %2341 = or i64 %2340, %2337
+  %2342 = shl nuw i64 %2341, 4
+  %2343 = or i64 %2337, %2342
+  %2344 = or i64 %2343, %2329
+  %2345 = or i64 %2344, %2321
+  %2346 = or i64 %2345, %2313
+  %2347 = or i64 %2346, %2303
+  %2348 = or i64 %2347, %2295
+  %2349 = or i64 %2348, %2286
+  %2350 = or i64 %2349, %2278
+  br label %_ZL13compute_shiftmj.exit
+
+2351:                                             ; preds = %._crit_edge
+  %2352 = and i64 %21, 15
+  %2353 = shl i64 %21, 4
+  %2354 = and i64 %2353, 3840
+  %2355 = shl i64 %21, 8
+  %2356 = and i64 %2355, 983040
+  %2357 = shl i64 %21, 12
+  %2358 = and i64 %2357, 251658240
+  %2359 = shl i64 %21, 16
+  %2360 = and i64 %2359, 64424509440
+  %2361 = shl i64 %21, 20
+  %2362 = and i64 %2361, 16492674416640
+  %2363 = shl i64 %21, 24
+  %2364 = and i64 %2363, 4222124650659840
+  %2365 = shl i64 %21, 28
+  %2366 = and i64 %2365, 1080863910568919040
+  %2367 = and i64 %21, 255
+  %2368 = or disjoint i64 %2367, %2354
+  %2369 = or disjoint i64 %2368, %2356
+  %2370 = or disjoint i64 %2369, %2358
+  %2371 = or disjoint i64 %2370, %2360
+  %2372 = or disjoint i64 %2371, %2362
+  %2373 = or i64 %2372, %2364
+  %2374 = or i64 %2373, %2366
+  %2375 = shl nuw i64 %2374, 4
+  %2376 = or disjoint i64 %2375, %2352
+  %2377 = or i64 %2366, %2376
+  %2378 = or i64 %2377, %2364
+  %2379 = or i64 %2378, %2362
+  %2380 = or i64 %2379, %2360
+  %2381 = or i64 %2380, %2358
+  %2382 = or i64 %2381, %2356
+  br label %_ZL13compute_shiftmj.exit
+
+2383:                                             ; preds = %._crit_edge
+  %2384 = trunc i64 %21 to i1
+  %2385 = select i1 %2384, i64 3, i64 0
+  %2386 = shl i64 %21, 3
+  %2387 = and i64 %2386, 16
+  %2388 = mul nuw nsw i64 %2387, 3
+  %2389 = or disjoint i64 %2388, %2385
+  %2390 = shl i64 %21, 6
+  %2391 = and i64 %2390, 256
+  %2392 = mul nuw nsw i64 %2391, 3
+  %2393 = shl i64 %21, 9
+  %2394 = and i64 %2393, 4096
+  %2395 = mul nuw nsw i64 %2394, 3
+  %2396 = or disjoint i64 %2389, %2392
+  %2397 = or disjoint i64 %2396, %2395
+  %2398 = shl i64 %21, 12
+  %2399 = and i64 %2398, 65536
+  %2400 = mul nuw nsw i64 %2399, 3
+  %2401 = shl i64 %21, 15
+  %2402 = and i64 %2401, 1048576
+  %2403 = mul nuw nsw i64 %2402, 3
+  %2404 = shl i64 %21, 18
+  %2405 = and i64 %2404, 16777216
+  %2406 = mul nuw nsw i64 %2405, 3
+  %2407 = shl i64 %21, 21
+  %2408 = and i64 %2407, 268435456
+  %2409 = mul nuw nsw i64 %2408, 3
+  %2410 = or disjoint i64 %2397, %2400
+  %2411 = or i64 %2410, %2403
+  %2412 = or i64 %2411, %2406
+  %2413 = or i64 %2412, %2409
+  %2414 = shl i64 %21, 24
+  %2415 = and i64 %2414, 4294967296
+  %2416 = mul nuw nsw i64 %2415, 3
+  %2417 = shl i64 %21, 27
+  %2418 = and i64 %2417, 68719476736
+  %2419 = mul nuw nsw i64 %2418, 3
+  %2420 = shl i64 %21, 30
+  %2421 = and i64 %2420, 1099511627776
+  %2422 = mul nuw nsw i64 %2421, 3
+  %2423 = shl i64 %21, 33
+  %2424 = and i64 %2423, 17592186044416
+  %2425 = mul nuw nsw i64 %2424, 3
+  %2426 = shl i64 %21, 36
+  %2427 = and i64 %2426, 281474976710656
+  %2428 = mul nuw nsw i64 %2427, 3
+  %2429 = shl i64 %21, 39
+  %2430 = and i64 %2429, 4503599627370496
+  %2431 = mul nuw nsw i64 %2430, 3
+  %2432 = shl i64 %21, 42
+  %2433 = and i64 %2432, 72057594037927936
+  %2434 = mul nuw nsw i64 %2433, 3
+  %2435 = shl i64 %21, 45
+  %2436 = and i64 %2435, 1152921504606846976
+  %2437 = mul nuw nsw i64 %2436, 3
+  %2438 = or i64 %2413, %2416
+  %2439 = or i64 %2438, %2419
+  %2440 = or i64 %2439, %2422
+  %2441 = or i64 %2440, %2425
+  %2442 = or i64 %2441, %2428
+  %2443 = or i64 %2442, %2431
+  %2444 = or i64 %2443, %2434
+  %2445 = or i64 %2444, %2437
+  %2446 = shl nuw i64 %2445, 2
+  %2447 = or disjoint i64 %2446, %2385
+  %2448 = or i64 %2437, %2447
+  %2449 = or i64 %2448, %2434
+  %2450 = or i64 %2449, %2431
+  %2451 = or i64 %2450, %2428
+  %2452 = or i64 %2451, %2425
+  %2453 = or i64 %2452, %2422
+  %2454 = or i64 %2453, %2419
+  %2455 = or i64 %2454, %2416
+  %2456 = or i64 %2455, %2409
+  %2457 = or i64 %2456, %2406
+  %2458 = or i64 %2457, %2403
+  %2459 = or i64 %2458, %2400
+  %2460 = or i64 %2459, %2395
+  %2461 = or i64 %2460, %2392
+  %2462 = or i64 %2461, %2388
+  br label %_ZL13compute_shiftmj.exit
+
+2463:                                             ; preds = %._crit_edge
+  %2464 = and i64 %21, 3
+  %2465 = shl i64 %21, 2
+  %2466 = and i64 %2465, 48
+  %2467 = shl i64 %21, 4
+  %2468 = and i64 %2467, 768
+  %2469 = shl i64 %21, 6
+  %2470 = and i64 %2469, 12288
+  %2471 = shl i64 %21, 8
+  %2472 = and i64 %2471, 196608
+  %2473 = shl i64 %21, 10
+  %2474 = and i64 %2473, 3145728
+  %2475 = shl i64 %21, 12
+  %2476 = and i64 %2475, 50331648
+  %2477 = shl i64 %21, 14
+  %2478 = and i64 %2477, 805306368
+  %2479 = shl i64 %21, 16
+  %2480 = and i64 %2479, 12884901888
+  %2481 = shl i64 %21, 18
+  %2482 = and i64 %2481, 206158430208
+  %2483 = shl i64 %21, 20
+  %2484 = and i64 %2483, 3298534883328
+  %2485 = shl i64 %21, 22
+  %2486 = and i64 %2485, 52776558133248
+  %2487 = shl i64 %21, 24
+  %2488 = and i64 %2487, 844424930131968
+  %2489 = shl i64 %21, 26
+  %2490 = and i64 %2489, 13510798882111488
+  %2491 = shl i64 %21, 28
+  %2492 = and i64 %2491, 216172782113783808
+  %2493 = shl i64 %21, 30
+  %2494 = and i64 %2493, 3458764513820540928
+  %2495 = and i64 %21, 15
+  %2496 = or disjoint i64 %2466, %2495
+  %2497 = or disjoint i64 %2496, %2468
+  %2498 = or disjoint i64 %2497, %2470
+  %2499 = or disjoint i64 %2498, %2472
+  %2500 = or disjoint i64 %2499, %2474
+  %2501 = or i64 %2500, %2476
+  %2502 = or i64 %2501, %2478
+  %2503 = or i64 %2502, %2480
+  %2504 = or i64 %2503, %2482
+  %2505 = or i64 %2504, %2484
+  %2506 = or i64 %2505, %2486
+  %2507 = or i64 %2506, %2488
+  %2508 = or i64 %2507, %2490
+  %2509 = or i64 %2508, %2492
+  %2510 = or i64 %2509, %2494
+  %2511 = shl nuw i64 %2510, 2
+  %2512 = or disjoint i64 %2511, %2464
+  %2513 = or i64 %2494, %2512
+  %2514 = or i64 %2513, %2492
+  %2515 = or i64 %2514, %2490
+  %2516 = or i64 %2515, %2488
+  %2517 = or i64 %2516, %2486
+  %2518 = or i64 %2517, %2484
+  %2519 = or i64 %2518, %2482
+  %2520 = or i64 %2519, %2480
+  %2521 = or i64 %2520, %2478
+  %2522 = or i64 %2521, %2476
+  %2523 = or i64 %2522, %2474
+  %2524 = or i64 %2523, %2472
+  %2525 = or i64 %2524, %2470
+  %2526 = or i64 %2525, %2468
+  br label %_ZL13compute_shiftmj.exit
+
+2527:                                             ; preds = %._crit_edge
+  %2528 = and i64 %21, 1
+  %2529 = shl nuw i64 %21, 1
+  %2530 = and i64 %2529, 4
+  %2531 = shl i64 %21, 2
+  %2532 = and i64 %2531, 16
+  %2533 = shl i64 %21, 3
+  %2534 = and i64 %2533, 64
+  %2535 = shl i64 %21, 4
+  %2536 = and i64 %2535, 256
+  %2537 = shl i64 %21, 5
+  %2538 = and i64 %2537, 1024
+  %2539 = shl i64 %21, 6
+  %2540 = and i64 %2539, 4096
+  %2541 = shl i64 %21, 7
+  %2542 = and i64 %2541, 16384
+  %2543 = shl i64 %21, 8
+  %2544 = and i64 %2543, 65536
+  %2545 = shl i64 %21, 9
+  %2546 = and i64 %2545, 262144
+  %2547 = shl i64 %21, 10
+  %2548 = and i64 %2547, 1048576
+  %2549 = shl i64 %21, 11
+  %2550 = and i64 %2549, 4194304
+  %2551 = shl i64 %21, 12
+  %2552 = and i64 %2551, 16777216
+  %2553 = shl i64 %21, 13
+  %2554 = and i64 %2553, 67108864
+  %2555 = shl i64 %21, 14
+  %2556 = and i64 %2555, 268435456
+  %2557 = shl i64 %21, 15
+  %2558 = and i64 %2557, 1073741824
+  %2559 = shl i64 %21, 16
+  %2560 = and i64 %2559, 4294967296
+  %2561 = shl i64 %21, 17
+  %2562 = and i64 %2561, 17179869184
+  %2563 = shl i64 %21, 18
+  %2564 = and i64 %2563, 68719476736
+  %2565 = shl i64 %21, 19
+  %2566 = and i64 %2565, 274877906944
+  %2567 = shl i64 %21, 20
+  %2568 = and i64 %2567, 1099511627776
+  %2569 = shl i64 %21, 21
+  %2570 = and i64 %2569, 4398046511104
+  %2571 = shl i64 %21, 22
+  %2572 = and i64 %2571, 17592186044416
+  %2573 = shl i64 %21, 23
+  %2574 = and i64 %2573, 70368744177664
+  %2575 = shl i64 %21, 24
+  %2576 = and i64 %2575, 281474976710656
+  %2577 = shl i64 %21, 25
+  %2578 = and i64 %2577, 1125899906842624
+  %2579 = shl i64 %21, 26
+  %2580 = and i64 %2579, 4503599627370496
+  %2581 = shl i64 %21, 27
+  %2582 = and i64 %2581, 18014398509481984
+  %2583 = shl i64 %21, 28
+  %2584 = and i64 %2583, 72057594037927936
+  %2585 = shl i64 %21, 29
+  %2586 = and i64 %2585, 288230376151711744
+  %2587 = shl i64 %21, 30
+  %2588 = and i64 %2587, 1152921504606846976
+  %2589 = shl i64 %21, 31
+  %2590 = and i64 %2589, 4611686018427387904
+  %2591 = and i64 %21, 3
+  %2592 = or disjoint i64 %2530, %2591
+  %2593 = or disjoint i64 %2592, %2532
+  %2594 = or disjoint i64 %2593, %2534
+  %2595 = or disjoint i64 %2594, %2536
+  %2596 = or disjoint i64 %2595, %2538
+  %2597 = or i64 %2596, %2540
+  %2598 = or i64 %2597, %2542
+  %2599 = or i64 %2598, %2544
+  %2600 = or i64 %2599, %2546
+  %2601 = or i64 %2600, %2548
+  %2602 = or i64 %2601, %2550
+  %2603 = or i64 %2602, %2552
+  %2604 = or i64 %2603, %2554
+  %2605 = or i64 %2604, %2556
+  %2606 = or i64 %2605, %2558
+  %2607 = or i64 %2606, %2560
+  %2608 = or i64 %2607, %2562
+  %2609 = or i64 %2608, %2564
+  %2610 = or i64 %2609, %2566
+  %2611 = or i64 %2610, %2568
+  %2612 = or i64 %2611, %2570
+  %2613 = or i64 %2612, %2572
+  %2614 = or i64 %2613, %2574
+  %2615 = or i64 %2614, %2576
+  %2616 = or i64 %2615, %2578
+  %2617 = or i64 %2616, %2580
+  %2618 = or i64 %2617, %2582
+  %2619 = or i64 %2618, %2584
+  %2620 = or i64 %2619, %2586
+  %2621 = or i64 %2620, %2588
+  %2622 = or i64 %2621, %2590
+  %2623 = shl nuw i64 %2622, 1
+  %2624 = or disjoint i64 %2623, %2528
+  %2625 = or i64 %2590, %2624
+  %2626 = or i64 %2625, %2588
+  %2627 = or i64 %2626, %2586
+  %2628 = or i64 %2627, %2584
+  %2629 = or i64 %2628, %2582
+  %2630 = or i64 %2629, %2580
+  %2631 = or i64 %2630, %2578
+  %2632 = or i64 %2631, %2576
+  %2633 = or i64 %2632, %2574
+  %2634 = or i64 %2633, %2572
+  %2635 = or i64 %2634, %2570
+  %2636 = or i64 %2635, %2568
+  %2637 = or i64 %2636, %2566
+  %2638 = or i64 %2637, %2564
+  %2639 = or i64 %2638, %2562
+  %2640 = or i64 %2639, %2560
+  %2641 = or i64 %2640, %2558
+  %2642 = or i64 %2641, %2556
+  %2643 = or i64 %2642, %2554
+  %2644 = or i64 %2643, %2552
+  %2645 = or i64 %2644, %2550
+  %2646 = or i64 %2645, %2548
+  %2647 = or i64 %2646, %2546
+  %2648 = or i64 %2647, %2544
+  %2649 = or i64 %2648, %2542
+  %2650 = or i64 %2649, %2540
+  %2651 = or i64 %2650, %2538
+  %2652 = or i64 %2651, %2536
+  %2653 = or i64 %2652, %2534
+  %2654 = or i64 %2653, %2532
+  br label %_ZL13compute_shiftmj.exit
+
+2655:                                             ; preds = %._crit_edge
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.9, i32 noundef 842, ptr noundef nonnull @.str.10)
-  tail call void @exit(i32 noundef 114) #19
-  unreachable
+  tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
+  br label %_ZL13compute_shiftmj.exit
 
-_ZL13compute_shiftmj.exit:                        ; preds = %for.end, %sw.bb.i, %sw.bb1.i, %sw.bb4.i, %sw.bb6.i, %sw.bb17.i, %sw.bb22.i, %sw.bb34.i, %sw.bb36.i, %sw.bb59.i, %sw.bb70.i, %sw.bb95.i, %sw.bb100.i, %sw.bb126.i, %sw.bb138.i, %sw.bb164.i, %sw.bb166.i, %sw.bb213.i, %sw.bb236.i, %sw.bb287.i, %sw.bb298.i, %sw.bb351.i, %sw.bb376.i, %sw.bb429.i, %sw.bb434.i, %sw.bb488.i, %sw.bb514.i, %sw.bb568.i, %sw.bb580.i, %sw.bb636.i, %sw.bb662.i, %sw.bb716.i, %sw.bb718.i, %sw.bb813.i, %sw.bb860.i, %sw.bb963.i, %sw.bb986.i, %sw.bb1093.i, %sw.bb1144.i, %sw.bb1251.i, %sw.bb1262.i, %sw.bb1371.i, %sw.bb1424.i, %sw.bb1533.i, %sw.bb1558.i, %sw.bb1671.i, %sw.bb1724.i, %sw.bb1833.i, %sw.bb1838.i, %sw.bb1948.i, %sw.bb2002.i, %sw.bb2112.i, %sw.bb2138.i, %sw.bb2252.i, %sw.bb2306.i, %sw.bb2416.i, %sw.bb2428.i, %sw.bb2544.i, %sw.bb2600.i, %sw.bb2712.i, %sw.bb2738.i, %sw.bb2854.i, %sw.bb2908.i, %sw.bb3018.i, %sw.bb3020.i, %sw.bb3211.i, %sw.bb3306.i, %sw.bb3513.i, %sw.bb3560.i, %sw.bb3775.i, %sw.bb3878.i, %sw.bb4093.i, %sw.bb4116.i, %sw.bb4335.i, %sw.bb4442.i, %sw.bb4661.i, %sw.bb4712.i, %sw.bb4939.i, %sw.bb5046.i, %sw.bb5265.i, %sw.bb5276.i, %sw.bb5497.i, %sw.bb5606.i, %sw.bb5827.i, %sw.bb5880.i, %sw.bb6109.i, %sw.bb6218.i, %sw.bb6439.i, %sw.bb6464.i, %sw.bb6697.i, %sw.bb6810.i, %sw.bb7035.i, %sw.bb7088.i, %sw.bb7321.i, %sw.bb7430.i, %sw.bb7651.i, %sw.bb7656.i, %sw.bb7878.i, %sw.bb7988.i, %sw.bb8210.i, %sw.bb8264.i, %sw.bb8494.i, %sw.bb8604.i, %sw.bb8826.i, %sw.bb8852.i, %sw.bb9086.i, %sw.bb9200.i, %sw.bb9426.i, %sw.bb9480.i, %sw.bb9714.i, %sw.bb9824.i, %sw.bb10046.i, %sw.bb10058.i, %sw.bb10294.i, %sw.bb10410.i, %sw.bb10638.i, %sw.bb10694.i, %sw.bb10930.i, %sw.bb11042.i, %sw.bb11266.i, %sw.bb11292.i, %sw.bb11532.i, %sw.bb11648.i, %sw.bb11876.i, %sw.bb11930.i, %sw.bb12166.i, %sw.bb12276.i
-  %retval.0.i = phi i64 [ %or12497.i, %sw.bb12276.i ], [ %or12275.i, %sw.bb12166.i ], [ %or12165.i, %sw.bb11930.i ], [ %or11929.i, %sw.bb11876.i ], [ %or11875.i, %sw.bb11648.i ], [ %or11647.i, %sw.bb11532.i ], [ %or11531.i, %sw.bb11292.i ], [ %or11291.i, %sw.bb11266.i ], [ %or11265.i, %sw.bb11042.i ], [ %or11041.i, %sw.bb10930.i ], [ %or10929.i, %sw.bb10694.i ], [ %or10693.i, %sw.bb10638.i ], [ %or10637.i, %sw.bb10410.i ], [ %or10409.i, %sw.bb10294.i ], [ %or10293.i, %sw.bb10058.i ], [ %or10057.i, %sw.bb10046.i ], [ %or10045.i, %sw.bb9824.i ], [ %or9823.i, %sw.bb9714.i ], [ %or9713.i, %sw.bb9480.i ], [ %or9479.i, %sw.bb9426.i ], [ %or9425.i, %sw.bb9200.i ], [ %or9199.i, %sw.bb9086.i ], [ %or9085.i, %sw.bb8852.i ], [ %or8851.i, %sw.bb8826.i ], [ %or8825.i, %sw.bb8604.i ], [ %or8603.i, %sw.bb8494.i ], [ %or8493.i, %sw.bb8264.i ], [ %or8263.i, %sw.bb8210.i ], [ %or8209.i, %sw.bb7988.i ], [ %or7987.i, %sw.bb7878.i ], [ %or7877.i, %sw.bb7656.i ], [ %or7655.i, %sw.bb7651.i ], [ %or7650.i, %sw.bb7430.i ], [ %or7429.i, %sw.bb7321.i ], [ %or7320.i, %sw.bb7088.i ], [ %or7087.i, %sw.bb7035.i ], [ %or7034.i, %sw.bb6810.i ], [ %or6809.i, %sw.bb6697.i ], [ %or6696.i, %sw.bb6464.i ], [ %or6463.i, %sw.bb6439.i ], [ %or6438.i, %sw.bb6218.i ], [ %or6217.i, %sw.bb6109.i ], [ %or6108.i, %sw.bb5880.i ], [ %or5879.i, %sw.bb5827.i ], [ %or5826.i, %sw.bb5606.i ], [ %or5605.i, %sw.bb5497.i ], [ %or5496.i, %sw.bb5276.i ], [ %or5275.i, %sw.bb5265.i ], [ %or5264.i, %sw.bb5046.i ], [ %or5045.i, %sw.bb4939.i ], [ %or4938.i, %sw.bb4712.i ], [ %or4711.i, %sw.bb4661.i ], [ %or4660.i, %sw.bb4442.i ], [ %or4441.i, %sw.bb4335.i ], [ %or4334.i, %sw.bb4116.i ], [ %or4115.i, %sw.bb4093.i ], [ %or4092.i, %sw.bb3878.i ], [ %or3877.i, %sw.bb3775.i ], [ %or3774.i, %sw.bb3560.i ], [ %or3559.i, %sw.bb3513.i ], [ %or3512.i, %sw.bb3306.i ], [ %or3305.i, %sw.bb3211.i ], [ %or3210.i, %sw.bb3020.i ], [ %and3019.i, %sw.bb3018.i ], [ %or3017.i, %sw.bb2908.i ], [ %or2907.i, %sw.bb2854.i ], [ %or2853.i, %sw.bb2738.i ], [ %or2737.i, %sw.bb2712.i ], [ %or2711.i, %sw.bb2600.i ], [ %or2599.i, %sw.bb2544.i ], [ %or2543.i, %sw.bb2428.i ], [ %or2427.i, %sw.bb2416.i ], [ %or2415.i, %sw.bb2306.i ], [ %or2305.i, %sw.bb2252.i ], [ %or2251.i, %sw.bb2138.i ], [ %or2137.i, %sw.bb2112.i ], [ %or2111.i, %sw.bb2002.i ], [ %or2001.i, %sw.bb1948.i ], [ %or1947.i, %sw.bb1838.i ], [ %or1837.i, %sw.bb1833.i ], [ %or1832.i, %sw.bb1724.i ], [ %or1723.i, %sw.bb1671.i ], [ %or1670.i, %sw.bb1558.i ], [ %or1557.i, %sw.bb1533.i ], [ %or1532.i, %sw.bb1424.i ], [ %or1423.i, %sw.bb1371.i ], [ %or1370.i, %sw.bb1262.i ], [ %or1261.i, %sw.bb1251.i ], [ %or1250.i, %sw.bb1144.i ], [ %or1143.i, %sw.bb1093.i ], [ %or1092.i, %sw.bb986.i ], [ %or985.i, %sw.bb963.i ], [ %or962.i, %sw.bb860.i ], [ %or859.i, %sw.bb813.i ], [ %or812.i, %sw.bb718.i ], [ %and717.i, %sw.bb716.i ], [ %or715.i, %sw.bb662.i ], [ %or661.i, %sw.bb636.i ], [ %or635.i, %sw.bb580.i ], [ %or579.i, %sw.bb568.i ], [ %or567.i, %sw.bb514.i ], [ %or513.i, %sw.bb488.i ], [ %or487.i, %sw.bb434.i ], [ %or433.i, %sw.bb429.i ], [ %or428.i, %sw.bb376.i ], [ %or375.i, %sw.bb351.i ], [ %or350.i, %sw.bb298.i ], [ %or297.i, %sw.bb287.i ], [ %or286.i, %sw.bb236.i ], [ %or235.i, %sw.bb213.i ], [ %or212.i, %sw.bb166.i ], [ %and165.i, %sw.bb164.i ], [ %or163.i, %sw.bb138.i ], [ %or137.i, %sw.bb126.i ], [ %or125.i, %sw.bb100.i ], [ %or99.i, %sw.bb95.i ], [ %or94.i, %sw.bb70.i ], [ %or69.i, %sw.bb59.i ], [ %or58.i, %sw.bb36.i ], [ %and35.i, %sw.bb34.i ], [ %or33.i, %sw.bb22.i ], [ %or21.i, %sw.bb17.i ], [ %or16.i, %sw.bb6.i ], [ %and5.i, %sw.bb4.i ], [ %or.i29, %sw.bb1.i ], [ %and.i30, %sw.bb.i ], [ %and.i, %for.end ]
-  ret i64 %retval.0.i
+_ZL13compute_shiftmj.exit:                        ; preds = %._crit_edge, %22, %24, %27, %29, %32, %35, %44, %46, %49, %52, %62, %65, %75, %84, %100, %102, %105, %108, %118, %121, %132, %142, %160, %163, %173, %183, %204, %213, %233, %249, %281, %283, %286, %289, %301, %304, %317, %327, %347, %350, %361, %372, %395, %405, %427, %445, %479, %482, %492, %502, %525, %535, %559, %580, %616, %625, %645, %665, %706, %722, %762, %794, %858, %860, %863, %866, %880, %883, %898, %910, %932, %935, %948, %961, %986, %996, %1020, %1040, %1076, %1079, %1090, %1101, %1126, %1137, %1163, %1186, %1224, %1234, %1256, %1278, %1321, %1339, %1381, %1415, %1481, %1484, %1494, %1504, %1527, %1537, %1564, %1587, %1627, %1637, %1661, %1685, %1730, %1751, %1795, %1831, %1899, %1908, %1928, %1948, %1993, %2013, %2061, %2102, %2174, %2190, %2230, %2270, %2351, %2383, %2463, %2527, %2655
+  %.0.i = phi i64 [ 0, %2655 ], [ %2654, %2527 ], [ %2526, %2463 ], [ %2462, %2383 ], [ %2382, %2351 ], [ %2350, %2270 ], [ %2269, %2230 ], [ %2229, %2190 ], [ %2189, %2174 ], [ %2173, %2102 ], [ %2101, %2061 ], [ %2060, %2013 ], [ %2012, %1993 ], [ %1992, %1948 ], [ %1947, %1928 ], [ %1927, %1908 ], [ %1907, %1899 ], [ %1898, %1831 ], [ %1830, %1795 ], [ %1794, %1751 ], [ %1750, %1730 ], [ %1729, %1685 ], [ %1684, %1661 ], [ %1660, %1637 ], [ %1636, %1627 ], [ %1626, %1587 ], [ %1586, %1564 ], [ %1563, %1537 ], [ %1536, %1527 ], [ %1526, %1504 ], [ %1503, %1494 ], [ %1493, %1484 ], [ %1483, %1481 ], [ %1480, %1415 ], [ %1414, %1381 ], [ %1380, %1339 ], [ %1338, %1321 ], [ %1320, %1278 ], [ %1277, %1256 ], [ %1255, %1234 ], [ %1233, %1224 ], [ %1223, %1186 ], [ %1185, %1163 ], [ %1162, %1137 ], [ %1136, %1126 ], [ %1125, %1101 ], [ %1100, %1090 ], [ %1089, %1079 ], [ %1078, %1076 ], [ %1075, %1040 ], [ %1039, %1020 ], [ %1019, %996 ], [ %995, %986 ], [ %985, %961 ], [ %960, %948 ], [ %947, %935 ], [ %934, %932 ], [ %931, %910 ], [ %909, %898 ], [ %897, %883 ], [ %882, %880 ], [ %879, %866 ], [ %865, %863 ], [ %862, %860 ], [ %859, %858 ], [ %857, %794 ], [ %793, %762 ], [ %761, %722 ], [ %721, %706 ], [ %705, %665 ], [ %664, %645 ], [ %644, %625 ], [ %624, %616 ], [ %615, %580 ], [ %579, %559 ], [ %558, %535 ], [ %534, %525 ], [ %524, %502 ], [ %501, %492 ], [ %491, %482 ], [ %481, %479 ], [ %478, %445 ], [ %444, %427 ], [ %426, %405 ], [ %404, %395 ], [ %394, %372 ], [ %371, %361 ], [ %360, %350 ], [ %349, %347 ], [ %346, %327 ], [ %326, %317 ], [ %316, %304 ], [ %303, %301 ], [ %300, %289 ], [ %288, %286 ], [ %285, %283 ], [ %282, %281 ], [ %280, %249 ], [ %248, %233 ], [ %232, %213 ], [ %212, %204 ], [ %203, %183 ], [ %182, %173 ], [ %172, %163 ], [ %162, %160 ], [ %159, %142 ], [ %141, %132 ], [ %131, %121 ], [ %120, %118 ], [ %117, %108 ], [ %107, %105 ], [ %104, %102 ], [ %101, %100 ], [ %99, %84 ], [ %83, %75 ], [ %74, %65 ], [ %64, %62 ], [ %61, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %44 ], [ %43, %35 ], [ %34, %32 ], [ %31, %29 ], [ %28, %27 ], [ %26, %24 ], [ %23, %22 ], [ %21, %._crit_edge ]
+  ret i64 %.0.i
+
+2656:                                             ; preds = %.lr.ph, %_ZNK3sat3cutixEj.exit25
+  %.031 = phi i32 [ %10, %.lr.ph ], [ %2671, %_ZNK3sat3cutixEj.exit25 ]
+  %.01430 = phi i32 [ %5, %.lr.ph ], [ %.1, %_ZNK3sat3cutixEj.exit25 ]
+  %.01529 = phi i32 [ 0, %.lr.ph ], [ %2666, %_ZNK3sat3cutixEj.exit25 ]
+  %.01628 = phi i32 [ 0, %.lr.ph ], [ %.117, %_ZNK3sat3cutixEj.exit25 ]
+  %.01827 = phi i32 [ 0, %.lr.ph ], [ %.119, %_ZNK3sat3cutixEj.exit25 ]
+  %2657 = icmp eq i32 %.01430, %.031
+  br i1 %2657, label %2658, label %_ZNK3sat3cutixEj.exit23
+
+2658:                                             ; preds = %2656
+  %2659 = shl nuw i32 1, %.01529
+  %2660 = or i32 %2659, %.01827
+  %2661 = add i32 %.01628, 1
+  %.not.i22 = icmp ult i32 %2661, %3
+  br i1 %.not.i22, label %2662, label %_ZNK3sat3cutixEj.exit23
+
+2662:                                             ; preds = %2658
+  %2663 = zext i32 %2661 to i64
+  %2664 = getelementptr inbounds nuw [5 x i32], ptr %4, i64 0, i64 %2663
+  %2665 = load i32, ptr %2664, align 4, !tbaa !16
+  br label %_ZNK3sat3cutixEj.exit23
+
+_ZNK3sat3cutixEj.exit23:                          ; preds = %2662, %2658, %2656
+  %.119 = phi i32 [ %.01827, %2656 ], [ %2660, %2658 ], [ %2660, %2662 ]
+  %.117 = phi i32 [ %.01628, %2656 ], [ %2661, %2658 ], [ %2661, %2662 ]
+  %.1 = phi i32 [ %.01430, %2656 ], [ -1, %2658 ], [ %2665, %2662 ]
+  %2666 = add i32 %.01529, 1
+  %.not.i24 = icmp ult i32 %2666, %7
+  br i1 %.not.i24, label %2667, label %_ZNK3sat3cutixEj.exit25
+
+2667:                                             ; preds = %_ZNK3sat3cutixEj.exit23
+  %2668 = zext i32 %2666 to i64
+  %2669 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %2668
+  %2670 = load i32, ptr %2669, align 4, !tbaa !16
+  br label %_ZNK3sat3cutixEj.exit25
+
+_ZNK3sat3cutixEj.exit25:                          ; preds = %_ZNK3sat3cutixEj.exit23, %2667
+  %2671 = phi i32 [ %2670, %2667 ], [ -1, %_ZNK3sat3cutixEj.exit23 ]
+  %.not = icmp eq i32 %.1, -1
+  br i1 %.not, label %._crit_edge, label %2656, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK3sat3cut6dom_eqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %other) local_unnamed_addr #7 align 2 {
-entry:
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i32, ptr %m_size, align 4
-  %m_size2 = getelementptr inbounds nuw i8, ptr %other, i64 4
-  %1 = load i32, ptr %m_size2, align 4
-  %cmp.not = icmp eq i32 %0, %1
-  br i1 %cmp.not, label %for.cond.preheader, label %return
+define hidden noundef zeroext i1 @_ZNK3sat3cut6dom_eqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #7 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !15
+  %.not = icmp eq i32 %4, %6
+  br i1 %.not, label %.preheader, label %.loopexit
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp413.not = icmp eq i32 %0, 0
-  br i1 %cmp413.not, label %return, label %_ZNK3sat3cutixEj.exit.lr.ph
+.preheader:                                       ; preds = %2
+  %7 = icmp eq i32 %4, 0
+  br i1 %7, label %.loopexit, label %_ZNK3sat3cutixEj.exit.lr.ph
 
-_ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %for.cond.preheader
-  %m_elems.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %m_elems.i9 = getelementptr inbounds nuw i8, ptr %other, i64 8
-  %wide.trip.count = zext i32 %0 to i64
+_ZNK3sat3cutixEj.exit.lr.ph:                      ; preds = %.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %wide.trip.count = zext i32 %4 to i64
   br label %_ZNK3sat3cutixEj.exit
 
 _ZNK3sat3cutixEj.exit:                            ; preds = %_ZNK3sat3cutixEj.exit, %_ZNK3sat3cutixEj.exit.lr.ph
   %indvars.iv = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph ], [ %indvars.iv.next, %_ZNK3sat3cutixEj.exit ]
-  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx.i11 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9, i64 0, i64 %indvars.iv
-  %3 = load i32, ptr %arrayidx.i11, align 4
-  %cmp6.not = icmp eq i32 %2, %3
+  %10 = getelementptr inbounds nuw [5 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %11 = load i32, ptr %10, align 4, !tbaa !16
+  %12 = getelementptr inbounds nuw [5 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4, !tbaa !16
+  %.not10 = icmp eq i32 %11, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not = select i1 %cmp6.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %_ZNK3sat3cutixEj.exit, label %return, !llvm.loop !9
+  %or.cond.not = select i1 %.not10, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not, label %_ZNK3sat3cutixEj.exit, label %.loopexit, !llvm.loop !46
 
-return:                                           ; preds = %_ZNK3sat3cutixEj.exit, %for.cond.preheader, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %for.cond.preheader ], [ %cmp6.not, %_ZNK3sat3cutixEj.exit ]
-  ret i1 %retval.0
+.loopexit:                                        ; preds = %_ZNK3sat3cutixEj.exit, %.preheader, %2
+  %.09 = phi i1 [ false, %2 ], [ true, %.preheader ], [ %.not10, %_ZNK3sat3cutixEj.exit ]
+  ret i1 %.09
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %agg.tmp = alloca %"class.sat::cut", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 48, i1 false)
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i32, ptr %m_size, align 4
-  %m_table.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 32
-  %1 = load i64, ptr %m_table.i.i.i, align 8
-  %m_dont_care.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 40
-  %2 = load i64, ptr %m_dont_care.i.i.i, align 8
-  %or.i.i.i = or i64 %2, %1
-  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 4
-  %3 = load i32, ptr %m_size.i.i.i.i, align 4
-  %sh_prom.i.i.i.i = zext i32 %3 to i64
-  %shl.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i
-  %notmask.i.i.i.i = shl nsw i64 -1, %shl.i.i.i.i
-  %sub.i.i.i.i = xor i64 %notmask.i.i.i.i, -1
-  %and.i.i.i = and i64 %or.i.i.i, %sub.i.i.i.i
-  %conv.i.i = trunc i64 %and.i.i.i to i32
-  switch i32 %0, label %while.body.lr.ph.i [
+define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #8 align 2 {
+  %2 = alloca %"class.sat::cut", align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !19
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %6 = load i64, ptr %5, align 8, !tbaa !44
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %8 = load i64, ptr %7, align 8, !tbaa !45
+  %9 = or i64 %8, %6
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !15
+  %12 = zext i32 %11 to i64
+  %13 = shl nuw i64 1, %12
+  %notmask.i.i.i.i = shl nsw i64 -1, %13
+  %14 = xor i64 %notmask.i.i.i.i, -1
+  %15 = and i64 %9, %14
+  %16 = trunc i64 %15 to i32
+  switch i32 %4, label %.lr.ph.i [
     i32 0, label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb35.i
-    i32 3, label %sw.bb77.i
+    i32 1, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i"
+    i32 2, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i"
+    i32 3, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i"
   ]
 
-while.body.lr.ph.i:                               ; preds = %entry
-  %m_elems.i.i399.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %4 = zext i32 %0 to i64
-  br label %while.body.i
+.lr.ph.i:                                         ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = zext i32 %4 to i64
+  br label %181
 
-sw.bb1.i:                                         ; preds = %entry
-  %add.i = add i32 %conv.i.i, -1640531527
-  %cmp.not.i.i.not.i = icmp eq i32 %3, 0
-  %m_elems.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %5 = load i32, ptr %m_elems.i.i.i, align 8
-  %cond.i.i.i = select i1 %cmp.not.i.i.not.i, i32 -1, i32 %5
-  %sub.i = sub i32 %add.i, %cond.i.i.i
-  %sub3.i = add i32 %sub.i, -11
-  %sub5.i = sub i32 %cond.i.i.i, %sub.i
-  %shl.i = shl i32 %sub3.i, 8
-  %xor6.i = xor i32 %shl.i, %sub5.i
-  %6 = add i32 %sub.i, %xor6.i
-  %sub8.i = sub i32 22, %6
-  %shr9.i = lshr i32 %xor6.i, 13
-  %xor10.i = xor i32 %sub8.i, %shr9.i
-  %7 = add i32 %xor6.i, %xor10.i
-  %sub12.i = sub i32 %sub3.i, %7
-  %shr13.i = lshr i32 %xor10.i, 12
-  %xor14.i = xor i32 %sub12.i, %shr13.i
-  %8 = add i32 %xor10.i, %xor14.i
-  %sub16.i = sub i32 %xor6.i, %8
-  %shl17.i = shl i32 %xor14.i, 16
-  %xor18.i = xor i32 %sub16.i, %shl17.i
-  %9 = add i32 %xor14.i, %xor18.i
-  %sub20.i = sub i32 %xor10.i, %9
-  %shr21.i = lshr i32 %xor18.i, 5
-  %xor22.i = xor i32 %sub20.i, %shr21.i
-  %10 = add i32 %xor18.i, %xor22.i
-  %sub24.i = sub i32 %xor14.i, %10
-  %shr25.i = lshr i32 %xor22.i, 3
-  %xor26.i = xor i32 %sub24.i, %shr25.i
-  %11 = add i32 %xor22.i, %xor26.i
-  %sub28.i = sub i32 %xor18.i, %11
-  %shl29.i = shl i32 %xor26.i, 10
-  %xor30.i = xor i32 %sub28.i, %shl29.i
-  %12 = add i32 %xor26.i, %xor30.i
-  %sub32.i = sub i32 %xor22.i, %12
-  %shr33.i = lshr i32 %xor30.i, 15
-  %xor34.i = xor i32 %sub32.i, %shr33.i
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i":    ; preds = %1
+  %19 = add i32 %16, -1640531527
+  %.not.i.i.not.i = icmp eq i32 %11, 0
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = select i1 %.not.i.i.not.i, i32 -1, i32 %21
+  %23 = sub i32 %19, %22
+  %24 = add i32 %23, -11
+  %25 = sub i32 %22, %23
+  %26 = shl i32 %24, 8
+  %27 = xor i32 %26, %25
+  %28 = add i32 %23, %27
+  %29 = sub i32 22, %28
+  %30 = lshr i32 %27, 13
+  %31 = xor i32 %29, %30
+  %32 = add i32 %27, %31
+  %33 = sub i32 %24, %32
+  %34 = lshr i32 %31, 12
+  %35 = xor i32 %33, %34
+  %36 = add i32 %31, %35
+  %37 = sub i32 %27, %36
+  %38 = shl i32 %35, 16
+  %39 = xor i32 %37, %38
+  %40 = add i32 %35, %39
+  %41 = sub i32 %31, %40
+  %42 = lshr i32 %39, 5
+  %43 = xor i32 %41, %42
+  %44 = add i32 %39, %43
+  %45 = sub i32 %35, %44
+  %46 = lshr i32 %43, 3
+  %47 = xor i32 %45, %46
+  %48 = add i32 %43, %47
+  %49 = sub i32 %39, %48
+  %50 = shl i32 %47, 10
+  %51 = xor i32 %49, %50
+  %52 = add i32 %47, %51
+  %53 = sub i32 %43, %52
+  %54 = lshr i32 %51, 15
+  %55 = xor i32 %53, %54
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-sw.bb35.i:                                        ; preds = %entry
-  %cmp.not.i.i363.not.i = icmp eq i32 %3, 0
-  %m_elems.i.i366.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %13 = load i32, ptr %m_elems.i.i366.i, align 8
-  %cond.i.i364.i = select i1 %cmp.not.i.i363.not.i, i32 -1, i32 %13
-  %cmp.not.i.i369.i = icmp ugt i32 %3, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 12
-  %14 = load i32, ptr %arrayidx.i.i.i, align 4
-  %15 = add i32 %14, 11
-  %add40.i = select i1 %cmp.not.i.i369.i, i32 %15, i32 10
-  %16 = add i32 %cond.i.i364.i, %add40.i
-  %sub42.i = sub i32 %conv.i.i, %16
-  %shr43.i = lshr i32 %add40.i, 13
-  %xor44.i = xor i32 %sub42.i, %shr43.i
-  %.neg19 = add i32 %cond.i.i364.i, -1640531527
-  %17 = add i32 %add40.i, %xor44.i
-  %sub46.i = sub i32 %.neg19, %17
-  %shl47.i = shl i32 %xor44.i, 8
-  %xor48.i = xor i32 %sub46.i, %shl47.i
-  %18 = add i32 %xor44.i, %xor48.i
-  %sub50.i = sub i32 %add40.i, %18
-  %shr51.i = lshr i32 %xor48.i, 13
-  %xor52.i = xor i32 %sub50.i, %shr51.i
-  %19 = add i32 %xor48.i, %xor52.i
-  %sub54.i = sub i32 %xor44.i, %19
-  %shr55.i = lshr i32 %xor52.i, 12
-  %xor56.i = xor i32 %sub54.i, %shr55.i
-  %20 = add i32 %xor52.i, %xor56.i
-  %sub58.i = sub i32 %xor48.i, %20
-  %shl59.i = shl i32 %xor56.i, 16
-  %xor60.i = xor i32 %sub58.i, %shl59.i
-  %21 = add i32 %xor56.i, %xor60.i
-  %sub62.i = sub i32 %xor52.i, %21
-  %shr63.i = lshr i32 %xor60.i, 5
-  %xor64.i = xor i32 %sub62.i, %shr63.i
-  %22 = add i32 %xor60.i, %xor64.i
-  %sub66.i = sub i32 %xor56.i, %22
-  %shr67.i = lshr i32 %xor64.i, 3
-  %xor68.i = xor i32 %sub66.i, %shr67.i
-  %23 = add i32 %xor64.i, %xor68.i
-  %sub70.i = sub i32 %xor60.i, %23
-  %shl71.i = shl i32 %xor68.i, 10
-  %xor72.i = xor i32 %sub70.i, %shl71.i
-  %24 = add i32 %xor68.i, %xor72.i
-  %sub74.i = sub i32 %xor64.i, %24
-  %shr75.i = lshr i32 %xor72.i, 15
-  %xor76.i = xor i32 %sub74.i, %shr75.i
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i": ; preds = %1
+  %.not.i.i373.not.i = icmp eq i32 %11, 0
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %57 = load i32, ptr %56, align 8
+  %58 = select i1 %.not.i.i373.not.i, i32 -1, i32 %57
+  %.not.i.i375.i = icmp ugt i32 %11, 1
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %60 = load i32, ptr %59, align 4
+  %61 = add i32 %60, 11
+  %62 = select i1 %.not.i.i375.i, i32 %61, i32 10
+  %63 = add i32 %58, %62
+  %64 = sub i32 %16, %63
+  %65 = lshr i32 %62, 13
+  %66 = xor i32 %64, %65
+  %.neg42 = add i32 %58, -1640531527
+  %67 = add i32 %62, %66
+  %68 = sub i32 %.neg42, %67
+  %69 = shl i32 %66, 8
+  %70 = xor i32 %68, %69
+  %71 = add i32 %66, %70
+  %72 = sub i32 %62, %71
+  %73 = lshr i32 %70, 13
+  %74 = xor i32 %72, %73
+  %75 = add i32 %70, %74
+  %76 = sub i32 %66, %75
+  %77 = lshr i32 %74, 12
+  %78 = xor i32 %76, %77
+  %79 = add i32 %74, %78
+  %80 = sub i32 %70, %79
+  %81 = shl i32 %78, 16
+  %82 = xor i32 %80, %81
+  %83 = add i32 %78, %82
+  %84 = sub i32 %74, %83
+  %85 = lshr i32 %82, 5
+  %86 = xor i32 %84, %85
+  %87 = add i32 %82, %86
+  %88 = sub i32 %78, %87
+  %89 = lshr i32 %86, 3
+  %90 = xor i32 %88, %89
+  %91 = add i32 %86, %90
+  %92 = sub i32 %82, %91
+  %93 = shl i32 %90, 10
+  %94 = xor i32 %92, %93
+  %95 = add i32 %90, %94
+  %96 = sub i32 %86, %95
+  %97 = lshr i32 %94, 15
+  %98 = xor i32 %96, %97
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-sw.bb77.i:                                        ; preds = %entry
-  %cmp.not.i.i375.not.i = icmp eq i32 %3, 0
-  %m_elems.i.i378.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %25 = load i32, ptr %m_elems.i.i378.i, align 8
-  %cond.i.i376.i = select i1 %cmp.not.i.i375.not.i, i32 -1, i32 %25
-  %cmp.not.i.i382.i = icmp ugt i32 %3, 1
-  %arrayidx.i.i386.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 12
-  %26 = load i32, ptr %arrayidx.i.i386.i, align 4
-  %cond.i.i383.i = select i1 %cmp.not.i.i382.i, i32 %26, i32 -1
-  %cmp.not.i.i389.i = icmp ugt i32 %3, 2
-  %arrayidx.i.i393.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  %27 = load i32, ptr %arrayidx.i.i393.i, align 8
-  %28 = add i32 %27, 11
-  %add83.i = select i1 %cmp.not.i.i389.i, i32 %28, i32 10
-  %29 = add i32 %cond.i.i383.i, %add83.i
-  %sub85.i = sub i32 %cond.i.i376.i, %29
-  %shr86.i = lshr i32 %add83.i, 13
-  %xor87.i = xor i32 %sub85.i, %shr86.i
-  %.neg1 = add i32 %cond.i.i383.i, -1640531527
-  %30 = add i32 %add83.i, %xor87.i
-  %sub89.i = sub i32 %.neg1, %30
-  %shl90.i = shl i32 %xor87.i, 8
-  %xor91.i = xor i32 %sub89.i, %shl90.i
-  %31 = add i32 %xor87.i, %xor91.i
-  %sub93.i = sub i32 %add83.i, %31
-  %shr94.i = lshr i32 %xor91.i, 13
-  %xor95.i = xor i32 %sub93.i, %shr94.i
-  %32 = add i32 %xor91.i, %xor95.i
-  %sub97.i = sub i32 %xor87.i, %32
-  %shr98.i = lshr i32 %xor95.i, 12
-  %xor99.i = xor i32 %sub97.i, %shr98.i
-  %33 = add i32 %xor95.i, %xor99.i
-  %sub101.i = sub i32 %xor91.i, %33
-  %shl102.i = shl i32 %xor99.i, 16
-  %xor103.i = xor i32 %sub101.i, %shl102.i
-  %34 = add i32 %xor99.i, %xor103.i
-  %sub105.i = sub i32 %xor95.i, %34
-  %shr106.i = lshr i32 %xor103.i, 5
-  %xor107.i = xor i32 %sub105.i, %shr106.i
-  %35 = add i32 %xor103.i, %xor107.i
-  %sub109.i = sub i32 %xor99.i, %35
-  %shr110.i = lshr i32 %xor107.i, 3
-  %xor111.i = xor i32 %sub109.i, %shr110.i
-  %36 = add i32 %xor107.i, %xor111.i
-  %sub113.i = sub i32 %xor103.i, %36
-  %shl114.i = shl i32 %xor111.i, 10
-  %xor115.i = xor i32 %sub113.i, %shl114.i
-  %37 = add i32 %xor111.i, %xor115.i
-  %sub117.i = sub i32 %xor107.i, %37
-  %shr118.i = lshr i32 %xor115.i, 15
-  %xor119.i = xor i32 %sub117.i, %shr118.i
-  %.neg9 = add i32 %xor111.i, %conv.i.i
-  %38 = add i32 %xor115.i, %xor119.i
-  %sub122.i = sub i32 %.neg9, %38
-  %shr123.i = lshr i32 %xor119.i, 13
-  %xor124.i = xor i32 %sub122.i, %shr123.i
-  %39 = add i32 %xor119.i, %xor124.i
-  %sub126.i = sub i32 %xor115.i, %39
-  %shl127.i = shl i32 %xor124.i, 8
-  %xor128.i = xor i32 %sub126.i, %shl127.i
-  %40 = add i32 %xor124.i, %xor128.i
-  %sub130.i = sub i32 %xor119.i, %40
-  %shr131.i = lshr i32 %xor128.i, 13
-  %xor132.i = xor i32 %sub130.i, %shr131.i
-  %41 = add i32 %xor128.i, %xor132.i
-  %sub134.i = sub i32 %xor124.i, %41
-  %shr135.i = lshr i32 %xor132.i, 12
-  %xor136.i = xor i32 %sub134.i, %shr135.i
-  %42 = add i32 %xor132.i, %xor136.i
-  %sub138.i = sub i32 %xor128.i, %42
-  %shl139.i = shl i32 %xor136.i, 16
-  %xor140.i = xor i32 %sub138.i, %shl139.i
-  %43 = add i32 %xor136.i, %xor140.i
-  %sub142.i = sub i32 %xor132.i, %43
-  %shr143.i = lshr i32 %xor140.i, 5
-  %xor144.i = xor i32 %sub142.i, %shr143.i
-  %44 = add i32 %xor140.i, %xor144.i
-  %sub146.i = sub i32 %xor136.i, %44
-  %shr147.i = lshr i32 %xor144.i, 3
-  %xor148.i = xor i32 %sub146.i, %shr147.i
-  %45 = add i32 %xor144.i, %xor148.i
-  %sub150.i = sub i32 %xor140.i, %45
-  %shl151.i = shl i32 %xor148.i, 10
-  %xor152.i = xor i32 %sub150.i, %shl151.i
-  %46 = add i32 %xor148.i, %xor152.i
-  %sub154.i = sub i32 %xor144.i, %46
-  %shr155.i = lshr i32 %xor152.i, 15
-  %xor156.i = xor i32 %sub154.i, %shr155.i
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i": ; preds = %1
+  %.not.i.i377.not.i = icmp eq i32 %11, 0
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %100 = load i32, ptr %99, align 8
+  %101 = select i1 %.not.i.i377.not.i, i32 -1, i32 %100
+  %.not.i.i379.i = icmp ugt i32 %11, 1
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %103 = load i32, ptr %102, align 4
+  %104 = select i1 %.not.i.i379.i, i32 %103, i32 -1
+  %.not.i.i381.i = icmp ugt i32 %11, 2
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %106 = load i32, ptr %105, align 8
+  %107 = add i32 %106, 11
+  %108 = select i1 %.not.i.i381.i, i32 %107, i32 10
+  %109 = add i32 %104, %108
+  %110 = sub i32 %101, %109
+  %111 = lshr i32 %108, 13
+  %112 = xor i32 %110, %111
+  %.neg5 = add i32 %104, -1640531527
+  %113 = add i32 %108, %112
+  %114 = sub i32 %.neg5, %113
+  %115 = shl i32 %112, 8
+  %116 = xor i32 %114, %115
+  %117 = add i32 %112, %116
+  %118 = sub i32 %108, %117
+  %119 = lshr i32 %116, 13
+  %120 = xor i32 %118, %119
+  %121 = add i32 %116, %120
+  %122 = sub i32 %112, %121
+  %123 = lshr i32 %120, 12
+  %124 = xor i32 %122, %123
+  %125 = add i32 %120, %124
+  %126 = sub i32 %116, %125
+  %127 = shl i32 %124, 16
+  %128 = xor i32 %126, %127
+  %129 = add i32 %124, %128
+  %130 = sub i32 %120, %129
+  %131 = lshr i32 %128, 5
+  %132 = xor i32 %130, %131
+  %133 = add i32 %128, %132
+  %134 = sub i32 %124, %133
+  %135 = lshr i32 %132, 3
+  %136 = xor i32 %134, %135
+  %137 = add i32 %132, %136
+  %138 = sub i32 %128, %137
+  %139 = shl i32 %136, 10
+  %140 = xor i32 %138, %139
+  %141 = add i32 %136, %140
+  %142 = sub i32 %132, %141
+  %143 = lshr i32 %140, 15
+  %144 = xor i32 %142, %143
+  %.neg21 = add i32 %136, %16
+  %145 = add i32 %140, %144
+  %146 = sub i32 %.neg21, %145
+  %147 = lshr i32 %144, 13
+  %148 = xor i32 %146, %147
+  %149 = add i32 %144, %148
+  %150 = sub i32 %140, %149
+  %151 = shl i32 %148, 8
+  %152 = xor i32 %150, %151
+  %153 = add i32 %148, %152
+  %154 = sub i32 %144, %153
+  %155 = lshr i32 %152, 13
+  %156 = xor i32 %154, %155
+  %157 = add i32 %152, %156
+  %158 = sub i32 %148, %157
+  %159 = lshr i32 %156, 12
+  %160 = xor i32 %158, %159
+  %161 = add i32 %156, %160
+  %162 = sub i32 %152, %161
+  %163 = shl i32 %160, 16
+  %164 = xor i32 %162, %163
+  %165 = add i32 %160, %164
+  %166 = sub i32 %156, %165
+  %167 = lshr i32 %164, 5
+  %168 = xor i32 %166, %167
+  %169 = add i32 %164, %168
+  %170 = sub i32 %160, %169
+  %171 = lshr i32 %168, 3
+  %172 = xor i32 %170, %171
+  %173 = add i32 %168, %172
+  %174 = sub i32 %164, %173
+  %175 = shl i32 %172, 10
+  %176 = xor i32 %174, %175
+  %177 = add i32 %172, %176
+  %178 = sub i32 %168, %177
+  %179 = lshr i32 %176, 15
+  %180 = xor i32 %178, %179
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-while.body.i:                                     ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i", %while.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %4, %while.body.lr.ph.i ], [ %50, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %c.056.i = phi i32 [ 11, %while.body.lr.ph.i ], [ %xor200.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %b.055.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor196.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %a.054.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor192.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %47 = trunc nuw i64 %indvars.iv.i to i32
-  %dec.i = add i32 %47, -1
-  %cmp.not.i.i396.i = icmp ult i32 %dec.i, %3
-  br i1 %cmp.not.i.i396.i, label %cond.false.i.i398.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
+181:                                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i", %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %18, %.lr.ph.i ], [ %196, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %.0368111.i = phi i32 [ 11, %.lr.ph.i ], [ %237, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %.0369110.i = phi i32 [ -1640531527, %.lr.ph.i ], [ %233, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %.0371109.i = phi i32 [ -1640531527, %.lr.ph.i ], [ %229, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %182 = trunc nuw i64 %indvars.iv.i to i32
+  %183 = add i32 %182, -1
+  %.not.i.i383.i = icmp ult i32 %183, %11
+  br i1 %.not.i.i383.i, label %184, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i"
 
-cond.false.i.i398.i:                              ; preds = %while.body.i
-  %idxprom.i.i.i = zext i32 %dec.i to i64
-  %arrayidx.i.i400.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i.i
-  %48 = load i32, ptr %arrayidx.i.i400.i, align 4
-  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
+184:                                              ; preds = %181
+  %185 = zext i32 %183 to i64
+  %186 = getelementptr inbounds nuw [5 x i32], ptr %17, i64 0, i64 %185
+  %187 = load i32, ptr %186, align 4, !tbaa !16
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i"
 
-"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i": ; preds = %cond.false.i.i398.i, %while.body.i
-  %cond.i.i397.i = phi i32 [ %48, %cond.false.i.i398.i ], [ -1, %while.body.i ]
-  %dec159.i = add i32 %47, -2
-  %cmp.not.i.i403.i = icmp ult i32 %dec159.i, %3
-  br i1 %cmp.not.i.i403.i, label %cond.false.i.i405.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i": ; preds = %184, %181
+  %188 = phi i32 [ %187, %184 ], [ -1, %181 ]
+  %189 = add i32 %182, -2
+  %.not.i.i385.i = icmp ult i32 %189, %11
+  br i1 %.not.i.i385.i, label %190, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i"
 
-cond.false.i.i405.i:                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
-  %idxprom.i.i407.i = zext i32 %dec159.i to i64
-  %arrayidx.i.i408.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i407.i
-  %49 = load i32, ptr %arrayidx.i.i408.i, align 4
-  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
+190:                                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i"
+  %191 = zext i32 %189 to i64
+  %192 = getelementptr inbounds nuw [5 x i32], ptr %17, i64 0, i64 %191
+  %193 = load i32, ptr %192, align 4, !tbaa !16
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i"
 
-"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i": ; preds = %cond.false.i.i405.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i"
-  %cond.i.i404.i = phi i32 [ %49, %cond.false.i.i405.i ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit401.i" ]
-  %add161.i = add i32 %cond.i.i404.i, %b.055.i
-  %50 = add nsw i64 %indvars.iv.i, -3
-  %cmp.not.i.i411.wide.i = icmp ult i64 %50, %sh_prom.i.i.i.i
-  br i1 %cmp.not.i.i411.wide.i, label %cond.false.i.i413.i, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i"
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i": ; preds = %190, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i"
+  %194 = phi i32 [ %193, %190 ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit384.i" ]
+  %195 = add i32 %194, %.0369110.i
+  %196 = add nsw i64 %indvars.iv.i, -3
+  %.not.i.i387.wide.i = icmp ult i64 %196, %12
+  br i1 %.not.i.i387.wide.i, label %197, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i"
 
-cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
-  %arrayidx.i.i416.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %50
-  %51 = load i32, ptr %arrayidx.i.i416.i, align 4
-  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i"
+197:                                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i"
+  %198 = getelementptr inbounds nuw [5 x i32], ptr %17, i64 0, i64 %196
+  %199 = load i32, ptr %198, align 4, !tbaa !16
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i"
 
-"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i": ; preds = %cond.false.i.i413.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i"
-  %cond.i.i412.i = phi i32 [ %51, %cond.false.i.i413.i ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit409.i" ]
-  %add164.i = add i32 %cond.i.i412.i, %c.056.i
-  %.neg34 = add i32 %cond.i.i397.i, %a.054.i
-  %52 = add i32 %add161.i, %add164.i
-  %sub166.i = sub i32 %.neg34, %52
-  %shr167.i = lshr i32 %add164.i, 13
-  %xor168.i = xor i32 %sub166.i, %shr167.i
-  %53 = add i32 %add164.i, %xor168.i
-  %sub170.i = sub i32 %add161.i, %53
-  %shl171.i = shl i32 %xor168.i, 8
-  %xor172.i = xor i32 %sub170.i, %shl171.i
-  %54 = add i32 %xor168.i, %xor172.i
-  %sub174.i = sub i32 %add164.i, %54
-  %shr175.i = lshr i32 %xor172.i, 13
-  %xor176.i = xor i32 %sub174.i, %shr175.i
-  %55 = add i32 %xor172.i, %xor176.i
-  %sub178.i = sub i32 %xor168.i, %55
-  %shr179.i = lshr i32 %xor176.i, 12
-  %xor180.i = xor i32 %sub178.i, %shr179.i
-  %56 = add i32 %xor176.i, %xor180.i
-  %sub182.i = sub i32 %xor172.i, %56
-  %shl183.i = shl i32 %xor180.i, 16
-  %xor184.i = xor i32 %sub182.i, %shl183.i
-  %57 = add i32 %xor180.i, %xor184.i
-  %sub186.i = sub i32 %xor176.i, %57
-  %shr187.i = lshr i32 %xor184.i, 5
-  %xor188.i = xor i32 %sub186.i, %shr187.i
-  %58 = add i32 %xor184.i, %xor188.i
-  %sub190.i = sub i32 %xor180.i, %58
-  %shr191.i = lshr i32 %xor188.i, 3
-  %xor192.i = xor i32 %sub190.i, %shr191.i
-  %59 = add i32 %xor188.i, %xor192.i
-  %sub194.i = sub i32 %xor184.i, %59
-  %shl195.i = shl i32 %xor192.i, 10
-  %xor196.i = xor i32 %sub194.i, %shl195.i
-  %60 = add i32 %xor192.i, %xor196.i
-  %sub198.i = sub i32 %xor188.i, %60
-  %shr199.i = lshr i32 %xor196.i, 15
-  %xor200.i = xor i32 %sub198.i, %shr199.i
-  %cmp.wide.i = icmp ugt i64 %50, 2
-  br i1 %cmp.wide.i, label %while.body.i, label %while.end.i, !llvm.loop !16
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i": ; preds = %197, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i"
+  %200 = phi i32 [ %199, %197 ], [ -1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit386.i" ]
+  %201 = add i32 %200, %.0368111.i
+  %.neg75 = add i32 %188, %.0371109.i
+  %202 = add i32 %195, %201
+  %203 = sub i32 %.neg75, %202
+  %204 = lshr i32 %201, 13
+  %205 = xor i32 %203, %204
+  %206 = add i32 %201, %205
+  %207 = sub i32 %195, %206
+  %208 = shl i32 %205, 8
+  %209 = xor i32 %207, %208
+  %210 = add i32 %205, %209
+  %211 = sub i32 %201, %210
+  %212 = lshr i32 %209, 13
+  %213 = xor i32 %211, %212
+  %214 = add i32 %209, %213
+  %215 = sub i32 %205, %214
+  %216 = lshr i32 %213, 12
+  %217 = xor i32 %215, %216
+  %218 = add i32 %213, %217
+  %219 = sub i32 %209, %218
+  %220 = shl i32 %217, 16
+  %221 = xor i32 %219, %220
+  %222 = add i32 %217, %221
+  %223 = sub i32 %213, %222
+  %224 = lshr i32 %221, 5
+  %225 = xor i32 %223, %224
+  %226 = add i32 %221, %225
+  %227 = sub i32 %217, %226
+  %228 = lshr i32 %225, 3
+  %229 = xor i32 %227, %228
+  %230 = add i32 %225, %229
+  %231 = sub i32 %221, %230
+  %232 = shl i32 %229, 10
+  %233 = xor i32 %231, %232
+  %234 = add i32 %229, %233
+  %235 = sub i32 %225, %234
+  %236 = lshr i32 %233, 15
+  %237 = xor i32 %235, %236
+  %.wide.i = icmp ugt i64 %196, 2
+  br i1 %.wide.i, label %181, label %._crit_edge.i, !llvm.loop !54
 
-while.end.i:                                      ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit417.i"
-  %61 = trunc nuw i64 %50 to i32
-  switch i32 %61, label %sw.epilog.i [
-    i32 2, label %sw.bb202.i
-    i32 1, label %sw.bb205.i
+._crit_edge.i:                                    ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i"
+  %238 = trunc nuw i64 %196 to i32
+  switch i32 %238, label %246 [
+    i32 2, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit390.i"
+    i32 1, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i"
   ]
 
-sw.bb202.i:                                       ; preds = %while.end.i
-  %cmp.not.i.i419.i = icmp ugt i32 %3, 1
-  %arrayidx.i.i423.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 12
-  %62 = load i32, ptr %arrayidx.i.i423.i, align 4
-  %cond.i.i420.i = select i1 %cmp.not.i.i419.i, i32 %62, i32 -1
-  %add204.i = add i32 %cond.i.i420.i, %xor196.i
-  br label %sw.bb205.i
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit390.i": ; preds = %._crit_edge.i
+  %.not.i.i389.i = icmp ugt i32 %11, 1
+  %239 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %240 = load i32, ptr %239, align 4
+  %241 = select i1 %.not.i.i389.i, i32 %240, i32 -1
+  %242 = add i32 %241, %233
+  br label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i"
 
-sw.bb205.i:                                       ; preds = %sw.bb202.i, %while.end.i
-  %b.2.i = phi i32 [ %xor196.i, %while.end.i ], [ %add204.i, %sw.bb202.i ]
-  %cmp.not.i.i426.not.i = icmp eq i32 %3, 0
-  %63 = load i32, ptr %m_elems.i.i399.i, align 8
-  %cond.i.i427.i = select i1 %cmp.not.i.i426.not.i, i32 -1, i32 %63
-  %add207.i = add i32 %cond.i.i427.i, %xor200.i
-  br label %sw.epilog.i
+"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i": ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit390.i", %._crit_edge.i
+  %.2.i = phi i32 [ %233, %._crit_edge.i ], [ %242, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit390.i" ]
+  %.not.i.i391.not.i = icmp eq i32 %11, 0
+  %243 = load i32, ptr %17, align 8
+  %244 = select i1 %.not.i.i391.not.i, i32 -1, i32 %243
+  %245 = add i32 %244, %237
+  br label %246
 
-sw.epilog.i:                                      ; preds = %sw.bb205.i, %while.end.i
-  %b.1.i = phi i32 [ %xor196.i, %while.end.i ], [ %b.2.i, %sw.bb205.i ]
-  %c.1.i = phi i32 [ %xor200.i, %while.end.i ], [ %add207.i, %sw.bb205.i ]
-  %.neg43 = add i32 %xor192.i, %conv.i.i
-  %64 = add i32 %b.1.i, %c.1.i
-  %sub209.i = sub i32 %.neg43, %64
-  %shr210.i = lshr i32 %c.1.i, 13
-  %xor211.i = xor i32 %sub209.i, %shr210.i
-  %65 = add i32 %c.1.i, %xor211.i
-  %sub213.i = sub i32 %b.1.i, %65
-  %shl214.i = shl i32 %xor211.i, 8
-  %xor215.i = xor i32 %sub213.i, %shl214.i
-  %66 = add i32 %xor211.i, %xor215.i
-  %sub217.i = sub i32 %c.1.i, %66
-  %shr218.i = lshr i32 %xor215.i, 13
-  %xor219.i = xor i32 %sub217.i, %shr218.i
-  %67 = add i32 %xor215.i, %xor219.i
-  %sub221.i = sub i32 %xor211.i, %67
-  %shr222.i = lshr i32 %xor219.i, 12
-  %xor223.i = xor i32 %sub221.i, %shr222.i
-  %68 = add i32 %xor219.i, %xor223.i
-  %sub225.i = sub i32 %xor215.i, %68
-  %shl226.i = shl i32 %xor223.i, 16
-  %xor227.i = xor i32 %sub225.i, %shl226.i
-  %69 = add i32 %xor223.i, %xor227.i
-  %sub229.i = sub i32 %xor219.i, %69
-  %shr230.i = lshr i32 %xor227.i, 5
-  %xor231.i = xor i32 %sub229.i, %shr230.i
-  %70 = add i32 %xor227.i, %xor231.i
-  %sub233.i = sub i32 %xor223.i, %70
-  %shr234.i = lshr i32 %xor231.i, 3
-  %xor235.i = xor i32 %sub233.i, %shr234.i
-  %71 = add i32 %xor231.i, %xor235.i
-  %sub237.i = sub i32 %xor227.i, %71
-  %shl238.i = shl i32 %xor235.i, 10
-  %xor239.i = xor i32 %sub237.i, %shl238.i
-  %72 = add i32 %xor235.i, %xor239.i
-  %sub241.i = sub i32 %xor231.i, %72
-  %shr242.i = lshr i32 %xor239.i, 15
-  %xor243.i = xor i32 %sub241.i, %shr242.i
+246:                                              ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i", %._crit_edge.i
+  %.1370.i = phi i32 [ %233, %._crit_edge.i ], [ %.2.i, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i" ]
+  %.1.i = phi i32 [ %237, %._crit_edge.i ], [ %245, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i" ]
+  %.neg92 = add i32 %229, %16
+  %247 = add i32 %.1370.i, %.1.i
+  %248 = sub i32 %.neg92, %247
+  %249 = lshr i32 %.1.i, 13
+  %250 = xor i32 %248, %249
+  %251 = add i32 %.1.i, %250
+  %252 = sub i32 %.1370.i, %251
+  %253 = shl i32 %250, 8
+  %254 = xor i32 %252, %253
+  %255 = add i32 %250, %254
+  %256 = sub i32 %.1.i, %255
+  %257 = lshr i32 %254, 13
+  %258 = xor i32 %256, %257
+  %259 = add i32 %254, %258
+  %260 = sub i32 %250, %259
+  %261 = lshr i32 %258, 12
+  %262 = xor i32 %260, %261
+  %263 = add i32 %258, %262
+  %264 = sub i32 %254, %263
+  %265 = shl i32 %262, 16
+  %266 = xor i32 %264, %265
+  %267 = add i32 %262, %266
+  %268 = sub i32 %258, %267
+  %269 = lshr i32 %266, 5
+  %270 = xor i32 %268, %269
+  %271 = add i32 %266, %270
+  %272 = sub i32 %262, %271
+  %273 = lshr i32 %270, 3
+  %274 = xor i32 %272, %273
+  %275 = add i32 %270, %274
+  %276 = sub i32 %266, %275
+  %277 = shl i32 %274, 10
+  %278 = xor i32 %276, %277
+  %279 = add i32 %274, %278
+  %280 = sub i32 %270, %279
+  %281 = lshr i32 %278, 15
+  %282 = xor i32 %280, %281
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %entry, %sw.bb1.i, %sw.bb35.i, %sw.bb77.i, %sw.epilog.i
-  %retval.0.i = phi i32 [ %xor243.i, %sw.epilog.i ], [ %xor156.i, %sw.bb77.i ], [ %xor76.i, %sw.bb35.i ], [ %xor34.i, %sw.bb1.i ], [ 11, %entry ]
-  ret i32 %retval.0.i
+"_Z18get_composite_hashIN3sat3cutEZNKS1_4hashEvE3$_0ZNKS1_4hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %1, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i", %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i", %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i", %246
+  %.0.i = phi i32 [ %282, %246 ], [ %180, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit378.i" ], [ %98, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit374.i" ], [ %55, %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit.i" ], [ 11, %1 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #8 align 2 {
-entry:
-  %agg.tmp = alloca %"class.sat::cut", align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 48, i1 false)
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i32, ptr %m_size, align 4
-  switch i32 %0, label %while.body.lr.ph.i [
+define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #8 align 2 {
+  %2 = alloca %"class.sat::cut", align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !19
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4, !tbaa !15
+  switch i32 %4, label %.lr.ph.i [
     i32 0, label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
-    i32 1, label %sw.bb1.i
-    i32 2, label %sw.bb35.i
-    i32 3, label %sw.bb77.i
+    i32 1, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i"
+    i32 2, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i"
+    i32 3, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i"
   ]
 
-while.body.lr.ph.i:                               ; preds = %entry
-  %m_size.i.i395.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 4
-  %1 = load i32, ptr %m_size.i.i395.i, align 4
-  %m_elems.i.i399.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %2 = zext i32 %0 to i64
-  %3 = zext i32 %1 to i64
-  br label %while.body.i
+.lr.ph.i:                                         ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !15
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = zext i32 %4 to i64
+  %9 = zext i32 %6 to i64
+  br label %176
 
-sw.bb1.i:                                         ; preds = %entry
-  %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 4
-  %4 = load i32, ptr %m_size.i.i.i, align 4
-  %cmp.not.i.i.not.i = icmp eq i32 %4, 0
-  %m_elems.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %5 = load i32, ptr %m_elems.i.i.i, align 8
-  %cond.i.i.i = select i1 %cmp.not.i.i.not.i, i32 -1, i32 %5
-  %sub3.i = sub i32 -1640531535, %cond.i.i.i
-  %sub3.neg59.i = shl i32 %cond.i.i.i, 1
-  %sub5.i = add i32 %sub3.neg59.i, 1640531524
-  %shl.i = shl i32 %sub3.i, 8
-  %xor6.i = xor i32 %sub5.i, %shl.i
-  %sub7.i = add i32 %cond.i.i.i, 1640531546
-  %sub8.i = sub i32 %sub7.i, %xor6.i
-  %shr9.i = lshr i32 %xor6.i, 13
-  %xor10.i = xor i32 %sub8.i, %shr9.i
-  %6 = add i32 %xor6.i, %xor10.i
-  %sub12.i = sub i32 %sub3.i, %6
-  %shr13.i = lshr i32 %xor10.i, 12
-  %xor14.i = xor i32 %sub12.i, %shr13.i
-  %7 = add i32 %xor10.i, %xor14.i
-  %sub16.i = sub i32 %xor6.i, %7
-  %shl17.i = shl i32 %xor14.i, 16
-  %xor18.i = xor i32 %sub16.i, %shl17.i
-  %8 = add i32 %xor14.i, %xor18.i
-  %sub20.i = sub i32 %xor10.i, %8
-  %shr21.i = lshr i32 %xor18.i, 5
-  %xor22.i = xor i32 %sub20.i, %shr21.i
-  %9 = add i32 %xor18.i, %xor22.i
-  %sub24.i = sub i32 %xor14.i, %9
-  %shr25.i = lshr i32 %xor22.i, 3
-  %xor26.i = xor i32 %sub24.i, %shr25.i
-  %10 = add i32 %xor22.i, %xor26.i
-  %sub28.i = sub i32 %xor18.i, %10
-  %shl29.i = shl i32 %xor26.i, 10
-  %xor30.i = xor i32 %sub28.i, %shl29.i
-  %11 = add i32 %xor26.i, %xor30.i
-  %sub32.i = sub i32 %xor22.i, %11
-  %shr33.i = lshr i32 %xor30.i, 15
-  %xor34.i = xor i32 %sub32.i, %shr33.i
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i": ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !15
+  %.not.i.i.not.i = icmp eq i32 %11, 0
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = select i1 %.not.i.i.not.i, i32 -1, i32 %13
+  %15 = sub i32 -1640531535, %14
+  %.neg.i = shl i32 %14, 1
+  %16 = add i32 %.neg.i, 1640531524
+  %17 = shl i32 %15, 8
+  %18 = xor i32 %16, %17
+  %19 = add i32 %14, 1640531546
+  %20 = sub i32 %19, %18
+  %21 = lshr i32 %18, 13
+  %22 = xor i32 %20, %21
+  %23 = add i32 %18, %22
+  %24 = sub i32 %15, %23
+  %25 = lshr i32 %22, 12
+  %26 = xor i32 %24, %25
+  %27 = add i32 %22, %26
+  %28 = sub i32 %18, %27
+  %29 = shl i32 %26, 16
+  %30 = xor i32 %28, %29
+  %31 = add i32 %26, %30
+  %32 = sub i32 %22, %31
+  %33 = lshr i32 %30, 5
+  %34 = xor i32 %32, %33
+  %35 = add i32 %30, %34
+  %36 = sub i32 %26, %35
+  %37 = lshr i32 %34, 3
+  %38 = xor i32 %36, %37
+  %39 = add i32 %34, %38
+  %40 = sub i32 %30, %39
+  %41 = shl i32 %38, 10
+  %42 = xor i32 %40, %41
+  %43 = add i32 %38, %42
+  %44 = sub i32 %34, %43
+  %45 = lshr i32 %42, 15
+  %46 = xor i32 %44, %45
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-sw.bb35.i:                                        ; preds = %entry
-  %m_size.i.i362.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 4
-  %12 = load i32, ptr %m_size.i.i362.i, align 4
-  %cmp.not.i.i363.not.i = icmp eq i32 %12, 0
-  %m_elems.i.i366.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %13 = load i32, ptr %m_elems.i.i366.i, align 8
-  %cond.i.i364.i = select i1 %cmp.not.i.i363.not.i, i32 -1, i32 %13
-  %cmp.not.i.i369.i = icmp ugt i32 %12, 1
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 12
-  %14 = load i32, ptr %arrayidx.i.i.i, align 4
-  %15 = add i32 %14, 11
-  %add40.i = select i1 %cmp.not.i.i369.i, i32 %15, i32 10
-  %16 = add i32 %cond.i.i364.i, %add40.i
-  %sub42.i = sub i32 3, %16
-  %shr43.i = lshr i32 %add40.i, 13
-  %xor44.i = xor i32 %sub42.i, %shr43.i
-  %.neg19 = add i32 %cond.i.i364.i, -1640531527
-  %17 = add i32 %add40.i, %xor44.i
-  %sub46.i = sub i32 %.neg19, %17
-  %shl47.i = shl i32 %xor44.i, 8
-  %xor48.i = xor i32 %sub46.i, %shl47.i
-  %18 = add i32 %xor44.i, %xor48.i
-  %sub50.i = sub i32 %add40.i, %18
-  %shr51.i = lshr i32 %xor48.i, 13
-  %xor52.i = xor i32 %sub50.i, %shr51.i
-  %19 = add i32 %xor48.i, %xor52.i
-  %sub54.i = sub i32 %xor44.i, %19
-  %shr55.i = lshr i32 %xor52.i, 12
-  %xor56.i = xor i32 %sub54.i, %shr55.i
-  %20 = add i32 %xor52.i, %xor56.i
-  %sub58.i = sub i32 %xor48.i, %20
-  %shl59.i = shl i32 %xor56.i, 16
-  %xor60.i = xor i32 %sub58.i, %shl59.i
-  %21 = add i32 %xor56.i, %xor60.i
-  %sub62.i = sub i32 %xor52.i, %21
-  %shr63.i = lshr i32 %xor60.i, 5
-  %xor64.i = xor i32 %sub62.i, %shr63.i
-  %22 = add i32 %xor60.i, %xor64.i
-  %sub66.i = sub i32 %xor56.i, %22
-  %shr67.i = lshr i32 %xor64.i, 3
-  %xor68.i = xor i32 %sub66.i, %shr67.i
-  %23 = add i32 %xor64.i, %xor68.i
-  %sub70.i = sub i32 %xor60.i, %23
-  %shl71.i = shl i32 %xor68.i, 10
-  %xor72.i = xor i32 %sub70.i, %shl71.i
-  %24 = add i32 %xor68.i, %xor72.i
-  %sub74.i = sub i32 %xor64.i, %24
-  %shr75.i = lshr i32 %xor72.i, 15
-  %xor76.i = xor i32 %sub74.i, %shr75.i
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i": ; preds = %1
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %48 = load i32, ptr %47, align 4, !tbaa !15
+  %.not.i.i373.not.i = icmp eq i32 %48, 0
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = select i1 %.not.i.i373.not.i, i32 -1, i32 %50
+  %.not.i.i375.i = icmp ugt i32 %48, 1
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %53 = load i32, ptr %52, align 4
+  %54 = add i32 %53, 11
+  %55 = select i1 %.not.i.i375.i, i32 %54, i32 10
+  %56 = add i32 %51, %55
+  %57 = sub i32 3, %56
+  %58 = lshr i32 %55, 13
+  %59 = xor i32 %57, %58
+  %.neg42 = add i32 %51, -1640531527
+  %60 = add i32 %55, %59
+  %61 = sub i32 %.neg42, %60
+  %62 = shl i32 %59, 8
+  %63 = xor i32 %61, %62
+  %64 = add i32 %59, %63
+  %65 = sub i32 %55, %64
+  %66 = lshr i32 %63, 13
+  %67 = xor i32 %65, %66
+  %68 = add i32 %63, %67
+  %69 = sub i32 %59, %68
+  %70 = lshr i32 %67, 12
+  %71 = xor i32 %69, %70
+  %72 = add i32 %67, %71
+  %73 = sub i32 %63, %72
+  %74 = shl i32 %71, 16
+  %75 = xor i32 %73, %74
+  %76 = add i32 %71, %75
+  %77 = sub i32 %67, %76
+  %78 = lshr i32 %75, 5
+  %79 = xor i32 %77, %78
+  %80 = add i32 %75, %79
+  %81 = sub i32 %71, %80
+  %82 = lshr i32 %79, 3
+  %83 = xor i32 %81, %82
+  %84 = add i32 %79, %83
+  %85 = sub i32 %75, %84
+  %86 = shl i32 %83, 10
+  %87 = xor i32 %85, %86
+  %88 = add i32 %83, %87
+  %89 = sub i32 %79, %88
+  %90 = lshr i32 %87, 15
+  %91 = xor i32 %89, %90
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-sw.bb77.i:                                        ; preds = %entry
-  %m_size.i.i374.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 4
-  %25 = load i32, ptr %m_size.i.i374.i, align 4
-  %cmp.not.i.i375.not.i = icmp eq i32 %25, 0
-  %m_elems.i.i378.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
-  %26 = load i32, ptr %m_elems.i.i378.i, align 8
-  %cond.i.i376.i = select i1 %cmp.not.i.i375.not.i, i32 -1, i32 %26
-  %cmp.not.i.i382.i = icmp ugt i32 %25, 1
-  %arrayidx.i.i386.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 12
-  %27 = load i32, ptr %arrayidx.i.i386.i, align 4
-  %cond.i.i383.i = select i1 %cmp.not.i.i382.i, i32 %27, i32 -1
-  %cmp.not.i.i389.i = icmp ugt i32 %25, 2
-  %arrayidx.i.i393.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
-  %28 = load i32, ptr %arrayidx.i.i393.i, align 8
-  %29 = add i32 %28, 11
-  %add83.i = select i1 %cmp.not.i.i389.i, i32 %29, i32 10
-  %30 = add i32 %cond.i.i383.i, %add83.i
-  %sub85.i = sub i32 %cond.i.i376.i, %30
-  %shr86.i = lshr i32 %add83.i, 13
-  %xor87.i = xor i32 %sub85.i, %shr86.i
-  %.neg1 = add i32 %cond.i.i383.i, -1640531527
-  %31 = add i32 %add83.i, %xor87.i
-  %sub89.i = sub i32 %.neg1, %31
-  %shl90.i = shl i32 %xor87.i, 8
-  %xor91.i = xor i32 %sub89.i, %shl90.i
-  %32 = add i32 %xor87.i, %xor91.i
-  %sub93.i = sub i32 %add83.i, %32
-  %shr94.i = lshr i32 %xor91.i, 13
-  %xor95.i = xor i32 %sub93.i, %shr94.i
-  %33 = add i32 %xor91.i, %xor95.i
-  %sub97.i = sub i32 %xor87.i, %33
-  %shr98.i = lshr i32 %xor95.i, 12
-  %xor99.i = xor i32 %sub97.i, %shr98.i
-  %34 = add i32 %xor95.i, %xor99.i
-  %sub101.i = sub i32 %xor91.i, %34
-  %shl102.i = shl i32 %xor99.i, 16
-  %xor103.i = xor i32 %sub101.i, %shl102.i
-  %35 = add i32 %xor99.i, %xor103.i
-  %sub105.i = sub i32 %xor95.i, %35
-  %shr106.i = lshr i32 %xor103.i, 5
-  %xor107.i = xor i32 %sub105.i, %shr106.i
-  %36 = add i32 %xor103.i, %xor107.i
-  %sub109.i = sub i32 %xor99.i, %36
-  %shr110.i = lshr i32 %xor107.i, 3
-  %xor111.i = xor i32 %sub109.i, %shr110.i
-  %37 = add i32 %xor107.i, %xor111.i
-  %sub113.i = sub i32 %xor103.i, %37
-  %shl114.i = shl i32 %xor111.i, 10
-  %xor115.i = xor i32 %sub113.i, %shl114.i
-  %38 = add i32 %xor111.i, %xor115.i
-  %sub117.i = sub i32 %xor107.i, %38
-  %shr118.i = lshr i32 %xor115.i, 15
-  %xor119.i = xor i32 %sub117.i, %shr118.i
-  %.neg9 = add i32 %xor111.i, 3
-  %39 = add i32 %xor115.i, %xor119.i
-  %sub122.i = sub i32 %.neg9, %39
-  %shr123.i = lshr i32 %xor119.i, 13
-  %xor124.i = xor i32 %sub122.i, %shr123.i
-  %40 = add i32 %xor119.i, %xor124.i
-  %sub126.i = sub i32 %xor115.i, %40
-  %shl127.i = shl i32 %xor124.i, 8
-  %xor128.i = xor i32 %sub126.i, %shl127.i
-  %41 = add i32 %xor124.i, %xor128.i
-  %sub130.i = sub i32 %xor119.i, %41
-  %shr131.i = lshr i32 %xor128.i, 13
-  %xor132.i = xor i32 %sub130.i, %shr131.i
-  %42 = add i32 %xor128.i, %xor132.i
-  %sub134.i = sub i32 %xor124.i, %42
-  %shr135.i = lshr i32 %xor132.i, 12
-  %xor136.i = xor i32 %sub134.i, %shr135.i
-  %43 = add i32 %xor132.i, %xor136.i
-  %sub138.i = sub i32 %xor128.i, %43
-  %shl139.i = shl i32 %xor136.i, 16
-  %xor140.i = xor i32 %sub138.i, %shl139.i
-  %44 = add i32 %xor136.i, %xor140.i
-  %sub142.i = sub i32 %xor132.i, %44
-  %shr143.i = lshr i32 %xor140.i, 5
-  %xor144.i = xor i32 %sub142.i, %shr143.i
-  %45 = add i32 %xor140.i, %xor144.i
-  %sub146.i = sub i32 %xor136.i, %45
-  %shr147.i = lshr i32 %xor144.i, 3
-  %xor148.i = xor i32 %sub146.i, %shr147.i
-  %46 = add i32 %xor144.i, %xor148.i
-  %sub150.i = sub i32 %xor140.i, %46
-  %shl151.i = shl i32 %xor148.i, 10
-  %xor152.i = xor i32 %sub150.i, %shl151.i
-  %47 = add i32 %xor148.i, %xor152.i
-  %sub154.i = sub i32 %xor144.i, %47
-  %shr155.i = lshr i32 %xor152.i, 15
-  %xor156.i = xor i32 %sub154.i, %shr155.i
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i": ; preds = %1
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %93 = load i32, ptr %92, align 4, !tbaa !15
+  %.not.i.i377.not.i = icmp eq i32 %93, 0
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %95 = load i32, ptr %94, align 8
+  %96 = select i1 %.not.i.i377.not.i, i32 -1, i32 %95
+  %.not.i.i379.i = icmp ugt i32 %93, 1
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %98 = load i32, ptr %97, align 4
+  %99 = select i1 %.not.i.i379.i, i32 %98, i32 -1
+  %.not.i.i381.i = icmp ugt i32 %93, 2
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %101 = load i32, ptr %100, align 8
+  %102 = add i32 %101, 11
+  %103 = select i1 %.not.i.i381.i, i32 %102, i32 10
+  %104 = add i32 %99, %103
+  %105 = sub i32 %96, %104
+  %106 = lshr i32 %103, 13
+  %107 = xor i32 %105, %106
+  %.neg5 = add i32 %99, -1640531527
+  %108 = add i32 %103, %107
+  %109 = sub i32 %.neg5, %108
+  %110 = shl i32 %107, 8
+  %111 = xor i32 %109, %110
+  %112 = add i32 %107, %111
+  %113 = sub i32 %103, %112
+  %114 = lshr i32 %111, 13
+  %115 = xor i32 %113, %114
+  %116 = add i32 %111, %115
+  %117 = sub i32 %107, %116
+  %118 = lshr i32 %115, 12
+  %119 = xor i32 %117, %118
+  %120 = add i32 %115, %119
+  %121 = sub i32 %111, %120
+  %122 = shl i32 %119, 16
+  %123 = xor i32 %121, %122
+  %124 = add i32 %119, %123
+  %125 = sub i32 %115, %124
+  %126 = lshr i32 %123, 5
+  %127 = xor i32 %125, %126
+  %128 = add i32 %123, %127
+  %129 = sub i32 %119, %128
+  %130 = lshr i32 %127, 3
+  %131 = xor i32 %129, %130
+  %132 = add i32 %127, %131
+  %133 = sub i32 %123, %132
+  %134 = shl i32 %131, 10
+  %135 = xor i32 %133, %134
+  %136 = add i32 %131, %135
+  %137 = sub i32 %127, %136
+  %138 = lshr i32 %135, 15
+  %139 = xor i32 %137, %138
+  %.neg21 = add i32 %131, 3
+  %140 = add i32 %135, %139
+  %141 = sub i32 %.neg21, %140
+  %142 = lshr i32 %139, 13
+  %143 = xor i32 %141, %142
+  %144 = add i32 %139, %143
+  %145 = sub i32 %135, %144
+  %146 = shl i32 %143, 8
+  %147 = xor i32 %145, %146
+  %148 = add i32 %143, %147
+  %149 = sub i32 %139, %148
+  %150 = lshr i32 %147, 13
+  %151 = xor i32 %149, %150
+  %152 = add i32 %147, %151
+  %153 = sub i32 %143, %152
+  %154 = lshr i32 %151, 12
+  %155 = xor i32 %153, %154
+  %156 = add i32 %151, %155
+  %157 = sub i32 %147, %156
+  %158 = shl i32 %155, 16
+  %159 = xor i32 %157, %158
+  %160 = add i32 %155, %159
+  %161 = sub i32 %151, %160
+  %162 = lshr i32 %159, 5
+  %163 = xor i32 %161, %162
+  %164 = add i32 %159, %163
+  %165 = sub i32 %155, %164
+  %166 = lshr i32 %163, 3
+  %167 = xor i32 %165, %166
+  %168 = add i32 %163, %167
+  %169 = sub i32 %159, %168
+  %170 = shl i32 %167, 10
+  %171 = xor i32 %169, %170
+  %172 = add i32 %167, %171
+  %173 = sub i32 %163, %172
+  %174 = lshr i32 %171, 15
+  %175 = xor i32 %173, %174
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-while.body.i:                                     ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i", %while.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %2, %while.body.lr.ph.i ], [ %51, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %c.055.i = phi i32 [ 11, %while.body.lr.ph.i ], [ %xor200.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %b.054.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor196.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %a.053.i = phi i32 [ -1640531527, %while.body.lr.ph.i ], [ %xor192.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i" ]
-  %48 = trunc nuw i64 %indvars.iv.i to i32
-  %dec.i = add i32 %48, -1
-  %cmp.not.i.i396.i = icmp ult i32 %dec.i, %1
-  br i1 %cmp.not.i.i396.i, label %cond.false.i.i398.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
+176:                                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i", %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %8, %.lr.ph.i ], [ %191, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %.0368109.i = phi i32 [ 11, %.lr.ph.i ], [ %232, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %.0369108.i = phi i32 [ -1640531527, %.lr.ph.i ], [ %228, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %.0371107.i = phi i32 [ -1640531527, %.lr.ph.i ], [ %224, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i" ]
+  %177 = trunc nuw i64 %indvars.iv.i to i32
+  %178 = add i32 %177, -1
+  %.not.i.i383.i = icmp ult i32 %178, %6
+  br i1 %.not.i.i383.i, label %179, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i"
 
-cond.false.i.i398.i:                              ; preds = %while.body.i
-  %idxprom.i.i.i = zext i32 %dec.i to i64
-  %arrayidx.i.i400.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i.i
-  %49 = load i32, ptr %arrayidx.i.i400.i, align 4
-  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
+179:                                              ; preds = %176
+  %180 = zext i32 %178 to i64
+  %181 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %180
+  %182 = load i32, ptr %181, align 4, !tbaa !16
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i"
 
-"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i": ; preds = %cond.false.i.i398.i, %while.body.i
-  %cond.i.i397.i = phi i32 [ %49, %cond.false.i.i398.i ], [ -1, %while.body.i ]
-  %dec159.i = add i32 %48, -2
-  %cmp.not.i.i403.i = icmp ult i32 %dec159.i, %1
-  br i1 %cmp.not.i.i403.i, label %cond.false.i.i405.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i": ; preds = %179, %176
+  %183 = phi i32 [ %182, %179 ], [ -1, %176 ]
+  %184 = add i32 %177, -2
+  %.not.i.i385.i = icmp ult i32 %184, %6
+  br i1 %.not.i.i385.i, label %185, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i"
 
-cond.false.i.i405.i:                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
-  %idxprom.i.i407.i = zext i32 %dec159.i to i64
-  %arrayidx.i.i408.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %idxprom.i.i407.i
-  %50 = load i32, ptr %arrayidx.i.i408.i, align 4
-  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
+185:                                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i"
+  %186 = zext i32 %184 to i64
+  %187 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %186
+  %188 = load i32, ptr %187, align 4, !tbaa !16
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i"
 
-"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i": ; preds = %cond.false.i.i405.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i"
-  %cond.i.i404.i = phi i32 [ %50, %cond.false.i.i405.i ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit401.i" ]
-  %add161.i = add i32 %cond.i.i404.i, %b.054.i
-  %51 = add nsw i64 %indvars.iv.i, -3
-  %cmp.not.i.i411.wide.i = icmp ult i64 %51, %3
-  br i1 %cmp.not.i.i411.wide.i, label %cond.false.i.i413.i, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i"
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i": ; preds = %185, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i"
+  %189 = phi i32 [ %188, %185 ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit384.i" ]
+  %190 = add i32 %189, %.0369108.i
+  %191 = add nsw i64 %indvars.iv.i, -3
+  %.not.i.i387.wide.i = icmp ult i64 %191, %9
+  br i1 %.not.i.i387.wide.i, label %192, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i"
 
-cond.false.i.i413.i:                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
-  %arrayidx.i.i416.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i399.i, i64 0, i64 %51
-  %52 = load i32, ptr %arrayidx.i.i416.i, align 4
-  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i"
+192:                                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i"
+  %193 = getelementptr inbounds nuw [5 x i32], ptr %7, i64 0, i64 %191
+  %194 = load i32, ptr %193, align 4, !tbaa !16
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i"
 
-"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i": ; preds = %cond.false.i.i413.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i"
-  %cond.i.i412.i = phi i32 [ %52, %cond.false.i.i413.i ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit409.i" ]
-  %add164.i = add i32 %cond.i.i412.i, %c.055.i
-  %.neg33 = add i32 %cond.i.i397.i, %a.053.i
-  %53 = add i32 %add161.i, %add164.i
-  %sub166.i = sub i32 %.neg33, %53
-  %shr167.i = lshr i32 %add164.i, 13
-  %xor168.i = xor i32 %sub166.i, %shr167.i
-  %54 = add i32 %add164.i, %xor168.i
-  %sub170.i = sub i32 %add161.i, %54
-  %shl171.i = shl i32 %xor168.i, 8
-  %xor172.i = xor i32 %sub170.i, %shl171.i
-  %55 = add i32 %xor168.i, %xor172.i
-  %sub174.i = sub i32 %add164.i, %55
-  %shr175.i = lshr i32 %xor172.i, 13
-  %xor176.i = xor i32 %sub174.i, %shr175.i
-  %56 = add i32 %xor172.i, %xor176.i
-  %sub178.i = sub i32 %xor168.i, %56
-  %shr179.i = lshr i32 %xor176.i, 12
-  %xor180.i = xor i32 %sub178.i, %shr179.i
-  %57 = add i32 %xor176.i, %xor180.i
-  %sub182.i = sub i32 %xor172.i, %57
-  %shl183.i = shl i32 %xor180.i, 16
-  %xor184.i = xor i32 %sub182.i, %shl183.i
-  %58 = add i32 %xor180.i, %xor184.i
-  %sub186.i = sub i32 %xor176.i, %58
-  %shr187.i = lshr i32 %xor184.i, 5
-  %xor188.i = xor i32 %sub186.i, %shr187.i
-  %59 = add i32 %xor184.i, %xor188.i
-  %sub190.i = sub i32 %xor180.i, %59
-  %shr191.i = lshr i32 %xor188.i, 3
-  %xor192.i = xor i32 %sub190.i, %shr191.i
-  %60 = add i32 %xor188.i, %xor192.i
-  %sub194.i = sub i32 %xor184.i, %60
-  %shl195.i = shl i32 %xor192.i, 10
-  %xor196.i = xor i32 %sub194.i, %shl195.i
-  %61 = add i32 %xor192.i, %xor196.i
-  %sub198.i = sub i32 %xor188.i, %61
-  %shr199.i = lshr i32 %xor196.i, 15
-  %xor200.i = xor i32 %sub198.i, %shr199.i
-  %cmp.wide.i = icmp ugt i64 %51, 2
-  br i1 %cmp.wide.i, label %while.body.i, label %while.end.i, !llvm.loop !17
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i": ; preds = %192, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i"
+  %195 = phi i32 [ %194, %192 ], [ -1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit386.i" ]
+  %196 = add i32 %195, %.0368109.i
+  %.neg72 = add i32 %183, %.0371107.i
+  %197 = add i32 %190, %196
+  %198 = sub i32 %.neg72, %197
+  %199 = lshr i32 %196, 13
+  %200 = xor i32 %198, %199
+  %201 = add i32 %196, %200
+  %202 = sub i32 %190, %201
+  %203 = shl i32 %200, 8
+  %204 = xor i32 %202, %203
+  %205 = add i32 %200, %204
+  %206 = sub i32 %196, %205
+  %207 = lshr i32 %204, 13
+  %208 = xor i32 %206, %207
+  %209 = add i32 %204, %208
+  %210 = sub i32 %200, %209
+  %211 = lshr i32 %208, 12
+  %212 = xor i32 %210, %211
+  %213 = add i32 %208, %212
+  %214 = sub i32 %204, %213
+  %215 = shl i32 %212, 16
+  %216 = xor i32 %214, %215
+  %217 = add i32 %212, %216
+  %218 = sub i32 %208, %217
+  %219 = lshr i32 %216, 5
+  %220 = xor i32 %218, %219
+  %221 = add i32 %216, %220
+  %222 = sub i32 %212, %221
+  %223 = lshr i32 %220, 3
+  %224 = xor i32 %222, %223
+  %225 = add i32 %220, %224
+  %226 = sub i32 %216, %225
+  %227 = shl i32 %224, 10
+  %228 = xor i32 %226, %227
+  %229 = add i32 %224, %228
+  %230 = sub i32 %220, %229
+  %231 = lshr i32 %228, 15
+  %232 = xor i32 %230, %231
+  %.wide.i = icmp ugt i64 %191, 2
+  br i1 %.wide.i, label %176, label %._crit_edge.i, !llvm.loop !55
 
-while.end.i:                                      ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit417.i"
-  %62 = trunc nuw i64 %51 to i32
-  switch i32 %62, label %sw.epilog.i [
-    i32 2, label %sw.bb202.i
-    i32 1, label %sw.bb205.i
+._crit_edge.i:                                    ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i"
+  %233 = trunc nuw i64 %191 to i32
+  switch i32 %233, label %241 [
+    i32 2, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit390.i"
+    i32 1, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i"
   ]
 
-sw.bb202.i:                                       ; preds = %while.end.i
-  %cmp.not.i.i419.i = icmp ugt i32 %1, 1
-  %arrayidx.i.i423.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 12
-  %63 = load i32, ptr %arrayidx.i.i423.i, align 4
-  %cond.i.i420.i = select i1 %cmp.not.i.i419.i, i32 %63, i32 -1
-  %add204.i = add i32 %cond.i.i420.i, %xor196.i
-  br label %sw.bb205.i
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit390.i": ; preds = %._crit_edge.i
+  %.not.i.i389.i = icmp ugt i32 %6, 1
+  %234 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %235 = load i32, ptr %234, align 4
+  %236 = select i1 %.not.i.i389.i, i32 %235, i32 -1
+  %237 = add i32 %236, %228
+  br label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i"
 
-sw.bb205.i:                                       ; preds = %while.end.i, %sw.bb202.i
-  %b.2.i = phi i32 [ %add204.i, %sw.bb202.i ], [ %xor196.i, %while.end.i ]
-  %cmp.not.i.i426.not.i = icmp eq i32 %1, 0
-  %64 = load i32, ptr %m_elems.i.i399.i, align 8
-  %cond.i.i427.i = select i1 %cmp.not.i.i426.not.i, i32 -1, i32 %64
-  %add207.i = add i32 %cond.i.i427.i, %xor200.i
-  br label %sw.epilog.i
+"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i": ; preds = %._crit_edge.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit390.i"
+  %.2.i = phi i32 [ %237, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit390.i" ], [ %228, %._crit_edge.i ]
+  %.not.i.i391.not.i = icmp eq i32 %6, 0
+  %238 = load i32, ptr %7, align 8
+  %239 = select i1 %.not.i.i391.not.i, i32 -1, i32 %238
+  %240 = add i32 %239, %232
+  br label %241
 
-sw.epilog.i:                                      ; preds = %sw.bb205.i, %while.end.i
-  %b.1.i = phi i32 [ %xor196.i, %while.end.i ], [ %b.2.i, %sw.bb205.i ]
-  %c.1.i = phi i32 [ %xor200.i, %while.end.i ], [ %add207.i, %sw.bb205.i ]
-  %.neg42 = add i32 %xor192.i, 3
-  %65 = add i32 %b.1.i, %c.1.i
-  %sub209.i = sub i32 %.neg42, %65
-  %shr210.i = lshr i32 %c.1.i, 13
-  %xor211.i = xor i32 %sub209.i, %shr210.i
-  %66 = add i32 %c.1.i, %xor211.i
-  %sub213.i = sub i32 %b.1.i, %66
-  %shl214.i = shl i32 %xor211.i, 8
-  %xor215.i = xor i32 %sub213.i, %shl214.i
-  %67 = add i32 %xor211.i, %xor215.i
-  %sub217.i = sub i32 %c.1.i, %67
-  %shr218.i = lshr i32 %xor215.i, 13
-  %xor219.i = xor i32 %sub217.i, %shr218.i
-  %68 = add i32 %xor215.i, %xor219.i
-  %sub221.i = sub i32 %xor211.i, %68
-  %shr222.i = lshr i32 %xor219.i, 12
-  %xor223.i = xor i32 %sub221.i, %shr222.i
-  %69 = add i32 %xor219.i, %xor223.i
-  %sub225.i = sub i32 %xor215.i, %69
-  %shl226.i = shl i32 %xor223.i, 16
-  %xor227.i = xor i32 %sub225.i, %shl226.i
-  %70 = add i32 %xor223.i, %xor227.i
-  %sub229.i = sub i32 %xor219.i, %70
-  %shr230.i = lshr i32 %xor227.i, 5
-  %xor231.i = xor i32 %sub229.i, %shr230.i
-  %71 = add i32 %xor227.i, %xor231.i
-  %sub233.i = sub i32 %xor223.i, %71
-  %shr234.i = lshr i32 %xor231.i, 3
-  %xor235.i = xor i32 %sub233.i, %shr234.i
-  %72 = add i32 %xor231.i, %xor235.i
-  %sub237.i = sub i32 %xor227.i, %72
-  %shl238.i = shl i32 %xor235.i, 10
-  %xor239.i = xor i32 %sub237.i, %shl238.i
-  %73 = add i32 %xor235.i, %xor239.i
-  %sub241.i = sub i32 %xor231.i, %73
-  %shr242.i = lshr i32 %xor239.i, 15
-  %xor243.i = xor i32 %sub241.i, %shr242.i
+241:                                              ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i", %._crit_edge.i
+  %.1370.i = phi i32 [ %228, %._crit_edge.i ], [ %.2.i, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i" ]
+  %.1.i = phi i32 [ %232, %._crit_edge.i ], [ %240, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i" ]
+  %.neg89 = add i32 %224, 3
+  %242 = add i32 %.1370.i, %.1.i
+  %243 = sub i32 %.neg89, %242
+  %244 = lshr i32 %.1.i, 13
+  %245 = xor i32 %243, %244
+  %246 = add i32 %.1.i, %245
+  %247 = sub i32 %.1370.i, %246
+  %248 = shl i32 %245, 8
+  %249 = xor i32 %247, %248
+  %250 = add i32 %245, %249
+  %251 = sub i32 %.1.i, %250
+  %252 = lshr i32 %249, 13
+  %253 = xor i32 %251, %252
+  %254 = add i32 %249, %253
+  %255 = sub i32 %245, %254
+  %256 = lshr i32 %253, 12
+  %257 = xor i32 %255, %256
+  %258 = add i32 %253, %257
+  %259 = sub i32 %249, %258
+  %260 = shl i32 %257, 16
+  %261 = xor i32 %259, %260
+  %262 = add i32 %257, %261
+  %263 = sub i32 %253, %262
+  %264 = lshr i32 %261, 5
+  %265 = xor i32 %263, %264
+  %266 = add i32 %261, %265
+  %267 = sub i32 %257, %266
+  %268 = lshr i32 %265, 3
+  %269 = xor i32 %267, %268
+  %270 = add i32 %265, %269
+  %271 = sub i32 %261, %270
+  %272 = shl i32 %269, 10
+  %273 = xor i32 %271, %272
+  %274 = add i32 %269, %273
+  %275 = sub i32 %265, %274
+  %276 = lshr i32 %273, 15
+  %277 = xor i32 %275, %276
   br label %"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit"
 
-"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %entry, %sw.bb1.i, %sw.bb35.i, %sw.bb77.i, %sw.epilog.i
-  %retval.0.i = phi i32 [ %xor243.i, %sw.epilog.i ], [ %xor156.i, %sw.bb77.i ], [ %xor76.i, %sw.bb35.i ], [ %xor34.i, %sw.bb1.i ], [ 11, %entry ]
-  ret i32 %retval.0.i
+"_Z18get_composite_hashIN3sat3cutEZNKS1_8dom_hashEvE3$_0ZNKS1_8dom_hashEvE3$_1EjT_jRKT0_RKT1_.exit": ; preds = %1, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i", %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i", %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i", %241
+  %.0.i = phi i32 [ %277, %241 ], [ %175, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit378.i" ], [ %91, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit374.i" ], [ %46, %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit.i" ], [ 11, %1 ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN3sat3cut11effect_maskEj(i32 noundef %i) local_unnamed_addr #9 align 2 {
-entry:
-  %cmp = icmp eq i32 %i, 6
-  br i1 %cmp, label %if.end, label %if.else
+define hidden noundef i64 @_ZN3sat3cut11effect_maskEj(i32 noundef %0) local_unnamed_addr #9 align 2 {
+  %2 = icmp eq i32 %0, 6
+  br i1 %2, label %.loopexit, label %3
 
-if.else:                                          ; preds = %entry
-  %shl = shl nuw i32 1, %i
-  %sh_prom = zext nneg i32 %shl to i64
-  %notmask = shl nsw i64 -1, %sh_prom
-  %sub = xor i64 %notmask, -1
-  %add = add i32 %i, 1
-  %cmp37 = icmp ult i32 %add, 6
-  br i1 %cmp37, label %while.body.preheader, label %if.end
+3:                                                ; preds = %1
+  %4 = shl nuw i32 1, %0
+  %5 = zext nneg i32 %4 to i64
+  %notmask = shl nsw i64 -1, %5
+  %6 = xor i64 %notmask, -1
+  %7 = add i32 %0, 1
+  %8 = icmp ult i32 %7, 6
+  br i1 %8, label %.lr.ph.preheader, label %.loopexit
 
-while.body.preheader:                             ; preds = %if.else
-  %shl2 = shl nuw nsw i32 1, %add
-  br label %while.body
+.lr.ph.preheader:                                 ; preds = %3
+  %9 = shl nuw nsw i32 1, %7
+  br label %.lr.ph
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %w.09 = phi i32 [ %mul, %while.body ], [ %shl2, %while.body.preheader ]
-  %m.18 = phi i64 [ %or, %while.body ], [ %sub, %while.body.preheader ]
-  %sh_prom4 = zext nneg i32 %w.09 to i64
-  %shl5 = shl i64 %m.18, %sh_prom4
-  %or = or i64 %shl5, %m.18
-  %mul = shl nuw nsw i32 %w.09, 1
-  %cmp3 = icmp samesign ult i32 %w.09, 32
-  br i1 %cmp3, label %while.body, label %if.end, !llvm.loop !18
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.012 = phi i32 [ %13, %.lr.ph ], [ %9, %.lr.ph.preheader ]
+  %.111 = phi i64 [ %12, %.lr.ph ], [ %6, %.lr.ph.preheader ]
+  %10 = zext nneg i32 %.012 to i64
+  %11 = shl i64 %.111, %10
+  %12 = or i64 %11, %.111
+  %13 = shl nuw nsw i32 %.012, 1
+  %14 = icmp samesign ult i32 %.012, 32
+  br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !56
 
-if.end:                                           ; preds = %while.body, %if.else, %entry
-  %m.0 = phi i64 [ -1, %entry ], [ %sub, %if.else ], [ %or, %while.body ]
-  ret i64 %m.0
+.loopexit:                                        ; preds = %.lr.ph, %3, %1
+  %.09 = phi i64 [ -1, %1 ], [ %6, %3 ], [ %12, %.lr.ph ]
+  ret i64 %.09
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN3sat3cut11remove_elemEj(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %this, i32 noundef %i) local_unnamed_addr #8 align 2 {
-entry:
-  %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %0 = load i32, ptr %m_size, align 4
-  %j.015 = add i32 %i, 1
-  %cmp16 = icmp ult i32 %j.015, %0
-  br i1 %cmp16, label %for.body.lr.ph, label %for.end
+define hidden void @_ZN3sat3cut11remove_elemEj(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %.034 = add i32 %1, 1
+  %5 = icmp ult i32 %.034, %4
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
-for.body.lr.ph:                                   ; preds = %entry
-  %m_elems = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = zext i32 %j.015 to i64
-  br label %for.body
+.lr.ph:                                           ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = zext i32 %.034 to i64
+  br label %23
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ %1, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %j.0.in17 = phi i32 [ %i, %for.body.lr.ph ], [ %3, %for.body ]
-  %arrayidx = getelementptr inbounds nuw [5 x i32], ptr %m_elems, i64 0, i64 %indvars.iv
-  %2 = load i32, ptr %arrayidx, align 4
-  %idxprom3 = zext i32 %j.0.in17 to i64
-  %arrayidx4 = getelementptr inbounds nuw [5 x i32], ptr %m_elems, i64 0, i64 %idxprom3
-  store i32 %2, ptr %arrayidx4, align 4
+._crit_edge:                                      ; preds = %23, %2
+  %8 = add i32 %4, -1
+  store i32 %8, ptr %3, align 4, !tbaa !15
+  %9 = icmp eq i32 %1, 6
+  br i1 %9, label %_ZN3sat3cut11effect_maskEj.exit, label %10
+
+10:                                               ; preds = %._crit_edge
+  %11 = shl nuw i32 1, %1
+  %12 = zext nneg i32 %11 to i64
+  %notmask.i = shl nsw i64 -1, %12
+  %13 = xor i64 %notmask.i, -1
+  %14 = icmp ult i32 %.034, 6
+  br i1 %14, label %.lr.ph.preheader.i, label %_ZN3sat3cut11effect_maskEj.exit
+
+.lr.ph.preheader.i:                               ; preds = %10
+  %15 = shl nuw nsw i32 1, %.034
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.012.i = phi i32 [ %19, %.lr.ph.i ], [ %15, %.lr.ph.preheader.i ]
+  %.111.i = phi i64 [ %18, %.lr.ph.i ], [ %13, %.lr.ph.preheader.i ]
+  %16 = zext nneg i32 %.012.i to i64
+  %17 = shl i64 %.111.i, %16
+  %18 = or i64 %17, %.111.i
+  %19 = shl nuw nsw i32 %.012.i, 1
+  %20 = icmp samesign ult i32 %.012.i, 32
+  br i1 %20, label %.lr.ph.i, label %_ZN3sat3cut11effect_maskEj.exit, !llvm.loop !56
+
+_ZN3sat3cut11effect_maskEj.exit:                  ; preds = %.lr.ph.i, %._crit_edge, %10
+  %.09.i = phi i64 [ -1, %._crit_edge ], [ %13, %10 ], [ %18, %.lr.ph.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load i64, ptr %21, align 8
+  br label %33
+
+23:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %.0.in35 = phi i32 [ %1, %.lr.ph ], [ %28, %23 ]
+  %24 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4, !tbaa !16
+  %26 = zext i32 %.0.in35 to i64
+  %27 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %26
+  store i32 %25, ptr %27, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = trunc nuw i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
-  %exitcond.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
+  %exitcond.not = icmp eq i32 %4, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !57
 
-for.end:                                          ; preds = %for.body, %entry
-  %dec = add i32 %0, -1
-  store i32 %dec, ptr %m_size, align 4
-  %cmp.i = icmp eq i32 %i, 6
-  br i1 %cmp.i, label %_ZN3sat3cut11effect_maskEj.exit, label %if.else.i
+29:                                               ; preds = %43
+  store i64 %.1, ptr %21, align 8, !tbaa !44
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 0, ptr %30, align 8, !tbaa !45
+  %31 = zext i32 %8 to i64
+  %.idx = shl nuw nsw i64 %31, 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %.ptr47 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.not40 = icmp eq i32 %8, 0
+  br i1 %.not40, label %._crit_edge45, label %.lr.ph44.preheader
 
-if.else.i:                                        ; preds = %for.end
-  %shl.i = shl nuw i32 1, %i
-  %sh_prom.i = zext nneg i32 %shl.i to i64
-  %notmask.i = shl nsw i64 -1, %sh_prom.i
-  %sub.i = xor i64 %notmask.i, -1
-  %cmp37.i = icmp ult i32 %j.015, 6
-  br i1 %cmp37.i, label %while.body.preheader.i, label %_ZN3sat3cut11effect_maskEj.exit
+.lr.ph44.preheader:                               ; preds = %29
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %.lr.ph44
 
-while.body.preheader.i:                           ; preds = %if.else.i
-  %shl2.i = shl nuw nsw i32 1, %j.015
-  br label %while.body.i
+33:                                               ; preds = %_ZN3sat3cut11effect_maskEj.exit, %43
+  %indvars.iv50 = phi i64 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %indvars.iv.next51, %43 ]
+  %.02439 = phi i64 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %.1, %43 ]
+  %.02837 = phi i32 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %.129, %43 ]
+  %34 = shl nuw i64 1, %indvars.iv50
+  %35 = and i64 %34, %.09.i
+  %.not31 = icmp eq i64 %35, 0
+  br i1 %.not31, label %43, label %36
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.preheader.i
-  %w.09.i = phi i32 [ %mul.i, %while.body.i ], [ %shl2.i, %while.body.preheader.i ]
-  %m.18.i = phi i64 [ %or.i, %while.body.i ], [ %sub.i, %while.body.preheader.i ]
-  %sh_prom4.i = zext nneg i32 %w.09.i to i64
-  %shl5.i = shl i64 %m.18.i, %sh_prom4.i
-  %or.i = or i64 %shl5.i, %m.18.i
-  %mul.i = shl nuw nsw i32 %w.09.i, 1
-  %cmp3.i = icmp samesign ult i32 %w.09.i, 32
-  br i1 %cmp3.i, label %while.body.i, label %_ZN3sat3cut11effect_maskEj.exit, !llvm.loop !18
+36:                                               ; preds = %33
+  %37 = lshr i64 %22, %indvars.iv50
+  %38 = and i64 %37, 1
+  %39 = zext nneg i32 %.02837 to i64
+  %40 = shl nuw i64 %38, %39
+  %41 = or i64 %40, %.02439
+  %42 = add i32 %.02837, 1
+  br label %43
 
-_ZN3sat3cut11effect_maskEj.exit:                  ; preds = %while.body.i, %for.end, %if.else.i
-  %m.0.i = phi i64 [ -1, %for.end ], [ %sub.i, %if.else.i ], [ %or.i, %while.body.i ]
-  %m_table = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %4 = load i64, ptr %m_table, align 8
-  br label %for.body9
+43:                                               ; preds = %33, %36
+  %.129 = phi i32 [ %42, %36 ], [ %.02837, %33 ]
+  %.1 = phi i64 [ %41, %36 ], [ %.02439, %33 ]
+  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next51, 64
+  br i1 %exitcond53.not, label %29, label %33, !llvm.loop !58
 
-for.body9:                                        ; preds = %_ZN3sat3cut11effect_maskEj.exit, %for.inc16
-  %indvars.iv27 = phi i64 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %indvars.iv.next28, %for.inc16 ]
-  %t.021 = phi i64 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %t.1, %for.inc16 ]
-  %offset.019 = phi i32 [ 0, %_ZN3sat3cut11effect_maskEj.exit ], [ %offset.1, %for.inc16 ]
-  %shl = shl nuw i64 1, %indvars.iv27
-  %and = and i64 %shl, %m.0.i
-  %cmp10.not = icmp eq i64 %and, 0
-  br i1 %cmp10.not, label %for.inc16, label %if.then
-
-if.then:                                          ; preds = %for.body9
-  %shr = lshr i64 %4, %indvars.iv27
-  %and12 = and i64 %shr, 1
-  %sh_prom13 = zext nneg i32 %offset.019 to i64
-  %shl14 = shl nuw i64 %and12, %sh_prom13
-  %or = or i64 %shl14, %t.021
-  %inc15 = add i32 %offset.019, 1
-  br label %for.inc16
-
-for.inc16:                                        ; preds = %for.body9, %if.then
-  %offset.1 = phi i32 [ %inc15, %if.then ], [ %offset.019, %for.body9 ]
-  %t.1 = phi i64 [ %or, %if.then ], [ %t.021, %for.body9 ]
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond30.not = icmp eq i64 %indvars.iv.next28, 64
-  br i1 %exitcond30.not, label %for.end18, label %for.body9, !llvm.loop !20
-
-for.end18:                                        ; preds = %for.inc16
-  store i64 %t.1, ptr %m_table, align 8
-  %m_dont_care = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i64 0, ptr %m_dont_care, align 8
-  %idx.ext.i = zext i32 %dec to i64
-  %add.ptr.i.idx = shl nuw nsw i64 %idx.ext.i, 2
-  %5 = getelementptr inbounds nuw i8, ptr %this, i64 %add.ptr.i.idx
-  %add.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %cmp23.not22 = icmp eq i32 %dec, 0
-  br i1 %cmp23.not22, label %for.end29, label %for.body24.preheader
-
-for.body24.preheader:                             ; preds = %for.end18
-  %m_elems.i.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
-  br label %for.body24
-
-for.body24:                                       ; preds = %for.body24.preheader, %for.body24
-  %__begin1.024 = phi ptr [ %incdec.ptr, %for.body24 ], [ %m_elems.i.ptr, %for.body24.preheader ]
-  %f.023 = phi i32 [ %or27, %for.body24 ], [ 0, %for.body24.preheader ]
-  %6 = load i32, ptr %__begin1.024, align 4
-  %and25 = and i32 %6, 31
-  %shl26 = shl nuw i32 1, %and25
-  %or27 = or i32 %shl26, %f.023
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.024, i64 4
-  %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
-  br i1 %cmp23.not, label %for.end29, label %for.body24
-
-for.end29:                                        ; preds = %for.body24, %for.end18
-  %f.0.lcssa = phi i32 [ 0, %for.end18 ], [ %or27, %for.body24 ]
-  store i32 %f.0.lcssa, ptr %this, align 8
+._crit_edge45:                                    ; preds = %.lr.ph44, %29
+  %.027.lcssa = phi i32 [ 0, %29 ], [ %47, %.lr.ph44 ]
+  store i32 %.027.lcssa, ptr %0, align 8, !tbaa !12
   ret void
+
+.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %.lr.ph44
+  %.02542 = phi ptr [ %48, %.lr.ph44 ], [ %.ptr, %.lr.ph44.preheader ]
+  %.02741 = phi i32 [ %47, %.lr.ph44 ], [ 0, %.lr.ph44.preheader ]
+  %44 = load i32, ptr %.02542, align 4, !tbaa !16
+  %45 = and i32 %44, 31
+  %46 = shl nuw i32 1, %45
+  %47 = or i32 %46, %.02741
+  %48 = getelementptr inbounds nuw i8, ptr %.02542, i64 4
+  %.not = icmp eq ptr %48, %.ptr47
+  br i1 %.not, label %._crit_edge45, label %.lr.ph44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { i64, i64 } @_ZNK3sat3cut4evalERK7svectorINS_7cut_valEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %env) local_unnamed_addr #10 align 2 {
-entry:
-  %m_table.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load i64, ptr %m_table.i, align 8
-  %m_dont_care.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %1 = load i64, ptr %m_dont_care.i, align 8
-  %or.i = or i64 %1, %0
-  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
-  %2 = load i32, ptr %m_size.i.i, align 4
-  %sh_prom.i.i = zext i32 %2 to i64
-  %shl.i.i = shl nuw i64 1, %sh_prom.i.i
-  %notmask.i.i = shl nsw i64 -1, %shl.i.i
-  %sub.i.i = xor i64 %notmask.i.i, -1
-  %and.i = and i64 %or.i, %sub.i.i
-  %cmp = icmp eq i32 %2, 1
-  %cmp4 = icmp eq i64 %and.i, 2
-  %or.cond = and i1 %cmp, %cmp4
-  %3 = load ptr, ptr %env, align 8
-  br i1 %or.cond, label %if.then, label %for.cond.preheader
+define hidden { i64, i64 } @_ZNK3sat3cut4evalERK7svectorINS_7cut_valEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = load i64, ptr %3, align 8, !tbaa !44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = load i64, ptr %5, align 8, !tbaa !45
+  %7 = or i64 %6, %4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4, !tbaa !15
+  %10 = zext i32 %9 to i64
+  %11 = shl nuw i64 1, %10
+  %notmask.i.i = shl nsw i64 -1, %11
+  %12 = xor i64 %notmask.i.i, -1
+  %13 = and i64 %7, %12
+  %14 = icmp eq i32 %9, 1
+  %15 = icmp eq i64 %13, 2
+  %or.cond = and i1 %14, %15
+  %16 = load ptr, ptr %1, align 8
+  br i1 %or.cond, label %36, label %.preheader29
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp828.not = icmp eq i32 %2, 0
-  %m_elems10 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  br i1 %cmp828.not, label %for.cond.preheader.split, label %for.cond7.preheader.us
+.preheader29:                                     ; preds = %2
+  %.not = icmp eq i32 %9, 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %.not, label %.preheader29.split, label %.preheader.us
 
-for.cond7.preheader.us:                           ; preds = %for.cond.preheader, %for.cond7.for.end_crit_edge.us
-  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.cond7.for.end_crit_edge.us ], [ 0, %for.cond.preheader ]
-  %v.sroa.4.032.us = phi i64 [ %or27.us, %for.cond7.for.end_crit_edge.us ], [ 0, %for.cond.preheader ]
-  %v.sroa.0.031.us = phi i64 [ %or21.us, %for.cond7.for.end_crit_edge.us ], [ 0, %for.cond.preheader ]
-  br label %for.body9.us
+.preheader.us:                                    ; preds = %.preheader29, %._crit_edge.us
+  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.us ], [ 0, %.preheader29 ]
+  %.sroa.6.033.us = phi i64 [ %34, %._crit_edge.us ], [ 0, %.preheader29 ]
+  %.sroa.0.032.us = phi i64 [ %33, %._crit_edge.us ], [ 0, %.preheader29 ]
+  br label %18
 
-for.body9.us:                                     ; preds = %for.cond7.preheader.us, %for.body9.us
-  %indvars.iv = phi i64 [ 0, %for.cond7.preheader.us ], [ %indvars.iv.next, %for.body9.us ]
-  %offset.029.us = phi i32 [ 0, %for.cond7.preheader.us ], [ %conv14.us, %for.body9.us ]
-  %arrayidx11.us = getelementptr inbounds nuw [5 x i32], ptr %m_elems10, i64 0, i64 %indvars.iv
-  %4 = load i32, ptr %arrayidx11.us, align 4
-  %idxprom.i24.us = zext i32 %4 to i64
-  %arrayidx.i25.us = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %3, i64 %idxprom.i24.us
-  %5 = load i64, ptr %arrayidx.i25.us, align 8
-  %shr.us = lshr i64 %5, %indvars.iv37
-  %and.us = and i64 %shr.us, 1
-  %shl.us = shl nuw i64 %and.us, %indvars.iv
-  %6 = trunc i64 %shl.us to i32
-  %conv14.us = or i32 %offset.029.us, %6
+18:                                               ; preds = %.preheader.us, %18
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %18 ]
+  %.02330.us = phi i32 [ 0, %.preheader.us ], [ %28, %18 ]
+  %19 = getelementptr inbounds nuw [5 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %20 = load i32, ptr %19, align 4, !tbaa !16
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %16, i64 %21
+  %23 = load i64, ptr %22, align 8, !tbaa !59
+  %24 = lshr i64 %23, %indvars.iv42
+  %25 = and i64 %24, 1
+  %26 = shl nuw i64 %25, %indvars.iv
+  %27 = trunc i64 %26 to i32
+  %28 = or i32 %.02330.us, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %sh_prom.i.i
-  br i1 %exitcond.not, label %for.cond7.for.end_crit_edge.us, label %for.body9.us, !llvm.loop !21
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %10
+  br i1 %exitcond.not, label %._crit_edge.us, label %18, !llvm.loop !61
 
-for.cond7.for.end_crit_edge.us:                   ; preds = %for.body9.us
-  %sh_prom15.us = zext nneg i32 %conv14.us to i64
-  %shr16.us = lshr i64 %and.i, %sh_prom15.us
-  %and17.us = and i64 %shr16.us, 1
-  %shl19.us = shl nuw i64 %and17.us, %indvars.iv37
-  %or21.us = or i64 %shl19.us, %v.sroa.0.031.us
-  %or27.us = or i64 %shl19.us, %v.sroa.4.032.us
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 64
-  br i1 %exitcond40.not, label %return, label %for.cond7.preheader.us, !llvm.loop !22
+._crit_edge.us:                                   ; preds = %18
+  %29 = zext nneg i32 %28 to i64
+  %30 = lshr i64 %13, %29
+  %31 = and i64 %30, 1
+  %32 = shl nuw i64 %31, %indvars.iv42
+  %33 = or i64 %32, %.sroa.0.032.us
+  %34 = or i64 %32, %.sroa.6.033.us
+  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
+  %exitcond45.not = icmp eq i64 %indvars.iv.next43, 64
+  br i1 %exitcond45.not, label %.loopexit, label %.preheader.us, !llvm.loop !62
 
-for.cond.preheader.split:                         ; preds = %for.cond.preheader
-  %and17 = and i64 %and.i, 1
-  br label %for.cond7.preheader
+.preheader29.split:                               ; preds = %.preheader29
+  %35 = and i64 %13, 1
+  br label %.preheader
 
-if.then:                                          ; preds = %entry
-  %m_elems = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %7 = load i32, ptr %m_elems, align 8
-  %idxprom.i = zext i32 %7 to i64
-  %arrayidx.i = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %3, i64 %idxprom.i
-  %retval.sroa.3.0.call5.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %retval.sroa.3.0.copyload = load i64, ptr %retval.sroa.3.0.call5.sroa_idx, align 8
-  %retval.sroa.0.0.in.sroa.speculate.load.if.then = load i64, ptr %arrayidx.i, align 8
-  br label %return
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load i32, ptr %37, align 8, !tbaa !16
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds nuw %"struct.sat::cut_val", ptr %16, i64 %39
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !21
+  %.sroa.0.0.in.sroa.speculate.load. = load i64, ptr %40, align 8, !tbaa !21
+  br label %.loopexit
 
-for.cond7.preheader:                              ; preds = %for.cond.preheader.split, %for.cond7.preheader
-  %indvars.iv41 = phi i64 [ 0, %for.cond.preheader.split ], [ %indvars.iv.next42, %for.cond7.preheader ]
-  %v.sroa.4.032 = phi i64 [ 0, %for.cond.preheader.split ], [ %or27, %for.cond7.preheader ]
-  %v.sroa.0.031 = phi i64 [ 0, %for.cond.preheader.split ], [ %or21, %for.cond7.preheader ]
-  %shl19 = shl nuw i64 %and17, %indvars.iv41
-  %or21 = or i64 %shl19, %v.sroa.0.031
-  %or27 = or i64 %shl19, %v.sroa.4.032
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next42, 64
-  br i1 %exitcond44.not, label %return, label %for.cond7.preheader, !llvm.loop !22
+.preheader:                                       ; preds = %.preheader29.split, %.preheader
+  %indvars.iv46 = phi i64 [ 0, %.preheader29.split ], [ %indvars.iv.next47, %.preheader ]
+  %.sroa.6.033 = phi i64 [ 0, %.preheader29.split ], [ %43, %.preheader ]
+  %.sroa.0.032 = phi i64 [ 0, %.preheader29.split ], [ %42, %.preheader ]
+  %41 = shl nuw i64 %35, %indvars.iv46
+  %42 = or i64 %41, %.sroa.0.032
+  %43 = or i64 %41, %.sroa.6.033
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond49.not = icmp eq i64 %indvars.iv.next47, 64
+  br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !62
 
-return:                                           ; preds = %for.cond7.for.end_crit_edge.us, %for.cond7.preheader, %if.then
-  %retval.sroa.0.0.in.sroa.speculated = phi i64 [ %retval.sroa.0.0.in.sroa.speculate.load.if.then, %if.then ], [ %or21, %for.cond7.preheader ], [ %or21.us, %for.cond7.for.end_crit_edge.us ]
-  %retval.sroa.3.0 = phi i64 [ %retval.sroa.3.0.copyload, %if.then ], [ %or27, %for.cond7.preheader ], [ %or27.us, %for.cond7.for.end_crit_edge.us ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.in.sroa.speculated, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
+.loopexit:                                        ; preds = %._crit_edge.us, %.preheader, %36
+  %.sroa.0.0.in.sroa.speculated = phi i64 [ %.sroa.0.0.in.sroa.speculate.load., %36 ], [ %42, %.preheader ], [ %33, %._crit_edge.us ]
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %36 ], [ %43, %.preheader ], [ %34, %._crit_edge.us ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.in.sroa.speculated, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
-
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3sat3cut13display_tableERSojm(ptr noundef nonnull returned align 8 dereferenceable(8) %out, i32 noundef %num_input, i64 noundef %table) local_unnamed_addr #3 align 2 {
-entry:
-  br label %for.body
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3sat3cut13display_tableERSojm(ptr noundef nonnull returned align 8 dereferenceable(8) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+  br label %5
 
-for.body:                                         ; preds = %entry, %for.body
-  %i.05 = phi i32 [ 0, %entry ], [ %inc, %for.body ]
-  %sh_prom = zext nneg i32 %i.05 to i64
-  %shl1 = shl nuw i64 1, %sh_prom
-  %and = and i64 %shl1, %table
-  %cmp2.not = icmp eq i64 %and, 0
-  %.str.8..str.7 = select i1 %cmp2.not, ptr @.str.8, ptr @.str.7
-  %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %.str.8..str.7)
-  %inc = add i32 %i.05, 1
-  %i.0.highbits = lshr i32 %inc, %num_input
-  %cmp = icmp eq i32 %i.0.highbits, 0
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !13
+4:                                                ; preds = %5
+  ret ptr %0
 
-for.end:                                          ; preds = %for.body
-  ret ptr %out
+5:                                                ; preds = %3, %5
+  %.07 = phi i32 [ 0, %3 ], [ %10, %5 ]
+  %6 = zext nneg i32 %.07 to i64
+  %7 = shl nuw i64 1, %6
+  %8 = and i64 %7, %2
+  %.not = icmp eq i64 %8, 0
+  %.str.8..str.7 = select i1 %.not, ptr @.str.8, ptr @.str.7
+  %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.str.8..str.7, i64 noundef 1)
+  %10 = add i32 %.07, 1
+  %.0.highbits = lshr i32 %10, %1
+  %11 = icmp eq i32 %.0.highbits, 0
+  br i1 %11, label %5, label %4, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat3cut12table2stringB5cxx11Ejm(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i32 noundef %num_input, i64 noundef %table) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %strm = alloca %"class.std::__cxx11::basic_ostringstream", align 8
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm)
-  br label %for.body.i
+define hidden void @_ZN3sat3cut12table2stringB5cxx11Ejm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4) #21
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
+  br label %5
 
-for.body.i:                                       ; preds = %call.i.noexc, %entry
-  %i.05.i = phi i32 [ 0, %entry ], [ %inc.i, %call.i.noexc ]
-  %sh_prom.i = zext nneg i32 %i.05.i to i64
-  %shl1.i = shl nuw i64 1, %sh_prom.i
-  %and.i = and i64 %shl1.i, %table
-  %cmp2.not.i = icmp eq i64 %and.i, 0
-  %.str.8..str.7.i = select i1 %cmp2.not.i, ptr @.str.8, ptr @.str.7
-  %call.i1 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %strm, ptr noundef nonnull %.str.8..str.7.i)
-          to label %call.i.noexc unwind label %lpad.loopexit
+5:                                                ; preds = %.noexc, %3
+  %.07.i = phi i32 [ 0, %3 ], [ %10, %.noexc ]
+  %6 = zext nneg i32 %.07.i to i64
+  %7 = shl nuw i64 1, %6
+  %8 = and i64 %7, %2
+  %.not.i = icmp eq i64 %8, 0
+  %.str.8..str.7.i = select i1 %.not.i, ptr @.str.8, ptr @.str.7
+  %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.str.8..str.7.i, i64 noundef 1)
+          to label %.noexc unwind label %62
 
-call.i.noexc:                                     ; preds = %for.body.i
-  %inc.i = add i32 %i.05.i, 1
-  %i.0.highbits.i = lshr i32 %inc.i, %num_input
-  %cmp.i = icmp eq i32 %i.0.highbits.i, 0
-  br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !13
+.noexc:                                           ; preds = %5
+  %10 = add i32 %.07.i, 1
+  %.0.highbits.i = lshr i32 %10, %1
+  %11 = icmp eq i32 %.0.highbits.i, 0
+  br i1 %11, label %5, label %_ZN3sat3cut13display_tableERSojm.exit, !llvm.loop !50
 
-invoke.cont:                                      ; preds = %call.i.noexc
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %strm)
-          to label %invoke.cont1 unwind label %lpad.loopexit.split-lp
+_ZN3sat3cut13display_tableERSojm.exit:            ; preds = %.noexc
+  call void @llvm.experimental.noalias.scope.decl(metadata !63)
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %14 = load ptr, ptr %13, align 8, !tbaa !69, !noalias !74
+  %.not.i.not.i.i = icmp eq ptr %14, null
+  br i1 %.not.i.not.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i
 
-invoke.cont1:                                     ; preds = %invoke.cont
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm) #20
+_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i: ; preds = %_ZN3sat3cut13display_tableERSojm.exit
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %16 = load ptr, ptr %15, align 8, !tbaa !75, !noalias !74
+  %17 = icmp ugt ptr %14, %16
+  %.08.i.i.i = select i1 %17, ptr %14, ptr %16
+  %.not.i.i = icmp eq ptr %.08.i.i.i, null
+  br i1 %.not.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i, label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11.i.i
+
+_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !76, !noalias !74
+  %21 = ptrtoint ptr %.08.i.i.i to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = sub i64 %21, %22
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store i64 %23, ptr %24, align 8, !tbaa !77, !noalias !74
+  %25 = load ptr, ptr %18, align 8, !tbaa !80, !noalias !74
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %23
+  store i8 0, ptr %26, align 1, !tbaa !20, !noalias !74
+  br label %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i
+
+_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit11.i.i, %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.i.i, %_ZN3sat3cut13display_tableERSojm.exit
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %28, ptr %0, align 8, !tbaa !81, !alias.scope !74
+  %29 = load ptr, ptr %27, align 8, !tbaa !80, !noalias !74
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %31 = icmp eq ptr %29, %30
+  br i1 %31, label %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+
+32:                                               ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %34 = load i64, ptr %33, align 8, !tbaa !77, !noalias !74
+  %35 = icmp ult i64 %34, 16
+  call void @llvm.assume(i1 %35)
+  %36 = add nuw nsw i64 %34, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(1) %30, i64 %36, i1 false)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNKSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE12_M_high_markEv.exit.thread.i.i
+  store ptr %29, ptr %0, align 8, !tbaa !80, !alias.scope !74
+  %37 = load i64, ptr %30, align 8, !tbaa !20, !noalias !74
+  store i64 %37, ptr %28, align 8, !tbaa !20, !alias.scope !74
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !77, !noalias !74
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
+
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %32
+  %38 = phi i64 [ %34, %32 ], [ %.pre.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %38, ptr %40, align 8, !tbaa !77, !alias.scope !74
+  store ptr %30, ptr %27, align 8, !tbaa !80, !noalias !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %39, i8 0, i64 9, i1 false), !noalias !74
+  invoke void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcmm(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr noundef nonnull %30, i64 noundef 0, i64 noundef 0)
+          to label %_ZNOSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit unwind label %41
+
+41:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = load ptr, ptr %0, align 8, !tbaa !80, !alias.scope !74
+  %44 = icmp eq ptr %43, %28
+  br i1 %44, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %41
+  %45 = load i64, ptr %40, align 8, !tbaa !77, !alias.scope !74
+  %46 = icmp ult i64 %45, 16
+  call void @llvm.assume(i1 %46)
+  br label %.body
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %41
+  %47 = load i64, ptr %28, align 8, !tbaa !20, !alias.scope !74
+  %48 = add i64 %47, 1
+  call void @_ZdlPvm(ptr noundef %43, i64 noundef %48) #23
+  br label %.body
+
+_ZNOSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i
+  %49 = load ptr, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, align 8
+  store ptr %49, ptr %4, align 8, !tbaa !82
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZTTNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE, i64 24), align 8
+  %51 = getelementptr i8, ptr %49, i64 -24
+  %52 = load i64, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %4, i64 %52
+  store ptr %50, ptr %53, align 8, !tbaa !82
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 16), ptr %12, align 8, !tbaa !82
+  %54 = load ptr, ptr %27, align 8, !tbaa !80
+  %55 = icmp eq ptr %54, %30
+  br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZNOSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
+  %56 = load i64, ptr %39, align 8, !tbaa !77
+  %57 = icmp ult i64 %56, 16
+  call void @llvm.assume(i1 %57)
+  br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZNOSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit
+  %58 = load i64, ptr %30, align 8, !tbaa !20
+  %59 = add i64 %58, 1
+  call void @_ZdlPvm(ptr noundef %54, i64 noundef %59) #23
+  br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+
+_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+  store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %12, align 8, !tbaa !82
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %60) #21
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %61) #21
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #21
   ret void
 
-lpad.loopexit:                                    ; preds = %for.body.i
-  %lpad.loopexit2 = landingpad { ptr, i32 }
+62:                                               ; preds = %5
+  %63 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
+  br label %.body
 
-lpad.loopexit.split-lp:                           ; preds = %invoke.cont
-  %lpad.loopexit.split-lp3 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit2, %lpad.loopexit ], [ %lpad.loopexit.split-lp3, %lpad.loopexit.split-lp ]
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %strm) #20
-  resume { ptr, i32 } %lpad.phi
+.body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %62
+  %eh.lpad-body = phi { ptr, i32 } [ %63, %62 ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i ]
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #21
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4) #21
+  resume { ptr, i32 } %eh.lpad-body
 }
 
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
+; Function Attrs: mustprogress uwtable
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3 align 2
 
-declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #0
+; Function Attrs: mustprogress nounwind uwtable
+declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
-; Function Attrs: nounwind
-declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
-
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #20
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #21
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -5424,364 +5545,452 @@ declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferen
 
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
-
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE9find_coreERKS4_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %e) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %0 = load ptr, ptr %e, align 8
-  %call.i.i = tail call noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load i32, ptr %m_capacity, align 8
-  %sub = add i32 %1, -1
-  %and = and i32 %sub, %call.i.i
-  %2 = load ptr, ptr %this, align 8
-  %idx.ext = zext i32 %and to i64
-  %add.ptr = getelementptr inbounds nuw %class.default_hash_entry, ptr %2, i64 %idx.ext
-  %idx.ext4 = zext i32 %1 to i64
-  %add.ptr5 = getelementptr inbounds nuw %class.default_hash_entry, ptr %2, i64 %idx.ext4
-  %cmp.not68 = icmp eq i32 %and, %1
-  br i1 %cmp.not68, label %for.cond18.preheader, label %for.body.lr.ph
+define linkonce_odr hidden noundef ptr @_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE9find_coreERKS4_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = load ptr, ptr %1, align 8, !tbaa !43
+  %4 = tail call noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i32, ptr %5, align 8, !tbaa !40
+  %7 = add i32 %6, -1
+  %8 = and i32 %7, %4
+  %9 = load ptr, ptr %0, align 8, !tbaa !37
+  %10 = zext i32 %8 to i64
+  %11 = getelementptr inbounds nuw %class.default_hash_entry, ptr %9, i64 %10
+  %12 = zext i32 %6 to i64
+  %13 = getelementptr inbounds nuw %class.default_hash_entry, ptr %9, i64 %12
+  %.not47 = icmp eq i32 %8, %6
+  br i1 %.not47, label %.preheader, label %.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
-  %m_table.i2.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %m_dont_care.i3.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %m_size.i.i5.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %m_elems.i9.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %for.body
+.lr.ph:                                           ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %22
 
-for.cond18.preheader:                             ; preds = %for.inc, %entry
-  %cmp19.not70 = icmp eq i32 %and, 0
-  br i1 %cmp19.not70, label %return, label %for.body20.lr.ph
+.preheader:                                       ; preds = %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit, %2
+  %.not2749 = icmp eq i32 %8, 0
+  br i1 %.not2749, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %.lr.ph51
 
-for.body20.lr.ph:                                 ; preds = %for.cond18.preheader
-  %m_table.i2.i.i.i33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %m_dont_care.i3.i.i.i34 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %m_size.i.i5.i.i.i36 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %m_elems.i9.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %for.body20
+.lr.ph51:                                         ; preds = %.preheader
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %59
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %curr.069 = phi ptr [ %add.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %m_state.i = getelementptr inbounds nuw i8, ptr %curr.069, i64 4
-  %3 = load i32, ptr %m_state.i, align 4
-  switch i32 %3, label %for.inc [
-    i32 2, label %if.then
-    i32 0, label %return
+22:                                               ; preds = %.lr.ph, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
+  %.048 = phi ptr [ %11, %.lr.ph ], [ %58, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit ]
+  %23 = getelementptr inbounds nuw i8, ptr %.048, i64 4
+  %24 = load i32, ptr %23, align 4, !tbaa !35
+  switch i32 %24, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit [
+    i32 2, label %25
+    i32 0, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread
   ]
 
-if.then:                                          ; preds = %for.body
-  %4 = load i32, ptr %curr.069, align 8
-  %cmp8 = icmp eq i32 %4, %call.i.i
-  br i1 %cmp8, label %land.lhs.true, label %for.inc
+25:                                               ; preds = %22
+  %26 = load i32, ptr %.048, align 8, !tbaa !32
+  %27 = icmp eq i32 %26, %4
+  br i1 %27, label %28, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
 
-land.lhs.true:                                    ; preds = %if.then
-  %m_data.i = getelementptr inbounds nuw i8, ptr %curr.069, i64 8
-  %5 = load ptr, ptr %m_data.i, align 8
-  %m_table.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %6 = load i64, ptr %m_table.i.i.i.i, align 8
-  %m_dont_care.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %7 = load i64, ptr %m_dont_care.i.i.i.i, align 8
-  %or.i.i.i.i = or i64 %7, %6
-  %m_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %8 = load i32, ptr %m_size.i.i.i.i.i, align 4
-  %sh_prom.i.i.i.i.i = zext nneg i32 %8 to i64
-  %shl.i.i.i.i.i = shl nuw i64 1, %sh_prom.i.i.i.i.i
-  %notmask.i.i.i.i.i = shl nsw i64 -1, %shl.i.i.i.i.i
-  %sub.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i, -1
-  %and.i.i.i.i = and i64 %or.i.i.i.i, %sub.i.i.i.i.i
-  %9 = load i64, ptr %m_table.i2.i.i.i, align 8
-  %10 = load i64, ptr %m_dont_care.i3.i.i.i, align 8
-  %or.i4.i.i.i = or i64 %10, %9
-  %11 = load i32, ptr %m_size.i.i5.i.i.i, align 4
-  %sh_prom.i.i6.i.i.i = zext nneg i32 %11 to i64
-  %shl.i.i7.i.i.i = shl nuw i64 1, %sh_prom.i.i6.i.i.i
-  %notmask.i.i8.i.i.i = shl nsw i64 -1, %shl.i.i7.i.i.i
-  %sub.i.i9.i.i.i = xor i64 %notmask.i.i8.i.i.i, -1
-  %and.i10.i.i.i = and i64 %or.i4.i.i.i, %sub.i.i9.i.i.i
-  %cmp.i.i.i = icmp eq i64 %and.i.i.i.i, %and.i10.i.i.i
-  %cmp.not.i.i.i.i = icmp eq i32 %8, %11
-  %or.cond.i.i.i = and i1 %cmp.not.i.i.i.i, %cmp.i.i.i
-  br i1 %or.cond.i.i.i, label %for.cond.preheader.i.i.i.i, label %for.inc
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load i64, ptr %31, align 8, !tbaa !44
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %34 = load i64, ptr %33, align 8, !tbaa !45
+  %35 = or i64 %34, %32
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %37 = load i32, ptr %36, align 4, !tbaa !15
+  %38 = zext nneg i32 %37 to i64
+  %39 = shl nuw i64 1, %38
+  %notmask.i.i.i.i.i = shl nsw i64 -1, %39
+  %40 = xor i64 %notmask.i.i.i.i.i, -1
+  %41 = and i64 %35, %40
+  %42 = load i64, ptr %14, align 8, !tbaa !44
+  %43 = load i64, ptr %15, align 8, !tbaa !45
+  %44 = or i64 %43, %42
+  %45 = load i32, ptr %16, align 4, !tbaa !15
+  %46 = zext nneg i32 %45 to i64
+  %47 = shl nuw i64 1, %46
+  %notmask.i.i3.i.i.i = shl nsw i64 -1, %47
+  %48 = xor i64 %notmask.i.i3.i.i.i, -1
+  %49 = and i64 %44, %48
+  %50 = icmp eq i64 %41, %49
+  %.not.i.i.i.i = icmp eq i32 %37, %45
+  %or.cond.i.i.i = and i1 %.not.i.i.i.i, %50
+  br i1 %or.cond.i.i.i, label %.preheader.i.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
 
-for.cond.preheader.i.i.i.i:                       ; preds = %land.lhs.true
-  %cmp413.not.i.i.i.i = icmp eq i32 %8, 0
-  br i1 %cmp413.not.i.i.i.i, label %return, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %28
+  %51 = icmp eq i32 %37, 0
+  br i1 %51, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
 
-_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i:              ; preds = %for.cond.preheader.i.i.i.i
-  %m_elems.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i:              ; preds = %.preheader.i.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %_ZNK3sat3cutixEj.exit.i.i.i.i
 
-for.cond.i.i.i.i:                                 ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i
+53:                                               ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %sh_prom.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %return, label %_ZNK3sat3cutixEj.exit.i.i.i.i, !llvm.loop !9
+  %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %38
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %_ZNK3sat3cutixEj.exit.i.i.i.i, !llvm.loop !46
 
-_ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %for.cond.i.i.i.i, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %for.cond.i.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %12 = load i32, ptr %arrayidx.i.i.i.i.i, align 4
-  %arrayidx.i11.i.i.i.i = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9.i.i.i.i, i64 0, i64 %indvars.iv.i.i.i.i
-  %13 = load i32, ptr %arrayidx.i11.i.i.i.i, align 4
-  %cmp6.not.i.i.i.i = icmp eq i32 %12, %13
-  br i1 %cmp6.not.i.i.i.i, label %for.cond.i.i.i.i, label %for.inc
+_ZNK3sat3cutixEj.exit.i.i.i.i:                    ; preds = %53, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %53 ]
+  %54 = getelementptr inbounds nuw [5 x i32], ptr %52, i64 0, i64 %indvars.iv.i.i.i.i
+  %55 = load i32, ptr %54, align 4, !tbaa !16
+  %56 = getelementptr inbounds nuw [5 x i32], ptr %17, i64 0, i64 %indvars.iv.i.i.i.i
+  %57 = load i32, ptr %56, align 4, !tbaa !16
+  %.not10.i.i.i.i = icmp eq i32 %55, %57
+  br i1 %.not10.i.i.i.i, label %53, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit
 
-for.inc:                                          ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i, %for.body, %land.lhs.true, %if.then
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %curr.069, i64 16
-  %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr5
-  br i1 %cmp.not, label %for.cond18.preheader, label %for.body, !llvm.loop !23
+_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit: ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i, %22, %28, %25
+  %58 = getelementptr inbounds nuw i8, ptr %.048, i64 16
+  %.not = icmp eq ptr %58, %13
+  br i1 %.not, label %.preheader, label %22, !llvm.loop !84
 
-for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc36
-  %curr.171 = phi ptr [ %2, %for.body20.lr.ph ], [ %incdec.ptr37, %for.inc36 ]
-  %m_state.i21 = getelementptr inbounds nuw i8, ptr %curr.171, i64 4
-  %14 = load i32, ptr %m_state.i21, align 4
-  switch i32 %14, label %for.inc36 [
-    i32 2, label %if.then22
-    i32 0, label %return
+59:                                               ; preds = %.lr.ph51, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39
+  %.150 = phi ptr [ %9, %.lr.ph51 ], [ %95, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.150, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !35
+  switch i32 %61, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39 [
+    i32 2, label %62
+    i32 0, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread
   ]
 
-if.then22:                                        ; preds = %for.body20
-  %15 = load i32, ptr %curr.171, align 8
-  %cmp24 = icmp eq i32 %15, %call.i.i
-  br i1 %cmp24, label %land.lhs.true25, label %for.inc36
+62:                                               ; preds = %59
+  %63 = load i32, ptr %.150, align 8, !tbaa !32
+  %64 = icmp eq i32 %63, %4
+  br i1 %64, label %65, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39
 
-land.lhs.true25:                                  ; preds = %if.then22
-  %m_data.i23 = getelementptr inbounds nuw i8, ptr %curr.171, i64 8
-  %16 = load ptr, ptr %m_data.i23, align 8
-  %m_table.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %17 = load i64, ptr %m_table.i.i.i.i24, align 8
-  %m_dont_care.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load i64, ptr %m_dont_care.i.i.i.i25, align 8
-  %or.i.i.i.i26 = or i64 %18, %17
-  %m_size.i.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %19 = load i32, ptr %m_size.i.i.i.i.i27, align 4
-  %sh_prom.i.i.i.i.i28 = zext nneg i32 %19 to i64
-  %shl.i.i.i.i.i29 = shl nuw i64 1, %sh_prom.i.i.i.i.i28
-  %notmask.i.i.i.i.i30 = shl nsw i64 -1, %shl.i.i.i.i.i29
-  %sub.i.i.i.i.i31 = xor i64 %notmask.i.i.i.i.i30, -1
-  %and.i.i.i.i32 = and i64 %or.i.i.i.i26, %sub.i.i.i.i.i31
-  %20 = load i64, ptr %m_table.i2.i.i.i33, align 8
-  %21 = load i64, ptr %m_dont_care.i3.i.i.i34, align 8
-  %or.i4.i.i.i35 = or i64 %21, %20
-  %22 = load i32, ptr %m_size.i.i5.i.i.i36, align 4
-  %sh_prom.i.i6.i.i.i37 = zext nneg i32 %22 to i64
-  %shl.i.i7.i.i.i38 = shl nuw i64 1, %sh_prom.i.i6.i.i.i37
-  %notmask.i.i8.i.i.i39 = shl nsw i64 -1, %shl.i.i7.i.i.i38
-  %sub.i.i9.i.i.i40 = xor i64 %notmask.i.i8.i.i.i39, -1
-  %and.i10.i.i.i41 = and i64 %or.i4.i.i.i35, %sub.i.i9.i.i.i40
-  %cmp.i.i.i42 = icmp eq i64 %and.i.i.i.i32, %and.i10.i.i.i41
-  %cmp.not.i.i.i.i43 = icmp eq i32 %19, %22
-  %or.cond.i.i.i44 = and i1 %cmp.not.i.i.i.i43, %cmp.i.i.i42
-  br i1 %or.cond.i.i.i44, label %for.cond.preheader.i.i.i.i45, label %for.inc36
+65:                                               ; preds = %62
+  %66 = getelementptr inbounds nuw i8, ptr %.150, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !43
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %69 = load i64, ptr %68, align 8, !tbaa !44
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %71 = load i64, ptr %70, align 8, !tbaa !45
+  %72 = or i64 %71, %69
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  %74 = load i32, ptr %73, align 4, !tbaa !15
+  %75 = zext nneg i32 %74 to i64
+  %76 = shl nuw i64 1, %75
+  %notmask.i.i.i.i.i28 = shl nsw i64 -1, %76
+  %77 = xor i64 %notmask.i.i.i.i.i28, -1
+  %78 = and i64 %72, %77
+  %79 = load i64, ptr %18, align 8, !tbaa !44
+  %80 = load i64, ptr %19, align 8, !tbaa !45
+  %81 = or i64 %80, %79
+  %82 = load i32, ptr %20, align 4, !tbaa !15
+  %83 = zext nneg i32 %82 to i64
+  %84 = shl nuw i64 1, %83
+  %notmask.i.i3.i.i.i29 = shl nsw i64 -1, %84
+  %85 = xor i64 %notmask.i.i3.i.i.i29, -1
+  %86 = and i64 %81, %85
+  %87 = icmp eq i64 %78, %86
+  %.not.i.i.i.i30 = icmp eq i32 %74, %82
+  %or.cond.i.i.i31 = and i1 %.not.i.i.i.i30, %87
+  br i1 %or.cond.i.i.i31, label %.preheader.i.i.i.i32, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39
 
-for.cond.preheader.i.i.i.i45:                     ; preds = %land.lhs.true25
-  %cmp413.not.i.i.i.i46 = icmp eq i32 %19, 0
-  br i1 %cmp413.not.i.i.i.i46, label %return, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i47
+.preheader.i.i.i.i32:                             ; preds = %65
+  %88 = icmp eq i32 %74, 0
+  br i1 %88, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33
 
-_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i47:            ; preds = %for.cond.preheader.i.i.i.i45
-  %m_elems.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  br label %_ZNK3sat3cutixEj.exit.i.i.i.i50
+_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33:            ; preds = %.preheader.i.i.i.i32
+  %89 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  br label %_ZNK3sat3cutixEj.exit.i.i.i.i34
 
-for.cond.i.i.i.i55:                               ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i50
-  %indvars.iv.next.i.i.i.i56 = add nuw nsw i64 %indvars.iv.i.i.i.i51, 1
-  %exitcond.not.i.i.i.i57 = icmp eq i64 %indvars.iv.next.i.i.i.i56, %sh_prom.i.i.i.i.i28
-  br i1 %exitcond.not.i.i.i.i57, label %return, label %_ZNK3sat3cutixEj.exit.i.i.i.i50, !llvm.loop !9
+90:                                               ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i34
+  %indvars.iv.next.i.i.i.i37 = add nuw nsw i64 %indvars.iv.i.i.i.i35, 1
+  %exitcond.not.i.i.i.i38 = icmp eq i64 %indvars.iv.next.i.i.i.i37, %75
+  br i1 %exitcond.not.i.i.i.i38, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %_ZNK3sat3cutixEj.exit.i.i.i.i34, !llvm.loop !46
 
-_ZNK3sat3cutixEj.exit.i.i.i.i50:                  ; preds = %for.cond.i.i.i.i55, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i47
-  %indvars.iv.i.i.i.i51 = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i47 ], [ %indvars.iv.next.i.i.i.i56, %for.cond.i.i.i.i55 ]
-  %arrayidx.i.i.i.i.i52 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i.i.i.i.i48, i64 0, i64 %indvars.iv.i.i.i.i51
-  %23 = load i32, ptr %arrayidx.i.i.i.i.i52, align 4
-  %arrayidx.i11.i.i.i.i53 = getelementptr inbounds nuw [5 x i32], ptr %m_elems.i9.i.i.i.i49, i64 0, i64 %indvars.iv.i.i.i.i51
-  %24 = load i32, ptr %arrayidx.i11.i.i.i.i53, align 4
-  %cmp6.not.i.i.i.i54 = icmp eq i32 %23, %24
-  br i1 %cmp6.not.i.i.i.i54, label %for.cond.i.i.i.i55, label %for.inc36
+_ZNK3sat3cutixEj.exit.i.i.i.i34:                  ; preds = %90, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33
+  %indvars.iv.i.i.i.i35 = phi i64 [ 0, %_ZNK3sat3cutixEj.exit.lr.ph.i.i.i.i33 ], [ %indvars.iv.next.i.i.i.i37, %90 ]
+  %91 = getelementptr inbounds nuw [5 x i32], ptr %89, i64 0, i64 %indvars.iv.i.i.i.i35
+  %92 = load i32, ptr %91, align 4, !tbaa !16
+  %93 = getelementptr inbounds nuw [5 x i32], ptr %21, i64 0, i64 %indvars.iv.i.i.i.i35
+  %94 = load i32, ptr %93, align 4, !tbaa !16
+  %.not10.i.i.i.i36 = icmp eq i32 %92, %94
+  br i1 %.not10.i.i.i.i36, label %90, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39
 
-for.inc36:                                        ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i50, %for.body20, %land.lhs.true25, %if.then22
-  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %curr.171, i64 16
-  %cmp19.not = icmp eq ptr %incdec.ptr37, %add.ptr
-  br i1 %cmp19.not, label %return, label %for.body20, !llvm.loop !24
+_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39: ; preds = %_ZNK3sat3cutixEj.exit.i.i.i.i34, %59, %65, %62
+  %95 = getelementptr inbounds nuw i8, ptr %.150, i64 16
+  %.not27 = icmp eq ptr %95, %11
+  br i1 %.not27, label %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread, label %59, !llvm.loop !85
 
-return:                                           ; preds = %for.body, %for.cond.preheader.i.i.i.i, %for.cond.i.i.i.i, %for.inc36, %for.cond.preheader.i.i.i.i45, %for.body20, %for.cond.i.i.i.i55, %for.cond18.preheader
-  %retval.0 = phi ptr [ null, %for.cond18.preheader ], [ %curr.171, %for.cond.i.i.i.i55 ], [ null, %for.inc36 ], [ %curr.171, %for.cond.preheader.i.i.i.i45 ], [ null, %for.body20 ], [ %curr.069, %for.cond.i.i.i.i ], [ null, %for.body ], [ %curr.069, %for.cond.preheader.i.i.i.i ]
-  ret ptr %retval.0
+_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit.thread: ; preds = %22, %.preheader.i.i.i.i, %53, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39, %.preheader.i.i.i.i32, %59, %90, %.preheader
+  %.026 = phi ptr [ null, %.preheader ], [ %.150, %90 ], [ null, %_ZNK14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE6equalsERKS4_SA_.exit39 ], [ %.150, %.preheader.i.i.i.i32 ], [ null, %59 ], [ %.048, %53 ], [ null, %22 ], [ %.048, %.preheader.i.i.i.i ]
+  ret ptr %.026
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(20) %this) local_unnamed_addr #3 comdat align 2 {
-entry:
-  %m_capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %0 = load i32, ptr %m_capacity, align 8
-  %shl = shl i32 %0, 1
-  %conv.i.i = zext i32 %shl to i64
-  %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
-  %call.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %mul.i.i)
-  %cmp5.not.i.i = icmp eq i32 %shl, 0
-  br i1 %cmp5.not.i.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit, label %for.body.i.preheader.i
+define linkonce_odr hidden void @_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12expand_tableEv(ptr noundef nonnull align 8 dereferenceable(20) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = load i32, ptr %2, align 8, !tbaa !40
+  %4 = shl i32 %3, 1
+  %5 = zext i32 %4 to i64
+  %6 = shl nuw nsw i64 %5, 4
+  %7 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %6)
+  %.not6.i.i.i.i.i = icmp eq i32 %4, 0
+  br i1 %.not6.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit, label %.lr.ph.i.i.i.i.i
 
-for.body.i.preheader.i:                           ; preds = %entry
-  tail call void @llvm.memset.p0.i64(ptr align 8 %call.i.i, i8 0, i64 %mul.i.i, i1 false)
-  br label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit
+.lr.ph.i.i.i.i.i:                                 ; preds = %1, %.lr.ph.i.i.i.i.i
+  %.08.i.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i.i ], [ %7, %1 ]
+  %.057.i.i.i.i.i = phi i32 [ %9, %.lr.ph.i.i.i.i.i ], [ %4, %1 ]
+  store i32 0, ptr %.08.i.i.i.i.i, align 8, !tbaa !32
+  %8 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 4
+  store i32 0, ptr %8, align 4, !tbaa !35
+  %9 = add i32 %.057.i.i.i.i.i, -1
+  %10 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !36
 
-_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit: ; preds = %entry, %for.body.i.preheader.i
-  %1 = load ptr, ptr %this, align 8
-  %2 = load i32, ptr %m_capacity, align 8
-  %sub.i = add i32 %shl, -1
-  %idx.ext.i = zext i32 %2 to i64
-  %add.ptr.i = getelementptr inbounds nuw %class.default_hash_entry, ptr %1, i64 %idx.ext.i
-  %add.ptr2.i = getelementptr inbounds nuw %class.default_hash_entry, ptr %call.i.i, i64 %conv.i.i
-  %cmp.not28.i = icmp eq i32 %2, 0
-  br i1 %cmp.not28.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit, label %for.body.i
+_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit: ; preds = %.lr.ph.i.i.i.i.i, %1
+  %11 = load ptr, ptr %0, align 8, !tbaa !37
+  %12 = load i32, ptr %2, align 8, !tbaa !40
+  %13 = add i32 %4, -1
+  %14 = zext i32 %12 to i64
+  %15 = getelementptr inbounds nuw %class.default_hash_entry, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %5
+  %.not38.i = icmp eq i32 %12, 0
+  br i1 %.not38.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit, label %.lr.ph41.i
 
-for.body.i:                                       ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit, %for.inc21.i
-  %source_curr.029.i = phi ptr [ %incdec.ptr22.i, %for.inc21.i ], [ %1, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit ]
-  %m_state.i.i = getelementptr inbounds nuw i8, ptr %source_curr.029.i, i64 4
-  %3 = load i32, ptr %m_state.i.i, align 4
-  %cmp.i.i = icmp eq i32 %3, 2
-  br i1 %cmp.i.i, label %if.then.i, label %for.inc21.i
+.lr.ph41.i:                                       ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit, %37
+  %.02839.i = phi ptr [ %38, %37 ], [ %11, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit ]
+  %17 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !35
+  %19 = icmp eq i32 %18, 2
+  br i1 %19, label %20, label %37
 
-if.then.i:                                        ; preds = %for.body.i
-  %4 = load i32, ptr %source_curr.029.i, align 8
-  %and.i = and i32 %4, %sub.i
-  %idx.ext4.i = zext i32 %and.i to i64
-  %add.ptr5.i = getelementptr inbounds nuw %class.default_hash_entry, ptr %call.i.i, i64 %idx.ext4.i
-  %cmp7.not24.i = icmp eq i32 %and.i, %shl
-  br i1 %cmp7.not24.i, label %for.cond11.preheader.i, label %for.body8.i
+20:                                               ; preds = %.lr.ph41.i
+  %21 = load i32, ptr %.02839.i, align 8, !tbaa !32
+  %22 = and i32 %21, %13
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw %class.default_hash_entry, ptr %7, i64 %23
+  %.not2933.i = icmp eq i32 %22, %4
+  br i1 %.not2933.i, label %.preheader.i, label %.lr.ph.i
 
-for.cond11.preheader.i:                           ; preds = %for.inc.i, %if.then.i
-  %cmp12.not26.i = icmp eq i32 %and.i, 0
-  br i1 %cmp12.not26.i, label %for.end19.i, label %for.body13.i
+.preheader.i:                                     ; preds = %29, %20
+  %.not3035.i = icmp eq i32 %22, 0
+  br i1 %.not3035.i, label %._crit_edge.i, label %.lr.ph37.i
 
-for.body8.i:                                      ; preds = %if.then.i, %for.inc.i
-  %target_curr.025.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %add.ptr5.i, %if.then.i ]
-  %m_state.i18.i = getelementptr inbounds nuw i8, ptr %target_curr.025.i, i64 4
-  %5 = load i32, ptr %m_state.i18.i, align 4
-  %cmp.i19.i = icmp eq i32 %5, 0
-  br i1 %cmp.i19.i, label %for.inc21.sink.split.i, label %for.inc.i
+.lr.ph.i:                                         ; preds = %20, %29
+  %.034.i = phi ptr [ %30, %29 ], [ %24, %20 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.034.i, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !35
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %29
 
-for.inc.i:                                        ; preds = %for.body8.i
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %target_curr.025.i, i64 16
-  %cmp7.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr2.i
-  br i1 %cmp7.not.i, label %for.cond11.preheader.i, label %for.body8.i, !llvm.loop !25
+28:                                               ; preds = %.lr.ph.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.034.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !86
+  br label %37
 
-for.body13.i:                                     ; preds = %for.cond11.preheader.i, %for.inc17.i
-  %target_curr.127.i = phi ptr [ %incdec.ptr18.i, %for.inc17.i ], [ %call.i.i, %for.cond11.preheader.i ]
-  %m_state.i20.i = getelementptr inbounds nuw i8, ptr %target_curr.127.i, i64 4
-  %6 = load i32, ptr %m_state.i20.i, align 4
-  %cmp.i21.i = icmp eq i32 %6, 0
-  br i1 %cmp.i21.i, label %for.inc21.sink.split.i, label %for.inc17.i
+29:                                               ; preds = %.lr.ph.i
+  %30 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
+  %.not29.i = icmp eq ptr %30, %16
+  br i1 %.not29.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !88
 
-for.inc17.i:                                      ; preds = %for.body13.i
-  %incdec.ptr18.i = getelementptr inbounds nuw i8, ptr %target_curr.127.i, i64 16
-  %cmp12.not.i = icmp eq ptr %incdec.ptr18.i, %add.ptr5.i
-  br i1 %cmp12.not.i, label %for.end19.i, label %for.body13.i, !llvm.loop !26
+.lr.ph37.i:                                       ; preds = %.preheader.i, %35
+  %.136.i = phi ptr [ %36, %35 ], [ %7, %.preheader.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.136.i, i64 4
+  %32 = load i32, ptr %31, align 4, !tbaa !35
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %35
 
-for.end19.i:                                      ; preds = %for.cond11.preheader.i, %for.inc17.i
-  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.11, i32 noundef 212, ptr noundef nonnull @.str.10)
-  tail call void @exit(i32 noundef 114) #19
-  unreachable
+34:                                               ; preds = %.lr.ph37.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.136.i, ptr noundef nonnull align 8 dereferenceable(16) %.02839.i, i64 16, i1 false), !tbaa.struct !86
+  br label %37
 
-for.inc21.sink.split.i:                           ; preds = %for.body8.i, %for.body13.i
-  %target_curr.127.lcssa.sink.i = phi ptr [ %target_curr.127.i, %for.body13.i ], [ %target_curr.025.i, %for.body8.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %target_curr.127.lcssa.sink.i, ptr noundef nonnull align 8 dereferenceable(16) %source_curr.029.i, i64 16, i1 false)
-  br label %for.inc21.i
+35:                                               ; preds = %.lr.ph37.i
+  %36 = getelementptr inbounds nuw i8, ptr %.136.i, i64 16
+  %.not30.i = icmp eq ptr %36, %24
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph37.i, !llvm.loop !89
 
-for.inc21.i:                                      ; preds = %for.inc21.sink.split.i, %for.body.i
-  %incdec.ptr22.i = getelementptr inbounds nuw i8, ptr %source_curr.029.i, i64 16
-  %cmp.not.i = icmp eq ptr %incdec.ptr22.i, %add.ptr.i
-  br i1 %cmp.not.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit, label %for.body.i, !llvm.loop !27
+._crit_edge.i:                                    ; preds = %35, %.preheader.i
+  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.11, i32 noundef 213, ptr noundef nonnull @.str.10)
+  tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
+  br label %37
 
-_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit: ; preds = %for.inc21.i
-  %.pre = load ptr, ptr %this, align 8
+37:                                               ; preds = %._crit_edge.i, %34, %28, %.lr.ph41.i
+  %38 = getelementptr inbounds nuw i8, ptr %.02839.i, i64 16
+  %.not.i = icmp eq ptr %38, %15
+  br i1 %.not.i, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit, label %.lr.ph41.i, !llvm.loop !90
+
+_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit: ; preds = %37
+  %.pre = load ptr, ptr %0, align 8, !tbaa !37
   br label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit
 
 _ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit: ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit
-  %7 = phi ptr [ %.pre, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit ], [ %1, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit ]
-  %cmp.i.i4 = icmp eq ptr %7, null
-  br i1 %cmp.i.i4, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12delete_tableEv.exit, label %for.cond.preheader.i.i
+  %39 = phi ptr [ %.pre, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit.loopexit ], [ %11, %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE11alloc_tableEj.exit ]
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12delete_tableEv.exit, label %41
 
-for.cond.preheader.i.i:                           ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
+41:                                               ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %39)
   br label %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12delete_tableEv.exit
 
-_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12delete_tableEv.exit: ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit, %for.cond.preheader.i.i
-  store ptr %call.i.i, ptr %this, align 8
-  store i32 %shl, ptr %m_capacity, align 8
-  %m_num_deleted = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store i32 0, ptr %m_num_deleted, align 8
+_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE12delete_tableEv.exit: ; preds = %_ZN14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE10move_tableEPS5_jS9_j.exit, %41
+  store ptr %7, ptr %0, align 8, !tbaa !37
+  store i32 %4, ptr %2, align 8, !tbaa !40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %42, align 8, !tbaa !42
   ret void
 }
 
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
+
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #13
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
+
+; Function Attrs: nounwind
+declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
+
+declare void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE7_M_syncEPcmm(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_sat_cutset.cpp() #15 section ".text.startup" {
-entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #21
   ret void
 }
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #16
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #18
 
-attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold nofree noreturn }
-attributes #13 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { noreturn }
-attributes #19 = { cold noreturn nounwind }
-attributes #20 = { nounwind }
-attributes #21 = { noreturn nounwind }
+attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #17 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.linker.options = !{}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
+!3 = !{!4, !5, i64 16}
+!4 = !{!"_ZTSN3sat7cut_setE", !5, i64 0, !8, i64 8, !5, i64 16, !5, i64 20, !10, i64 24}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C++ TBAA"}
+!8 = !{!"p1 _ZTS6region", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"p1 _ZTSN3sat3cutE", !9, i64 0}
+!11 = !{!4, !10, i64 24}
+!12 = !{!13, !5, i64 0}
+!13 = !{!"_ZTSN3sat3cutE", !5, i64 0, !5, i64 4, !6, i64 8, !14, i64 32, !14, i64 40}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!13, !5, i64 4}
+!16 = !{!5, !5, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.mustprogress"}
+!19 = !{i64 0, i64 4, !16, i64 4, i64 4, !16, i64 8, i64 20, !20, i64 32, i64 8, !21, i64 40, i64 8, !21}
+!20 = !{!6, !6, i64 0}
+!21 = !{!14, !14, i64 0}
+!22 = distinct !{!22, !18}
+!23 = !{!4, !5, i64 0}
+!24 = !{!25, !9, i64 16}
+!25 = !{!"_ZTSSt14_Function_base", !6, i64 0, !9, i64 16}
+!26 = !{!27, !9, i64 24}
+!27 = !{!"_ZTSSt8functionIFvjRKN3sat3cutEEE", !25, i64 0, !9, i64 24}
+!28 = distinct !{!28, !18}
+!29 = !{!4, !5, i64 20}
+!30 = !{!4, !8, i64 8}
+!31 = distinct !{!31, !18}
+!32 = !{!33, !5, i64 0}
+!33 = !{!"_ZTS18default_hash_entryIPKN3sat3cutEE", !5, i64 0, !34, i64 4, !10, i64 8}
+!34 = !{!"_ZTS16hash_entry_state", !6, i64 0}
+!35 = !{!33, !34, i64 4}
+!36 = distinct !{!36, !18}
+!37 = !{!38, !39, i64 0}
+!38 = !{!"_ZTS14core_hashtableI18default_hash_entryIPKN3sat3cutEENS2_9hash_procENS2_7eq_procEE", !39, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!39 = !{!"p1 _ZTS18default_hash_entryIPKN3sat3cutEE", !9, i64 0}
+!40 = !{!38, !5, i64 8}
+!41 = !{!38, !5, i64 12}
+!42 = !{!38, !5, i64 16}
+!43 = !{!10, !10, i64 0}
+!44 = !{!13, !14, i64 32}
+!45 = !{!13, !14, i64 40}
+!46 = distinct !{!46, !18}
+!47 = !{!33, !10, i64 8}
+!48 = distinct !{!48, !18}
+!49 = distinct !{!49, !18}
+!50 = distinct !{!50, !18}
+!51 = distinct !{!51, !18}
+!52 = distinct !{!52, !18}
+!53 = distinct !{!53, !18}
+!54 = distinct !{!54, !18}
+!55 = distinct !{!55, !18}
+!56 = distinct !{!56, !18}
+!57 = distinct !{!57, !18}
+!58 = distinct !{!58, !18}
+!59 = !{!60, !14, i64 0}
+!60 = !{!"_ZTSN3sat7cut_valE", !14, i64 0, !14, i64 8}
+!61 = distinct !{!61, !18}
+!62 = distinct !{!62, !18}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZNOSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!65 = distinct !{!65, !"_ZNOSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"_ZNOSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv: argument 0"}
+!68 = distinct !{!68, !"_ZNOSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEE3strEv"}
+!69 = !{!70, !71, i64 40}
+!70 = !{!"_ZTSSt15basic_streambufIcSt11char_traitsIcEE", !71, i64 8, !71, i64 16, !71, i64 24, !71, i64 32, !71, i64 40, !71, i64 48, !72, i64 56}
+!71 = !{!"p1 omnipotent char", !9, i64 0}
+!72 = !{!"_ZTSSt6locale", !73, i64 0}
+!73 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
+!74 = !{!67, !64}
+!75 = !{!70, !71, i64 24}
+!76 = !{!70, !71, i64 32}
+!77 = !{!78, !14, i64 8}
+!78 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !79, i64 0, !14, i64 8, !6, i64 16}
+!79 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !71, i64 0}
+!80 = !{!78, !71, i64 0}
+!81 = !{!79, !71, i64 0}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"vtable pointer", !7, i64 0}
+!84 = distinct !{!84, !18}
+!85 = distinct !{!85, !18}
+!86 = !{i64 0, i64 4, !16, i64 4, i64 4, !87, i64 8, i64 8, !43}
+!87 = !{!34, !34, i64 0}
+!88 = distinct !{!88, !18}
+!89 = distinct !{!89, !18}
+!90 = distinct !{!90, !18}

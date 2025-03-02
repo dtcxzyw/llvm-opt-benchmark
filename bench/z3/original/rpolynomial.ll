@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.rpolynomial::manager" = type { ptr }
@@ -25,9 +25,8 @@ $_Z7deallocI22small_object_allocatorEvPT_ = comdat any
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {
-entry:
   call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %0 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
   ret void
 }
 
@@ -40,173 +39,164 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11rpolynomial7to_polyEPv(ptr noundef %p) #4 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %and = and i64 %1, -8
-  %2 = inttoptr i64 %and to ptr
-  ret ptr %2
+define hidden noundef ptr @_ZN11rpolynomial7to_polyEPv(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = ptrtoint ptr %3 to i64
+  %5 = and i64 %4, -8
+  %6 = inttoptr i64 %5 to ptr
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11rpolynomial10to_num_ptrEPv(ptr noundef %p) #4 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %and = and i64 %1, -8
-  %2 = inttoptr i64 %and to ptr
-  ret ptr %2
+define hidden noundef ptr @_ZN11rpolynomial10to_num_ptrEPv(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = ptrtoint ptr %3 to i64
+  %5 = and i64 %4, -8
+  %6 = inttoptr i64 %5 to ptr
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN11rpolynomial6to_numEPv(ptr noundef %p) #4 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %call = call noundef ptr @_ZN11rpolynomial10to_num_ptrEPv(ptr noundef %0)
-  ret ptr %call
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN11rpolynomial6to_numEPv(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
+  %4 = call noundef ptr @_ZN11rpolynomial10to_num_ptrEPv(ptr noundef %3)
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11rpolynomial14to_poly_or_numEPNS_10polynomialE(ptr noundef %p) #4 {
-entry:
-  %p.addr = alloca ptr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %or = or i64 %1, 0
-  %2 = inttoptr i64 %or to ptr
-  ret ptr %2
+define hidden noundef ptr @_ZN11rpolynomial14to_poly_or_numEPNS_10polynomialE(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !7
+  %3 = load ptr, ptr %2, align 8, !tbaa !7
+  %4 = ptrtoint ptr %3 to i64
+  %5 = or i64 %4, 0
+  %6 = inttoptr i64 %5 to ptr
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11rpolynomial14to_poly_or_numEP3mpz(ptr noundef %n) #4 {
-entry:
-  %n.addr = alloca ptr, align 8
-  store ptr %n, ptr %n.addr, align 8
-  %0 = load ptr, ptr %n.addr, align 8
-  %1 = ptrtoint ptr %0 to i64
-  %or = or i64 %1, 1
-  %2 = inttoptr i64 %or to ptr
-  ret ptr %2
+define hidden noundef ptr @_ZN11rpolynomial14to_poly_or_numEP3mpz(ptr noundef %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !9
+  %3 = load ptr, ptr %2, align 8, !tbaa !9
+  %4 = ptrtoint ptr %3 to i64
+  %5 = or i64 %4, 1
+  %6 = inttoptr i64 %5 to ptr
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11rpolynomial7managerC2ER11mpz_managerILb0EEP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(600) %m, ptr noundef %a) unnamed_addr #5 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %0 = load ptr, ptr %m.addr, align 8
-  %1 = load ptr, ptr %a.addr, align 8
-  call void @_ZN11rpolynomial7manager3impC2ERS0_R11mpz_managerILb0EEP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(25) %call, ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef %1)
-  %m_imp = getelementptr inbounds %"class.rpolynomial::manager", ptr %this1, i32 0, i32 0
-  store ptr %call, ptr %m_imp, align 8
+define hidden void @_ZN11rpolynomial7managerC2ER11mpz_managerILb0EEP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(600) %1, ptr noundef %2) unnamed_addr #5 align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !11
+  store ptr %1, ptr %5, align 8, !tbaa !13
+  store ptr %2, ptr %6, align 8, !tbaa !15
+  %7 = load ptr, ptr %4, align 8
+  %8 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
+  %9 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %6, align 8, !tbaa !15
+  call void @_ZN11rpolynomial7manager3impC2ERS0_R11mpz_managerILb0EEP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(25) %8, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(600) %9, ptr noundef %10)
+  %11 = getelementptr inbounds nuw %"class.rpolynomial::manager", ptr %7, i32 0, i32 0
+  store ptr %8, ptr %11, align 8, !tbaa !17
   ret void
 }
 
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZN11rpolynomial7manager3impC2ERS0_R11mpz_managerILb0EEP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef nonnull align 8 dereferenceable(8) %w, ptr noundef nonnull align 8 dereferenceable(600) %m, ptr noundef %a) unnamed_addr #5 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %w.addr = alloca ptr, align 8
-  %m.addr = alloca ptr, align 8
-  %a.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %w, ptr %w.addr, align 8
-  store ptr %m, ptr %m.addr, align 8
-  store ptr %a, ptr %a.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_wrapper = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %w.addr, align 8
-  store ptr %0, ptr %m_wrapper, align 8
-  %m_manager = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 1
-  %1 = load ptr, ptr %m.addr, align 8
-  store ptr %1, ptr %m_manager, align 8
-  %m_allocator = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 2
-  %2 = load ptr, ptr %a.addr, align 8
-  store ptr %2, ptr %m_allocator, align 8
-  %m_own_allocator = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 3
-  %3 = load ptr, ptr %a.addr, align 8
-  %cmp = icmp eq ptr %3, null
-  %frombool = zext i1 %cmp to i8
-  store i8 %frombool, ptr %m_own_allocator, align 8
-  %4 = load ptr, ptr %a.addr, align 8
-  %cmp2 = icmp eq ptr %4, null
-  br i1 %cmp2, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZN11rpolynomial7manager3impC2ERS0_R11mpz_managerILb0EEP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef %3) unnamed_addr #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8, !tbaa !20
+  store ptr %1, ptr %6, align 8, !tbaa !11
+  store ptr %2, ptr %7, align 8, !tbaa !13
+  store ptr %3, ptr %8, align 8, !tbaa !15
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8, !tbaa !11
+  store ptr %11, ptr %10, align 8, !tbaa !11
+  %12 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8, !tbaa !13
+  store ptr %13, ptr %12, align 8, !tbaa !13
+  %14 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %15, ptr %14, align 8, !tbaa !21
+  %16 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %9, i32 0, i32 3
+  %17 = load ptr, ptr %8, align 8, !tbaa !15
+  %18 = icmp eq ptr %17, null
+  %19 = zext i1 %18 to i8
+  store i8 %19, ptr %16, align 8, !tbaa !24
+  %20 = load ptr, ptr %8, align 8, !tbaa !15
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %25
 
-if.then:                                          ; preds = %entry
-  %call = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 520)
-  call void @_ZN22small_object_allocatorC1EPKc(ptr noundef nonnull align 8 dereferenceable(520) %call, ptr noundef @.str)
-  %m_allocator3 = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 2
-  store ptr %call, ptr %m_allocator3, align 8
-  br label %if.end
+22:                                               ; preds = %4
+  %23 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 520)
+  call void @_ZN22small_object_allocatorC1EPKc(ptr noundef nonnull align 8 dereferenceable(520) %23, ptr noundef @.str)
+  %24 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %9, i32 0, i32 2
+  store ptr %23, ptr %24, align 8, !tbaa !21
+  br label %25
 
-if.end:                                           ; preds = %if.then, %entry
+25:                                               ; preds = %22, %4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11rpolynomial7managerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_imp = getelementptr inbounds %"class.rpolynomial::manager", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %m_imp, align 8
-  invoke void @_Z7deallocIN11rpolynomial7manager3impEEvPT_(ptr noundef %0)
-          to label %invoke.cont unwind label %terminate.lpad
+define hidden void @_ZN11rpolynomial7managerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !11
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.rpolynomial::manager", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !17
+  invoke void @_Z7deallocIN11rpolynomial7manager3impEEvPT_(ptr noundef %5)
+          to label %6 unwind label %7
 
-invoke.cont:                                      ; preds = %entry
+6:                                                ; preds = %1
   ret void
 
-terminate.lpad:                                   ; preds = %entry
-  %1 = landingpad { ptr, i32 }
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  call void @__clang_call_terminate(ptr %2) #7
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #7
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_Z7deallocIN11rpolynomial7manager3impEEvPT_(ptr noundef %ptr) #5 comdat {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_Z7deallocIN11rpolynomial7manager3impEEvPT_(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ptr.addr, align 8
-  call void @_ZN11rpolynomial7manager3impD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %1) #3
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void @_ZN6memory10deallocateEPv(ptr noundef %2)
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !20
+  call void @_ZN11rpolynomial7manager3impD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #3
+  %8 = load ptr, ptr %2, align 8, !tbaa !20
+  call void @_ZN6memory10deallocateEPv(ptr noundef %8)
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
+9:                                                ; preds = %6, %5
   ret void
 }
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn nounwind uwtable
+; Function Attrs: noinline noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
   %2 = call ptr @__cxa_begin_catch(ptr %0) #3
   call void @_ZSt9terminatev() #7
@@ -218,72 +208,69 @@ declare ptr @__cxa_begin_catch(ptr)
 declare void @_ZSt9terminatev()
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11rpolynomial7manager7is_zeroEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %p) #4 align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %p.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store ptr %p, ptr %p.addr, align 8
-  %0 = load ptr, ptr %p.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  ret i1 %cmp
+define hidden noundef zeroext i1 @_ZN11rpolynomial7manager7is_zeroEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) #4 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !11
+  store ptr %1, ptr %4, align 8, !tbaa !7
+  %5 = load ptr, ptr %4, align 8, !tbaa !7
+  %6 = icmp eq ptr %5, null
+  ret i1 %6
 }
 
 declare void @_ZN22small_object_allocatorC1EPKc(ptr noundef nonnull align 8 dereferenceable(520), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN11rpolynomial7manager3impD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %m_own_allocator = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 3
-  %0 = load i8, ptr %m_own_allocator, align 8
-  %tobool = trunc i8 %0 to i1
-  br i1 %tobool, label %if.then, label %if.end
+define linkonce_odr hidden void @_ZN11rpolynomial7manager3impD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %3, i32 0, i32 3
+  %5 = load i8, ptr %4, align 8, !tbaa !24, !range !25, !noundef !26
+  %6 = trunc i8 %5 to i1
+  br i1 %6, label %7, label %11
 
-if.then:                                          ; preds = %entry
-  %m_allocator = getelementptr inbounds %"struct.rpolynomial::manager::imp", ptr %this1, i32 0, i32 2
-  %1 = load ptr, ptr %m_allocator, align 8
-  invoke void @_Z7deallocI22small_object_allocatorEvPT_(ptr noundef %1)
-          to label %invoke.cont unwind label %terminate.lpad
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"struct.rpolynomial::manager::imp", ptr %3, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  invoke void @_Z7deallocI22small_object_allocatorEvPT_(ptr noundef %9)
+          to label %10 unwind label %12
 
-invoke.cont:                                      ; preds = %if.then
-  br label %if.end
+10:                                               ; preds = %7
+  br label %11
 
-if.end:                                           ; preds = %invoke.cont, %entry
+11:                                               ; preds = %10, %1
   ret void
 
-terminate.lpad:                                   ; preds = %if.then
-  %2 = landingpad { ptr, i32 }
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
           catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  call void @__clang_call_terminate(ptr %3) #7
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #7
   unreachable
 }
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_Z7deallocI22small_object_allocatorEvPT_(ptr noundef %ptr) #5 comdat {
-entry:
-  %ptr.addr = alloca ptr, align 8
-  store ptr %ptr, ptr %ptr.addr, align 8
-  %0 = load ptr, ptr %ptr.addr, align 8
-  %cmp = icmp eq ptr %0, null
-  br i1 %cmp, label %if.then, label %if.end
+define linkonce_odr hidden void @_Z7deallocI22small_object_allocatorEvPT_(ptr noundef %0) #5 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !15
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %6
 
-if.then:                                          ; preds = %entry
-  br label %return
+5:                                                ; preds = %1
+  br label %9
 
-if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ptr.addr, align 8
-  call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %1) #3
-  %2 = load ptr, ptr %ptr.addr, align 8
-  call void @_ZN6memory10deallocateEPv(ptr noundef %2)
-  br label %return
+6:                                                ; preds = %1
+  %7 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %7) #3
+  %8 = load ptr, ptr %2, align 8, !tbaa !15
+  call void @_ZN6memory10deallocateEPv(ptr noundef %8)
+  br label %9
 
-return:                                           ; preds = %if.end, %if.then
+9:                                                ; preds = %6, %5
   ret void
 }
 
@@ -292,23 +279,46 @@ declare void @_ZN22small_object_allocatorD1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_rpolynomial.cpp() #0 section ".text.startup" {
-entry:
   call void @__cxx_global_var_init()
   ret void
 }
 
-attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind }
-attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.linker.options = !{}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"any pointer", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTSN11rpolynomial10polynomialE", !4, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 _ZTS3mpz", !4, i64 0}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"p1 _ZTSN11rpolynomial7managerE", !4, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11mpz_managerILb0EE", !4, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS22small_object_allocator", !4, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTSN11rpolynomial7managerE", !19, i64 0}
+!19 = !{!"p1 _ZTSN11rpolynomial7manager3impE", !4, i64 0}
+!20 = !{!19, !19, i64 0}
+!21 = !{!22, !16, i64 16}
+!22 = !{!"_ZTSN11rpolynomial7manager3impE", !12, i64 0, !14, i64 8, !16, i64 16, !23, i64 24}
+!23 = !{!"bool", !5, i64 0}
+!24 = !{!22, !23, i64 24}
+!25 = !{i8 0, i8 2}
+!26 = !{}

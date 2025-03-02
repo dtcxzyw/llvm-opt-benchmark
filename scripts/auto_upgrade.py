@@ -143,6 +143,7 @@ supported_project = [
     "yaml-cpp",
     "yoga",
     "yosys",
+    "z3",
 ]
 
 modify_only = [
