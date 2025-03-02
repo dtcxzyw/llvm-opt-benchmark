@@ -138,6 +138,7 @@ supported_project = [
     "tinyrenderer",
     "tomlplusplus",
     "vcpkg",
+    "verilator",
 ]
 
 modify_only = [
