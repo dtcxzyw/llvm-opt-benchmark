@@ -11786,7 +11786,7 @@ _ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EED2Ev.exit1189: ; preds = %
   ret i32 %3757
 
 3952:                                             ; preds = %3745, %3693, %2904, %3769, %3734, %.body1098, %2931, %2898, %2791, %2774, %2772, %2770
-  %.merged488 = phi { ptr, i32 } [ %3770, %3769 ], [ %2792, %2791 ], [ %.pn421, %3734 ], [ %.pn418, %.body1098 ], [ %2932, %2931 ], [ %.pn389.pn.pn.pn.pn, %2898 ], [ %2775, %2774 ], [ %2773, %2772 ], [ %2771, %2770 ], [ %2905, %2904 ], [ %3694, %3693 ], [ %3746, %3745 ]
+  %.merged489 = phi { ptr, i32 } [ %3770, %3769 ], [ %2792, %2791 ], [ %.pn421, %3734 ], [ %.pn418, %.body1098 ], [ %2932, %2931 ], [ %.pn389.pn.pn.pn.pn, %2898 ], [ %2775, %2774 ], [ %2773, %2772 ], [ %2771, %2770 ], [ %2905, %2904 ], [ %3694, %3693 ], [ %3746, %3745 ]
   call void @_ZNSt10unique_ptrI13PmeGpuProgramSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %115) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %115) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %114) #34
@@ -11794,7 +11794,7 @@ _ZNSt10unique_ptrI10t_forcerecSt14default_deleteIS0_EED2Ev.exit1189: ; preds = %
 
 .body930:                                         ; preds = %.loopexit1483, %.loopexit.split-lp1484.loopexit.split-lp.loopexit, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp1484.loopexit, %2648, %2616, %2597, %2589, %2599, %2533, %2523, %2469, %2456, %2467, %2406, %3952, %2715, %2650, %2595, %2593, %2531, %2529, %2527, %2466, %2465
   %.sroa.01279.1 = phi ptr [ %.sroa.01279.2, %3952 ], [ %2487, %2715 ], [ %2487, %2650 ], [ %2487, %2595 ], [ %2487, %2593 ], [ %2487, %2531 ], [ %2487, %2529 ], [ null, %2527 ], [ null, %2466 ], [ null, %2465 ], [ null, %2406 ], [ null, %2467 ], [ null, %2456 ], [ null, %2469 ], [ %2487, %2523 ], [ %2487, %2533 ], [ %2487, %2599 ], [ %2487, %2589 ], [ %2487, %2597 ], [ %2487, %2616 ], [ %2487, %2648 ], [ null, %.loopexit1483 ], [ null, %.loopexit.split-lp1484.loopexit ], [ null, %.loopexit.split-lp1484.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.01279.0.ph.ph.ph.ph.ph.ph, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %.merged487 = phi { ptr, i32 } [ %.merged488, %3952 ], [ %2716, %2715 ], [ %2651, %2650 ], [ %2596, %2595 ], [ %2594, %2593 ], [ %2532, %2531 ], [ %2530, %2529 ], [ %2528, %2527 ], [ %lpad.phi, %2466 ], [ %lpad.phi1492, %2465 ], [ %2407, %2406 ], [ %2468, %2467 ], [ %2457, %2456 ], [ %2470, %2469 ], [ %2524, %2523 ], [ %2534, %2533 ], [ %2600, %2599 ], [ %2590, %2589 ], [ %2598, %2597 ], [ %2617, %2616 ], [ %2649, %2648 ], [ %lpad.loopexit1485, %.loopexit1483 ], [ %lpad.loopexit1493, %.loopexit.split-lp1484.loopexit ], [ %lpad.loopexit1496, %.loopexit.split-lp1484.loopexit.split-lp.loopexit ], [ %lpad.loopexit1499, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1502, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1505, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1506, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %.merged488 = phi { ptr, i32 } [ %.merged489, %3952 ], [ %2716, %2715 ], [ %2651, %2650 ], [ %2596, %2595 ], [ %2594, %2593 ], [ %2532, %2531 ], [ %2530, %2529 ], [ %2528, %2527 ], [ %lpad.phi, %2466 ], [ %lpad.phi1492, %2465 ], [ %2407, %2406 ], [ %2468, %2467 ], [ %2457, %2456 ], [ %2470, %2469 ], [ %2524, %2523 ], [ %2534, %2533 ], [ %2600, %2599 ], [ %2590, %2589 ], [ %2598, %2597 ], [ %2617, %2616 ], [ %2649, %2648 ], [ %lpad.loopexit1485, %.loopexit1483 ], [ %lpad.loopexit1493, %.loopexit.split-lp1484.loopexit ], [ %lpad.loopexit1496, %.loopexit.split-lp1484.loopexit.split-lp.loopexit ], [ %lpad.loopexit1499, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1502, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1505, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1506, %.loopexit.split-lp1484.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 928, ptr nonnull %102) #34
   call void @_ZNSt10unique_ptrIN3gmx19VirtualSitesHandlerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %101) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #34
@@ -11808,33 +11808,33 @@ _ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i1191: ; preds = %.bo
   br label %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit1192
 
 _ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit1192: ; preds = %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i1191, %.body930, %2463, %2461, %2304
-  %.merged485 = phi { ptr, i32 } [ %2462, %2461 ], [ %2305, %2304 ], [ %2464, %2463 ], [ %.merged487, %.body930 ], [ %.merged487, %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i1191 ]
+  %.merged486 = phi { ptr, i32 } [ %2462, %2461 ], [ %2305, %2304 ], [ %2464, %2463 ], [ %.merged488, %.body930 ], [ %.merged488, %_ZNKSt14default_deleteIN3gmx14BoxDeformationEEclEPS1_.exit.i1191 ]
   call void @_ZNSt10unique_ptrI13gmx_wallcycleSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %98) #34
   br label %3953
 
 3953:                                             ; preds = %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit1192, %2302
-  %.merged484 = phi { ptr, i32 } [ %.merged485, %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit1192 ], [ %2303, %2302 ]
+  %.merged485 = phi { ptr, i32 } [ %.merged486, %_ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit1192 ], [ %2303, %2302 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %98) #34
   br label %.body832
 
 .body832:                                         ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit871, %2249, %2251, %2253, %_ZN3gmx14LogEntryWriterD2Ev.exit851, %_ZN3gmx14LogEntryWriterD2Ev.exit843, %2077, %2073, %2079, %2190, %3953, %2247, %2067
-  %.merged481 = phi { ptr, i32 } [ %2068, %2067 ], [ %2191, %2190 ], [ %.merged484, %3953 ], [ %2248, %2247 ], [ %2078, %2077 ], [ %2080, %2079 ], [ %2074, %2073 ], [ %2118, %_ZN3gmx14LogEntryWriterD2Ev.exit843 ], [ %2149, %_ZN3gmx14LogEntryWriterD2Ev.exit851 ], [ %2250, %2249 ], [ %2252, %2251 ], [ %2252, %2253 ], [ %2275, %_ZN3gmx14LogEntryWriterD2Ev.exit871 ]
+  %.merged482 = phi { ptr, i32 } [ %2068, %2067 ], [ %2191, %2190 ], [ %.merged485, %3953 ], [ %2248, %2247 ], [ %2078, %2077 ], [ %2080, %2079 ], [ %2074, %2073 ], [ %2118, %_ZN3gmx14LogEntryWriterD2Ev.exit843 ], [ %2149, %_ZN3gmx14LogEntryWriterD2Ev.exit851 ], [ %2250, %2249 ], [ %2252, %2251 ], [ %2252, %2253 ], [ %2275, %_ZN3gmx14LogEntryWriterD2Ev.exit871 ]
   call void @_ZNSt10unique_ptrIN3gmx19DeviceStreamManagerESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %94) #34
   br label %3954
 
 3954:                                             ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit830, %2065, %.body832, %2017
-  %.merged479 = phi { ptr, i32 } [ %2018, %2017 ], [ %.merged481, %.body832 ], [ %2066, %2065 ], [ %2040, %_ZN3gmx14LogEntryWriterD2Ev.exit830 ]
+  %.merged480 = phi { ptr, i32 } [ %2018, %2017 ], [ %.merged482, %.body832 ], [ %2066, %2065 ], [ %2040, %_ZN3gmx14LogEntryWriterD2Ev.exit830 ]
   call void @llvm.lifetime.end.p0(i64 53, ptr nonnull %91) #34
   br label %.body798
 
 .body798:                                         ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit820, %1919, %1898, %2015, %3954, %2013, %1949, %1925
-  %.merged475 = phi { ptr, i32 } [ %1950, %1949 ], [ %.pn360, %1925 ], [ %2014, %2013 ], [ %.merged479, %3954 ], [ %2016, %2015 ], [ %1920, %1919 ], [ %1899, %1898 ], [ %1971, %_ZN3gmx14LogEntryWriterD2Ev.exit820 ]
+  %.merged476 = phi { ptr, i32 } [ %1950, %1949 ], [ %.pn360, %1925 ], [ %2014, %2013 ], [ %.merged480, %3954 ], [ %2016, %2015 ], [ %1920, %1919 ], [ %1899, %1898 ], [ %1971, %_ZN3gmx14LogEntryWriterD2Ev.exit820 ]
   call void @_ZN14gmx_localtop_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2808) %88) #34
   br label %3955
 
 3955:                                             ; preds = %.body798, %1917
-  %.merged474 = phi { ptr, i32 } [ %.merged475, %.body798 ], [ %1918, %1917 ]
+  %.merged475 = phi { ptr, i32 } [ %.merged476, %.body798 ], [ %1918, %1917 ]
   call void @llvm.lifetime.end.p0(i64 2808, ptr nonnull %88) #34
   call void @_ZNSt10unique_ptrI7t_stateSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %87) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %87) #34
@@ -11842,97 +11842,97 @@ _ZNSt10unique_ptrIN3gmx14BoxDeformationESt14default_deleteIS1_EED2Ev.exit1192: ;
   br label %3956
 
 3956:                                             ; preds = %3955, %1915
-  %.merged473 = phi { ptr, i32 } [ %.merged474, %3955 ], [ %1916, %1915 ]
+  %.merged474 = phi { ptr, i32 } [ %.merged475, %3955 ], [ %1916, %1915 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %86) #34
   br label %3957
 
 3957:                                             ; preds = %3956, %1913
-  %.merged472 = phi { ptr, i32 } [ %.merged473, %3956 ], [ %1914, %1913 ]
+  %.merged473 = phi { ptr, i32 } [ %.merged474, %3956 ], [ %1914, %1913 ]
   call void @_ZN3gmx18GpuTaskAssignmentsD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %85) #34
   br label %3958
 
 3958:                                             ; preds = %3957, %1911
-  %.merged471 = phi { ptr, i32 } [ %.merged472, %3957 ], [ %1912, %1911 ]
+  %.merged472 = phi { ptr, i32 } [ %.merged473, %3957 ], [ %1912, %1911 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %85) #34
   br label %3959
 
 3959:                                             ; preds = %1832, %1838, %3958, %1864
-  %.merged470 = phi { ptr, i32 } [ %.merged471, %3958 ], [ %.pn355, %1864 ], [ %.pn357, %1838 ], [ %1833, %1832 ]
+  %.merged471 = phi { ptr, i32 } [ %.merged472, %3958 ], [ %.pn355, %1864 ], [ %.pn357, %1838 ], [ %1833, %1832 ]
   call void @_ZNSt10unique_ptrIN3gmx26DomainDecompositionBuilderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %81) #34
   br label %.body770
 
 .body770:                                         ; preds = %1708, %3959, %1758, %1778, %_ZN3gmx14LogEntryWriterD2Ev.exit789, %1706, %1692, %_ZN3gmx14LogEntryWriterD2Ev.exit48.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i
-  %.merged467 = phi { ptr, i32 } [ %1707, %1706 ], [ %1693, %1692 ], [ %1676, %_ZN3gmx14LogEntryWriterD2Ev.exit48.i ], [ %.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i ], [ %1709, %1708 ], [ %.merged470, %3959 ], [ %1779, %1778 ], [ %.pn37.pn.pn.i, %1758 ], [ %1795, %_ZN3gmx14LogEntryWriterD2Ev.exit789 ]
+  %.merged468 = phi { ptr, i32 } [ %1707, %1706 ], [ %1693, %1692 ], [ %1676, %_ZN3gmx14LogEntryWriterD2Ev.exit48.i ], [ %.pn.pn.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39.i ], [ %1709, %1708 ], [ %.merged471, %3959 ], [ %1779, %1778 ], [ %.pn37.pn.pn.i, %1758 ], [ %1795, %_ZN3gmx14LogEntryWriterD2Ev.exit789 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %79) #34
   br label %3960
 
 3960:                                             ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit739, %1704, %.body770, %1602, %1593, %.body746
-  %.merged465 = phi { ptr, i32 } [ %1594, %1593 ], [ %.pn344.pn.pn, %.body746 ], [ %1603, %1602 ], [ %.merged467, %.body770 ], [ %1705, %1704 ], [ %1444, %_ZN3gmx14LogEntryWriterD2Ev.exit739 ]
+  %.merged466 = phi { ptr, i32 } [ %1594, %1593 ], [ %.pn344.pn.pn, %.body746 ], [ %1603, %1602 ], [ %.merged468, %.body770 ], [ %1705, %1704 ], [ %1444, %_ZN3gmx14LogEntryWriterD2Ev.exit739 ]
   call void @_ZN3gmx12UpdateGroupsD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %75) #34
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %75) #34
   call void @_ZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN3gmx17RangePartitioningESaIS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(33) %74) #34
   br label %3961
 
 3961:                                             ; preds = %3960, %1421
-  %.merged464 = phi { ptr, i32 } [ %.merged465, %3960 ], [ %1422, %1421 ]
+  %.merged465 = phi { ptr, i32 } [ %.merged466, %3960 ], [ %1422, %1421 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %74) #34
   br label %.body725
 
 .body725:                                         ; preds = %1279, %1401, %3961, %1299
-  %.merged463 = phi { ptr, i32 } [ %.pn424, %1299 ], [ %.merged464, %3961 ], [ %1280, %1279 ], [ %1402, %1401 ]
+  %.merged464 = phi { ptr, i32 } [ %.pn424, %1299 ], [ %.merged465, %3961 ], [ %1280, %1279 ], [ %1402, %1401 ]
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %72) #34
   br label %.body714
 
 .body714:                                         ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit28.i, %1250, %_ZN3gmx14LogEntryWriterD2Ev.exit707, %1165, %.body725, %1167
-  %.merged462 = phi { ptr, i32 } [ %.merged463, %.body725 ], [ %1168, %1167 ], [ %1166, %1165 ], [ %1192, %_ZN3gmx14LogEntryWriterD2Ev.exit707 ], [ %1239, %_ZN3gmx14LogEntryWriterD2Ev.exit28.i ], [ %1251, %1250 ]
+  %.merged463 = phi { ptr, i32 } [ %.merged464, %.body725 ], [ %1168, %1167 ], [ %1166, %1165 ], [ %1192, %_ZN3gmx14LogEntryWriterD2Ev.exit707 ], [ %1239, %_ZN3gmx14LogEntryWriterD2Ev.exit28.i ], [ %1251, %1250 ]
   call void @_ZNSt10unique_ptrIN3gmx24ReadCheckpointDataHolderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %69) #34
   br label %3962
 
 3962:                                             ; preds = %.body714, %1129
-  %.merged461 = phi { ptr, i32 } [ %.merged462, %.body714 ], [ %1130, %1129 ]
+  %.merged462 = phi { ptr, i32 } [ %.merged463, %.body714 ], [ %1130, %1129 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #34
   call void @_ZN18ObservablesHistoryD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #34
   br label %3963
 
 3963:                                             ; preds = %3962, %1127
-  %.merged460 = phi { ptr, i32 } [ %.merged461, %3962 ], [ %1128, %1127 ]
+  %.merged461 = phi { ptr, i32 } [ %.merged462, %3962 ], [ %1128, %1127 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %68) #34
   br label %.body685
 
 .body685:                                         ; preds = %.loopexit1523, %.loopexit.split-lp1524.loopexit.split-lp, %.loopexit.split-lp1524.loopexit, %1110, %3963, %1042, %1039, %_ZN3gmx14LogEntryWriterD2Ev.exit683, %_ZN3gmx18MdRunInputFilenameD2Ev.exit677, %1077, %1088, %620, %709, %738
-  %.merged457 = phi { ptr, i32 } [ %739, %738 ], [ %.pn430.pn, %709 ], [ %621, %620 ], [ %.pn426, %1088 ], [ %.pn336, %1077 ], [ %.pn326.pn.pn.pn.pn, %_ZN3gmx18MdRunInputFilenameD2Ev.exit677 ], [ %1009, %_ZN3gmx14LogEntryWriterD2Ev.exit683 ], [ %1043, %1042 ], [ %1040, %1039 ], [ %.merged460, %3963 ], [ %1111, %1110 ], [ %lpad.loopexit1525, %.loopexit1523 ], [ %lpad.loopexit1528, %.loopexit.split-lp1524.loopexit ], [ %lpad.loopexit.split-lp1529, %.loopexit.split-lp1524.loopexit.split-lp ]
+  %.merged458 = phi { ptr, i32 } [ %739, %738 ], [ %.pn430.pn, %709 ], [ %621, %620 ], [ %.pn426, %1088 ], [ %.pn336, %1077 ], [ %.pn326.pn.pn.pn.pn, %_ZN3gmx18MdRunInputFilenameD2Ev.exit677 ], [ %1009, %_ZN3gmx14LogEntryWriterD2Ev.exit683 ], [ %1043, %1042 ], [ %1040, %1039 ], [ %.merged461, %3963 ], [ %1111, %1110 ], [ %lpad.loopexit1525, %.loopexit1523 ], [ %lpad.loopexit1528, %.loopexit.split-lp1524.loopexit ], [ %lpad.loopexit.split-lp1529, %.loopexit.split-lp1524.loopexit.split-lp ]
   call void @_ZN3gmx25ObservablesReducerBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #34
   br label %3964
 
 3964:                                             ; preds = %.body685, %618
-  %.merged456 = phi { ptr, i32 } [ %.merged457, %.body685 ], [ %619, %618 ]
+  %.merged457 = phi { ptr, i32 } [ %.merged458, %.body685 ], [ %619, %618 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #34
   br label %.body579
 
 .body579:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit594, %509, %546, %3964, %550, %548, %544, %429, %419, %492, %444
-  %.merged450 = phi { ptr, i32 } [ %493, %492 ], [ %445, %444 ], [ %430, %429 ], [ %420, %419 ], [ %495, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit594 ], [ %510, %509 ], [ %545, %544 ], [ %547, %546 ], [ %551, %550 ], [ %549, %548 ], [ %.merged456, %3964 ]
+  %.merged451 = phi { ptr, i32 } [ %493, %492 ], [ %445, %444 ], [ %430, %429 ], [ %420, %419 ], [ %495, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit594 ], [ %510, %509 ], [ %545, %544 ], [ %547, %546 ], [ %551, %550 ], [ %549, %548 ], [ %.merged457, %3964 ]
   call void @_ZN3gmx24PhysicalNodeCommunicatorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %52) #34
   br label %3965
 
 3965:                                             ; preds = %.body579, %427
-  %.merged449 = phi { ptr, i32 } [ %.merged450, %.body579 ], [ %428, %427 ]
+  %.merged450 = phi { ptr, i32 } [ %.merged451, %.body579 ], [ %428, %427 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52) #34
   br label %3966
 
 3966:                                             ; preds = %3965, %425
-  %.merged448 = phi { ptr, i32 } [ %.merged449, %3965 ], [ %426, %425 ]
+  %.merged449 = phi { ptr, i32 } [ %.merged450, %3965 ], [ %426, %425 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #34
   call void @_ZNSt10unique_ptrI9t_commrecSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #34
   br label %3967
 
 3967:                                             ; preds = %3966, %423
-  %.merged447 = phi { ptr, i32 } [ %.merged448, %3966 ], [ %424, %423 ]
+  %.merged448 = phi { ptr, i32 } [ %.merged449, %3966 ], [ %424, %423 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #34
   br label %.body
 
 .body:                                            ; preds = %330, %304, %328, %301, %387, %396, %393, %3967, %421, %338, %332
-  %.merged446 = phi { ptr, i32 } [ %.pn434, %338 ], [ %.merged447, %3967 ], [ %422, %421 ], [ %333, %332 ], [ %397, %396 ], [ %.pn, %387 ], [ %394, %393 ], [ %329, %328 ], [ %302, %301 ], [ %331, %330 ], [ %305, %304 ]
+  %.merged446 = phi { ptr, i32 } [ %.pn434, %338 ], [ %.merged448, %3967 ], [ %422, %421 ], [ %333, %332 ], [ %397, %396 ], [ %.pn, %387 ], [ %394, %393 ], [ %329, %328 ], [ %302, %301 ], [ %331, %330 ], [ %305, %304 ]
   call void @_ZNSt10unique_ptrI26PartialDeserializedTprFileSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #34
   br label %3968
 

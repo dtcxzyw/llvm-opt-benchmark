@@ -29656,25 +29656,25 @@ _ZNSt12__shared_ptrIN5osgeo4proj6common16IdentifiedObjectELN9__gnu_cxx12_Lock_po
   ret void
 
 2611:                                             ; preds = %2502, %2515, %2517, %2395, %2393, %2173, %2171, %2380, %2158
-  %.merged278 = phi { ptr, i32 } [ %.pn259.pn.pn.pn.pn, %2380 ], [ %.pn252.pn.pn.pn, %2158 ], [ %2174, %2173 ], [ %2172, %2171 ], [ %2396, %2395 ], [ %2394, %2393 ], [ %.pn268, %2502 ], [ %2518, %2517 ], [ %2516, %2515 ]
+  %.merged277 = phi { ptr, i32 } [ %.pn259.pn.pn.pn.pn, %2380 ], [ %.pn252.pn.pn.pn, %2158 ], [ %2174, %2173 ], [ %2172, %2171 ], [ %2396, %2395 ], [ %2394, %2393 ], [ %.pn268, %2502 ], [ %2518, %2517 ], [ %2516, %2515 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj2io15IJSONExportableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %40) #37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #37
   br label %2612
 
 2612:                                             ; preds = %1950, %1948, %1694, %1692, %1425, %1423, %1212, %1210, %999, %997, %786, %784, %2611, %1935, %1679, %1410, %1197, %984, %771
-  %.merged276 = phi { ptr, i32 } [ %.merged278, %2611 ], [ %.pn245.pn.pn.pn, %1935 ], [ %.pn238.pn.pn.pn, %1679 ], [ %.pn231.pn.pn.pn, %1410 ], [ %.pn224.pn.pn.pn, %1197 ], [ %.pn217.pn.pn.pn, %984 ], [ %.pn210.pn.pn.pn, %771 ], [ %787, %786 ], [ %785, %784 ], [ %1000, %999 ], [ %998, %997 ], [ %1213, %1212 ], [ %1211, %1210 ], [ %1426, %1425 ], [ %1424, %1423 ], [ %1695, %1694 ], [ %1693, %1692 ], [ %1951, %1950 ], [ %1949, %1948 ]
+  %.merged275 = phi { ptr, i32 } [ %.merged277, %2611 ], [ %.pn245.pn.pn.pn, %1935 ], [ %.pn238.pn.pn.pn, %1679 ], [ %.pn231.pn.pn.pn, %1410 ], [ %.pn224.pn.pn.pn, %1197 ], [ %.pn217.pn.pn.pn, %984 ], [ %.pn210.pn.pn.pn, %771 ], [ %787, %786 ], [ %785, %784 ], [ %1000, %999 ], [ %998, %997 ], [ %1213, %1212 ], [ %1211, %1210 ], [ %1426, %1425 ], [ %1424, %1423 ], [ %1695, %1694 ], [ %1693, %1692 ], [ %1951, %1950 ], [ %1949, %1948 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj2io14IWKTExportableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #37
   br label %2613
 
 2613:                                             ; preds = %558, %556, %2612, %543
-  %.merged274 = phi { ptr, i32 } [ %.merged276, %2612 ], [ %.pn202.pn.pn.pn, %543 ], [ %559, %558 ], [ %557, %556 ]
+  %.merged273 = phi { ptr, i32 } [ %.merged275, %2612 ], [ %.pn202.pn.pn.pn, %543 ], [ %559, %558 ], [ %557, %556 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj2io21IPROJStringExportableELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #37
   br label %2614
 
 2614:                                             ; preds = %96, %216, %221, %2613, %94
-  %.merged = phi { ptr, i32 } [ %.merged274, %2613 ], [ %95, %94 ], [ %97, %96 ], [ %222, %221 ], [ %.pn.pn, %216 ]
+  %.merged = phi { ptr, i32 } [ %.merged273, %2613 ], [ %95, %94 ], [ %97, %96 ], [ %222, %221 ], [ %.pn.pn, %216 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj6common16IdentifiedObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #37
   resume { ptr, i32 } %.merged

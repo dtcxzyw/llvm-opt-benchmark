@@ -54237,7 +54237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit434: ; preds = %_Z
   br label %.loopexit745
 
 .loopexit745:                                     ; preds = %348, %360
-  %.merged371 = phi { ptr, i32 } [ %361, %360 ], [ %.pn311.pn.pn.pn.pn, %348 ]
+  %.merged381 = phi { ptr, i32 } [ %361, %360 ], [ %.pn311.pn.pn.pn.pn, %348 ]
   %362 = load ptr, ptr %23, align 8, !tbaa !11
   %363 = icmp eq ptr %362, %265
   br i1 %363, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435
@@ -54255,7 +54255,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i43
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436, %328
-  %.merged370 = phi { ptr, i32 } [ %329, %328 ], [ %.merged371, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436 ], [ %.merged371, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435 ]
+  %.merged380 = phi { ptr, i32 } [ %329, %328 ], [ %.merged381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i436 ], [ %.merged381, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i435 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #43
   br label %582
 
@@ -54938,7 +54938,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj6commo
   br label %582
 
 582:                                              ; preds = %581, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437
-  %.merged369 = phi { ptr, i32 } [ %.merged370, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437 ], [ %.pn297.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %581 ]
+  %.merged379 = phi { ptr, i32 } [ %.merged380, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit437 ], [ %.pn297.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %581 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5osgeo4proj6common7MeasureESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %22) #43
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22) #43
   br label %1665
@@ -55304,7 +55304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit506: ; preds = %_Z
   br label %1588
 
 725:                                              ; preds = %685, %680, %627
-  %.merged368 = phi { ptr, i32 } [ %686, %685 ], [ %.pn276.pn, %680 ], [ %628, %627 ]
+  %.merged378 = phi { ptr, i32 } [ %686, %685 ], [ %.pn276.pn, %680 ], [ %628, %627 ]
   %726 = load ptr, ptr %51, align 8, !tbaa !11
   %727 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %728 = icmp eq ptr %726, %727
@@ -55323,7 +55323,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i507, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i508, %625
-  %.merged367 = phi { ptr, i32 } [ %626, %625 ], [ %.merged368, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i508 ], [ %.merged368, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i507 ]
+  %.merged377 = phi { ptr, i32 } [ %626, %625 ], [ %.merged378, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i508 ], [ %.merged378, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i507 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %51) #43
   br label %1665
 
@@ -56541,7 +56541,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   br label %.sink.split
 
 1227:                                             ; preds = %1066, %1179, %1193, %1213, %1049
-  %.merged380 = phi { ptr, i32 } [ %1050, %1049 ], [ %.pn360.pn.pn.pn, %1193 ], [ %.pn358, %1179 ], [ %1067, %1066 ], [ %.pn365729, %1213 ]
+  %.merged375 = phi { ptr, i32 } [ %1050, %1049 ], [ %.pn360.pn.pn.pn, %1193 ], [ %.pn358, %1179 ], [ %1067, %1066 ], [ %.pn365729, %1213 ]
   %1228 = load ptr, ptr %66, align 8, !tbaa !11
   %1229 = icmp eq ptr %1228, %973
   br i1 %1229, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i587, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i586
@@ -56559,7 +56559,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit588
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit588: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i586, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i587, %1047
-  %.merged379 = phi { ptr, i32 } [ %1048, %1047 ], [ %.merged380, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i587 ], [ %.merged380, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i586 ]
+  %.merged374 = phi { ptr, i32 } [ %1048, %1047 ], [ %.merged375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i587 ], [ %.merged375, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i586 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %66) #43
   %1234 = load ptr, ptr %65, align 8, !tbaa !11
   %1235 = icmp eq ptr %1234, %976
@@ -56578,13 +56578,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i589, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i590, %1045
-  %.merged378 = phi { ptr, i32 } [ %1046, %1045 ], [ %.merged379, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i590 ], [ %.merged379, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i589 ]
+  %.merged373 = phi { ptr, i32 } [ %1046, %1045 ], [ %.merged374, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i590 ], [ %.merged374, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i589 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %65) #43
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %64) #43
   br label %1240
 
 1240:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591, %1043
-  %.merged377 = phi { ptr, i32 } [ %.merged378, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591 ], [ %1044, %1043 ]
+  %.merged372 = phi { ptr, i32 } [ %.merged373, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit591 ], [ %1044, %1043 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #43
   br label %1562
 
@@ -57435,7 +57435,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZN7dropbox6oxygen2
   br label %1562
 
 1562:                                             ; preds = %1015, %1240, %1506, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit625, %1392, %1561, %965
-  %.merged375 = phi { ptr, i32 } [ %.pn340.pn, %1561 ], [ %966, %965 ], [ %.pn350.pn.pn.pn, %1392 ], [ %.pn346, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit625 ], [ %.pn337.pn, %1506 ], [ %1016, %1015 ], [ %.merged377, %1240 ]
+  %.merged370 = phi { ptr, i32 } [ %.pn340.pn, %1561 ], [ %966, %965 ], [ %.pn350.pn.pn.pn, %1392 ], [ %.pn346, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit625 ], [ %.pn337.pn, %1506 ], [ %1016, %1015 ], [ %.merged372, %1240 ]
   %1563 = load ptr, ptr %63, align 8, !tbaa !55
   %.not.i.i649 = icmp eq ptr %1563, null
   br i1 %.not.i.i649, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit653, label %1564
@@ -57459,12 +57459,12 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit653:          ; preds = %1562, %1564
   br label %1572
 
 1572:                                             ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit653, %949
-  %.merged374 = phi { ptr, i32 } [ %.merged375, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit653 ], [ %950, %949 ]
+  %.merged369 = phi { ptr, i32 } [ %.merged370, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit653 ], [ %950, %949 ]
   call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #43
   br label %1573
 
 1573:                                             ; preds = %1572, %947
-  %.merged373 = phi { ptr, i32 } [ %.merged374, %1572 ], [ %948, %947 ]
+  %.merged368 = phi { ptr, i32 } [ %.merged369, %1572 ], [ %948, %947 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #43
   br label %1581
 
@@ -57490,7 +57490,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit656: ; preds = %_Z
   br label %1588
 
 1581:                                             ; preds = %798, %806, %933, %1573, %756
-  %.merged372 = phi { ptr, i32 } [ %.merged373, %1573 ], [ %.pn329, %933 ], [ %757, %756 ], [ %799, %798 ], [ %807, %806 ]
+  %.merged367 = phi { ptr, i32 } [ %.merged368, %1573 ], [ %.pn329, %933 ], [ %757, %756 ], [ %799, %798 ], [ %807, %806 ]
   %1582 = load ptr, ptr %55, align 8, !tbaa !11
   %1583 = icmp eq ptr %1582, %733
   br i1 %1583, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i658, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i657
@@ -57699,7 +57699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit675: ; preds = %_Z
   ret void
 
 1665:                                             ; preds = %623, %127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit659, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509, %582, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit418
-  %.merged = phi { ptr, i32 } [ %.merged372, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit659 ], [ %.pn319.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit418 ], [ %.merged369, %582 ], [ %.merged367, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509 ], [ %624, %623 ], [ %128, %127 ]
+  %.merged = phi { ptr, i32 } [ %.merged367, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit659 ], [ %.pn319.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit418 ], [ %.merged379, %582 ], [ %.merged377, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit509 ], [ %624, %623 ], [ %128, %127 ]
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation14ParameterValueEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #43
   call void @_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #43
@@ -128128,18 +128128,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit765: ; preds = %_Z
           to label %350 unwind label %2643
 
 350:                                              ; preds = %349, %291, %304, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit758
-  %.merged666 = phi { ptr, i32 } [ %305, %304 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit758 ], [ %.pn503, %291 ], [ %.pn505.pn1151, %349 ]
+  %.merged667 = phi { ptr, i32 } [ %305, %304 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit758 ], [ %.pn503, %291 ], [ %.pn505.pn1151, %349 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #43
   br label %351
 
 351:                                              ; preds = %350, %267
-  %.merged665 = phi { ptr, i32 } [ %.merged666, %350 ], [ %268, %267 ]
+  %.merged666 = phi { ptr, i32 } [ %.merged667, %350 ], [ %268, %267 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #43
   call void @_ZN5osgeo4proj4util15BaseObjectNNPtrD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #43
   br label %352
 
 352:                                              ; preds = %351, %265
-  %.merged664 = phi { ptr, i32 } [ %.merged665, %351 ], [ %266, %265 ]
+  %.merged665 = phi { ptr, i32 } [ %.merged666, %351 ], [ %266, %265 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #43
   br label %369
 
@@ -128206,7 +128206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit771: ; preds = %_Z
   br label %2641
 
 369:                                              ; preds = %352, %233
-  %.merged663 = phi { ptr, i32 } [ %.merged664, %352 ], [ %234, %233 ]
+  %.merged664 = phi { ptr, i32 } [ %.merged665, %352 ], [ %234, %233 ]
   %370 = load ptr, ptr %9, align 8, !tbaa !11
   %371 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %372 = icmp eq ptr %370, %371
@@ -128522,7 +128522,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   br label %498
 
 498:                                              ; preds = %462, %496, %_ZNSt14_Function_baseD2Ev.exit778
-  %.merged671 = phi { ptr, i32 } [ %497, %496 ], [ %438, %_ZNSt14_Function_baseD2Ev.exit778 ], [ %.pn508, %462 ]
+  %.merged663 = phi { ptr, i32 } [ %497, %496 ], [ %438, %_ZNSt14_Function_baseD2Ev.exit778 ], [ %.pn508, %462 ]
   call void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #43
   br label %2642
@@ -134321,7 +134321,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
   br label %2639
 
 2633:                                             ; preds = %.critedge734, %2539, %2528
-  %.merged670 = phi { ptr, i32 } [ %.pn542.pn1193, %.critedge734 ], [ %2540, %2539 ], [ %.pn533.pn.pn.pn.pn.pn.pn.pn, %2528 ]
+  %.merged671 = phi { ptr, i32 } [ %.pn542.pn1193, %.critedge734 ], [ %2540, %2539 ], [ %.pn533.pn.pn.pn.pn.pn.pn.pn, %2528 ]
   call void @_ZNSt12__shared_ptrIN5osgeo4proj3crs11CompoundCRSELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %158) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %158) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %157) #43
@@ -134329,7 +134329,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
   br label %2634
 
 2634:                                             ; preds = %2633, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1101
-  %.merged669 = phi { ptr, i32 } [ %.merged670, %2633 ], [ %2464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1101 ]
+  %.merged670 = phi { ptr, i32 } [ %.merged671, %2633 ], [ %2464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1101 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %154) #43
   br label %2640
 
@@ -134367,7 +134367,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
   br label %2641
 
 2640:                                             ; preds = %2250, %2153, %2637, %2634, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1077, %2320, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1071, %.critedge721, %2110, %1993, %1986, %1152, %1145, %982, %684, %682
-  %.merged668 = phi { ptr, i32 } [ %.pn629.pn.pn.pn.pn, %1986 ], [ %685, %684 ], [ %1153, %1152 ], [ %.pn561.pn.pn.pn, %2110 ], [ %1994, %1993 ], [ %.pn552, %.critedge721 ], [ %.pn546.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1071 ], [ %2321, %2320 ], [ %2347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1077 ], [ %2638, %2637 ], [ %.merged669, %2634 ], [ %2251, %2250 ], [ %2154, %2153 ], [ %.pn658.pn, %982 ], [ %683, %682 ], [ %.pn518.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1145 ]
+  %.merged669 = phi { ptr, i32 } [ %.pn629.pn.pn.pn.pn, %1986 ], [ %685, %684 ], [ %1153, %1152 ], [ %.pn561.pn.pn.pn, %2110 ], [ %1994, %1993 ], [ %.pn552, %.critedge721 ], [ %.pn546.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1071 ], [ %2321, %2320 ], [ %2347, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1077 ], [ %2638, %2637 ], [ %.merged670, %2634 ], [ %2251, %2250 ], [ %2154, %2153 ], [ %.pn658.pn, %982 ], [ %683, %682 ], [ %.pn518.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %1145 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31) #43
   br label %2642
@@ -134376,7 +134376,7 @@ _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_3crs11CompoundCRSEEEON7dropbox6oxygen
   ret void
 
 2642:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774, %498, %542, %2640, %645, %614, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752
-  %.merged = phi { ptr, i32 } [ %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752 ], [ %543, %542 ], [ %.merged671, %498 ], [ %.merged663, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774 ], [ %615, %614 ], [ %646, %645 ], [ %.merged668, %2640 ]
+  %.merged = phi { ptr, i32 } [ %207, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit752 ], [ %543, %542 ], [ %.merged663, %498 ], [ %.merged664, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit774 ], [ %615, %614 ], [ %646, %645 ], [ %.merged669, %2640 ]
   resume { ptr, i32 } %.merged
 
 2643:                                             ; preds = %979, %964, %462, %349, %291
@@ -144290,7 +144290,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1683: ; preds = %_
   br label %.loopexit2664
 
 .loopexit2664:                                    ; preds = %2978, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1683, %2983
-  %.merged1129 = phi { ptr, i32 } [ %2984, %2983 ], [ %.pn1094.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1683 ], [ %.pn1102, %2978 ]
+  %.merged1133 = phi { ptr, i32 } [ %2984, %2983 ], [ %.pn1094.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1683 ], [ %.pn1102, %2978 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %71) #43
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %71) #43
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS5_ESaISt4pairIKS5_dEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %70) #43
@@ -144601,7 +144601,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   br i1 %cond9, label %3359, label %"_ZZNK5osgeo4proj2io19PROJStringFormatter8toStringB5cxx11EvENK3$_1clEv.exit1451"
 
 .loopexit2665:                                    ; preds = %3321, %3341, %3296, %3269
-  %.merged1130 = phi { ptr, i32 } [ %3270, %3269 ], [ %3297, %3296 ], [ %3342, %3341 ], [ %3322, %3321 ]
+  %.merged1129 = phi { ptr, i32 } [ %3270, %3269 ], [ %3297, %3296 ], [ %3342, %3341 ], [ %3322, %3321 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %84) #43
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %84) #43
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %83) #43
@@ -145009,7 +145009,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   br i1 %cond6, label %.thread2512, label %"_ZZNK5osgeo4proj2io19PROJStringFormatter8toStringB5cxx11EvENK3$_1clEv.exit1451"
 
 .loopexit2666:                                    ; preds = %3432, %3476, %3412, %3385
-  %.merged1132 = phi { ptr, i32 } [ %3386, %3385 ], [ %3413, %3412 ], [ %3477, %3476 ], [ %3433, %3432 ]
+  %.merged1131 = phi { ptr, i32 } [ %3386, %3385 ], [ %3413, %3412 ], [ %3477, %3476 ], [ %3433, %3432 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %88) #43
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %88) #43
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %87) #43
@@ -145608,7 +145608,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %or.cond3017, label %"_ZZNK5osgeo4proj2io19PROJStringFormatter8toStringB5cxx11EvENK3$_1clEv.exit1451._crit_edge.loopexit", label %.lr.ph.i.i.i.backedge
 
 3762:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1786, %.loopexit2666, %.loopexit2665, %.loopexit2664, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1505, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1485, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1426, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1402, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1378, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1330, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1306, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1292
-  %.merged1128 = phi { ptr, i32 } [ %.pn1106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1786 ], [ %.merged1132, %.loopexit2666 ], [ %.merged1130, %.loopexit2665 ], [ %.merged1129, %.loopexit2664 ], [ %2820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1505 ], [ %2743, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1485 ], [ %.pn1072.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1426 ], [ %.pn1059.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1402 ], [ %.pn1046.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1378 ], [ %.pn1033.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1354 ], [ %.pn1020.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1330 ], [ %.pn1009.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1306 ], [ %.pn1000.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1292 ]
+  %.merged1128 = phi { ptr, i32 } [ %.pn1106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1786 ], [ %.merged1131, %.loopexit2666 ], [ %.merged1129, %.loopexit2665 ], [ %.merged1133, %.loopexit2664 ], [ %2820, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1505 ], [ %2743, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1485 ], [ %.pn1072.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1426 ], [ %.pn1059.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1402 ], [ %.pn1046.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1378 ], [ %.pn1033.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1354 ], [ %.pn1020.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1330 ], [ %.pn1009.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1306 ], [ %.pn1000.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1292 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #43
@@ -163404,7 +163404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit540: ; preds = %_Z
   br label %.critedge
 
 1599:                                             ; preds = %1446, %1506, %1460, %1376, %1436, %1390, %1306, %1366, %1320, %1255, %1139, %1595, %1584, %1573, %1562, %1551, %1549, %1540, %1299, %1241, %1232, %1125
-  %.merged270 = phi { ptr, i32 } [ %.pn263, %1232 ], [ %1126, %1125 ], [ %.pn253, %1299 ], [ %1242, %1241 ], [ %.pn243, %1540 ], [ %1552, %1551 ], [ %1596, %1595 ], [ %1585, %1584 ], [ %1574, %1573 ], [ %1563, %1562 ], [ %1550, %1549 ], [ %.pn255, %1139 ], [ %.pn245, %1255 ], [ %.pn217, %1366 ], [ %1307, %1306 ], [ %.pn209, %1320 ], [ %.pn227, %1436 ], [ %1377, %1376 ], [ %.pn219, %1390 ], [ %.pn237, %1506 ], [ %1447, %1446 ], [ %.pn229, %1460 ]
+  %.merged269 = phi { ptr, i32 } [ %.pn263, %1232 ], [ %1126, %1125 ], [ %.pn253, %1299 ], [ %1242, %1241 ], [ %.pn243, %1540 ], [ %1552, %1551 ], [ %1596, %1595 ], [ %1585, %1584 ], [ %1574, %1573 ], [ %1563, %1562 ], [ %1550, %1549 ], [ %.pn255, %1139 ], [ %.pn245, %1255 ], [ %.pn217, %1366 ], [ %1307, %1306 ], [ %.pn209, %1320 ], [ %.pn227, %1436 ], [ %1377, %1376 ], [ %.pn219, %1390 ], [ %.pn237, %1506 ], [ %1447, %1446 ], [ %.pn229, %1460 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48) #43
   br label %.body451
 
@@ -163520,7 +163520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit563: ; preds = %_Z
   ret void
 
 .body451:                                         ; preds = %1053, %1051, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i262.i, %1036, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206.i, %.critedge153.i, %752, %.critedge146.i, %704, %631, %629, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %612, %1112, %416, %538, %430, %1599, %1098
-  %.merged268 = phi { ptr, i32 } [ %.merged270, %1599 ], [ %1099, %1098 ], [ %.pn204.pn, %538 ], [ %417, %416 ], [ %.pn, %430 ], [ %.pn207, %1112 ], [ %632, %631 ], [ %.pn2836.i, %629 ], [ %620, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn26.i, %612 ], [ %620, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %1054, %1053 ], [ %.pn140.ph.i, %.critedge146.i ], [ %.pn138.ph.i, %.critedge153.i ], [ %.pn135299.i, %1051 ], [ %1042, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263.i ], [ %.pn129.pn.pn.pn.i, %1036 ], [ %.pn.i460, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206.i ], [ %lpad.thr_comm.split-lp.i, %704 ], [ %lpad.thr_comm.split-lp278.i, %752 ], [ %1042, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i262.i ]
+  %.merged268 = phi { ptr, i32 } [ %.merged269, %1599 ], [ %1099, %1098 ], [ %.pn204.pn, %538 ], [ %417, %416 ], [ %.pn, %430 ], [ %.pn207, %1112 ], [ %632, %631 ], [ %.pn2836.i, %629 ], [ %620, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.pn26.i, %612 ], [ %620, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %1054, %1053 ], [ %.pn140.ph.i, %.critedge146.i ], [ %.pn138.ph.i, %.critedge153.i ], [ %.pn135299.i, %1051 ], [ %1042, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263.i ], [ %.pn129.pn.pn.pn.i, %1036 ], [ %.pn.i460, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit206.i ], [ %lpad.thr_comm.split-lp.i, %704 ], [ %lpad.thr_comm.split-lp278.i, %752 ], [ %1042, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i262.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #43
   br label %1641
 
