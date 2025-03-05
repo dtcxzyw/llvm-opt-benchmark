@@ -103396,9 +103396,7 @@ common.resume:                                    ; preds = %84, %"_ZN63_$LT$all
 
 39:                                               ; preds = %37
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.7.0.copyload = load i8, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 9
-  %.sroa.10.sroa.0.0.copyload = load i56, ptr %.sroa.10.0..sroa_idx, align 1
+  %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.1037.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.1037.0.copyload = load ptr, ptr %.sroa.1037.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -103450,10 +103448,6 @@ switch.early.test.i:                              ; preds = %68, %63
 .thread:                                          ; preds = %48, %_ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14019313651612263248.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !22852
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !22852
-  %.sroa.517.sroa.0.0.insert.ext88 = zext i8 %.sroa.7.0.copyload to i64
-  %.sroa.517.sroa.0.1.insert.ext89 = zext i56 %.sroa.10.sroa.0.0.copyload to i64
-  %.sroa.517.sroa.0.1.insert.shift90 = shl nuw i64 %.sroa.517.sroa.0.1.insert.ext89, 8
-  %.sroa.517.sroa.0.1.insert.insert92 = or disjoint i64 %.sroa.517.sroa.0.1.insert.shift90, %.sroa.517.sroa.0.0.insert.ext88
   br label %87
 
 54:                                               ; preds = %49
@@ -103590,7 +103584,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.14019313651612263248.exit
 
 87:                                               ; preds = %77, %.thread
   %.in = phi ptr [ %.sroa.1037.0.copyload, %.thread ], [ %.sroa.1037.0.copyload39, %77 ]
-  %.in95 = phi i64 [ %.sroa.517.sroa.0.1.insert.insert92, %.thread ], [ %.sroa.517.sroa.0.1.insert.insert, %77 ]
+  %.in95 = phi i64 [ %.sroa.7.0.copyload, %.thread ], [ %.sroa.517.sroa.0.1.insert.insert, %77 ]
   %.sroa.11.07994 = phi i64 [ %.sroa.11.0.copyload, %.thread ], [ %.sroa.11.0.copyload42, %77 ]
   %.sroa.0.08293 = phi i64 [ %38, %.thread ], [ %.sroa.0.0.copyload32, %77 ]
   %88 = inttoptr i64 %.in95 to ptr

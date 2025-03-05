@@ -4941,35 +4941,30 @@ define internal i32 @dissect_spdu_message_flexray(ptr noundef %0, ptr noundef %1
 7:                                                ; preds = %4
   %8 = load ptr, ptr @data_spdu_flexray_mappings, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %25, label %10
+  br i1 %9, label %20, label %10
 
 10:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  %11 = getelementptr i8, ptr %3, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i64
-  %14 = shl nuw nsw i64 %13, 16
-  %15 = load i16, ptr %3, align 2
-  %16 = zext i16 %15 to i64
-  %17 = or disjoint i64 %14, %16
-  store i64 %17, ptr %5, align 8
-  %18 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %24, label %20
+  %11 = load i32, ptr %3, align 2
+  %12 = zext i32 %11 to i64
+  store i64 %12, ptr %5, align 8
+  %13 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %19, label %15
 
-20:                                               ; preds = %10
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %22 = load i32, ptr %21, align 4
-  %23 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %22, i1 noundef zeroext true)
-  br label %24
+15:                                               ; preds = %10
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %17 = load i32, ptr %16, align 4
+  %18 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, i1 noundef zeroext true)
+  br label %19
 
-24:                                               ; preds = %10, %20
-  %.1 = phi i32 [ %23, %20 ], [ 0, %10 ]
+19:                                               ; preds = %10, %15
+  %.1 = phi i32 [ %18, %15 ], [ 0, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %25
+  br label %20
 
-25:                                               ; preds = %7, %24
-  %.0 = phi i32 [ %.1, %24 ], [ 0, %7 ]
+20:                                               ; preds = %7, %19
+  %.0 = phi i32 [ %.1, %19 ], [ 0, %7 ]
   ret i32 %.0
 }
 

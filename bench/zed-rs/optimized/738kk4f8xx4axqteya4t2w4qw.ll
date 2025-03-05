@@ -85089,18 +85089,12 @@ _ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074
 
 77:                                               ; preds = %74
   %.sroa.518.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sroa.6.i.sroa.0.0.copyload.i = load i40, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !18936
-  %.sroa.619.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %16, i64 13
-  %.sroa.823.5.copyload.i = load i24, ptr %.sroa.619.0..sroa_idx.i.i, align 1, !noalias !18971
-  %.sroa.823.5.insert.ext.i = zext i24 %.sroa.823.5.copyload.i to i64
-  %.sroa.823.5.insert.shift.i = shl nuw i64 %.sroa.823.5.insert.ext.i, 40
+  %.sroa.6.i.sroa.0.0.copyload.i = load i64, ptr %.sroa.518.0..sroa_idx.i.i, align 8, !noalias !18971
   %.sroa.11.13..sroa.619.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.11.13.copyload.i = load ptr, ptr %.sroa.11.13..sroa.619.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !18971
   %.sroa.12.13..sroa.619.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.sroa.12.13.copyload.i = load i64, ptr %.sroa.12.13..sroa.619.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !18971
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !18936
-  %.sroa.823.0.insert.ext.i = zext i40 %.sroa.6.i.sroa.0.0.copyload.i to i64
-  %.sroa.823.0.insert.insert.i = or disjoint i64 %.sroa.823.5.insert.shift.i, %.sroa.823.0.insert.ext.i
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5c5289fc7b88781aE.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(4144) %17)
           to label %82 unwind label %80, !noalias !18931
 
@@ -85121,7 +85115,7 @@ _ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074
           to label %common.resume unwind label %93, !noalias !18931
 
 82:                                               ; preds = %77, %_ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074eE.exit.thread.i.i
-  %.sroa.823.0.ph.i = phi i64 [ %.sroa.823.0.insert.insert.i, %77 ], [ %67, %_ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074eE.exit.thread.i.i ]
+  %.sroa.823.0.ph.i = phi i64 [ %.sroa.6.i.sroa.0.0.copyload.i, %77 ], [ %67, %_ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074eE.exit.thread.i.i ]
   %.sroa.12.0.ph.i = phi i64 [ %.sroa.12.13.copyload.i, %77 ], [ %.sroa.18.1.ph.i.i, %_ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074eE.exit.thread.i.i ]
   %.sroa.11.0.ph.i = phi ptr [ %.sroa.11.13.copyload.i, %77 ], [ %.sroa.15.1.ph.i.i, %_ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074eE.exit.thread.i.i ]
   %.sroa.020.0.ph.i = phi i64 [ %75, %77 ], [ %.sroa.026.1.ph.i.i, %_ZN3exr4meta8MetaData39read_unvalidated_from_buffered_peekable17h82112e86dfc7074eE.exit.thread.i.i ]

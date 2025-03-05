@@ -182724,21 +182724,15 @@ _ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E
   %6 = getelementptr inbounds nuw i8, ptr %.val, i64 4133
   %7 = load i8, ptr %6, align 1, !range !233, !noundef !4
   %trunc = trunc nuw i8 %7 to i1
-  br i1 %trunc, label %8, label %14
+  br i1 %trunc, label %8, label %10
 
 8:                                                ; preds = %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4116
-  %.sroa.01.0.copyload = load i8, ptr %9, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.val, i64 4117
-  %.sroa.4.0.copyload = load i24, ptr %.sroa.4.0..sroa_idx, align 1
-  %10 = zext i24 %.sroa.4.0.copyload to i32
-  %11 = shl nuw i32 %10, 8
-  %12 = zext i8 %.sroa.01.0.copyload to i32
-  %13 = or disjoint i32 %11, %12
-  br label %14
+  %.sroa.01.0.copyload = load i32, ptr %9, align 4
+  br label %10
 
-14:                                               ; preds = %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit, %8
-  %.sroa.0.0.insert.insert = phi i32 [ %13, %8 ], [ 2, %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit ]
+10:                                               ; preds = %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit, %8
+  %.sroa.0.0.insert.insert = phi i32 [ %.sroa.01.0.copyload, %8 ], [ 2, %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit ]
   ret i32 %.sroa.0.0.insert.insert
 }
 

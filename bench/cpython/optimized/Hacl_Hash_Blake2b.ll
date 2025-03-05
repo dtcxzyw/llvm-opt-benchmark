@@ -1829,124 +1829,99 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_malloc() loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Hash_Blake2b_reset_with_key_and_params(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #9 {
-  tail call fastcc void @reset_raw(ptr noundef %0, ptr %1, ptr %2)
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @reset_raw(ptr noundef captures(none) initializes((32, 40)) %0, ptr readonly captures(none) %1, ptr readonly captures(none) %2) unnamed_addr #9 {
-  %.sroa.8121 = alloca [13 x i8], align 1
-  %.sroa.0.0.copyload = load i8, ptr %0, align 8, !tbaa !9
-  %.sroa.4127.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.sroa.4127.0.copyload = load i8, ptr %.sroa.4127.0..sroa_idx, align 1, !tbaa !9
-  %.sroa.5128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.sroa.5128.0.copyload = load i8, ptr %.sroa.5128.0..sroa_idx, align 2, !tbaa !10
-  %.sroa.6129.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8121, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6129.0..sroa_idx, i64 13, i1 false)
-  %.sroa.7130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.7130.0.copyload = load ptr, ptr %.sroa.7130.0..sroa_idx, align 8, !tbaa !12
-  %.sroa.8131.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.8131.0.copyload = load ptr, ptr %.sroa.8131.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.8121.i = alloca [13 x i8], align 1
+  %.sroa.0.0.copyload.i = load i8, ptr %0, align 8, !tbaa !9
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.sroa.4.0.copyload.i = load i8, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !9
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %.sroa.8121.i)
+  %.sroa.6129.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8121.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6129.0..sroa_idx.i, i64 13, i1 false)
+  %.sroa.7130.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.7130.0.copyload.i = load ptr, ptr %.sroa.7130.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.8131.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.8131.0.copyload.i = load ptr, ptr %.sroa.8131.0..sroa_idx.i, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1, !tbaa !19
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %14, label %7
+  br i1 %6, label %reset_raw.exit, label %7
 
 7:                                                ; preds = %3
   %8 = zext i8 %5 to i64
-  %9 = getelementptr i8, ptr %.sroa.8131.0.copyload, i64 %8
+  %9 = getelementptr i8, ptr %.sroa.8131.0.copyload.i, i64 %8
   %10 = sub nsw i64 128, %8
   %11 = and i64 %10, 4294967295
   tail call void @llvm.memset.p0.i64(ptr align 1 %9, i8 0, i64 %11, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.8131.0.copyload, ptr align 1 %2, i64 %8, i1 false)
-  %.sroa.484.0.copyload.pre = load i8, ptr %4, align 1, !tbaa !9
-  %12 = zext i8 %.sroa.484.0.copyload.pre to i64
-  %13 = shl nuw nsw i64 %12, 8
-  br label %14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.8131.0.copyload.i, ptr readonly align 1 %2, i64 %8, i1 false)
+  br label %reset_raw.exit
 
-14:                                               ; preds = %7, %3
-  %.sroa.484.0.copyload = phi i64 [ %13, %7 ], [ 0, %3 ]
-  %.sroa.083.0.copyload = load i8, ptr %1, align 8, !tbaa !9
-  %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %.sroa.585.0.copyload = load i8, ptr %.sroa.585.0..sroa_idx, align 2, !tbaa !9
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %.sroa.6.0.copyload = load i8, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !9
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !17
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !3
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.9.0.copyload = load i16, ptr %.sroa.9.0..sroa_idx, align 8
-  %15 = zext i16 %.sroa.9.0.copyload to i64
-  %.sroa.1186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.1186.0.copyload = load ptr, ptr %.sroa.1186.0..sroa_idx, align 8, !tbaa !15
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.13.0.copyload = load ptr, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !15
-  %16 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 32
-  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 64
-  %18 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 96
-  store i64 7640891576956012808, ptr %17, align 8, !tbaa !3
-  %19 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 72
-  store i64 -4942790177534073029, ptr %19, align 8, !tbaa !3
-  %20 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 80
-  store i64 4354685564936845355, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 88
-  store i64 -6534734903238641935, ptr %21, align 8, !tbaa !3
-  store i64 5840696475078001361, ptr %18, align 8, !tbaa !3
-  %22 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 104
-  store i64 -7276294671716946913, ptr %22, align 8, !tbaa !3
-  %23 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 112
-  store i64 2270897969802886507, ptr %23, align 8, !tbaa !3
-  %24 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 120
-  store i64 6620516959819538809, ptr %24, align 8, !tbaa !3
-  %.sroa.1186.0.copyload.val = load i64, ptr %.sroa.1186.0.copyload, align 1
-  %25 = getelementptr i8, ptr %.sroa.1186.0.copyload, i64 8
-  %.val137 = load i64, ptr %25, align 1
-  %.sroa.13.0.copyload.val = load i64, ptr %.sroa.13.0.copyload, align 1
-  %26 = getelementptr i8, ptr %.sroa.13.0.copyload, i64 8
-  %.val = load i64, ptr %26, align 1
-  %27 = zext i8 %.sroa.083.0.copyload to i64
-  %28 = zext i8 %.sroa.585.0.copyload to i64
-  %29 = shl nuw nsw i64 %28, 16
-  %30 = zext i8 %.sroa.6.0.copyload to i64
-  %31 = shl nuw nsw i64 %30, 24
-  %32 = zext i32 %.sroa.7.0.copyload to i64
-  %33 = shl nuw i64 %32, 32
-  %34 = or disjoint i64 %.sroa.484.0.copyload, %27
-  %35 = or disjoint i64 %34, %29
-  %36 = or disjoint i64 %35, %31
-  %37 = or disjoint i64 %36, %33
-  %38 = xor i64 %37, 7640891576956012808
-  %39 = xor i64 %.sroa.8.0.copyload, -4942790177534073029
-  %40 = xor i64 %15, 4354685564936845355
-  %41 = xor i64 %.sroa.1186.0.copyload.val, 5840696475078001361
-  %42 = xor i64 %.val137, -7276294671716946913
-  %43 = xor i64 %.sroa.13.0.copyload.val, 2270897969802886507
-  %44 = xor i64 %.val, 6620516959819538809
-  store i64 %38, ptr %.sroa.7130.0.copyload, align 8, !tbaa !3
-  %45 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 8
-  store i64 %39, ptr %45, align 8, !tbaa !3
-  %46 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 16
-  store i64 %40, ptr %46, align 8, !tbaa !3
-  %47 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 24
-  store i64 -6534734903238641935, ptr %47, align 8, !tbaa !3
-  store i64 %41, ptr %16, align 8, !tbaa !3
-  %48 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 40
-  store i64 %42, ptr %48, align 8, !tbaa !3
-  %49 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 48
-  store i64 %43, ptr %49, align 8, !tbaa !3
-  %50 = getelementptr i8, ptr %.sroa.7130.0.copyload, i64 56
-  store i64 %44, ptr %50, align 8, !tbaa !3
-  %.not = icmp eq i8 %.sroa.0.0.copyload, 0
-  %. = select i1 %.not, i64 0, i64 128
-  %.sroa.9132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %.sroa.0.0.copyload, ptr %0, align 8, !tbaa !9
-  store i8 %.sroa.4127.0.copyload, ptr %.sroa.4127.0..sroa_idx, align 1, !tbaa !9
-  store i8 %.sroa.5128.0.copyload, ptr %.sroa.5128.0..sroa_idx, align 2, !tbaa !10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6129.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8121, i64 13, i1 false), !tbaa.struct !21
-  store ptr %.sroa.7130.0.copyload, ptr %.sroa.7130.0..sroa_idx, align 8, !tbaa !12
-  store ptr %.sroa.8131.0.copyload, ptr %.sroa.8131.0..sroa_idx, align 8, !tbaa !15
-  store i64 %., ptr %.sroa.9132.0..sroa_idx, align 8, !tbaa !3
+reset_raw.exit:                                   ; preds = %3, %7
+  %.sroa.083.0.copyload.i = load i64, ptr %1, align 8
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !3
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.9.0.copyload.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 8
+  %12 = zext i16 %.sroa.9.0.copyload.i to i64
+  %.sroa.1186.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.1186.0.copyload.i = load ptr, ptr %.sroa.1186.0..sroa_idx.i, align 8, !tbaa !15
+  %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !15
+  %13 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 32
+  %14 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 64
+  %15 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 96
+  store i64 7640891576956012808, ptr %14, align 8, !tbaa !3
+  %16 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 72
+  store i64 -4942790177534073029, ptr %16, align 8, !tbaa !3
+  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 80
+  store i64 4354685564936845355, ptr %17, align 8, !tbaa !3
+  %18 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 88
+  store i64 -6534734903238641935, ptr %18, align 8, !tbaa !3
+  store i64 5840696475078001361, ptr %15, align 8, !tbaa !3
+  %19 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 104
+  store i64 -7276294671716946913, ptr %19, align 8, !tbaa !3
+  %20 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 112
+  store i64 2270897969802886507, ptr %20, align 8, !tbaa !3
+  %21 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 120
+  store i64 6620516959819538809, ptr %21, align 8, !tbaa !3
+  %.sroa.1186.0.copyload.val.i = load i64, ptr %.sroa.1186.0.copyload.i, align 1
+  %22 = getelementptr i8, ptr %.sroa.1186.0.copyload.i, i64 8
+  %.val137.i = load i64, ptr %22, align 1
+  %.sroa.13.0.copyload.val.i = load i64, ptr %.sroa.13.0.copyload.i, align 1
+  %23 = getelementptr i8, ptr %.sroa.13.0.copyload.i, i64 8
+  %.val.i = load i64, ptr %23, align 1
+  %24 = xor i64 %.sroa.083.0.copyload.i, 7640891576956012808
+  %25 = xor i64 %.sroa.8.0.copyload.i, -4942790177534073029
+  %26 = xor i64 %12, 4354685564936845355
+  %27 = xor i64 %.sroa.1186.0.copyload.val.i, 5840696475078001361
+  %28 = xor i64 %.val137.i, -7276294671716946913
+  %29 = xor i64 %.sroa.13.0.copyload.val.i, 2270897969802886507
+  %30 = xor i64 %.val.i, 6620516959819538809
+  store i64 %24, ptr %.sroa.7130.0.copyload.i, align 8, !tbaa !3
+  %31 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 8
+  store i64 %25, ptr %31, align 8, !tbaa !3
+  %32 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 16
+  store i64 %26, ptr %32, align 8, !tbaa !3
+  %33 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 24
+  store i64 -6534734903238641935, ptr %33, align 8, !tbaa !3
+  store i64 %27, ptr %13, align 8, !tbaa !3
+  %34 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 40
+  store i64 %28, ptr %34, align 8, !tbaa !3
+  %35 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 48
+  store i64 %29, ptr %35, align 8, !tbaa !3
+  %36 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 56
+  store i64 %30, ptr %36, align 8, !tbaa !3
+  %.not.i = icmp eq i8 %.sroa.0.0.copyload.i, 0
+  %..i = select i1 %.not.i, i64 0, i64 128
+  %.sroa.9132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !9
+  store i8 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !9
+  store i8 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %.sroa.6129.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(13) %.sroa.8121.i, i64 13, i1 false), !tbaa.struct !21
+  store ptr %.sroa.7130.0.copyload.i, ptr %.sroa.7130.0..sroa_idx.i, align 8, !tbaa !12
+  store ptr %.sroa.8131.0.copyload.i, ptr %.sroa.8131.0..sroa_idx.i, align 8, !tbaa !15
+  store i64 %..i, ptr %.sroa.9132.0..sroa_idx.i, align 8, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 13, ptr nonnull %.sroa.8121.i)
   ret void
 }
 
@@ -1980,7 +1955,9 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_reset_with_key(ptr noundef 
 
 reset_raw.exit:                                   ; preds = %2, %4
   %..i = phi i64 [ 128, %4 ], [ 0, %2 ]
-  %.sroa.484.0.copyload.i = phi i64 [ %9, %4 ], [ 0, %2 ]
+  %.sroa.0.1.insert.ext.pre-phi = phi i64 [ %9, %4 ], [ 0, %2 ]
+  %.sroa.0.0.insert.ext = zext i8 %.sroa.4.0.copyload.i to i64
+  %.sroa.0.1.insert.insert = or disjoint i64 %.sroa.0.1.insert.ext.pre-phi, %.sroa.0.0.insert.ext
   %10 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 32
   %11 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 64
   %12 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 96
@@ -1998,23 +1975,21 @@ reset_raw.exit:                                   ; preds = %2, %4
   store i64 2270897969802886507, ptr %17, align 8, !tbaa !3
   %18 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 120
   store i64 6620516959819538809, ptr %18, align 8, !tbaa !3
-  %19 = zext i8 %.sroa.4.0.copyload.i to i64
-  %20 = or disjoint i64 %.sroa.484.0.copyload.i, %19
-  %21 = xor i64 %20, 7640891576939301128
-  store i64 %21, ptr %.sroa.7130.0.copyload.i, align 8, !tbaa !3
-  %22 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 8
-  store i64 -4942790177534073029, ptr %22, align 8, !tbaa !3
-  %23 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 16
-  store i64 4354685564936845355, ptr %23, align 8, !tbaa !3
-  %24 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 24
-  store i64 -6534734903238641935, ptr %24, align 8, !tbaa !3
+  %19 = xor i64 %.sroa.0.1.insert.insert, 7640891576939301128
+  store i64 %19, ptr %.sroa.7130.0.copyload.i, align 8, !tbaa !3
+  %20 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 8
+  store i64 -4942790177534073029, ptr %20, align 8, !tbaa !3
+  %21 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 16
+  store i64 4354685564936845355, ptr %21, align 8, !tbaa !3
+  %22 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 24
+  store i64 -6534734903238641935, ptr %22, align 8, !tbaa !3
   store i64 5840696475078001361, ptr %10, align 8, !tbaa !3
-  %25 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 40
-  store i64 -7276294671716946913, ptr %25, align 8, !tbaa !3
-  %26 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 48
-  store i64 2270897969802886507, ptr %26, align 8, !tbaa !3
-  %27 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 56
-  store i64 6620516959819538809, ptr %27, align 8, !tbaa !3
+  %23 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 40
+  store i64 -7276294671716946913, ptr %23, align 8, !tbaa !3
+  %24 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 48
+  store i64 2270897969802886507, ptr %24, align 8, !tbaa !3
+  %25 = getelementptr i8, ptr %.sroa.7130.0.copyload.i, i64 56
+  store i64 6620516959819538809, ptr %25, align 8, !tbaa !3
   %.sroa.9132.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sroa.0.0.copyload.i, ptr %0, align 8, !tbaa !9
   store i8 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa_idx.i, align 1, !tbaa !9
@@ -2043,6 +2018,7 @@ python_hashlib_Hacl_Hash_Blake2b_reset_with_key.exit:
   %.sroa.8131.0.copyload.i.i = load ptr, ptr %.sroa.8131.0..sroa_idx.i.i, align 8, !tbaa !15
   %1 = icmp eq i8 %.sroa.0.0.copyload.i.i, 0
   tail call void @llvm.assume(i1 %1)
+  %.sroa.0.0.insert.ext.i = zext i8 %.sroa.4.0.copyload.i.i to i64
   %2 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 32
   %3 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 64
   %4 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 96
@@ -2060,22 +2036,21 @@ python_hashlib_Hacl_Hash_Blake2b_reset_with_key.exit:
   store i64 2270897969802886507, ptr %9, align 8, !tbaa !3
   %10 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 120
   store i64 6620516959819538809, ptr %10, align 8, !tbaa !3
-  %11 = zext i8 %.sroa.4.0.copyload.i.i to i64
-  %12 = xor i64 %11, 7640891576939301128
-  store i64 %12, ptr %.sroa.7130.0.copyload.i.i, align 8, !tbaa !3
-  %13 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 8
-  store i64 -4942790177534073029, ptr %13, align 8, !tbaa !3
-  %14 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 16
-  store i64 4354685564936845355, ptr %14, align 8, !tbaa !3
-  %15 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 24
-  store i64 -6534734903238641935, ptr %15, align 8, !tbaa !3
+  %11 = xor i64 %.sroa.0.0.insert.ext.i, 7640891576939301128
+  store i64 %11, ptr %.sroa.7130.0.copyload.i.i, align 8, !tbaa !3
+  %12 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 8
+  store i64 -4942790177534073029, ptr %12, align 8, !tbaa !3
+  %13 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 16
+  store i64 4354685564936845355, ptr %13, align 8, !tbaa !3
+  %14 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 24
+  store i64 -6534734903238641935, ptr %14, align 8, !tbaa !3
   store i64 5840696475078001361, ptr %2, align 8, !tbaa !3
-  %16 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 40
-  store i64 -7276294671716946913, ptr %16, align 8, !tbaa !3
-  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 48
-  store i64 2270897969802886507, ptr %17, align 8, !tbaa !3
-  %18 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 56
-  store i64 6620516959819538809, ptr %18, align 8, !tbaa !3
+  %15 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 40
+  store i64 -7276294671716946913, ptr %15, align 8, !tbaa !3
+  %16 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 48
+  store i64 2270897969802886507, ptr %16, align 8, !tbaa !3
+  %17 = getelementptr i8, ptr %.sroa.7130.0.copyload.i.i, i64 56
+  store i64 6620516959819538809, ptr %17, align 8, !tbaa !3
   %.sroa.9132.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %0, align 8, !tbaa !9
   store i8 %.sroa.4.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 1, !tbaa !9

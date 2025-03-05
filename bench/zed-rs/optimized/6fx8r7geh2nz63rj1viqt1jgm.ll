@@ -3877,17 +3877,11 @@ default.unreachable:                              ; preds = %20, %16
 
 69:                                               ; preds = %.noexc
   %.sroa.512.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.512.0.copyload.i = load i8, ptr %.sroa.512.0..sroa_idx.i, align 8, !noalias !361
-  %.sroa.613.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %.sroa.9.1.copyload = load i56, ptr %.sroa.613.0..sroa_idx.i, align 1, !noalias !364
-  %.sroa.9.1.insert.ext = zext i56 %.sroa.9.1.copyload to i64
-  %.sroa.9.1.insert.shift = shl nuw i64 %.sroa.9.1.insert.ext, 8
+  %.sroa.512.0.copyload.i = load i64, ptr %.sroa.512.0..sroa_idx.i, align 8, !noalias !364
   %.sroa.12.9..sroa.613.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.12.9..sroa.613.0..sroa_idx.i.sroa_idx, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !361
-  %.sroa.9.0.insert.ext = zext i8 %.sroa.512.0.copyload.i to i64
-  %.sroa.9.0.insert.insert = or disjoint i64 %.sroa.9.1.insert.shift, %.sroa.9.0.insert.ext
-  %70 = inttoptr i64 %.sroa.9.0.insert.insert to ptr
+  %70 = inttoptr i64 %.sroa.512.0.copyload.i to ptr
   br label %79
 
 71:                                               ; preds = %.noexc138
@@ -4405,17 +4399,11 @@ default.unreachable:                              ; preds = %20, %16
 
 69:                                               ; preds = %.noexc
   %.sroa.512.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.512.0.copyload.i = load i8, ptr %.sroa.512.0..sroa_idx.i, align 8, !noalias !558
-  %.sroa.613.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 9
-  %.sroa.9.1.copyload = load i56, ptr %.sroa.613.0..sroa_idx.i, align 1, !noalias !561
-  %.sroa.9.1.insert.ext = zext i56 %.sroa.9.1.copyload to i64
-  %.sroa.9.1.insert.shift = shl nuw i64 %.sroa.9.1.insert.ext, 8
+  %.sroa.512.0.copyload.i = load i64, ptr %.sroa.512.0..sroa_idx.i, align 8, !noalias !561
   %.sroa.12.9..sroa.613.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.12.9..sroa.613.0..sroa_idx.i.sroa_idx, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7), !noalias !558
-  %.sroa.9.0.insert.ext = zext i8 %.sroa.512.0.copyload.i to i64
-  %.sroa.9.0.insert.insert = or disjoint i64 %.sroa.9.1.insert.shift, %.sroa.9.0.insert.ext
-  %70 = inttoptr i64 %.sroa.9.0.insert.insert to ptr
+  %70 = inttoptr i64 %.sroa.512.0.copyload.i to ptr
   br label %79
 
 71:                                               ; preds = %.noexc138

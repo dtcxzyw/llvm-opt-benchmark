@@ -14033,7 +14033,7 @@ common.ret:                                       ; preds = %96, %81, %62
 70:                                               ; preds = %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit", %98
   %.sroa.7.0 = phi ptr [ %.sroa.7.2, %98 ], [ %43, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
   %.sroa.052.0 = phi i8 [ %.sroa.052.2, %98 ], [ 2, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
-  %.sroa.8.sroa.0.0 = phi ptr [ %.sroa.036.sroa.11.0.copyload71, %98 ], [ undef, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
+  %.sroa.8.sroa.0.0 = phi ptr [ %.sroa.036.sroa.11.0103, %98 ], [ undef, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
   %.sroa.8.sroa.4.sroa.0.0 = phi ptr [ %.sroa.8.sroa.4.sroa.0.2, %98 ], [ undef, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
   %.sroa.8.sroa.4.sroa.3.sroa.0.0 = phi i64 [ %.sroa.8.sroa.4.sroa.3.sroa.0.2, %98 ], [ undef, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
   %.sroa.8.sroa.4.sroa.3.sroa.3.0 = phi i64 [ %.sroa.8.sroa.4.sroa.3.sroa.3.2, %98 ], [ undef, %"_ZN4core3ptr402drop_in_place$LT$futures_util..sink..send..Send$LT$actix_codec..framed..Framed$LT$awc..client..connection..Connection$LT$tokio..net..tcp..stream..TcpStream$C$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$C$actix_http..h1..client..ClientCodec$GT$$C$actix_http..h1..Message$LT$$LP$actix_http..requests..head..RequestHeadType$C$actix_http..body..size..BodySize$RP$$GT$$GT$$GT$17h1df0d97a8620fad0E.exit" ]
@@ -14093,20 +14093,20 @@ common.ret:                                       ; preds = %96, %81, %62
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 83
   %87 = load i8, ptr %86, align 1, !range !555, !alias.scope !1673, !noalias !1670, !noundef !7
   %88 = icmp eq i8 %87, 7
-  %.sroa.036.sroa.0.0.copyload67 = load i8, ptr %7, align 8, !alias.scope !1675
-  %.sroa.036.sroa.10.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %.sroa.036.sroa.10.sroa.0.0.copyload86 = load i56, ptr %.sroa.036.sroa.10.0..sroa_idx69, align 1, !alias.scope !1675
-  %.sroa.036.sroa.11.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.036.sroa.11.0.copyload71 = load ptr, ptr %.sroa.036.sroa.11.0..sroa_idx70, align 8, !alias.scope !1675
-  %.sroa.036.sroa.12.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.036.sroa.12.sroa.0.0.copyload76 = load ptr, ptr %.sroa.036.sroa.12.0..sroa_idx73, align 8, !alias.scope !1675
-  %.sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sroa.036.sroa.12.sroa.10.sroa.0.0.copyload79 = load ptr, ptr %.sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx, align 8, !alias.scope !1675
-  %.sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.0.0.copyload82 = load i64, ptr %.sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx.sroa_idx, align 8, !alias.scope !1675
   br i1 %88, label %91, label %89
 
 89:                                               ; preds = %85
+  %.sroa.036.sroa.0.0.copyload = load i8, ptr %7, align 8, !alias.scope !1675
+  %.sroa.036.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %.sroa.036.sroa.10.sroa.0.0.copyload = load i56, ptr %.sroa.036.sroa.10.0..sroa_idx, align 1, !alias.scope !1675
+  %.sroa.036.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.036.sroa.11.0.copyload = load ptr, ptr %.sroa.036.sroa.11.0..sroa_idx, align 8, !alias.scope !1675
+  %.sroa.036.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.036.sroa.12.sroa.0.0.copyload = load ptr, ptr %.sroa.036.sroa.12.0..sroa_idx, align 8, !alias.scope !1675
+  %.sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.036.sroa.12.sroa.10.sroa.0.0.copyload = load ptr, ptr %.sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx, align 8, !alias.scope !1675
+  %.sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.0.0.copyload = load i64, ptr %.sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx.sroa_idx, align 8, !alias.scope !1675
   %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.10.0.copyload = load i64, ptr %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx.sroa_idx.sroa_idx, align 8, !alias.scope !1675
   %.sroa.036.sroa.12.sroa.11.0..sroa.036.sroa.12.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -14118,11 +14118,16 @@ common.ret:                                       ; preds = %96, %81, %62
   br i1 %90, label %95, label %93
 
 91:                                               ; preds = %85
+  %.sroa.036.sroa.0.0.copyload67 = load i64, ptr %7, align 8, !alias.scope !1675
+  %.sroa.036.sroa.11.0..sroa_idx70 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.036.sroa.11.0.copyload71 = load ptr, ptr %.sroa.036.sroa.11.0..sroa_idx70, align 8, !alias.scope !1675
+  %.sroa.036.sroa.12.0..sroa_idx73 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sroa.036.sroa.12.sroa.0.0.copyload76 = load ptr, ptr %.sroa.036.sroa.12.0..sroa_idx73, align 8, !alias.scope !1675
+  %.sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sroa.036.sroa.12.sroa.10.sroa.0.0.copyload79 = load ptr, ptr %.sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx, align 8, !alias.scope !1675
+  %.sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.0.0.copyload82 = load i64, ptr %.sroa.036.sroa.12.sroa.10.sroa.10.0..sroa.036.sroa.12.sroa.10.0..sroa.036.sroa.12.0..sroa_idx73.sroa_idx.sroa_idx, align 8, !alias.scope !1675
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7)
-  %.sroa.4.i.sroa.3.7.insert.ext = zext i8 %.sroa.036.sroa.0.0.copyload67 to i64
-  %.sroa.4.i.sroa.3.8.insert.ext = zext i56 %.sroa.036.sroa.10.sroa.0.0.copyload86 to i64
-  %.sroa.4.i.sroa.3.8.insert.shift = shl nuw i64 %.sroa.4.i.sroa.3.8.insert.ext, 8
-  %.sroa.4.i.sroa.3.8.insert.insert = or disjoint i64 %.sroa.4.i.sroa.3.8.insert.shift, %.sroa.4.i.sroa.3.7.insert.ext
   %92 = ptrtoint ptr %.sroa.036.sroa.12.sroa.10.sroa.0.0.copyload79 to i64
   br label %98
 
@@ -14135,8 +14140,8 @@ common.ret:                                       ; preds = %96, %81, %62
   br label %96
 
 95:                                               ; preds = %89
-  %.sroa.4.i23.sroa.3.7.insert.ext = zext i8 %.sroa.036.sroa.0.0.copyload67 to i64
-  %.sroa.4.i23.sroa.3.8.insert.ext = zext i56 %.sroa.036.sroa.10.sroa.0.0.copyload86 to i64
+  %.sroa.4.i23.sroa.3.7.insert.ext = zext i8 %.sroa.036.sroa.0.0.copyload to i64
+  %.sroa.4.i23.sroa.3.8.insert.ext = zext i56 %.sroa.036.sroa.10.sroa.0.0.copyload to i64
   %.sroa.4.i23.sroa.3.8.insert.shift = shl nuw i64 %.sroa.4.i23.sroa.3.8.insert.ext, 8
   %.sroa.4.i23.sroa.3.8.insert.insert = or disjoint i64 %.sroa.4.i23.sroa.3.8.insert.shift, %.sroa.4.i23.sroa.3.7.insert.ext
   br label %98
@@ -14145,13 +14150,13 @@ common.ret:                                       ; preds = %96, %81, %62
   %.sroa.1058.1 = phi i64 [ %.sroa.059.0.copyload, %93 ], [ 2, %70 ]
   %.sroa.9.0 = phi i32 [ %.sroa.1240.0.copyload42, %93 ], [ undef, %70 ]
   %.sroa.857.0 = phi i8 [ %87, %93 ], [ undef, %70 ]
-  %.sroa.7.1 = phi ptr [ %.sroa.036.sroa.11.0.copyload71, %93 ], [ %.sroa.7.0, %70 ]
-  %.sroa.052.1 = phi i8 [ %.sroa.036.sroa.0.0.copyload67, %93 ], [ %.sroa.052.0, %70 ]
-  %.sroa.8.sroa.0.1 = phi ptr [ %.sroa.036.sroa.12.sroa.0.0.copyload76, %93 ], [ %.sroa.8.sroa.0.0, %70 ]
-  %.sroa.8.sroa.4.sroa.0.1 = phi ptr [ %.sroa.036.sroa.12.sroa.10.sroa.0.0.copyload79, %93 ], [ %.sroa.8.sroa.4.sroa.0.0, %70 ]
-  %.sroa.8.sroa.4.sroa.3.sroa.0.1 = phi i64 [ %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.0.0.copyload82, %93 ], [ %.sroa.8.sroa.4.sroa.3.sroa.0.0, %70 ]
+  %.sroa.7.1 = phi ptr [ %.sroa.036.sroa.11.0.copyload, %93 ], [ %.sroa.7.0, %70 ]
+  %.sroa.052.1 = phi i8 [ %.sroa.036.sroa.0.0.copyload, %93 ], [ %.sroa.052.0, %70 ]
+  %.sroa.8.sroa.0.1 = phi ptr [ %.sroa.036.sroa.12.sroa.0.0.copyload, %93 ], [ %.sroa.8.sroa.0.0, %70 ]
+  %.sroa.8.sroa.4.sroa.0.1 = phi ptr [ %.sroa.036.sroa.12.sroa.10.sroa.0.0.copyload, %93 ], [ %.sroa.8.sroa.4.sroa.0.0, %70 ]
+  %.sroa.8.sroa.4.sroa.3.sroa.0.1 = phi i64 [ %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.0.0.copyload, %93 ], [ %.sroa.8.sroa.4.sroa.3.sroa.0.0, %70 ]
   %.sroa.8.sroa.4.sroa.3.sroa.3.1 = phi i64 [ %.sroa.036.sroa.12.sroa.10.sroa.10.sroa.10.0.copyload, %93 ], [ %.sroa.8.sroa.4.sroa.3.sroa.3.0, %70 ]
-  %.sroa.554.sroa.0.1 = phi i56 [ %.sroa.036.sroa.10.sroa.0.0.copyload86, %93 ], [ undef, %70 ]
+  %.sroa.554.sroa.0.1 = phi i56 [ %.sroa.036.sroa.10.sroa.0.0.copyload, %93 ], [ undef, %70 ]
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 593
   store i8 0, ptr %97, align 1
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %10)
@@ -14181,7 +14186,8 @@ common.ret:                                       ; preds = %96, %81, %62
   br label %common.ret
 
 98:                                               ; preds = %95, %91
-  %.sroa.7.2.in = phi i64 [ %.sroa.4.i.sroa.3.8.insert.insert, %91 ], [ %.sroa.4.i23.sroa.3.8.insert.insert, %95 ]
+  %.sroa.036.sroa.11.0103 = phi ptr [ %.sroa.036.sroa.11.0.copyload71, %91 ], [ %.sroa.036.sroa.11.0.copyload, %95 ]
+  %.sroa.7.2.in = phi i64 [ %.sroa.036.sroa.0.0.copyload67, %91 ], [ %.sroa.4.i23.sroa.3.8.insert.insert, %95 ]
   %.sroa.052.2 = phi i8 [ 1, %91 ], [ 3, %95 ]
   %.sroa.8.sroa.4.sroa.0.2 = phi ptr [ %.sroa.036.sroa.12.sroa.0.0.copyload76, %91 ], [ undef, %95 ]
   %.sroa.8.sroa.4.sroa.3.sroa.0.2 = phi i64 [ %92, %91 ], [ undef, %95 ]
