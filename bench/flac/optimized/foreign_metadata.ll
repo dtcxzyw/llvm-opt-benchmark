@@ -1098,11 +1098,11 @@ define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave64(pt
 
 6:                                                ; preds = %3
   %.not11 = icmp eq ptr %2, null
-  br i1 %.not11, label %134, label %7
+  br i1 %.not11, label %114, label %7
 
 7:                                                ; preds = %6
   store ptr @.str.6, ptr %2, align 8, !tbaa !12
-  br label %134
+  br label %114
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
@@ -1176,225 +1176,205 @@ safe_realloc_nofree_muladd2_.exit.thread.i.i:     ; preds = %safe_realloc_nofree
   store i64 %37, ptr %27, align 8, !tbaa !15
   store ptr %32, ptr %26, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %39 = load i32, ptr %38, align 16
-  %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %42 = load i8, ptr %41, align 4, !tbaa !19
-  %43 = zext i8 %42 to i64
-  %44 = shl nuw nsw i64 %43, 32
-  %45 = or disjoint i64 %44, %40
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %47 = load i8, ptr %46, align 1, !tbaa !19
-  %48 = zext i8 %47 to i64
-  %49 = shl nuw nsw i64 %48, 40
-  %50 = or disjoint i64 %45, %49
-  %51 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %52 = load i8, ptr %51, align 2, !tbaa !19
-  %53 = zext i8 %52 to i64
-  %54 = shl nuw nsw i64 %53, 48
-  %55 = or disjoint i64 %50, %54
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 23
-  %57 = load i8, ptr %56, align 1, !tbaa !19
-  %58 = zext i8 %57 to i64
-  %59 = shl nuw i64 %58, 56
-  %60 = or disjoint i64 %55, %59
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %63
+  %39 = load i64, ptr %38, align 16
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %43
 
-63:                                               ; preds = %116, %33
-  %64 = call i32 @feof(ptr noundef nonnull %5) #14
-  %.not69.i = icmp eq i32 %64, 0
-  br i1 %.not69.i, label %65, label %.thread120.i
+43:                                               ; preds = %96, %33
+  %44 = call i32 @feof(ptr noundef nonnull %5) #14
+  %.not69.i = icmp eq i32 %44, 0
+  br i1 %.not69.i, label %45, label %.thread120.i
 
-65:                                               ; preds = %63
-  %66 = call i64 @ftello64(ptr noundef nonnull %5)
-  %67 = icmp slt i64 %66, 0
-  br i1 %67, label %68, label %fread.inline.exit103.i
+45:                                               ; preds = %43
+  %46 = call i64 @ftello64(ptr noundef nonnull %5)
+  %47 = icmp slt i64 %46, 0
+  br i1 %47, label %48, label %fread.inline.exit103.i
 
-68:                                               ; preds = %65
+48:                                               ; preds = %45
   %.not90.i = icmp eq ptr %2, null
   br i1 %.not90.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-fread.inline.exit103.i:                           ; preds = %65
-  %69 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 24, ptr noundef nonnull %5)
-  %70 = icmp ult i64 %69, 24
-  br i1 %70, label %71, label %76
+fread.inline.exit103.i:                           ; preds = %45
+  %49 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 24, ptr noundef nonnull %5)
+  %50 = icmp ult i64 %49, 24
+  br i1 %50, label %51, label %56
 
-71:                                               ; preds = %fread.inline.exit103.i
-  %72 = icmp eq i64 %69, 0
-  br i1 %72, label %73, label %75
+51:                                               ; preds = %fread.inline.exit103.i
+  %52 = icmp eq i64 %49, 0
+  br i1 %52, label %53, label %55
 
-73:                                               ; preds = %71
-  %74 = call i32 @feof(ptr noundef nonnull %5) #14
-  %.not88.i = icmp eq i32 %74, 0
-  br i1 %.not88.i, label %75, label %.thread120.i
+53:                                               ; preds = %51
+  %54 = call i32 @feof(ptr noundef nonnull %5) #14
+  %.not88.i = icmp eq i32 %54, 0
+  br i1 %.not88.i, label %55, label %.thread120.i
 
-75:                                               ; preds = %73, %71
+55:                                               ; preds = %53, %51
   %.not89.i = icmp eq ptr %2, null
   br i1 %.not89.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-76:                                               ; preds = %fread.inline.exit103.i
-  %77 = load i32, ptr %38, align 16
-  %78 = zext i32 %77 to i64
-  %79 = load i32, ptr %41, align 4
-  %80 = zext i32 %79 to i64
-  %81 = shl nuw i64 %80, 32
-  %82 = or disjoint i64 %81, %78
-  %83 = and i64 %78, 7
-  %.not70.i = icmp eq i64 %83, 0
-  %84 = add i64 %82, 7
-  %85 = and i64 %84, -8
-  %.0.i = select i1 %.not70.i, i64 %82, i64 %85
-  %86 = icmp ult i64 %.0.i, 24
-  br i1 %86, label %87, label %88
+56:                                               ; preds = %fread.inline.exit103.i
+  %57 = load i32, ptr %38, align 16
+  %58 = zext i32 %57 to i64
+  %59 = load i32, ptr %40, align 4
+  %60 = zext i32 %59 to i64
+  %61 = shl nuw i64 %60, 32
+  %62 = or disjoint i64 %61, %58
+  %63 = and i64 %58, 7
+  %.not70.i = icmp eq i64 %63, 0
+  %64 = add i64 %62, 7
+  %65 = and i64 %64, -8
+  %.0.i = select i1 %.not70.i, i64 %62, i64 %65
+  %66 = icmp ult i64 %.0.i, 24
+  br i1 %66, label %67, label %68
 
-87:                                               ; preds = %76
+67:                                               ; preds = %56
   %.not87.i = icmp eq ptr %2, null
   br i1 %.not87.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-88:                                               ; preds = %76
+68:                                               ; preds = %56
   %bcmp71.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @.str.71, i64 16)
   %.not72.i = icmp eq i32 %bcmp71.i, 0
-  br i1 %.not72.i, label %89, label %97
+  br i1 %.not72.i, label %69, label %77
 
-89:                                               ; preds = %88
-  %90 = load i64, ptr %62, align 8, !tbaa !20
-  %.not73.i = icmp eq i64 %90, 0
-  br i1 %.not73.i, label %92, label %91
+69:                                               ; preds = %68
+  %70 = load i64, ptr %42, align 8, !tbaa !20
+  %.not73.i = icmp eq i64 %70, 0
+  br i1 %.not73.i, label %72, label %71
 
-91:                                               ; preds = %89
+71:                                               ; preds = %69
   %.not76.i = icmp eq ptr %2, null
   br i1 %.not76.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-92:                                               ; preds = %89
-  %93 = load i64, ptr %61, align 8, !tbaa !21
-  %.not74.i = icmp eq i64 %93, 0
-  br i1 %.not74.i, label %95, label %94
+72:                                               ; preds = %69
+  %73 = load i64, ptr %41, align 8, !tbaa !21
+  %.not74.i = icmp eq i64 %73, 0
+  br i1 %.not74.i, label %75, label %74
 
-94:                                               ; preds = %92
+74:                                               ; preds = %72
   %.not75.i = icmp eq ptr %2, null
   br i1 %.not75.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-95:                                               ; preds = %92
-  %96 = load i64, ptr %27, align 8, !tbaa !15
-  store i64 %96, ptr %62, align 8, !tbaa !20
-  br label %106
+75:                                               ; preds = %72
+  %76 = load i64, ptr %27, align 8, !tbaa !15
+  store i64 %76, ptr %42, align 8, !tbaa !20
+  br label %86
 
-97:                                               ; preds = %88
+77:                                               ; preds = %68
   %bcmp77.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @.str.74, i64 16)
   %.not78.i = icmp eq i32 %bcmp77.i, 0
-  br i1 %.not78.i, label %98, label %106
+  br i1 %.not78.i, label %78, label %86
 
-98:                                               ; preds = %97
-  %99 = load i64, ptr %61, align 8, !tbaa !21
-  %.not79.i = icmp eq i64 %99, 0
-  br i1 %.not79.i, label %101, label %100
+78:                                               ; preds = %77
+  %79 = load i64, ptr %41, align 8, !tbaa !21
+  %.not79.i = icmp eq i64 %79, 0
+  br i1 %.not79.i, label %81, label %80
 
-100:                                              ; preds = %98
+80:                                               ; preds = %78
   %.not82.i = icmp eq ptr %2, null
   br i1 %.not82.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-101:                                              ; preds = %98
-  %102 = load i64, ptr %62, align 8, !tbaa !20
-  %.not80.i = icmp eq i64 %102, 0
-  br i1 %.not80.i, label %103, label %104
+81:                                               ; preds = %78
+  %82 = load i64, ptr %42, align 8, !tbaa !20
+  %.not80.i = icmp eq i64 %82, 0
+  br i1 %.not80.i, label %83, label %84
 
-103:                                              ; preds = %101
+83:                                               ; preds = %81
   %.not81.i = icmp eq ptr %2, null
   br i1 %.not81.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-104:                                              ; preds = %101
-  %105 = load i64, ptr %27, align 8, !tbaa !15
-  store i64 %105, ptr %61, align 8, !tbaa !21
-  br label %106
+84:                                               ; preds = %81
+  %85 = load i64, ptr %27, align 8, !tbaa !15
+  store i64 %85, ptr %41, align 8, !tbaa !21
+  br label %86
 
-106:                                              ; preds = %104, %97, %95
+86:                                               ; preds = %84, %77, %75
   %bcmp83.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %4, ptr noundef nonnull dereferenceable(16) @.str.74, i64 16)
   %.not84.i = icmp eq i32 %bcmp83.i, 0
-  %107 = trunc i64 %.0.i to i32
-  %108 = select i1 %.not84.i, i32 24, i32 %107
-  %.not.i106.i = icmp ult i32 %108, %23
-  br i1 %.not.i106.i, label %110, label %109
+  %87 = trunc i64 %.0.i to i32
+  %88 = select i1 %.not84.i, i32 24, i32 %87
+  %.not.i106.i = icmp ult i32 %88, %23
+  br i1 %.not.i106.i, label %90, label %89
 
-109:                                              ; preds = %106
+89:                                               ; preds = %86
   %.not22.i107.i = icmp eq ptr %2, null
   br i1 %.not22.i107.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-110:                                              ; preds = %106
-  %111 = load i64, ptr %27, align 8, !tbaa !15
-  %or.cond.i.i109.i = icmp ugt i64 %111, 1152921504606846974
+90:                                               ; preds = %86
+  %91 = load i64, ptr %27, align 8, !tbaa !15
+  %or.cond.i.i109.i = icmp ugt i64 %91, 1152921504606846974
   br i1 %or.cond.i.i109.i, label %safe_realloc_nofree_muladd2_.exit.thread.i112.i, label %safe_realloc_nofree_muladd2_.exit.i110.i
 
-safe_realloc_nofree_muladd2_.exit.i110.i:         ; preds = %110
-  %112 = load ptr, ptr %26, align 8, !tbaa !11
-  %113 = shl nuw i64 %111, 4
-  %114 = add nuw i64 %113, 16
-  %115 = call ptr @realloc(ptr noundef %112, i64 noundef %114) #15
-  %.not20.i111.i = icmp eq ptr %115, null
-  br i1 %.not20.i111.i, label %safe_realloc_nofree_muladd2_.exit.thread.i112.i, label %116
+safe_realloc_nofree_muladd2_.exit.i110.i:         ; preds = %90
+  %92 = load ptr, ptr %26, align 8, !tbaa !11
+  %93 = shl nuw i64 %91, 4
+  %94 = add nuw i64 %93, 16
+  %95 = call ptr @realloc(ptr noundef %92, i64 noundef %94) #15
+  %.not20.i111.i = icmp eq ptr %95, null
+  br i1 %.not20.i111.i, label %safe_realloc_nofree_muladd2_.exit.thread.i112.i, label %96
 
-safe_realloc_nofree_muladd2_.exit.thread.i112.i:  ; preds = %safe_realloc_nofree_muladd2_.exit.i110.i, %110
+safe_realloc_nofree_muladd2_.exit.thread.i112.i:  ; preds = %safe_realloc_nofree_muladd2_.exit.i110.i, %90
   %.not21.i113.i = icmp eq ptr %2, null
   br i1 %.not21.i113.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-116:                                              ; preds = %safe_realloc_nofree_muladd2_.exit.i110.i
-  %117 = load i64, ptr %27, align 8, !tbaa !15
-  %118 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %115, i64 %117
-  store i64 %66, ptr %118, align 8, !tbaa !16
-  %119 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %115, i64 %117, i32 1
-  store i32 %108, ptr %119, align 8, !tbaa !18
-  %120 = add i64 %117, 1
-  store i64 %120, ptr %27, align 8, !tbaa !15
-  store ptr %115, ptr %26, align 8, !tbaa !11
-  %121 = add i64 %.0.i, -24
-  %122 = call i32 @fseeko64(ptr noundef nonnull %5, i64 noundef %121, i32 noundef 1)
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %124, label %63
+96:                                               ; preds = %safe_realloc_nofree_muladd2_.exit.i110.i
+  %97 = load i64, ptr %27, align 8, !tbaa !15
+  %98 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %95, i64 %97
+  store i64 %46, ptr %98, align 8, !tbaa !16
+  %99 = getelementptr inbounds nuw %struct.foreign_block_t, ptr %95, i64 %97, i32 1
+  store i32 %88, ptr %99, align 8, !tbaa !18
+  %100 = add i64 %97, 1
+  store i64 %100, ptr %27, align 8, !tbaa !15
+  store ptr %95, ptr %26, align 8, !tbaa !11
+  %101 = add i64 %.0.i, -24
+  %102 = call i32 @fseeko64(ptr noundef nonnull %5, i64 noundef %101, i32 noundef 1)
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %104, label %43
 
-124:                                              ; preds = %116
+104:                                              ; preds = %96
   %.not86.i = icmp eq ptr %2, null
   br i1 %.not86.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-.thread120.i:                                     ; preds = %63, %73
-  %125 = call i64 @ftello64(ptr noundef nonnull %5)
-  %.not91.i = icmp eq i64 %60, %125
-  br i1 %.not91.i, label %127, label %126
+.thread120.i:                                     ; preds = %43, %53
+  %105 = call i64 @ftello64(ptr noundef nonnull %5)
+  %.not91.i = icmp eq i64 %39, %105
+  br i1 %.not91.i, label %107, label %106
 
-126:                                              ; preds = %.thread120.i
+106:                                              ; preds = %.thread120.i
   %.not96.i = icmp eq ptr %2, null
   br i1 %.not96.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-127:                                              ; preds = %.thread120.i
-  %128 = load i64, ptr %62, align 8, !tbaa !20
-  %.not92.i = icmp eq i64 %128, 0
-  br i1 %.not92.i, label %129, label %130
+107:                                              ; preds = %.thread120.i
+  %108 = load i64, ptr %42, align 8, !tbaa !20
+  %.not92.i = icmp eq i64 %108, 0
+  br i1 %.not92.i, label %109, label %110
 
-129:                                              ; preds = %127
+109:                                              ; preds = %107
   %.not93.i = icmp eq ptr %2, null
   br i1 %.not93.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-130:                                              ; preds = %127
-  %131 = load i64, ptr %61, align 8, !tbaa !21
-  %.not94.i = icmp eq i64 %131, 0
-  br i1 %.not94.i, label %132, label %read_from_wave64_.exit
+110:                                              ; preds = %107
+  %111 = load i64, ptr %41, align 8, !tbaa !21
+  %.not94.i = icmp eq i64 %111, 0
+  br i1 %.not94.i, label %112, label %read_from_wave64_.exit
 
-132:                                              ; preds = %130
+112:                                              ; preds = %110
   %.not95.i = icmp eq ptr %2, null
   br i1 %.not95.i, label %read_from_wave64_.exit, label %append_block_.exit.thread.sink.split.i
 
-append_block_.exit.thread.sink.split.i:           ; preds = %132, %129, %126, %124, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %109, %103, %100, %94, %91, %87, %75, %68, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %24, %17, %11
-  %.str.37.sink.i = phi ptr [ @.str.17, %11 ], [ @.str.68, %17 ], [ @.str.36, %24 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.22, %68 ], [ @.str.69, %75 ], [ @.str.70, %87 ], [ @.str.72, %91 ], [ @.str.73, %94 ], [ @.str.75, %100 ], [ @.str.76, %103 ], [ @.str.36, %109 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ @.str.77, %124 ], [ @.str.78, %126 ], [ @.str.79, %129 ], [ @.str.80, %132 ]
+append_block_.exit.thread.sink.split.i:           ; preds = %112, %109, %106, %104, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %89, %83, %80, %74, %71, %67, %55, %48, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %24, %17, %11
+  %.str.37.sink.i = phi ptr [ @.str.17, %11 ], [ @.str.68, %17 ], [ @.str.36, %24 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ @.str.22, %48 ], [ @.str.69, %55 ], [ @.str.70, %67 ], [ @.str.72, %71 ], [ @.str.73, %74 ], [ @.str.75, %80 ], [ @.str.76, %83 ], [ @.str.36, %89 ], [ @.str.37, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ @.str.77, %104 ], [ @.str.78, %106 ], [ @.str.79, %109 ], [ @.str.80, %112 ]
   store ptr %.str.37.sink.i, ptr %2, align 8, !tbaa !12
   br label %read_from_wave64_.exit
 
-read_from_wave64_.exit:                           ; preds = %11, %17, %24, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %68, %75, %87, %91, %94, %100, %103, %109, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %124, %126, %129, %130, %132, %append_block_.exit.thread.sink.split.i
-  %.059.i = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %126 ], [ 0, %129 ], [ 0, %132 ], [ 1, %130 ], [ 0, %24 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %68 ], [ 0, %75 ], [ 0, %87 ], [ 0, %91 ], [ 0, %94 ], [ 0, %100 ], [ 0, %103 ], [ 0, %124 ], [ 0, %109 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
+read_from_wave64_.exit:                           ; preds = %11, %17, %24, %safe_realloc_nofree_muladd2_.exit.thread.i.i, %48, %55, %67, %71, %74, %80, %83, %89, %safe_realloc_nofree_muladd2_.exit.thread.i112.i, %104, %106, %109, %110, %112, %append_block_.exit.thread.sink.split.i
+  %.059.i = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %106 ], [ 0, %109 ], [ 0, %112 ], [ 1, %110 ], [ 0, %24 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i.i ], [ 0, %48 ], [ 0, %55 ], [ 0, %67 ], [ 0, %71 ], [ 0, %74 ], [ 0, %80 ], [ 0, %83 ], [ 0, %104 ], [ 0, %89 ], [ 0, %safe_realloc_nofree_muladd2_.exit.thread.i112.i ], [ 0, %append_block_.exit.thread.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
-  %133 = call i32 @fclose(ptr noundef nonnull %5)
-  br label %134
+  %113 = call i32 @fclose(ptr noundef nonnull %5)
+  br label %114
 
-134:                                              ; preds = %6, %7, %read_from_wave64_.exit
+114:                                              ; preds = %6, %7, %read_from_wave64_.exit
   %.0 = phi i32 [ %.059.i, %read_from_wave64_.exit ], [ 0, %7 ], [ 0, %6 ]
   ret i32 %.0
 }

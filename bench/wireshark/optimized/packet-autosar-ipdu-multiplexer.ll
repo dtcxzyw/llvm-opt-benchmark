@@ -1553,28 +1553,23 @@ define internal i32 @dissect_ipdum_message_flexray(ptr noundef %0, ptr noundef %
   br i1 %9, label %get_flexray_mapping.exit.thread, label %get_flexray_mapping.exit
 
 get_flexray_mapping.exit:                         ; preds = %7
-  %10 = load i16, ptr %3, align 2
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i64
-  %14 = shl nuw nsw i64 %13, 16
+  %10 = load i32, ptr %3, align 2
+  %11 = zext i32 %10 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  %15 = zext i16 %10 to i64
-  %16 = or disjoint i64 %14, %15
-  store i64 %16, ptr %5, align 8
-  %17 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
+  store i64 %11, ptr %5, align 8
+  %12 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %get_flexray_mapping.exit.thread, label %19
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %get_flexray_mapping.exit.thread, label %14
 
-19:                                               ; preds = %get_flexray_mapping.exit
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %21 = load i32, ptr %20, align 4
-  %22 = call fastcc i32 @dissect_ipdum_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21)
+14:                                               ; preds = %get_flexray_mapping.exit
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %16 = load i32, ptr %15, align 4
+  %17 = call fastcc i32 @dissect_ipdum_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %16)
   br label %get_flexray_mapping.exit.thread
 
-get_flexray_mapping.exit.thread:                  ; preds = %7, %get_flexray_mapping.exit, %19
-  %.0 = phi i32 [ %22, %19 ], [ 0, %get_flexray_mapping.exit ], [ 0, %7 ]
+get_flexray_mapping.exit.thread:                  ; preds = %7, %get_flexray_mapping.exit, %14
+  %.0 = phi i32 [ %17, %14 ], [ 0, %get_flexray_mapping.exit ], [ 0, %7 ]
   ret i32 %.0
 }
 

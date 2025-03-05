@@ -342,22 +342,12 @@ define range(i64 0, 4294967296) i64 @X509_issuer_name_hash(ptr noundef readonly 
   br i1 %.not16.i, label %X509_NAME_hash_ex.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = load i16, ptr %2, align 16
-  %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %20 = load i8, ptr %19, align 2, !tbaa !55
-  %21 = zext i8 %20 to i64
-  %22 = shl nuw nsw i64 %21, 16
-  %23 = or disjoint i64 %22, %18
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %25 = load i8, ptr %24, align 1, !tbaa !55
-  %26 = zext i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 24
-  %28 = or disjoint i64 %23, %27
+  %17 = load i32, ptr %2, align 16
+  %18 = zext i32 %17 to i64
   br label %X509_NAME_hash_ex.exit
 
 X509_NAME_hash_ex.exit:                           ; preds = %1, %9, %16
-  %.0.i = phi i64 [ %28, %16 ], [ 0, %9 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %18, %16 ], [ 0, %9 ], [ 0, %1 ]
   call void @EVP_MD_free(ptr noundef %5) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #8
   ret i64 %.0.i
@@ -373,7 +363,7 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr nound
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %4
-  store i32 0, ptr %3, align 4, !tbaa !56
+  store i32 0, ptr %3, align 4, !tbaa !55
   br label %9
 
 9:                                                ; preds = %8, %4
@@ -396,19 +386,19 @@ define range(i64 0, 4294967296) i64 @X509_NAME_hash_ex(ptr noundef %0, ptr nound
   %20 = load i16, ptr %5, align 16
   %21 = zext i16 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %23 = load i8, ptr %22, align 2, !tbaa !55
+  %23 = load i8, ptr %22, align 2, !tbaa !56
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %24, 16
   %26 = or disjoint i64 %25, %21
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %28 = load i8, ptr %27, align 1, !tbaa !55
+  %28 = load i8, ptr %27, align 1, !tbaa !56
   %29 = zext i8 %28 to i64
   %30 = shl nuw nsw i64 %29, 24
   %31 = or disjoint i64 %26, %30
   br i1 %.not, label %33, label %32
 
 32:                                               ; preds = %19
-  store i32 1, ptr %3, align 4, !tbaa !56
+  store i32 1, ptr %3, align 4, !tbaa !55
   br label %33
 
 33:                                               ; preds = %19, %32, %12, %9
@@ -518,22 +508,12 @@ define range(i64 0, 4294967296) i64 @X509_subject_name_hash(ptr noundef readonly
   br i1 %.not16.i, label %X509_NAME_hash_ex.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = load i16, ptr %2, align 16
-  %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %20 = load i8, ptr %19, align 2, !tbaa !55
-  %21 = zext i8 %20 to i64
-  %22 = shl nuw nsw i64 %21, 16
-  %23 = or disjoint i64 %22, %18
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  %25 = load i8, ptr %24, align 1, !tbaa !55
-  %26 = zext i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 24
-  %28 = or disjoint i64 %23, %27
+  %17 = load i32, ptr %2, align 16
+  %18 = zext i32 %17 to i64
   br label %X509_NAME_hash_ex.exit
 
 X509_NAME_hash_ex.exit:                           ; preds = %1, %9, %16
-  %.0.i = phi i64 [ %28, %16 ], [ 0, %9 ], [ 0, %1 ]
+  %.0.i = phi i64 [ %18, %16 ], [ 0, %9 ], [ 0, %1 ]
   call void @EVP_MD_free(ptr noundef %5) #8
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #8
   ret i64 %.0.i
@@ -1350,7 +1330,7 @@ check_suite_b.exit71.thread:                      ; preds = %65, %X509_get0_pubk
   %or.cond3 = select i1 %.039137185, i1 %101, i1 false
   %102 = sext i1 %or.cond3 to i32
   %spec.select = add nsw i32 %.1138184, %102
-  store i32 %spec.select, ptr %0, align 4, !tbaa !56
+  store i32 %spec.select, ptr %0, align 4, !tbaa !55
   br label %103
 
 103:                                              ; preds = %95, %100, %.thread131.thread, %4, %check_suite_b.exit
@@ -1559,8 +1539,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !52 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !6, i64 0}
 !53 = !{!"p1 _ZTS18x509_crl_method_st", !6, i64 0}
 !54 = !{!48, !10, i64 132}
-!55 = !{!7, !7, i64 0}
-!56 = !{!10, !10, i64 0}
+!55 = !{!10, !10, i64 0}
+!56 = !{!7, !7, i64 0}
 !57 = !{!22, !24, i64 16}
 !58 = !{!59, !11, i64 8}
 !59 = !{!"buf_mem_st", !12, i64 0, !11, i64 8, !12, i64 16, !12, i64 24}
@@ -1574,7 +1554,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !67 = distinct !{!67, !68}
 !68 = !{!"llvm.loop.mustprogress"}
 !69 = distinct !{!69, !68}
-!70 = !{i64 0, i64 4, !56, i64 4, i64 4, !56, i64 8, i64 8, !71, i64 16, i64 8, !72}
+!70 = !{i64 0, i64 4, !55, i64 4, i64 4, !55, i64 8, i64 8, !71, i64 16, i64 8, !72}
 !71 = !{!11, !11, i64 0}
 !72 = !{!12, !12, i64 0}
 !73 = distinct !{!73, !68}

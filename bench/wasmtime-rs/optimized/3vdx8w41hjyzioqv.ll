@@ -2863,17 +2863,11 @@ define hidden i32 @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %7, ptr %0, align 8, !alias.scope !606
-  %.sroa.02.0.copyload = load i8, ptr %4, align 1
-  %.sroa.4.0..0.1.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %.sroa.4.0.copyload = load i24, ptr %.sroa.4.0..0.1.sroa_idx, align 1
-  %8 = zext i24 %.sroa.4.0.copyload to i32
-  %9 = shl nuw i32 %8, 8
-  %10 = zext i8 %.sroa.02.0.copyload to i32
-  %11 = or disjoint i32 %9, %10
+  %.sroa.02.0.copyload = load i32, ptr %4, align 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.llvm.3458943816331328394.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb77ba305180dea4cE.llvm.3458943816331328394.exit.thread": ; preds = %1, %6
-  %.sroa.0.0.insert.insert = phi i32 [ %11, %6 ], [ 6, %1 ]
+  %.sroa.0.0.insert.insert = phi i32 [ %.sroa.02.0.copyload, %6 ], [ 6, %1 ]
   ret i32 %.sroa.0.0.insert.insert
 }
 
@@ -4621,17 +4615,11 @@ define hidden i32 @"_ZN119_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u20
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %3, i64 -4
   store ptr %7, ptr %2, align 8, !alias.scope !1098
-  %.sroa.02.0.copyload = load i8, ptr %7, align 1
-  %.sroa.4.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %3, i64 -3
-  %.sroa.4.0.copyload = load i24, ptr %.sroa.4.0..0.1.sroa_idx, align 1
-  %8 = zext i24 %.sroa.4.0.copyload to i32
-  %9 = shl nuw i32 %8, 8
-  %10 = zext i8 %.sroa.02.0.copyload to i32
-  %11 = or disjoint i32 %9, %10
+  %.sroa.02.0.copyload = load i32, ptr %7, align 1
   br label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h634d3e4d7b412b4cE.llvm.3458943816331328394.exit.thread"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h634d3e4d7b412b4cE.llvm.3458943816331328394.exit.thread": ; preds = %1, %6
-  %.sroa.0.0.insert.insert = phi i32 [ %11, %6 ], [ 6, %1 ]
+  %.sroa.0.0.insert.insert = phi i32 [ %.sroa.02.0.copyload, %6 ], [ 6, %1 ]
   ret i32 %.sroa.0.0.insert.insert
 }
 
