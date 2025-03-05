@@ -3079,32 +3079,32 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %89 = load i32, ptr %88, align 16
   br label %90
 
-90:                                               ; preds = %87, %83
+90:; preds = %87, %83
   %91 = phi i32 [ %89, %87 ], [ 0, %83 ]
   store i32 %91, ptr %6, align 4
   br label %121
 
-92:                                               ; preds = %23
+92:; preds = %23
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 1346
   %94 = load i8, ptr %93, align 2, !range !57, !noundef !58
   %95 = zext nneg i8 %94 to i32
   store i32 %95, ptr %6, align 4
   br label %121
 
-96:                                               ; preds = %23
+96:; preds = %23
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 1224
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   br i1 %99, label %138, label %100
 
-100:                                              ; preds = %96
+100:; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %102 = load volatile i64, ptr %101, align 8
   store i64 %102, ptr %8, align 8
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %104 = load volatile i64, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %104, ptr %105, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %104, ptr %108, align 8
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %107 = load volatile i64, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -3151,7 +3151,7 @@ define internal range(i32 -92, 1) i32 @packet_getsockopt(ptr noundef readonly ca
   %137 = select i1 %136, i32 0, i32 -14
   br label %138
 
-138:                                              ; preds = %133, %121, %96, %66, %62, %59, %23, %21, %12, %5
+111:                                              ; preds = %133, %121, %96, %66, %62, %59, %23, %21, %12, %5
   %139 = phi i32 [ -92, %5 ], [ -14, %12 ], [ -22, %21 ], [ -22, %59 ], [ -14, %62 ], [ -22, %66 ], [ -22, %96 ], [ -92, %23 ], [ -14, %121 ], [ %137, %133 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #19
