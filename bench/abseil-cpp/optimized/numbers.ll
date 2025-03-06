@@ -2365,7 +2365,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.024.0.copyload.i.i = load i64, ptr %69, align 16
-  %.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %.0.i.i to i128
+  %.sroa.0.0.insert.insert.i.i.i = zext nneg i32 %.0.i.i to i128
   %.sroa.2.0.insert.ext.i44.i.i = zext i64 %.sroa.4.0.copyload.i.i to i128
   %.sroa.2.0.insert.shift.i45.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i44.i.i, 64
   %.sroa.0.0.insert.ext.i46.i.i = zext i64 %.sroa.024.0.copyload.i.i to i128
@@ -2387,7 +2387,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.sroa.22.0.insert.shift.i.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i.i, 64
   %.sroa.01.0.insert.ext.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i.i to i128
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i128 %.sroa.22.0.insert.shift.i.i.i, %.sroa.01.0.insert.ext.i.i.i
-  %.not.i7.i = icmp slt i128 %.sroa.01.0.insert.insert.i.i.i, %.sroa.0.0.insert.ext.i.i.i
+  %.not.i7.i = icmp slt i128 %.sroa.01.0.insert.insert.i.i.i, %.sroa.0.0.insert.insert.i.i.i
   br i1 %.not.i7.i, label %76, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
 
 76:                                               ; preds = %70
@@ -2399,7 +2399,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   br i1 %77, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %78
 
 78:                                               ; preds = %76
-  %79 = mul nsw i128 %.sroa.01.0.insert.insert.i43.i.i, %.sroa.0.0.insert.ext.i.i.i
+  %79 = mul nsw i128 %.sroa.01.0.insert.insert.i43.i.i, %.sroa.0.0.insert.insert.i.i.i
   %.sroa.03.0.insert.insert.i.i.i = xor i64 %.sroa.0.0.extract.trunc.i.i, -1
   %.narrow.i.i.i = sub i64 9223372036854775807, %.sroa.7.0.extract.trunc.i.i
   %.sroa.2.0.insert.ext.i53.i.i = zext i64 %.narrow.i.i.i to i128
@@ -2420,73 +2420,73 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   br i1 %.not95.i.i, label %70, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !43
 
 84:                                               ; preds = %62
-  %.sroa.01.0.insert.ext.i.i11.i = zext nneg i32 %.0.i.i to i128
+  %.sroa.01.0.insert.insert.i.i9.i = zext nneg i32 %.0.i.i to i128
   %85 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %86 = icmp eq i64 %.pre-phi.i.i, %63
-  br i1 %86, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i13.i
+  br i1 %86, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i10.i
 
-.lr.ph.i13.i:                                     ; preds = %84
-  %.sroa.094.0.extract.trunc.i.i = zext nneg i32 %.0.i.i to i64
-  %87 = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %.sroa.094.0.extract.trunc.i.i
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %87, i64 8
+.lr.ph.i10.i:                                     ; preds = %84
+  %87 = zext nneg i32 %.0.i.i to i64
+  %88 = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %87
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !41
-  %.sroa.096.0.copyload.i.i = load i64, ptr %87, align 16
+  %.sroa.096.0.copyload.i.i = load i64, ptr %88, align 16
   %.sroa.2.0.insert.ext.i49.i.i = zext i64 %.sroa.6.0.copyload.i.i to i128
   %.sroa.2.0.insert.shift.i50.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i49.i.i, 64
   %.sroa.0.0.insert.ext.i51.i.i = zext i64 %.sroa.096.0.copyload.i.i to i128
   %.sroa.0.0.insert.insert.i52.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i50.i.i, %.sroa.0.0.insert.ext.i51.i.i
-  br label %88
+  br label %89
 
-88:                                               ; preds = %100, %.lr.ph.i13.i
-  %.037123.i.i = phi ptr [ %.2.i.i, %.lr.ph.i13.i ], [ %102, %100 ]
-  %.sroa.098.0122.i.i = phi i64 [ 0, %.lr.ph.i13.i ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %100 ]
-  %.sroa.11.0121.i.i = phi i64 [ 0, %.lr.ph.i13.i ], [ %.narrow.i.i84.i.i, %100 ]
-  %89 = load i8, ptr %.037123.i.i, align 1, !tbaa !8
-  %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %90
-  %92 = load i8, ptr %91, align 1, !tbaa !8
-  %93 = sext i8 %92 to i32
-  %.not.i14.i = icmp sgt i32 %.0.i.i, %93
-  br i1 %.not.i14.i, label %94, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
+89:                                               ; preds = %101, %.lr.ph.i10.i
+  %.037123.i.i = phi ptr [ %.2.i.i, %.lr.ph.i10.i ], [ %103, %101 ]
+  %.sroa.098.0122.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %101 ]
+  %.sroa.11.0121.i.i = phi i64 [ 0, %.lr.ph.i10.i ], [ %.narrow.i.i84.i.i, %101 ]
+  %90 = load i8, ptr %.037123.i.i, align 1, !tbaa !8
+  %91 = zext i8 %90 to i64
+  %92 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl12_GLOBAL__N_111kAsciiToIntE, i64 0, i64 %91
+  %93 = load i8, ptr %92, align 1, !tbaa !8
+  %94 = sext i8 %93 to i32
+  %.not.i11.i = icmp sgt i32 %.0.i.i, %94
+  br i1 %.not.i11.i, label %95, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
 
-94:                                               ; preds = %88
+95:                                               ; preds = %89
   %.sroa.22.0.insert.ext.i45.i.i = zext i64 %.sroa.11.0121.i.i to i128
   %.sroa.22.0.insert.shift.i46.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i45.i.i, 64
   %.sroa.01.0.insert.ext.i47.i.i = zext i64 %.sroa.098.0122.i.i to i128
   %.sroa.01.0.insert.insert.i48.i.i = or disjoint i128 %.sroa.22.0.insert.shift.i46.i.i, %.sroa.01.0.insert.ext.i47.i.i
-  %95 = icmp slt i128 %.sroa.01.0.insert.insert.i48.i.i, %.sroa.0.0.insert.insert.i52.i.i
-  br i1 %95, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %96
+  %96 = icmp slt i128 %.sroa.01.0.insert.insert.i48.i.i, %.sroa.0.0.insert.insert.i52.i.i
+  br i1 %96, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %97
 
-96:                                               ; preds = %94
-  %97 = mul nsw i128 %.sroa.01.0.insert.insert.i48.i.i, %.sroa.01.0.insert.ext.i.i11.i
-  %.sroa.086.0.extract.trunc.i.i = sext i8 %92 to i64
-  %98 = ashr i8 %92, 7
-  %.sroa.287.0.extract.trunc.i.i = sext i8 %98 to i64
-  %.narrow.i.i17.i = xor i64 %.sroa.287.0.extract.trunc.i.i, -9223372036854775808
-  %.sroa.2.0.insert.ext.i71.i.i = zext i64 %.narrow.i.i17.i to i128
+97:                                               ; preds = %95
+  %98 = mul nsw i128 %.sroa.01.0.insert.insert.i48.i.i, %.sroa.01.0.insert.insert.i.i9.i
+  %.sroa.086.0.extract.trunc.i.i = sext i8 %93 to i64
+  %99 = ashr i8 %93, 7
+  %.sroa.287.0.extract.trunc.i.i = sext i8 %99 to i64
+  %.narrow.i.i14.i = xor i64 %.sroa.287.0.extract.trunc.i.i, -9223372036854775808
+  %.sroa.2.0.insert.ext.i71.i.i = zext i64 %.narrow.i.i14.i to i128
   %.sroa.2.0.insert.shift.i72.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i71.i.i, 64
   %.sroa.0.0.insert.ext.i73.i.i = zext i64 %.sroa.086.0.extract.trunc.i.i to i128
   %.sroa.0.0.insert.insert.i74.i.i = or disjoint i128 %.sroa.2.0.insert.shift.i72.i.i, %.sroa.0.0.insert.ext.i73.i.i
-  %99 = icmp slt i128 %97, %.sroa.0.0.insert.insert.i74.i.i
-  br i1 %99, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %100
+  %100 = icmp slt i128 %98, %.sroa.0.0.insert.insert.i74.i.i
+  br i1 %100, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %101
 
-100:                                              ; preds = %96
-  %.sroa.03.0.insert.insert.i.i82.i.i = sub i128 %97, %.sroa.0.0.insert.ext.i73.i.i
-  %101 = lshr i128 %.sroa.03.0.insert.insert.i.i82.i.i, 64
-  %.tr.i.i83.i.i = trunc nuw i128 %101 to i64
+101:                                              ; preds = %97
+  %.sroa.03.0.insert.insert.i.i82.i.i = sub i128 %98, %.sroa.0.0.insert.ext.i73.i.i
+  %102 = lshr i128 %.sroa.03.0.insert.insert.i.i82.i.i, 64
+  %.tr.i.i83.i.i = trunc nuw i128 %102 to i64
   %.narrow.i.i84.i.i = sub i64 %.tr.i.i83.i.i, %.sroa.287.0.extract.trunc.i.i
   %.sroa.012.0.extract.trunc.i.i85.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i82.i.i to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.037123.i.i, i64 1
-  %.not126.i.i = icmp ult ptr %102, %85
-  br i1 %.not126.i.i, label %88, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !44
+  %103 = getelementptr inbounds nuw i8, ptr %.037123.i.i, i64 1
+  %.not126.i.i = icmp ult ptr %103, %85
+  br i1 %.not126.i.i, label %89, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !44
 
-_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %81, %78, %76, %70, %100, %96, %94, %88, %84, %65
-  %.sroa.098.0122.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.098.0122.i.i, %88 ], [ 0, %94 ], [ 0, %96 ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %100 ], [ %.sroa.068.091.i.i, %70 ], [ -1, %76 ], [ -1, %78 ], [ %.sroa.012.0.extract.trunc.i.i66.i.i, %81 ]
-  %.sroa.11.0121.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.11.0121.i.i, %88 ], [ -9223372036854775808, %94 ], [ -9223372036854775808, %96 ], [ %.narrow.i.i84.i.i, %100 ], [ %.sroa.11.090.i.i, %70 ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %.narrow.i.i.i.i, %81 ]
-  %.0.ph.i = phi i1 [ true, %65 ], [ true, %84 ], [ false, %88 ], [ false, %94 ], [ false, %96 ], [ true, %100 ], [ false, %70 ], [ false, %76 ], [ false, %78 ], [ true, %81 ]
+_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %81, %78, %76, %70, %101, %97, %95, %89, %84, %65
+  %.sroa.098.0122.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.098.0122.i.i, %89 ], [ 0, %95 ], [ 0, %97 ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %101 ], [ %.sroa.068.091.i.i, %70 ], [ -1, %76 ], [ -1, %78 ], [ %.sroa.012.0.extract.trunc.i.i66.i.i, %81 ]
+  %.sroa.11.0121.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.11.0121.i.i, %89 ], [ -9223372036854775808, %95 ], [ -9223372036854775808, %97 ], [ %.narrow.i.i84.i.i, %101 ], [ %.sroa.11.090.i.i, %70 ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %.narrow.i.i.i.i, %81 ]
+  %.0.ph.i = phi i1 [ true, %65 ], [ true, %84 ], [ false, %89 ], [ false, %95 ], [ false, %97 ], [ true, %101 ], [ false, %70 ], [ false, %76 ], [ false, %78 ], [ true, %81 ]
   store i64 %.sroa.098.0122.lcssa.sink.i.sink.i, ptr %2, align 16
-  %.sroa.11.0..sroa_idx.i16.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.11.0121.lcssa.sink.i.sink.i, ptr %.sroa.11.0..sroa_idx.i16.i, align 8, !tbaa !41
+  %.sroa.11.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %.sroa.11.0121.lcssa.sink.i.sink.i, ptr %.sroa.11.0..sroa_idx.i13.i, align 8, !tbaa !41
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
@@ -3033,7 +3033,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   %.sroa.4.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i4.i, align 8, !tbaa !37
   %.sroa.024.0.copyload.i.i = load i64, ptr %69, align 16, !tbaa !37
-  %.sroa.0.0.insert.ext.i.i.i.i = zext nneg i32 %.0.i.i to i128
+  %.sroa.0.0.insert.insert.i.i.i.i = zext nneg i32 %.0.i.i to i128
   %.sroa.22.0.insert.ext.i.i41.i.i = zext i64 %.sroa.4.0.copyload.i.i to i128
   %.sroa.22.0.insert.shift.i.i42.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i41.i.i, 64
   %.sroa.01.0.insert.ext.i.i43.i.i = zext i64 %.sroa.024.0.copyload.i.i to i128
@@ -3055,7 +3055,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   %.sroa.22.0.insert.shift.i.i.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i.i.i, 64
   %.sroa.01.0.insert.ext.i.i.i.i = zext i64 %75 to i128
   %.sroa.01.0.insert.insert.i.i.i.i = or disjoint i128 %.sroa.22.0.insert.shift.i.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i
-  %.not.i5.i = icmp ult i128 %.sroa.01.0.insert.insert.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i
+  %.not.i5.i = icmp ult i128 %.sroa.01.0.insert.insert.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
   br i1 %.not.i5.i, label %79, label %78
 
 78:                                               ; preds = %70
@@ -3076,7 +3076,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 82:                                               ; preds = %79
-  %83 = mul i128 %.sroa.0.0.insert.insert.i.i48.i.i, %.sroa.0.0.insert.ext.i.i.i.i
+  %83 = mul i128 %.sroa.0.0.insert.insert.i.i48.i.i, %.sroa.0.0.insert.insert.i.i.i.i
   %.sroa.03.0.insert.insert.i.i.i = xor i64 %75, -1
   %.narrow.i.i.i = xor i64 %77, -1
   %.sroa.22.0.insert.ext.i.i53.i.i = zext i64 %.narrow.i.i.i to i128
