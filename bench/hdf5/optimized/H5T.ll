@@ -6789,7 +6789,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Tcopy(i64 noundef %0) local_un
   %.030.lcssa = phi i1 [ %.030.ph, %.preheader ], [ %.030.ph, %.lr.ph.split ], [ true, %.lr.ph61 ]
   %96 = icmp eq i64 %.032.lcssa, -1
   %97 = icmp ne ptr %.038.ph, null
-  %or.cond = and i1 %96, %97
+  %or.cond = and i1 %97, %96
   br i1 %or.cond, label %98, label %106
 
 98:                                               ; preds = %._crit_edge

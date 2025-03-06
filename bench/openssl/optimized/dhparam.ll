@@ -262,7 +262,7 @@ define dso_local range(i32 0, 2) i32 @dhparam_main(i32 noundef %0, ptr noundef %
 57:                                               ; preds = %53
   %58 = icmp ne i32 %.094, 0
   %59 = icmp ne i32 %.089, 0
-  %or.cond5 = select i1 %58, i1 %59, i1 false
+  %or.cond5 = and i1 %58, %59
   br i1 %or.cond5, label %60, label %63
 
 .thread235:                                       ; preds = %53
@@ -277,7 +277,7 @@ define dso_local range(i32 0, 2) i32 @dhparam_main(i32 noundef %0, ptr noundef %
 
 63:                                               ; preds = %57
   %64 = icmp eq i32 %55, 0
-  %or.cond7 = select i1 %64, i1 true, i1 %59
+  %or.cond7 = or i1 %64, %59
   %spec.store.select = select i1 %or.cond7, i32 %.089, i32 2
   br i1 %64, label %120, label %.thread237
 

@@ -3819,7 +3819,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_t
   %.5 = phi i32 [ %251, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit263.thread ], [ %.2115, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKcEEbPT_S4_.exit.thread ]
   %253 = icmp eq i32 %.5, 0
   %254 = icmp eq i64 %.1109281, 0
-  %or.cond = select i1 %253, i1 true, i1 %254
+  %or.cond = or i1 %254, %253
   br i1 %or.cond, label %255, label %261
 
 255:                                              ; preds = %252
@@ -5831,7 +5831,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   %.5 = phi i32 [ %247, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit270.thread ], [ %.2115, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL17AdvanceToNonspaceIPKtEEbPT_S4_.exit ]
   %249 = icmp eq i32 %.5, 0
   %250 = icmp eq i64 %.1109289, 0
-  %or.cond = select i1 %249, i1 true, i1 %250
+  %or.cond = or i1 %250, %249
   br i1 %or.cond, label %251, label %257
 
 251:                                              ; preds = %248

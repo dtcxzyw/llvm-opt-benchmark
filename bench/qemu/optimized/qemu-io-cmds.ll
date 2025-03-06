@@ -1409,7 +1409,7 @@ parse_pattern.exit:                               ; preds = %30
 101:                                              ; preds = %93
   %.0103.not = xor i1 %.0103, true
   %102 = trunc nuw i8 %.099 to i1
-  %brmerge = select i1 %102, i1 true, i1 %.0101
+  %brmerge = or i1 %.0101, %102
   %or.cond149 = select i1 %.0103.not, i1 %brmerge, i1 false
   br i1 %or.cond149, label %103, label %105
 

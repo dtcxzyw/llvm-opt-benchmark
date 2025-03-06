@@ -1585,7 +1585,7 @@ ZSTD_decompressFrame.exit:                        ; preds = %217, %230, %ZSTD_de
   %.0.i74 = phi i64 [ -72, %ZSTD_decompressBegin_usingDict.exit.thread ], [ -72, %142 ], [ %.4.ph.i, %.thread156.i ], [ -22, %207 ], [ -22, %211 ], [ -20, %200 ], [ %146, %145 ], [ %140, %ZSTD_frameHeaderSize_internal.exit.i ], [ %204, %230 ], [ %204, %217 ]
   %232 = call i32 @ZSTD_getErrorCode(i64 noundef %.0.i74) #15
   %233 = icmp eq i32 %232, 10
-  %or.cond = and i1 %233, %62
+  %or.cond = and i1 %62, %233
   br i1 %or.cond, label %.thread, label %234
 
 234:                                              ; preds = %ZSTD_decompressFrame.exit

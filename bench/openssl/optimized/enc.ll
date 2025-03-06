@@ -554,7 +554,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %145 = load i32, ptr %11, align 4, !tbaa !15
   %146 = icmp eq i32 %145, 0
   %147 = icmp eq i32 %.0303, 0
-  %or.cond7 = select i1 %146, i1 true, i1 %147
+  %or.cond7 = or i1 %146, %147
   br i1 %or.cond7, label %148, label %149
 
 148:                                              ; preds = %144
@@ -616,7 +616,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   %.not407 = icmp eq i32 %.0336, 0
   %. = select i1 %.not407, i32 32771, i32 2
   %.0322 = select i1 %.not404, i32 2, i32 %.
-  %171 = select i1 %.not404, i1 true, i1 %.not407
+  %171 = or i1 %.not404, %.not407
   %.0321 = select i1 %171, i32 2, i32 32771
   %172 = call ptr @app_malloc(i64 noundef 512, ptr noundef nonnull @.str.96) #11
   %173 = add nsw i32 %spec.store.select33, 2
@@ -633,7 +633,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 183:                                              ; preds = %170
   %184 = icmp ne i32 %.0334, 2
-  %or.cond12 = select i1 %.fr, i1 %184, i1 false
+  %or.cond12 = and i1 %.fr, %184
   br i1 %or.cond12, label %185, label %188
 
 185:                                              ; preds = %183

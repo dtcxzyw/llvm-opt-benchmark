@@ -4440,7 +4440,7 @@ define internal noundef zeroext i1 @dissect_pdcp_nr_heur(ptr noundef %0, ptr nou
   %65 = load i32, ptr %19, align 4
   %66 = icmp eq i32 %65, 2
   %67 = icmp eq i8 %.085.ph232, 0
-  %or.cond = select i1 %66, i1 %67, i1 false
+  %or.cond = and i1 %66, %67
   br i1 %or.cond, label %68, label %78
 
 68:                                               ; preds = %.outer._crit_edge

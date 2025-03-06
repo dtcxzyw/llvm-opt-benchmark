@@ -1972,8 +1972,8 @@ define internal void @_pop_undo(ptr noundef readonly captures(none) %0, i32 noun
   tail call void @dt_iop_update_multi_priority(ptr noundef nonnull %21, i32 noundef %26) #17
   %30 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !178
-  %.not.i134 = icmp eq ptr %31, null
-  br i1 %.not.i134, label %_rebuild_multi_priority.exit.thread, label %.lr.ph.i.outer
+  %.not.i132 = icmp eq ptr %31, null
+  br i1 %.not.i132, label %_rebuild_multi_priority.exit.thread, label %.lr.ph.i.outer
 
 _rebuild_multi_priority.exit:                     ; preds = %27
   br i1 %.not, label %.lr.ph.i49, label %_rebuild_multi_priority.exit.thread
@@ -2145,8 +2145,8 @@ _create_deleted_modules.exit.thread:              ; preds = %46, %_create_delete
   br i1 %.not111.i, label %212, label %.lr.ph.i51
 
 _create_deleted_modules.exit.thread.thread:       ; preds = %8
-  %.not111.i139 = icmp eq ptr %19, null
-  br i1 %.not111.i139, label %212, label %.lr.ph.i51.thread
+  %.not111.i137 = icmp eq ptr %19, null
+  br i1 %.not111.i137, label %212, label %.lr.ph.i51.thread
 
 .lr.ph.i51.thread:                                ; preds = %_create_deleted_modules.exit.thread.thread
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 2064
@@ -2161,11 +2161,11 @@ _create_deleted_modules.exit.thread.thread:       ; preds = %8
   %.062113.i.ph.us = phi i32 [ 1, %.thread83.us ], [ 0, %.lr.ph.i51.thread ]
   br label %125
 
-107:                                              ; preds = %.thread102.i.loopexit102.split.us.us
+107:                                              ; preds = %.thread102.i.loopexit100.split.us.us
   tail call void @dt_iop_request_focus(ptr noundef null) #17
   br label %108
 
-108:                                              ; preds = %107, %.thread102.i.loopexit102.split.us.us
+108:                                              ; preds = %107, %.thread102.i.loopexit100.split.us.us
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !182
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   %111 = load i32, ptr %110, align 8, !tbaa !183
@@ -2204,7 +2204,7 @@ _create_deleted_modules.exit.thread.thread:       ; preds = %8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 952
   %128 = load i32, ptr %127, align 8, !tbaa !176
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %.thread102.i.loopexit102.split.us.us
+  br i1 %129, label %130, label %.thread102.i.loopexit100.split.us.us
 
 130:                                              ; preds = %125
   %131 = getelementptr inbounds nuw i8, ptr %.064112.i.us.us, i64 8
@@ -2238,7 +2238,7 @@ _create_deleted_modules.exit.thread.thread:       ; preds = %8
   %.not.i54.us.us = icmp eq ptr %146, null
   br i1 %.not.i54.us.us, label %._crit_edge.i55, label %125
 
-.thread102.i.loopexit102.split.us.us:             ; preds = %125
+.thread102.i.loopexit100.split.us.us:             ; preds = %125
   %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !70
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 88
   %149 = load ptr, ptr %148, align 8, !tbaa !107
@@ -2387,18 +2387,18 @@ _search_history_by_module.exit86.thread.i:        ; preds = %.lr.ph.i81.i
 
 ._crit_edge.i55:                                  ; preds = %.loopexit, %130, %145
   %210 = phi i32 [ 0, %145 ], [ 0, %130 ], [ %104, %.loopexit ]
-  %.us-phi113 = phi ptr [ %.0114.i.ph.us, %145 ], [ %.0114.i.ph.us, %130 ], [ %.0114.i.ph, %.loopexit ]
-  %.us-phi114 = phi i32 [ %.062113.i.ph.us, %145 ], [ %.062113.i.ph.us, %130 ], [ %.062113.i.ph, %.loopexit ]
-  %.not76.i = icmp eq i32 %.us-phi114, 0
+  %.us-phi111 = phi ptr [ %.0114.i.ph.us, %145 ], [ %.0114.i.ph.us, %130 ], [ %.0114.i.ph, %.loopexit ]
+  %.us-phi112 = phi i32 [ %.062113.i.ph.us, %145 ], [ %.062113.i.ph.us, %130 ], [ %.062113.i.ph, %.loopexit ]
+  %.not76.i = icmp eq i32 %.us-phi112, 0
   br i1 %.not76.i, label %212, label %_check_deleted_instances.exit
 
 _check_deleted_instances.exit:                    ; preds = %.thread83, %.thread83.us, %._crit_edge.i55
-  %.1.i538993 = phi ptr [ %.us-phi113, %._crit_edge.i55 ], [ null, %.thread83.us ], [ null, %.thread83 ]
+  %.1.i538993 = phi ptr [ %.us-phi111, %._crit_edge.i55 ], [ null, %.thread83.us ], [ null, %.thread83 ]
   %211 = call ptr @g_list_sort(ptr noundef %.1.i538993, ptr noundef nonnull @dt_sort_iop_by_order) #17
   br label %212
 
 212:                                              ; preds = %_create_deleted_modules.exit.thread.thread, %_create_deleted_modules.exit.thread, %._crit_edge.i55, %_check_deleted_instances.exit
-  %.2.i100 = phi ptr [ %211, %_check_deleted_instances.exit ], [ null, %_create_deleted_modules.exit.thread ], [ %.us-phi113, %._crit_edge.i55 ], [ null, %_create_deleted_modules.exit.thread.thread ]
+  %.2.i98 = phi ptr [ %211, %_check_deleted_instances.exit ], [ null, %_create_deleted_modules.exit.thread ], [ %.us-phi111, %._crit_edge.i55 ], [ null, %_create_deleted_modules.exit.thread.thread ]
   %213 = phi i32 [ 1, %_check_deleted_instances.exit ], [ %104, %_create_deleted_modules.exit.thread ], [ %210, %._crit_edge.i55 ], [ 0, %_create_deleted_modules.exit.thread.thread ]
   %214 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 0, ptr %214, align 8, !tbaa !17
@@ -2418,7 +2418,7 @@ _check_deleted_instances.exit:                    ; preds = %.thread83, %.thread
   store ptr %16, ptr %221, align 16, !tbaa !105
   %223 = load ptr, ptr %17, align 8, !tbaa !175
   call void @g_list_free(ptr noundef %223) #17
-  store ptr %.2.i100, ptr %17, align 8, !tbaa !175
+  store ptr %.2.i98, ptr %17, align 8, !tbaa !175
   call void @dt_dev_pixelpipe_rebuild(ptr noundef %11) #17
   %.not46 = icmp eq i32 %213, 0
   br i1 %.not46, label %225, label %224

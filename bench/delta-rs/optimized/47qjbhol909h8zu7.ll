@@ -140645,7 +140645,7 @@ define void @"_ZN14deltalake_core8protocol12parquet_read56_$LT$impl$u20$deltalak
   %.sroa.3.0.ph.lcssa = phi i64 [ %.sroa.3.0.ph325, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248" ], [ %.sroa.01.0318, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
   %.sroa.04.0.ph.lcssa = phi i1 [ %17, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248" ], [ false, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit" ]
   %.not219 = icmp eq ptr %.0.ph.lcssa, null
-  %or.cond = or i1 %.sroa.04.0.ph.lcssa, %.not219
+  %or.cond = or i1 %.not219, %.sroa.04.0.ph.lcssa
   br i1 %or.cond, label %.outer._crit_edge.thread, label %28
 
 18:                                               ; preds = %.lr.ph, %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$$RF$parquet..record..api..Row$C$parquet..errors..ParquetError$GT$$GT$17h46cecd6bfd7d3af9E.exit248"

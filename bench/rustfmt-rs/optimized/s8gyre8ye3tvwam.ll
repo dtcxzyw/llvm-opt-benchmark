@@ -13709,7 +13709,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit304: ; preds = %220, %.noex
   %233 = add i64 %.0221.ph, 1
   %234 = add i64 %233, %231
   %235 = icmp ugt i64 %234, %75
-  %brmerge = or i1 %235, %.0230.ph
+  %brmerge = or i1 %.0230.ph, %235
   br i1 %brmerge, label %238, label %237
 
 236:                                              ; preds = %230
@@ -15651,7 +15651,7 @@ _ZN5alloc6string6String4push17hf2ea2cbd99291858E.exit310: ; preds = %219, %.noex
   %232 = add i64 %.0229.ph, 1
   %233 = add i64 %232, %230
   %234 = icmp ugt i64 %233, %74
-  %brmerge = or i1 %234, %.0238.ph
+  %brmerge = or i1 %.0238.ph, %234
   br i1 %brmerge, label %237, label %236
 
 235:                                              ; preds = %229

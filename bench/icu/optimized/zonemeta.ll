@@ -1613,7 +1613,6 @@ _ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UEr
   br i1 %110, label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread, label %.thread95
 
 .thread95:                                        ; preds = %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %.thread, %104, %109
-  %.sroa.082.999 = phi ptr [ %.sroa.082.5.ph, %109 ], [ null, %104 ], [ null, %.thread ], [ null, %_ZN6icu_7712LocalPointerINS_7UVectorEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ]
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %86) #14
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread
 
@@ -1630,7 +1629,7 @@ _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit: ; preds = %_ZN
   br label %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit75
 
 _ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit.thread: ; preds = %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit, %52, %.thread164, %.thread95, %109
-  %.sroa.082.7 = phi ptr [ %.sroa.082.999, %.thread95 ], [ %.sroa.082.5.ph, %109 ], [ %.sroa.082.5.ph, %.thread164 ], [ %.sroa.082.5.ph, %52 ], [ %.sroa.082.11, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
+  %.sroa.082.7 = phi ptr [ %.sroa.082.5.ph, %.thread95 ], [ %.sroa.082.5.ph, %109 ], [ %.sroa.082.5.ph, %.thread164 ], [ %.sroa.082.5.ph, %52 ], [ %.sroa.082.11, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
   %.141 = phi ptr [ %54, %.thread95 ], [ %54, %109 ], [ %54, %.thread164 ], [ %.040, %52 ], [ %54, %_ZN6icu_7712LocalPointerINS_23OlsonToMetaMappingEntryEED2Ev.exit ]
   invoke void @ures_close_77(ptr noundef %.141)
           to label %114 unwind label %.loopexit.split-lp

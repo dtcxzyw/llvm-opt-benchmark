@@ -23928,7 +23928,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 169:                                              ; preds = %_ZN5clang6format19UnwrappedLineParser9nextTokenEi.exit
   %170 = trunc nuw i8 %.1106250 to i1
   %171 = icmp ne ptr %.0109.ph, null
-  %or.cond = select i1 %170, i1 true, i1 %171
+  %or.cond = or i1 %171, %170
   br i1 %or.cond, label %.outer.backedge, label %172
 
 .outer.backedge:                                  ; preds = %169, %172, %174, %_ZN5clang6format19UnwrappedLineParser9nextTokenEi.exit, %_ZN5clang6format19UnwrappedLineParser9nextTokenEi.exit, %164, %"_ZZN5clang6format19UnwrappedLineParser11parseRecordEbENK3$_0clEPKNS0_11FormatTokenE.exit.thread", %193

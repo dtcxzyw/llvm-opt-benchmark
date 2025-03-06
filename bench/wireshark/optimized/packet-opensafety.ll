@@ -2191,7 +2191,7 @@ findFrame1Position.exit278:                       ; preds = %145, %146, %152
   %310 = load i8, ptr @global_display_intergap_data, align 1, !range !6, !noundef !7
   %311 = trunc nuw i8 %310 to i1
   %.not267 = icmp ne i32 %.0228.lcssa.ph, %307
-  %or.cond275.not = select i1 %311, i1 %.not267, i1 false
+  %or.cond275.not = and i1 %.not267, %311
   br i1 %or.cond275.not, label %312, label %317
 
 312:                                              ; preds = %309

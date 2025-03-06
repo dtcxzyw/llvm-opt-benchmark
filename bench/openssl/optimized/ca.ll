@@ -1016,7 +1016,7 @@ lookup_conf.exit865:                              ; preds = %187
   %227 = icmp ne ptr %.0656, null
   %or.cond4 = select i1 %or.cond, i1 true, i1 %227
   %228 = icmp ne i32 %.0585, 0
-  %or.cond6 = select i1 %or.cond4, i1 true, i1 %228
+  %or.cond6 = or i1 %or.cond4, %228
   br i1 %or.cond6, label %229, label %244
 
 229:                                              ; preds = %224
@@ -1129,7 +1129,7 @@ lookup_conf.exit865:                              ; preds = %187
 
 275:                                              ; preds = %270, %268
   %276 = icmp eq ptr %.0644, null
-  %or.cond8 = select i1 %276, i1 %.2591, i1 false
+  %or.cond8 = and i1 %276, %.2591
   br i1 %or.cond8, label %277, label %289
 
 277:                                              ; preds = %275
@@ -1395,7 +1395,7 @@ lookup_conf.exit865:                              ; preds = %187
 
 421:                                              ; preds = %415, %417, %407
   %.2653 = phi ptr [ %spec.store.select, %417 ], [ %.0651, %415 ], [ %.0651, %407 ]
-  %or.cond12 = select i1 %.2591, i1 true, i1 %228
+  %or.cond12 = or i1 %.2591, %228
   %422 = icmp ne ptr %.0642, null
   %423 = select i1 %or.cond12, i1 %226, i1 false
   %or.cond860 = select i1 %423, i1 %422, i1 false

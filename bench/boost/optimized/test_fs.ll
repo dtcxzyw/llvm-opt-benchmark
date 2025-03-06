@@ -7788,9 +7788,9 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE6d
   br label %13
 
 13:                                               ; preds = %.lr.ph, %70
-  %.02149 = phi ptr [ %2, %.lr.ph ], [ %71, %70 ]
-  %.02648 = phi ptr [ %5, %.lr.ph ], [ %.0.i32, %70 ]
-  %14 = load i32, ptr %.02149, align 4, !tbaa !135
+  %.02148 = phi ptr [ %2, %.lr.ph ], [ %71, %70 ]
+  %.02647 = phi ptr [ %5, %.lr.ph ], [ %.0.i32, %70 ]
+  %14 = load i32, ptr %.02148, align 4, !tbaa !135
   %15 = icmp ult i32 %14, 1114112
   %16 = and i32 %14, 2095104
   %or.cond.i = icmp ne i32 %16, 55296
@@ -7804,21 +7804,21 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %13
   %19 = icmp ult i32 %spec.select, 65536
   %..i = select i1 %19, i64 3, i64 4
   %.0.i31 = select i1 %18, i64 2, i64 %..i
-  %20 = ptrtoint ptr %.02648 to i64
+  %20 = ptrtoint ptr %.02647 to i64
   %21 = sub i64 %12, %20
   %22 = icmp slt i64 %21, %.0.i31
   br i1 %22, label %75, label %28
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
-  %23 = ptrtoint ptr %.02648 to i64
+  %23 = ptrtoint ptr %.02647 to i64
   %24 = sub i64 %12, %23
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %75, label %.thread
 
 .thread:                                          ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
   %26 = trunc nuw nsw i32 %spec.select to i8
-  %27 = getelementptr inbounds nuw i8, ptr %.02648, i64 1
-  store i8 %26, ptr %.02648, align 1, !tbaa !16
+  %27 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
+  store i8 %26, ptr %.02647, align 1, !tbaa !16
   br label %70
 
 28:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit
@@ -7828,25 +7828,25 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %30 = lshr i32 %spec.select, 6
   %31 = trunc nuw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
-  %33 = getelementptr inbounds nuw i8, ptr %.02648, i64 1
-  store i8 %32, ptr %.02648, align 1, !tbaa !16
+  %33 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
+  store i8 %32, ptr %.02647, align 1, !tbaa !16
   %34 = trunc i32 %spec.select to i8
   %35 = and i8 %34, 63
   %36 = or disjoint i8 %35, -128
-  %37 = getelementptr inbounds nuw i8, ptr %.02648, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.02647, i64 2
   store i8 %36, ptr %33, align 1, !tbaa !16
   br label %70
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds nuw i8, ptr %.02648, i64 1
-  %40 = getelementptr inbounds nuw i8, ptr %.02648, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.02647, i64 2
   br i1 %19, label %41, label %53, !prof !244
 
 41:                                               ; preds = %38
   %42 = lshr i32 %spec.select, 12
   %43 = trunc nuw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
-  store i8 %44, ptr %.02648, align 1, !tbaa !16
+  store i8 %44, ptr %.02647, align 1, !tbaa !16
   %45 = lshr i32 %spec.select, 6
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
@@ -7855,7 +7855,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %49 = trunc i32 %spec.select to i8
   %50 = and i8 %49, 63
   %51 = or disjoint i8 %50, -128
-  %52 = getelementptr inbounds nuw i8, ptr %.02648, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.02647, i64 3
   store i8 %51, ptr %40, align 1, !tbaa !16
   br label %70
 
@@ -7863,7 +7863,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %54 = lshr i32 %spec.select, 18
   %55 = trunc i32 %54 to i8
   %56 = or i8 %55, -16
-  store i8 %56, ptr %.02648, align 1, !tbaa !16
+  store i8 %56, ptr %.02647, align 1, !tbaa !16
   %57 = lshr i32 %spec.select, 12
   %58 = trunc i32 %57 to i8
   %59 = and i8 %58, 63
@@ -7873,26 +7873,26 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %62 = trunc i32 %61 to i8
   %63 = and i8 %62, 63
   %64 = or disjoint i8 %63, -128
-  %65 = getelementptr inbounds nuw i8, ptr %.02648, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.02647, i64 3
   store i8 %64, ptr %40, align 1, !tbaa !16
   %66 = trunc i32 %spec.select to i8
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, -128
-  %69 = getelementptr inbounds nuw i8, ptr %.02648, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.02647, i64 4
   store i8 %68, ptr %65, align 1, !tbaa !16
   br label %70
 
 70:                                               ; preds = %53, %41, %29, %.thread
   %.0.i32 = phi ptr [ %27, %.thread ], [ %37, %29 ], [ %52, %41 ], [ %69, %53 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.02149, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.02148, i64 4
   %72 = icmp ult ptr %.0.i32, %6
   %73 = icmp ult ptr %71, %3
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %13, label %._crit_edge
 
 75:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
-  store ptr %.02149, ptr %4, align 8, !tbaa !7
-  store ptr %.02648, ptr %7, align 8, !tbaa !7
+  store ptr %.02148, ptr %4, align 8, !tbaa !7
+  store ptr %.02647, ptr %7, align 8, !tbaa !7
   br label %76
 
 ._crit_edge:                                      ; preds = %70, %8
@@ -7926,7 +7926,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
 
 .lr.ph:                                           ; preds = %8, %15
   %13 = phi ptr [ %18, %15 ], [ %2, %8 ]
-  %.01635 = phi ptr [ %16, %15 ], [ %5, %8 ]
+  %.01634 = phi ptr [ %16, %15 ], [ %5, %8 ]
   %14 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   switch i32 %14, label %.fold.split [
     i32 -1, label %15
@@ -7938,8 +7938,8 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
 
 15:                                               ; preds = %.fold.split, %.lr.ph
   %.015 = phi i32 [ 65533, %.lr.ph ], [ %14, %.fold.split ]
-  %16 = getelementptr inbounds nuw i8, ptr %.01635, i64 4
-  store i32 %.015, ptr %.01635, align 4, !tbaa !135
+  %16 = getelementptr inbounds nuw i8, ptr %.01634, i64 4
+  store i32 %.015, ptr %.01634, align 4, !tbaa !135
   %17 = icmp ult ptr %16, %6
   %18 = load ptr, ptr %9, align 8
   %19 = icmp ult ptr %18, %3
@@ -7948,7 +7948,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
 
 21:                                               ; preds = %.lr.ph
   store ptr %13, ptr %4, align 8, !tbaa !7
-  store ptr %.01635, ptr %7, align 8, !tbaa !7
+  store ptr %.01634, ptr %7, align 8, !tbaa !7
   br label %23
 
 ._crit_edge:                                      ; preds = %15, %8

@@ -1362,7 +1362,7 @@ helper_get_s_stream.exit.thread962:               ; preds = %103, %126, %131, %1
 
 137:                                              ; preds = %helper_get_s_stream.exit.thread962
   %138 = icmp ne i32 %.0536, 0
-  %or.cond = select i1 %62, i1 true, i1 %138
+  %or.cond = or i1 %62, %138
   br i1 %or.cond, label %139, label %thread-pre-split
 
 139:                                              ; preds = %137

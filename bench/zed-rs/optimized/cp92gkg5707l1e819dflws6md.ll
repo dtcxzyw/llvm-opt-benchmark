@@ -38806,7 +38806,6 @@ default.unreachable:                              ; preds = %106, %313
   store i64 %.sroa.0231.12732499.ph, ptr %80, align 8
   %227 = icmp eq i8 %.sroa.013.0.ph10276, 4
   %..sroa.013.0 = select i1 %227, i8 3, i8 %.sroa.013.0.ph10276
-  %..sroa.516.0 = select i1 %227, i8 undef, i8 %.sroa.516.0.ph10275
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71)
   %228 = icmp eq i64 %.sroa.0231.12732499.ph, -9223372036854775806
   br i1 %228, label %229, label %230
@@ -41088,7 +41087,7 @@ _ZN5serde2de9MapAccess10next_value17h67faa8a44a92b747E.exit.i.i: ; preds = %584
   %.sroa.9114.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 408
   store i8 %..sroa.013.0, ptr %.sroa.9114.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 409
-  store i8 %..sroa.516.0, ptr %.sroa.10.0..sroa_idx, align 1
+  store i8 %.sroa.516.0.ph10275, ptr %.sroa.10.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %69)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %70)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)

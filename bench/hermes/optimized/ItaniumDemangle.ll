@@ -5864,7 +5864,7 @@ _ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
 if.then48.i:                                      ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit569
   %call50.i = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseTemplateArgsEb(ptr noundef nonnull align 16 dereferenceable(4864) %this, i1 noundef zeroext %cmp49.i)
   %cmp51.i = icmp eq ptr %call50.i, null
-  %or.cond.i = or i1 %cmp51.i, %cmp.i
+  %or.cond.i = or i1 %cmp.i, %cmp51.i
   br i1 %or.cond.i, label %return, label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.then48.i

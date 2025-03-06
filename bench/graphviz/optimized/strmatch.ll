@@ -1183,7 +1183,7 @@ gv_isxdigit.exit.thread:                          ; preds = %switch.early.test, 
 310:                                              ; preds = %gv_isspace.exit.thread448
   %311 = icmp eq i8 %233, 93
   %312 = icmp ne i32 %.1317, 0
-  %or.cond11 = select i1 %311, i1 %312, i1 false
+  %or.cond11 = and i1 %311, %312
   br i1 %or.cond11, label %313, label %314
 
 313:                                              ; preds = %310

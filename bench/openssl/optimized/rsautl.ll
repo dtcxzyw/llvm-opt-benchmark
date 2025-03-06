@@ -249,7 +249,7 @@ define dso_local range(i32 0, 2) i32 @rsautl_main(i32 noundef %0, ptr noundef %1
 47:                                               ; preds = %45
   %48 = icmp ne i32 %.099, 0
   %49 = icmp ne i8 %.0114, 1
-  %or.cond = select i1 %48, i1 %49, i1 false
+  %or.cond = and i1 %48, %49
   br i1 %or.cond, label %50, label %53
 
 50:                                               ; preds = %47

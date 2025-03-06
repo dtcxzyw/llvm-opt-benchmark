@@ -737,7 +737,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %345 = sub i64 %216, %104
   %346 = mul i64 %345, 50
   %347 = icmp ugt i64 %346, %217
-  %narrow.not = or i1 %347, %105
+  %narrow.not = or i1 %105, %347
   br i1 %narrow.not, label %351, label %.thread74.thread118
 
 .thread74.thread118:                              ; preds = %344
@@ -1969,7 +1969,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1158 = sub i64 %1010, %104
   %1159 = mul i64 %1158, 50
   %1160 = icmp ugt i64 %1159, %1011
-  %narrow.not130 = or i1 %1160, %105
+  %narrow.not130 = or i1 %105, %1160
   br i1 %narrow.not130, label %1163, label %1161
 
 1161:                                             ; preds = %1157
@@ -2745,7 +2745,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %345 = sub i64 %216, %104
   %346 = mul i64 %345, 50
   %347 = icmp ugt i64 %346, %217
-  %narrow.not = or i1 %347, %105
+  %narrow.not = or i1 %105, %347
   br i1 %narrow.not, label %351, label %.thread74.thread118
 
 .thread74.thread118:                              ; preds = %344
@@ -3977,7 +3977,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1158 = sub i64 %1010, %104
   %1159 = mul i64 %1158, 50
   %1160 = icmp ugt i64 %1159, %1011
-  %narrow.not130 = or i1 %1160, %105
+  %narrow.not130 = or i1 %105, %1160
   br i1 %narrow.not130, label %1163, label %1161
 
 1161:                                             ; preds = %1157
@@ -4753,7 +4753,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %345 = sub i64 %216, %104
   %346 = mul i64 %345, 50
   %347 = icmp ugt i64 %346, %217
-  %narrow.not = or i1 %347, %105
+  %narrow.not = or i1 %105, %347
   br i1 %narrow.not, label %351, label %.thread74.thread118
 
 .thread74.thread118:                              ; preds = %344
@@ -5985,7 +5985,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1158 = sub i64 %1010, %104
   %1159 = mul i64 %1158, 50
   %1160 = icmp ugt i64 %1159, %1011
-  %narrow.not130 = or i1 %1160, %105
+  %narrow.not130 = or i1 %105, %1160
   br i1 %narrow.not130, label %1163, label %1161
 
 1161:                                             ; preds = %1157
@@ -6761,7 +6761,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit24: ; preds = %191, %.
   %345 = sub i64 %216, %104
   %346 = mul i64 %345, 50
   %347 = icmp ugt i64 %346, %217
-  %narrow.not = or i1 %347, %105
+  %narrow.not = or i1 %105, %347
   br i1 %narrow.not, label %351, label %.thread74.thread118
 
 .thread74.thread118:                              ; preds = %344
@@ -7993,7 +7993,7 @@ _ZL13EmitInsertLenmPKhPKtPjPmPh.exit27:           ; preds = %1015, %1037, %1077,
   %1158 = sub i64 %1010, %104
   %1159 = mul i64 %1158, 50
   %1160 = icmp ugt i64 %1159, %1011
-  %narrow.not130 = or i1 %1160, %105
+  %narrow.not130 = or i1 %105, %1160
   br i1 %narrow.not130, label %1163, label %1161
 
 1161:                                             ; preds = %1157

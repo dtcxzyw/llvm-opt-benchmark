@@ -141,7 +141,7 @@ define dso_local range(i32 0, 2) i32 @version_main(i32 noundef %0, ptr noundef %
 22:                                               ; preds = %20
   %.not40 = icmp ne i32 %.017, 0
   %.not4158 = icmp eq i32 %.034, 0
-  %.not41 = select i1 %.not40, i1 %.not4158, i1 false
+  %.not41 = and i1 %.not40, %.not4158
   br i1 %.not41, label %26, label %23
 
 23:                                               ; preds = %22

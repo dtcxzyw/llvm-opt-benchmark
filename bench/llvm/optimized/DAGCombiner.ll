@@ -125275,7 +125275,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds
   %47 = load i8, ptr %46, align 1, !tbaa !439
   %48 = and i8 %47, -5
   %spec.select.i = icmp ne i8 %48, 0
-  %brmerge = or i1 %spec.select.i, %.0.ph81
+  %brmerge = or i1 %.0.ph81, %spec.select.i
   %not.spec.select.i = xor i1 %spec.select.i, true
   %.mux = zext i1 %not.spec.select.i to i32
   %.mux69 = select i1 %spec.select.i, ptr null, ptr %.sroa.023.077

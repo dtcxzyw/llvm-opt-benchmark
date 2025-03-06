@@ -825,34 +825,34 @@ if.else575:                                       ; preds = %if.else567
 
 if.then579:                                       ; preds = %if.else575
   %cmp585 = icmp eq i8 %ch.0, 72
-  %or.cond23 = select i1 %cmp648, i1 %cmp585, i1 false
+  %or.cond23 = and i1 %cmp585, %cmp648
   br i1 %or.cond23, label %if.end711.sink.split, label %if.else588
 
 if.else588:                                       ; preds = %if.then579
   %cmp591 = icmp eq i8 %.pre3573, 2
   %cmp594 = icmp eq i8 %ch.0, 80
-  %or.cond24 = select i1 %cmp591, i1 %cmp594, i1 false
+  %or.cond24 = and i1 %cmp594, %cmp591
   br i1 %or.cond24, label %if.end711.sink.split, label %error.loopexit
 
 if.then604:                                       ; preds = %if.else575
   %cmp610 = icmp eq i8 %ch.0, 79
-  %or.cond25 = select i1 %cmp648, i1 %cmp610, i1 false
+  %or.cond25 = and i1 %cmp610, %cmp648
   br i1 %or.cond25, label %if.end711.sink.split, label %if.else613
 
 if.else613:                                       ; preds = %if.then604
   %cmp619 = icmp eq i8 %ch.0, 69
-  %or.cond26 = select i1 %cmp648, i1 %cmp619, i1 false
+  %or.cond26 = and i1 %cmp619, %cmp648
   br i1 %or.cond26, label %if.end711.sink.split, label %if.else622
 
 if.else622:                                       ; preds = %if.else613
   %cmp628 = icmp eq i8 %ch.0, 45
-  %or.cond27 = select i1 %cmp648, i1 %cmp628, i1 false
+  %or.cond27 = and i1 %cmp628, %cmp648
   br i1 %or.cond27, label %if.end711.sink.split, label %if.else631
 
 if.else631:                                       ; preds = %if.else622
   %cmp634 = icmp eq i8 %.pre3573, 2
   %cmp637 = icmp eq i8 %ch.0, 65
-  %or.cond28 = select i1 %cmp634, i1 %cmp637, i1 false
+  %or.cond28 = and i1 %cmp637, %cmp634
   br i1 %or.cond28, label %if.end711.sink.split, label %error.loopexit
 
 if.else645:                                       ; preds = %if.else575
@@ -882,13 +882,13 @@ if.else672:                                       ; preds = %if.else645
 land.lhs.true676:                                 ; preds = %if.else672
   %cmp679 = icmp eq i8 %26, 14
   %cmp682 = icmp eq i8 %ch.0, 83
-  %or.cond29 = select i1 %cmp679, i1 %cmp682, i1 false
+  %or.cond29 = and i1 %cmp682, %cmp679
   br i1 %or.cond29, label %if.end711.sink.split, label %do.body699
 
 land.lhs.true689:                                 ; preds = %if.else672
   %cmp692 = icmp eq i8 %26, 12
   %cmp695 = icmp eq i8 %ch.0, 80
-  %or.cond30 = select i1 %cmp692, i1 %cmp695, i1 false
+  %or.cond30 = and i1 %cmp695, %cmp692
   br i1 %or.cond30, label %if.end711.sink.split, label %do.body699
 
 do.body699:                                       ; preds = %if.else672, %land.lhs.true676, %land.lhs.true689
@@ -982,7 +982,7 @@ if.else794:                                       ; preds = %sw.bb790
   %or.cond1518 = icmp ult i8 %33, 26
   %34 = add i8 %ch.0, -48
   %or.cond32 = icmp ult i8 %34, 10
-  %or.cond1519 = select i1 %or.cond1518, i1 true, i1 %or.cond32
+  %or.cond1519 = or i1 %or.cond32, %or.cond1518
   br i1 %or.cond1519, label %for.inc, label %do.body815
 
 do.body815:                                       ; preds = %if.else794
@@ -998,7 +998,7 @@ sw.bb821:                                         ; preds = %reexecute_byte
   %or.cond1520 = icmp ult i8 %35, 26
   %36 = add i8 %ch.0, -48
   %or.cond33 = icmp ult i8 %36, 10
-  %or.cond1536 = select i1 %or.cond1520, i1 true, i1 %or.cond33
+  %or.cond1536 = or i1 %or.cond33, %or.cond1520
   br i1 %or.cond1536, label %for.inc.loopexit4795, label %switch.early.test
 
 switch.early.test:                                ; preds = %sw.bb821
@@ -1156,7 +1156,7 @@ sw.bb978:                                         ; preds = %reexecute_byte
   %cmp983.not = icmp ne i8 %41, 0
   %tobool987.not = icmp slt i8 %ch.0, 0
   %or.cond1521 = and i1 %tobool1507.not, %tobool987.not
-  %or.cond2914 = select i1 %cmp983.not, i1 true, i1 %or.cond1521
+  %or.cond2914 = or i1 %cmp983.not, %or.cond1521
   br i1 %or.cond2914, label %for.inc.loopexit4795, label %if.end993
 
 if.end993:                                        ; preds = %sw.bb978
@@ -1282,7 +1282,7 @@ sw.bb1105:                                        ; preds = %reexecute_byte
   %cmp1112.not = icmp ne i8 %45, 0
   %tobool1116.not = icmp slt i8 %ch.0, 0
   %or.cond1522 = and i1 %tobool1507.not, %tobool1116.not
-  %or.cond2915 = select i1 %cmp1112.not, i1 true, i1 %or.cond1522
+  %or.cond2915 = or i1 %cmp1112.not, %or.cond1522
   br i1 %or.cond2915, label %for.inc.loopexit4795, label %if.end1122
 
 if.end1122:                                       ; preds = %sw.bb1105
@@ -1408,7 +1408,7 @@ sw.bb1234:                                        ; preds = %reexecute_byte
   %cmp1241.not = icmp ne i8 %49, 0
   %tobool1245.not = icmp slt i8 %ch.0, 0
   %or.cond1523 = and i1 %tobool1507.not, %tobool1245.not
-  %or.cond2916 = select i1 %cmp1241.not, i1 true, i1 %or.cond1523
+  %or.cond2916 = or i1 %cmp1241.not, %or.cond1523
   br i1 %or.cond2916, label %for.inc.loopexit4795, label %if.end1251
 
 if.end1251:                                       ; preds = %sw.bb1234
@@ -1534,7 +1534,7 @@ sw.bb1363:                                        ; preds = %reexecute_byte
   %cmp1370.not = icmp ne i8 %53, 0
   %tobool1374.not = icmp slt i8 %ch.0, 0
   %or.cond1524 = and i1 %tobool1507.not, %tobool1374.not
-  %or.cond2917 = select i1 %cmp1370.not, i1 true, i1 %or.cond1524
+  %or.cond2917 = or i1 %cmp1370.not, %or.cond1524
   br i1 %or.cond2917, label %for.inc.loopexit4795, label %if.end1380
 
 if.end1380:                                       ; preds = %sw.bb1363
@@ -1660,7 +1660,7 @@ sw.bb1492:                                        ; preds = %reexecute_byte
   %cmp1499.not = icmp ne i8 %57, 0
   %tobool1503.not = icmp slt i8 %ch.0, 0
   %or.cond1525 = and i1 %tobool1507.not, %tobool1503.not
-  %or.cond2918 = select i1 %cmp1499.not, i1 true, i1 %or.cond1525
+  %or.cond2918 = or i1 %cmp1499.not, %or.cond1525
   br i1 %or.cond2918, label %for.inc.loopexit4795, label %if.end1509
 
 if.end1509:                                       ; preds = %sw.bb1492

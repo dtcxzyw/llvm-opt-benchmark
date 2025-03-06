@@ -484,13 +484,13 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
 113:                                              ; preds = %111
   %114 = icmp ne ptr %.0302, null
   %115 = icmp ne i32 %.0314, 2048
-  %or.cond = select i1 %114, i1 %115, i1 false
+  %or.cond = and i1 %114, %115
   br i1 %or.cond, label %.loopexit496.sink.split, label %116
 
 116:                                              ; preds = %113
   %117 = icmp eq ptr %.0302, null
   %118 = icmp eq i32 %.0314, 2048
-  %or.cond6 = select i1 %117, i1 %118, i1 false
+  %or.cond6 = and i1 %117, %118
   br i1 %or.cond6, label %.loopexit496.sink.split, label %.split
 
 .split:                                           ; preds = %116, %109
@@ -537,14 +537,14 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
   %or.cond8395 = phi i1 [ %or.cond8, %127 ], [ false, %122 ]
   %137 = phi i1 [ %129, %127 ], [ false, %122 ]
   %138 = icmp ne i32 %spec.select, 0
-  %or.cond10 = select i1 %108, i1 true, i1 %138
+  %or.cond10 = or i1 %108, %138
   br i1 %or.cond10, label %.loopexit496.sink.split, label %.split333
 
 139:                                              ; preds = %130
   %140 = icmp ne i32 %spec.select, 0
   %141 = select i1 %.not367, i1 true, i1 %140
   %142 = icmp ne i8 %.0326, 0
-  %or.cond13 = select i1 %141, i1 %142, i1 false
+  %or.cond13 = and i1 %141, %142
   br i1 %or.cond13, label %.loopexit496.sink.split, label %143
 
 143:                                              ; preds = %139
@@ -725,7 +725,7 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
 .thread416:                                       ; preds = %219, %181, %.thread407
   %223 = icmp ne ptr %.0319, null
   %224 = icmp ne i32 %.0314, 32
-  %or.cond15 = select i1 %223, i1 %224, i1 false
+  %or.cond15 = and i1 %223, %224
   br i1 %or.cond15, label %225, label %228
 
 225:                                              ; preds = %.thread416

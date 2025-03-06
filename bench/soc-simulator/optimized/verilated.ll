@@ -20102,7 +20102,7 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
 
 34:                                               ; preds = %30
   %35 = icmp eq i32 %.077.ph, 42
-  %or.cond15 = select i1 %.074.ph, i1 %35, i1 false
+  %or.cond15 = and i1 %35, %.074.ph
   %36 = icmp eq i32 %16, 47
   %or.cond17 = and i1 %or.cond15, %36
   br i1 %or.cond17, label %.outer.backedge, label %37

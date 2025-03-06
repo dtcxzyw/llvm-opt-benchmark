@@ -4134,7 +4134,7 @@ define hidden void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFas
   %137 = sub i64 %.33401009, %.0343.ph
   %138 = mul i64 %137, 50
   %139 = icmp ule i64 %138, %132
-  %.0342 = select i1 %139, i1 %62, i1 false
+  %.0342 = and i1 %139, %62
   br i1 %.0342, label %144, label %141
 
 140:                                              ; preds = %123
@@ -4611,7 +4611,7 @@ default.unreachable:                              ; preds = %.outer
   %370 = mul i64 %369, 50
   %371 = icmp ule i64 %370, %366
   %372 = icmp ugt i64 %.0365.ph, 980
-  %.0355 = select i1 %371, i1 %372, i1 false
+  %.0355 = and i1 %371, %372
   br i1 %.0355, label %381, label %375
 
 373:                                              ; preds = %365

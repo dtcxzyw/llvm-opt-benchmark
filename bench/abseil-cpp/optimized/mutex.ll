@@ -1635,7 +1635,7 @@ _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit: ; pr
   %122 = load ptr, ptr %121, align 8, !tbaa !58
   %123 = icmp eq ptr %122, @_ZN4abslL11kExclusiveSE
   %124 = icmp eq ptr %.0147.ph, %72
-  %or.cond212 = or i1 %123, %124
+  %or.cond212 = or i1 %124, %123
   br i1 %or.cond212, label %175, label %125
 
 125:                                              ; preds = %119, %118

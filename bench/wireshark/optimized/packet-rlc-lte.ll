@@ -1166,7 +1166,7 @@ define internal noundef zeroext i1 @dissect_rlc_lte_heur(ptr noundef %0, ptr nou
   %50 = load i8, ptr %16, align 4
   %51 = icmp eq i8 %50, 2
   %52 = icmp eq i8 %.0.ph158, 0
-  %or.cond = select i1 %51, i1 %52, i1 false
+  %or.cond = and i1 %51, %52
   br i1 %or.cond, label %53, label %63
 
 53:                                               ; preds = %.outer._crit_edge

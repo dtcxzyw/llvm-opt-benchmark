@@ -42539,7 +42539,7 @@ default.unreachable:                              ; preds = %25
   %.sink.i = phi ptr [ %29, %27 ], [ %52, %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_value17hd70c5132476ecf9eE.exit.thread.i" ], [ %56, %.loopexit114.loopexit.i ], [ %76, %75 ], [ %59, %.invoke284 ]
   %trunc52.i = trunc nuw i64 %.sroa.085.0.i.ph297 to i1
   %77 = icmp ne ptr %.sroa.11.0.i.ph296, null
-  %or.cond111.not.i = select i1 %trunc52.i, i1 %77, i1 false
+  %or.cond111.not.i = and i1 %77, %trunc52.i
   br i1 %or.cond111.not.i, label %78, label %"_ZN4core3ptr104drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$$u5b$alloc..string..String$u5d$$GT$$GT$$GT$17h298af78f86beb4d6E.exit.ithread-pre-split"
 
 78:                                               ; preds = %.loopexit114.i

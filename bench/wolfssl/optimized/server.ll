@@ -1555,7 +1555,7 @@ err_sys_ex.exit:                                  ; preds = %311, %308, %307, %3
   %317 = icmp sgt i32 %.2, 3
   %318 = icmp eq i32 %.03751519, 0
   %not. = xor i1 %317, true
-  %or.cond15 = select i1 %not., i1 true, i1 %318
+  %or.cond15 = or i1 %318, %not.
   %.b431 = load i1, ptr @quieter, align 4
   %or.cond81 = select i1 %or.cond15, i1 true, i1 %.b431
   br i1 %or.cond81, label %err_sys_ex.exit.thread, label %319
@@ -1836,7 +1836,7 @@ err_sys_ex.exit517:                               ; preds = %378, %375, %374, %3
 383:                                              ; preds = %382, %err_sys_ex.exit517
   %384 = icmp eq ptr %.038813502494, null
   %385 = icmp ne i32 %.038613302500, 0
-  %or.cond17 = select i1 %384, i1 true, i1 %385
+  %or.cond17 = or i1 %384, %385
   br i1 %or.cond17, label %err_sys_ex.exit520, label %386
 
 386:                                              ; preds = %383
@@ -1879,9 +1879,9 @@ err_sys_ex.exit520:                               ; preds = %395, %392, %391, %3
 401:                                              ; preds = %399, %err_sys_ex.exit520
   %402 = icmp eq i32 %.03459302615, 0
   %403 = icmp ne i32 %.03479502609, 0
-  %or.cond19 = select i1 %402, i1 true, i1 %403
+  %or.cond19 = or i1 %402, %403
   %404 = icmp ne i32 %.03418902627, 1
-  %or.cond23.not = select i1 %or.cond19, i1 %404, i1 false
+  %or.cond23.not = and i1 %or.cond19, %404
   br i1 %or.cond23.not, label %405, label %err_sys_ex.exit523
 
 405:                                              ; preds = %401
@@ -2163,7 +2163,7 @@ err_sys_ex.exit544:                               ; preds = %512, %509, %508, %5
 
 521:                                              ; preds = %519, %518
   %522 = icmp ne i32 %.03418902627, 0
-  %or.cond43 = select i1 %or.cond19, i1 %522, i1 false
+  %or.cond43 = and i1 %or.cond19, %522
   %.not465 = icmp eq i32 %.03398702633, 0
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not467.not = icmp eq ptr %.039413902482, null
@@ -3320,7 +3320,7 @@ err_sys_ex.exit577:                               ; preds = %err_sys_ex.exit577.
 988:                                              ; preds = %987, %987
   %989 = call i32 @ServerEchoData(ptr noundef %539, i32 noundef %.0603, i32 noundef %.040314102476, i32 noundef %.040614302470, i64 noundef %.040914502464)
   %990 = icmp eq i32 %989, 6
-  %or.cond73 = select i1 %990, i1 %.not473, i1 false
+  %or.cond73 = and i1 %990, %.not473
   %.not482483 = icmp eq i32 %989, 0
   %.not482 = or i1 %.not482483, %or.cond73
   br i1 %.not482, label %994, label %991

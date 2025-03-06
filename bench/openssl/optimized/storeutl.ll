@@ -418,7 +418,7 @@ define dso_local i32 @storeutl_main(i32 noundef %0, ptr noundef %1) local_unname
 122:                                              ; preds = %116
   %123 = icmp eq ptr %.098, null
   %124 = icmp eq ptr %.095, null
-  %or.cond7 = select i1 %123, i1 true, i1 %124
+  %or.cond7 = or i1 %123, %124
   br i1 %or.cond7, label %125, label %128
 
 125:                                              ; preds = %122

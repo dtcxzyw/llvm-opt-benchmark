@@ -156346,7 +156346,7 @@ js_parse_expr_paren.exit:                         ; preds = %265, %293, %211, %7
 794:                                              ; preds = %.critedge533
   %795 = icmp eq i32 %786, -126
   %796 = icmp eq i32 %.1415, 0
-  %or.cond8 = select i1 %795, i1 %796, i1 false
+  %or.cond8 = and i1 %795, %796
   br i1 %or.cond8, label %797, label %802
 
 797:                                              ; preds = %794

@@ -589,7 +589,7 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 290:                                              ; preds = %254
   %.not905 = icmp sge i32 %.0842, %.0845.ph9811244
-  %or.cond921 = select i1 %.not905, i1 true, i1 %214
+  %or.cond921 = or i1 %214, %.not905
   br i1 %or.cond921, label %291, label %303
 
 291:                                              ; preds = %290

@@ -3553,21 +3553,21 @@ define dso_local void @activeDefragCycle() local_unnamed_addr #0 {
   %67 = icmp eq i32 %66, 0
   %68 = load i64, ptr @activeDefragCycle.defrag_cursor, align 8
   %69 = icmp eq i64 %68, 0
-  %or.cond.not80163 = select i1 %67, i1 %69, i1 false
+  %or.cond.not80166 = select i1 %67, i1 %69, i1 false
   %70 = load i32, ptr @activeDefragCycle.slot, align 4
   %71 = icmp slt i32 %70, 0
-  %or.cond3164 = select i1 %or.cond.not80163, i1 %71, i1 false
-  %.pre142165 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
-  br i1 %or.cond3164, label %.lr.ph, label %.loopexit154
+  %or.cond3167 = select i1 %or.cond.not80166, i1 %71, i1 false
+  %.pre142168 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
+  br i1 %or.cond3167, label %.lr.ph, label %.loopexit154
 
 .lr.ph:                                           ; preds = %.outer, %220
-  %.pre142166 = phi ptr [ %.pre142, %220 ], [ %.pre142165, %.outer ]
+  %.pre142169 = phi ptr [ %.pre142, %220 ], [ %.pre142168, %.outer ]
   %72 = phi i32 [ %225, %220 ], [ %70, %.outer ]
-  %.not81 = icmp eq ptr %.pre142166, null
+  %.not81 = icmp eq ptr %.pre142169, null
   br i1 %.not81, label %75, label %73
 
 73:                                               ; preds = %.lr.ph
-  %74 = call i32 @defragLaterStep(ptr noundef nonnull %.pre142166, i32 noundef %72, i64 noundef %45)
+  %74 = call i32 @defragLaterStep(ptr noundef nonnull %.pre142169, i32 noundef %72, i64 noundef %45)
   %.not82 = icmp eq i32 %74, 0
   br i1 %.not82, label %75, label %.loopexit
 
@@ -3726,7 +3726,7 @@ defragOtherGlobals.exit:                          ; preds = %85
   br label %.loopexit154
 
 .loopexit154:                                     ; preds = %220, %.outer, %142
-  %151 = phi ptr [ %.pre141, %142 ], [ %.pre142165, %.outer ], [ %.pre142, %220 ]
+  %151 = phi ptr [ %.pre141, %142 ], [ %.pre142168, %.outer ], [ %.pre142, %220 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #10
   %152 = load ptr, ptr %151, align 8, !tbaa !136
   store ptr %152, ptr %4, align 16, !tbaa !171
@@ -3751,18 +3751,18 @@ defragOtherGlobals.exit:                          ; preds = %85
   store ptr %6, ptr %62, align 8, !tbaa !174
   %157 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
   %158 = icmp slt i32 %157, 4
-  br i1 %158, label %.lr.ph170, label %._crit_edge, !prof !175
+  br i1 %158, label %.lr.ph173, label %._crit_edge, !prof !175
 
 ._crit_edge:                                      ; preds = %217, %.loopexit154
   call void @_serverAssert(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str, i32 noundef 1223) #10
   call void @abort() #11
   unreachable
 
-.lr.ph170:                                        ; preds = %.loopexit154, %217
+.lr.ph173:                                        ; preds = %.loopexit154, %217
   %159 = phi i32 [ %218, %217 ], [ %157, %.loopexit154 ]
-  %.2169 = phi i32 [ %.3, %217 ], [ 0, %.loopexit154 ]
-  %.240168 = phi i64 [ %.341, %217 ], [ %8, %.loopexit154 ]
-  %.245167 = phi i64 [ %.346, %217 ], [ %9, %.loopexit154 ]
+  %.2172 = phi i32 [ %.3, %217 ], [ 0, %.loopexit154 ]
+  %.240171 = phi i64 [ %.341, %217 ], [ %8, %.loopexit154 ]
+  %.245170 = phi i64 [ %.346, %217 ], [ %9, %.loopexit154 ]
   %160 = sext i32 %159 to i64
   %161 = getelementptr inbounds [4 x %struct.defragStage], ptr %4, i64 0, i64 %160
   %162 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
@@ -3771,7 +3771,7 @@ defragOtherGlobals.exit:                          ; preds = %85
   %.not84 = icmp eq i32 %164, 0
   br i1 %.not84, label %165, label %.thread113.thread
 
-165:                                              ; preds = %.lr.ph170
+165:                                              ; preds = %.lr.ph173
   %.b = load i1, ptr @activeDefragCycle.defrag_later_item_in_progress, align 4
   br i1 %.b, label %thread-pre-split, label %166
 
@@ -3850,19 +3850,19 @@ thread-pre-split:                                 ; preds = %165
   br label %.thread113.thread
 
 200:                                              ; preds = %197
-  %201 = add i32 %.2169, 1
+  %201 = add i32 %.2172, 1
   %202 = icmp ugt i32 %201, 16
   br i1 %202, label %211, label %203
 
 203:                                              ; preds = %200
   %204 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2584), align 8, !tbaa !38
-  %205 = sub i64 %204, %.240168
+  %205 = sub i64 %204, %.240171
   %206 = icmp ugt i64 %205, 512
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %203
   %208 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2616), align 8, !tbaa !95
-  %209 = sub i64 %208, %.245167
+  %209 = sub i64 %208, %.245170
   %210 = icmp ugt i64 %209, 64
   br i1 %210, label %211, label %217
 
@@ -3877,14 +3877,14 @@ thread-pre-split:                                 ; preds = %165
   br label %217
 
 217:                                              ; preds = %187, %214, %207
-  %.346 = phi i64 [ %.245167, %187 ], [ %216, %214 ], [ %.245167, %207 ]
-  %.341 = phi i64 [ %.240168, %187 ], [ %215, %214 ], [ %.240168, %207 ]
-  %.3 = phi i32 [ %.2169, %187 ], [ 0, %214 ], [ %201, %207 ]
+  %.346 = phi i64 [ %.245170, %187 ], [ %216, %214 ], [ %.245170, %207 ]
+  %.341 = phi i64 [ %.240171, %187 ], [ %215, %214 ], [ %.240171, %207 ]
+  %.3 = phi i32 [ %.2172, %187 ], [ 0, %214 ], [ %201, %207 ]
   %218 = load i32, ptr @activeDefragCycle.defrag_stage, align 4, !tbaa !162
   %219 = icmp slt i32 %218, 4
-  br i1 %219, label %.lr.ph170, label %._crit_edge, !prof !177, !llvm.loop !178
+  br i1 %219, label %.lr.ph173, label %._crit_edge, !prof !177, !llvm.loop !178
 
-.thread113.thread:                                ; preds = %211, %.lr.ph170, %.thread101
+.thread113.thread:                                ; preds = %211, %.lr.ph173, %.thread101
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #10
   br label %.loopexit
 

@@ -342,9 +342,9 @@ define dso_local range(i32 0, 2) i32 @dsaparam_main(i32 noundef %0, ptr noundef 
 122:                                              ; preds = %120, %119
   %123 = load i32, ptr %6, align 4, !tbaa !4
   %124 = icmp eq i32 %123, 4
-  %or.cond7 = select i1 %124, i1 %63, i1 false
+  %or.cond7 = and i1 %124, %63
   %.not97120 = icmp ne i32 %.068, 0
-  %.not97.not = select i1 %or.cond7, i1 true, i1 %.not97120
+  %.not97.not = or i1 %or.cond7, %.not97120
   br i1 %.not97.not, label %134, label %125
 
 125:                                              ; preds = %122

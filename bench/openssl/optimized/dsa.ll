@@ -246,8 +246,8 @@ define dso_local range(i32 0, 2) i32 @dsa_main(i32 noundef %0, ptr noundef %1) l
   %.not114 = icmp eq i32 %.077, 0
   %.not107 = icmp eq i32 %.075, 0
   %50 = icmp ne i32 %.083, 0
-  %51 = select i1 %.not107, i1 true, i1 %50
-  %narrow = select i1 %.not114, i1 %51, i1 false
+  %51 = or i1 %.not107, %50
+  %narrow = and i1 %.not114, %51
   %52 = zext i1 %narrow to i32
   %53 = call i32 @app_passwd(ptr noundef %.088, ptr noundef %.086, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not108 = icmp eq i32 %53, 0

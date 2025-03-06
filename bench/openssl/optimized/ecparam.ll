@@ -283,7 +283,7 @@ define dso_local range(i32 0, 2) i32 @ecparam_main(i32 noundef %0, ptr noundef %
   %55 = load i32, ptr %6, align 4, !tbaa !9
   %56 = call ptr @bio_open_owner(ptr noundef %.092, i32 noundef %55, i32 noundef 0) #5
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.thread150, label %199
+  br i1 %57, label %.thread150, label %198
 
 58:                                               ; preds = %53
   %59 = icmp ne i32 %.075, 0
@@ -463,140 +463,140 @@ define dso_local range(i32 0, 2) i32 @ecparam_main(i32 noundef %0, ptr noundef %
   br label %.thread150
 
 137:                                              ; preds = %130, %129
-  %138 = icmp ne i32 %.081, 0
-  %139 = icmp ne i32 %.079, 0
-  %or.cond = select i1 %138, i1 true, i1 %139
-  br i1 %or.cond, label %140, label %164
+  %138 = or i32 %.081, %.079
+  %or.cond.not = icmp eq i32 %138, 0
+  br i1 %or.cond.not, label %163, label %139
 
-140:                                              ; preds = %137
-  %141 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %142 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %141, ptr noundef nonnull @.str.72) #5
-  br i1 %139, label %143, label %149
+139:                                              ; preds = %137
+  %.not = icmp eq i32 %.079, 0
+  %140 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %141 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %140, ptr noundef nonnull @.str.72) #5
+  br i1 %.not, label %148, label %142
 
-143:                                              ; preds = %140
-  %144 = load ptr, ptr %3, align 8, !tbaa !4
-  %145 = call i32 @EVP_PKEY_set_utf8_string_param(ptr noundef %144, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74) #5
-  %.not134 = icmp eq i32 %145, 0
-  br i1 %.not134, label %146, label %149
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %3, align 8, !tbaa !4
+  %144 = call i32 @EVP_PKEY_set_utf8_string_param(ptr noundef %143, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.74) #5
+  %.not134 = icmp eq i32 %144, 0
+  br i1 %.not134, label %145, label %148
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %148 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %147, ptr noundef nonnull @.str.75) #5
+145:                                              ; preds = %142
+  %146 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %147 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %146, ptr noundef nonnull @.str.75) #5
   br label %.thread150
 
-149:                                              ; preds = %143, %140
-  %150 = call ptr @app_get0_libctx() #5
-  %151 = load ptr, ptr %3, align 8, !tbaa !4
-  %152 = call ptr @app_get0_propq() #5
-  %153 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %150, ptr noundef %151, ptr noundef %152) #5
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %158, label %155
+148:                                              ; preds = %142, %139
+  %149 = call ptr @app_get0_libctx() #5
+  %150 = load ptr, ptr %3, align 8, !tbaa !4
+  %151 = call ptr @app_get0_propq() #5
+  %152 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %149, ptr noundef %150, ptr noundef %151) #5
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %157, label %154
 
-155:                                              ; preds = %149
-  %156 = call i32 @EVP_PKEY_param_check(ptr noundef nonnull %153) #5
-  %157 = icmp slt i32 %156, 1
-  br i1 %157, label %158, label %161
+154:                                              ; preds = %148
+  %155 = call i32 @EVP_PKEY_param_check(ptr noundef nonnull %152) #5
+  %156 = icmp slt i32 %155, 1
+  br i1 %156, label %157, label %160
 
-158:                                              ; preds = %155, %149
-  %159 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %160 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %159, ptr noundef nonnull @.str.76) #5
+157:                                              ; preds = %154, %148
+  %158 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %159 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %158, ptr noundef nonnull @.str.76) #5
   br label %.thread150
 
-161:                                              ; preds = %155
-  %162 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %163 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %162, ptr noundef nonnull @.str.77) #5
-  br label %164
+160:                                              ; preds = %154
+  %161 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %162 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %161, ptr noundef nonnull @.str.77) #5
+  br label %163
 
-164:                                              ; preds = %137, %161
-  %.1113 = phi ptr [ %153, %161 ], [ null, %137 ]
-  %165 = load i32, ptr %6, align 4, !tbaa !9
-  %166 = icmp eq i32 %165, 4
-  %or.cond3 = select i1 %166, i1 %59, i1 false
+163:                                              ; preds = %137, %160
+  %.1113 = phi ptr [ %152, %160 ], [ null, %137 ]
+  %164 = load i32, ptr %6, align 4, !tbaa !9
+  %165 = icmp eq i32 %164, 4
+  %or.cond3 = and i1 %165, %59
   %.not135189 = icmp ne i32 %.086, 0
-  %.not135.not = select i1 %or.cond3, i1 true, i1 %.not135189
-  br i1 %.not135.not, label %175, label %167
+  %.not135.not = or i1 %or.cond3, %.not135189
+  br i1 %.not135.not, label %174, label %166
 
-167:                                              ; preds = %164
-  %168 = load ptr, ptr %3, align 8, !tbaa !4
-  %169 = select i1 %166, ptr @.str.78, ptr @.str.79
-  %170 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %168, i32 noundef 4, ptr noundef nonnull %169, ptr noundef null, ptr noundef null) #5
-  %171 = call i32 @OSSL_ENCODER_to_bio(ptr noundef %170, ptr noundef nonnull %127) #5
-  %.not136 = icmp eq i32 %171, 0
-  br i1 %.not136, label %172, label %175
+166:                                              ; preds = %163
+  %167 = load ptr, ptr %3, align 8, !tbaa !4
+  %168 = select i1 %165, ptr @.str.78, ptr @.str.79
+  %169 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %167, i32 noundef 4, ptr noundef nonnull %168, ptr noundef null, ptr noundef null) #5
+  %170 = call i32 @OSSL_ENCODER_to_bio(ptr noundef %169, ptr noundef nonnull %127) #5
+  %.not136 = icmp eq i32 %170, 0
+  br i1 %.not136, label %171, label %174
 
-172:                                              ; preds = %167
-  %173 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %174 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %173, ptr noundef nonnull @.str.80) #5
+171:                                              ; preds = %166
+  %172 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %173 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %172, ptr noundef nonnull @.str.80) #5
   br label %.thread150
 
-175:                                              ; preds = %167, %164
-  %.1109 = phi ptr [ null, %164 ], [ %170, %167 ]
-  br i1 %59, label %176, label %.thread180
+174:                                              ; preds = %166, %163
+  %.1109 = phi ptr [ null, %163 ], [ %169, %166 ]
+  br i1 %59, label %175, label %.thread180
 
-176:                                              ; preds = %175
-  %177 = call ptr @app_get0_libctx() #5
-  %178 = load ptr, ptr %3, align 8, !tbaa !4
-  %179 = call ptr @app_get0_propq() #5
-  %180 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %177, ptr noundef %178, ptr noundef %179) #5
-  %181 = call i32 @EVP_PKEY_keygen_init(ptr noundef %180) #5
-  %182 = icmp slt i32 %181, 1
-  br i1 %182, label %186, label %183
+175:                                              ; preds = %174
+  %176 = call ptr @app_get0_libctx() #5
+  %177 = load ptr, ptr %3, align 8, !tbaa !4
+  %178 = call ptr @app_get0_propq() #5
+  %179 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %176, ptr noundef %177, ptr noundef %178) #5
+  %180 = call i32 @EVP_PKEY_keygen_init(ptr noundef %179) #5
+  %181 = icmp slt i32 %180, 1
+  br i1 %181, label %185, label %182
 
-183:                                              ; preds = %176
-  %184 = call i32 @EVP_PKEY_keygen(ptr noundef %180, ptr noundef nonnull %4) #5
-  %185 = icmp slt i32 %184, 1
-  br i1 %185, label %186, label %189
+182:                                              ; preds = %175
+  %183 = call i32 @EVP_PKEY_keygen(ptr noundef %179, ptr noundef nonnull %4) #5
+  %184 = icmp slt i32 %183, 1
+  br i1 %184, label %185, label %188
 
-186:                                              ; preds = %183, %176
-  %187 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %188 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %187, ptr noundef nonnull @.str.62) #5
+185:                                              ; preds = %182, %175
+  %186 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %187 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %186, ptr noundef nonnull @.str.62) #5
   br label %.thread150
 
-189:                                              ; preds = %183
-  %190 = load ptr, ptr %4, align 8, !tbaa !4
-  %191 = load i32, ptr %6, align 4, !tbaa !9
-  %192 = icmp eq i32 %191, 4
-  %193 = select i1 %192, ptr @.str.78, ptr @.str.79
-  %194 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %190, i32 noundef 135, ptr noundef nonnull %193, ptr noundef null, ptr noundef null) #5
-  %195 = call i32 @OSSL_ENCODER_to_bio(ptr noundef %194, ptr noundef nonnull %127) #5
-  %.not137 = icmp eq i32 %195, 0
-  br i1 %.not137, label %196, label %.thread180
+188:                                              ; preds = %182
+  %189 = load ptr, ptr %4, align 8, !tbaa !4
+  %190 = load i32, ptr %6, align 4, !tbaa !9
+  %191 = icmp eq i32 %190, 4
+  %192 = select i1 %191, ptr @.str.78, ptr @.str.79
+  %193 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %189, i32 noundef 135, ptr noundef nonnull %192, ptr noundef null, ptr noundef null) #5
+  %194 = call i32 @OSSL_ENCODER_to_bio(ptr noundef %193, ptr noundef nonnull %127) #5
+  %.not137 = icmp eq i32 %194, 0
+  br i1 %.not137, label %195, label %.thread180
 
-196:                                              ; preds = %189
-  %197 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  %198 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %197, ptr noundef nonnull @.str.80) #5
+195:                                              ; preds = %188
+  %196 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %197 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %196, ptr noundef nonnull @.str.80) #5
   br label %.thread150
 
-199:                                              ; preds = %54
-  %200 = call fastcc i32 @list_builtin_curves(ptr noundef %56)
-  %.not138.not = icmp eq i32 %200, 0
-  %spec.select146 = xor i32 %200, 1
+198:                                              ; preds = %54
+  %199 = call fastcc i32 @list_builtin_curves(ptr noundef %56)
+  %.not138.not = icmp eq i32 %199, 0
+  %spec.select146 = xor i32 %199, 1
   br i1 %.not138.not, label %.thread150, label %.thread180
 
-.thread150:                                       ; preds = %44, %42, %51, %108, %115, %102, %122, %146, %172, %196, %186, %158, %134, %125, %91, %54, %.loopexit, %199
-  %.089169 = phi ptr [ null, %199 ], [ null, %.loopexit ], [ null, %54 ], [ %80, %91 ], [ %.291, %125 ], [ %.291, %134 ], [ %.291, %158 ], [ %.291, %186 ], [ %.291, %196 ], [ %.291, %172 ], [ %.291, %146 ], [ %.291, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
-  %.0103167 = phi ptr [ %56, %199 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ %127, %134 ], [ %127, %158 ], [ %127, %186 ], [ %127, %196 ], [ %127, %172 ], [ %127, %146 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
-  %.0106165 = phi ptr [ null, %199 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ null, %158 ], [ %180, %186 ], [ %180, %196 ], [ null, %172 ], [ null, %146 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
-  %.0108163 = phi ptr [ null, %199 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ null, %158 ], [ %.1109, %186 ], [ %.1109, %196 ], [ %170, %172 ], [ null, %146 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
-  %.0110161 = phi ptr [ null, %199 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ null, %158 ], [ null, %186 ], [ %194, %196 ], [ null, %172 ], [ null, %146 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
-  %.0112159 = phi ptr [ null, %199 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ %153, %158 ], [ %.1113, %186 ], [ %.1113, %196 ], [ %.1113, %172 ], [ null, %146 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
-  %201 = load ptr, ptr @bio_err, align 8, !tbaa !13
-  call void @ERR_print_errors(ptr noundef %201) #5
+.thread150:                                       ; preds = %44, %42, %51, %108, %115, %102, %122, %145, %171, %195, %185, %157, %134, %125, %91, %54, %.loopexit, %198
+  %.089169 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ %80, %91 ], [ %.291, %125 ], [ %.291, %134 ], [ %.291, %157 ], [ %.291, %185 ], [ %.291, %195 ], [ %.291, %171 ], [ %.291, %145 ], [ %.291, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
+  %.0103167 = phi ptr [ %56, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ %127, %134 ], [ %127, %157 ], [ %127, %185 ], [ %127, %195 ], [ %127, %171 ], [ %127, %145 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
+  %.0106165 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ %179, %185 ], [ %179, %195 ], [ null, %171 ], [ null, %145 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
+  %.0108163 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ %.1109, %185 ], [ %.1109, %195 ], [ %169, %171 ], [ null, %145 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
+  %.0110161 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ null, %157 ], [ null, %185 ], [ %193, %195 ], [ null, %171 ], [ null, %145 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
+  %.0112159 = phi ptr [ null, %198 ], [ null, %.loopexit ], [ null, %54 ], [ null, %91 ], [ null, %125 ], [ null, %134 ], [ %152, %157 ], [ %.1113, %185 ], [ %.1113, %195 ], [ %.1113, %171 ], [ null, %145 ], [ null, %122 ], [ null, %102 ], [ null, %115 ], [ null, %108 ], [ null, %51 ], [ null, %42 ], [ null, %44 ]
+  %200 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  call void @ERR_print_errors(ptr noundef %200) #5
   br label %.thread180
 
-.thread180:                                       ; preds = %175, %189, %16, %199, %.thread150
-  %.085172 = phi i32 [ 1, %.thread150 ], [ %spec.select146, %199 ], [ 0, %16 ], [ 0, %189 ], [ 0, %175 ]
-  %.089170 = phi ptr [ %.089169, %.thread150 ], [ null, %199 ], [ null, %16 ], [ %.291, %189 ], [ %.291, %175 ]
-  %.0103168 = phi ptr [ %.0103167, %.thread150 ], [ %56, %199 ], [ null, %16 ], [ %127, %189 ], [ %127, %175 ]
-  %.0106166 = phi ptr [ %.0106165, %.thread150 ], [ null, %199 ], [ null, %16 ], [ %180, %189 ], [ null, %175 ]
-  %.0108164 = phi ptr [ %.0108163, %.thread150 ], [ null, %199 ], [ null, %16 ], [ %.1109, %189 ], [ %.1109, %175 ]
-  %.0110162 = phi ptr [ %.0110161, %.thread150 ], [ null, %199 ], [ null, %16 ], [ %194, %189 ], [ null, %175 ]
-  %.0112160 = phi ptr [ %.0112159, %.thread150 ], [ null, %199 ], [ null, %16 ], [ %.1113, %189 ], [ %.1113, %175 ]
+.thread180:                                       ; preds = %174, %188, %16, %198, %.thread150
+  %.085172 = phi i32 [ 1, %.thread150 ], [ %spec.select146, %198 ], [ 0, %16 ], [ 0, %188 ], [ 0, %174 ]
+  %.089170 = phi ptr [ %.089169, %.thread150 ], [ null, %198 ], [ null, %16 ], [ %.291, %188 ], [ %.291, %174 ]
+  %.0103168 = phi ptr [ %.0103167, %.thread150 ], [ %56, %198 ], [ null, %16 ], [ %127, %188 ], [ %127, %174 ]
+  %.0106166 = phi ptr [ %.0106165, %.thread150 ], [ null, %198 ], [ null, %16 ], [ %179, %188 ], [ null, %174 ]
+  %.0108164 = phi ptr [ %.0108163, %.thread150 ], [ null, %198 ], [ null, %16 ], [ %.1109, %188 ], [ %.1109, %174 ]
+  %.0110162 = phi ptr [ %.0110161, %.thread150 ], [ null, %198 ], [ null, %16 ], [ %193, %188 ], [ null, %174 ]
+  %.0112160 = phi ptr [ %.0112159, %.thread150 ], [ null, %198 ], [ null, %16 ], [ %.1113, %188 ], [ %.1113, %174 ]
   call void @release_engine(ptr noundef %.0104) #5
-  %202 = load ptr, ptr %3, align 8, !tbaa !4
+  %201 = load ptr, ptr %3, align 8, !tbaa !4
+  call void @EVP_PKEY_free(ptr noundef %201) #5
+  %202 = load ptr, ptr %4, align 8, !tbaa !4
   call void @EVP_PKEY_free(ptr noundef %202) #5
-  %203 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @EVP_PKEY_free(ptr noundef %203) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.0112160) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.089170) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.0106166) #5

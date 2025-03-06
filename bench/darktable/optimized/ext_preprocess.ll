@@ -389,7 +389,7 @@ define void @_ZN6LibRaw8subtractEPKc(ptr noundef nonnull align 8 captures(none) 
   %31 = add i32 %26, -58
   %isdigit = icmp ult i32 %31, -10
   %.not7795 = icmp eq i32 %.053.ph107, 0
-  %.not77 = and i1 %isdigit, %.not7795
+  %.not77 = and i1 %.not7795, %isdigit
   br i1 %.not77, label %.outer, label %32
 
 32:                                               ; preds = %30

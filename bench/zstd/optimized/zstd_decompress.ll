@@ -1902,7 +1902,7 @@ ZSTD_decompressFrame.exit:                        ; preds = %254, %267, %145, %Z
   %.0.i114 = phi i64 [ -72, %145 ], [ -72, %175 ], [ %.4.ph.i, %.thread172.i ], [ -22, %244 ], [ -22, %248 ], [ -20, %237 ], [ %179, %178 ], [ %173, %ZSTD_frameHeaderSize_internal.exit.i ], [ %241, %267 ], [ %241, %254 ]
   %269 = call i32 @ZSTD_getErrorCode(i64 noundef %.0.i114) #17
   %270 = icmp eq i32 %269, 10
-  %or.cond8 = and i1 %270, %65
+  %or.cond8 = and i1 %65, %270
   br i1 %or.cond8, label %.thread152, label %271
 
 271:                                              ; preds = %ZSTD_decompressFrame.exit

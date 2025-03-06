@@ -2469,7 +2469,7 @@ read_dump_filters.exit:                           ; preds = %241, %204
   %.not180 = icmp eq i32 %307, 4
   %308 = and i32 %307, 3
   %or.cond15 = icmp ne i32 %308, 1
-  %brmerge = select i1 %or.cond15, i1 true, i1 %.0149
+  %brmerge = or i1 %or.cond15, %.0149
   br i1 %brmerge, label %._crit_edge640, label %309
 
 ._crit_edge640:                                   ; preds = %306

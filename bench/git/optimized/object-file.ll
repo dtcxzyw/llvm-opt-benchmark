@@ -3694,7 +3694,7 @@ loose_object_info.exit:                           ; preds = %136, %223
   %236 = icmp ne i32 %235, 0
   %237 = or disjoint i32 %.067.ph, %58
   %238 = icmp eq i32 %237, 0
-  %or.cond96 = select i1 %236, i1 %238, i1 false
+  %or.cond96 = and i1 %238, %236
   br i1 %or.cond96, label %239, label %240
 
 239:                                              ; preds = %234

@@ -3969,7 +3969,7 @@ st_mult.exit:                                     ; preds = %828
   %850 = icmp ne ptr %849, null
   %or.cond21 = select i1 %848, i1 true, i1 %850
   %851 = icmp ne i64 %.0132.ph342, 1
-  %or.cond23 = select i1 %or.cond21, i1 %851, i1 false
+  %or.cond23 = and i1 %851, %or.cond21
   br i1 %or.cond23, label %852, label %854
 
 852:                                              ; preds = %845
@@ -4028,7 +4028,7 @@ st_mult.exit:                                     ; preds = %828
 876:                                              ; preds = %873
   %877 = icmp eq i32 %858, 0
   %878 = icmp ne i64 %.0132.ph342, 1
-  %or.cond30 = select i1 %877, i1 %878, i1 false
+  %or.cond30 = and i1 %878, %877
   br i1 %or.cond30, label %879, label %881
 
 879:                                              ; preds = %876
@@ -4095,7 +4095,7 @@ _.exit272:                                        ; preds = %881, %_.exit, %892
   %905 = load i32, ptr %36, align 4, !tbaa !122
   %906 = icmp eq i32 %905, 0
   %907 = icmp ne i64 %.0132.ph342, 1
-  %or.cond32 = select i1 %906, i1 %907, i1 false
+  %or.cond32 = and i1 %907, %906
   br i1 %or.cond32, label %908, label %910
 
 908:                                              ; preds = %.thread328

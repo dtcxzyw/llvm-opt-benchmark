@@ -4976,7 +4976,7 @@ CheckCompoundAffixes.exit.thread196:              ; preds = %.thread.sink.split.
   %104 = add i32 %60, %97
   %.not162 = icmp sle i32 %104, %6
   %105 = icmp sgt i32 %97, 255
-  %or.cond167 = or i1 %.not162, %105
+  %or.cond167 = or i1 %105, %.not162
   br i1 %or.cond167, label %162, label %106, !llvm.loop !54
 
 106:                                              ; preds = %103

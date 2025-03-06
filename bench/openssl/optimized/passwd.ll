@@ -233,7 +233,7 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.082, i32 1)
   %41 = icmp ne ptr %.0107, null
   %42 = icmp ne i32 %.097, 0
-  %or.cond = select i1 %41, i1 %42, i1 false
+  %or.cond = and i1 %41, %42
   br i1 %or.cond, label %43, label %46
 
 43:                                               ; preds = %40
@@ -242,7 +242,7 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
   br label %.thread149
 
 46:                                               ; preds = %40
-  %or.cond4 = select i1 %41, i1 true, i1 %42
+  %or.cond4 = or i1 %41, %42
   br i1 %or.cond4, label %47, label %.thread220
 
 47:                                               ; preds = %46
@@ -268,99 +268,97 @@ define dso_local range(i32 0, 2) i32 @passwd_main(i32 noundef %0, ptr noundef %1
 
 .preheader151:                                    ; preds = %53, %50
   %.1102140142.ph = phi ptr [ %54, %53 ], [ null, %50 ]
-  br label %69
+  br label %68
 
 55:                                               ; preds = %.thread220
   %56 = tail call ptr @app_malloc(i64 noundef 258, ptr noundef nonnull @.str.50) #7
-  %57 = icmp eq i32 %.091, 0
-  %58 = icmp eq i32 %.093, 0
-  %.not120 = select i1 %57, i1 %58, i1 false
-  %59 = zext i1 %.not120 to i32
-  %60 = tail call i32 @EVP_read_pw_string(ptr noundef %56, i32 noundef 258, ptr noundef nonnull @.str.51, i32 noundef %59) #7
-  %.not121 = icmp eq i32 %60, 0
-  br i1 %.not121, label %61, label %.thread149
+  %57 = or i32 %.091, %.093
+  %58 = xor i32 %57, 1
+  %59 = tail call i32 @EVP_read_pw_string(ptr noundef %56, i32 noundef 258, ptr noundef nonnull @.str.51, i32 noundef %58) #7
+  %.not121 = icmp eq i32 %59, 0
+  br i1 %.not121, label %60, label %.thread149
 
-61:                                               ; preds = %55
+60:                                               ; preds = %55
   store ptr %56, ptr @passwd_main.passwds_static, align 16, !tbaa !4
   br label %.preheader
 
-.preheader:                                       ; preds = %.thread..preheader_crit_edge, %61
-  %.pre = phi ptr [ %.pre.pre, %.thread..preheader_crit_edge ], [ %56, %61 ]
-  %.1102140143.ph = phi ptr [ null, %.thread..preheader_crit_edge ], [ %56, %61 ]
-  %.2105.ph = phi ptr [ %.0103, %.thread..preheader_crit_edge ], [ @passwd_main.passwds_static, %61 ]
-  br label %62
+.preheader:                                       ; preds = %.thread..preheader_crit_edge, %60
+  %.pre = phi ptr [ %.pre.pre, %.thread..preheader_crit_edge ], [ %56, %60 ]
+  %.1102140143.ph = phi ptr [ null, %.thread..preheader_crit_edge ], [ %56, %60 ]
+  %.2105.ph = phi ptr [ %.0103, %.thread..preheader_crit_edge ], [ @passwd_main.passwds_static, %60 ]
+  br label %61
 
-62:                                               ; preds = %.preheader, %66
-  %63 = phi ptr [ %68, %66 ], [ %.pre, %.preheader ]
-  %.2105 = phi ptr [ %67, %66 ], [ %.2105.ph, %.preheader ]
-  %64 = load ptr, ptr @bio_out, align 8, !tbaa !9
-  %65 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef %63, ptr noundef %64, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
-  %.not126 = icmp eq i32 %65, 0
-  br i1 %.not126, label %.thread149, label %66
+61:                                               ; preds = %.preheader, %65
+  %62 = phi ptr [ %67, %65 ], [ %.pre, %.preheader ]
+  %.2105 = phi ptr [ %66, %65 ], [ %.2105.ph, %.preheader ]
+  %63 = load ptr, ptr @bio_out, align 8, !tbaa !9
+  %64 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef %62, ptr noundef %63, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
+  %.not126 = icmp eq i32 %64, 0
+  br i1 %.not126, label %.thread149, label %65
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %.2105, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !4
-  %.not127 = icmp eq ptr %68, null
-  br i1 %.not127, label %.thread149, label %62, !llvm.loop !13
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %.2105, i64 8
+  %67 = load ptr, ptr %66, align 8, !tbaa !4
+  %.not127 = icmp eq ptr %67, null
+  br i1 %.not127, label %.thread149, label %61, !llvm.loop !13
 
-69:                                               ; preds = %82, %.preheader151
-  %70 = call i32 @BIO_gets(ptr noundef nonnull %48, ptr noundef %.1102140142.ph, i32 noundef 257) #7
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %72, label %.thread149
+68:                                               ; preds = %81, %.preheader151
+  %69 = call i32 @BIO_gets(ptr noundef nonnull %48, ptr noundef %.1102140142.ph, i32 noundef 257) #7
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %.thread149
 
-72:                                               ; preds = %69
-  %73 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1102140142.ph, i32 noundef 10) #8
-  %.not122 = icmp eq ptr %73, null
-  br i1 %.not122, label %75, label %74
+71:                                               ; preds = %68
+  %72 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1102140142.ph, i32 noundef 10) #8
+  %.not122 = icmp eq ptr %72, null
+  br i1 %.not122, label %74, label %73
 
-74:                                               ; preds = %72
-  store i8 0, ptr %73, align 1, !tbaa !14
-  br label %82
+73:                                               ; preds = %71
+  store i8 0, ptr %72, align 1, !tbaa !14
+  br label %81
 
-75:                                               ; preds = %72
+74:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %5) #7
-  br label %76
+  br label %75
 
-76:                                               ; preds = %79, %75
-  %77 = call i32 @BIO_gets(ptr noundef nonnull %48, ptr noundef nonnull %5, i32 noundef 8192) #7
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %79, label %.critedge
+75:                                               ; preds = %78, %74
+  %76 = call i32 @BIO_gets(ptr noundef nonnull %48, ptr noundef nonnull %5, i32 noundef 8192) #7
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %78, label %.critedge
 
-79:                                               ; preds = %76
-  %80 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #8
-  %.not123 = icmp eq ptr %80, null
-  br i1 %.not123, label %76, label %.critedge, !llvm.loop !15
+78:                                               ; preds = %75
+  %79 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 10) #8
+  %.not123 = icmp eq ptr %79, null
+  br i1 %.not123, label %75, label %.critedge, !llvm.loop !15
 
-.critedge:                                        ; preds = %76, %79
+.critedge:                                        ; preds = %75, %78
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %5) #7
-  %81 = icmp slt i32 %77, 1
-  br label %82
+  %80 = icmp slt i32 %76, 1
+  br label %81
 
-82:                                               ; preds = %.critedge, %74
-  %.178 = phi i1 [ false, %74 ], [ %81, %.critedge ]
-  %83 = load ptr, ptr @bio_out, align 8, !tbaa !9
-  %84 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %.1102140142.ph, ptr noundef %83, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
-  %.not124.not = icmp eq i32 %84, 0
+81:                                               ; preds = %.critedge, %73
+  %.178 = phi i1 [ false, %73 ], [ %80, %.critedge ]
+  %82 = load ptr, ptr @bio_out, align 8, !tbaa !9
+  %83 = call fastcc i32 @do_passwd(i32 noundef %.091, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %.1102140142.ph, ptr noundef %82, i32 noundef %.089, i32 noundef %.087, i32 noundef %.085, i32 noundef %spec.store.select)
+  %.not124.not = icmp eq i32 %83, 0
   %brmerge = or i1 %.not124.not, %.178
-  br i1 %brmerge, label %.thread149.loopexit.split.loop.exit, label %69
+  br i1 %brmerge, label %.thread149.loopexit.split.loop.exit, label %68
 
 .thread149.loopexit154:                           ; preds = %29, %31
   store ptr %8, ptr %3, align 8
   br label %.thread149
 
-.thread149.loopexit.split.loop.exit:              ; preds = %82
-  %.mux.le = xor i32 %84, 1
+.thread149.loopexit.split.loop.exit:              ; preds = %81
+  %.mux.le = xor i32 %83, 1
   br label %.thread149
 
-.thread149:                                       ; preds = %66, %62, %.thread149.loopexit.split.loop.exit, %69, %.thread149.loopexit154, %55, %47, %38, %43, %13, %10
-  %.0101 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ %56, %55 ], [ null, %38 ], [ null, %.thread149.loopexit154 ], [ %.1102140142.ph, %69 ], [ %.1102140142.ph, %.thread149.loopexit.split.loop.exit ], [ %.1102140143.ph, %62 ], [ %.1102140143.ph, %66 ]
-  %.099 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ null, %55 ], [ null, %38 ], [ null, %.thread149.loopexit154 ], [ %48, %69 ], [ %48, %.thread149.loopexit.split.loop.exit ], [ null, %62 ], [ null, %66 ]
-  %.084 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 1, %43 ], [ 1, %47 ], [ 1, %55 ], [ 1, %38 ], [ 1, %.thread149.loopexit154 ], [ %.mux.le, %.thread149.loopexit.split.loop.exit ], [ 0, %69 ], [ 0, %66 ], [ 1, %62 ]
-  %85 = load ptr, ptr %4, align 8, !tbaa !4
-  call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str.52, i32 noundef 299) #7
+.thread149:                                       ; preds = %65, %61, %.thread149.loopexit.split.loop.exit, %68, %.thread149.loopexit154, %55, %47, %38, %43, %13, %10
+  %.0101 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ %56, %55 ], [ null, %38 ], [ null, %.thread149.loopexit154 ], [ %.1102140142.ph, %68 ], [ %.1102140142.ph, %.thread149.loopexit.split.loop.exit ], [ %.1102140143.ph, %61 ], [ %.1102140143.ph, %65 ]
+  %.099 = phi ptr [ null, %10 ], [ null, %13 ], [ null, %43 ], [ null, %47 ], [ null, %55 ], [ null, %38 ], [ null, %.thread149.loopexit154 ], [ %48, %68 ], [ %48, %.thread149.loopexit.split.loop.exit ], [ null, %61 ], [ null, %65 ]
+  %.084 = phi i32 [ 1, %10 ], [ 0, %13 ], [ 1, %43 ], [ 1, %47 ], [ 1, %55 ], [ 1, %38 ], [ 1, %.thread149.loopexit154 ], [ %.mux.le, %.thread149.loopexit.split.loop.exit ], [ 0, %68 ], [ 0, %65 ], [ 1, %61 ]
+  %84 = load ptr, ptr %4, align 8, !tbaa !4
+  call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str.52, i32 noundef 299) #7
   call void @CRYPTO_free(ptr noundef %.0101, ptr noundef nonnull @.str.52, i32 noundef 300) #7
-  %86 = call i32 @BIO_free(ptr noundef %.099) #7
+  %85 = call i32 @BIO_free(ptr noundef %.099) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   ret i32 %.084

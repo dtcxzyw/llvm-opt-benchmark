@@ -365,7 +365,7 @@ param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.l
 103:                                              ; preds = %._crit_edge
   %104 = icmp ne ptr %.0105, null
   %105 = icmp ne i32 %.092, 0
-  %or.cond = select i1 %104, i1 %105, i1 false
+  %or.cond = and i1 %104, %105
   br i1 %or.cond, label %106, label %109
 
 106:                                              ; preds = %103

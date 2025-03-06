@@ -1620,7 +1620,7 @@ _ZN11duckdb_zstdL20ZSTD_decompressFrameEPNS_11ZSTD_DCtx_sEPvmPPKvPm.exit: ; pred
   %.0.i76 = phi i64 [ -72, %92 ], [ -72, %122 ], [ %.4.ph.i, %.thread172.i ], [ -22, %191 ], [ -22, %195 ], [ -20, %184 ], [ %126, %125 ], [ %120, %_ZN11duckdb_zstdL29ZSTD_frameHeaderSize_internalEPKvmNS_13ZSTD_format_eE.exit.i ], [ %188, %214 ], [ %188, %201 ]
   %216 = call noundef i32 @_ZN11duckdb_zstd17ZSTD_getErrorCodeEm(i64 noundef %.0.i76)
   %217 = icmp eq i32 %216, 10
-  %or.cond6 = and i1 %217, %59
+  %or.cond6 = and i1 %59, %217
   br i1 %or.cond6, label %.thread, label %218
 
 218:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_decompressFrameEPNS_11ZSTD_DCtx_sEPvmPPKvPm.exit
