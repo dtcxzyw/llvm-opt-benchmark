@@ -27725,12 +27725,12 @@ _ZN9cancel_ehI8reslimitED2Ev.exit:                ; preds = %349, %352
   br label %494
 
 357:                                              ; preds = %.loopexit, %.loopexit.split-lp, %313, %312, %297, %278
-  %.merged79 = phi { ptr, i32 } [ %.pn63.pn, %278 ], [ %286, %297 ], [ %.pn, %312 ], [ %314, %313 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.merged74 = phi { ptr, i32 } [ %.pn63.pn, %278 ], [ %286, %297 ], [ %.pn, %312 ], [ %314, %313 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #29
   br label %358
 
 358:                                              ; preds = %357, %169
-  %.merged78 = phi { ptr, i32 } [ %.merged79, %357 ], [ %170, %169 ]
+  %.merged73 = phi { ptr, i32 } [ %.merged74, %357 ], [ %170, %169 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
   invoke void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 dereferenceable(40) %112)
           to label %_ZN13scoped_rlimitD2Ev.exit116 unwind label %359
@@ -27743,24 +27743,24 @@ _ZN9cancel_ehI8reslimitED2Ev.exit:                ; preds = %349, %352
   unreachable
 
 _ZN13scoped_rlimitD2Ev.exit116:                   ; preds = %358, %167
-  %.merged77 = phi { ptr, i32 } [ %168, %167 ], [ %.merged78, %358 ]
+  %.merged72 = phi { ptr, i32 } [ %168, %167 ], [ %.merged73, %358 ]
   call void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #29
   br label %362
 
 362:                                              ; preds = %_ZN13scoped_rlimitD2Ev.exit116, %165
-  %.merged76 = phi { ptr, i32 } [ %.merged77, %_ZN13scoped_rlimitD2Ev.exit116 ], [ %166, %165 ]
+  %.merged71 = phi { ptr, i32 } [ %.merged72, %_ZN13scoped_rlimitD2Ev.exit116 ], [ %166, %165 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #29
   call void @_ZN13scoped_ctrl_cD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #29
   br label %363
 
 363:                                              ; preds = %362, %163
-  %.merged75 = phi { ptr, i32 } [ %.merged76, %362 ], [ %164, %163 ]
+  %.merged70 = phi { ptr, i32 } [ %.merged71, %362 ], [ %164, %163 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #29
   call void @_ZN9cancel_ehI8reslimitED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #29
   br label %364
 
 364:                                              ; preds = %363, %161
-  %.merged74 = phi { ptr, i32 } [ %.merged75, %363 ], [ %162, %161 ]
+  %.merged69 = phi { ptr, i32 } [ %.merged70, %363 ], [ %162, %161 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #29
   br label %530
 
@@ -27996,7 +27996,7 @@ _ZN9cancel_ehI8reslimitED2Ev.exit125:             ; preds = %453, %456
   br label %494
 
 461:                                              ; preds = %441, %439, %437, %430
-  %.merged72 = phi { ptr, i32 } [ %417, %430 ], [ %440, %439 ], [ %438, %437 ], [ %442, %441 ]
+  %.merged79 = phi { ptr, i32 } [ %417, %430 ], [ %440, %439 ], [ %438, %437 ], [ %442, %441 ]
   invoke void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 dereferenceable(40) %396)
           to label %_ZN13scoped_rlimitD2Ev.exit126 unwind label %462
 
@@ -28008,24 +28008,24 @@ _ZN9cancel_ehI8reslimitED2Ev.exit125:             ; preds = %453, %456
   unreachable
 
 _ZN13scoped_rlimitD2Ev.exit126:                   ; preds = %461, %414
-  %.merged71 = phi { ptr, i32 } [ %415, %414 ], [ %.merged72, %461 ]
+  %.merged78 = phi { ptr, i32 } [ %415, %414 ], [ %.merged79, %461 ]
   call void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #29
   br label %465
 
 465:                                              ; preds = %_ZN13scoped_rlimitD2Ev.exit126, %412
-  %.merged70 = phi { ptr, i32 } [ %.merged71, %_ZN13scoped_rlimitD2Ev.exit126 ], [ %413, %412 ]
+  %.merged77 = phi { ptr, i32 } [ %.merged78, %_ZN13scoped_rlimitD2Ev.exit126 ], [ %413, %412 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
   call void @_ZN13scoped_ctrl_cD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #29
   br label %466
 
 466:                                              ; preds = %465, %410
-  %.merged69 = phi { ptr, i32 } [ %.merged70, %465 ], [ %411, %410 ]
+  %.merged76 = phi { ptr, i32 } [ %.merged77, %465 ], [ %411, %410 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #29
   call void @_ZN9cancel_ehI8reslimitED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #29
   br label %467
 
 467:                                              ; preds = %466, %408
-  %.merged68 = phi { ptr, i32 } [ %.merged69, %466 ], [ %409, %408 ]
+  %.merged75 = phi { ptr, i32 } [ %.merged76, %466 ], [ %409, %408 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #29
   br label %530
 
@@ -28185,7 +28185,7 @@ _ZN11cmd_context12scoped_watchD2Ev.exit:          ; preds = %524, %_ZNSolsEPFRSo
   ret void
 
 530:                                              ; preds = %159, %364, %508, %467, %157
-  %.merged = phi { ptr, i32 } [ %509, %508 ], [ %158, %157 ], [ %.merged68, %467 ], [ %.merged74, %364 ], [ %160, %159 ]
+  %.merged = phi { ptr, i32 } [ %509, %508 ], [ %158, %157 ], [ %.merged75, %467 ], [ %.merged69, %364 ], [ %160, %159 ]
   %531 = load i8, ptr %71, align 8, !tbaa !832, !range !108, !noundef !109
   %532 = trunc nuw i8 %531 to i1
   br i1 %532, label %533, label %_ZN11cmd_context12scoped_watchD2Ev.exit131
