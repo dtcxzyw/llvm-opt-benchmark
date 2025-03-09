@@ -891,7 +891,7 @@ LZ4_initStreamHC.exit:                            ; preds = %.LZ4_initStreamHC.e
 
 LZ4HC_init_internal.exit:                         ; preds = %LZ4_initStreamHC.exit, %29
   %.0.i26 = phi i64 [ 0, %29 ], [ %19, %LZ4_initStreamHC.exit ]
-  %31 = trunc nuw i64 %.0.i26 to i32
+  %31 = trunc nuw nsw i64 %.0.i26 to i32
   %32 = add nuw nsw i32 %31, 65536
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 %32, ptr %33, align 8, !tbaa !33
@@ -1077,7 +1077,7 @@ define internal fastcc i32 @LZ4_compressHC_continue_generic(ptr noundef %0, ptr 
 
 LZ4HC_init_internal.exit:                         ; preds = %12, %19
   %.0.i = phi i64 [ 0, %19 ], [ %17, %12 ]
-  %21 = trunc nuw i64 %.0.i to i32
+  %21 = trunc nuw nsw i64 %.0.i to i32
   %22 = add nuw nsw i32 %21, 65536
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 262176
   store i32 %22, ptr %23, align 8, !tbaa !33
@@ -2793,7 +2793,7 @@ LZ4_count.exit.i684:                              ; preds = %372, %.thread569.i,
   br label %.critedge.i.i
 
 446:                                              ; preds = %435
-  %.tr.i.i = trunc nuw i64 %429 to i8
+  %.tr.i.i = trunc nuw nsw i64 %429 to i8
   %447 = shl nuw i8 %.tr.i.i, 4
   store i8 %447, ptr %.1724.i, align 1, !tbaa !26
   br label %.critedge.i.i
@@ -2872,7 +2872,7 @@ LZ4_wildCopy8.exit393.i:                          ; preds = %449
   br label %486
 
 482:                                              ; preds = %462
-  %483 = trunc nuw i64 %457 to i8
+  %483 = trunc nuw nsw i64 %457 to i8
   %484 = load i8, ptr %.1724.i, align 1, !tbaa !26
   %485 = add i8 %484, %483
   store i8 %485, ptr %.1724.i, align 1, !tbaa !26
@@ -3023,7 +3023,7 @@ LZ4_wildCopy8.exit393.i:                          ; preds = %449
   br label %.critedge288.i
 
 561:                                              ; preds = %548
-  %.0243.tr.i = trunc nuw i64 %.0243.i to i8
+  %.0243.tr.i = trunc nuw nsw i64 %.0243.i to i8
   %562 = shl nuw i8 %.0243.tr.i, 4
   store i8 %562, ptr %.0495626.i, align 1, !tbaa !26
   br label %.critedge288.i
@@ -3104,7 +3104,7 @@ LZ4_wildCopy8.exit393.i:                          ; preds = %449
   br label %.critedge.i383.i
 
 605:                                              ; preds = %594
-  %.tr.i382.i = trunc nuw i64 %574 to i8
+  %.tr.i382.i = trunc nuw nsw i64 %574 to i8
   %606 = shl nuw i8 %.tr.i382.i, 4
   store i8 %606, ptr %.1724.i, align 1, !tbaa !26
   br label %.critedge.i383.i
@@ -3176,7 +3176,7 @@ LZ4_wildCopy8.exit.i:                             ; preds = %608
   br label %LZ4HC_encodeSequence.exit389.i
 
 636:                                              ; preds = %LZ4_wildCopy8.exit.i
-  %637 = trunc nuw i64 %616 to i8
+  %637 = trunc nuw nsw i64 %616 to i8
   %638 = load i8, ptr %.1724.i, align 1, !tbaa !26
   %639 = add i8 %638, %637
   store i8 %639, ptr %.1724.i, align 1, !tbaa !26
@@ -5812,7 +5812,7 @@ LZ4HC_InsertAndGetWiderMatch.exit573:             ; preds = %1696, %1783, %1667,
   br label %.critedge.i96
 
 1817:                                             ; preds = %1806
-  %.tr.i95 = trunc nuw i64 %1800 to i8
+  %.tr.i95 = trunc nuw nsw i64 %1800 to i8
   %1818 = shl nuw i8 %.tr.i95, 4
   store i8 %1818, ptr %.1.ph, align 1, !tbaa !26
   br label %.critedge.i96
@@ -5892,7 +5892,7 @@ LZ4_wildCopy8.exit:                               ; preds = %1820
   br label %.outer1534.backedge
 
 1853:                                             ; preds = %1832
-  %1854 = trunc nuw i64 %1827 to i8
+  %1854 = trunc nuw nsw i64 %1827 to i8
   %1855 = load i8, ptr %.1.ph, align 1, !tbaa !26
   %1856 = add i8 %1855, %1854
   store i8 %1856, ptr %.1.ph, align 1, !tbaa !26
@@ -7380,7 +7380,7 @@ LZ4HC_InsertAndGetWiderMatch.exit337:             ; preds = %2386, %2473, %2357,
   br label %.critedge.i75
 
 2511:                                             ; preds = %2499
-  %.tr.i74 = trunc nuw i64 %2493 to i8
+  %.tr.i74 = trunc nuw nsw i64 %2493 to i8
   %2512 = shl nuw i8 %.tr.i74, 4
   store i8 %2512, ptr %.5.ph, align 1, !tbaa !26
   br label %.critedge.i75
@@ -7459,7 +7459,7 @@ LZ4_wildCopy8.exit110:                            ; preds = %2514
   br label %2550
 
 2546:                                             ; preds = %2527
-  %2547 = trunc nuw i64 %2522 to i8
+  %2547 = trunc nuw nsw i64 %2522 to i8
   %2548 = load i8, ptr %.5.ph, align 1, !tbaa !26
   %2549 = add i8 %2548, %2547
   store i8 %2549, ptr %.5.ph, align 1, !tbaa !26
@@ -7510,7 +7510,7 @@ LZ4_wildCopy8.exit110:                            ; preds = %2514
   br label %.critedge.i63
 
 2571:                                             ; preds = %2560
-  %.tr.i62 = trunc nuw i64 %2554 to i8
+  %.tr.i62 = trunc nuw nsw i64 %2554 to i8
   %2572 = shl nuw i8 %.tr.i62, 4
   store i8 %2572, ptr %.25, align 1, !tbaa !26
   br label %.critedge.i63
@@ -7590,7 +7590,7 @@ LZ4_wildCopy8.exit113:                            ; preds = %2574
   br label %.outer1534.backedge
 
 2607:                                             ; preds = %2586
-  %2608 = trunc nuw i64 %2581 to i8
+  %2608 = trunc nuw nsw i64 %2581 to i8
   %2609 = load i8, ptr %.25, align 1, !tbaa !26
   %2610 = add i8 %2609, %2608
   store i8 %2610, ptr %.25, align 1, !tbaa !26
@@ -7678,7 +7678,7 @@ LZ4_wildCopy8.exit113:                            ; preds = %2574
   br label %.critedge.i45
 
 2646:                                             ; preds = %2634
-  %.tr.i = trunc nuw i64 %2628 to i8
+  %.tr.i = trunc nuw nsw i64 %2628 to i8
   %2647 = shl nuw i8 %.tr.i, 4
   store i8 %2647, ptr %.5.ph, align 1, !tbaa !26
   br label %.critedge.i45
@@ -7757,7 +7757,7 @@ LZ4_wildCopy8.exit119:                            ; preds = %2649
   br label %2686
 
 2682:                                             ; preds = %2661
-  %2683 = trunc nuw i64 %2656 to i8
+  %2683 = trunc nuw nsw i64 %2656 to i8
   %2684 = load i8, ptr %.5.ph, align 1, !tbaa !26
   %2685 = add i8 %2684, %2683
   store i8 %2685, ptr %.5.ph, align 1, !tbaa !26
@@ -7860,7 +7860,7 @@ LZ4_wildCopy8.exit119:                            ; preds = %2649
   br label %.critedge.i51
 
 2725:                                             ; preds = %2713
-  %.tr.i50 = trunc nuw i64 %2707 to i8
+  %.tr.i50 = trunc nuw nsw i64 %2707 to i8
   %2726 = shl nuw i8 %.tr.i50, 4
   store i8 %2726, ptr %.5.ph, align 1, !tbaa !26
   br label %.critedge.i51
@@ -7940,7 +7940,7 @@ LZ4_wildCopy8.exit116:                            ; preds = %2728
   br label %2766
 
 2762:                                             ; preds = %2741
-  %2763 = trunc nuw i64 %2736 to i8
+  %2763 = trunc nuw nsw i64 %2736 to i8
   %2764 = load i8, ptr %.5.ph, align 1, !tbaa !26
   %2765 = add i8 %2764, %2763
   store i8 %2765, ptr %.5.ph, align 1, !tbaa !26
@@ -8054,7 +8054,7 @@ LZ4_wildCopy8.exit116:                            ; preds = %2728
   br label %.critedge.i
 
 2813:                                             ; preds = %2800
-  %.0340.tr.i = trunc nuw i64 %.0340.i to i8
+  %.0340.tr.i = trunc nuw nsw i64 %.0340.i to i8
   %2814 = shl nuw i8 %.0340.tr.i, 4
   store i8 %2814, ptr %.21410, align 1, !tbaa !26
   br label %.critedge.i
@@ -8153,7 +8153,7 @@ LZ4HC_encodeSequence.exit:                        ; preds = %2486, %LZ4_wildCopy
   br label %.critedge.i85
 
 2862:                                             ; preds = %2848
-  %.tr.i84 = trunc nuw i64 %2827 to i8
+  %.tr.i84 = trunc nuw nsw i64 %2827 to i8
   %2863 = shl nuw i8 %.tr.i84, 4
   store i8 %2863, ptr %.0328.i, align 1, !tbaa !26
   br label %.critedge.i85
@@ -8224,7 +8224,7 @@ LZ4_wildCopy8.exit107:                            ; preds = %2865
   br label %LZ4HC_encodeSequence.exit91
 
 2894:                                             ; preds = %LZ4_wildCopy8.exit107
-  %2895 = trunc nuw i64 %2872 to i8
+  %2895 = trunc nuw nsw i64 %2872 to i8
   %2896 = load i8, ptr %.0328.i, align 1, !tbaa !26
   %2897 = add i8 %2896, %2895
   store i8 %2897, ptr %.0328.i, align 1, !tbaa !26
@@ -9535,7 +9535,7 @@ LZ4HC_FindLongerMatch.exit.thread.i:              ; preds = %LZ4HC_InsertAndGetW
   br label %.critedge.i.i972
 
 3497:                                             ; preds = %3486
-  %.tr.i.i971 = trunc nuw i64 %2932 to i8
+  %.tr.i.i971 = trunc nuw nsw i64 %2932 to i8
   %3498 = shl nuw i8 %.tr.i.i971, 4
   store i8 %3498, ptr %.013352029.i, align 1, !tbaa !26
   br label %.critedge.i.i972
@@ -9560,7 +9560,7 @@ LZ4_wildCopy8.exit455.i:                          ; preds = %3500
   store i16 %3505, ptr %3499, align 1, !tbaa !24
   %3506 = getelementptr i8, ptr %3499, i64 2
   %3507 = add nsw i64 %.sroa.0162.4.extract.shift.i, -4
-  %.lhs.trunc.i = trunc nsw i64 %3507 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %3507 to i32
   %3508 = udiv i32 %.lhs.trunc.i, 255
   %.zext.i = zext nneg i32 %3508 to i64
   %3509 = getelementptr inbounds nuw i8, ptr %3506, i64 %.zext.i
@@ -9583,7 +9583,7 @@ LZ4_wildCopy8.exit455.i:                          ; preds = %3500
 
 .lr.ph2022.preheader.i:                           ; preds = %3514
   %3519 = add nsw i64 %.sroa.0162.4.extract.shift.i, -529
-  %.lhs.trunc2275.i = trunc nsw i64 %3519 to i32
+  %.lhs.trunc2275.i = trunc nuw nsw i64 %3519 to i32
   %3520 = udiv i32 %.lhs.trunc2275.i, 510
   %.zext2276.i = zext nneg i32 %3520 to i64
   %3521 = shl nuw nsw i64 %.zext2276.i, 1
@@ -9617,7 +9617,7 @@ LZ4_wildCopy8.exit455.i:                          ; preds = %3500
   br label %select.unfold1634.i
 
 3532:                                             ; preds = %3512
-  %3533 = trunc nuw i64 %3507 to i8
+  %3533 = trunc nuw nsw i64 %3507 to i8
   %3534 = load i8, ptr %.013352029.i, align 1, !tbaa !26
   %3535 = add i8 %3534, %3533
   store i8 %3535, ptr %.013352029.i, align 1, !tbaa !26
@@ -12413,7 +12413,7 @@ LZ4HC_literalsPrice.exit936.i:                    ; preds = %LZ4HC_literalsPrice
   br label %.critedge.i432.i
 
 4780:                                             ; preds = %4769
-  %.tr.i431.i = trunc nuw i64 %4763 to i8
+  %.tr.i431.i = trunc nuw nsw i64 %4763 to i8
   %4781 = shl nuw i8 %.tr.i431.i, 4
   store i8 %4781, ptr %.213362006.i, align 1, !tbaa !26
   br label %.critedge.i432.i
@@ -12492,7 +12492,7 @@ LZ4_wildCopy8.exit452.i:                          ; preds = %4783
   br label %select.unfold1624.i
 
 4816:                                             ; preds = %4796
-  %4817 = trunc nuw i64 %4791 to i8
+  %4817 = trunc nuw nsw i64 %4791 to i8
   %4818 = load i8, ptr %.213362006.i, align 1, !tbaa !26
   %4819 = add i8 %4818, %4817
   store i8 %4819, ptr %.213362006.i, align 1, !tbaa !26
@@ -12606,7 +12606,7 @@ select.unfold1634.i:                              ; preds = %3532, %3529
   br label %4865
 
 4863:                                             ; preds = %4850
-  %.0353.tr.i = trunc nuw i64 %.0353.i to i8
+  %.0353.tr.i = trunc nuw nsw i64 %.0353.i to i8
   %4864 = shl nuw i8 %.0353.tr.i, 4
   store i8 %4864, ptr %.41662.i, align 1, !tbaa !26
   br label %4865
@@ -12697,7 +12697,7 @@ select.unfold1634.i:                              ; preds = %3532, %3529
   br label %.critedge.i442.i
 
 4913:                                             ; preds = %4899
-  %.tr.i441.i = trunc nuw i64 %4878 to i8
+  %.tr.i441.i = trunc nuw nsw i64 %4878 to i8
   %4914 = shl nuw i8 %.tr.i441.i, 4
   store i8 %4914, ptr %.1338.ph.i, align 1, !tbaa !26
   br label %.critedge.i442.i
@@ -12768,7 +12768,7 @@ LZ4_wildCopy8.exit.i960:                          ; preds = %4916
   br label %LZ4HC_encodeSequence.exit448.i
 
 4945:                                             ; preds = %LZ4_wildCopy8.exit.i960
-  %4946 = trunc nuw i64 %4923 to i8
+  %4946 = trunc nuw nsw i64 %4923 to i8
   %4947 = load i8, ptr %.1338.ph.i, align 1, !tbaa !26
   %4948 = add i8 %4947, %4946
   store i8 %4948, ptr %.1338.ph.i, align 1, !tbaa !26

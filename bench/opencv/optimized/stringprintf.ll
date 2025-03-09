@@ -210,27 +210,27 @@ define hidden void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7_
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 142)
   %15 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.1)
-          to label %16 unwind label %33
+          to label %16 unwind label %31
 
 16:                                               ; preds = %14
   %17 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull @.str.2)
-          to label %18 unwind label %33
+          to label %18 unwind label %31
 
 18:                                               ; preds = %16
   %19 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEi(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef 32)
-          to label %20 unwind label %33
+          to label %20 unwind label %31
 
 20:                                               ; preds = %18
   %21 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull @.str.3)
-          to label %22 unwind label %33
+          to label %22 unwind label %31
 
 22:                                               ; preds = %20
   %23 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull @.str.4)
-          to label %24 unwind label %33
+          to label %24 unwind label %31
 
 24:                                               ; preds = %22
   invoke void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(56) %23)
-          to label %26 unwind label %35
+          to label %26 unwind label %33
 
 25:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
@@ -261,116 +261,111 @@ define hidden void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7_
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge26
-  %30 = and i64 %.pre-phi42, 137438952448
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %.lr.ph30.preheader, label %._crit_edge31
+  %30 = icmp ult i64 %29, 32
+  br i1 %30, label %.lr.ph30, label %._crit_edge31
 
-.lr.ph30.preheader:                               ; preds = %._crit_edge
-  %32 = and i64 %29, 31
-  br label %.lr.ph30
+31:                                               ; preds = %22, %20, %18, %16, %14
+  %32 = landingpad { ptr, i32 }
+          cleanup
+  br label %35
 
-33:                                               ; preds = %22, %20, %18, %16, %14
+33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %37
-
-35:                                               ; preds = %24
-  %36 = landingpad { ptr, i32 }
-          cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
-  br label %37
+  br label %35
 
-37:                                               ; preds = %33, %35
-  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
+35:                                               ; preds = %31, %33
+  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %32, %31 ]
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #13
   resume { ptr, i32 } %.pn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %indvars.iv
-  store ptr %39, ptr %40, align 8, !tbaa !18
+  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %indvars.iv
+  %37 = load ptr, ptr %36, align 8, !tbaa !13
+  %38 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  store ptr %37, ptr %38, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge31:                                    ; preds = %.lr.ph30, %._crit_edge
-  %41 = load ptr, ptr %6, align 16, !tbaa !18
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %45 = load ptr, ptr %44, align 16, !tbaa !18
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !18
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %49 = load ptr, ptr %48, align 16, !tbaa !18
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %53 = load ptr, ptr %52, align 16, !tbaa !18
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %55 = load ptr, ptr %54, align 8, !tbaa !18
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %57 = load ptr, ptr %56, align 16, !tbaa !18
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %59 = load ptr, ptr %58, align 8, !tbaa !18
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %61 = load ptr, ptr %60, align 16, !tbaa !18
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %63 = load ptr, ptr %62, align 8, !tbaa !18
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %65 = load ptr, ptr %64, align 16, !tbaa !18
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %67 = load ptr, ptr %66, align 8, !tbaa !18
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %69 = load ptr, ptr %68, align 16, !tbaa !18
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 120
-  %71 = load ptr, ptr %70, align 8, !tbaa !18
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %73 = load ptr, ptr %72, align 16, !tbaa !18
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %75 = load ptr, ptr %74, align 8, !tbaa !18
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %77 = load ptr, ptr %76, align 16, !tbaa !18
-  %78 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %79 = load ptr, ptr %78, align 8, !tbaa !18
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %81 = load ptr, ptr %80, align 16, !tbaa !18
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %83 = load ptr, ptr %82, align 8, !tbaa !18
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %85 = load ptr, ptr %84, align 16, !tbaa !18
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 184
-  %87 = load ptr, ptr %86, align 8, !tbaa !18
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %89 = load ptr, ptr %88, align 16, !tbaa !18
-  %90 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %91 = load ptr, ptr %90, align 8, !tbaa !18
-  %92 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  %93 = load ptr, ptr %92, align 16, !tbaa !18
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 216
-  %95 = load ptr, ptr %94, align 8, !tbaa !18
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 224
-  %97 = load ptr, ptr %96, align 16, !tbaa !18
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 232
-  %99 = load ptr, ptr %98, align 8, !tbaa !18
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 240
-  %101 = load ptr, ptr %100, align 16, !tbaa !18
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 248
-  %103 = load ptr, ptr %102, align 8, !tbaa !18
-  call void (ptr, ptr, ...) @_ZN6google8protobuf12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %59, ptr noundef %61, ptr noundef %63, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %71, ptr noundef %73, ptr noundef %75, ptr noundef %77, ptr noundef %79, ptr noundef %81, ptr noundef %83, ptr noundef %85, ptr noundef %87, ptr noundef %89, ptr noundef %91, ptr noundef %93, ptr noundef %95, ptr noundef %97, ptr noundef %99, ptr noundef %101, ptr noundef %103)
+  %39 = load ptr, ptr %6, align 16, !tbaa !18
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !18
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %43 = load ptr, ptr %42, align 16, !tbaa !18
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %47 = load ptr, ptr %46, align 16, !tbaa !18
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %49 = load ptr, ptr %48, align 8, !tbaa !18
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %51 = load ptr, ptr %50, align 16, !tbaa !18
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %53 = load ptr, ptr %52, align 8, !tbaa !18
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %55 = load ptr, ptr %54, align 16, !tbaa !18
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %57 = load ptr, ptr %56, align 8, !tbaa !18
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %59 = load ptr, ptr %58, align 16, !tbaa !18
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %61 = load ptr, ptr %60, align 8, !tbaa !18
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %63 = load ptr, ptr %62, align 16, !tbaa !18
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %65 = load ptr, ptr %64, align 8, !tbaa !18
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 112
+  %67 = load ptr, ptr %66, align 16, !tbaa !18
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %69 = load ptr, ptr %68, align 8, !tbaa !18
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %71 = load ptr, ptr %70, align 16, !tbaa !18
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %73 = load ptr, ptr %72, align 8, !tbaa !18
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %75 = load ptr, ptr %74, align 16, !tbaa !18
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %77 = load ptr, ptr %76, align 8, !tbaa !18
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 160
+  %79 = load ptr, ptr %78, align 16, !tbaa !18
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %81 = load ptr, ptr %80, align 8, !tbaa !18
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %83 = load ptr, ptr %82, align 16, !tbaa !18
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 184
+  %85 = load ptr, ptr %84, align 8, !tbaa !18
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %87 = load ptr, ptr %86, align 16, !tbaa !18
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 200
+  %89 = load ptr, ptr %88, align 8, !tbaa !18
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 208
+  %91 = load ptr, ptr %90, align 16, !tbaa !18
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 216
+  %93 = load ptr, ptr %92, align 8, !tbaa !18
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 224
+  %95 = load ptr, ptr %94, align 16, !tbaa !18
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 232
+  %97 = load ptr, ptr %96, align 8, !tbaa !18
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 240
+  %99 = load ptr, ptr %98, align 16, !tbaa !18
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 248
+  %101 = load ptr, ptr %100, align 8, !tbaa !18
+  call void (ptr, ptr, ...) @_ZN6google8protobuf12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef %39, ptr noundef %41, ptr noundef %43, ptr noundef %45, ptr noundef %47, ptr noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %55, ptr noundef %57, ptr noundef %59, ptr noundef %61, ptr noundef %63, ptr noundef %65, ptr noundef %67, ptr noundef %69, ptr noundef %71, ptr noundef %73, ptr noundef %75, ptr noundef %77, ptr noundef %79, ptr noundef %81, ptr noundef %83, ptr noundef %85, ptr noundef %87, ptr noundef %89, ptr noundef %91, ptr noundef %93, ptr noundef %95, ptr noundef %97, ptr noundef %99, ptr noundef %101)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #13
   ret void
 
-.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
-  %indvars.iv33 = phi i64 [ %32, %.lr.ph30.preheader ], [ %indvars.iv.next34, %.lr.ph30 ]
-  %104 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %indvars.iv33
-  store ptr @_ZN6google8protobufL25string_printf_empty_blockE, ptr %104, align 8, !tbaa !18
+.lr.ph30:                                         ; preds = %._crit_edge, %.lr.ph30
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph30 ], [ %29, %._crit_edge ]
+  %102 = getelementptr inbounds nuw [32 x ptr], ptr %6, i64 0, i64 %indvars.iv33
+  store ptr @_ZN6google8protobufL25string_printf_empty_blockE, ptr %102, align 8, !tbaa !18
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
-  %105 = and i64 %indvars.iv.next34, 4294967295
-  %exitcond36.not = icmp eq i64 %105, 32
+  %103 = and i64 %indvars.iv.next34, 4294967295
+  %exitcond36.not = icmp eq i64 %103, 32
   br i1 %exitcond36.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !21
 }
 

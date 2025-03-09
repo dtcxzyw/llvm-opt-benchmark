@@ -659,9 +659,8 @@ define noundef zeroext i1 @_ZN4base14PickleIterator12ReadString16EPNSt7__cxx1112
   br i1 %.not.i, label %17, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 17:                                               ; preds = %11
-  %18 = and i32 %13, 1073741824
-  %.not7.i = icmp eq i32 %18, 0
-  br i1 %.not7.i, label %19, label %._crit_edge.i.i
+  %18 = icmp slt i32 %13, 0
+  br i1 %18, label %._crit_edge.i.i, label %19
 
 19:                                               ; preds = %17
   %20 = sub i64 %4, %10
@@ -716,9 +715,8 @@ define noundef zeroext i1 @_ZN4base14PickleIterator17ReadStringPiece16EPNS_16Bas
   br i1 %.not.i, label %17, label %_ZN4base14PickleIterator7ReadIntEPi.exit
 
 17:                                               ; preds = %11
-  %18 = and i32 %13, 1073741824
-  %.not7.i = icmp eq i32 %18, 0
-  br i1 %.not7.i, label %19, label %._crit_edge.i.i
+  %18 = icmp slt i32 %13, 0
+  br i1 %18, label %._crit_edge.i.i, label %19
 
 19:                                               ; preds = %17
   %20 = sub i64 %4, %10

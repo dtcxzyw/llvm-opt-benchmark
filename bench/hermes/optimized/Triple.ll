@@ -1579,7 +1579,7 @@ if.end.i.i1057:                                   ; preds = %entry
   br i1 %0, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread: ; preds = %entry, %if.end.i.i1057
-  %ref.tmp.sroa.102.0.ph = xor i1 %cmp.i.i1049.not, true
+  %ref.tmp.sroa.102.0.ph = phi i8 [ 0, %entry ], [ 1, %if.end.i.i1057 ]
   %cmp.i.i1018.not393 = icmp ult i64 %OSName.coerce1, 8
   br label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1031
 
@@ -1594,8 +1594,9 @@ if.end.i.i1026:                                   ; preds = %_ZN4llvh12StringSwi
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1031: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread, %if.end.i.i1026, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062
   %cmp.i.i1018.not395 = phi i1 [ true, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062 ], [ false, %if.end.i.i1026 ], [ %cmp.i.i1018.not393, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread ]
-  %ref.tmp.sroa.102.1 = phi i1 [ false, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062 ], [ false, %if.end.i.i1026 ], [ %ref.tmp.sroa.102.0.ph, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread ]
-  %or.cond132 = or i1 %cmp.i.i1049.not, %ref.tmp.sroa.102.1
+  %ref.tmp.sroa.102.1 = phi i8 [ 0, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062 ], [ 0, %if.end.i.i1026 ], [ %ref.tmp.sroa.102.0.ph, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1062.thread ]
+  %tobool.i170 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond132 = or i1 %cmp.i.i1049.not, %tobool.i170
   br i1 %or.cond132, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1000, label %if.end.i.i995
 
 if.end.i.i995:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1031
@@ -1605,7 +1606,7 @@ if.end.i.i995:                                    ; preds = %_ZN4llvh12StringSwi
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1000: ; preds = %if.end.i.i995, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1031
   %cmp.i.i956.not = icmp ult i64 %OSName.coerce1, 9
-  %or.cond133 = or i1 %cmp.i.i956.not, %ref.tmp.sroa.102.1
+  %or.cond133 = or i1 %cmp.i.i956.not, %tobool.i170
   br i1 %or.cond133, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit969, label %if.end.i.i964
 
 if.end.i.i964:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1000
@@ -1614,8 +1615,9 @@ if.end.i.i964:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %3, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit969
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit969: ; preds = %if.end.i.i964, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit1000
+  %tobool.i178 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
   %cmp.i.i925.not = icmp ult i64 %OSName.coerce1, 7
-  %or.cond134 = or i1 %cmp.i.i925.not, %ref.tmp.sroa.102.1
+  %or.cond134 = or i1 %cmp.i.i925.not, %tobool.i178
   br i1 %or.cond134, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit907, label %if.end.i.i933
 
 if.end.i.i933:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit969
@@ -1629,8 +1631,9 @@ if.end.i.i902:                                    ; preds = %if.end.i.i933
   br i1 %5, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit907
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit907: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit969, %if.end.i.i902
+  %tobool.i186 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
   %cmp.i.i863.not = icmp ult i64 %OSName.coerce1, 3
-  %or.cond136 = or i1 %cmp.i.i863.not, %ref.tmp.sroa.102.1
+  %or.cond136 = or i1 %cmp.i.i863.not, %tobool.i186
   br i1 %or.cond136, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit876, label %if.end.i.i871
 
 if.end.i.i871:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit907
@@ -1639,7 +1642,7 @@ if.end.i.i871:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %6, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit876
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit876: ; preds = %if.end.i.i871, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit907
-  %or.cond137 = or i1 %cmp.i.i1018.not395, %ref.tmp.sroa.102.1
+  %or.cond137 = or i1 %cmp.i.i1018.not395, %tobool.i186
   br i1 %or.cond137, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit845, label %if.end.i.i840
 
 if.end.i.i840:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit876
@@ -1648,8 +1651,9 @@ if.end.i.i840:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %7, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit845
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit845: ; preds = %if.end.i.i840, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit876
+  %tobool.i194 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
   %cmp.i.i801.not = icmp ult i64 %OSName.coerce1, 5
-  %or.cond138 = or i1 %cmp.i.i801.not, %ref.tmp.sroa.102.1
+  %or.cond138 = or i1 %cmp.i.i801.not, %tobool.i194
   br i1 %or.cond138, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit814, label %if.end.i.i809
 
 if.end.i.i809:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit845
@@ -1658,7 +1662,8 @@ if.end.i.i809:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %8, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit814
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit814: ; preds = %if.end.i.i809, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit845
-  br i1 %or.cond136, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit783, label %if.end.i.i778
+  %or.cond139 = or i1 %cmp.i.i863.not, %tobool.i194
+  br i1 %or.cond139, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit783, label %if.end.i.i778
 
 if.end.i.i778:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit814
   %bcmp107 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %OSName.coerce0, ptr noundef nonnull dereferenceable(3) @.str.83, i64 3)
@@ -1666,7 +1671,9 @@ if.end.i.i778:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %9, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit783
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit783: ; preds = %if.end.i.i778, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit814
-  br i1 %or.cond138, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit752, label %if.end.i.i747
+  %tobool.i202 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond140 = or i1 %cmp.i.i801.not, %tobool.i202
+  br i1 %or.cond140, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit752, label %if.end.i.i747
 
 if.end.i.i747:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit783
   %bcmp108 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %OSName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.139, i64 5)
@@ -1674,7 +1681,8 @@ if.end.i.i747:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %10, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit752
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit752: ; preds = %if.end.i.i747, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit783
-  br i1 %or.cond132, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit721, label %if.end.i.i716
+  %or.cond141 = or i1 %cmp.i.i1049.not, %tobool.i202
+  br i1 %or.cond141, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit721, label %if.end.i.i716
 
 if.end.i.i716:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit752
   %bcmp109 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %OSName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.85, i64 6)
@@ -1682,7 +1690,9 @@ if.end.i.i716:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %11, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit721
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit721: ; preds = %if.end.i.i716, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit752
-  br i1 %or.cond134, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit659, label %if.end.i.i685
+  %tobool.i210 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond142 = or i1 %cmp.i.i925.not, %tobool.i210
+  br i1 %or.cond142, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit659, label %if.end.i.i685
 
 if.end.i.i685:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit721
   %bcmp110 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %OSName.coerce0, ptr noundef nonnull dereferenceable(7) @.str.86, i64 7)
@@ -1695,7 +1705,9 @@ if.end.i.i654:                                    ; preds = %if.end.i.i685
   br i1 %13, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit659
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit659: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit721, %if.end.i.i654
-  br i1 %or.cond138, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit628, label %if.end.i.i623
+  %tobool.i218 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond144 = or i1 %cmp.i.i801.not, %tobool.i218
+  br i1 %or.cond144, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit628, label %if.end.i.i623
 
 if.end.i.i623:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit659
   %bcmp112 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %OSName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.185, i64 5)
@@ -1703,7 +1715,8 @@ if.end.i.i623:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %14, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit628
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit628: ; preds = %if.end.i.i623, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit659
-  br i1 %or.cond134, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597, label %if.end.i.i592
+  %or.cond145 = or i1 %cmp.i.i925.not, %tobool.i218
+  br i1 %or.cond145, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597, label %if.end.i.i592
 
 if.end.i.i592:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit628
   %bcmp113 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %OSName.coerce0, ptr noundef nonnull dereferenceable(7) @.str.88, i64 7)
@@ -1711,7 +1724,9 @@ if.end.i.i592:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %15, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597: ; preds = %if.end.i.i592, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit628
-  br i1 %or.cond138, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504, label %if.end.i.i561
+  %tobool.i226 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond146 = or i1 %cmp.i.i801.not, %tobool.i226
+  br i1 %or.cond146, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535, label %if.end.i.i561
 
 if.end.i.i561:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597
   %bcmp114 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %OSName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.89, i64 5)
@@ -1721,16 +1736,21 @@ if.end.i.i561:                                    ; preds = %_ZN4llvh12StringSwi
 if.end.i.i530:                                    ; preds = %if.end.i.i561
   %bcmp115 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %OSName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.90, i64 5)
   %17 = icmp eq i32 %bcmp115, 0
-  br i1 %17, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %if.end.i.i499
+  br i1 %17, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535
 
-if.end.i.i499:                                    ; preds = %if.end.i.i530
+_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597, %if.end.i.i530
+  %tobool.i234 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond148 = or i1 %cmp.i.i801.not, %tobool.i234
+  br i1 %or.cond148, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504, label %if.end.i.i499
+
+if.end.i.i499:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535
   %bcmp116 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %OSName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.91, i64 5)
   %18 = icmp eq i32 %bcmp116, 0
   br i1 %18, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504
 
-_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597, %if.end.i.i499
+_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504: ; preds = %if.end.i.i499, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535
   %cmp.i.i460.not = icmp ult i64 %OSName.coerce1, 4
-  %or.cond149 = or i1 %cmp.i.i460.not, %ref.tmp.sroa.102.1
+  %or.cond149 = or i1 %cmp.i.i460.not, %tobool.i234
   br i1 %or.cond149, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit473, label %if.end.i.i468
 
 if.end.i.i468:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504
@@ -1739,7 +1759,9 @@ if.end.i.i468:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %19, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit473
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit473: ; preds = %if.end.i.i468, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504
-  br i1 %or.cond136, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit411, label %if.end.i.i437
+  %tobool.i242 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond150 = or i1 %cmp.i.i863.not, %tobool.i242
+  br i1 %or.cond150, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit411, label %if.end.i.i437
 
 if.end.i.i437:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit473
   %bcmp118 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %OSName.coerce0, ptr noundef nonnull dereferenceable(3) @.str.93, i64 3)
@@ -1752,7 +1774,9 @@ if.end.i.i406:                                    ; preds = %if.end.i.i437
   br i1 %21, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit411
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit411: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit473, %if.end.i.i406
-  br i1 %or.cond149, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit349, label %if.end.i.i375
+  %tobool.i250 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond152 = or i1 %cmp.i.i460.not, %tobool.i250
+  br i1 %or.cond152, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit349, label %if.end.i.i375
 
 if.end.i.i375:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit411
   %bcmp120 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %OSName.coerce0, ptr noundef nonnull dereferenceable(4) @.str.95, i64 4)
@@ -1765,7 +1789,9 @@ if.end.i.i344:                                    ; preds = %if.end.i.i375
   br i1 %23, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit349
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit349: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit411, %if.end.i.i344
-  br i1 %or.cond132, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit318, label %if.end.i.i313
+  %tobool.i258 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond154 = or i1 %cmp.i.i1049.not, %tobool.i258
+  br i1 %or.cond154, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit318, label %if.end.i.i313
 
 if.end.i.i313:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit349
   %bcmp122 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %OSName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.97, i64 6)
@@ -1773,7 +1799,8 @@ if.end.i.i313:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %24, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit318
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit318: ; preds = %if.end.i.i313, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit349
-  br i1 %or.cond136, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit287, label %if.end.i.i282
+  %or.cond155 = or i1 %cmp.i.i863.not, %tobool.i258
+  br i1 %or.cond155, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit287, label %if.end.i.i282
 
 if.end.i.i282:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit318
   %bcmp123 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %OSName.coerce0, ptr noundef nonnull dereferenceable(3) @.str.98, i64 3)
@@ -1781,7 +1808,9 @@ if.end.i.i282:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %25, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit287
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit287: ; preds = %if.end.i.i282, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit318
-  br i1 %or.cond137, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit256, label %if.end.i.i251
+  %tobool.i266 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond156 = or i1 %cmp.i.i1018.not395, %tobool.i266
+  br i1 %or.cond156, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit256, label %if.end.i.i251
 
 if.end.i.i251:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit287
   %bcmp124 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %OSName.coerce0, ptr noundef nonnull dereferenceable(8) @.str.99, i64 8)
@@ -1789,7 +1818,8 @@ if.end.i.i251:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %26, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit256
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit256: ; preds = %if.end.i.i251, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit287
-  br i1 %or.cond149, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit225, label %if.end.i.i220
+  %or.cond157 = or i1 %cmp.i.i460.not, %tobool.i266
+  br i1 %or.cond157, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit225, label %if.end.i.i220
 
 if.end.i.i220:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit256
   %bcmp125 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %OSName.coerce0, ptr noundef nonnull dereferenceable(4) @.str.100, i64 4)
@@ -1797,7 +1827,9 @@ if.end.i.i220:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %27, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit225
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit225: ; preds = %if.end.i.i220, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit256
-  br i1 %or.cond134, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit194, label %if.end.i.i189
+  %tobool.i274 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond158 = or i1 %cmp.i.i925.not, %tobool.i274
+  br i1 %or.cond158, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit194, label %if.end.i.i189
 
 if.end.i.i189:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit225
   %bcmp126 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %OSName.coerce0, ptr noundef nonnull dereferenceable(7) @.str.101, i64 7)
@@ -1805,7 +1837,8 @@ if.end.i.i189:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %28, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit194
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit194: ; preds = %if.end.i.i189, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit225
-  br i1 %or.cond132, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit163, label %if.end.i.i158
+  %or.cond159 = or i1 %cmp.i.i1049.not, %tobool.i274
+  br i1 %or.cond159, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit163, label %if.end.i.i158
 
 if.end.i.i158:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit194
   %bcmp127 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %OSName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.102, i64 6)
@@ -1813,7 +1846,9 @@ if.end.i.i158:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %29, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit163
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit163: ; preds = %if.end.i.i158, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit194
-  br i1 %or.cond134, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132, label %if.end.i.i127
+  %tobool.i282 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond160 = or i1 %cmp.i.i925.not, %tobool.i282
+  br i1 %or.cond160, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132, label %if.end.i.i127
 
 if.end.i.i127:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit163
   %bcmp128 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %OSName.coerce0, ptr noundef nonnull dereferenceable(7) @.str.103, i64 7)
@@ -1821,20 +1856,26 @@ if.end.i.i127:                                    ; preds = %_ZN4llvh12StringSwi
   br i1 %30, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132: ; preds = %if.end.i.i127, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit163
-  br i1 %or.cond132, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit, label %if.end.i.i96
+  %or.cond161 = or i1 %cmp.i.i1049.not, %tobool.i282
+  br i1 %or.cond161, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit101, label %if.end.i.i96
 
 if.end.i.i96:                                     ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132
   %bcmp129 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %OSName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.104, i64 6)
   %31 = icmp eq i32 %bcmp129, 0
-  br i1 %31, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %if.end.i.i
+  br i1 %31, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit101
 
-if.end.i.i:                                       ; preds = %if.end.i.i96
+_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit101: ; preds = %if.end.i.i96, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132
+  %tobool.i290 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
+  %or.cond162 = or i1 %cmp.i.i1049.not, %tobool.i290
+  br i1 %or.cond162, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit, label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit101
   %bcmp130 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %OSName.coerce0, ptr noundef nonnull dereferenceable(6) @.str.105, i64 6)
   %32 = icmp eq i32 %bcmp130, 0
   br i1 %32, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit
 
-_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit132, %if.end.i.i
-  %spec.select = zext i1 %ref.tmp.sroa.102.1 to i32
+_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit: ; preds = %if.end.i.i, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit101
+  %spec.select = zext nneg i8 %ref.tmp.sroa.102.1 to i32
   br label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit
 
 _ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit, %if.end.i.i, %if.end.i.i96, %if.end.i.i127, %if.end.i.i158, %if.end.i.i189, %if.end.i.i220, %if.end.i.i251, %if.end.i.i282, %if.end.i.i313, %if.end.i.i344, %if.end.i.i375, %if.end.i.i406, %if.end.i.i437, %if.end.i.i468, %if.end.i.i499, %if.end.i.i530, %if.end.i.i561, %if.end.i.i592, %if.end.i.i623, %if.end.i.i654, %if.end.i.i685, %if.end.i.i716, %if.end.i.i747, %if.end.i.i778, %if.end.i.i809, %if.end.i.i840, %if.end.i.i871, %if.end.i.i902, %if.end.i.i933, %if.end.i.i964, %if.end.i.i995, %if.end.i.i1026

@@ -2433,7 +2433,7 @@ GC_find_starting_hblk.exit:                       ; preds = %GC_find_header.exit
 .thread:                                          ; preds = %75
   %77 = trunc i64 %5 to i16
   %.lhs.trunc = and i16 %77, 4095
-  %.rhs.trunc = trunc nuw i64 %69 to i16
+  %.rhs.trunc = trunc nuw nsw i64 %69 to i16
   %78 = urem i16 %.lhs.trunc, %.rhs.trunc
   %.zext = zext nneg i16 %78 to i64
   %79 = sub nsw i64 0, %.zext
@@ -13854,7 +13854,7 @@ GC_find_header.exit140:                           ; preds = %239
   br i1 %252, label %257, label %253
 
 253:                                              ; preds = %GC_find_header.exit140
-  %.rhs.trunc.i = trunc nuw i64 %251 to i16
+  %.rhs.trunc.i = trunc nuw nsw i64 %251 to i16
   %254 = urem i16 4096, %.rhs.trunc.i
   %narrow.i = sub nuw nsw i16 4096, %254
   %255 = lshr i16 %narrow.i, 4
@@ -14701,7 +14701,7 @@ GC_disclaim_and_reclaim.exit:                     ; preds = %58, %41, %88, %77, 
   br i1 %110, label %115, label %111
 
 111:                                              ; preds = %107
-  %.rhs.trunc.i = trunc nuw i64 %109 to i16
+  %.rhs.trunc.i = trunc nuw nsw i64 %109 to i16
   %112 = urem i16 4096, %.rhs.trunc.i
   %narrow.i = sub nuw nsw i16 4096, %112
   %113 = lshr i16 %narrow.i, 4
@@ -17129,7 +17129,7 @@ define hidden i32 @GC_n_set_marks(ptr noundef readonly captures(none) %0) local_
   br i1 %5, label %.lr.ph, label %6
 
 6:                                                ; preds = %1
-  %.rhs.trunc = trunc nuw i64 %3 to i16
+  %.rhs.trunc = trunc nuw nsw i64 %3 to i16
   %7 = urem i16 4096, %.rhs.trunc
   %narrow = sub nuw nsw i16 4096, %7
   %8 = lshr i16 %narrow, 4
@@ -17188,7 +17188,7 @@ GC_find_header.exit:                              ; preds = %7
   br i1 %21, label %.lr.ph.i, label %22
 
 22:                                               ; preds = %GC_find_header.exit
-  %.rhs.trunc.i = trunc nuw i64 %19 to i16
+  %.rhs.trunc.i = trunc nuw nsw i64 %19 to i16
   %23 = urem i16 4096, %.rhs.trunc.i
   %narrow.i = sub nuw nsw i16 4096, %23
   %24 = lshr i16 %narrow.i, 4
@@ -17284,7 +17284,7 @@ GC_find_header.exit.i:                            ; preds = %21
   br i1 %35, label %.lr.ph.i.i, label %36
 
 36:                                               ; preds = %GC_find_header.exit.i
-  %.rhs.trunc.i.i = trunc nuw i64 %33 to i16
+  %.rhs.trunc.i.i = trunc nuw nsw i64 %33 to i16
   %37 = urem i16 4096, %.rhs.trunc.i.i
   %narrow.i.i = sub nuw nsw i16 4096, %37
   %38 = lshr i16 %narrow.i.i, 4
@@ -19830,7 +19830,7 @@ define internal fastcc void @set_incremental_mode_on() unnamed_addr #2 {
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %58 = call i64 @strtoul(ptr noundef nonnull %57, ptr noundef nonnull %2, i32 noundef 10) #47
-  %59 = trunc i64 %58 to i32
+  %59 = trunc nuw nsw i64 %58 to i32
   %or.cond18.i.i.i.i = icmp ult i64 %58, 2147483648
   br i1 %or.cond18.i.i.i.i, label %GC_parse_version.exit.i.i.i, label %ensure_min_linux_ver.exit.thread22.i.i
 
@@ -20738,7 +20738,7 @@ GC_stop_init.exit:                                ; preds = %149
 175:                                              ; preds = %173
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 1
   %177 = call i64 @strtoul(ptr noundef nonnull %176, ptr noundef nonnull %1, i32 noundef 10) #47
-  %178 = trunc i64 %177 to i32
+  %178 = trunc nuw nsw i64 %177 to i32
   %or.cond18.i.i = icmp ult i64 %177, 2147483648
   br i1 %or.cond18.i.i, label %GC_parse_version.exit.i, label %.thread.i
 
@@ -20755,7 +20755,7 @@ GC_parse_version.exit.i:                          ; preds = %175, %173
 180:                                              ; preds = %GC_parse_version.exit.i
   %181 = icmp eq i32 %168, 2
   %182 = icmp sgt i32 %.1.i, 18
-  %or.cond.i24 = and i1 %181, %182
+  %or.cond.i24 = select i1 %181, i1 %182, i1 false
   br i1 %or.cond.i24, label %183, label %setup_mark_lock.exit
 
 183:                                              ; preds = %180, %GC_parse_version.exit.i
@@ -40952,7 +40952,7 @@ GC_find_header.exit.i32:                          ; preds = %90
   br i1 %103, label %108, label %104
 
 104:                                              ; preds = %GC_find_header.exit.i32
-  %.rhs.trunc.i.i = trunc nuw i64 %102 to i16
+  %.rhs.trunc.i.i = trunc nuw nsw i64 %102 to i16
   %105 = urem i16 4096, %.rhs.trunc.i.i
   %narrow.i.i = sub nuw nsw i16 4096, %105
   %106 = lshr i16 %narrow.i.i, 4
@@ -42366,7 +42366,7 @@ define internal fastcc signext range(i8 0, 2) i8 @setup_header(ptr noundef initi
   br i1 %.not20.i, label %48, label %45, !prof !13
 
 45:                                               ; preds = %43
-  %46 = trunc nuw i64 %spec.store.select.i to i32
+  %46 = trunc nuw nsw i64 %spec.store.select.i to i32
   %47 = shl nuw nsw i32 %46, 4
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.216, i32 noundef %46, i32 noundef %47)
   br label %48

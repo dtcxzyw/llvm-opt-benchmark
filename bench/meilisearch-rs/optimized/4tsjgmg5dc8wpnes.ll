@@ -4352,7 +4352,7 @@ default.unreachable2.i26.i.i.i.i:                 ; preds = %99
 
 118:                                              ; preds = %115, %89
   %.sroa.12.0.in = phi i64 [ %.sroa.237.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
-  %.sroa.12.0 = trunc i64 %.sroa.12.0.in to i8
+  %.sroa.12.0 = trunc nsw i64 %.sroa.12.0.in to i8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %119, align 1
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -4701,7 +4701,7 @@ default.unreachable2.i25.i.i.i.i:                 ; preds = %99
 
 118:                                              ; preds = %115, %89
   %.sroa.12.0.in = phi i64 [ %.sroa.236.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
-  %.sroa.12.0 = trunc i64 %.sroa.12.0.in to i8
+  %.sroa.12.0 = trunc nuw i64 %.sroa.12.0.in to i8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %119, align 1
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -5214,7 +5214,7 @@ default.unreachable2.i26.i.i.i.i:                 ; preds = %99
 
 118:                                              ; preds = %115, %89
   %.sroa.12.0.in = phi i64 [ %.sroa.236.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
-  %.sroa.12.0 = trunc i64 %.sroa.12.0.in to i32
+  %.sroa.12.0 = trunc nsw i64 %.sroa.12.0.in to i32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5727,7 +5727,7 @@ default.unreachable2.i25.i.i.i.i:                 ; preds = %99
 
 118:                                              ; preds = %115, %89
   %.sroa.12.0.in = phi i64 [ %.sroa.235.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
-  %.sroa.12.0 = trunc i64 %.sroa.12.0.in to i32
+  %.sroa.12.0 = trunc nuw i64 %.sroa.12.0.in to i32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %119, align 4
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6076,7 +6076,7 @@ default.unreachable2.i25.i.i.i.i:                 ; preds = %99
 
 118:                                              ; preds = %115, %89
   %.sroa.12.0.in = phi i64 [ %.sroa.236.0.copyload.i.i.i.i, %115 ], [ %.sroa.2.0.copyload.i.i.i.i, %89 ]
-  %.sroa.12.0 = trunc i64 %.sroa.12.0.in to i16
+  %.sroa.12.0 = trunc nuw i64 %.sroa.12.0.in to i16
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 1, ptr %119, align 2
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8732,7 +8732,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.7142.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %86, i64 12
   %.sroa.7142.0.copyload.i = load i32, ptr %.sroa.7142.0..sroa_idx.i, align 4, !noalias !2048
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %86), !noalias !2048
-  %266 = trunc i8 %262 to i1
+  %266 = trunc nuw i8 %262 to i1
   br i1 %266, label %.invoke, label %268
 
 267:                                              ; preds = %260
@@ -8757,7 +8757,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.7147.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %85, i64 12
   %.sroa.7147.0.copyload.i = load i32, ptr %.sroa.7147.0..sroa_idx.i, align 4, !noalias !2048
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %85), !noalias !2048
-  %275 = trunc i8 %271 to i1
+  %275 = trunc nuw i8 %271 to i1
   br i1 %275, label %.invoke, label %279
 
 276:                                              ; preds = %269
@@ -8879,10 +8879,8 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.32.0 = phi i8 [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %253, %279 ]
   %.sroa.30.0 = phi ptr [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %255, %279 ]
   %.sroa.29.0 = phi i32 [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %.sroa.7147.0.copyload.i, %279 ]
-  %.sroa.28.0 = phi i8 [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %271, %279 ]
   %.sroa.26.0 = phi ptr [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %273, %279 ]
   %.sroa.25.0 = phi i32 [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %.sroa.7142.0.copyload.i, %279 ]
-  %.sroa.24.0 = phi i8 [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %262, %279 ]
   %.sroa.2290.0 = phi ptr [ undef, %142 ], [ undef, %143 ], [ undef, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %264, %279 ]
   %.sroa.14.5 = phi ptr [ %139, %142 ], [ %144, %143 ], [ %.sroa.14.1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ %.sroa.14.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %.sroa.0112.sroa.0.sroa.0.i.sroa.4.0.copyload, %279 ]
   %.sroa.087.5 = phi i64 [ -9223372036854775808, %142 ], [ -9223372036854775808, %143 ], [ -9223372036854775808, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h142f1041b57afb0cE.exit.i" ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he66bee07c28499bfE.exit.i217.i" ], [ %.sroa.0112.sroa.0.sroa.0.i.sroa.0.0.copyload, %279 ]
@@ -8937,7 +8935,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.23.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.23, i64 3, i1 false)
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 107
-  store i8 %.sroa.24.0, ptr %.sroa.24.0..sroa_idx, align 1
+  store i8 0, ptr %.sroa.24.0..sroa_idx, align 1
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 108
   store i32 %.sroa.25.0, ptr %.sroa.25.0..sroa_idx, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 112
@@ -8945,7 +8943,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %.sroa.27.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3) %.sroa.27, i64 3, i1 false)
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 123
-  store i8 %.sroa.28.0, ptr %.sroa.28.0..sroa_idx, align 1
+  store i8 0, ptr %.sroa.28.0..sroa_idx, align 1
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 124
   store i32 %.sroa.29.0, ptr %.sroa.29.0..sroa_idx, align 4
   %.sroa.30.0..sroa_idx = getelementptr inbounds nuw i8, ptr %99, i64 128

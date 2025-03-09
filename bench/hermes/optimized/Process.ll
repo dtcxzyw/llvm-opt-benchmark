@@ -1094,6 +1094,7 @@ land.lhs.true.i47.i:                              ; preds = %land.rhs
 if.end.i160.i:                                    ; preds = %land.lhs.true.i47.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %call.i2, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
   %0 = icmp eq i32 %bcmp.i, 0
+  %spec.select.i = zext i1 %0 to i8
   br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i
 
 if.end.i168.i:                                    ; preds = %land.lhs.true.i47.i
@@ -1116,7 +1117,7 @@ if.end.i.i.i:                                     ; preds = %_ZN4llvh12StringSwi
   br i1 %3, label %if.then.i118.i, label %if.end.i.i202.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i: ; preds = %if.end.i177.i, %if.end.i168.i, %if.end.i160.i
-  %ref.tmp.sroa.28.3.ph.i = phi i1 [ true, %if.end.i168.i ], [ true, %if.end.i177.i ], [ %0, %if.end.i160.i ]
+  %ref.tmp.sroa.28.3.ph.i = phi i8 [ 1, %if.end.i168.i ], [ 1, %if.end.i177.i ], [ %spec.select.i, %if.end.i160.i ]
   %cmp.i198.not153.i = icmp samesign ult i64 %call.i.i, 5
   br label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
 
@@ -1127,8 +1128,9 @@ if.end.i.i202.i:                                  ; preds = %if.end.i.i.i, %if.e
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i: ; preds = %if.end.i.i202.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i
   %cmp.i198.not120.i = phi i1 [ false, %if.end.i.i202.i ], [ %cmp.i198.not153.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
-  %ref.tmp.sroa.28.4.i = phi i1 [ false, %if.end.i.i202.i ], [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
-  %or.cond36.i = select i1 %ref.tmp.sroa.28.4.i, i1 true, i1 %cmp.i198.not120.i
+  %ref.tmp.sroa.28.4.i = phi i8 [ 0, %if.end.i.i202.i ], [ %ref.tmp.sroa.28.3.ph.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit100.thread149.i ]
+  %tobool.i62.i = trunc nuw i8 %ref.tmp.sroa.28.4.i to i1
+  %or.cond36.i = select i1 %tobool.i62.i, i1 true, i1 %cmp.i198.not120.i
   br i1 %or.cond36.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i, label %if.end.i.i221.i
 
 if.end.i.i221.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i
@@ -1137,10 +1139,11 @@ if.end.i.i221.i:                                  ; preds = %_ZN4llvh12StringSwi
   br i1 %5, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i: ; preds = %if.end.i.i221.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i
-  %or.cond36161.i = phi i1 [ false, %if.end.i.i221.i ], [ true, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
-  %ref.tmp.sroa.28.4160.i = phi i1 [ false, %if.end.i.i221.i ], [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %tobool.i62163.i = phi i1 [ false, %if.end.i.i221.i ], [ %tobool.i62.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %ref.tmp.sroa.28.4162.i = phi i8 [ 0, %if.end.i.i221.i ], [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ 0, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %cmp.i198.not120161.i = phi i1 [ false, %if.end.i.i221.i ], [ %cmp.i198.not120.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
   %cmp.i236.not.i = icmp ult i64 %call.i.i, 4
-  %or.cond37.i = or i1 %cmp.i236.not.i, %ref.tmp.sroa.28.4160.i
+  %or.cond37.i = or i1 %cmp.i236.not.i, %tobool.i62163.i
   br i1 %or.cond37.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i240.i
 
 if.end.i.i240.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
@@ -1149,7 +1152,10 @@ if.end.i.i240.i:                                  ; preds = %_ZN4llvh12StringSwi
   br i1 %6, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i: ; preds = %if.end.i.i240.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
-  br i1 %or.cond36161.i, label %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i259.i
+  %ref.tmp.sroa.28.6.i = phi i8 [ %ref.tmp.sroa.28.4162.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i ], [ 0, %if.end.i.i240.i ]
+  %tobool.i72.i = trunc nuw i8 %ref.tmp.sroa.28.6.i to i1
+  %or.cond38.i = select i1 %tobool.i72.i, i1 true, i1 %cmp.i198.not120161.i
+  br i1 %or.cond38.i, label %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i259.i
 
 if.end.i.i259.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
   %add.ptr.i73.i = getelementptr inbounds i8, ptr %call.i2, i64 %call.i.i
@@ -1159,7 +1165,7 @@ if.end.i.i259.i:                                  ; preds = %_ZN4llvh12StringSwi
   br i1 %7, label %if.then.i118.i, label %land.end
 
 _ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i: ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i
-  br i1 %ref.tmp.sroa.28.4160.i, label %if.then.i118.i, label %land.end
+  br i1 %tobool.i72.i, label %if.then.i118.i, label %land.end
 
 if.then.i118.i:                                   ; preds = %_ZN4llvh12StringSwitchIbbE8EndsWithENS_13StringLiteralEb.exit.i, %if.end.i.i259.i, %if.end.i.i240.i, %if.end.i.i221.i, %if.end.i.i202.i, %if.end.i.i.i
   br label %land.end

@@ -1834,7 +1834,7 @@ RSTRING_PTR.exit:                                 ; preds = %6, %10
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %17
-  %19 = trunc nuw i64 %4 to i32
+  %19 = trunc nuw nsw i64 %4 to i32
   %20 = add nuw i32 %19, 2
   br label %21
 
@@ -3462,7 +3462,7 @@ init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %163
 174:                                              ; preds = %168, %init_addrinfo_getaddrinfo.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  br label %200
+  br label %199
 
 175:                                              ; preds = %66
   %176 = call i64 @rb_string_value(ptr noundef nonnull %5) #21
@@ -3491,8 +3491,8 @@ RSTRING_PTR.exit41:                               ; preds = %175, %182
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit41
-  %187 = trunc i64 %184 to i32
-  %188 = icmp ugt i32 %187, 2048
+  %187 = trunc nsw i64 %184 to i32
+  %188 = icmp ugt i64 %184, 2048
   br i1 %188, label %189, label %191
 
 189:                                              ; preds = %RSTRING_LENINT.exit
@@ -3501,29 +3501,28 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit41
   unreachable
 
 191:                                              ; preds = %RSTRING_LENINT.exit
-  %.not.i.i43 = icmp eq i32 %187, 0
+  %.not.i.i43 = icmp eq i64 %184, 0
   br i1 %.not.i.i43, label %init_addrinfo.exit, label %192
 
 192:                                              ; preds = %191
-  %193 = and i64 %184, 4095
-  %194 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %195 = call ptr @__memcpy_chk(ptr noundef nonnull %194, ptr noundef nonnull readonly %.sroa.2.0.i40, i64 noundef range(i64 1, 0) %193, i64 noundef 2048) #21, !alias.scope !178
+  %193 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %194 = call ptr @__memcpy_chk(ptr noundef nonnull %193, ptr noundef nonnull readonly %.sroa.2.0.i40, i64 noundef range(i64 1, 0) %184, i64 noundef 2048) #21, !alias.scope !178
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %191, %192
-  %196 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i32 %187, ptr %196, align 4, !tbaa !118
-  %197 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 %50, ptr %197, align 8, !tbaa !119
-  %198 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %56, ptr %198, align 4, !tbaa !120
-  %199 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 %67, ptr %199, align 8, !tbaa !121
+  %195 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  store i32 %187, ptr %195, align 4, !tbaa !118
+  %196 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 %50, ptr %196, align 8, !tbaa !119
+  %197 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  store i32 %56, ptr %197, align 4, !tbaa !120
+  %198 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i32 %67, ptr %198, align 8, !tbaa !121
   store i64 4, ptr %20, align 8, !tbaa !111
   store i64 4, ptr %19, align 8, !tbaa !109
-  br label %200
+  br label %199
 
-200:                                              ; preds = %init_addrinfo.exit, %174
+199:                                              ; preds = %init_addrinfo.exit, %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
@@ -6205,7 +6204,7 @@ RSTRING_PTR.exit.i:                               ; preds = %20, %22
   br i1 %25, label %rsock_unix_sockaddr_len.exit, label %init_addrinfo.exit
 
 rsock_unix_sockaddr_len.exit:                     ; preds = %RSTRING_PTR.exit.i
-  %26 = trunc nuw i64 %10 to i32
+  %26 = trunc nuw nsw i64 %10 to i32
   %27 = add nuw nsw i32 %26, 2
   br label %init_addrinfo.exit
 

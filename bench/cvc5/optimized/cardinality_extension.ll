@@ -14782,6 +14782,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit: ; pre
 .preheader.lr.ph:                                 ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %wide.trip.count97 = and i64 %.lcssa85, 4294967295
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge89
@@ -14791,7 +14792,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit: ; pre
 
 ._crit_edge89:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %.preheader
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %.lcssa85
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
   br i1 %exitcond98.not, label %._crit_edge91.loopexit, label %.preheader, !llvm.loop !529
 
 .lr.ph88:                                         ; preds = %.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit

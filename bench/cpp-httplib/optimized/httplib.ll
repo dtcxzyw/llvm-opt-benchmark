@@ -2553,7 +2553,7 @@ define noundef range(i64 0, 5) i64 @_ZN7httplib6detail7to_utf8EiPc(i32 noundef %
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %1, align 1, !tbaa !14
   %13 = trunc i32 %0 to i8
@@ -2569,7 +2569,7 @@ define noundef range(i64 0, 5) i64 @_ZN7httplib6detail7to_utf8EiPc(i32 noundef %
 
 19:                                               ; preds = %17
   %20 = lshr i32 %0, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %1, align 1, !tbaa !14
   %23 = lshr i32 %0, 6
@@ -2595,7 +2595,7 @@ define noundef range(i64 0, 5) i64 @_ZN7httplib6detail7to_utf8EiPc(i32 noundef %
 
 36:                                               ; preds = %34
   %37 = lshr i32 %0, 12
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -32
   store i8 %39, ptr %1, align 1, !tbaa !14
   %40 = lshr i32 %0, 6
@@ -2617,7 +2617,7 @@ define noundef range(i64 0, 5) i64 @_ZN7httplib6detail7to_utf8EiPc(i32 noundef %
 
 51:                                               ; preds = %49
   %52 = lshr i32 %0, 18
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -16
   store i8 %54, ptr %1, align 1, !tbaa !14
   %55 = lshr i32 %0, 12
@@ -3663,7 +3663,7 @@ _ZN7httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 52:                                               ; preds = %50
   %53 = lshr i32 %43, 6
-  %54 = trunc nuw i32 %53 to i8
+  %54 = trunc nuw nsw i32 %53 to i8
   %55 = or disjoint i8 %54, -64
   store i8 %55, ptr %4, align 1, !tbaa !14
   %56 = trunc i32 %43 to i8
@@ -3678,7 +3678,7 @@ _ZN7httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 61:                                               ; preds = %59
   %62 = lshr i32 %43, 12
-  %63 = trunc nuw i32 %62 to i8
+  %63 = trunc nuw nsw i32 %62 to i8
   %64 = or disjoint i8 %63, -32
   store i8 %64, ptr %4, align 1, !tbaa !14
   %65 = lshr i32 %43, 6
@@ -3702,7 +3702,7 @@ _ZN7httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 76:                                               ; preds = %74
   %77 = lshr i32 %43, 12
-  %78 = trunc nuw i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   %79 = or disjoint i8 %78, -32
   store i8 %79, ptr %4, align 1, !tbaa !14
   %80 = lshr i32 %43, 6
@@ -3722,7 +3722,7 @@ _ZN7httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 89:                                               ; preds = %87
   %90 = lshr i32 %43, 18
-  %91 = trunc nuw i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or disjoint i8 %91, -16
   store i8 %92, ptr %4, align 1, !tbaa !14
   %93 = lshr i32 %43, 12
@@ -7213,7 +7213,7 @@ _ZNSt8functionIFviEEC2EOS1_.exit:                 ; preds = %15, %42
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit.i: ; preds = %62, %.noexc
   %64 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %22, ptr %64, align 8, !tbaa !156
-  %65 = trunc nuw i64 %49 to i32
+  %65 = trunc nuw nsw i64 %49 to i32
   %66 = add nuw nsw i32 %65, 2
   %67 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %66, ptr %67, align 8, !tbaa !157
@@ -7409,7 +7409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
   br label %_ZNSt7__cxx119to_stringEi.exit.i
 
 150:                                              ; preds = %._crit_edge.i.i.i
-  %151 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %151 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %152 = or disjoint i8 %151, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i
 
@@ -11595,7 +11595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 60:                                               ; preds = %._crit_edge.i.i8
-  %61 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %61 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %62 = or disjoint i8 %61, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -15322,7 +15322,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %26, %24, %20, %16, 
   br label %65
 
 62:                                               ; preds = %._crit_edge.i.i20
-  %63 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %63 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %65
 
@@ -15472,7 +15472,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i29:  ; preds = %95, %93, %89, %85, 
   br label %134
 
 131:                                              ; preds = %._crit_edge.i.i31
-  %132 = trunc nuw i64 %.0.lcssa.i.i32 to i8
+  %132 = trunc nuw nsw i64 %.0.lcssa.i.i32 to i8
   %133 = or disjoint i8 %132, 48
   br label %134
 
@@ -15629,7 +15629,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i54:  ; preds = %164, %162, %158, %1
   br label %203
 
 200:                                              ; preds = %._crit_edge.i.i56
-  %201 = trunc nuw i64 %.0.lcssa.i.i57 to i8
+  %201 = trunc nuw nsw i64 %.0.lcssa.i.i57 to i8
   %202 = or disjoint i8 %201, 48
   br label %203
 
@@ -26559,7 +26559,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %50, %48, %44, %40, 
   br label %88
 
 85:                                               ; preds = %._crit_edge.i.i29
-  %86 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %86 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %87 = or disjoint i8 %86, 48
   br label %88
 
@@ -26780,7 +26780,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i40:  ; preds = %143, %141, %137, %1
   br label %181
 
 178:                                              ; preds = %._crit_edge.i.i43
-  %179 = trunc nuw i64 %.0.lcssa.i.i44 to i8
+  %179 = trunc nuw nsw i64 %.0.lcssa.i.i44 to i8
   %180 = or disjoint i8 %179, 48
   br label %181
 
@@ -37348,7 +37348,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %140, %138, %134, %1
   br label %179
 
 176:                                              ; preds = %._crit_edge.i.i211
-  %177 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %177 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %178 = or disjoint i8 %177, 48
   br label %179
 
@@ -37508,7 +37508,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i223: ; preds = %213, %211, %207, %2
   br label %252
 
 249:                                              ; preds = %._crit_edge.i.i225
-  %250 = trunc nuw i64 %.0.lcssa.i.i226 to i8
+  %250 = trunc nuw nsw i64 %.0.lcssa.i.i226 to i8
   %251 = or disjoint i8 %250, 48
   br label %252
 
@@ -39199,7 +39199,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %267, %265, %261, %2
   br label %306
 
 303:                                              ; preds = %._crit_edge.i.i176
-  %304 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %304 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %305 = or disjoint i8 %304, 48
   br label %306
 
@@ -40411,7 +40411,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i317: ; preds = %704, %702, %698, %6
   br label %_ZNSt7__cxx119to_stringEm.exit326
 
 740:                                              ; preds = %._crit_edge.i.i319
-  %741 = trunc nuw i64 %.0.lcssa.i.i320 to i8
+  %741 = trunc nuw nsw i64 %.0.lcssa.i.i320 to i8
   %742 = or disjoint i8 %741, 48
   br label %_ZNSt7__cxx119to_stringEm.exit326
 
@@ -45051,7 +45051,7 @@ define noundef i32 @_ZNK7httplib6Server20create_server_socketERKNSt7__cxx1112bas
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_ET0_T_SB_SA_.exit.i: ; preds = %52, %.noexc
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %12, ptr %54, align 8, !tbaa !156
-  %55 = trunc nuw i64 %39 to i32
+  %55 = trunc nuw nsw i64 %39 to i32
   %56 = add nuw nsw i32 %55, 2
   %57 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %56, ptr %57, align 8, !tbaa !157
@@ -45250,7 +45250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
   br label %_ZNSt7__cxx119to_stringEi.exit.i
 
 139:                                              ; preds = %._crit_edge.i.i.i
-  %140 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %140 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %141 = or disjoint i8 %140, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i
 
@@ -47444,7 +47444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 385:                                              ; preds = %._crit_edge.i.i207
-  %386 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %386 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %387 = or disjoint i8 %386, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -47645,7 +47645,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i233: 
   br label %_ZNSt7__cxx119to_stringEi.exit241
 
 472:                                              ; preds = %._crit_edge.i.i234
-  %473 = trunc nuw i32 %.0.lcssa.i.i235 to i8
+  %473 = trunc nuw nsw i32 %.0.lcssa.i.i235 to i8
   %474 = or disjoint i8 %473, 48
   br label %_ZNSt7__cxx119to_stringEi.exit241
 
@@ -50272,7 +50272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 87:                                               ; preds = %._crit_edge.i.i
-  %88 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %88 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %89 = or disjoint i8 %88, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -52777,7 +52777,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %196
 
 196:                                              ; preds = %195, %193
-  %197 = trunc i64 %174 to i32
+  %197 = trunc nsw i64 %174 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #47
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %197, ptr %198, align 8, !tbaa !310
@@ -53419,7 +53419,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %446
 
 446:                                              ; preds = %445, %443
-  %447 = trunc i64 %425 to i32
+  %447 = trunc nsw i64 %425 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #47
   store i32 %447, ptr %198, align 8, !tbaa !310
   %448 = load ptr, ptr %20, align 8, !tbaa !13
@@ -58986,7 +58986,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %360, %362
-  %363 = trunc i64 %344 to i32
+  %363 = trunc nsw i64 %344 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #47
   br label %381
 
@@ -62184,7 +62184,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %455, %453, %449, %4
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 491:                                              ; preds = %._crit_edge.i.i359
-  %492 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %492 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %493 = or disjoint i8 %492, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -62708,7 +62708,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i443: ; preds = %653, %651, %647, %6
   br label %_ZNSt7__cxx119to_stringEm.exit452
 
 689:                                              ; preds = %._crit_edge.i.i445
-  %690 = trunc nuw i64 %.0.lcssa.i.i446 to i8
+  %690 = trunc nuw nsw i64 %.0.lcssa.i.i446 to i8
   %691 = or disjoint i8 %690, 48
   br label %_ZNSt7__cxx119to_stringEm.exit452
 
@@ -84514,7 +84514,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %294, %296
-  %297 = trunc i64 %278 to i32
+  %297 = trunc nsw i64 %278 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #47
   br label %301
 
@@ -128478,22 +128478,23 @@ _ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.0.2.i.i.i, ptr %.sroa.0.2.i2.i.i, i64 %.sroa.speculated.i.i.i)
-  %.not14.i.i.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not14.i.i.i, label %select.unfold.i.i.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit
-
-select.unfold.i.i.i:                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
+  %.not14.i.i.i = icmp ne i32 %bcmp.i, 0
   %63 = sub i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
   %64 = icmp sgt i64 %63, 2147483647
-  br i1 %64, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
+  %or.cond.i = select i1 %.not14.i.i.i, i1 true, i1 %64
+  br i1 %or.cond.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
 
-65:                                               ; preds = %select.unfold.i.i.i
-  %spec.select1522.i.i.i = tail call i64 @llvm.smax.i64(i64 %63, i64 -2147483648)
-  %66 = and i64 %spec.select1522.i.i.i, 4294967295
-  %67 = icmp eq i64 %66, 0
+select.unfold.i.i.i:                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
+  %.old.i = sub i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
+  %.old2.i = icmp sgt i64 %.old.i, 2147483647
+  br i1 %.old2.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
+
+65:                                               ; preds = %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %66 = icmp eq i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
   br label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit
 
 _ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit: ; preds = %65, %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %11, %15, %21, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ false, %9 ], [ false, %select.unfold.i.i.i ], [ %67, %65 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ false, %9 ], [ false, %select.unfold.i.i.i ], [ %66, %65 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i1 %.0
 }
 

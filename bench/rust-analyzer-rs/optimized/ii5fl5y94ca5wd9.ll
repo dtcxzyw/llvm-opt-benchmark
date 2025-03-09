@@ -28369,8 +28369,8 @@ common.resume:                                    ; preds = %.body, %86, %52
 54:                                               ; preds = %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %55 = icmp eq i8 %46, 2
-  %56 = trunc i8 %46 to i1
-  %.0 = or i1 %55, %56
+  %56 = trunc nuw i8 %46 to i1
+  %.0 = select i1 %55, i1 true, i1 %56
   br i1 %.0, label %58, label %57
 
 57:                                               ; preds = %54
@@ -35659,7 +35659,7 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$hir_def..hir..Literal$u20$
   br i1 %5, label %6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit"
 
 6:                                                ; preds = %2
-  switch i8 %3, label %default.unreachable20 [
+  switch i8 %3, label %default.unreachable21 [
     i8 0, label %7
     i8 1, label %18
     i8 2, label %29
@@ -35670,11 +35670,11 @@ define internal fastcc noundef zeroext i1 @"_ZN62_$LT$hir_def..hir..Literal$u20$
     i8 7, label %63
   ]
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit": ; preds = %89, %34, %29, %23, %18, %12, %7, %87, %77, %63, %57, %51, %2, %96, %85, %75, %46, %40
-  %.0 = phi i1 [ %99, %96 ], [ %86, %85 ], [ %76, %75 ], [ %.not10, %46 ], [ %45, %40 ], [ false, %2 ], [ false, %51 ], [ false, %57 ], [ false, %63 ], [ %78, %77 ], [ %88, %87 ], [ %17, %12 ], [ false, %7 ], [ %28, %23 ], [ false, %18 ], [ %39, %34 ], [ false, %29 ], [ %.mux, %89 ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit": ; preds = %97, %34, %29, %23, %18, %12, %7, %87, %77, %63, %57, %51, %2, %95, %85, %75, %46, %40
+  %.0 = phi i1 [ %96, %95 ], [ %86, %85 ], [ %76, %75 ], [ %.not10, %46 ], [ %45, %40 ], [ false, %2 ], [ false, %51 ], [ false, %57 ], [ false, %63 ], [ %78, %77 ], [ %88, %87 ], [ %17, %12 ], [ false, %7 ], [ %28, %23 ], [ false, %18 ], [ %39, %34 ], [ false, %29 ], [ %.not20, %97 ]
   ret i1 %.0
 
-default.unreachable20:                            ; preds = %6
+default.unreachable21:                            ; preds = %6
   unreachable
 
 7:                                                ; preds = %6
@@ -35806,15 +35806,14 @@ default.unreachable20:                            ; preds = %6
   %92 = icmp eq i8 %91, 2
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %94 = load i8, ptr %93, align 1, !range !730, !noundef !4
-  %95 = icmp eq i8 %94, 2
-  %brmerge = or i1 %92, %95
-  %.mux = and i1 %92, %95
-  br i1 %brmerge, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit", label %96
+  br i1 %92, label %95, label %97
 
-96:                                               ; preds = %89
-  %97 = xor i8 %94, %91
-  %98 = trunc i8 %97 to i1
-  %99 = xor i1 %98, true
+95:                                               ; preds = %89
+  %96 = icmp eq i8 %94, 2
+  br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit"
+
+97:                                               ; preds = %89
+  %.not20 = icmp eq i8 %91, %94
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6af37a01786a8d3aE.exit"
 }
 
@@ -41440,7 +41439,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit110.i: ; preds = %265
   br i1 %289, label %291, label %335
 
 291:                                              ; preds = %290
-  %trunc66.i = trunc i8 %284 to i1
+  %trunc66.i = trunc nuw i8 %284 to i1
   br i1 %trunc66.i, label %.thread188.i, label %292
 
 292:                                              ; preds = %291

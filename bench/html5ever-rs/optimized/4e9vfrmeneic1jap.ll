@@ -456,13 +456,13 @@ define void @_ZN9html5ever9tokenizer11option_push17h81af38e9f2c86d71E(ptr noalia
   br i1 %12, label %23, label %36
 
 13:                                               ; preds = %7
-  %14 = trunc nuw i32 %1 to i8
+  %14 = trunc nuw nsw i32 %1 to i8
   store i8 %14, ptr %3, align 4, !alias.scope !67, !noalias !59
   br label %58
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 6
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   store i8 %18, ptr %3, align 4, !alias.scope !67, !noalias !59
   %19 = trunc i32 %1 to i8
@@ -474,7 +474,7 @@ define void @_ZN9html5ever9tokenizer11option_push17h81af38e9f2c86d71E(ptr noalia
 
 23:                                               ; preds = %11
   %24 = lshr i32 %1, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %3, align 4, !alias.scope !67, !noalias !59
   %27 = lshr i32 %1, 6
@@ -554,13 +554,13 @@ common.resume:                                    ; preds = %55
   br i1 %68, label %79, label %92
 
 69:                                               ; preds = %62
-  %70 = trunc nuw i32 %1 to i8
+  %70 = trunc nuw nsw i32 %1 to i8
   store i8 %70, ptr %5, align 4, !alias.scope !73
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 71:                                               ; preds = %65
   %72 = lshr i32 %1, 6
-  %73 = trunc nuw i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = or disjoint i8 %73, -64
   store i8 %74, ptr %5, align 4, !alias.scope !73
   %75 = trunc i32 %1 to i8
@@ -572,7 +572,7 @@ common.resume:                                    ; preds = %55
 
 79:                                               ; preds = %67
   %80 = lshr i32 %1, 12
-  %81 = trunc nuw i32 %80 to i8
+  %81 = trunc nuw nsw i32 %80 to i8
   %82 = or disjoint i8 %81, -32
   store i8 %82, ptr %5, align 4, !alias.scope !73
   %83 = lshr i32 %1, 6

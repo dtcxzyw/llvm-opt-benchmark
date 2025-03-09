@@ -6306,7 +6306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit16: ; preds =
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 %21, ptr %23, align 1, !tbaa !17
   %24 = lshr i32 %1, 6
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -64
   br label %.sink.split
 
@@ -6333,7 +6333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit17: ; preds =
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store i8 %38, ptr %40, align 1, !tbaa !17
   %41 = lshr i32 %1, 12
-  %42 = trunc nuw i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = or disjoint i8 %42, -32
   br label %.sink.split
 
@@ -6367,7 +6367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit18: ; preds =
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store i8 %61, ptr %63, align 1, !tbaa !17
   %64 = lshr i32 %1, 18
-  %65 = trunc nuw i32 %64 to i8
+  %65 = trunc nuw nsw i32 %64 to i8
   %66 = or disjoint i8 %65, -16
   br label %.sink.split
 
@@ -16592,7 +16592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %107
 
 33:                                               ; preds = %_ZNK4Json5Value5isIntEv.exit
-  %34 = trunc i64 %12 to i32
+  %34 = trunc nsw i64 %12 to i32
   br label %106
 
 _ZNK4Json5Value5isIntEv.exit29:                   ; preds = %1
@@ -16661,7 +16661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   br label %107
 
 56:                                               ; preds = %_ZNK4Json5Value5isIntEv.exit29
-  %57 = trunc nuw i64 %35 to i32
+  %57 = trunc nuw nsw i64 %35 to i32
   br label %106
 
 58:                                               ; preds = %1

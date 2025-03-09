@@ -18288,13 +18288,14 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %.noexc
-  %22 = trunc i8 %20 to i1
-  %23 = icmp ne i8 %21, 2
-  %24 = trunc i8 %21 to i1
-  %.sroa.0.0.i5.i.i = xor i1 %23, %24
-  %25 = icmp eq i8 %20, 2
-  %26 = xor i1 %25, %22
-  %27 = and i1 %26, %.sroa.0.0.i5.i.i
+  %.not.i.i = icmp eq i8 %20, 2
+  %22 = xor i8 %20, 1
+  %23 = select i1 %.not.i.i, i8 0, i8 %22
+  %.not2.i.i = icmp eq i8 %21, 2
+  %24 = xor i8 %21, 1
+  %25 = select i1 %.not2.i.i, i8 0, i8 %24
+  %26 = sub nsw i8 %23, %25
+  %27 = icmp eq i8 %26, -1
   %..i = select i1 %27, ptr %17, ptr %18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %..i, i64 24, i1 false), !noalias !5311
   %28 = xor i1 %27, true
@@ -18308,35 +18309,36 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
   br i1 %or.cond.i, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit", label %.preheader
 
 35:                                               ; preds = %12
-  %.not34 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
-  br i1 %.not34, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit", label %.lr.ph.i
+  %.not35 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
+  br i1 %.not35, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %36 = icmp ne ptr %.val, null
   tail call void @llvm.assume(i1 %36)
   br label %37
 
-37:                                               ; preds = %.noexc29, %.lr.ph.i
-  %.sroa.13.3 = phi ptr [ %0, %.lr.ph.i ], [ %51, %.noexc29 ]
-  %.sroa.0.2 = phi ptr [ %2, %.lr.ph.i ], [ %48, %.noexc29 ]
-  %.sroa.0.02.i = phi ptr [ %13, %.lr.ph.i ], [ %50, %.noexc29 ]
+37:                                               ; preds = %.noexc30, %.lr.ph.i
+  %.sroa.13.3 = phi ptr [ %0, %.lr.ph.i ], [ %51, %.noexc30 ]
+  %.sroa.0.2 = phi ptr [ %2, %.lr.ph.i ], [ %48, %.noexc30 ]
+  %.sroa.0.02.i = phi ptr [ %13, %.lr.ph.i ], [ %50, %.noexc30 ]
   %.val4.i.i24 = load ptr, ptr %.val, align 8, !noalias !5312, !nonnull !11, !align !88, !noundef !11
   %38 = invoke noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.02.i, ptr noalias noundef nonnull align 8 dereferenceable(1176) %.val4.i.i24)
-          to label %.noexc28 unwind label %.loopexit.split-lp
-
-.noexc28:                                         ; preds = %37
-  %.val3.i.i25 = load ptr, ptr %.val, align 8, !noalias !5312, !nonnull !11, !align !88, !noundef !11
-  %39 = invoke noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %.val3.i.i25)
           to label %.noexc29 unwind label %.loopexit.split-lp
 
-.noexc29:                                         ; preds = %.noexc28
-  %40 = trunc i8 %38 to i1
-  %41 = icmp ne i8 %39, 2
-  %42 = trunc i8 %39 to i1
-  %.sroa.0.0.i5.i.i26 = xor i1 %41, %42
-  %43 = icmp eq i8 %38, 2
-  %44 = xor i1 %43, %40
-  %45 = and i1 %44, %.sroa.0.0.i5.i.i26
+.noexc29:                                         ; preds = %37
+  %.val3.i.i26 = load ptr, ptr %.val, align 8, !noalias !5312, !nonnull !11, !align !88, !noundef !11
+  %39 = invoke noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %.val3.i.i26)
+          to label %.noexc30 unwind label %.loopexit.split-lp
+
+.noexc30:                                         ; preds = %.noexc29
+  %.not.i.i25 = icmp eq i8 %38, 2
+  %40 = xor i8 %38, 1
+  %41 = select i1 %.not.i.i25, i8 0, i8 %40
+  %.not2.i.i27 = icmp eq i8 %39, 2
+  %42 = xor i8 %39, 1
+  %43 = select i1 %.not2.i.i27, i8 0, i8 %42
+  %44 = sub nsw i8 %41, %43
+  %45 = icmp eq i8 %44, -1
   %46 = xor i1 %45, true
   %.sroa.05.0.i = select i1 %45, ptr %.sroa.0.02.i, ptr %.sroa.0.2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.13.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.0.i, i64 24, i1 false), !noalias !5318
@@ -18347,13 +18349,13 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.13.3, i64 24
   %52 = icmp ne ptr %48, %16
   %53 = icmp ne ptr %50, %14
-  %or.cond.i27 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond.i27, label %37, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit"
+  %or.cond.i28 = select i1 %52, i1 %53, i1 false
+  br i1 %or.cond.i28, label %37, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit"
 
-"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit": ; preds = %.noexc29, %.noexc22, %35
-  %.sroa.13.1 = phi ptr [ %0, %35 ], [ %30, %.noexc22 ], [ %51, %.noexc29 ]
-  %.sroa.7.1 = phi ptr [ %16, %35 ], [ %32, %.noexc22 ], [ %16, %.noexc29 ]
-  %.sroa.0.1 = phi ptr [ %2, %35 ], [ %2, %.noexc22 ], [ %48, %.noexc29 ]
+"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit": ; preds = %.noexc30, %.noexc22, %35
+  %.sroa.13.1 = phi ptr [ %0, %35 ], [ %30, %.noexc22 ], [ %51, %.noexc30 ]
+  %.sroa.7.1 = phi ptr [ %16, %35 ], [ %32, %.noexc22 ], [ %16, %.noexc30 ]
+  %.sroa.0.1 = phi ptr [ %2, %35 ], [ %2, %.noexc22 ], [ %48, %.noexc30 ]
   %54 = ptrtoint ptr %.sroa.7.1 to i64
   %55 = ptrtoint ptr %.sroa.0.1 to i64
   %56 = sub nuw i64 %54, %55
@@ -18368,7 +18370,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
           cleanup
   br label %58
 
-.loopexit.split-lp:                               ; preds = %.noexc28, %37
+.loopexit.split-lp:                               ; preds = %.noexc29, %37
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %58
@@ -24569,7 +24571,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !6020, !noalias !6017
   %12 = trunc i32 %1 to i8
@@ -24581,7 +24583,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !6020, !noalias !6017
   %19 = lshr i32 %1, 6
@@ -50125,7 +50127,7 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN78_$LT$util..LogErrorFuture$LT$F$GT
   %.sroa.0.0814 = phi i8 [ %8, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc5b1a062c3e8045E.exit.thread" ], [ %14, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc5b1a062c3e8045E.exit" ]
   %.sroa.6.113 = phi i8 [ %.sroa.6.1.copyload, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc5b1a062c3e8045E.exit.thread" ], [ %.sroa.6.1.copyload5, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc5b1a062c3e8045E.exit" ]
   %.sroa.96.112 = phi ptr [ %.sroa.96.1.copyload, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc5b1a062c3e8045E.exit.thread" ], [ %.sroa.96.1.copyload7, %"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hbc5b1a062c3e8045E.exit" ]
-  %trunc = trunc i8 %.sroa.0.0814 to i1
+  %trunc = trunc nuw i8 %.sroa.0.0814 to i1
   br i1 %trunc, label %20, label %18
 
 18:                                               ; preds = %17

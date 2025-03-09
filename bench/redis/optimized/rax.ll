@@ -669,7 +669,7 @@ define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr nound
   %.0.lcssa.ph.i.ph = phi ptr [ %.0102.i, %._crit_edge93.i ], [ %.0102.i, %._crit_edge.i ], [ %.0.i, %40 ]
   %.159.ph.i.ph = phi i64 [ %.058100.i, %._crit_edge93.i ], [ %.260.lcssa.i, %._crit_edge.i ], [ %.462.i, %40 ]
   %.156.ph.i.ph = phi i64 [ %17, %._crit_edge93.i ], [ %.257.lcssa.i, %._crit_edge.i ], [ 0, %40 ]
-  %52 = trunc i64 %.156.ph.i.ph to i32
+  %52 = trunc nuw nsw i64 %.156.ph.i.ph to i32
   br label %.thread.i
 
 .thread.i:                                        ; preds = %35, %.thread.loopexit.i.loopexit534, %6
@@ -1843,7 +1843,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
   %.0.lcssa.ph.ph = phi ptr [ %.0, %74 ], [ %.0102, %._crit_edge ], [ %.0102, %._crit_edge93 ]
   %.159.ph.ph = phi i64 [ %.462, %74 ], [ %.260.lcssa, %._crit_edge ], [ %.058100, %._crit_edge93 ]
   %.156.ph.ph = phi i64 [ 0, %74 ], [ %.257.lcssa, %._crit_edge ], [ %21, %._crit_edge93 ]
-  %89 = trunc i64 %.156.ph.ph to i32
+  %89 = trunc nuw nsw i64 %.156.ph.ph to i32
   br label %.thread
 
 .thread:                                          ; preds = %39, %.thread.loopexit.loopexit126, %7
@@ -2437,7 +2437,7 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
   %.260.lcssa.i = phi i64 [ %.058100.i, %.preheader81.i ], [ %23, %21 ], [ %.26083.i, %.lr.ph.i ]
   %.257.lcssa.i = phi i64 [ 0, %.preheader81.i ], [ %22, %21 ], [ %.25784.i, %.lr.ph.i ]
   %.not69.i = icmp eq i64 %.257.lcssa.i, %13
-  br i1 %.not69.i, label %36, label %.thread.loopexit.i
+  br i1 %.not69.i, label %36, label %.thread.loopexit.i.loopexit22
 
 27:                                               ; preds = %31, %.lr.ph92.i
   %.591.i = phi i64 [ 0, %.lr.ph92.i ], [ %32, %31 ]
@@ -2449,11 +2449,11 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
 31:                                               ; preds = %27
   %32 = add nuw nsw i64 %.591.i, 1
   %exitcond.not.i = icmp eq i64 %32, %13
-  br i1 %exitcond.not.i, label %.thread.loopexit.i, label %27, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.thread.i, label %27, !llvm.loop !21
 
 ._crit_edge93.i:                                  ; preds = %27
   %33 = icmp eq i64 %.591.i, %13
-  br i1 %33, label %.thread.loopexit.i, label %34
+  br i1 %33, label %.thread.loopexit.i.loopexit22, label %34
 
 34:                                               ; preds = %._crit_edge93.i
   %35 = add i64 %.058100.i, 1
@@ -2474,67 +2474,66 @@ define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none
   %44 = icmp ugt i32 %43, 7
   %45 = icmp ult i64 %.462.i, %2
   %46 = select i1 %44, i1 %45, i1 false
-  br i1 %46, label %.lr.ph104.i, label %.thread.loopexit.i
+  br i1 %46, label %.lr.ph104.i, label %.thread.loopexit.i.loopexit22
 
-.thread.loopexit.i:                               ; preds = %36, %._crit_edge93.i, %._crit_edge.i, %31
-  %47 = phi i32 [ %9, %31 ], [ %43, %36 ], [ %9, %._crit_edge.i ], [ %9, %._crit_edge93.i ]
-  %.0.lcssa.ph.i = phi ptr [ %.0102.i, %31 ], [ %.0.i, %36 ], [ %.0102.i, %._crit_edge.i ], [ %.0102.i, %._crit_edge93.i ]
-  %.159.ph.i = phi i64 [ %.058100.i, %31 ], [ %.462.i, %36 ], [ %.260.lcssa.i, %._crit_edge.i ], [ %.058100.i, %._crit_edge93.i ]
-  %.156.ph.i = phi i64 [ %13, %31 ], [ 0, %36 ], [ %.257.lcssa.i, %._crit_edge.i ], [ %13, %._crit_edge93.i ]
-  %48 = and i64 %.156.ph.i, 4294967295
-  %49 = icmp ne i64 %48, 0
+.thread.loopexit.i.loopexit22:                    ; preds = %._crit_edge.i, %._crit_edge93.i, %36
+  %47 = phi i32 [ %9, %._crit_edge93.i ], [ %9, %._crit_edge.i ], [ %43, %36 ]
+  %.0.lcssa.ph.i.ph = phi ptr [ %.0102.i, %._crit_edge93.i ], [ %.0102.i, %._crit_edge.i ], [ %.0.i, %36 ]
+  %.159.ph.i.ph = phi i64 [ %.058100.i, %._crit_edge93.i ], [ %.260.lcssa.i, %._crit_edge.i ], [ %.462.i, %36 ]
+  %.156.ph.i.ph = phi i64 [ %13, %._crit_edge93.i ], [ %.257.lcssa.i, %._crit_edge.i ], [ 0, %36 ]
+  %48 = icmp ne i64 %.156.ph.i.ph, 0
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread.loopexit.i, %4
-  %50 = phi i32 [ %5, %4 ], [ %47, %.thread.loopexit.i ]
-  %.0.lcssa.i = phi ptr [ %.099.i, %4 ], [ %.0.lcssa.ph.i, %.thread.loopexit.i ]
-  %.159.i = phi i64 [ 0, %4 ], [ %.159.ph.i, %.thread.loopexit.i ]
-  %.156.i = phi i1 [ false, %4 ], [ %49, %.thread.loopexit.i ]
-  %51 = and i32 %50, 4
-  %.not74.i.not = icmp eq i32 %51, 0
+.thread.i:                                        ; preds = %31, %.thread.loopexit.i.loopexit22, %4
+  %49 = phi i32 [ %5, %4 ], [ %47, %.thread.loopexit.i.loopexit22 ], [ %9, %31 ]
+  %.0.lcssa.i = phi ptr [ %.099.i, %4 ], [ %.0.lcssa.ph.i.ph, %.thread.loopexit.i.loopexit22 ], [ %.0102.i, %31 ]
+  %.159.i = phi i64 [ 0, %4 ], [ %.159.ph.i.ph, %.thread.loopexit.i.loopexit22 ], [ %.058100.i, %31 ]
+  %.156.i = phi i1 [ false, %4 ], [ %48, %.thread.loopexit.i.loopexit22 ], [ true, %31 ]
+  %50 = and i32 %49, 4
+  %.not74.i.not = icmp eq i32 %50, 0
   %.not = icmp eq i64 %.159.i, %2
-  br i1 %.not, label %52, label %69
+  br i1 %.not, label %51, label %68
 
-52:                                               ; preds = %.thread.i
-  %53 = icmp ne i32 %51, 0
-  %or.cond = select i1 %53, i1 %.156.i, i1 false
-  %54 = and i32 %50, 1
-  %.not9 = icmp eq i32 %54, 0
+51:                                               ; preds = %.thread.i
+  %52 = icmp ne i32 %50, 0
+  %or.cond = select i1 %52, i1 %.156.i, i1 false
+  %53 = and i32 %49, 1
+  %.not9 = icmp eq i32 %53, 0
   %or.cond11 = or i1 %.not9, %or.cond
-  br i1 %or.cond11, label %69, label %55
+  br i1 %or.cond11, label %68, label %54
 
-55:                                               ; preds = %52
+54:                                               ; preds = %51
   %.not10 = icmp eq ptr %3, null
-  br i1 %.not10, label %69, label %56
+  br i1 %.not10, label %68, label %55
 
-56:                                               ; preds = %55
-  %57 = and i32 %50, 2
-  %.not.i12 = icmp eq i32 %57, 0
-  br i1 %.not.i12, label %58, label %raxGetData.exit
+55:                                               ; preds = %54
+  %56 = and i32 %49, 2
+  %.not.i12 = icmp eq i32 %56, 0
+  br i1 %.not.i12, label %57, label %raxGetData.exit
 
-58:                                               ; preds = %56
-  %59 = lshr i32 %50, 3
-  %60 = zext nneg i32 %59 to i64
-  %61 = xor i32 %59, 3
-  %.neg.i14 = add nuw nsw i32 %61, 1
-  %62 = and i32 %.neg.i14, 7
-  %63 = zext nneg i32 %62 to i64
-  %64 = shl nuw nsw i64 %60, 3
-  %spec.select.i15 = select i1 %.not74.i.not, i64 %64, i64 8
-  %65 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 %60
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %63
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %spec.select.i15
-  %.0.copyload.i = load ptr, ptr %68, align 8
+57:                                               ; preds = %55
+  %58 = lshr i32 %49, 3
+  %59 = zext nneg i32 %58 to i64
+  %60 = xor i32 %58, 3
+  %.neg.i14 = add nuw nsw i32 %60, 1
+  %61 = and i32 %.neg.i14, 7
+  %62 = zext nneg i32 %61 to i64
+  %63 = shl nuw nsw i64 %59, 3
+  %spec.select.i15 = select i1 %.not74.i.not, i64 %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 %59
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 %62
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %spec.select.i15
+  %.0.copyload.i = load ptr, ptr %67, align 8
   br label %raxGetData.exit
 
-raxGetData.exit:                                  ; preds = %56, %58
-  %.0.i13 = phi ptr [ %.0.copyload.i, %58 ], [ null, %56 ]
+raxGetData.exit:                                  ; preds = %55, %57
+  %.0.i13 = phi ptr [ %.0.copyload.i, %57 ], [ null, %55 ]
   store ptr %.0.i13, ptr %3, align 8, !tbaa !22
-  br label %69
+  br label %68
 
-69:                                               ; preds = %55, %raxGetData.exit, %.thread.i, %52
-  %.0 = phi i32 [ 0, %52 ], [ 0, %.thread.i ], [ 1, %raxGetData.exit ], [ 1, %55 ]
+68:                                               ; preds = %54, %raxGetData.exit, %.thread.i, %51
+  %.0 = phi i32 [ 0, %51 ], [ 0, %.thread.i ], [ 1, %raxGetData.exit ], [ 1, %54 ]
   ret i32 %.0
 }
 

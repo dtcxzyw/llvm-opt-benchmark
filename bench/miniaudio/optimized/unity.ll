@@ -1148,7 +1148,7 @@ define range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef captures(addr
   %.046 = phi ptr [ %1, %9 ], [ %15, %11 ]
   %12 = urem i32 %.148, %3
   %13 = icmp samesign ugt i32 %12, 9
-  %14 = trunc nuw i32 %12 to i8
+  %14 = trunc nuw nsw i32 %12 to i8
   %storemerge.v = select i1 %13, i8 87, i8 48
   %storemerge = add nuw nsw i8 %storemerge.v, %14
   store i8 %storemerge, ptr %.046, align 1, !tbaa !7
@@ -38212,7 +38212,7 @@ ma_channel_map_get_channel.exit.us.us:            ; preds = %16, %13
   br i1 %or.cond.i58.i.us.us.us, label %35, label %ma_channel_map_get_channel.exit45.us.us.us
 
 35:                                               ; preds = %33
-  %36 = trunc nuw i32 %.03552.us.us.us to i8
+  %36 = trunc nuw nsw i32 %.03552.us.us.us to i8
   %37 = add nuw nsw i8 %36, 12
   br label %ma_channel_map_get_channel.exit45.us.us.us
 
@@ -42429,7 +42429,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i, label %22, label %ma_channel_map_init_standard_channel_alsa.exit
 
 22:                                               ; preds = %19
-  %23 = trunc nuw i32 %2 to i8
+  %23 = trunc nuw nsw i32 %2 to i8
   %24 = add nuw nsw i8 %23, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42472,7 +42472,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i25, label %38, label %ma_channel_map_init_standard_channel_alsa.exit
 
 38:                                               ; preds = %35
-  %39 = trunc nuw i32 %2 to i8
+  %39 = trunc nuw nsw i32 %2 to i8
   %40 = add nuw nsw i8 %39, 14
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42525,7 +42525,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i32, label %58, label %ma_channel_map_init_standard_channel_alsa.exit
 
 58:                                               ; preds = %55
-  %59 = trunc nuw i32 %2 to i8
+  %59 = trunc nuw nsw i32 %2 to i8
   %60 = add nuw nsw i8 %59, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42578,7 +42578,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i39, label %78, label %ma_channel_map_init_standard_channel_alsa.exit
 
 78:                                               ; preds = %75
-  %79 = trunc nuw i32 %2 to i8
+  %79 = trunc nuw nsw i32 %2 to i8
   %80 = add nuw nsw i8 %79, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42631,7 +42631,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i46, label %98, label %ma_channel_map_init_standard_channel_alsa.exit
 
 98:                                               ; preds = %95
-  %99 = trunc nuw i32 %2 to i8
+  %99 = trunc nuw nsw i32 %2 to i8
   %100 = add nuw nsw i8 %99, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42674,7 +42674,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i53, label %114, label %ma_channel_map_init_standard_channel_alsa.exit
 
 114:                                              ; preds = %111
-  %115 = trunc nuw i32 %2 to i8
+  %115 = trunc nuw nsw i32 %2 to i8
   %116 = add nuw nsw i8 %115, 14
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42727,7 +42727,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i58, label %134, label %ma_channel_map_init_standard_channel_alsa.exit
 
 134:                                              ; preds = %131
-  %135 = trunc nuw i32 %2 to i8
+  %135 = trunc nuw nsw i32 %2 to i8
   %136 = add nuw nsw i8 %135, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -51899,12 +51899,12 @@ ma_dr_wav_read_pcm_frames_f32__ieee.exit:         ; preds = %.preheader.split.us
 
 239:                                              ; preds = %237
   %240 = zext i16 %17 to i32
-  %.lhs.trunc = trunc i32 %.0.i.i48 to i16
+  %.lhs.trunc = trunc nuw i32 %.0.i.i48 to i16
   %241 = udiv i16 %.lhs.trunc, %17
   %242 = urem i16 %.lhs.trunc, %17
   %243 = icmp samesign uge i32 %.0.i.i48, %240
   %.not.i52 = icmp eq i16 %242, 0
-  %or.cond144 = and i1 %243, %.not.i52
+  %or.cond144 = select i1 %243, i1 %.not.i52, i1 false
   br i1 %or.cond144, label %.preheader.i54, label %ma_dr_wav_read_pcm_frames_f32__alaw.exit
 
 .preheader.i54:                                   ; preds = %239
@@ -51999,12 +51999,12 @@ ma_dr_wav_read_pcm_frames_f32__alaw.exit:         ; preds = %247, %250, %.loopex
 
 287:                                              ; preds = %285
   %288 = zext i16 %17 to i32
-  %.lhs.trunc87 = trunc i32 %.0.i.i62 to i16
+  %.lhs.trunc87 = trunc nuw i32 %.0.i.i62 to i16
   %289 = udiv i16 %.lhs.trunc87, %17
   %290 = urem i16 %.lhs.trunc87, %17
   %291 = icmp samesign uge i32 %.0.i.i62, %288
   %.not.i66 = icmp eq i16 %290, 0
-  %or.cond145 = and i1 %291, %.not.i66
+  %or.cond145 = select i1 %291, i1 %.not.i66, i1 false
   br i1 %or.cond145, label %.preheader.i68, label %ma_dr_wav_read_pcm_frames_f32__mulaw.exit
 
 .preheader.i68:                                   ; preds = %287
@@ -52530,12 +52530,12 @@ ma_dr_wav_read_pcm_frames_s16__ieee.exit:         ; preds = %.preheader.split.us
 
 215:                                              ; preds = %213
   %216 = zext i16 %16 to i32
-  %.lhs.trunc = trunc i32 %.0.i.i47 to i16
+  %.lhs.trunc = trunc nuw i32 %.0.i.i47 to i16
   %217 = udiv i16 %.lhs.trunc, %16
   %218 = urem i16 %.lhs.trunc, %16
   %219 = icmp samesign uge i32 %.0.i.i47, %216
   %.not.i51 = icmp eq i16 %218, 0
-  %or.cond133 = and i1 %219, %.not.i51
+  %or.cond133 = select i1 %219, i1 %.not.i51, i1 false
   br i1 %or.cond133, label %.preheader.i53, label %ma_dr_wav_read_pcm_frames_s16__alaw.exit
 
 .preheader.i53:                                   ; preds = %215
@@ -52627,12 +52627,12 @@ ma_dr_wav_read_pcm_frames_s16__alaw.exit:         ; preds = %223, %226, %.loopex
 
 261:                                              ; preds = %259
   %262 = zext i16 %16 to i32
-  %.lhs.trunc81 = trunc i32 %.0.i.i57 to i16
+  %.lhs.trunc81 = trunc nuw i32 %.0.i.i57 to i16
   %263 = udiv i16 %.lhs.trunc81, %16
   %264 = urem i16 %.lhs.trunc81, %16
   %265 = icmp samesign uge i32 %.0.i.i57, %262
   %.not.i61 = icmp eq i16 %264, 0
-  %or.cond134 = and i1 %265, %.not.i61
+  %or.cond134 = select i1 %265, i1 %.not.i61, i1 false
   br i1 %or.cond134, label %.preheader.i63, label %ma_dr_wav_read_pcm_frames_s16__mulaw.exit
 
 .preheader.i63:                                   ; preds = %261
@@ -53206,12 +53206,12 @@ ma_dr_wav_read_pcm_frames_s32__ieee.exit:         ; preds = %.preheader.split.us
 
 235:                                              ; preds = %233
   %236 = zext i16 %17 to i32
-  %.lhs.trunc = trunc i32 %.0.i.i48 to i16
+  %.lhs.trunc = trunc nuw i32 %.0.i.i48 to i16
   %237 = udiv i16 %.lhs.trunc, %17
   %238 = urem i16 %.lhs.trunc, %17
   %239 = icmp samesign uge i32 %.0.i.i48, %236
   %.not.i52 = icmp eq i16 %238, 0
-  %or.cond144 = and i1 %239, %.not.i52
+  %or.cond144 = select i1 %239, i1 %.not.i52, i1 false
   br i1 %or.cond144, label %.preheader.i54, label %ma_dr_wav_read_pcm_frames_s32__alaw.exit
 
 .preheader.i54:                                   ; preds = %235
@@ -53306,12 +53306,12 @@ ma_dr_wav_read_pcm_frames_s32__alaw.exit:         ; preds = %243, %246, %.loopex
 
 283:                                              ; preds = %281
   %284 = zext i16 %17 to i32
-  %.lhs.trunc87 = trunc i32 %.0.i.i62 to i16
+  %.lhs.trunc87 = trunc nuw i32 %.0.i.i62 to i16
   %285 = udiv i16 %.lhs.trunc87, %17
   %286 = urem i16 %.lhs.trunc87, %17
   %287 = icmp samesign uge i32 %.0.i.i62, %284
   %.not.i66 = icmp eq i16 %286, 0
-  %or.cond145 = and i1 %287, %.not.i66
+  %or.cond145 = select i1 %287, i1 %.not.i66, i1 false
   br i1 %or.cond145, label %.preheader.i68, label %ma_dr_wav_read_pcm_frames_s32__mulaw.exit
 
 .preheader.i68:                                   ; preds = %283
@@ -102399,7 +102399,7 @@ ma_dr_mp3_bs_get_bits.exit167.i:                  ; preds = %._crit_edge.i156.i,
   %543 = sub nuw nsw i32 8, %.018.lcssa.i171.i
   %544 = lshr i32 %.021.lcssa.i169.i, %543
   %545 = or i32 %544, %.020.lcssa.i170.i
-  %546 = trunc i32 %545 to i16
+  %546 = trunc nuw i32 %545 to i16
   br label %ma_dr_mp3_bs_get_bits.exit179.i
 
 ma_dr_mp3_bs_get_bits.exit179.i:                  ; preds = %._crit_edge.i168.i, %ma_dr_mp3_bs_get_bits.exit167.i
@@ -105238,7 +105238,7 @@ ma_dr_mp3_bs_get_bits.exit81.i:                   ; preds = %._crit_edge.i70.i, 
   %2048 = sub nuw nsw i32 8, %.018.lcssa.i.i.i
   %2049 = lshr i32 %.021.lcssa.i.i.i, %2048
   %2050 = or i32 %2049, %.020.lcssa.i.i.i
-  %2051 = trunc i32 %2050 to i16
+  %2051 = trunc nuw nsw i32 %2050 to i16
   br label %ma_dr_mp3_bs_get_bits.exit.i.i
 
 ma_dr_mp3_bs_get_bits.exit.i.i:                   ; preds = %._crit_edge.i.i.i, %2030
@@ -125611,7 +125611,7 @@ ma_node_get_output_channels.exit.i:               ; preds = %15, %11
   %24 = atomicrmw xchg ptr %21, i32 1 seq_cst, align 4
   %25 = mul nuw nsw i64 %.03445.i, %.0.i.i
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 %25
-  %27 = trunc i64 %.03445.i to i32
+  %27 = trunc nuw i64 %.03445.i to i32
   %28 = sub i32 %8, %27
   %29 = load atomic i64, ptr %22 seq_cst, align 8
   %30 = call fastcc i32 @ma_node_read_pcm_frames(ptr noundef nonnull %12, i32 noundef 0, ptr noundef %26, i32 noundef %28, ptr noundef %6, i64 noundef %29)
@@ -128409,7 +128409,7 @@ ma_dr_wav__chunk_matches.exit261.thread:          ; preds = %480, %481, %.thread
 566:                                              ; preds = %563
   %567 = load ptr, ptr %445, align 8, !tbaa !1871
   %568 = load ptr, ptr %436, align 8, !tbaa !1872
-  %569 = trunc i64 %.1176 to i32
+  %569 = trunc nuw i64 %.1176 to i32
   %570 = sub i32 %470, %569
   %571 = call i32 %567(ptr noundef %568, i32 noundef %570, i32 noundef 1) #69
   %.not212.not = icmp eq i32 %571, 0
@@ -131582,7 +131582,7 @@ ma_dr_flac__decode_samples__constant.exit.i:      ; preds = %65, %61
   %113 = xor i64 %112, -1
   %114 = and i64 %111, %113
   %115 = lshr i64 %114, %100
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nuw nsw i64 %115 to i32
   %117 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %22)
   %.not35.i.i.i.i = icmp eq i32 %117, 0
   br i1 %.not35.i.i.i.i, label %ma_dr_flac__decode_samples__lpc.exit.i, label %118
@@ -132120,7 +132120,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %424, %342
   %452 = xor i64 %451, -1
   %453 = and i64 %450, %452
   %454 = lshr i64 %453, %.pre-phi
-  %455 = trunc i64 %454 to i32
+  %455 = trunc nuw nsw i64 %454 to i32
   %456 = call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %150)
   %.not35.i.i50 = icmp eq i32 %456, 0
   br i1 %.not35.i.i50, label %ma_dr_flac__decode_subframe.exit, label %457
@@ -132235,7 +132235,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_next_flac_frame_hea
   %42 = xor i64 %41, -1
   %43 = and i64 %40, %42
   %44 = lshr i64 %43, %29
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i.i = icmp eq i32 %46, 0
   br i1 %.not35.i.i.i, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %47
@@ -132309,7 +132309,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_next_flac_frame_hea
   %88 = xor i64 %87, -1
   %89 = and i64 %86, %88
   %90 = lshr i64 %89, %75
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw nsw i64 %90 to i32
   %92 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i18.i = icmp eq i32 %92, 0
   br i1 %.not35.i.i18.i, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %93
@@ -132471,7 +132471,7 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
   %161 = xor i64 %160, -1
   %162 = and i64 %159, %161
   %163 = lshr i64 %162, %148
-  %164 = trunc i64 %163 to i32
+  %164 = trunc nuw nsw i64 %163 to i32
   %165 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i130 = icmp eq i32 %165, 0
   br i1 %.not35.i.i130, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %166
@@ -132556,7 +132556,7 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
   %217 = xor i64 %216, -1
   %218 = and i64 %215, %217
   %219 = lshr i64 %218, %204
-  %220 = trunc i64 %219 to i32
+  %220 = trunc nuw nsw i64 %219 to i32
   %221 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i139 = icmp eq i32 %221, 0
   br i1 %.not35.i.i139, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %222
@@ -132635,7 +132635,7 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
   %270 = xor i64 %269, -1
   %271 = and i64 %268, %270
   %272 = lshr i64 %271, %257
-  %273 = trunc i64 %272 to i32
+  %273 = trunc nuw nsw i64 %272 to i32
   %274 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i148 = icmp eq i32 %274, 0
   br i1 %.not35.i.i148, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %275
@@ -132719,7 +132719,7 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
   %325 = xor i64 %324, -1
   %326 = and i64 %323, %325
   %327 = lshr i64 %326, %312
-  %328 = trunc i64 %327 to i32
+  %328 = trunc nuw nsw i64 %327 to i32
   %329 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i157 = icmp eq i32 %329, 0
   br i1 %.not35.i.i157, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %330
@@ -132977,7 +132977,7 @@ ma_dr_flac__find_and_seek_to_next_sync_code.exit: ; preds = %111
   %459 = xor i64 %458, -1
   %460 = and i64 %457, %459
   %461 = lshr i64 %460, %445
-  %462 = trunc i64 %461 to i32
+  %462 = trunc nuw nsw i64 %461 to i32
   %463 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i = icmp eq i32 %463, 0
   br i1 %.not35.i, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %464
@@ -133062,7 +133062,7 @@ ma_dr_flac__read_uint32.exit:                     ; preds = %470, %447
   %512 = xor i64 %511, -1
   %513 = and i64 %510, %512
   %514 = lshr i64 %513, %498
-  %515 = trunc i64 %514 to i32
+  %515 = trunc nuw nsw i64 %514 to i32
   %516 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i95 = icmp eq i32 %516, 0
   br i1 %.not35.i95, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %517
@@ -133151,7 +133151,7 @@ ma_dr_flac__read_uint32.exit97:                   ; preds = %523, %500
   %570 = xor i64 %569, -1
   %571 = and i64 %568, %570
   %572 = lshr i64 %571, %556
-  %573 = trunc i64 %572 to i32
+  %573 = trunc nuw nsw i64 %572 to i32
   %574 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i100 = icmp eq i32 %574, 0
   br i1 %.not35.i100, label %ma_dr_flac__find_and_seek_to_next_sync_code.exit.thread, label %575
@@ -134309,7 +134309,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_uint8(ptr noundef n
   %31 = xor i64 %30, -1
   %32 = and i64 %29, %31
   %33 = lshr i64 %32, %12
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i = icmp eq i32 %35, 0
   br i1 %.not35.i, label %ma_dr_flac__read_uint32.exit.thread, label %36
@@ -134397,7 +134397,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_uint16(ptr noundef 
   %31 = xor i64 %30, -1
   %32 = and i64 %29, %31
   %33 = lshr i64 %32, %12
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i = icmp eq i32 %35, 0
   br i1 %.not35.i, label %ma_dr_flac__read_uint32.exit.thread, label %36
@@ -134480,7 +134480,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_subframe_header(ptr
   %25 = xor i64 %24, -1
   %26 = and i64 %23, %25
   %27 = lshr i64 %26, %10
-  %28 = trunc i64 %27 to i32
+  %28 = trunc nuw nsw i64 %27 to i32
   %29 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i = icmp eq i32 %29, 0
   br i1 %.not35.i.i, label %.critedge, label %30
@@ -135153,7 +135153,7 @@ define internal fastcc void @ma_dr_flac__decode_samples_with_residual(ptr nounde
   %31 = xor i64 %30, -1
   %32 = and i64 %29, %31
   %33 = lshr exact i64 %32, %16
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i = icmp eq i32 %35, 0
   br i1 %.not35.i.i, label %ma_dr_flac__read_uint8.exit.thread, label %36
@@ -135231,7 +135231,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
   %79 = xor i64 %78, -1
   %80 = and i64 %77, %79
   %81 = lshr i64 %80, %64
-  %82 = trunc i64 %81 to i32
+  %82 = trunc nuw nsw i64 %81 to i32
   %83 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i63 = icmp eq i32 %83, 0
   br i1 %.not35.i.i63, label %ma_dr_flac__read_uint8.exit.thread, label %84
@@ -135364,7 +135364,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
   %171 = xor i64 %170, -1
   %172 = and i64 %169, %171
   %173 = lshr i64 %172, %158
-  %174 = trunc i64 %173 to i32
+  %174 = trunc nuw nsw i64 %173 to i32
   %175 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i72 = icmp eq i32 %175, 0
   br i1 %.not35.i.i72, label %ma_dr_flac__read_uint8.exit.thread, label %176
@@ -135437,7 +135437,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
   %216 = xor i64 %215, -1
   %217 = and i64 %214, %216
   %218 = lshr i64 %217, %203
-  %219 = trunc i64 %218 to i32
+  %219 = trunc nuw nsw i64 %218 to i32
   %220 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i81 = icmp eq i32 %220, 0
   br i1 %.not35.i.i81, label %ma_dr_flac__read_uint8.exit.thread, label %221
@@ -135525,7 +135525,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %18, %42
   %266 = xor i64 %265, -1
   %267 = and i64 %264, %266
   %268 = lshr i64 %267, %253
-  %269 = trunc i64 %268 to i32
+  %269 = trunc nuw nsw i64 %268 to i32
   %270 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i90 = icmp eq i32 %270, 0
   br i1 %.not35.i.i90, label %ma_dr_flac__read_uint8.exit.thread, label %271
@@ -146400,7 +146400,7 @@ define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__read_utf8_coded_numbe
   %27 = xor i64 %26, -1
   %28 = and i64 %25, %27
   %29 = lshr i64 %28, %12
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   %31 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i = icmp eq i32 %31, 0
   br i1 %.not35.i.i, label %50, label %32
@@ -146534,7 +146534,7 @@ define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__read_utf8_coded_numbe
   %104 = xor i64 %103, -1
   %105 = and i64 %102, %104
   %106 = lshr i64 %105, %91
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nuw nsw i64 %106 to i32
   %108 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i32 = icmp eq i32 %108, 0
   br i1 %.not35.i.i32, label %127, label %109
@@ -147078,7 +147078,7 @@ define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__seek_flac_frame(ptr n
   %88 = xor i64 %87, -1
   %89 = and i64 %86, %88
   %90 = lshr i64 %89, %75
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw nsw i64 %90 to i32
   %92 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %6)
   %.not35.i.i.i = icmp eq i32 %92, 0
   br i1 %.not35.i.i.i, label %ma_dr_flac__seek_subframe.exit.thread, label %93
@@ -147532,7 +147532,7 @@ ma_dr_flac__flush_crc16.exit:                     ; preds = %376, %294
   %404 = xor i64 %403, -1
   %405 = and i64 %402, %404
   %406 = lshr i64 %405, %.pre-phi
-  %407 = trunc i64 %406 to i32
+  %407 = trunc nuw nsw i64 %406 to i32
   %408 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %128)
   %.not35.i.i = icmp eq i32 %408, 0
   br i1 %.not35.i.i, label %ma_dr_flac__seek_subframe.exit.thread, label %409
@@ -147616,7 +147616,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__read_and_seek_residual(p
   %26 = xor i64 %25, -1
   %27 = and i64 %24, %26
   %28 = lshr exact i64 %27, %11
-  %29 = trunc i64 %28 to i32
+  %29 = trunc nuw nsw i64 %28 to i32
   %30 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i = icmp eq i32 %30, 0
   br i1 %.not35.i.i, label %ma_dr_flac__read_uint8.exit.thread, label %31
@@ -147692,7 +147692,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   %72 = xor i64 %71, -1
   %73 = and i64 %70, %72
   %74 = lshr i64 %73, %57
-  %75 = trunc i64 %74 to i32
+  %75 = trunc nuw nsw i64 %74 to i32
   %76 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i43 = icmp eq i32 %76, 0
   br i1 %.not35.i.i43, label %ma_dr_flac__read_uint8.exit.thread, label %77
@@ -147788,7 +147788,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   %131 = xor i64 %130, -1
   %132 = and i64 %129, %131
   %133 = lshr i64 %132, %118
-  %134 = trunc i64 %133 to i32
+  %134 = trunc nuw nsw i64 %133 to i32
   %135 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i52 = icmp eq i32 %135, 0
   br i1 %.not35.i.i52, label %ma_dr_flac__read_uint8.exit.thread, label %136
@@ -147861,7 +147861,7 @@ ma_dr_flac__read_uint8.exit:                      ; preds = %13, %37
   %175 = xor i64 %174, -1
   %176 = and i64 %173, %175
   %177 = lshr i64 %176, %162
-  %178 = trunc i64 %177 to i32
+  %178 = trunc nuw nsw i64 %177 to i32
   %179 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i61 = icmp eq i32 %179, 0
   br i1 %.not35.i.i61, label %ma_dr_flac__read_uint8.exit.thread, label %180
@@ -148559,7 +148559,7 @@ ma_dr_flac__clz.exit.i.i:                         ; preds = %613, %590, %587
   %637 = xor i64 %636, -1
   %638 = and i64 %635, %637
   %639 = lshr i64 %638, %624
-  %640 = trunc i64 %639 to i32
+  %640 = trunc nuw nsw i64 %639 to i32
   %641 = tail call fastcc i32 @ma_dr_flac__reload_cache(ptr noundef nonnull %0)
   %.not35.i.i73 = icmp eq i32 %641, 0
   br i1 %.not35.i.i73, label %ma_dr_flac__read_uint8.exit.thread, label %642

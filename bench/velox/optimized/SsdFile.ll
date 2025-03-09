@@ -4317,16 +4317,11 @@ invoke.cont39:                                    ; preds = %invoke.cont39.prehe
   %and.i = and i64 %retval.sroa.0.0.copyload.i, 281474976710655
   %10 = inttoptr i64 %and.i to ptr
   %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %offset.048
-  %conv46 = trunc i64 %.sroa.speculated to i32
-  %cmp5.i = icmp sgt i32 %conv46, 0
-  br i1 %cmp5.i, label %for.body.preheader.i, label %invoke.cont54
+  %cmp5.i = icmp sgt i64 %.sroa.speculated, 0
+  br i1 %cmp5.i, label %for.body.i, label %invoke.cont54
 
-for.body.preheader.i:                             ; preds = %invoke.cont39
-  %wide.trip.count.i = and i64 %.sroa.speculated, 2147483647
-  br label %for.body.i
-
-for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
+for.body.i:                                       ; preds = %invoke.cont39, %for.inc.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %invoke.cont39 ]
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i
   %11 = load i8, ptr %arrayidx.i, align 1
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %indvars.iv.i
@@ -4336,7 +4331,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 for.inc.i:                                        ; preds = %for.body.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.sroa.speculated
   br i1 %exitcond.not.i, label %invoke.cont54, label %for.body.i, !llvm.loop !41
 
 if.then50:                                        ; preds = %for.body.i

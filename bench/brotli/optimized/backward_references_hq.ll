@@ -192,7 +192,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %72, %74
 
 113:                                              ; preds = %111
   %114 = add nsw i64 %.055, -2
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %115, i1 true)
   %117 = sub nuw nsw i32 30, %116
   %118 = shl nuw nsw i32 %117, 1
@@ -200,7 +200,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %72, %74
   %120 = zext nneg i32 %117 to i64
   %121 = lshr i64 %114, %120
   %122 = add nuw nsw i64 %121, %119
-  %123 = trunc i64 %122 to i16
+  %123 = trunc nuw nsw i64 %122 to i16
   %124 = add nuw nsw i16 %123, 2
   br label %GetInsertLengthCode.exit
 
@@ -230,7 +230,7 @@ GetInsertLengthCode.exit:                         ; preds = %109, %113, %127, %1
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %GetInsertLengthCode.exit
-  %138 = trunc nuw i32 %49 to i16
+  %138 = trunc nuw nsw i32 %49 to i16
   %139 = add nsw i16 %138, -2
   br label %GetCopyLengthCode.exit
 
@@ -2117,7 +2117,7 @@ ComputeMinimumCopyLength.exit:                    ; preds = %.lr.ph.i, %53, %13
 
 85:                                               ; preds = %83
   %86 = add nsw i64 %79, -2
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw nsw i64 %86 to i32
   %88 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %87, i1 true)
   %89 = sub nuw nsw i32 30, %88
   %90 = shl nuw nsw i32 %89, 1
@@ -2125,7 +2125,7 @@ ComputeMinimumCopyLength.exit:                    ; preds = %.lr.ph.i, %53, %13
   %92 = zext nneg i32 %89 to i64
   %93 = lshr i64 %86, %92
   %94 = add nuw nsw i64 %93, %91
-  %95 = trunc i64 %94 to i16
+  %95 = trunc nuw nsw i64 %94 to i16
   %96 = add nuw nsw i16 %95, 2
   br label %GetInsertLengthCode.exit
 
@@ -2134,7 +2134,7 @@ ComputeMinimumCopyLength.exit:                    ; preds = %.lr.ph.i, %53, %13
   br i1 %98, label %99, label %105
 
 99:                                               ; preds = %97
-  %100 = trunc nuw i64 %79 to i32
+  %100 = trunc nuw nsw i64 %79 to i32
   %101 = add nsw i32 %100, -66
   %102 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %101, i1 true)
   %103 = trunc nuw nsw i32 %102 to i16
@@ -2414,7 +2414,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %.critedge.i256, %20
   br i1 %238, label %239, label %242
 
 239:                                              ; preds = %237
-  %240 = trunc nuw i64 %.0219343 to i16
+  %240 = trunc nuw nsw i64 %.0219343 to i16
   %241 = add nsw i16 %240, -2
   br label %GetCopyLengthCode.exit
 
@@ -2424,7 +2424,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %.critedge.i256, %20
 
 244:                                              ; preds = %242
   %245 = add nsw i64 %.2208341, -5
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %247 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %246, i1 true)
   %248 = sub nsw i32 30, %247
   %249 = shl nuw nsw i32 %248, 1
@@ -2432,7 +2432,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %.critedge.i256, %20
   %251 = zext nneg i32 %248 to i64
   %252 = lshr i64 %245, %251
   %253 = add nuw nsw i64 %252, %250
-  %254 = trunc i64 %253 to i16
+  %254 = trunc nuw nsw i64 %253 to i16
   %255 = add nuw nsw i16 %254, 4
   br label %GetCopyLengthCode.exit
 
@@ -2622,7 +2622,7 @@ BackwardMatchLengthCode.exit:                     ; preds = %BackwardMatchLength
   br i1 %365, label %366, label %369
 
 366:                                              ; preds = %BackwardMatchLengthCode.exit
-  %367 = trunc nuw i64 %364 to i16
+  %367 = trunc nuw nsw i64 %364 to i16
   %368 = add nsw i16 %367, -2
   br label %GetCopyLengthCode.exit241
 
@@ -2632,7 +2632,7 @@ BackwardMatchLengthCode.exit:                     ; preds = %BackwardMatchLength
 
 371:                                              ; preds = %369
   %372 = add nsw i64 %364, -6
-  %373 = trunc i64 %372 to i32
+  %373 = trunc nuw nsw i64 %372 to i32
   %374 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %373, i1 true)
   %375 = sub nuw nsw i32 30, %374
   %376 = shl nuw nsw i32 %375, 1
@@ -2640,7 +2640,7 @@ BackwardMatchLengthCode.exit:                     ; preds = %BackwardMatchLength
   %378 = zext nneg i32 %375 to i64
   %379 = lshr i64 %372, %378
   %380 = add nuw nsw i64 %379, %377
-  %381 = trunc i64 %380 to i16
+  %381 = trunc nuw nsw i64 %380 to i16
   %382 = add nuw nsw i16 %381, 4
   br label %GetCopyLengthCode.exit241
 
@@ -2649,7 +2649,7 @@ BackwardMatchLengthCode.exit:                     ; preds = %BackwardMatchLength
   br i1 %384, label %385, label %GetCopyLengthCode.exit241
 
 385:                                              ; preds = %383
-  %386 = trunc nuw i64 %364 to i32
+  %386 = trunc nuw nsw i64 %364 to i32
   %387 = add nsw i32 %386, -70
   %388 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %387, i1 true)
   %389 = trunc nuw nsw i32 %388 to i16

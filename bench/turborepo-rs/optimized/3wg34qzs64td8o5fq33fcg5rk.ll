@@ -1927,12 +1927,12 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit196: ; preds =
 
 703:                                              ; preds = %644
   %704 = trunc nuw i8 %647 to i1
-  %705 = trunc i8 %.sroa.017.7 to i1
+  %705 = trunc nuw i8 %.sroa.017.7 to i1
   br i1 %704, label %712, label %711
 
 706:                                              ; preds = %644, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit202, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit199
   %707 = phi i64 [ %645, %644 ], [ %764, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit202 ], [ %738, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit199 ]
-  %.sroa.017.20 = phi i8 [ %.sroa.017.7, %644 ], [ %.sroa.017.25, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit202 ], [ %.sroa.017.24, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit199 ]
+  %.sroa.017.20 = phi i8 [ %.sroa.017.7, %644 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit202 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit199 ]
   %708 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %709 = load i8, ptr %708, align 1, !range !51, !noundef !4
   %710 = icmp eq i8 %709, 2
@@ -1965,7 +1965,6 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 722:                                              ; preds = %711, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit197
   %723 = phi i64 [ %721, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit197 ], [ %645, %711 ]
-  %.sroa.017.24 = phi i8 [ %.sroa.017.7, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit197 ], [ 0, %711 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !306)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !306
   %724 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 23, ptr noalias noundef nonnull align 1 dereferenceable(11) %8), !noalias !306
@@ -2017,7 +2016,6 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 748:                                              ; preds = %712, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit200
   %749 = phi i64 [ %747, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit200 ], [ %645, %712 ]
-  %.sroa.017.25 = phi i8 [ %.sroa.017.7, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit200 ], [ 0, %712 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !315)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7), !noalias !315
   %750 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 3, ptr noalias noundef nonnull align 1 dereferenceable(11) %7), !noalias !315
@@ -2050,12 +2048,12 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit202: ; preds =
 
 765:                                              ; preds = %706
   %766 = trunc nuw i8 %709 to i1
-  %767 = trunc i8 %.sroa.017.20 to i1
+  %767 = trunc nuw i8 %.sroa.017.20 to i1
   br i1 %766, label %774, label %773
 
 768:                                              ; preds = %706, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit208, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit205
   %769 = phi i64 [ %707, %706 ], [ %826, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit208 ], [ %800, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit205 ]
-  %.sroa.017.23 = phi i8 [ %.sroa.017.20, %706 ], [ %.sroa.017.27, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit208 ], [ %.sroa.017.26, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit205 ]
+  %.sroa.017.23 = phi i8 [ %.sroa.017.20, %706 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit208 ], [ 0, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit205 ]
   %770 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %771 = load i8, ptr %770, align 1, !range !51, !noundef !4
   %772 = icmp eq i8 %771, 2
@@ -2088,7 +2086,6 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 784:                                              ; preds = %773, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit203
   %785 = phi i64 [ %783, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit203 ], [ %707, %773 ]
-  %.sroa.017.26 = phi i8 [ %.sroa.017.20, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit203 ], [ 0, %773 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !324)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !324
   %786 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 24, ptr noalias noundef nonnull align 1 dereferenceable(11) %6), !noalias !324
@@ -2140,7 +2137,6 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt10
 
 810:                                              ; preds = %774, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit206
   %811 = phi i64 [ %809, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit206 ], [ %707, %774 ]
-  %.sroa.017.27 = phi i8 [ %.sroa.017.20, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit206 ], [ 0, %774 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !333)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !333
   %812 = call { ptr, i64 } @_RNvXsb_CsfbvjWzJraAt_4itoalNtNtB5_7private6Sealed5write.llvm.2772946472389925136(i32 noundef 4, ptr noalias noundef nonnull align 1 dereferenceable(11) %5), !noalias !333
@@ -2173,7 +2169,7 @@ _RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit208: ; preds =
 
 827:                                              ; preds = %768
   %828 = trunc nuw i8 %771 to i1
-  %829 = trunc i8 %.sroa.017.23 to i1
+  %829 = trunc nuw i8 %.sroa.017.23 to i1
   br i1 %828, label %841, label %840
 
 830:                                              ; preds = %768, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit215, %_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoalEB4_.exit212
