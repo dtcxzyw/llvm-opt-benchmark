@@ -1081,35 +1081,35 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %RARRAY_LENINT.exit
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %18 = getelementptr i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %19 = getelementptr i8, ptr %0, i64 48
   %wide.trip.count = and i64 %.0.i.i, 4294967295
-  br label %19
+  br label %20
 
 ._crit_edge:                                      ; preds = %RARRAY_AREF.exit, %RARRAY_LENINT.exit
   ret void
 
-19:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
+20:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %RARRAY_AREF.exit ]
-  %20 = load i64, ptr %4, align 8, !tbaa !83
-  %21 = and i64 %20, 8192
-  %.not.i.i7 = icmp eq i64 %21, 0
-  br i1 %.not.i.i7, label %22, label %RARRAY_AREF.exit
+  %21 = load i64, ptr %4, align 8, !tbaa !83
+  %22 = and i64 %21, 8192
+  %.not.i.i7 = icmp eq i64 %22, 0
+  br i1 %.not.i.i7, label %23, label %RARRAY_AREF.exit
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr %17, align 8, !tbaa !100
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %18, align 8, !tbaa !100
   br label %RARRAY_AREF.exit
 
-RARRAY_AREF.exit:                                 ; preds = %19, %22
-  %.0.i.i8 = phi ptr [ %23, %22 ], [ %16, %19 ]
-  %24 = getelementptr i64, ptr %.0.i.i8, i64 %indvars.iv
-  %25 = load i64, ptr %24, align 8, !tbaa !80
-  %.val = load ptr, ptr %18, align 8, !tbaa !90
-  %26 = tail call fastcc i64 @ractor_send(ptr %.val, ptr noundef %1, i64 noundef %25, i64 noundef 0)
+RARRAY_AREF.exit:                                 ; preds = %20, %23
+  %.0.i.i8 = phi ptr [ %24, %23 ], [ %17, %20 ]
+  %25 = getelementptr i64, ptr %.0.i.i8, i64 %indvars.iv
+  %26 = load i64, ptr %25, align 8, !tbaa !80
+  %.val = load ptr, ptr %19, align 8, !tbaa !90
+  %27 = tail call fastcc i64 @ractor_send(ptr %.val, ptr noundef %1, i64 noundef %26, i64 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !119
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -1736,9 +1736,9 @@ if.end.i.i561:                                    ; preds = %_ZN4llvh12StringSwi
 if.end.i.i530:                                    ; preds = %if.end.i.i561
   %bcmp115 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %OSName.coerce0, ptr noundef nonnull dereferenceable(5) @.str.90, i64 5)
   %17 = icmp eq i32 %bcmp115, 0
-  br i1 %17, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535
+  br i1 %17, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %if.end.i.i499
 
-_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535: ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597, %if.end.i.i530
+if.end.i.i499:                                    ; preds = %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit597, %if.end.i.i530
   %tobool.i234 = trunc nuw i8 %ref.tmp.sroa.102.1 to i1
   %or.cond148 = or i1 %cmp.i.i801.not, %tobool.i234
   br i1 %or.cond148, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504, label %if.end.i.i499
@@ -1748,7 +1748,7 @@ if.end.i.i499:                                    ; preds = %_ZN4llvh12StringSwi
   %18 = icmp eq i32 %bcmp116, 0
   br i1 %18, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504
 
-_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504: ; preds = %if.end.i.i499, %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit535
+_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit504: ; preds = %if.end.i.i499, %if.end.i.i499
   %cmp.i.i460.not = icmp ult i64 %OSName.coerce1, 4
   %or.cond149 = or i1 %cmp.i.i460.not, %tobool.i234
   br i1 %or.cond149, label %_ZN4llvh12StringSwitchINS_6Triple6OSTypeES2_E10StartsWithENS_13StringLiteralES2_.exit473, label %if.end.i.i468

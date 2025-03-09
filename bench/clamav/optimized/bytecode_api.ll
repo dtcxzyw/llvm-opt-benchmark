@@ -1044,8 +1044,8 @@ cli_memmem.exit.us:                               ; preds = %fmap_readn.exit.us7
   %81 = add i32 %.045.us73, %77
   br i1 %.not.us, label %.split.split.us, label %cli_memmem.exit.thread61
 
-.split.split:                                     ; preds = %.split, %cli_memmem.exit.thread.loopexit
-  %.045 = phi i32 [ %123, %cli_memmem.exit.thread.loopexit ], [ %19, %.split ]
+.split.split:                                     ; preds = %.split, %cli_memmem.exit.thread
+  %.045 = phi i32 [ %122, %cli_memmem.exit.thread ], [ %19, %.split ]
   %82 = zext i32 %.045 to i64
   %83 = add nuw nsw i64 %82, 4096
   %84 = icmp samesign ugt i64 %83, %20
@@ -1098,47 +1098,47 @@ fmap_readn.exit:                                  ; preds = %89, %99
   %106 = zext i8 %105 to i32
   br label %107
 
-107:                                              ; preds = %113, %.preheader.i
+.lr.ph.i:                                         ; preds = %113, %.preheader.i
   %.02537.i = phi ptr [ %5, %.preheader.i ], [ %112, %113 ]
   %.02636.i = phi i32 [ %104, %.preheader.i ], [ %117, %113 ]
   %reass.sub = sub i32 %.02636.i, %2
-  %108 = add i32 %reass.sub, 1
-  %109 = zext i32 %108 to i64
-  %110 = call ptr @memchr(ptr noundef nonnull %.02537.i, i32 noundef %106, i64 noundef %109) #29
-  %.not32.i = icmp eq ptr %110, null
-  br i1 %.not32.i, label %cli_memmem.exit.thread.loopexit, label %111
+  %107 = add i32 %reass.sub, 1
+  %108 = zext i32 %107 to i64
+  %109 = call ptr @memchr(ptr noundef nonnull %.02537.i, i32 noundef %106, i64 noundef %108) #29
+  %.not32.i = icmp eq ptr %109, null
+  br i1 %.not32.i, label %cli_memmem.exit.thread, label %110
 
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  %bcmp.i = call i32 @bcmp(ptr nonnull %112, ptr nonnull readonly %27, i64 %29)
+110:                                              ; preds = %.lr.ph.i
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  %bcmp.i = call i32 @bcmp(ptr nonnull %111, ptr nonnull readonly %27, i64 %29)
   %.not33.i = icmp eq i32 %bcmp.i, 0
-  br i1 %.not33.i, label %cli_memmem.exit.thread61, label %113
+  br i1 %.not33.i, label %cli_memmem.exit.thread61, label %112
 
-113:                                              ; preds = %111
-  %114 = ptrtoint ptr %.02537.i to i64
-  %115 = ptrtoint ptr %112 to i64
-  %.neg.i = sub i64 %114, %115
-  %116 = trunc i64 %.neg.i to i32
-  %117 = add i32 %.02636.i, %116
-  %.not31.i = icmp ult i32 %117, %2
-  br i1 %.not31.i, label %cli_memmem.exit.thread.loopexit, label %107
+112:                                              ; preds = %110
+  %113 = ptrtoint ptr %.02537.i to i64
+  %114 = ptrtoint ptr %111 to i64
+  %.neg.i = sub i64 %113, %114
+  %115 = trunc i64 %.neg.i to i32
+  %116 = add i32 %.02636.i, %115
+  %.not31.i = icmp ult i32 %116, %2
+  br i1 %.not31.i, label %cli_memmem.exit.thread, label %.lr.ph.i
 
-cli_memmem.exit.thread61:                         ; preds = %111, %cli_memmem.exit.us
-  %.04572 = phi i32 [ %.045.us73, %cli_memmem.exit.us ], [ %.045, %111 ]
-  %.0.i5664 = phi ptr [ %80, %cli_memmem.exit.us ], [ %110, %111 ]
-  %118 = ptrtoint ptr %.0.i5664 to i64
-  %119 = ptrtoint ptr %5 to i64
-  %120 = sub i64 %118, %119
-  %121 = trunc i64 %120 to i32
-  %122 = add i32 %.04572, %121
+cli_memmem.exit.thread61:                         ; preds = %110, %cli_memmem.exit.us
+  %.04572 = phi i32 [ %.045.us73, %cli_memmem.exit.us ], [ %.045, %110 ]
+  %.0.i5664 = phi ptr [ %80, %cli_memmem.exit.us ], [ %109, %110 ]
+  %117 = ptrtoint ptr %.0.i5664 to i64
+  %118 = ptrtoint ptr %5 to i64
+  %119 = sub i64 %117, %118
+  %120 = trunc i64 %119 to i32
+  %121 = add i32 %.04572, %120
   br label %.thread
 
-cli_memmem.exit.thread.loopexit:                  ; preds = %107, %113
-  %123 = add i32 %.045, %104
+cli_memmem.exit.thread:                           ; preds = %.lr.ph.i, %113
+  %122 = add i32 %.045, %104
   br label %.split.split
 
 .thread:                                          ; preds = %95, %93, %fmap_readn.exit, %85, %58, %66, %68, %fmap_readn.exit.us78, %fmap_readn.exit.us, %43, %41, %33, %cli_memmem.exit.thread61, %13
-  %.043 = phi i32 [ -1, %13 ], [ %122, %cli_memmem.exit.thread61 ], [ -1, %33 ], [ -1, %41 ], [ -1, %43 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us78 ], [ -1, %68 ], [ -1, %66 ], [ -1, %58 ], [ -1, %85 ], [ -1, %fmap_readn.exit ], [ -1, %93 ], [ -1, %95 ]
+  %.043 = phi i32 [ -1, %13 ], [ %121, %cli_memmem.exit.thread61 ], [ -1, %33 ], [ -1, %41 ], [ -1, %43 ], [ -1, %fmap_readn.exit.us ], [ -1, %fmap_readn.exit.us78 ], [ -1, %68 ], [ -1, %66 ], [ -1, %58 ], [ -1, %85 ], [ -1, %fmap_readn.exit ], [ -1, %93 ], [ -1, %95 ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #28
   ret i32 %.043
 }

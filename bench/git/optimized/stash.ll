@@ -3580,7 +3580,7 @@ define internal fastcc range(i32 0, 2) i32 @check_changes(ptr noundef nonnull %0
   %5 = tail call fastcc i32 @check_changes_tracked_files(ptr noundef %0)
   %.not = icmp ne i32 %5, 0
   %.not6 = icmp eq i32 %1, 0
-  br i1 %.not6, label %36, label %6
+  br i1 %.not6, label %38, label %6
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %4) #15
@@ -3600,7 +3600,7 @@ define internal fastcc range(i32 0, 2) i32 @check_changes(ptr noundef nonnull %0
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !173
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph.i, label %.sink.split
+  br i1 %15, label %.lr.ph.i, label %get_untracked_files.exit
 
 .lr.ph.i:                                         ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3647,16 +3647,16 @@ strbuf_addch.exit.i:                              ; preds = %strbuf_avail.exit.t
   %33 = load i32, ptr %13, align 4, !tbaa !173
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %19, label %.sink.split, !llvm.loop !185
+  br i1 %35, label %19, label %get_untracked_files.exit, !llvm.loop !185
 
-.sink.split:                                      ; preds = %strbuf_addch.exit.i, %8
+get_untracked_files.exit:                         ; preds = %strbuf_addch.exit.i, %8
   %.1.shrunk.ph = phi i1 [ %.not, %8 ], [ true, %strbuf_addch.exit.i ]
   call void @dir_clear(ptr noundef nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 312, ptr nonnull %4) #15
-  br label %36
+  br label %38
 
-36:                                               ; preds = %.sink.split, %3
-  %.1.shrunk = phi i1 [ %.not, %3 ], [ %.1.shrunk.ph, %.sink.split ]
+38:                                               ; preds = %get_untracked_files.exit, %3
+  %.1.shrunk = phi i1 [ %.not, %3 ], [ %.1.shrunk.ph, %get_untracked_files.exit ]
   %.1 = zext i1 %.1.shrunk to i32
   ret i32 %.1
 }

@@ -125086,7 +125086,7 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..co
   %.0.i = icmp eq i8 %22, %21
   br label %23
 
-23:                                               ; preds = %2, %4
+23:; preds = %2, %4
   %.0 = phi i1 [ %.0.i, %4 ], [ false, %2 ]
   ret i1 %.0
 }
@@ -125126,11 +125126,11 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$T$u20$as$u20$typst..foundations..co
   %27 = load i8, ptr %26, align 8, !range !1085, !alias.scope !21942, !noalias !21939, !noundef !7
   br i1 %25, label %28, label %30
 
-28:                                               ; preds = %22
+29:                                               ; preds = %22
   %29 = icmp eq i8 %27, 2
   br label %"_ZN5typst6layout7spacing1_80_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$typst..layout..spacing..HElem$GT$2eq17hdc71878b57ef0325E.exit"
 
-30:                                               ; preds = %22
+"_ZN5typst6layout7spacing1_80_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$typst..layout..spacing..HElem$GT$2eq17hdc71878b57ef0325E.exit": ; preds = %22
   %.not2.i = icmp eq i8 %24, %27
   br label %"_ZN5typst6layout7spacing1_80_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$typst..layout..spacing..HElem$GT$2eq17hdc71878b57ef0325E.exit"
 
@@ -149834,7 +149834,7 @@ define void @"_ZN5typst6layout7spacing1_92_$LT$impl$u20$typst..foundations..elem
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN5typst6layout7spacing1_80_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$typst..layout..spacing..HElem$GT$2eq17hdc71878b57ef0325E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 {
   %3 = tail call noundef zeroext i1 @"_ZN72_$LT$typst..layout..spacing..Spacing$u20$as$u20$core..cmp..PartialEq$GT$2eq17h12c737c137cc428aE.llvm.3683678558897460461"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-  br i1 %3, label %4, label %10
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -149842,17 +149842,17 @@ define noundef zeroext i1 @"_ZN5typst6layout7spacing1_80_$LT$impl$u20$core..cmp.
   %7 = icmp eq i8 %6, 2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i8, ptr %8, align 8, !range !1085, !noundef !7
-  br i1 %7, label %11, label %13
+  br i1 %7, label %12, label %13
 
-10:                                               ; preds = %13, %2, %11
-  %.0 = phi i1 [ %12, %11 ], [ false, %2 ], [ %.not2, %13 ]
+11:                                               ; preds = %13, %2, %12
+  %.0 = phi i1 [ %12, %12 ], [ false, %2 ], [ %.not2, %13 ]
   ret i1 %.0
 
-11:                                               ; preds = %4
+12:                                               ; preds = %4
   %12 = icmp eq i8 %9, 2
-  br label %10
+  br label %11
 
-13:                                               ; preds = %4
+13:; preds = %4
   %.not2 = icmp eq i8 %6, %9
   br label %10
 }

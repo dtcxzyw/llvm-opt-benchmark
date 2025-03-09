@@ -3462,7 +3462,7 @@ init_addrinfo_getaddrinfo.exit:                   ; preds = %.lr.ph.i.i, %163
 174:                                              ; preds = %168, %init_addrinfo_getaddrinfo.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  br label %199
+  br label %200
 
 175:                                              ; preds = %66
   %176 = call i64 @rb_string_value(ptr noundef nonnull %5) #21
@@ -3510,19 +3510,19 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit41
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %191, %192
-  %195 = getelementptr inbounds nuw i8, ptr %19, i64 28
-  store i32 %187, ptr %195, align 4, !tbaa !118
-  %196 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 %50, ptr %196, align 8, !tbaa !119
-  %197 = getelementptr inbounds nuw i8, ptr %19, i64 20
-  store i32 %56, ptr %197, align 4, !tbaa !120
-  %198 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i32 %67, ptr %198, align 8, !tbaa !121
+  %196 = getelementptr inbounds nuw i8, ptr %19, i64 28
+  store i32 %187, ptr %196, align 4, !tbaa !118
+  %197 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 %50, ptr %197, align 8, !tbaa !119
+  %198 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  store i32 %56, ptr %198, align 4, !tbaa !120
+  %199 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i32 %67, ptr %199, align 8, !tbaa !121
   store i64 4, ptr %20, align 8, !tbaa !111
   store i64 4, ptr %19, align 8, !tbaa !109
-  br label %199
+  br label %200
 
-199:                                              ; preds = %init_addrinfo.exit, %174
+200:                                              ; preds = %init_addrinfo.exit, %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21

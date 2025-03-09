@@ -18309,8 +18309,8 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
   br i1 %or.cond.i, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit", label %.preheader
 
 35:                                               ; preds = %12
-  %.not35 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
-  br i1 %.not35, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit", label %.lr.ph.i
+  %.not34 = icmp eq i64 %.sroa.0.0.sroa.speculated.i, 0
+  br i1 %.not34, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %36 = icmp ne ptr %.val, null
@@ -18330,7 +18330,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
   %39 = invoke noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %.val3.i.i26)
           to label %.noexc30 unwind label %.loopexit.split-lp
 
-.noexc30:                                         ; preds = %.noexc29
+.noexc30:; preds = %.noexc29
   %.not.i.i25 = icmp eq i8 %38, 2
   %40 = xor i8 %38, 1
   %41 = select i1 %.not.i.i25, i8 0, i8 %40
@@ -18349,8 +18349,8 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4590e76b23b729f3E(p
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.13.3, i64 24
   %52 = icmp ne ptr %48, %16
   %53 = icmp ne ptr %50, %14
-  %or.cond.i28 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond.i28, label %37, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit"
+  %or.cond.i27 = select i1 %52, i1 %53, i1 false
+  br i1 %or.cond.i27, label %37, label %"_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit"
 
 "_ZN4core5slice4sort6stable5merge19MergeState$LT$T$GT$10merge_down17haed7f88b4bc4aadfE.exit": ; preds = %.noexc30, %.noexc22, %35
   %.sroa.13.1 = phi ptr [ %0, %35 ], [ %30, %.noexc22 ], [ %51, %.noexc30 ]

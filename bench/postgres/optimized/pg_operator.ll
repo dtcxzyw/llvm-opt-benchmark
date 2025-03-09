@@ -346,32 +346,32 @@ define internal fastcc zeroext i1 @validOperatorName(ptr noundef readonly %0) un
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %22 = load i8, ptr %21, align 1
-  %23 = sext i8 %22 to i32
-  %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.21, i32 %23, i64 11)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %21 = load i8, ptr %20, align 1
+  %22 = sext i8 %21 to i32
+  %memchr = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.21, i32 %22, i64 11)
   %.not27 = icmp eq ptr %memchr, null
   br i1 %.not27, label %18, label %sub_0
 
 sub_0:                                            ; preds = %.lr.ph, %10, %12
-  %24 = load i8, ptr %0, align 1
-  %.not29 = icmp eq i8 %24, 33
+  %23 = load i8, ptr %0, align 1
+  %.not29 = icmp eq i8 %23, 33
   br i1 %.not29, label %sub_1, label %.loopexit
 
 sub_1:                                            ; preds = %sub_0
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %26 = load i8, ptr %25, align 1
-  %.not30 = icmp eq i8 %26, 61
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %25 = load i8, ptr %24, align 1
+  %.not30 = icmp eq i8 %25, 61
   br i1 %.not30, label %sub_2, label %.loopexit
 
 sub_2:                                            ; preds = %sub_1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %28 = load i8, ptr %27, align 1
-  %29 = icmp ne i8 %28, 0
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp ne i8 %27, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %sub_2, %sub_1, %sub_0, %6, %8, %4, %1
-  %.022 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %8 ], [ false, %6 ], [ true, %sub_0 ], [ true, %sub_1 ], [ %29, %sub_2 ], [ false, %18 ]
+  %.022 = phi i1 [ false, %1 ], [ false, %4 ], [ false, %8 ], [ false, %6 ], [ true, %sub_0 ], [ true, %sub_1 ], [ %28, %sub_2 ], [ false, %18 ]
   ret i1 %.022
 }
 

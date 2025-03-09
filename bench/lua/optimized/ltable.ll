@@ -2235,9 +2235,9 @@ define internal fastcc void @luaH_newkey(ptr noundef %0, ptr noundef %1, ptr nou
   %19 = load i64, ptr %2, align 8, !tbaa !16
   %20 = add i64 %19, -2147483649
   %21 = icmp ult i64 %20, -2147483648
-  br i1 %21, label %countint.exit.i, label %22
+  br i1 %21, label %countint.exit.i, label %23
 
-22:                                               ; preds = %18
+23:                                               ; preds = %18
   %23 = trunc nuw i64 %19 to i32
   %24 = tail call zeroext i8 @luaO_ceillog2(i32 noundef %23) #13
   %25 = zext i8 %24 to i64
@@ -2247,8 +2247,8 @@ define internal fastcc void @luaH_newkey(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %28, ptr %26, align 4, !tbaa !23
   br label %countint.exit.i
 
-countint.exit.i:                                  ; preds = %22, %18, %12
-  %.promoted.i = phi i32 [ 1, %22 ], [ 0, %18 ], [ 0, %12 ]
+countint.exit.i:                                  ; preds = %23, %18, %12
+  %.promoted.i = phi i32 [ 1, %23 ], [ 0, %18 ], [ 0, %12 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %30 = load i8, ptr %29, align 1, !tbaa !20
   %31 = zext nneg i8 %30 to i32
@@ -2285,7 +2285,7 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   %53 = icmp ult i64 %52, -2147483648
   br i1 %53, label %countint.exit.i.i, label %54
 
-54:                                               ; preds = %49
+55:                                               ; preds = %49
   %55 = trunc nuw i64 %51 to i32
   %56 = tail call zeroext i8 @luaO_ceillog2(i32 noundef %55) #13
   %57 = zext i8 %56 to i64
@@ -2296,13 +2296,13 @@ countint.exit.i:                                  ; preds = %22, %18, %12
   %61 = add i32 %37, 1
   br label %countint.exit.i.i
 
-countint.exit.i.i:                                ; preds = %54, %49, %44, %35
-  %62 = phi i32 [ %36, %44 ], [ %36, %49 ], [ %36, %54 ], [ 1, %35 ]
-  %63 = phi i32 [ %37, %44 ], [ %37, %49 ], [ %61, %54 ], [ %37, %35 ]
-  %.1.i.i = phi i32 [ %45, %44 ], [ %45, %49 ], [ %45, %54 ], [ %.01112.i.i, %35 ]
+countint.exit.i.i:                                ; preds = %55, %49, %44, %35
+  %62 = phi i32 [ %36, %44 ], [ %36, %49 ], [ %36, %55 ], [ 1, %35 ]
+  %63 = phi i32 [ %37, %44 ], [ %37, %49 ], [ %61, %55 ], [ %37, %35 ]
+  %.1.i.i = phi i32 [ %45, %44 ], [ %45, %49 ], [ %45, %55 ], [ %.01112.i.i, %35 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not.i.i, label %numusehash.exit.i, label %35
+  %.not.i15.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %.not.i15.i, label %numusehash.exit.i, label %35
 
 numusehash.exit.i:                                ; preds = %countint.exit.i.i
   %64 = add i32 %.1.i.i, 1
@@ -2316,7 +2316,7 @@ numusehash.exit.i:                                ; preds = %countint.exit.i.i
   br label %70
 
 70:                                               ; preds = %._crit_edge.i.i, %68
-  %indvars.iv.i15.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i16.i, %._crit_edge.i.i ]
+  %indvars.iv.i16.i = phi i64 [ 0, %68 ], [ %indvars.iv.next.i17.i, %._crit_edge.i.i ]
   %.02849.i.i = phi i32 [ 1, %68 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ]
   %.03048.i.i = phi i32 [ 0, %68 ], [ %89, %._crit_edge.i.i ]
   %.03347.i.i = phi i32 [ 1, %68 ], [ %90, %._crit_edge.i.i ]
@@ -2361,14 +2361,14 @@ numusehash.exit.i:                                ; preds = %countint.exit.i.i
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %74
   %.2.lcssa.i.i = phi i32 [ %.02849.i.i, %74 ], [ %85, %._crit_edge.i.loopexit.i ]
   %.026.lcssa.i.i = phi i32 [ 0, %74 ], [ %spec.select.i.i, %._crit_edge.i.loopexit.i ]
-  %86 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i15.i
+  %86 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i16.i
   %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = add i32 %87, %.026.lcssa.i.i
   store i32 %88, ptr %86, align 4, !tbaa !23
   %89 = add i32 %.026.lcssa.i.i, %.03048.i.i
-  %indvars.iv.next.i16.i = add nuw nsw i64 %indvars.iv.i15.i, 1
+  %indvars.iv.next.i17.i = add nuw nsw i64 %indvars.iv.i16.i, 1
   %90 = shl i32 %.03347.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i16.i, 32
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i17.i, 32
   br i1 %exitcond.not.i.i, label %numusearray.exit.i, label %70
 
 numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %72
@@ -2380,8 +2380,8 @@ numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %7
   br label %95
 
 95:                                               ; preds = %97, %numusearray.exit.i
-  %indvars.iv.i17.i = phi i64 [ 0, %numusearray.exit.i ], [ %indvars.iv.next.i19.i, %97 ]
-  %.01629.i.i = phi i32 [ 0, %numusearray.exit.i ], [ %.1.i18.i, %97 ]
+  %indvars.iv.i18.i = phi i64 [ 0, %numusearray.exit.i ], [ %indvars.iv.next.i20.i, %97 ]
+  %.01629.i.i = phi i32 [ 0, %numusearray.exit.i ], [ %.1.i19.i, %97 ]
   %.01728.i.i = phi i32 [ 0, %numusearray.exit.i ], [ %.118.i.i, %97 ]
   %.01927.i.i = phi i32 [ 0, %numusearray.exit.i ], [ %100, %97 ]
   %.02026.i.i = phi i32 [ 1, %numusearray.exit.i ], [ %103, %97 ]
@@ -2390,7 +2390,7 @@ numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %7
   br i1 %.not22.i.i, label %rehash.exit, label %97
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i17.i
+  %98 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %indvars.iv.i18.i
   %99 = load i32, ptr %98, align 4, !tbaa !23
   %100 = add i32 %99, %.01927.i.i
   %.not23.i.i = icmp eq i32 %99, 0
@@ -2399,16 +2399,16 @@ numusearray.exit.i:                               ; preds = %._crit_edge.i.i, %7
   %.not24.i.i = icmp samesign ult i64 %102, %96
   %or.cond.i.i = select i1 %.not23.i.i, i1 true, i1 %.not24.i.i
   %.118.i.i = select i1 %or.cond.i.i, i32 %.01728.i.i, i32 %100
-  %.1.i18.i = select i1 %or.cond.i.i, i32 %.01629.i.i, i32 %.02026.i.i
-  %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i17.i, 1
+  %.1.i19.i = select i1 %or.cond.i.i, i32 %.01629.i.i, i32 %.02026.i.i
+  %indvars.iv.next.i20.i = add nuw nsw i64 %indvars.iv.i18.i, 1
   %103 = shl i32 %.02026.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i19.i, 32
+  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i20.i, 32
   br i1 %exitcond.i.i, label %rehash.exit, label %95
 
 rehash.exit:                                      ; preds = %95, %97, %numusehash.exit.i
   %104 = phi i32 [ 0, %numusehash.exit.i ], [ %.01728.i.i, %95 ], [ %.118.i.i, %97 ]
   %105 = phi i32 [ %64, %numusehash.exit.i ], [ %91, %97 ], [ %91, %95 ]
-  %.014.i = phi i32 [ %67, %numusehash.exit.i ], [ %.01629.i.i, %95 ], [ %.1.i18.i, %97 ]
+  %.014.i = phi i32 [ %67, %numusehash.exit.i ], [ %.01629.i.i, %95 ], [ %.1.i19.i, %97 ]
   %106 = sub i32 %105, %104
   %.not.i = icmp eq i32 %62, 0
   %107 = lshr i32 %106, 2

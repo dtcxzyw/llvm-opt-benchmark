@@ -24377,7 +24377,7 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Rerun$u20$as$u20$gpui..ac
   %25 = load i8, ptr %24, align 1, !range !267, !alias.scope !4360, !noalias !4355, !noundef !9
   br i1 %23, label %26, label %28
 
-26:                                               ; preds = %20
+27:                                               ; preds = %20
   %27 = icmp eq i8 %25, 2
   br i1 %27, label %29, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
@@ -24385,7 +24385,7 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Rerun$u20$as$u20$gpui..ac
   %.not7.i.i.i = icmp eq i8 %22, %25
   br i1 %.not7.i.i.i, label %29, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-29:                                               ; preds = %28, %26
+29:                                               ; preds = %28, %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %31 = load i8, ptr %30, align 2, !range !267, !alias.scope !4355, !noalias !4360, !noundef !9
   %32 = icmp eq i8 %31, 2
@@ -24393,15 +24393,15 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Rerun$u20$as$u20$gpui..ac
   %34 = load i8, ptr %33, align 2, !range !267, !alias.scope !4360, !noalias !4355, !noundef !9
   br i1 %32, label %35, label %37
 
-35:                                               ; preds = %29
+36:                                               ; preds = %29
   %36 = icmp eq i8 %34, 2
   br i1 %36, label %38, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-37:                                               ; preds = %29
+39:                                               ; preds = %29
   %.not8.i.i.i = icmp eq i8 %31, %34
   br i1 %.not8.i.i.i, label %38, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-38:                                               ; preds = %37, %35
+40:                                               ; preds = %39, %35
   %39 = load i64, ptr %0, align 8, !range !80, !alias.scope !4355, !noalias !4360, !noundef !9
   %40 = icmp eq i64 %39, -9223372036854775808
   %41 = load i64, ptr %7, align 8, !range !80, !alias.scope !4360, !noalias !4355, !noundef !9
@@ -24410,25 +24410,25 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Rerun$u20$as$u20$gpui..ac
   %.mux.i.i.i = and i1 %40, %42
   br i1 %brmerge.i.i.i, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit", label %43
 
-43:                                               ; preds = %38
+41:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val4.i.i.i = load i64, ptr %44, align 8, !alias.scope !4355, !noalias !4360, !noundef !9
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val6.i.i.i = load i64, ptr %45, align 8, !alias.scope !4360, !noalias !4355, !noundef !9
   %.not.i.i.i.i.i = icmp eq i64 %.val4.i.i.i, %.val6.i.i.i
-  br i1 %.not.i.i.i.i.i, label %46, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
+  br i1 %.not.i.i.i.i.i, label %52, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val5.i.i.i = load ptr, ptr %47, align 8, !alias.scope !4360, !noalias !4355, !nonnull !9, !noundef !9
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val.i.i.i = load ptr, ptr %48, align 8, !alias.scope !4355, !noalias !4360, !nonnull !9, !noundef !9
+52:                                               ; preds = %43
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val5.i.i.i = load ptr, ptr %53, align 8, !alias.scope !4360, !noalias !4355, !nonnull !9, !noundef !9
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i.i.i = load ptr, ptr %54, align 8, !alias.scope !4355, !noalias !4360, !nonnull !9, !noundef !9
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val5.i.i.i, i64 %.val4.i.i.i), !alias.scope !4361, !noalias !4365
-  %49 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  %55 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit": ; preds = %3, %15, %26, %28, %35, %37, %38, %43, %46
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %37 ], [ false, %35 ], [ false, %28 ], [ false, %26 ], [ false, %15 ], [ %49, %46 ], [ false, %43 ], [ %.mux.i.i.i, %38 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit": ; preds = %3, %15, %27, %28, %36, %39, %40, %41, %46
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %37 ], [ false, %35 ], [ false, %28 ], [ false, %26 ], [ false, %15 ], [ %49, %46 ], [ false, %43 ], [ %.mux.i.i.i, %40 ]
   ret i1 %.sroa.02.0.i
 }
 

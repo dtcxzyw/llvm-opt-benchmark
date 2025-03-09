@@ -19906,10 +19906,10 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %.not25 = icmp eq i64 %21, 0
   %.not26 = icmp eq i32 %5, %24
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
-  br i1 %or.cond, label %27, label %92
+  br i1 %or.cond, label %27, label %94
 
 27:                                               ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit
-  br i1 %.not25, label %.thread50, label %67
+  br i1 %.not25, label %.thread50, label %69
 
 .thread50:                                        ; preds = %..thread50_crit_edge, %.thread56, %27
   %.promoted.i = phi i64 [ %.promoted.i.pre, %..thread50_crit_edge ], [ %14, %.thread56 ], [ %26, %27 ]
@@ -19918,13 +19918,13 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !prof !1226
 
 .lr.ph.i:                                         ; preds = %.thread50
-  %.promoted19.i = load ptr, ptr %0, align 8
+  %.promoted18.i = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %31
 
 31:                                               ; preds = %41, %.lr.ph.i
   %32 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %42, %41 ]
-  %33 = phi ptr [ %.promoted19.i, %.lr.ph.i ], [ %34, %41 ]
+  %33 = phi ptr [ %.promoted18.i, %.lr.ph.i ], [ %34, %41 ]
   %.0.copyload.i.i = load i64, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %34, ptr %0, align 8, !tbaa !1225
@@ -19988,75 +19988,75 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit: ; preds = %._crit_edge.i, %.sink.split.i
-  %61 = phi i64 [ %.sink.i, %.sink.split.i ], [ %.pr, %._crit_edge.i ]
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %92, label %63
+  %63 = phi i64 [ %.sink.i, %.sink.split.i ], [ %.pr, %._crit_edge.i ]
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %94, label %65
 
-63:                                               ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load i64, ptr %64, align 8, !tbaa !1220
-  %66 = sub nsw i64 %65, %61
-  br label %89
+65:                                               ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !1220
+  %68 = sub nsw i64 %67, %63
+  br label %91
 
-67:                                               ; preds = %27
+69:                                               ; preds = %27
   %.not28 = icmp eq i32 %5, %24
-  br i1 %.not28, label %68, label %89
+  br i1 %.not28, label %70, label %91
 
-68:                                               ; preds = %67
-  %69 = icmp sgt i64 %26, 63
-  br i1 %69, label %70, label %73, !prof !145
+70:                                               ; preds = %69
+  %71 = icmp sgt i64 %26, 63
+  br i1 %71, label %72, label %75, !prof !145
 
-70:                                               ; preds = %68
-  %71 = load ptr, ptr %0, align 8, !tbaa !1225
-  %.0.copyload.i = load i64, ptr %71, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %72, ptr %0, align 8, !tbaa !1225
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %0, align 8, !tbaa !1225
+  %.0.copyload.i = load i64, ptr %73, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store ptr %74, ptr %0, align 8, !tbaa !1225
   store i64 %.0.copyload.i, ptr %7, align 8, !tbaa !1223
-  br label %86
+  br label %88
 
-73:                                               ; preds = %68
-  %74 = icmp sgt i64 %26, 0
-  br i1 %74, label %75, label %92
+75:                                               ; preds = %70
+  %76 = icmp sgt i64 %26, 0
+  br i1 %76, label %77, label %94
 
-75:                                               ; preds = %73
+77:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !23
-  %76 = lshr i64 %26, 3
-  %77 = and i64 %26, 7
-  %78 = icmp ne i64 %77, 0
-  %79 = zext i1 %78 to i64
-  %80 = add nuw nsw i64 %76, %79
-  %81 = load ptr, ptr %0, align 8, !tbaa !1225
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr align 1 %81, i64 %80, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
-  store ptr %82, ptr %0, align 8, !tbaa !1225
+  %78 = lshr i64 %26, 3
+  %79 = and i64 %26, 7
+  %80 = icmp ne i64 %79, 0
+  %81 = zext i1 %80 to i64
+  %82 = add nuw nsw i64 %78, %81
+  %83 = load ptr, ptr %0, align 8, !tbaa !1225
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr align 1 %83, i64 %82, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
+  store ptr %84, ptr %0, align 8, !tbaa !1225
   %.0..0..0..0..0..0..i = load i64, ptr %2, align 8, !tbaa !23
   %notmask.i.i = shl nsw i64 -1, %26
-  %83 = xor i64 %notmask.i.i, -1
-  %84 = and i64 %.0..0..0..0..0..0..i, %83
+  %85 = xor i64 %notmask.i.i, -1
+  %86 = and i64 %.0..0..0..0..0..0..i, %85
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  store i64 %84, ptr %7, align 8, !tbaa !1223
-  %85 = trunc nuw nsw i64 %26 to i32
-  br label %86
+  store i64 %86, ptr %7, align 8, !tbaa !1223
+  %87 = trunc nuw nsw i64 %26 to i32
+  br label %88
 
-86:                                               ; preds = %75, %70
-  %87 = phi i64 [ %84, %75 ], [ %.0.copyload.i, %70 ]
-  %storemerge = phi i32 [ %85, %75 ], [ 64, %70 ]
+88:                                               ; preds = %77, %72
+  %89 = phi i64 [ %86, %77 ], [ %.0.copyload.i, %72 ]
+  %storemerge = phi i32 [ %87, %77 ], [ 64, %72 ]
   store i32 %storemerge, ptr %4, align 8, !tbaa !1224
-  %88 = and i64 %87, 1
-  %.not29 = icmp eq i64 %88, 0
-  br i1 %.not29, label %92, label %89
+  %90 = and i64 %89, 1
+  %.not29 = icmp eq i64 %90, 0
+  br i1 %.not29, label %94, label %91
 
-89:                                               ; preds = %67, %86, %63
-  %.02054 = phi i64 [ %21, %67 ], [ %21, %86 ], [ 0, %63 ]
-  %.2 = phi i64 [ %19, %67 ], [ %19, %86 ], [ %66, %63 ]
-  %90 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  %91 = add nsw i64 %90, %.02054
-  br label %92
+91:                                               ; preds = %69, %88, %65
+  %.02054 = phi i64 [ %21, %69 ], [ %21, %88 ], [ 0, %65 ]
+  %.2 = phi i64 [ %19, %69 ], [ %19, %88 ], [ %68, %65 ]
+  %92 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
+  %93 = add nsw i64 %92, %.02054
+  br label %94
 
-92:                                               ; preds = %86, %73, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit, %89
-  %.sroa.019.1 = phi i64 [ %.2, %89 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %19, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %19, %73 ], [ %19, %86 ]
-  %.sroa.6.1 = phi i64 [ %91, %89 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %21, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %21, %73 ], [ %21, %86 ]
+94:                                               ; preds = %88, %75, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit, %91
+  %.sroa.019.1 = phi i64 [ %.2, %91 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %19, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %19, %75 ], [ %19, %88 ]
+  %.sroa.6.1 = phi i64 [ %93, %91 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %21, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %21, %75 ], [ %21, %88 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.019.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { i64, i64 } %.fca.1.insert

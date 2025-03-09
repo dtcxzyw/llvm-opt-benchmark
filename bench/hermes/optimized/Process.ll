@@ -1139,11 +1139,11 @@ if.end.i.i221.i:                                  ; preds = %_ZN4llvh12StringSwi
   br i1 %5, label %if.then.i118.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i
 
 _ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i: ; preds = %if.end.i.i221.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i
-  %tobool.i62163.i = phi i1 [ false, %if.end.i.i221.i ], [ %tobool.i62.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
-  %ref.tmp.sroa.28.4162.i = phi i8 [ 0, %if.end.i.i221.i ], [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ 0, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %or.cond36161.i = phi i1 [ false, %if.end.i.i221.i ], [ %tobool.i62.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ false, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
+  %ref.tmp.sroa.28.4160.i = phi i8 [ 0, %if.end.i.i221.i ], [ %ref.tmp.sroa.28.4.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ 0, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
   %cmp.i198.not120161.i = phi i1 [ false, %if.end.i.i221.i ], [ %cmp.i198.not120.i, %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit87.i ], [ true, %_ZN4llvh12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit.i ]
   %cmp.i236.not.i = icmp ult i64 %call.i.i, 4
-  %or.cond37.i = or i1 %cmp.i236.not.i, %tobool.i62163.i
+  %or.cond37.i = or i1 %cmp.i236.not.i, %or.cond36161.i
   br i1 %or.cond37.i, label %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit.i, label %if.end.i.i240.i
 
 if.end.i.i240.i:                                  ; preds = %_ZN4llvh12StringSwitchIbbE10StartsWithENS_13StringLiteralEb.exit74.i

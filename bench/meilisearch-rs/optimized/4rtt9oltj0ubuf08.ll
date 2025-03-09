@@ -128770,11 +128770,11 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %24
 
-"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit": ; preds = %.lr.ph.i, %24, %.loopexit, %27
+"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit":; preds = %.lr.ph.i, %24, %.loopexit, %27
   %.sroa.0.0 = phi i8 [ 2, %.loopexit ], [ 1, %24 ], [ 0, %27 ], [ 2, %.lr.ph.i ]
   ret i8 %.sroa.0.0
 
-24:                                               ; preds = %.loopexit
+26:                                               ; preds = %.loopexit
   %25 = and i64 %20, %19
   %.not.i3 = icmp eq i64 %25, 0
   %26 = and i64 %19, 8589934592
@@ -128782,7 +128782,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3
   %trunc = and i1 %.not.i3, %.not3.i
   br i1 %trunc, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %27
 
-27:                                               ; preds = %24
+27:                                               ; preds = %26
   %28 = load i64, ptr %3, align 8, !noundef !4
   %29 = add i64 %28, 1
   store i64 %29, ptr %3, align 8

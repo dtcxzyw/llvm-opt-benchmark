@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
   %10 = trunc i8 %9 to i1
   %11 = icmp eq i32 %2, 0
   %or.cond = and i1 %11, %10
-  br i1 %or.cond, label %12, label %45
+  br i1 %or.cond, label %12, label %44
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -131,7 +131,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
 14:                                               ; preds = %12
   %15 = load i8, ptr %13, align 8
   %16 = trunc i8 %15 to i1
-  br i1 %16, label %17, label %45
+  br i1 %16, label %17, label %44
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -144,7 +144,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %23, %25
   %27 = icmp sgt i32 %21, -1
-  %28 = icmp sgt i32 %26, -1
+  %or.cond.i = icmp sgt i32 %26, -1
   %or.cond.i = select i1 %27, i1 %28, i1 false
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
@@ -156,7 +156,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
   %or.cond11 = select i1 %or.cond8.i, i1 %34, i1 false
   br i1 %or.cond11, label %35, label %.sink.split
 
-35:                                               ; preds = %17
+35: ; preds = %17
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 177
   %37 = load i8, ptr %36, align 1
   %38 = and i8 %37, 1
@@ -168,21 +168,21 @@ define hidden noundef zeroext i1 @_ZN7nanogui8CheckBox18mouse_button_eventERKNS_
   br i1 %.not.i.i.not, label %.sink.split, label %_ZNKSt8functionIFvbEEclEb.exit
 
 _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %35
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %39, ptr %6, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %43 = load ptr, ptr %42, align 8
+  call void %44(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNKSt8functionIFvbEEclEb.exit, %35, %17, %12
   %.sink = phi i8 [ 1, %12 ], [ 0, %17 ], [ 0, %35 ], [ 0, %_ZNKSt8functionIFvbEEclEb.exit ]
   store i8 %.sink, ptr %13, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.sink.split, %14, %5
+44:                                               ; preds = %.sink.split, %14, %5
   ret i1 %or.cond
 }
 

@@ -4513,8 +4513,8 @@ _ZN4llvm7isUIntNEjm.exit.i:                       ; preds = %781
   %783 = shl nuw nsw i64 %749, 3
   %narrow.i.i = sub nuw nsw i64 64, %783
   %784 = lshr i64 -1, %narrow.i.i
-  %.not76.i = icmp ugt i64 %771, %784
-  br i1 %.not76.i, label %785, label %_ZN4llvm7isUIntNEjm.exit.thread.i
+  %.not77.i = icmp ugt i64 %771, %784
+  br i1 %.not77.i, label %785, label %_ZN4llvm7isUIntNEjm.exit.thread.i
 
 785:                                              ; preds = %_ZN4llvm7isUIntNEjm.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #25

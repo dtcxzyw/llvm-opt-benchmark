@@ -1548,7 +1548,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.13962917913251662315
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !408
   %19 = icmp ne i8 %18, 2
   %20 = trunc nuw i8 %18 to i1
-  %21 = xor i1 %20, true
+  %.0 = xor i1 %20, true
   %.0 = select i1 %19, i1 %21, i1 false
   ret i1 %.0
 }

@@ -398,7 +398,7 @@ _ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopex
           cleanup
   br label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit
 
-_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge, %148, %161
+_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %._crit_edge, %147, %160
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit
@@ -572,11 +572,11 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
           to label %._crit_edge._crit_edge unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre128 = load i32, ptr %28, align 4
+  %.pre125 = load i32, ptr %28, align 4
   br label %117
 
 117:                                              ; preds = %._crit_edge._crit_edge, %.loopexit
-  %118 = phi i32 [ %.pre128, %._crit_edge._crit_edge ], [ %83, %.loopexit ]
+  %118 = phi i32 [ %.pre125, %._crit_edge._crit_edge ], [ %83, %.loopexit ]
   %119 = and i32 %118, 4
   %.not55 = icmp eq i32 %119, 0
   br i1 %.not55, label %124, label %120
@@ -586,18 +586,18 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
   %122 = and i8 %121, 1
   %123 = xor i8 %122, 1
   store i8 %123, ptr %25, align 8
-  br label %155
+  br label %154
 
 124:                                              ; preds = %117
   store i8 1, ptr %25, align 8
-  br label %155
+  br label %154
 
 125:                                              ; preds = %23
   %126 = trunc i8 %26 to i1
   %127 = and i32 %24, 16
   %.not49 = icmp ne i32 %127, 0
-  %or.cond132.not = or i1 %.not49, %126
-  br i1 %or.cond132.not, label %128, label %155
+  %or.cond129.not = or i1 %.not49, %126
+  br i1 %or.cond129.not, label %128, label %154
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -610,8 +610,8 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
   %136 = load i32, ptr %135, align 4
   %137 = sub nsw i32 %134, %136
   %138 = icmp slt i32 %132, 0
-  %139 = icmp slt i32 %137, 0
-  %or.cond.i.not126 = select i1 %138, i1 true, i1 %139
+  %or.cond.i = icmp slt i32 %137, 0
+  %or.cond.i.not126 = select i1 %138, i1 true, i1 %or.cond.i
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %141 = load i32, ptr %140, align 8
   %142 = icmp sge i32 %132, %141
@@ -624,61 +624,61 @@ _ZNKSt8functionIFvbEEclEb.exit70:                 ; preds = %109
   %147 = load ptr, ptr %146, align 8
   %.not.i.i71.not = icmp eq ptr %147, null
   %or.cond105 = select i1 %or.cond100.not121, i1 true, i1 %.not.i.i71.not
-  br i1 %or.cond105, label %_ZNKSt8functionIFvvEEclEv.exit, label %148
+  br i1 %or.cond105, label %_ZNKSt8functionIFvvEEclEv.exit, label %147
 
-148:                                              ; preds = %128
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %151 = load ptr, ptr %150, align 8
-  invoke void %151(ptr noundef nonnull align 8 dereferenceable(32) %149)
+147:                                              ; preds = %128
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %150 = load ptr, ptr %149, align 8
+  invoke void %151(ptr noundef nonnull align 8 dereferenceable(32) %148)
           to label %._ZNKSt8functionIFvvEEclEv.exit_crit_edge unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-._ZNKSt8functionIFvvEEclEv.exit_crit_edge:        ; preds = %148
+._ZNKSt8functionIFvvEEclEv.exit_crit_edge:        ; preds = %147
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 188
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %_ZNKSt8functionIFvvEEclEv.exit
 
 _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %._ZNKSt8functionIFvvEEclEv.exit_crit_edge, %128
-  %152 = phi i32 [ %.pre, %._ZNKSt8functionIFvvEEclEv.exit_crit_edge ], [ %24, %128 ]
-  %153 = and i32 %152, 1
-  %.not50 = icmp eq i32 %153, 0
-  br i1 %.not50, label %_ZNKSt8functionIFvvEEclEv.exit._crit_edge, label %154
+  %151 = phi i32 [ %.pre, %._ZNKSt8functionIFvvEEclEv.exit_crit_edge ], [ %24, %128 ]
+  %152 = and i32 %151, 1
+  %.not50 = icmp eq i32 %152, 0
+  br i1 %.not50, label %_ZNKSt8functionIFvvEEclEv.exit._crit_edge, label %153
 
 _ZNKSt8functionIFvvEEclEv.exit._crit_edge:        ; preds = %_ZNKSt8functionIFvvEEclEv.exit
-  %.pre129 = load i8, ptr %25, align 8
-  br label %155
+  %.pre126 = load i8, ptr %25, align 8
+  br label %154
 
-154:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit
+153:                                              ; preds = %_ZNKSt8functionIFvvEEclEv.exit
   store i8 0, ptr %25, align 8
-  br label %155
+  br label %154
 
-155:                                              ; preds = %125, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge, %154, %120, %124
-  %156 = phi i8 [ %.pre129, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge ], [ 0, %154 ], [ %123, %120 ], [ 1, %124 ], [ %26, %125 ]
-  %157 = xor i8 %156, %26
-  %158 = and i8 %157, 1
-  %.not56 = icmp eq i8 %158, 0
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %160 = load ptr, ptr %159, align 8
-  %.not.i.i75.not = icmp eq ptr %160, null
+154:                                              ; preds = %125, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge, %153, %120, %124
+  %155 = phi i8 [ %.pre126, %_ZNKSt8functionIFvvEEclEv.exit._crit_edge ], [ 0, %153 ], [ %123, %120 ], [ 1, %124 ], [ %26, %125 ]
+  %156 = xor i8 %155, %26
+  %157 = and i8 %156, 1
+  %.not56 = icmp eq i8 %157, 0
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %159 = load ptr, ptr %158, align 8
+  %.not.i.i75.not = icmp eq ptr %159, null
   %or.cond107 = select i1 %.not56, i1 true, i1 %.not.i.i75.not
-  br i1 %or.cond107, label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit81, label %161
+  br i1 %or.cond107, label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit81, label %160
 
-161:                                              ; preds = %155
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 256
+160:                                              ; preds = %154
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 256
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %163 = and i8 %156, 1
-  store i8 %163, ptr %6, align 1
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %165 = load ptr, ptr %164, align 8
-  invoke void %165(ptr noundef nonnull align 8 dereferenceable(32) %162, ptr noundef nonnull align 1 dereferenceable(1) %6)
+  %162 = and i8 %155, 1
+  store i8 %162, ptr %6, align 1
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %164 = load ptr, ptr %163, align 8
+  invoke void %165(ptr noundef nonnull align 8 dereferenceable(32) %161, ptr noundef nonnull align 1 dereferenceable(1) %6)
           to label %_ZNKSt8functionIFvbEEclEb.exit79 unwind label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-_ZNKSt8functionIFvbEEclEb.exit79:                 ; preds = %161
+_ZNKSt8functionIFvbEEclEb.exit79:                 ; preds = %160
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   br label %_ZN7nanogui3refINS_6ButtonEED2Ev.exit81
 
-_ZN7nanogui3refINS_6ButtonEED2Ev.exit81:          ; preds = %15, %_ZNKSt8functionIFvbEEclEb.exit79, %5, %19, %14, %155
-  %.0 = phi i1 [ true, %_ZNKSt8functionIFvbEEclEb.exit79 ], [ true, %155 ], [ false, %14 ], [ false, %19 ], [ false, %5 ], [ false, %15 ]
+_ZN7nanogui3refINS_6ButtonEED2Ev.exit81:          ; preds = %15, %_ZNKSt8functionIFvbEEclEb.exit79, %5, %19, %14, %154
+  %.0 = phi i1 [ true, %_ZNKSt8functionIFvbEEclEb.exit79 ], [ true, %154 ], [ false, %14 ], [ false, %19 ], [ false, %5 ], [ false, %15 ]
   call void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12) %0, i1 noundef zeroext true) #12
   ret i1 %.0
 }

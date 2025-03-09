@@ -3848,12 +3848,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_
   %or.cond.i = or i1 %66, %.not11.i.i.i
   br i1 %or.cond.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %68
 
-67:                                               ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i
+67:; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i
   %.old.i = sub i64 %.sroa.4.0.i.i.i, %.sroa.4.0.i3.i.i
   %.old2.i = icmp sgt i64 %.old.i, 2147483647
   br i1 %.old2.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %68
 
-68:                                               ; preds = %67, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+68:; preds = %67, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
   %69 = icmp eq i64 %.sroa.4.0.i.i.i, %.sroa.4.0.i3.i.i
   br label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit
 
@@ -5764,14 +5764,14 @@ _ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
 
 .noexc.i.i.i.i9:                                  ; preds = %43
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #25
-          to label %.noexc unwind label %121
+          to label %.noexc unwind label %125
 
 .noexc:                                           ; preds = %.noexc.i.i.i.i9
   unreachable
 
 _ZNSt16allocator_traitsISaINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEEE8allocateERSD_m.exit.i.i.i.i.i.i4: ; preds = %43
   %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %39) #26
-          to label %.noexc10 unwind label %121
+          to label %.noexc10 unwind label %125
 
 .noexc10:                                         ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEEE8allocateERSD_m.exit.i.i.i.i.i.i4
   store ptr %46, ptr %32, align 8
@@ -5907,7 +5907,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx119su
   %or.cond22 = and i1 %.old, %.not11.i.i.i.i
   br i1 %or.cond22, label %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit, label %.lr.ph.i.preheader
 
-112:                                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i.i
+115:                                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit7.i.i.i
   %113 = icmp eq i64 %.sroa.4.0.i.i.i.i, %.sroa.4.0.i3.i.i.i
   br i1 %113, label %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit, label %.lr.ph.i.preheader
 
@@ -5915,68 +5915,68 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx119su
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.noexc12
-  %.02.i = phi i64 [ %115, %.noexc12 ], [ 0, %.lr.ph.i.preheader ]
-  %114 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEppEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
-          to label %.noexc12 unwind label %123
+  %.02.i = phi i64 [ %119, %.noexc12 ], [ 0, %.lr.ph.i.preheader ]
+  %118 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEppEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
+          to label %.noexc12 unwind label %127
 
 .noexc12:                                         ; preds = %.lr.ph.i
-  %115 = add nuw nsw i64 %.02.i, 1
-  %116 = call noundef zeroext i1 @_ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEeqERKSD_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) #24
-  br i1 %116, label %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
+  %119 = add nuw nsw i64 %.02.i, 1
+  %120 = call noundef zeroext i1 @_ZNKSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEEeqERKSD_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) #24
+  br i1 %120, label %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 _ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit: ; preds = %.noexc12
   %.pre = load ptr, ptr %32, align 8
   br label %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit
 
 _ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit: ; preds = %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %112, %.loopexit
-  %117 = phi ptr [ %54, %.loopexit ], [ %54, %112 ], [ %54, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.pre, %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit ]
+  %121 = phi ptr [ %54, %.loopexit ], [ %54, %112 ], [ %54, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.pre, %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit ]
   %.0.lcssa.i = phi i64 [ 0, %.loopexit ], [ 0, %112 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %115, %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit.loopexit ]
-  %.not.i.i.i.i.i = icmp eq ptr %117, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit, label %118
+  %.not.i.i.i.i.i = icmp eq ptr %121, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit, label %122
 
-118:                                              ; preds = %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit
-  call void @_ZdlPv(ptr noundef nonnull %117) #27
+122:                                              ; preds = %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit
+  call void @_ZdlPv(ptr noundef nonnull %121) #27
   br label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit
 
-_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit: ; preds = %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit, %118
-  %119 = load ptr, ptr %5, align 8
-  %.not.i.i.i.i.i13 = icmp eq ptr %119, null
-  br i1 %.not.i.i.i.i.i13, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit14, label %120
+_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit: ; preds = %_ZSt10__distanceINSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS0_12regex_traitsIcEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_St18input_iterator_tag.exit, %122
+  %123 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i13 = icmp eq ptr %123, null
+  br i1 %.not.i.i.i.i.i13, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit14, label %124
 
-120:                                              ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %119) #27
+124:                                              ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %123) #27
   br label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit14
 
-_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit14: ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit, %120
+_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit14: ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit, %124
   ret i64 %.0.lcssa.i
 
-121:                                              ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEEE8allocateERSD_m.exit.i.i.i.i.i.i4, %.noexc.i.i.i.i9
-  %122 = landingpad { ptr, i32 }
+125:                                              ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEEE8allocateERSD_m.exit.i.i.i.i.i.i4, %.noexc.i.i.i.i9
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16
 
-123:                                              ; preds = %.lr.ph.i
-  %124 = landingpad { ptr, i32 }
+127:                                              ; preds = %.lr.ph.i
+  %128 = landingpad { ptr, i32 }
           cleanup
-  %125 = load ptr, ptr %32, align 8
-  %.not.i.i.i.i.i15 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i.i15, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16, label %126
+  %129 = load ptr, ptr %32, align 8
+  %.not.i.i.i.i.i15 = icmp eq ptr %129, null
+  br i1 %.not.i.i.i.i.i15, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16, label %130
 
-126:                                              ; preds = %123
-  call void @_ZdlPv(ptr noundef nonnull %125) #27
+130:                                              ; preds = %127
+  call void @_ZdlPv(ptr noundef nonnull %129) #27
   br label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16
 
-_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16: ; preds = %126, %123, %121
-  %.pn = phi { ptr, i32 } [ %122, %121 ], [ %124, %123 ], [ %124, %126 ]
-  %127 = load ptr, ptr %5, align 8
-  %.not.i.i.i.i.i17 = icmp eq ptr %127, null
-  br i1 %.not.i.i.i.i.i17, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit18, label %128
+_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16: ; preds = %130, %127, %125
+  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %128, %127 ], [ %128, %130 ]
+  %131 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i17 = icmp eq ptr %131, null
+  br i1 %.not.i.i.i.i.i17, label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit18, label %132
 
-128:                                              ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16
-  call void @_ZdlPv(ptr noundef nonnull %127) #27
+132:                                              ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16
+  call void @_ZdlPv(ptr noundef nonnull %131) #27
   br label %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit18
 
-_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit18: ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16, %128
+_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit18: ; preds = %_ZNSt7__cxx1114regex_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEcNS_12regex_traitsIcEEED2Ev.exit16, %132
   resume { ptr, i32 } %.pn
 }
 

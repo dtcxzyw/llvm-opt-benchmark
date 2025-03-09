@@ -4320,7 +4320,7 @@ invoke.cont39:                                    ; preds = %invoke.cont39.prehe
   %cmp5.i = icmp sgt i64 %.sroa.speculated, 0
   br i1 %cmp5.i, label %for.body.i, label %invoke.cont54
 
-for.body.i:                                       ; preds = %invoke.cont39, %for.inc.i
+for.body.preheader.i:                             ; preds = %invoke.cont39, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %invoke.cont39 ]
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv.i
   %11 = load i8, ptr %arrayidx.i, align 1

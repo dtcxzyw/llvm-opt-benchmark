@@ -84432,13 +84432,13 @@ define dso_local { i32, ptr } @_ZNK4llvm21AArch64TargetLowering28getRegForInline
 
 .critedge:                                        ; preds = %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #35
-  %.pre337 = zext i16 %4 to i64
-  %.pre338 = add nsw i64 %.pre337, -1
+  %.pre338 = zext i16 %4 to i64
+  %.pre339 = add nsw i64 %.pre338, -1
   br label %30
 
 30:                                               ; preds = %.critedge, %24
-  %.pre-phi339 = phi i64 [ %.pre338, %.critedge ], [ %26, %24 ]
-  %31 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %.pre-phi339
+  %.pre-phi340 = phi i64 [ %.pre339, %.critedge ], [ %26, %24 ]
+  %31 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %.pre-phi340
   %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 16
   %32 = icmp eq i64 %.sroa.0.0.copyload.i.i, 64
   %spec.select = select i1 %32, ptr @_ZN4llvm7AArch6419GPR64commonRegClassE, ptr @_ZN4llvm7AArch6419GPR32commonRegClassE
@@ -84463,7 +84463,7 @@ define dso_local { i32, ptr } @_ZNK4llvm21AArch64TargetLowering28getRegForInline
   %44 = getelementptr inbounds nuw [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %43
   %45 = load i16, ptr %44, align 2, !tbaa !238
   %.not329 = icmp eq i16 %45, 2
-  %spec.select333 = select i1 %.not329, ptr null, ptr @_ZN4llvm7AArch6411ZPRRegClassE
+  %spec.select334 = select i1 %.not329, ptr null, ptr @_ZN4llvm7AArch6411ZPRRegClassE
   br label %.thread
 
 46:                                               ; preds = %39
@@ -84690,8 +84690,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i105:       ; preds = %_ZL24parsePredicate
 
 _ZL25parseReducedGprConstraintN4llvm9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i105
   %bcmp.i.i.i9.i108 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %2, ptr noundef nonnull dereferenceable(3) @.str.576, i64 3)
-  %.not336 = icmp eq i32 %bcmp.i.i.i9.i108, 0
-  br i1 %.not336, label %_ZL25parseReducedGprConstraintN4llvm9StringRefE.exit.thread297, label %.thread306.thread
+  %.not337 = icmp eq i32 %bcmp.i.i.i9.i108, 0
+  br i1 %.not337, label %_ZL25parseReducedGprConstraintN4llvm9StringRefE.exit.thread297, label %.thread306.thread
 
 _ZL25parseReducedGprConstraintN4llvm9StringRefE.exit.thread297: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i105, %_ZL25parseReducedGprConstraintN4llvm9StringRefE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -84784,7 +84784,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit123.thread315:   ; preds = %_ZN4llvmeqENS_9Stri
   %145 = extractvalue { i32, ptr } %144, 0
   %146 = extractvalue { i32, ptr } %144, 1
   %.not57 = icmp eq ptr %146, null
-  br i1 %.not57, label %147, label %186
+  br i1 %.not57, label %147, label %187
 
 147:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit123.thread315
   %148 = and i64 %3, 4294967294
@@ -84873,40 +84873,40 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:  ; preds = %169
   %185 = zext i16 %184 to i32
   br label %186
 
-186:                                              ; preds = %.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit123.thread315
+187:                                              ; preds = %.sink.split, %_ZN4llvmeqENS_9StringRefES0_.exit123.thread315
   %.sroa.0150.0 = phi i32 [ %145, %_ZN4llvmeqENS_9StringRefES0_.exit123.thread315 ], [ %185, %.sink.split ]
   %.sroa.7151.0 = phi ptr [ %146, %_ZN4llvmeqENS_9StringRefES0_.exit123.thread315 ], [ %_ZN4llvm7AArch6413FPR64RegClassE.sink, %.sink.split ]
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 412424
-  %188 = load ptr, ptr %187, align 8, !tbaa !71
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 368
-  %190 = load i8, ptr %189, align 8, !tbaa !230, !range !54, !noundef !55
-  %191 = trunc nuw i8 %190 to i1
-  br i1 %191, label %.thread, label %192
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 412424
+  %189 = load ptr, ptr %188, align 8, !tbaa !71
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 368
+  %191 = load i8, ptr %190, align 8, !tbaa !230, !range !54, !noundef !55
+  %192 = trunc nuw i8 %191 to i1
+  br i1 %192, label %.thread, label %193
 
-192:                                              ; preds = %186
-  %193 = load ptr, ptr %.sroa.7151.0, align 8, !tbaa !1300
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %195 = load i16, ptr %194, align 8, !tbaa !1542
-  %196 = zext i16 %195 to i32
-  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6416GPR32allRegClassE, i64 8), align 8, !tbaa !1543
-  %198 = lshr i32 %196, 5
-  %199 = zext nneg i32 %198 to i64
-  %200 = getelementptr inbounds nuw i32, ptr %197, i64 %199
-  %201 = load i32, ptr %200, align 4, !tbaa !68
-  %202 = and i32 %196, 31
-  %203 = shl nuw i32 1, %202
-  %204 = and i32 %203, %201
-  %.not331 = icmp eq i32 %204, 0
-  br i1 %.not331, label %205, label %.thread
+193:                                              ; preds = %187
+  %194 = load ptr, ptr %.sroa.7151.0, align 8, !tbaa !1300
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 24
+  %196 = load i16, ptr %195, align 8, !tbaa !1542
+  %197 = zext i16 %196 to i32
+  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6416GPR32allRegClassE, i64 8), align 8, !tbaa !1543
+  %199 = lshr i32 %197, 5
+  %200 = zext nneg i32 %199 to i64
+  %201 = getelementptr inbounds nuw i32, ptr %198, i64 %200
+  %202 = load i32, ptr %201, align 4, !tbaa !68
+  %203 = and i32 %197, 31
+  %204 = shl nuw i32 1, %203
+  %205 = and i32 %204, %202
+  %.not332 = icmp eq i32 %205, 0
+  br i1 %.not332, label %206, label %.thread
 
-205:                                              ; preds = %192
-  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6416GPR64allRegClassE, i64 8), align 8, !tbaa !1543
-  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %199
-  %208 = load i32, ptr %207, align 4, !tbaa !68
-  %209 = and i32 %208, %203
-  %.not332 = icmp eq i32 %209, 0
-  %spec.select334 = select i1 %.not332, i32 0, i32 %.sroa.0150.0
-  %spec.select335 = select i1 %.not332, ptr null, ptr %.sroa.7151.0
+206:                                              ; preds = %193
+  %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm7AArch6416GPR64allRegClassE, i64 8), align 8, !tbaa !1543
+  %208 = getelementptr inbounds nuw i32, ptr %207, i64 %200
+  %209 = load i32, ptr %208, align 4, !tbaa !68
+  %210 = and i32 %209, %204
+  %.not333 = icmp eq i32 %210, 0
+  %spec.select335 = select i1 %.not333, i32 0, i32 %.sroa.0150.0
+  %spec.select336 = select i1 %.not333, ptr null, ptr %.sroa.7151.0
   br label %.thread
 
 switch.hole_check:                                ; preds = %48
@@ -84920,9 +84920,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
-.thread:                                          ; preds = %switch.lookup, %205, %41, %16, %30, %69, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit, %147, %149, %152, %158, %99, %101, %192, %186, %_ZN4llvmeqENS_9StringRefES0_.exit123, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread, %.critedge3, %135, %121, %63, %61, %24
-  %.sroa.0244.0 = phi i32 [ 0, %135 ], [ 0, %121 ], [ 0, %24 ], [ 0, %61 ], [ 0, %63 ], [ 7, %.critedge3 ], [ 7, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread ], [ 15, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 331, %_ZN4llvmeqENS_9StringRefES0_.exit123 ], [ %.sroa.0150.0, %192 ], [ %.sroa.0150.0, %186 ], [ %102, %101 ], [ %100, %99 ], [ %145, %158 ], [ %145, %152 ], [ %145, %149 ], [ %145, %147 ], [ %145, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit ], [ %145, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread ], [ 0, %30 ], [ 0, %69 ], [ 0, %16 ], [ 0, %41 ], [ %spec.select334, %205 ], [ 0, %switch.lookup ]
-  %.sroa.24.0 = phi ptr [ %_ZN4llvm7AArch6429MatrixIndexGPR32_8_11RegClassE._ZN4llvm7AArch6430MatrixIndexGPR32_12_15RegClassE.i, %135 ], [ %.0.i, %121 ], [ @_ZN4llvm7AArch6420GPR64x8ClassRegClassE, %24 ], [ @_ZN4llvm7AArch6414ZPR_4bRegClassE, %61 ], [ @_ZN4llvm7AArch6417FPR128_loRegClassE, %63 ], [ @_ZN4llvm7AArch6411CCRRegClassE, %.critedge3 ], [ @_ZN4llvm7AArch6411CCRRegClassE, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread ], [ @_ZN4llvm7AArch6411MPRRegClassE, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ @_ZN4llvm7AArch6411ZTRRegClassE, %_ZN4llvmeqENS_9StringRefES0_.exit123 ], [ %.sroa.7151.0, %192 ], [ %.sroa.7151.0, %186 ], [ @_ZN4llvm7AArch6411PPRRegClassE, %101 ], [ @_ZN4llvm7AArch6411PNRRegClassE, %99 ], [ null, %158 ], [ null, %152 ], [ null, %149 ], [ null, %147 ], [ null, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit ], [ null, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread ], [ %spec.select, %30 ], [ @_ZN4llvm7AArch6414ZPR_3bRegClassE, %69 ], [ null, %16 ], [ %spec.select333, %41 ], [ %spec.select335, %205 ], [ %switch.load, %switch.lookup ]
+.thread:                                          ; preds = %switch.lookup, %206, %41, %16, %30, %69, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit, %147, %149, %152, %158, %99, %101, %193, %187, %_ZN4llvmeqENS_9StringRefES0_.exit123, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread, %.critedge3, %135, %121, %63, %61, %24
+  %.sroa.0244.0 = phi i32 [ 0, %135 ], [ 0, %121 ], [ 0, %24 ], [ 0, %61 ], [ 0, %63 ], [ 7, %.critedge3 ], [ 7, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread ], [ 15, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 331, %_ZN4llvmeqENS_9StringRefES0_.exit123 ], [ %.sroa.0150.0, %193 ], [ %.sroa.0150.0, %187 ], [ %102, %101 ], [ %100, %99 ], [ %145, %158 ], [ %145, %152 ], [ %145, %149 ], [ %145, %147 ], [ %145, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit ], [ %145, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread ], [ 0, %30 ], [ 0, %69 ], [ 0, %16 ], [ 0, %41 ], [ %spec.select335, %206 ], [ 0, %switch.lookup ]
+  %.sroa.24.0 = phi ptr [ %_ZN4llvm7AArch6429MatrixIndexGPR32_8_11RegClassE._ZN4llvm7AArch6430MatrixIndexGPR32_12_15RegClassE.i, %135 ], [ %.0.i, %121 ], [ @_ZN4llvm7AArch6420GPR64x8ClassRegClassE, %24 ], [ @_ZN4llvm7AArch6414ZPR_4bRegClassE, %61 ], [ @_ZN4llvm7AArch6417FPR128_loRegClassE, %63 ], [ @_ZN4llvm7AArch6411CCRRegClassE, %.critedge3 ], [ @_ZN4llvm7AArch6411CCRRegClassE, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit.thread ], [ @_ZN4llvm7AArch6411MPRRegClassE, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ @_ZN4llvm7AArch6411ZTRRegClassE, %_ZN4llvmeqENS_9StringRefES0_.exit123 ], [ %.sroa.7151.0, %193 ], [ %.sroa.7151.0, %187 ], [ @_ZN4llvm7AArch6411PPRRegClassE, %101 ], [ @_ZN4llvm7AArch6411PNRRegClassE, %99 ], [ null, %158 ], [ null, %152 ], [ null, %149 ], [ null, %147 ], [ null, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit ], [ null, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread ], [ %spec.select, %30 ], [ @_ZN4llvm7AArch6414ZPR_3bRegClassE, %69 ], [ null, %16 ], [ %spec.select334, %41 ], [ %spec.select336, %206 ], [ %switch.load, %switch.lookup ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0244.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.24.0, 1
   ret { i32, ptr } %.fca.1.insert

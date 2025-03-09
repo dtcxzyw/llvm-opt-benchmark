@@ -32564,9 +32564,9 @@ _ZSt8_DestroyIPN5boost7process2v211environment14key_value_pairES4_EvT_S6_RSaIT0_
 
 61:                                               ; preds = %40
   %.not1.i.i = icmp eq ptr %42, %13
-  br i1 %.not1.i.i, label %_ZSt4copyIN5boost7process2v211environment12current_view8iteratorEPNS3_14key_value_pairEET0_T_S9_S8_.exit27, label %.lr.ph.i.i19.preheader
+  br i1 %.not1.i.i, label %_ZSt4copyIN5boost7process2v211environment12current_view8iteratorEPNS3_14key_value_pairEET0_T_S9_S8_.exit27, label %.lr.ph.i.i19
 
-.lr.ph.i.i19.preheader:                           ; preds = %61
+.lr.ph.i.i19:                                     ; preds = %61
   %62 = trunc nuw i64 %45 to i32
   br label %.lr.ph.i.i19
 
