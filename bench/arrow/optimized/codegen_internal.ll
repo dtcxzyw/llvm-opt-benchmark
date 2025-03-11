@@ -979,62 +979,56 @@ define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE
 _ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %1, i64 %2
-  %.idx = shl nuw nsw i64 %2, 4
   %.not.i.i = icmp eq i64 %2, 0
-  br i1 %.not.i.i, label %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
-
-_ZNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %5 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %6, align 8, !tbaa !52
-  br label %.loopexit
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #26
-  store ptr %7, ptr %0, align 8, !tbaa !55
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !52
+  %.idx = shl nuw nsw i64 %2, 4
+  %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #26
+  store ptr %5, ptr %0, align 8, !tbaa !52
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %6, ptr %7, align 8, !tbaa !55
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i
-  %.011.i.i.i.i.i = phi ptr [ %23, %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %7, %.lr.ph.i.i.i.i.preheader.i ]
-  %.0810.i.i.i.i.i = phi ptr [ %22, %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader.i ]
-  %10 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !33
-  store ptr %10, ptr %.011.i.i.i.i.i, align 8, !tbaa !33
-  %11 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !39
-  store ptr %13, ptr %11, align 8, !tbaa !39
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %14
+  %.011.i.i.i.i.i = phi ptr [ %21, %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %5, %.lr.ph.i.i.i.i.preheader.i ]
+  %.0810.i.i.i.i.i = phi ptr [ %20, %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader.i ]
+  %8 = load ptr, ptr %.0810.i.i.i.i.i, align 8, !tbaa !33
+  store ptr %8, ptr %.011.i.i.i.i.i, align 8, !tbaa !33
+  %9 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
+  store ptr %11, ptr %9, align 8, !tbaa !39
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, label %12
 
-14:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %16 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !40
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %16, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %20, label %17
+12:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !40
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %14, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %18, label %15
 
-17:                                               ; preds = %14
-  %18 = load i32, ptr %15, align 4, !tbaa !41
-  %19 = add nsw i32 %18, 1
-  store i32 %19, ptr %15, align 4, !tbaa !41
+15:                                               ; preds = %12
+  %16 = load i32, ptr %13, align 4, !tbaa !41
+  %17 = add nsw i32 %16, 1
+  store i32 %17, ptr %13, align 4, !tbaa !41
   br label %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-20:                                               ; preds = %14
-  %21 = atomicrmw volatile add ptr %15, i32 1 acq_rel, align 4
+18:                                               ; preds = %12
+  %19 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
   br label %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 
-_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %20, %17, %.lr.ph.i.i.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i = icmp eq ptr %22, %4
+_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %18, %15, %.lr.ph.i.i.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i = icmp eq ptr %20, %4
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
 
-.loopexit:                                        ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE11_M_allocateEm.exit.thread.i
-  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE11_M_allocateEm.exit.thread.i ], [ %23, %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %24, align 8, !tbaa !58
+.loopexit:                                        ; preds = %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %21, %_ZSt10_ConstructISt10shared_ptrIN5arrow8DataTypeEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %22, align 8, !tbaa !58
   ret void
 }
 
@@ -1239,7 +1233,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorISt10shared_ptrIN5arrow8DataTypeEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !55
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !58
   %.not4.i.i.i = icmp eq ptr %2, %4
@@ -1302,7 +1296,7 @@ _ZSt8_DestroyISt10shared_ptrIN5arrow8DataTypeEEEvPT_.exit.i.i.i: ; preds = %27, 
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !71
 
 _ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10shared_ptrIN5arrow8DataTypeEEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !55
+  %.pr = load ptr, ptr %0, align 8, !tbaa !52
   br label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exitthread-pre-split, %1
@@ -1312,7 +1306,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exit: ; preds
 
 30:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN5arrow8DataTypeEES3_EvT_S5_RSaIT0_E.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !52
+  %32 = load ptr, ptr %31, align 8, !tbaa !55
   %33 = ptrtoint ptr %32 to i64
   %34 = ptrtoint ptr %29 to i64
   %35 = sub i64 %33, %34
@@ -6468,10 +6462,10 @@ attributes #27 = { noreturn nounwind }
 !49 = !{!47, !27, i64 8}
 !50 = !{!48, !44, i64 0}
 !51 = !{!27, !27, i64 0}
-!52 = !{!53, !54, i64 16}
+!52 = !{!53, !54, i64 0}
 !53 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN5arrow8DataTypeEESaIS3_EE17_Vector_impl_dataE", !54, i64 0, !54, i64 8, !54, i64 16}
 !54 = !{!"p1 _ZTSSt10shared_ptrIN5arrow8DataTypeEE", !36, i64 0}
-!55 = !{!53, !54, i64 0}
+!55 = !{!53, !54, i64 16}
 !56 = distinct !{!56, !57}
 !57 = !{!"llvm.loop.mustprogress"}
 !58 = !{!53, !54, i64 8}

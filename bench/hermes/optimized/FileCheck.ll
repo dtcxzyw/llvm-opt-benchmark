@@ -2552,8 +2552,7 @@ _ZNSt12_Vector_baseIN4llvh16FileCheckPatternESaIS1_EEC2EmRKS2_.exit.i.thread: ; 
   %_M_finish.i.i81608 = phi ptr [ %_M_finish.i.i81602, %for.end.thread ], [ %_M_finish.i.i81, %for.end ]
   %_M_finish.i.i.i86564 = getelementptr inbounds nuw i8, ptr %DagNotMatches, i64 8
   %_M_end_of_storage.i.i.i87566 = getelementptr inbounds nuw i8, ptr %DagNotMatches, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %DagNotMatches, i8 0, i64 16, i1 false)
-  store ptr null, ptr %_M_end_of_storage.i.i.i87566, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %DagNotMatches, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EEC2ERKS3_.exit
 
 cond.true.i.i.i.i:                                ; preds = %for.end

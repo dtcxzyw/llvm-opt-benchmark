@@ -156,7 +156,7 @@ define noundef ptr @_ZN5boost6fibers4algo11shared_work9pick_nextEv(ptr noundef n
 
 3:                                                ; preds = %1
   invoke void @_ZSt20__throw_system_errori(i32 noundef %2) #17
-          to label %.noexc unwind label %36
+          to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %3
   unreachable
@@ -208,27 +208,24 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   br i1 %27, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %28
 
 28:                                               ; preds = %22
-  %29 = ptrtoint ptr %25 to i64
-  %30 = add i64 %29, -160
-  %31 = inttoptr i64 %30 to ptr
-  %32 = load ptr, ptr %25, align 8, !tbaa !50
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !49
-  store ptr %32, ptr %34, align 8, !tbaa !50
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %34, ptr %35, align 8, !tbaa !49
+  %29 = load ptr, ptr %25, align 8, !tbaa !50
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !49
+  store ptr %29, ptr %31, align 8, !tbaa !50
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %31, ptr %32, align 8, !tbaa !49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %19, %28, %22
-  %.0 = phi ptr [ null, %22 ], [ %31, %28 ], [ %8, %19 ]
+  %.0 = phi ptr [ null, %22 ], [ %25, %28 ], [ %8, %19 ]
   ret ptr %.0
 
-36:                                               ; preds = %3
-  %37 = landingpad { ptr, i32 }
+33:                                               ; preds = %3
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #18
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #18
   unreachable
 }
 

@@ -4336,16 +4336,12 @@ if.end437:                                        ; preds = %_ZNSt6vectorIN2v85L
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %params.sroa.6.0 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %params.sroa.0.0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp439, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i171 = icmp eq ptr %params.sroa.6.0, %params.sroa.0.0
   br i1 %cmp.not.i.i.i.i171, label %_ZNSt12_Vector_baseIN2v85LocalINS0_6StringEEESaIS3_EEC2EmRKS4_.exit.i.thread, label %cond.true.i.i.i.i
 
 _ZNSt12_Vector_baseIN2v85LocalINS0_6StringEEESaIS3_EEC2EmRKS4_.exit.i.thread: ; preds = %if.end437
   %_M_finish.i.i.i232 = getelementptr inbounds nuw i8, ptr %agg.tmp439, i64 8
-  %add.ptr.i.i.i174233 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i
-  %_M_end_of_storage.i.i.i234 = getelementptr inbounds nuw i8, ptr %agg.tmp439, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp439, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i174233, ptr %_M_end_of_storage.i.i.i234, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp439, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EEC2ERKS5_.exit
 
 cond.true.i.i.i.i:                                ; preds = %if.end437
@@ -4384,18 +4380,12 @@ _ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EEC2ERKS5_.exit: ; preds = %for.body
   %sub.ptr.lhs.cast.i.i177 = ptrtoint ptr %context_extensions.sroa.6.0 to i64
   %sub.ptr.rhs.cast.i.i178 = ptrtoint ptr %context_extensions.sroa.0.0 to i64
   %sub.ptr.sub.i.i179 = sub i64 %sub.ptr.lhs.cast.i.i177, %sub.ptr.rhs.cast.i.i178
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp440, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i180 = icmp eq ptr %context_extensions.sroa.6.0, %context_extensions.sroa.0.0
   br i1 %cmp.not.i.i.i.i180, label %_ZNSt6vectorIN2v85LocalINS0_6ObjectEEESaIS3_EEC2ERKS5_.exit.thread, label %cond.true.i.i.i.i181
 
 _ZNSt6vectorIN2v85LocalINS0_6ObjectEEESaIS3_EEC2ERKS5_.exit.thread: ; preds = %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EEC2ERKS5_.exit
-  %_M_finish.i.i.i185237 = getelementptr inbounds nuw i8, ptr %agg.tmp440, i64 8
-  %add.ptr.i.i.i186238 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i179
-  %_M_end_of_storage.i.i.i187239 = getelementptr inbounds nuw i8, ptr %agg.tmp440, i64 16
-  store i64 0, ptr %agg.tmp440, align 8
-  store ptr %add.ptr.i.i.i186238, ptr %_M_end_of_storage.i.i.i187239, align 8
-  store ptr null, ptr %_M_finish.i.i.i185237, align 8
   %coerce.val.pi448295 = ptrtoint ptr %retval.i.sroa.0.0 to i64
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp440, i8 0, i64 24, i1 false)
   %call449296 = call ptr @_ZN4node10contextify17ContextifyContext29CompileFunctionAndCacheResultEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEEPNS4_14ScriptCompiler6SourceESt6vectorINS5_INS4_6StringEEESaISD_EESB_INS5_INS4_6ObjectEEESaISH_EENS8_14CompileOptionsEbNS5_INS4_6SymbolEEERKNS_6errors13TryCatchScopeE(ptr noundef nonnull %retval.0.i.i, ptr nonnull %parsing_context.sroa.0.0, ptr noundef nonnull %source, ptr noundef nonnull %agg.tmp439, ptr noundef nonnull %agg.tmp440, i32 noundef %..i, i1 noundef zeroext %call163, i64 %coerce.val.pi448295, ptr noundef nonnull align 8 dereferenceable(60) %try_catch)
   br label %_ZNSt6vectorIN2v85LocalINS0_6ObjectEEESaIS3_EED2Ev.exit
 

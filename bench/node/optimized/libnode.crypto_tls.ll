@@ -8968,12 +8968,13 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.else
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %call5.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #29
+  %add.ptr.i.i25 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i, ptr align 1 %this.sink.i.i, i64 %25, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2IPKhvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i, %if.then.i.i.i.i.i.i.i.i.i.i
-  %ref.tmp53.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %ref.tmp53.sroa.7.0 = getelementptr inbounds nuw i8, ptr %ref.tmp53.sroa.0.0, i64 %25
+  %ref.tmp53.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %call5.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %ref.tmp53.sroa.7.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %add.ptr.i.i25, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %alpn_protos_ = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 432
   %26 = load ptr, ptr %alpn_protos_, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.i11.0.i, i64 440

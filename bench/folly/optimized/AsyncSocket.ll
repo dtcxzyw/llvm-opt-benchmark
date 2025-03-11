@@ -8656,31 +8656,25 @@ _ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_i
   %5 = load ptr, ptr %4, align 8
   %6 = and i64 %3, 4611686018427387903
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %.idx = shl nuw nsw i64 %6, 3
   %.not.i.i.i = icmp eq i64 %6, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE11_M_allocateEm.exit.thread.i.i, label %.noexc4.i
-
-_ZNSt12_Vector_baseIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %7 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %8, align 8, !tbaa !329
-  br label %13
+  br i1 %.not.i.i.i, label %11, label %.noexc4.i
 
 .noexc4.i:                                        ; preds = %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  %.idx = shl nuw nsw i64 %6, 3
   %.not1.i.i = icmp slt i64 %3, 0
-  %9 = select i1 %.not1.i.i, ptr %5, ptr %4
-  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #49
-  store ptr %10, ptr %0, align 8, !tbaa !331
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %11, ptr %12, align 8, !tbaa !329
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %9, i64 %.idx, i1 false)
-  br label %13
+  %7 = select i1 %.not1.i.i, ptr %5, ptr %4
+  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #49
+  store ptr %8, ptr %0, align 8, !tbaa !329
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %9, ptr %10, align 8, !tbaa !331
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr align 8 %7, i64 %.idx, i1 false)
+  br label %11
 
-13:                                               ; preds = %.noexc4.i, %_ZNSt12_Vector_baseIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE11_M_allocateEm.exit.thread.i.i
-  %14 = phi ptr [ %7, %_ZNSt12_Vector_baseIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE11_M_allocateEm.exit.thread.i.i ], [ %11, %.noexc4.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !332
+11:                                               ; preds = %.noexc4.i, %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  %12 = phi ptr [ %9, %.noexc4.i ], [ null, %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %13, align 8, !tbaa !332
   ret void
 }
 
@@ -49015,9 +49009,9 @@ attributes #55 = { nounwind willreturn memory(read) }
 !326 = !{!"_ZTSN5folly11AsyncSocket15ByteEventHelperE", !23, i64 0, !16, i64 8, !323, i64 16, !327, i64 48}
 !327 = !{!"_ZTSN5folly8OptionalINS_11AsyncSocket15ByteEventHelper14TimestampStateEEE", !328, i64 0}
 !328 = !{!"_ZTSN5folly8OptionalINS_11AsyncSocket15ByteEventHelper14TimestampStateEE28StorageTriviallyDestructibleE", !14, i64 0, !23, i64 48}
-!329 = !{!330, !318, i64 16}
+!329 = !{!330, !318, i64 0}
 !330 = !{!"_ZTSNSt12_Vector_baseIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_Vector_impl_dataE", !318, i64 0, !318, i64 8, !318, i64 16}
-!331 = !{!330, !318, i64 0}
+!331 = !{!330, !318, i64 16}
 !332 = !{!330, !318, i64 8}
 !333 = !{!334, !335, i64 0}
 !334 = !{!"_ZTSSt12__shared_ptrIN5folly21ObserverContainerBaseINS0_28AsyncSocketObserverInterfaceENS0_11AsyncSocketENS0_34ObserverContainerBasePolicyDefaultINS2_6EventsELm32EEEE8ObserverELN9__gnu_cxx12_Lock_policyE2EE", !335, i64 0, !81, i64 8}

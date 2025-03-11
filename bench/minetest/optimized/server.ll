@@ -29031,10 +29031,6 @@ if.end:                                           ; preds = %_ZNK9VoxelArea8cont
 
 invoke.cont.i.i.thread:                           ; preds = %if.end
   %_M_finish.i.i.i.i10 = getelementptr inbounds nuw i8, ptr %call3, i64 24
-  %add.ptr.i.i.i.i11 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %call3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %modified_blocks.i, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i11, ptr %_M_end_of_storage.i.i.i.i12, align 8, !tbaa !740
   br label %invoke.cont
 
 cond.true.i.i.i.i.i:                              ; preds = %if.end
@@ -52903,10 +52899,6 @@ invoke.cont178:                                   ; preds = %invoke.cont174
 
 invoke.cont.i.i.thread:                           ; preds = %invoke.cont178
   %_M_finish.i.i.i.i1023 = getelementptr inbounds nuw i8, ptr %legacy_pkt, i64 8
-  %add.ptr.i.i.i.i1024 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
-  %_M_end_of_storage.i.i.i.i1025 = getelementptr inbounds nuw i8, ptr %legacy_pkt, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %legacy_pkt, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i.i1024, ptr %_M_end_of_storage.i.i.i.i1025, align 8, !tbaa !396
   br label %invoke.cont181
 
 cond.true.i.i.i.i.i:                              ; preds = %invoke.cont178
@@ -52935,7 +52927,7 @@ if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNSt16allocator_tr
   br label %invoke.cont181
 
 invoke.cont181:                                   ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.thread
-  %add.ptr.i.i.i.i1027 = phi ptr [ %add.ptr.i.i.i.i1024, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
+  %add.ptr.i.i.i.i1027 = phi ptr [ null, %invoke.cont.i.i.thread ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i.i.i1026 = phi ptr [ %_M_finish.i.i.i.i1023, %invoke.cont.i.i.thread ], [ %_M_finish.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   store ptr %add.ptr.i.i.i.i1027, ptr %_M_finish.i.i.i.i1026, align 8, !tbaa !395
   %m_datasize.i = getelementptr inbounds nuw i8, ptr %legacy_pkt, i64 24

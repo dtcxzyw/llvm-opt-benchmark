@@ -3461,7 +3461,7 @@ define i32 @stbsp_vsnprintf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   store i32 0, ptr %9, align 4, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__count_clamp_callback, ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef %2, ptr noundef %3)
-  br label %32
+  br label %31
 
 12:                                               ; preds = %4
   store ptr %0, ptr %5, align 8, !tbaa !54
@@ -3470,52 +3470,50 @@ define i32 @stbsp_vsnprintf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr 
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 0, ptr %14, align 4, !tbaa !51
   %.not.i = icmp sgt i32 %1, -1
-  br i1 %.not.i, label %16, label %.thread
+  br i1 %.not.i, label %15, label %.thread
 
 .thread:                                          ; preds = %12
   %.not34.i = icmp eq ptr %0, null
-  %.pre36.i = sext i32 %1 to i64
   tail call void @llvm.assume(i1 %.not34.i)
-  %15 = getelementptr inbounds i8, ptr null, i64 %.pre36.i
-  store ptr %15, ptr %5, align 8, !tbaa !54
+  store ptr null, ptr %5, align 8, !tbaa !54
   store i32 0, ptr %13, align 8, !tbaa !53
-  br label %18
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = icmp eq i32 %1, 0
-  br i1 %17, label %18, label %20
+15:                                               ; preds = %12
+  %16 = icmp eq i32 %1, 0
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %.thread, %16
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+17:                                               ; preds = %.thread, %15
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %stbsp__clamp_callback.exit
 
-20:                                               ; preds = %16
-  %21 = icmp samesign ugt i32 %1, 511
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %spec.select16 = select i1 %21, ptr %0, ptr %22
+19:                                               ; preds = %15
+  %20 = icmp samesign ugt i32 %1, 511
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %spec.select16 = select i1 %20, ptr %0, ptr %21
   br label %stbsp__clamp_callback.exit
 
-stbsp__clamp_callback.exit:                       ; preds = %20, %18
-  %.026.i = phi ptr [ %19, %18 ], [ %spec.select16, %20 ]
-  %23 = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__clamp_callback, ptr noundef nonnull %5, ptr noundef %.026.i, ptr noundef %2, ptr noundef %3)
-  %24 = load ptr, ptr %5, align 8, !tbaa !54
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %0 to i64
-  %27 = sub i64 %25, %26
-  %28 = trunc i64 %27 to i32
-  %.not = icmp sgt i32 %1, %28
-  %29 = add nsw i32 %1, -1
-  %spec.select = select i1 %.not, i32 %28, i32 %29
-  %30 = sext i32 %spec.select to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !3
-  br label %32
+stbsp__clamp_callback.exit:                       ; preds = %19, %17
+  %.026.i = phi ptr [ %18, %17 ], [ %spec.select16, %19 ]
+  %22 = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__clamp_callback, ptr noundef nonnull %5, ptr noundef %.026.i, ptr noundef %2, ptr noundef %3)
+  %23 = load ptr, ptr %5, align 8, !tbaa !54
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %0 to i64
+  %26 = sub i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  %.not = icmp sgt i32 %1, %27
+  %28 = add nsw i32 %1, -1
+  %spec.select = select i1 %.not, i32 %27, i32 %28
+  %29 = sext i32 %spec.select to i64
+  %30 = getelementptr inbounds i8, ptr %0, i64 %29
+  store i8 0, ptr %30, align 1, !tbaa !3
+  br label %31
 
-32:                                               ; preds = %stbsp__clamp_callback.exit, %8
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !51
+31:                                               ; preds = %stbsp__clamp_callback.exit, %8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %33 = load i32, ptr %32, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %5) #13
-  ret i32 %34
+  ret i32 %33
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3544,54 +3542,52 @@ define i32 @stbsp_snprintf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) 
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %14, align 4, !tbaa !51
   %.not.i.i = icmp sgt i32 %1, -1
-  br i1 %.not.i.i, label %16, label %.thread.i
+  br i1 %.not.i.i, label %15, label %.thread.i
 
 .thread.i:                                        ; preds = %12
   %.not34.i.i = icmp eq ptr %0, null
-  %.pre36.i.i = sext i32 %1 to i64
   call void @llvm.assume(i1 %.not34.i.i)
-  %15 = getelementptr inbounds i8, ptr null, i64 %.pre36.i.i
-  store ptr %15, ptr %4, align 8, !tbaa !54
+  store ptr null, ptr %4, align 8, !tbaa !54
   store i32 0, ptr %13, align 8, !tbaa !53
-  br label %18
+  br label %17
 
-16:                                               ; preds = %12
-  %17 = icmp eq i32 %1, 0
-  br i1 %17, label %18, label %20
+15:                                               ; preds = %12
+  %16 = icmp eq i32 %1, 0
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %16, %.thread.i
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+17:                                               ; preds = %15, %.thread.i
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %stbsp__clamp_callback.exit.i
 
-20:                                               ; preds = %16
-  %21 = icmp samesign ugt i32 %1, 511
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %spec.select16.i = select i1 %21, ptr %0, ptr %22
+19:                                               ; preds = %15
+  %20 = icmp samesign ugt i32 %1, 511
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %spec.select16.i = select i1 %20, ptr %0, ptr %21
   br label %stbsp__clamp_callback.exit.i
 
-stbsp__clamp_callback.exit.i:                     ; preds = %20, %18
-  %.026.i.i = phi ptr [ %19, %18 ], [ %spec.select16.i, %20 ]
-  %23 = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__clamp_callback, ptr noundef nonnull %4, ptr noundef %.026.i.i, ptr noundef %2, ptr noundef nonnull %5)
-  %24 = load ptr, ptr %4, align 8, !tbaa !54
-  %25 = ptrtoint ptr %24 to i64
-  %26 = ptrtoint ptr %0 to i64
-  %27 = sub i64 %25, %26
-  %28 = trunc i64 %27 to i32
-  %.not.i = icmp sgt i32 %1, %28
-  %29 = add nsw i32 %1, -1
-  %spec.select.i = select i1 %.not.i, i32 %28, i32 %29
-  %30 = sext i32 %spec.select.i to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !3
+stbsp__clamp_callback.exit.i:                     ; preds = %19, %17
+  %.026.i.i = phi ptr [ %18, %17 ], [ %spec.select16.i, %19 ]
+  %22 = call i32 @stbsp_vsprintfcb(ptr noundef nonnull @stbsp__clamp_callback, ptr noundef nonnull %4, ptr noundef %.026.i.i, ptr noundef %2, ptr noundef nonnull %5)
+  %23 = load ptr, ptr %4, align 8, !tbaa !54
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %0 to i64
+  %26 = sub i64 %24, %25
+  %27 = trunc i64 %26 to i32
+  %.not.i = icmp sgt i32 %1, %27
+  %28 = add nsw i32 %1, -1
+  %spec.select.i = select i1 %.not.i, i32 %27, i32 %28
+  %29 = sext i32 %spec.select.i to i64
+  %30 = getelementptr inbounds i8, ptr %0, i64 %29
+  store i8 0, ptr %30, align 1, !tbaa !3
   br label %stbsp_vsnprintf.exit
 
 stbsp_vsnprintf.exit:                             ; preds = %8, %stbsp__clamp_callback.exit.i
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !51
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %32 = load i32, ptr %31, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %4) #13
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  ret i32 %33
+  ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable

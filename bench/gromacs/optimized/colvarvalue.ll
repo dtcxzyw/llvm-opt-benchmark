@@ -2464,19 +2464,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %_ZN
 
 43:                                               ; preds = %40
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %41)
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i unwind label %49
+          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i unwind label %49
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i: ; preds = %43
+._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i:  ; preds = %43
   %.pre.i = load ptr, ptr %42, align 8, !tbaa !28
-  %.pre5.i = load ptr, ptr %0, align 8, !tbaa !29
+  %.pre4.i = load ptr, ptr %0, align 8, !tbaa !29
   %44 = ptrtoint ptr %.pre.i to i64
-  %45 = ptrtoint ptr %.pre5.i to i64
+  %45 = ptrtoint ptr %.pre4.i to i64
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i, %40
-  %48 = phi i64 [ %47, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i ], [ 0, %40 ]
+_ZNSt6vectorIdSaIdEE6resizeEm.exit.i:             ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i, %40
+  %48 = phi i64 [ %47, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i ], [ 0, %40 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   store double 0.000000e+00, ptr %5, align 8, !tbaa !31
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -3665,7 +3665,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
 define linkonce_odr void @_ZNK11colvarvalue9as_vectorEv(ptr dead_on_unwind noalias writable sret(%"class.colvarmodule::vector1d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = load i32, ptr %1, align 8, !tbaa !4
-  switch i32 %4, label %67 [
+  switch i32 %4, label %65 [
     i32 1, label %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
     i32 2, label %_ZNK12colvarmodule7rvector9as_vectorEv.exit
     i32 3, label %_ZNK12colvarmodule7rvector9as_vectorEv.exit
@@ -3679,9 +3679,9 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i unwind label %9
+          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i unwind label %9
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i: ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
+._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i:  ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %6, align 8, !tbaa !31
   store ptr %6, ptr %0, align 8, !tbaa !29
@@ -3693,7 +3693,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %2
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %_ZN12colvarmodule8vector1dIdEC2Em.exit unwind label %9
 
-9:                                                ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i
+9:                                                ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load ptr, ptr %0, align 8, !tbaa !29
@@ -3711,7 +3711,7 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i:  ; preds = %2
 common.resume:                                    ; preds = %9, %12
   resume { ptr, i32 } %10
 
-_ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i
+_ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load double, ptr %17, align 8, !tbaa !39
@@ -3777,48 +3777,44 @@ _ZNK12colvarmodule10quaternion9as_vectorEv.exit:  ; preds = %2, %2
   %52 = ptrtoint ptr %50 to i64
   %53 = ptrtoint ptr %51 to i64
   %54 = sub i64 %52, %53
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i5 = icmp eq ptr %50, %51
-  br i1 %.not.i.i.i.i.i5, label %.thread, label %58
+  br i1 %.not.i.i.i.i.i5, label %.thread, label %56
 
 .thread:                                          ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = getelementptr inbounds i8, ptr null, i64 %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr %56, ptr %57, align 8, !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN12colvarmodule8vector1dIdEC2ERKS1_.exit
 
-58:                                               ; preds = %47
-  %59 = icmp ugt i64 %54, 9223372036854775800
-  br i1 %59, label %.noexc.i.i.i, label %60, !prof !43
+56:                                               ; preds = %47
+  %57 = icmp ugt i64 %54, 9223372036854775800
+  br i1 %57, label %.noexc.i.i.i, label %58, !prof !43
 
-.noexc.i.i.i:                                     ; preds = %58
+.noexc.i.i.i:                                     ; preds = %56
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #23
   unreachable
 
-60:                                               ; preds = %58
-  %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #24
-  store ptr %61, ptr %0, align 8, !tbaa !29
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !28
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %54
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %63, ptr %64, align 8, !tbaa !30
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %51, i64 %54, i1 false)
+58:                                               ; preds = %56
+  %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #24
+  store ptr %59, ptr %0, align 8, !tbaa !29
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %59, ptr %60, align 8, !tbaa !28
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 %54
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %61, ptr %62, align 8, !tbaa !30
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr align 8 %51, i64 %54, i1 false)
   br label %_ZN12colvarmodule8vector1dIdEC2ERKS1_.exit
 
-_ZN12colvarmodule8vector1dIdEC2ERKS1_.exit:       ; preds = %.thread, %60
-  %65 = phi ptr [ %56, %.thread ], [ %63, %60 ]
-  %66 = phi ptr [ %55, %.thread ], [ %62, %60 ]
-  store ptr %65, ptr %66, align 8, !tbaa !28
+_ZN12colvarmodule8vector1dIdEC2ERKS1_.exit:       ; preds = %.thread, %58
+  %63 = phi ptr [ null, %.thread ], [ %61, %58 ]
+  %64 = phi ptr [ %55, %.thread ], [ %60, %58 ]
+  store ptr %63, ptr %64, align 8, !tbaa !28
   br label %_ZN12colvarmodule8vector1dIdEC2Em.exit8
 
-67:                                               ; preds = %2
+65:                                               ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %_ZN12colvarmodule8vector1dIdEC2Em.exit8
 
-_ZN12colvarmodule8vector1dIdEC2Em.exit8:          ; preds = %67, %_ZN12colvarmodule8vector1dIdEC2Em.exit, %_ZN12colvarmodule8vector1dIdEC2ERKS1_.exit, %_ZNK12colvarmodule10quaternion9as_vectorEv.exit, %_ZNK12colvarmodule7rvector9as_vectorEv.exit
+_ZN12colvarmodule8vector1dIdEC2Em.exit8:          ; preds = %65, %_ZN12colvarmodule8vector1dIdEC2Em.exit, %_ZN12colvarmodule8vector1dIdEC2ERKS1_.exit, %_ZNK12colvarmodule10quaternion9as_vectorEv.exit, %_ZNK12colvarmodule7rvector9as_vectorEv.exit
   ret void
 }
 
@@ -6132,19 +6128,19 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit30:         ; preds = %_ZNSt6vectorIdSaIdE
   %75 = sub i64 %74, %73
   %76 = ashr exact i64 %75, 3
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %76)
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34 unwind label %82
+          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34 unwind label %82
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34: ; preds = %72
+._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34: ; preds = %72
   %.pre.i35 = load ptr, ptr %71, align 8, !tbaa !28
-  %.pre5.i36 = load ptr, ptr %0, align 8, !tbaa !29
+  %.pre4.i36 = load ptr, ptr %0, align 8, !tbaa !29
   %77 = ptrtoint ptr %.pre.i35 to i64
-  %78 = ptrtoint ptr %.pre5.i36 to i64
+  %78 = ptrtoint ptr %.pre4.i36 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34, %_ZN12colvarmodule8vector1dIdED2Ev.exit30
-  %81 = phi i64 [ %80, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34 ], [ 0, %_ZN12colvarmodule8vector1dIdED2Ev.exit30 ]
+_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34, %_ZN12colvarmodule8vector1dIdED2Ev.exit30
+  %81 = phi i64 [ %80, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34 ], [ 0, %_ZN12colvarmodule8vector1dIdED2Ev.exit30 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store double 0.000000e+00, ptr %4, align 8, !tbaa !31
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -7214,19 +7210,19 @@ _ZN12colvarmodule8vector1dIdED2Ev.exit30:         ; preds = %_ZNSt6vectorIdSaIdE
   %75 = sub i64 %74, %73
   %76 = ashr exact i64 %75, 3
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %76)
-          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34 unwind label %82
+          to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34 unwind label %82
 
-._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34: ; preds = %72
+._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34: ; preds = %72
   %.pre.i35 = load ptr, ptr %71, align 8, !tbaa !28
-  %.pre5.i36 = load ptr, ptr %0, align 8, !tbaa !29
+  %.pre4.i36 = load ptr, ptr %0, align 8, !tbaa !29
   %77 = ptrtoint ptr %.pre.i35 to i64
-  %78 = ptrtoint ptr %.pre5.i36 to i64
+  %78 = ptrtoint ptr %.pre4.i36 to i64
   %79 = sub i64 %77, %78
   %80 = ashr exact i64 %79, 3
   br label %_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37
 
-_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34, %_ZN12colvarmodule8vector1dIdED2Ev.exit30
-  %81 = phi i64 [ %80, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge4.i34 ], [ 0, %_ZN12colvarmodule8vector1dIdED2Ev.exit30 ]
+_ZNSt6vectorIdSaIdEE6resizeEm.exit.i37:           ; preds = %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34, %_ZN12colvarmodule8vector1dIdED2Ev.exit30
+  %81 = phi i64 [ %80, %._ZNSt6vectorIdSaIdEE6resizeEm.exit_crit_edge.i34 ], [ 0, %_ZN12colvarmodule8vector1dIdED2Ev.exit30 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store double 0.000000e+00, ptr %4, align 8, !tbaa !31
   invoke void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %81, ptr noundef nonnull align 8 dereferenceable(8) %4)

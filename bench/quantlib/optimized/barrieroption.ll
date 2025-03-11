@@ -2676,10 +2676,7 @@ _ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEC2ERKS3_.exit:
 
 invoke.cont.i.thread:                             ; preds = %_ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEC2ERKS3_.exit
   %_M_finish.i.i.i17 = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 8
-  %add.ptr.i.i.i18 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i19 = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
-  store ptr %add.ptr.i.i.i18, ptr %_M_end_of_storage.i.i.i19, align 8, !tbaa !79
   br label %invoke.cont
 
 cond.true.i.i.i.i:                                ; preds = %_ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEC2ERKS3_.exit
