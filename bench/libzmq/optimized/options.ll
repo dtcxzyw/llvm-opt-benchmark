@@ -2398,7 +2398,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_(ptr noundef non
 
 9:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #24
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %9
   unreachable
@@ -2407,11 +2407,11 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   %.not.i.i = icmp eq ptr %2, %1
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i, label %10
 
-10:                                               ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %11 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #26
           to label %.noexc4 unwind label %16
 
-.noexc4:                                          ; preds = %10
+.noexc4:; preds = %10
   store ptr %11, ptr %0, align 8, !tbaa !118
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2419,25 +2419,25 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %1, i64 %7, i1 false)
   br label %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i
 
-_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc4
+_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.thread.i:; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i, %.noexc4
   %14 = phi ptr [ %12, %.noexc4 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8, !tbaa !119
   ret void
 
-16:                                               ; preds = %10, %9
-  %17 = landingpad { ptr, i32 }
+19:                                               ; preds = %10, %9
+  %20 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %0, align 8, !tbaa !118
-  %.not.i.i5 = icmp eq ptr %18, null
-  br i1 %.not.i.i5, label %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit, label %19
+  %21 = load ptr, ptr %0, align 8, !tbaa !118
+  %.not.i.i5 = icmp eq ptr %21, null
+  br i1 %.not.i.i5, label %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit, label %22
 
-19:                                               ; preds = %16
-  tail call void @_ZdlPv(ptr noundef nonnull %18) #25
+22:                                               ; preds = %19
+  tail call void @_ZdlPv(ptr noundef nonnull %21) #25
   br label %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit
 
-_ZNSt12_Vector_baseIhSaIhEED2Ev.exit:             ; preds = %16, %19
-  resume { ptr, i32 } %17
+_ZNSt12_Vector_baseIhSaIhEED2Ev.exit:             ; preds = %19, %22
+  resume { ptr, i32 } %20
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

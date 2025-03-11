@@ -7776,10 +7776,10 @@ if.then.i:                                        ; preds = %entry
 _ZNKSt8functionIFvRN4node9HistogramEEEclES2_.exit: ; preds = %entry
   %on_interval_ = getelementptr inbounds nuw i8, ptr %handle, i64 112
   %add.ptr = getelementptr inbounds nuw i8, ptr %handle, i64 88
-  %1 = load ptr, ptr %add.ptr, align 8
+  %3 = load ptr, ptr %add.ptr, align 8
   %_M_invoker.i = getelementptr inbounds nuw i8, ptr %handle, i64 136
-  %2 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(80) %1) #16
+  %4 = load ptr, ptr %_M_invoker.i, align 8
+  tail call void %2(ptr noundef nonnull align 8 dereferenceable(32) %on_interval_, ptr noundef nonnull align 8 dereferenceable(80) %3) #16
   ret void
 }
 

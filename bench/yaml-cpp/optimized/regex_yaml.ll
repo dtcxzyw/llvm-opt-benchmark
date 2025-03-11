@@ -419,70 +419,70 @@ _ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread: ; preds = 
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIN4YAML5RegExESaIS1_EE17_S_check_init_lenEmRKS2_.exit
-  %10 = shl nuw nsw i64 %6, 5
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #16
-  store ptr %11, ptr %0, align 8, !tbaa !22
-  %12 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %11, i64 %6
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %12, ptr %13, align 8, !tbaa !24
+  %11 = shl nuw nsw i64 %6, 5
+  %12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %11) #16
+  store ptr %12, ptr %0, align 8, !tbaa !22
+  %13 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %12, i64 %6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %13, ptr %14, align 8, !tbaa !24
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i
-  %.014.i.i.i.i = phi ptr [ %16, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ], [ %11, %.lr.ph.i.i.i.i.preheader ]
-  %.sroa.08.013.i.i.i.i = phi ptr [ %15, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
-  %14 = load i8, ptr %.sroa.08.013.i.i.i.i, align 1, !tbaa !27
-  invoke void @_ZN4YAML5RegExC1Ec(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i.i.i, i8 noundef signext %14)
-          to label %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i unwind label %17
+  %.014.i.i.i.i = phi ptr [ %17, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ], [ %12, %.lr.ph.i.i.i.i.preheader ]
+  %.sroa.08.013.i.i.i.i = phi ptr [ %16, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ], [ %1, %.lr.ph.i.i.i.i.preheader ]
+  %15 = load i8, ptr %.sroa.08.013.i.i.i.i, align 1, !tbaa !27
+  invoke void @_ZN4YAML5RegExC1Ec(ptr noundef nonnull align 8 dereferenceable(32) %.014.i.i.i.i, i8 noundef signext %15)
+          to label %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i unwind label %18
 
 _ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 1
-  %16 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %15, %2
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %16, %2
   br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !28
 
-17:                                               ; preds = %.lr.ph.i.i.i.i
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %.lr.ph.i.i.i.i
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = tail call ptr @__cxa_begin_catch(ptr %19) #13
-  %.not.i2.i.i.i.i.i = icmp eq ptr %11, %.014.i.i.i.i
+  %20 = extractvalue { ptr, i32 } %19, 0
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #13
+  %.not.i2.i.i.i.i.i = icmp eq ptr %12, %.014.i.i.i.i
   br i1 %.not.i2.i.i.i.i.i, label %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %17, %.lr.ph.i.i.i.i.i
-  %.0.i3.i.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i.i ], [ %11, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i.i.i.i, i64 8
-  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #13
-  %22 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i.i.i.i, i64 32
-  %.not.i.i.i.i.i.i = icmp eq ptr %22, %.014.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %18, %.lr.ph.i.i.i.i.i
+  %.0.i3.i.i.i.i.i = phi ptr [ %23, %.lr.ph.i.i.i.i.i ], [ %12, %18 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i.i.i.i, i64 8
+  tail call void @_ZNSt6vectorIN4YAML5RegExESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #13
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i3.i.i.i.i.i, i64 32
+  %.not.i.i.i.i.i.i = icmp eq ptr %23, %.014.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
-_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %17
+_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %18
   invoke void @__cxa_rethrow() #15
-          to label %29 unwind label %23
+          to label %30 unwind label %24
 
-23:                                               ; preds = %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %25 unwind label %26
+          to label %26 unwind label %27
 
-25:                                               ; preds = %23
-  resume { ptr, i32 } %24
+26:                                               ; preds = %24
+  resume { ptr, i32 } %25
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #14
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #14
   unreachable
 
-29:                                               ; preds = %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i
+30:                                               ; preds = %_ZSt8_DestroyIPN4YAML5RegExEEvT_S3_.exit.i.i.i.i
   unreachable
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPN4YAML5RegExESC_ET0_T_SF_SE_RSaIT1_E.exit: ; preds = %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i, %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread
-  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread ], [ %16, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i, ptr %30, align 8, !tbaa !23
+  %.0.lcssa.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseIN4YAML5RegExESaIS1_EE11_M_allocateEm.exit.thread ], [ %17, %_ZSt10_ConstructIN4YAML5RegExEJRKcEEvPT_DpOT0_.exit.i.i.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i, ptr %31, align 8, !tbaa !23
   ret void
 }
 

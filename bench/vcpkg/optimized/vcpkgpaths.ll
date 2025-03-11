@@ -21274,7 +21274,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS
 
 6:                                                ; preds = %4
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.145) #30
-          to label %.noexc unwind label %15
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %6
   unreachable
@@ -21284,46 +21284,46 @@ _ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.
   br i1 %.not.i.i, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
-          to label %.noexc3 unwind label %15
+  %9 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #33
+          to label %.noexc3 unwind label %18
 
 .noexc3:                                          ; preds = %.lr.ph.i.i.i.i.preheader.i
-  store ptr %7, ptr %0, align 8, !tbaa !510
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !513
-  %10 = add nsw i64 %.idx, -24
-  %11 = urem i64 %10, 24
-  %12 = sub nuw nsw i64 %10, %11
-  %13 = add nsw i64 %12, 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr align 8 %1, i64 %13, i1 false)
-  %scevgep.i = getelementptr i8, ptr %7, i64 %13
-  br label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i
+  store ptr %9, ptr %0, align 8, !tbaa !510
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8, !tbaa !513
+  %12 = add nsw i64 %.idx, -24
+  %13 = urem i64 %12, 24
+  %14 = sub nuw nsw i64 %12, %13
+  %15 = add nsw i64 %14, 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %1, i64 %15, i1 false)
+  %scevgep.i = getelementptr i8, ptr %9, i64 %15
+  br label %16
 
-_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EE11_M_allocateEm.exit.thread.i: ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.noexc3
+16:                                               ; preds = %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.noexc3
   %.0.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i, %.noexc3 ], [ null, %_ZNSt6vectorIN5vcpkg17ToolsetArchOptionESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.lcssa.i.i.i.i.i, ptr %14, align 8, !tbaa !514
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %17, align 8, !tbaa !514
   ret void
 
-15:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i, %6
-  %16 = landingpad { ptr, i32 }
+18:                                               ; preds = %.lr.ph.i.i.i.i.preheader.i, %6
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %17 = load ptr, ptr %0, align 8, !tbaa !510
-  %.not.i.i4 = icmp eq ptr %17, null
-  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit, label %18
+  %20 = load ptr, ptr %0, align 8, !tbaa !510
+  %.not.i.i4 = icmp eq ptr %20, null
+  br i1 %.not.i.i4, label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit, label %21
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !513
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %17 to i64
-  %23 = sub i64 %21, %22
-  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %23) #29
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !513
+  %24 = ptrtoint ptr %23 to i64
+  %25 = ptrtoint ptr %20 to i64
+  %26 = sub i64 %24, %25
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %26) #29
   br label %_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit
 
-_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit: ; preds = %15, %18
-  resume { ptr, i32 } %16
+_ZNSt12_Vector_baseIN5vcpkg17ToolsetArchOptionESaIS1_EED2Ev.exit: ; preds = %18, %21
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

@@ -8662,19 +8662,19 @@ _ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_i
 .noexc4.i:                                        ; preds = %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %.idx = shl nuw nsw i64 %6, 3
   %.not1.i.i = icmp slt i64 %3, 0
-  %7 = select i1 %.not1.i.i, ptr %5, ptr %4
-  %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #49
-  store ptr %8, ptr %0, align 8, !tbaa !329
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %10, align 8, !tbaa !331
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr align 8 %7, i64 %.idx, i1 false)
-  br label %11
+  %9 = select i1 %.not1.i.i, ptr %5, ptr %4
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #49
+  store ptr %10, ptr %0, align 8, !tbaa !329
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %11, ptr %12, align 8, !tbaa !331
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %9, i64 %.idx, i1 false)
+  br label %13
 
-11:                                               ; preds = %.noexc4.i, %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
-  %12 = phi ptr [ %9, %.noexc4.i ], [ null, %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %12, ptr %13, align 8, !tbaa !332
+13:                                               ; preds = %.noexc4.i, %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
+  %14 = phi ptr [ %9, %.noexc4.i ], [ null, %_ZNSt6vectorIPN5folly11AsyncSocket23LegacyLifecycleObserverESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %14, ptr %15, align 8, !tbaa !332
   ret void
 }
 

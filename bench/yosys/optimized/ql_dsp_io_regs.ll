@@ -5656,15 +5656,15 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i:
   %.idx = shl nuw nsw i64 %2, 2
   %5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #26
   store ptr %5, ptr %0, align 8, !tbaa !184
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %7, align 8, !tbaa !186
   %8 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
   br label %9
 
-9:                                                ; preds = %16, %.lr.ph.i.i.i.i.i
-  %.015.i.i.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i.i.i ], [ %18, %16 ]
-  %.01214.i.i.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i.i.i ], [ %17, %16 ]
+9:; preds = %16, %.lr.ph.i.i.i.i.i
+  %.01214.i.i.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i.i.i ], [ %18, %16 ]
+  %.01214.i.i.i.i.i = phi ptr [ %1, %.lr.ph.i.i.i.i.i ], [ %15, %16 ]
   %10 = load i32, ptr %.01214.i.i.i.i.i, align 4, !tbaa !59
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %10, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %16, label %11
@@ -5677,9 +5677,9 @@ _ZNSt6vectorIN5Yosys5RTLIL8IdStringESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i:
   store i32 %15, ptr %13, align 4, !tbaa !48
   br label %16
 
-16:                                               ; preds = %11, %9
+13:                                               ; preds = %11, %9
   store i32 %10, ptr %.015.i.i.i.i.i, align 4, !tbaa !59
-  %17 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01214.i.i.i.i.i, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i = icmp eq ptr %17, %4
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %9, !llvm.loop !187

@@ -13025,7 +13025,7 @@ _ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i: ; pred
   %.09 = extractvalue { ptr, i32 } %48, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %.09) #32
   invoke void @__cxa_end_catch()
-          to label %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit unwind label %62
+          to label %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit unwind label %61
 
 _ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit: ; preds = %_ZSt10_ConstructIN14arrow_vendored4date9time_zoneEJS2_EEvPT_DpOT0_.exit.i.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 %7
@@ -13034,46 +13034,46 @@ _ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__g
   br label %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
 
 _ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit: ; preds = %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %51 = phi ptr [ %4, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %.pre20, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
-  %52 = phi ptr [ %2, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %.pre, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
+  %50 = phi ptr [ %4, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %.pre20, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
+  %51 = phi ptr [ %2, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %.pre, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
   %.sroa.15.0 = phi ptr [ null, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %50, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
   %.sroa.013.0 = phi ptr [ null, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %11, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %47, %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.loopexit ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.15.0 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !27
   store ptr %.sroa.013.0, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i.i.i, ptr %3, align 8, !tbaa !26
   store ptr %.sroa.15.0, ptr %53, align 8, !tbaa !27
-  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN14arrow_vendored4date9time_zoneEEEvT_S6_(ptr noundef %52, ptr noundef %51)
-          to label %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i unwind label %59
+  invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN14arrow_vendored4date9time_zoneEEEvT_S6_(ptr noundef %51, ptr noundef %50)
+          to label %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i unwind label %58
 
 _ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
-  %.not.i.i.i10 = icmp eq ptr %52, null
-  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit, label %55
+  %.not.i.i.i10 = icmp eq ptr %51, null
+  br i1 %.not.i.i.i10, label %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit, label %54
 
-55:                                               ; preds = %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i
-  %56 = ptrtoint ptr %54 to i64
-  %57 = ptrtoint ptr %52 to i64
-  %58 = sub i64 %56, %57
-  tail call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %58) #30
+54:                                               ; preds = %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %51 to i64
+  %57 = sub i64 %55, %56
+  tail call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %57) #30
   br label %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit
 
-59:                                               ; preds = %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  tail call void @__clang_call_terminate(ptr %61) #31
+  %60 = extractvalue { ptr, i32 } %59, 0
+  tail call void @__clang_call_terminate(ptr %60) #31
   unreachable
 
-_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit: ; preds = %55, %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i
-  %.0 = phi i1 [ false, %_ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i ], [ true, %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i ], [ true, %55 ]
+_ZNSt6vectorIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit: ; preds = %54, %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i, %_ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i
+  %.0 = phi i1 [ false, %_ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i ], [ true, %_ZSt8_DestroyIPN14arrow_vendored4date9time_zoneES2_EvT_S4_RSaIT0_E.exit.i ], [ true, %54 ]
   ret i1 %.0
 
-62:                                               ; preds = %_ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %_ZNSt12_Vector_baseIN14arrow_vendored4date9time_zoneESaIS2_EED2Ev.exit.i
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  tail call void @__clang_call_terminate(ptr %64) #31
+  %63 = extractvalue { ptr, i32 } %62, 0
+  tail call void @__clang_call_terminate(ptr %63) #31
   unreachable
 }
 

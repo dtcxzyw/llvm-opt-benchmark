@@ -4309,7 +4309,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net18QuicVersionMana
   %16 = load i8, ptr %15, align 1, !tbaa !223, !range !19, !noundef !20
   %17 = load i8, ptr @FLAGS_quic_enable_version_36_v2, align 1, !tbaa !69, !range !19, !noundef !20
   %.not4 = icmp eq i8 %16, %17
-  br i1 %.not4, label %58, label %18
+  br i1 %.not4, label %60, label %18
 
 18:                                               ; preds = %14, %10, %6, %1
   store i8 %5, ptr %0, align 8, !tbaa !219
@@ -4331,89 +4331,89 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3net18QuicVersionMana
   %30 = ptrtoint ptr %28 to i64
   %31 = sub i64 %29, %30
   %.not.i.i.i.i = icmp eq ptr %27, %28
-  br i1 %.not.i.i.i.i, label %.thread, label %33
+  br i1 %.not.i.i.i.i, label %.thread, label %35
 
 .thread:                                          ; preds = %18
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
 
-33:                                               ; preds = %18
-  %34 = icmp ugt i64 %31, 9223372036854775804
-  br i1 %34, label %.noexc.i.i, label %35, !prof !32
+35:                                               ; preds = %18
+  %36 = icmp ugt i64 %31, 9223372036854775804
+  br i1 %36, label %.noexc.i.i, label %37, !prof !32
 
-.noexc.i.i:                                       ; preds = %33
+.noexc.i.i:                                       ; preds = %35
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-35:                                               ; preds = %33
-  %36 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #28
-  store ptr %36, ptr %3, align 8, !tbaa !31
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %36, ptr %37, align 8, !tbaa !30
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %31
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %38, ptr %39, align 8, !tbaa !33
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %36, ptr align 4 %28, i64 %31, i1 false)
+37:                                               ; preds = %35
+  %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #28
+  store ptr %38, ptr %3, align 8, !tbaa !31
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %38, ptr %39, align 8, !tbaa !30
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 %31
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %40, ptr %41, align 8, !tbaa !33
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %38, ptr align 4 %28, i64 %31, i1 false)
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit: ; preds = %.thread, %35
-  %40 = phi ptr [ null, %.thread ], [ %38, %35 ]
-  %41 = phi ptr [ %32, %.thread ], [ %37, %35 ]
-  %42 = phi ptr [ null, %.thread ], [ %36, %35 ]
-  store ptr %40, ptr %41, align 8, !tbaa !30
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit: ; preds = %.thread, %37
+  %42 = phi ptr [ null, %.thread ], [ %40, %37 ]
+  %43 = phi ptr [ %32, %.thread ], [ %39, %37 ]
+  %44 = phi ptr [ null, %.thread ], [ %38, %37 ]
+  store ptr %42, ptr %43, align 8, !tbaa !30
   invoke void @_ZN3net23FilterSupportedVersionsESt6vectorINS_11QuicVersionESaIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %2, ptr noundef nonnull %3)
-          to label %43 unwind label %55
+          to label %45 unwind label %57
 
-43:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = load ptr, ptr %44, align 8, !tbaa !31
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %48 = load ptr, ptr %2, align 8, !tbaa !31
-  store ptr %48, ptr %44, align 8, !tbaa !31
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !30
-  store ptr %50, ptr %46, align 8, !tbaa !30
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !33
-  store ptr %52, ptr %47, align 8, !tbaa !33
-  %.not.i.i.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, label %53
+45:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %47 = load ptr, ptr %46, align 8, !tbaa !31
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %50 = load ptr, ptr %2, align 8, !tbaa !31
+  store ptr %50, ptr %46, align 8, !tbaa !31
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !30
+  store ptr %52, ptr %48, align 8, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !33
+  store ptr %54, ptr %49, align 8, !tbaa !33
+  %.not.i.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, label %55
 
-53:                                               ; preds = %43
-  tail call void @_ZdlPv(ptr noundef nonnull %45) #29
+55:                                               ; preds = %45
+  tail call void @_ZdlPv(ptr noundef nonnull %47) #29
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit: ; preds = %53, %43
-  %.not.i.i.i5 = icmp eq ptr %42, null
-  br i1 %.not.i.i.i5, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6, label %54
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit: ; preds = %55, %45
+  %.not.i.i.i5 = icmp eq ptr %44, null
+  br i1 %.not.i.i.i5, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6, label %56
 
-54:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #29
+56:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #29
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, %54
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6: ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit, %56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
-  br label %58
+  br label %60
 
-55:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
-  %56 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EEC2ERKS3_.exit
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i7 = icmp eq ptr %42, null
-  br i1 %.not.i.i.i7, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit8, label %57
+  %.not.i.i.i7 = icmp eq ptr %44, null
+  br i1 %.not.i.i.i7, label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit8, label %59
 
-57:                                               ; preds = %55
-  tail call void @_ZdlPv(ptr noundef nonnull %42) #29
+59:                                               ; preds = %57
+  tail call void @_ZdlPv(ptr noundef nonnull %44) #29
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit8
 
-_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit8: ; preds = %55, %57
+_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit8: ; preds = %57, %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #30
-  resume { ptr, i32 } %56
+  resume { ptr, i32 } %58
 
-58:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6, %14
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  ret ptr %59
+60:                                               ; preds = %_ZNSt6vectorIN3net11QuicVersionESaIS1_EED2Ev.exit6, %14
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  ret ptr %61
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

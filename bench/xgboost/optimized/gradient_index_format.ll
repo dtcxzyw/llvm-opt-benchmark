@@ -1236,7 +1236,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZN7xgboost6
   br label %_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_.exit
 
 _ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_.exit:      ; preds = %.noexc4.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
-  %.sroa.16.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %30, %.noexc4.i ]
+  %.sroa.046.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %30, %.noexc4.i ]
   %.sroa.046.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %29, %.noexc4.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   %31 = ptrtoint ptr %.sroa.16.0 to i64
@@ -1247,114 +1247,114 @@ _ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_.exit:      ; preds = %.noexc4.i, %_ZNSt6v
           to label %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit unwind label %41
 
 _ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit: ; preds = %_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_.exit
-  %35 = add i64 %24, %34
+  %31 = add i64 %24, %34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
   %36 = icmp eq ptr %.sroa.046.0, %.sroa.16.0
   br i1 %36, label %45, label %37
 
-37:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
-  %38 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.046.0, i64 noundef %33)
-          to label %39 unwind label %43
+32:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
+  %33 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.sroa.046.0, i64 noundef %33)
+          to label %34 unwind label %38
 
-39:                                               ; preds = %37
-  %40 = add i64 %38, %35
-  br label %45
+34:                                               ; preds = %32
+  %35 = add i64 %33, %31
+  br label %40
 
-41:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_.exit
-  %42 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2IPhvEET_S4_RKS0_.exit
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #10
-  br label %76
+  br label %71
 
-43:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit, %58, %52, %45, %_ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit, %37
-  %44 = landingpad { ptr, i32 }
+38:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit, %53, %47, %40, %_ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit, %32
+  %39 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %71
 
-45:                                               ; preds = %39, %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
-  %.031 = phi i64 [ %35, %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit ], [ %40, %39 ]
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 120
+40:                                               ; preds = %34, %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
+  %.031 = phi i64 [ %31, %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit ], [ %35, %34 ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %48 = load i64, ptr %47, align 8, !tbaa !84
-  store i64 %48, ptr %4, align 8, !tbaa !35
-  %49 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 8)
-          to label %.noexc unwind label %43
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %43 = load i64, ptr %42, align 8, !tbaa !84
+  store i64 %43, ptr %4, align 8, !tbaa !35
+  %44 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 8)
+          to label %.noexc unwind label %38
 
-.noexc:                                           ; preds = %45
-  %50 = load i64, ptr %4, align 8, !tbaa !35
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %58, label %52
+.noexc:                                           ; preds = %40
+  %45 = load i64, ptr %4, align 8, !tbaa !35
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %53, label %47
 
-52:                                               ; preds = %.noexc
-  %53 = load ptr, ptr %46, align 8, !tbaa !85
-  %54 = load i64, ptr %47, align 8, !tbaa !84
-  %55 = shl i64 %54, 3
-  %56 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %53, i64 noundef %55)
-          to label %.noexc35 unwind label %43
+47:                                               ; preds = %.noexc
+  %48 = load ptr, ptr %41, align 8, !tbaa !85
+  %49 = load i64, ptr %42, align 8, !tbaa !84
+  %50 = shl i64 %49, 3
+  %51 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %48, i64 noundef %50)
+          to label %.noexc35 unwind label %38
 
-.noexc35:                                         ; preds = %52
-  %57 = add i64 %56, %49
-  br label %58
+.noexc35:                                         ; preds = %47
+  %52 = add i64 %51, %44
+  br label %53
 
-58:                                               ; preds = %.noexc35, %.noexc
-  %.0.i34 = phi i64 [ %57, %.noexc35 ], [ 8, %.noexc ]
+53:                                               ; preds = %.noexc35, %.noexc
+  %.0.i34 = phi i64 [ %52, %.noexc35 ], [ 8, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %60 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %59, i64 noundef 4)
-          to label %_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit unwind label %43
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %55 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %54, i64 noundef 4)
+          to label %_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit unwind label %38
 
-_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit: ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %62 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %61, i64 noundef 8)
-          to label %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit39 unwind label %43
+_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit: ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %57 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %56, i64 noundef 8)
+          to label %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit39 unwind label %38
 
 _ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit39: ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteIiEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %64 = load i8, ptr %63, align 8, !tbaa !51, !range !15, !noundef !16
-  store i8 %64, ptr %8, align 1, !tbaa !50
-  %65 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef 1)
-          to label %_ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit unwind label %74
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %59 = load i8, ptr %58, align 8, !tbaa !51, !range !15, !noundef !16
+  store i8 %59, ptr %8, align 1, !tbaa !50
+  %60 = invoke noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef 1)
+          to label %_ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit unwind label %69
 
 _ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit: ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit39
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
-  %66 = invoke noundef i64 @_ZNK7xgboost16GHistIndexMatrix15WriteColumnPageEPNS_6common22AlignedFileWriteStreamE(ptr noundef nonnull align 8 dereferenceable(233) %1, ptr noundef nonnull %2)
-          to label %67 unwind label %43
+  %61 = invoke noundef i64 @_ZNK7xgboost16GHistIndexMatrix15WriteColumnPageEPNS_6common22AlignedFileWriteStreamE(ptr noundef nonnull align 8 dereferenceable(233) %1, ptr noundef nonnull %2)
+          to label %62 unwind label %38
 
-67:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
+62:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteIbEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit
   %.not.i.i.i41 = icmp eq ptr %.sroa.046.0, null
-  br i1 %.not.i.i.i41, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %68
+  br i1 %.not.i.i.i41, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %63
 
-68:                                               ; preds = %67
+63:                                               ; preds = %62
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.046.0, i64 noundef %33) #30
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %67, %68
-  %69 = add i64 %.0.i34, %.031
-  %70 = add i64 %69, %60
-  %71 = add i64 %70, %62
-  %72 = add i64 %71, %65
-  %73 = add i64 %72, %66
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %62, %63
+  %64 = add i64 %.0.i34, %.031
+  %65 = add i64 %64, %55
+  %66 = add i64 %65, %57
+  %67 = add i64 %66, %60
+  %68 = add i64 %67, %61
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
-  ret i64 %73
+  ret i64 %68
 
-74:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit39
-  %75 = landingpad { ptr, i32 }
+69:                                               ; preds = %_ZN7xgboost6common18AlignedWriteStream5WriteImEENSt9enable_ifIXsr3stdE8is_pod_vIT_EEmE4typeERKS4_.exit39
+  %70 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
-  br label %76
+  br label %71
 
-76:                                               ; preds = %74, %43, %41
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %75, %74 ], [ %42, %41 ]
+71:                                               ; preds = %69, %38, %36
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %70, %69 ], [ %37, %36 ]
   %.not.i.i.i43 = icmp eq ptr %.sroa.046.0, null
-  br i1 %.not.i.i.i43, label %.body, label %77
+  br i1 %.not.i.i.i43, label %.body, label %72
 
-77:                                               ; preds = %76
+72:                                               ; preds = %71
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.046.0, i64 noundef %33) #30
   br label %.body
 
-.body:                                            ; preds = %77, %76
+.body:                                            ; preds = %72, %71
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
   resume { ptr, i32 } %.pn
 }

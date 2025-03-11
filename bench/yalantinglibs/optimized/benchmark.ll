@@ -23489,7 +23489,7 @@ _ZNSt12_Vector_baseI9zc_personSaIS0_EED2Ev.exit.i: ; preds = %if.then.i.i.i, %fo
 
 invoke.cont21:                                    ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
   %ref.tmp.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ]
-  %ref.tmp.sroa.9.0 = phi ptr [ null, %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorI9zc_personSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %scevgep.i.i, %call5.i.i.i.i.noexc.i ]
   %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %__c, i64 16
   store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8
@@ -28991,7 +28991,7 @@ _ZNSt12_Vector_baseI9zc_WeaponSaIS0_EED2Ev.exit.i: ; preds = %if.then.i.i.i, %fo
 
 invoke.cont21:                                    ; preds = %call5.i.i.i.i.noexc.i, %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i
   %ref.tmp.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %call5.i.i.i.i1.i, %call5.i.i.i.i.noexc.i ]
-  %ref.tmp.sroa.9.0 = phi ptr [ null, %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
+  %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %add.ptr.i.i, %call5.i.i.i.i.noexc.i ]
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorI9zc_WeaponSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ], [ %scevgep.i.i, %call5.i.i.i.i.noexc.i ]
   %_M_end_of_storage.i4.i.i = getelementptr inbounds nuw i8, ptr %__c, i64 16
   store ptr %ref.tmp.sroa.0.0, ptr %__c, align 8

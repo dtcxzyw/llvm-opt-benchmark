@@ -1280,36 +1280,36 @@ define linkonce_odr hidden void @_ZNK4LIEF3ELF17DynamicEntryArray5cloneEv(ptr de
   %13 = sub i64 %11, %12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %9, %10
-  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread, label %15
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread, label %17
 
 _ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread: ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   br label %_ZNSt10unique_ptrIN4LIEF3ELF17DynamicEntryArrayESt14default_deleteIS2_EED2Ev.exit
 
-15:                                               ; preds = %2
-  %16 = icmp ugt i64 %13, 9223372036854775800
-  br i1 %16, label %17, label %18, !prof !62
+17:                                               ; preds = %2
+  %18 = icmp ugt i64 %13, 9223372036854775800
+  br i1 %18, label %19, label %20, !prof !62
 
-17:                                               ; preds = %15
+19:                                               ; preds = %17
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #22
   unreachable
 
-18:                                               ; preds = %15
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
-  store ptr %19, ptr %6, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %19, ptr %20, align 8, !tbaa !13
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %13
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %21, ptr %22, align 8, !tbaa !16
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr align 8 %10, i64 %13, i1 false)
+20:                                               ; preds = %17
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #23
+  store ptr %21, ptr %6, align 8, !tbaa !15
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr %21, ptr %22, align 8, !tbaa !13
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %13
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %23, ptr %24, align 8, !tbaa !16
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %10, i64 %13, i1 false)
   br label %_ZNSt10unique_ptrIN4LIEF3ELF17DynamicEntryArrayESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4LIEF3ELF17DynamicEntryArrayESt14default_deleteIS2_EED2Ev.exit: ; preds = %18, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread
-  %23 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread ], [ %21, %18 ]
-  %24 = phi ptr [ %14, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread ], [ %20, %18 ]
-  store ptr %23, ptr %24, align 8, !tbaa !13
+_ZNSt10unique_ptrIN4LIEF3ELF17DynamicEntryArrayESt14default_deleteIS2_EED2Ev.exit: ; preds = %20, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread
+  %25 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread ], [ %23, %20 ]
+  %26 = phi ptr [ %14, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.i.i.thread ], [ %22, %20 ]
+  store ptr %25, ptr %26, align 8, !tbaa !13
   store ptr %3, ptr %0, align 8, !tbaa !63
   ret void
 }

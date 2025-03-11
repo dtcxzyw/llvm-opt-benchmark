@@ -1236,35 +1236,35 @@ _ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ;
   br label %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i
 
 _ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i: ; preds = %14, %13
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %.09.i = extractvalue { ptr, i32 } %17, 0
-  %18 = tail call ptr @__cxa_begin_catch(ptr %.09.i) #16
+  %.09.i = extractvalue { ptr, i32 } %16, 0
+  %17 = tail call ptr @__cxa_begin_catch(ptr %.09.i) #16
   invoke void @__cxa_end_catch()
-          to label %_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit unwind label %20
+          to label %_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit unwind label %19
 
 _ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i: ; preds = %.noexc5.i.i, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i
-  %.sroa.12.0.i = phi ptr [ null, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %16, %.noexc5.i.i ]
+  %.sroa.012.0.i = phi ptr [ null, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %16, %.noexc5.i.i ]
   %.sroa.012.0.i = phi ptr [ null, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %15, %.noexc5.i.i ]
   store ptr %.sroa.012.0.i, ptr %0, align 8, !tbaa !8
   store ptr %.sroa.12.0.i, ptr %6, align 8, !tbaa !11
   store ptr %.sroa.12.0.i, ptr %2, align 8, !tbaa !16
   %.not.i.i.i10.i = icmp eq ptr %4, null
-  br i1 %.not.i.i.i10.i, label %_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit, label %19
+  br i1 %.not.i.i.i10.i, label %_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit, label %18
 
-19:                                               ; preds = %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i
+18:                                               ; preds = %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #15
   br label %_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit
 
-20:                                               ; preds = %_ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %_ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #18
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #18
   unreachable
 
-_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit: ; preds = %19, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i, %_ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i ], [ true, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i ], [ true, %19 ]
+_ZNSt19__shrink_to_fit_auxISt6vectorIPN10duckdb_re23RE2ESaIS3_EELb1EE8_S_do_itERS5_.exit: ; preds = %18, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i, %_ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZNSt12_Vector_baseIPN10duckdb_re23RE2ESaIS2_EED2Ev.exit.i.i ], [ true, %_ZNSt6vectorIPN10duckdb_re23RE2ESaIS2_EEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS2_S4_EEEvEET_SC_RKS3_.exit.i ], [ true, %18 ]
   ret i1 %.0
 }
 

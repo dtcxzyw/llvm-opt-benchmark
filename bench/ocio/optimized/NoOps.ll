@@ -416,74 +416,74 @@ define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_5dev12_GLOBAL__
   %17 = sub i64 %15, %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, %14
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc7.i.i.i.i.thread.i.i.i, label %20
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.noexc7.i.i.i.i.thread.i.i.i, label %21
 
 .noexc7.i.i.i.i.thread.i.i.i:                     ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %27
 
-20:                                               ; preds = %2
-  %21 = icmp ugt i64 %17, 9223372036854775804
-  br i1 %21, label %.noexc.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, !prof !23
+21:                                               ; preds = %2
+  %22 = icmp ugt i64 %17, 9223372036854775804
+  br i1 %22, label %.noexc.i.i.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, !prof !23
 
-.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %20
+.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %21
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
-          to label %.noexc.i.i.i.i.i.i.i unwind label %34
+          to label %.noexc.i.i.i.i.i.i.i unwind label %35
 
 .noexc.i.i.i.i.i.i.i:                             ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %20
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #27
-          to label %23 unwind label %34
+_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %21
+  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #27
+          to label %24 unwind label %35
 
-23:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
-  store ptr %22, ptr %10, align 8, !tbaa !33
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr %22, ptr %24, align 8, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %17
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %25, ptr %26, align 8, !tbaa !34
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %14, i64 %17, i1 false)
-  br label %27
+24:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i
+  store ptr %23, ptr %10, align 8, !tbaa !33
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr %23, ptr %25, align 8, !tbaa !32
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %17
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  store ptr %26, ptr %27, align 8, !tbaa !34
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %14, i64 %17, i1 false)
+  br label %28
 
-27:                                               ; preds = %23, %.noexc7.i.i.i.i.thread.i.i.i
-  %28 = phi ptr [ %19, %.noexc7.i.i.i.i.thread.i.i.i ], [ %26, %23 ]
-  %29 = phi ptr [ null, %.noexc7.i.i.i.i.thread.i.i.i ], [ %25, %23 ]
-  %30 = phi ptr [ %18, %.noexc7.i.i.i.i.thread.i.i.i ], [ %24, %23 ]
-  store ptr %29, ptr %30, align 8, !tbaa !32
-  %31 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #27
-          to label %32 unwind label %36
+28:                                               ; preds = %24, %.noexc7.i.i.i.i.thread.i.i.i
+  %29 = phi ptr [ %19, %.noexc7.i.i.i.i.thread.i.i.i ], [ %27, %24 ]
+  %30 = phi ptr [ null, %.noexc7.i.i.i.i.thread.i.i.i ], [ %26, %24 ]
+  %31 = phi ptr [ %18, %.noexc7.i.i.i.i.thread.i.i.i ], [ %25, %24 ]
+  store ptr %30, ptr %31, align 8, !tbaa !32
+  %32 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #27
+          to label %33 unwind label %37
 
-32:                                               ; preds = %27
-  invoke void @_ZN19OpenColorIO_v2_5dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %31)
-          to label %33 unwind label %38
+33:                                               ; preds = %28
+  invoke void @_ZN19OpenColorIO_v2_5dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %32)
+          to label %34 unwind label %39
 
-33:                                               ; preds = %32
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev8NoOpDataE, i64 16), ptr %31, align 8, !tbaa !19
-  invoke void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_8NoOpDataEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %31)
-          to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114AllocationNoOpEEC2ISaIvEJRKNS0_14AllocationDataEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit unwind label %36
+34:                                               ; preds = %33
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev8NoOpDataE, i64 16), ptr %32, align 8, !tbaa !19
+  invoke void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EE5resetINS0_8NoOpDataEEENSt9enable_ifIXsr21__sp_is_constructibleIS1_T_EE5valueEvE4typeEPS8_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %32)
+          to label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114AllocationNoOpEEC2ISaIvEJRKNS0_14AllocationDataEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit unwind label %37
 
-34:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i
-  %35 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i.i.i.i.i.i.i.i
+  %36 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit.i.i.i.i.i.i.i
 
-36:                                               ; preds = %33, %27
-  %37 = landingpad { ptr, i32 }
+37:                                               ; preds = %34, %28
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %40
 
-38:                                               ; preds = %32
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %33
+  %40 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 168) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef 168) #29
   br label %40
 
-40:                                               ; preds = %38, %36
-  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %37, %36 ], [ %39, %38 ]
-  %41 = load ptr, ptr %10, align 8, !tbaa !33
+43:                                               ; preds = %38, %36
+  %.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %37, %36 ], [ %40, %38 ]
+  %41 = load ptr, ptr %10, align 8, !tbaa !34
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit.i.i.i.i.i.i.i, label %42
 
@@ -495,15 +495,15 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; pr
   tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %46) #29
   br label %_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit.i.i.i.i.i.i.i
 
-_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit.i.i.i.i.i.i.i: ; preds = %42, %40, %34
-  %.pn.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %35, %34 ], [ %.pn.i.i.i.i.i.i.i, %40 ], [ %.pn.i.i.i.i.i.i.i, %42 ]
+_ZN19OpenColorIO_v2_5dev14AllocationDataD2Ev.exit.i.i.i.i.i.i.i: ; preds = %42, %40, %35
+  %.pn.pn.i.i.i.i.i.i.i = phi { ptr, i32 } [ %36, %35 ], [ %.pn.i.i.i.i.i.i.i, %40 ], [ %.pn.i.i.i.i.i.i.i, %42 ]
   tail call void @_ZN19OpenColorIO_v2_5dev2OpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #26
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 72) #29
   resume { ptr, i32 } %.pn.pn.i.i.i.i.i.i.i
 
-_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114AllocationNoOpEEC2ISaIvEJRKNS0_14AllocationDataEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit: ; preds = %33
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %47, align 8, !tbaa !14
+_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114AllocationNoOpEEC2ISaIvEJRKNS0_14AllocationDataEEEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit: ; preds = %34
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %3, ptr %48, align 8, !tbaa !14
   store ptr %6, ptr %0, align 8, !tbaa !35
   ret void
 }
