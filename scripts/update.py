@@ -454,7 +454,11 @@ if not COMPTIME_OUT and not STATS_OUT and NO_DIFF:
 
 if not build_llvm():
     print("Unable to build LLVM")
-    exit(1)
+    if not BASELINE:
+        with open(OUT, "w") as f:
+            f.write("Unable to build LLVM")
+        exit(1)
+    exit(0)
 
 if not regen_optimized():
     pass
