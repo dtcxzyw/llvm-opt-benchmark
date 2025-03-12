@@ -3710,7 +3710,7 @@ transaction_id_pick.exit:                         ; preds = %25, %34
   br i1 %.not86, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %54
-  %58 = trunc nuw i64 %14 to i32
+  %58 = trunc nuw nsw i64 %14 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %73
@@ -5755,7 +5755,7 @@ str_matches_option.exit257.thread:                ; preds = %84, %str_matches_op
 
 237:                                              ; preds = %235
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.108, i32 noundef %233)
-  %238 = trunc i32 %233 to i16
+  %238 = trunc nuw i32 %233 to i16
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i16 %238, ptr %239, align 8
   br label %.thread274

@@ -162,7 +162,7 @@ sane_qsort.exit:                                  ; preds = %._crit_edge.thread,
   br i1 %.not8.i, label %.loopexit171, label %44
 
 44:                                               ; preds = %41
-  %45 = trunc nuw i64 %.2103 to i32
+  %45 = trunc nuw nsw i64 %.2103 to i32
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %47 = load ptr, ptr %46, align 8, !tbaa !23
   %48 = sext i32 %43 to i64
@@ -356,7 +356,7 @@ hashwrite_be32.exit131:                           ; preds = %84
 126:                                              ; preds = %122
   %127 = load i32, ptr %106, align 8, !tbaa !22
   %.not8.i137 = icmp eq i32 %127, 0
-  %.pre = trunc nuw i64 %121 to i32
+  %.pre = trunc nuw nsw i64 %121 to i32
   br i1 %.not8.i137, label %need_large_offset.exit144, label %128
 
 128:                                              ; preds = %126
@@ -428,7 +428,7 @@ need_large_offset.exit144:                        ; preds = %140, %126, %.loopex
   br i1 %.not8.i149, label %need_large_offset.exit156, label %158
 
 158:                                              ; preds = %156
-  %159 = trunc nuw i64 %151 to i32
+  %159 = trunc nuw nsw i64 %151 to i32
   %160 = load ptr, ptr %116, align 8, !tbaa !23
   %161 = sext i32 %157 to i64
   br label %.lr.ph.i.i150
@@ -1086,7 +1086,7 @@ define dso_local range(i32 1, 0) i32 @encode_in_pack_object_header(ptr noundef w
   unreachable
 
 15:                                               ; preds = %.lr.ph
-  %16 = trunc i64 %.0.in28 to i8
+  %16 = trunc nuw nsw i64 %.0.in28 to i8
   %17 = or i8 %16, -128
   %18 = getelementptr inbounds nuw i8, ptr %.01925, i64 1
   store i8 %17, ptr %.01925, align 1, !tbaa !30
@@ -1100,7 +1100,7 @@ define dso_local range(i32 1, 0) i32 @encode_in_pack_object_header(ptr noundef w
   %.019.lcssa = phi ptr [ %0, %7 ], [ %18, %15 ]
   %.017.lcssa = phi i32 [ 1, %7 ], [ %21, %15 ]
   %.0.in.lcssa = phi i64 [ %11, %7 ], [ %19, %15 ]
-  %.0 = trunc i64 %.0.in.lcssa to i8
+  %.0 = trunc nuw nsw i64 %.0.in.lcssa to i8
   store i8 %.0, ptr %.019.lcssa, align 1, !tbaa !30
   ret i32 %.017.lcssa
 }

@@ -10318,7 +10318,7 @@ entry:
   br i1 %cmp, label %if.then, label %_ZN6hermes2vm15StringPrimitive15createLongLivedERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
 
 if.then:                                          ; preds = %entry
-  %conv5 = trunc nuw i16 %ch to i8
+  %conv5 = trunc nuw nsw i16 %ch to i8
   store i8 %conv5, ptr %ref.tmp4, align 1
   %call = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive15createLongLivedERNS0_7RuntimeEN4llvh8ArrayRefIcEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %ref.tmp4, i64 1)
   %0 = extractvalue { i32, i64 } %call, 0
@@ -12577,7 +12577,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

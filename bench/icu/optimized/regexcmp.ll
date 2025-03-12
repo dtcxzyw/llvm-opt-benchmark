@@ -1954,7 +1954,7 @@ _ZN6icu_7712RegexCompile10nextCharLLEv.exit89:    ; preds = %301, %323, %333
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   %352 = trunc i64 %259 to i32
   store i32 %352, ptr %6, align 4, !tbaa !12
-  %353 = trunc i64 %342 to i32
+  %353 = trunc nsw i64 %342 to i32
   %354 = getelementptr inbounds nuw i8, ptr %336, i64 48
   %355 = load ptr, ptr %354, align 8, !tbaa !99
   %356 = call i32 @u_unescapeAt_77(ptr noundef nonnull @uregex_ucstr_unescape_charAt_77, ptr noundef nonnull %6, i32 noundef %353, ptr noundef %355)

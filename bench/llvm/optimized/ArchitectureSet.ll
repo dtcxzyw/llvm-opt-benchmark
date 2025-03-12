@@ -266,7 +266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   br i1 %.not.i.i, label %66, label %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit, !llvm.loop !21
 
 _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit: ; preds = %68
-  %71 = trunc nuw i64 %indvars.iv.next.i to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %72 = trunc nuw i64 %indvars.iv.next.i to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
   %73 = call { ptr, i64 } @_ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE(i8 noundef zeroext %72) #12
@@ -413,7 +413,7 @@ _ZNSt6vectorIN4llvm5MachO12ArchitectureESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9_
   br i1 %.not.i.i, label %46, label %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit, !llvm.loop !21
 
 _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIKjEppEv.exit: ; preds = %48
-  %51 = trunc nuw i64 %indvars.iv.next.i to i32
+  %51 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %12
 }
 

@@ -17519,7 +17519,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %65, %68
   br i1 %spec.select.i, label %81, label %.thread288
 
 81:                                               ; preds = %73
-  %82 = trunc nuw i64 %.0.i.i134.fr to i32
+  %82 = trunc nuw nsw i64 %.0.i.i134.fr to i32
   %or.cond = icmp samesign ult i64 %.0.i.i134.fr, 2
   %spec.select321 = select i1 %or.cond, i32 7, i32 %82
   br label %.thread288

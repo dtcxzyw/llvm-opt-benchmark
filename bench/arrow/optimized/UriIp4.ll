@@ -329,7 +329,7 @@ define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr nounde
   br i1 %switch.i, label %12, label %uriParseDecOctetOneW.exit
 
 12:                                               ; preds = %10
-  %13 = trunc nuw i32 %11 to i8
+  %13 = trunc nuw nsw i32 %11 to i8
   %14 = add nsw i8 %13, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %14) #4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -343,7 +343,7 @@ define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr nounde
   br i1 %switch.i.i, label %18, label %uriParseDecOctetOneW.exit
 
 18:                                               ; preds = %16
-  %19 = trunc nuw i32 %17 to i8
+  %19 = trunc nuw nsw i32 %17 to i8
   %20 = add nsw i8 %19, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %20) #4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -371,7 +371,7 @@ define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr nounde
   ]
 
 26:                                               ; preds = %24, %24, %24, %24, %24
-  %27 = trunc i32 %25 to i8
+  %27 = trunc nuw nsw i32 %25 to i8
   %28 = add nsw i8 %27, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %28) #4
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -399,14 +399,14 @@ define internal fastcc ptr @uriParseDecOctetW(ptr noundef nonnull %0, ptr nounde
 uriParseDecOctetThreeW.exit.sink.split.i:         ; preds = %34, %30, %24, %24, %24, %24
   %.sink26.i = phi i32 [ %31, %30 ], [ %35, %34 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ], [ %25, %24 ]
   %.sink.i = phi i64 [ 8, %30 ], [ 8, %34 ], [ 4, %24 ], [ 4, %24 ], [ 4, %24 ], [ 4, %24 ]
-  %36 = trunc i32 %.sink26.i to i8
+  %36 = trunc nuw nsw i32 %.sink26.i to i8
   %37 = add nsw i8 %36, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %37) #4
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 %.sink.i
   br label %uriParseDecOctetOneW.exit
 
 39:                                               ; preds = %4, %4, %4, %4, %4, %4, %4
-  %40 = trunc i32 %5 to i8
+  %40 = trunc nuw nsw i32 %5 to i8
   %41 = add nsw i8 %40, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %41) #4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -420,7 +420,7 @@ uriParseDecOctetThreeW.exit.sink.split.i:         ; preds = %34, %30, %24, %24, 
   br i1 %switch.i29, label %45, label %uriParseDecOctetOneW.exit
 
 45:                                               ; preds = %43
-  %46 = trunc nuw i32 %44 to i8
+  %46 = trunc nuw nsw i32 %44 to i8
   %47 = add nsw i8 %46, -48
   tail call void @uriPushToStack(ptr noundef nonnull %0, i8 noundef zeroext %47) #4
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8

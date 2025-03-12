@@ -172,7 +172,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   br i1 %exitcond.not, label %.loopexit.loopexit, label %44, !llvm.loop !16
 
 .loopexit.loopexit:                               ; preds = %44
-  %52 = trunc i64 %.251 to i32
+  %52 = trunc nuw nsw i64 %.251 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %41, %.loopexit.loopexit, %._crit_edge, %.preheader

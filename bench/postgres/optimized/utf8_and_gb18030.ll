@@ -483,7 +483,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond, label %32, label %45
 
 32:                                               ; preds = %utf8word_to_unicode.exit
-  %33 = trunc nuw i32 %.0.i to i16
+  %33 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc = add nsw i16 %33, -286
   %34 = udiv i16 %.lhs.trunc, 1260
   %.zext = zext nneg i16 %34 to i32
@@ -506,7 +506,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond3, label %47, label %60
 
 47:                                               ; preds = %45
-  %48 = trunc nuw i32 %.0.i to i16
+  %48 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc73 = add nsw i16 %48, -576
   %49 = udiv i16 %.lhs.trunc73, 1260
   %.zext74 = zext nneg i16 %49 to i32
@@ -529,7 +529,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond5, label %62, label %76
 
 62:                                               ; preds = %60
-  %63 = trunc nuw i32 %.0.i to i16
+  %63 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc81 = add nsw i16 %63, -878
   %64 = udiv i16 %.lhs.trunc81, 1260
   %.zext82 = zext nneg i16 %64 to i32
@@ -553,7 +553,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond7, label %78, label %92
 
 78:                                               ; preds = %76
-  %79 = trunc nuw i32 %.0.i to i16
+  %79 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc89 = add nsw i16 %79, -887
   %80 = udiv i16 %.lhs.trunc89, 1260
   %.zext90 = zext nneg i16 %80 to i32
@@ -577,7 +577,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond9, label %94, label %108
 
 94:                                               ; preds = %92
-  %95 = trunc nuw i32 %.0.i to i16
+  %95 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc97 = add nsw i16 %95, -889
   %96 = udiv i16 %.lhs.trunc97, 1260
   %.zext98 = zext nneg i16 %96 to i32
@@ -601,7 +601,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond11, label %110, label %124
 
 110:                                              ; preds = %108
-  %111 = trunc nuw i32 %.0.i to i16
+  %111 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc105 = add nsw i16 %111, -894
   %112 = udiv i16 %.lhs.trunc105, 1260
   %.zext106 = zext nneg i16 %112 to i32
@@ -625,7 +625,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond13, label %126, label %140
 
 126:                                              ; preds = %124
-  %127 = trunc nuw i32 %.0.i to i16
+  %127 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc113 = add nsw i16 %127, -900
   %128 = udiv i16 %.lhs.trunc113, 1260
   %.zext114 = zext nneg i16 %128 to i32
@@ -649,7 +649,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   br i1 %or.cond15, label %142, label %156
 
 142:                                              ; preds = %140
-  %143 = trunc nuw i32 %.0.i to i16
+  %143 = trunc nuw nsw i32 %.0.i to i16
   %.lhs.trunc121 = add nsw i16 %143, -911
   %144 = udiv i16 %.lhs.trunc121, 1260
   %.zext122 = zext nneg i16 %144 to i32
@@ -796,7 +796,7 @@ utf8word_to_unicode.exit:                         ; preds = %1, %5, %12, %20
   %239 = add nuw nsw i32 %.0.i, 123464
   %240 = udiv i32 %239, 12600
   %241 = udiv i32 %239, 1260
-  %.lhs.trunc177 = trunc nuw i32 %241 to i16
+  %.lhs.trunc177 = trunc nuw nsw i32 %241 to i16
   %242 = urem i16 %.lhs.trunc177, 10
   %.zext178 = zext nneg i16 %242 to i32
   %243 = udiv i32 %239, 10

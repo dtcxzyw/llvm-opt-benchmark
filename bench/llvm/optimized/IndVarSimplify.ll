@@ -1860,7 +1860,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %select.unfold.i.i
 
 303:                                              ; preds = %300, %297
   %.0152.i.i = phi i32 [ %301, %300 ], [ %299, %297 ]
-  %304 = trunc i64 %221 to i32
+  %304 = trunc nuw nsw i64 %221 to i32
   %305 = urem i32 %.0152.i.i, %304
   %or.cond4.i.i = or i1 %281, %282
   %306 = icmp ne i32 %305, 0
@@ -1894,7 +1894,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.i.i:             ; preds = %select.unfold.i.i
 
 319:                                              ; preds = %316, %313
   %.0153.i.i = phi i32 [ %317, %316 ], [ %315, %313 ]
-  %320 = trunc i64 %221 to i32
+  %320 = trunc nsw i64 %221 to i32
   %321 = sub i32 0, %320
   %322 = urem i32 %.0153.i.i, %321
   %or.cond10.i.i = or i1 %281, %282

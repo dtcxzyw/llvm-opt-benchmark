@@ -1892,7 +1892,7 @@ value_guard.exit1056:                             ; preds = %428
   unreachable
 
 value_guard.exit1057:                             ; preds = %541
-  %550 = trunc nuw i64 %.1990 to i32
+  %550 = trunc nuw nsw i64 %.1990 to i32
   %551 = icmp ult i64 %508, 2147483648
   br i1 %551, label %value_guard.exit1058, label %552
 
@@ -2596,7 +2596,7 @@ dissect_eh_frame_hdr.exit:                        ; preds = %.lr.ph.i1064, %valu
 value_guard.exit1071.preheader:                   ; preds = %875
   %877 = udiv i64 %508, %.0961
   %878 = trunc nuw nsw i64 %.0961 to i32
-  %879 = trunc nuw i64 %877 to i32
+  %879 = trunc nuw nsw i64 %877 to i32
   br label %value_guard.exit1071
 
 value_guard.exit1071:                             ; preds = %value_guard.exit1071.preheader, %value_guard.exit1070
@@ -3064,7 +3064,7 @@ value_guard.exit1080:                             ; preds = %value_guard.exit108
 value_guard.exit1083.preheader:                   ; preds = %1106
   %1108 = udiv i64 %508, %.0961
   %1109 = trunc nuw nsw i64 %.0961 to i32
-  %1110 = trunc nuw i64 %1108 to i32
+  %1110 = trunc nuw nsw i64 %1108 to i32
   br label %value_guard.exit1083
 
 value_guard.exit1083:                             ; preds = %value_guard.exit1083.preheader, %value_guard.exit1083

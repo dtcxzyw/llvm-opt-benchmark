@@ -6003,7 +6003,7 @@ nsvg__flattenShapeStroke.exit:                    ; preds = %683
   %.396122.us.i = phi i16 [ %819, %.thread.us.i ], [ %.295.us.i, %821 ]
   %.3100121.us.i = phi i16 [ %815, %.thread.us.i ], [ %.299.us.i, %821 ]
   %.3104120.us.i = phi i16 [ %811, %.thread.us.i ], [ %.2103.us.i, %821 ]
-  %.rhs.trunc131.us.i = trunc i32 %.3123.us.i to i16
+  %.rhs.trunc131.us.i = trunc nuw nsw i32 %.3123.us.i to i16
   %823 = udiv i16 %.3104120.us.i, %.rhs.trunc131.us.i
   %824 = trunc i16 %823 to i8
   store i8 %824, ptr %.0105145.us.i, align 1, !tbaa !4

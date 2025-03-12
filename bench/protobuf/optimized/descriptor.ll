@@ -47724,7 +47724,7 @@ _ZN6google8protobufL6IsLiteEPKNS0_14FileDescriptorE.exit18.us: ; preds = %land.l
   br i1 %cmp5.i17.us, label %if.then5.thread, label %for.inc.us
 
 if.then5.thread:                                  ; preds = %_ZN6google8protobufL6IsLiteEPKNS0_14FileDescriptorE.exit18.us
-  %.us-phi4873 = trunc i64 %indvars.iv62 to i32
+  %.us-phi4873 = trunc nuw i64 %indvars.iv62 to i32
   store i32 %.us-phi4873, ptr %i, align 4
   br label %_ZNK6google8protobuf14FileDescriptor10dependencyEi.exit34
 
@@ -53663,7 +53663,7 @@ if.then6:                                         ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %number_.i = getelementptr inbounds nuw i8, ptr %option_field, i64 4
   %13 = load i32, ptr %number_.i, align 4
-  %conv11 = trunc nuw i64 %10 to i32
+  %conv11 = trunc nuw nsw i64 %10 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i)
   %14 = load ptr, ptr %type_once_.i196, align 8
@@ -57081,11 +57081,11 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw nsw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
-  %sub.tr.i = trunc i64 %sub.i31 to i32
+  %sub.tr.i = trunc nuw nsw i64 %sub.i31 to i32
   %sh_prom8.i = shl nuw nsw i32 %sub.tr.i, 3
   %shl9.i = shl nuw nsw i32 %conv5.i, %sh_prom8.i
   %or10.i = or i32 %or.i36, %shl9.i

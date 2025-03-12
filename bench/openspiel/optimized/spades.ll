@@ -6535,7 +6535,7 @@ define void @_ZN10open_spiel6spades11SpadesState15ApplyPlayActionEi(ptr noundef 
 
 51:                                               ; preds = %49
   store i32 3, ptr %41, align 4
-  %.lhs.trunc.i = trunc nuw i32 %1 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %1 to i8
   %52 = urem i8 %.lhs.trunc.i, 13
   %.zext.i = zext nneg i8 %52 to i32
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -7120,7 +7120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

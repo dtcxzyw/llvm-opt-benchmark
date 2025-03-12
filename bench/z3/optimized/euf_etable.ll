@@ -175,7 +175,7 @@ define hidden noundef i32 @_ZNK3euf6etable7cg_hashclEPNS_5enodeE(ptr nonnull rea
   br i1 %.wide, label %8, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %8
-  %70 = trunc nuw i64 %26 to i32
+  %70 = trunc nuw nsw i64 %26 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
@@ -5625,7 +5625,7 @@ _ZN10chashtableIPN3euf5enodeENS0_6etable7cg_hashENS3_5cg_eqEE11alloc_tableEj.exi
   br i1 %.wide.i, label %100, label %._crit_edge.loopexit.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i:                           ; preds = %100
-  %162 = trunc nuw i64 %118 to i32
+  %162 = trunc nuw nsw i64 %118 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i

@@ -924,8 +924,8 @@ define noundef zeroext i1 @_ZN14regex_automata3dfa7onepass6Config14get_match_kin
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !128, !noundef !4
   %4 = icmp eq i8 %3, 2
-  %5 = trunc i8 %3 to i1
-  %.0 = or i1 %4, %5
+  %5 = trunc nuw i8 %3 to i1
+  %.0 = select i1 %4, i1 true, i1 %5
   ret i1 %.0
 }
 
@@ -942,8 +942,8 @@ define noundef zeroext i1 @_ZN14regex_automata3dfa7onepass6Config16get_byte_clas
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 2, !range !128, !noundef !4
   %4 = icmp eq i8 %3, 2
-  %5 = trunc i8 %3 to i1
-  %.0 = or i1 %4, %5
+  %5 = trunc nuw i8 %3 to i1
+  %.0 = select i1 %4, i1 true, i1 %5
   ret i1 %.0
 }
 
@@ -1221,8 +1221,8 @@ define hidden void @_ZN14regex_automata3dfa7onepass15InternalBuilder3new17h00089
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %18 = load i8, ptr %17, align 2, !range !128, !alias.scope !184, !noundef !4
   %19 = icmp eq i8 %18, 2
-  %20 = trunc i8 %18 to i1
-  %.0.i = or i1 %19, %20
+  %20 = trunc nuw i8 %18 to i1
+  %.0.i = select i1 %19, i1 true, i1 %20
   br i1 %.0.i, label %26, label %21
 
 21:                                               ; preds = %3
@@ -3410,8 +3410,8 @@ _ZN14regex_automata3dfa7onepass3DFA5start17hcf8e0b3f693934e3E.exit81.i: ; preds 
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %82 = load i8, ptr %81, align 8, !range !128, !alias.scope !474, !noalias !432, !noundef !4
   %83 = icmp eq i8 %82, 2
-  %84 = trunc i8 %82 to i1
-  %.0.i82.i = or i1 %83, %84
+  %84 = trunc nuw i8 %82 to i1
+  %.0.i82.i = select i1 %83, i1 true, i1 %84
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %86 = load i64, ptr %85, align 8, !alias.scope !426, !noalias !430, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6531,7 +6531,6 @@ select.unfold24:                                  ; preds = %98, %94, %96
 
 147:                                              ; preds = %148, %.thread39
   %.sroa.7.sroa.0.2.i = phi i64 [ %.sroa.425.1.insert.ext.i, %148 ], [ %.sroa.422.4.insert.shift.i, %.thread39 ]
-  %.sroa.0.2.i = phi i64 [ 1, %148 ], [ 0, %.thread39 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !848
   br label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
@@ -6545,14 +6544,11 @@ select.unfold24:                                  ; preds = %98, %94, %96
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %101, %103, %147, %149
   %.sroa.7.sroa.0.0.i = phi i64 [ %.sroa.7.sroa.0.2.i, %147 ], [ %.sroa.418.1.insert.ext.i, %149 ], [ %.sroa.420.4.insert.shift.i, %103 ], [ %.sroa.4.1.insert.ext.i, %101 ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.2.i, %147 ], [ 1, %149 ], [ 0, %103 ], [ 1, %101 ]
-  %trunc.i = trunc i64 %.sroa.0.0.i to i1
-  br i1 %trunc.i, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %150
+  %.sroa.0.0.i = phi i1 [ %trunc.i18, %147 ], [ true, %149 ], [ false, %103 ], [ true, %101 ]
+  br i1 %.sroa.0.0.i, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %150
 
 150:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
-  %.sroa.7.0.insert.ext.i = shl nuw nsw i64 %.sroa.7.sroa.0.0.i, 8
-  %.sroa.0.0.insert.insert.i = add nuw nsw i64 %.sroa.7.0.insert.ext.i, %.sroa.0.0.i
-  %.sroa.510.0.extract.shift.i = lshr i64 %.sroa.0.0.insert.insert.i, 32
+  %.sroa.510.0.extract.shift.i = lshr i64 %.sroa.7.sroa.0.0.i, 24
   %.sroa.510.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.510.0.extract.shift.i to i32
   %151 = tail call noundef i8 @_ZN12regex_syntax21try_is_word_character17he6593f9dbf0a5fb1E(i32 noundef %.sroa.510.0.extract.trunc.i), !range !128
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)

@@ -6797,7 +6797,7 @@ if.then45:                                        ; preds = %sw.bb42
   br i1 %cmp46, label %if.then47, label %if.else51
 
 if.then47:                                        ; preds = %if.then45
-  %conv48 = trunc nuw i32 %c.0272 to i8
+  %conv48 = trunc nuw nsw i32 %c.0272 to i8
   %inc50 = add nsw i16 %5, 1
   store i16 %inc50, ptr %mSigLen.i, align 2
   %idxprom = sext i16 %5 to i64
@@ -6848,7 +6848,7 @@ if.then77:                                        ; preds = %if.then73
   br i1 %or.cond, label %if.then81, label %if.end89
 
 if.then81:                                        ; preds = %if.then77
-  %conv82 = trunc nuw i32 %c.0272 to i8
+  %conv82 = trunc nuw nsw i32 %c.0272 to i8
   %inc85 = add nsw i16 %8, 1
   store i16 %inc85, ptr %mSigLen.i, align 2
   %idxprom86 = sext i16 %8 to i64

@@ -30,7 +30,7 @@ digits.exit.thread41:                             ; preds = %4
   br i1 %12, label %digits.exit.thread, label %digits.exit
 
 digits.exit.thread:                               ; preds = %11
-  %13 = trunc nuw i32 %0 to i8
+  %13 = trunc nuw nsw i32 %0 to i8
   %14 = or disjoint i8 %13, 48
   store i8 %14, ptr %1, align 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -45,10 +45,10 @@ digits.exit.thread:                               ; preds = %11
   br i1 %19, label %digits.exit.thread65, label %digits.exit.thread61
 
 digits.exit.thread65:                             ; preds = %18
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %20 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %20 to i32
-  %21 = trunc nuw i16 %20 to i8
+  %21 = trunc nuw nsw i16 %20 to i8
   %22 = or disjoint i8 %21, 48
   store i8 %22, ptr %1, align 1
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -64,7 +64,7 @@ digits.exit.thread65:                             ; preds = %18
 
 digits.exit.thread57:                             ; preds = %26
   %28 = udiv i32 %0, 10000
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, 48
   store i8 %30, ptr %1, align 1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -76,7 +76,7 @@ digits.exit.thread57:                             ; preds = %26
 
 digits.exit.thread49:                             ; preds = %32
   %34 = udiv i32 %0, 1000000
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = add nuw nsw i8 %35, 48
   store i8 %36, ptr %1, align 1
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -206,7 +206,7 @@ digits.exit.thread41.i:                           ; preds = %9
   br i1 %17, label %digits.exit.thread.i, label %digits.exit.i
 
 digits.exit.thread.i:                             ; preds = %16
-  %18 = trunc nuw i32 %.0 to i8
+  %18 = trunc nuw nsw i32 %.0 to i8
   %19 = or disjoint i8 %18, 48
   store i8 %19, ptr %.05, align 1
   %20 = getelementptr inbounds nuw i8, ptr %.05, i64 1
@@ -221,10 +221,10 @@ digits.exit.thread.i:                             ; preds = %16
   br i1 %24, label %digits.exit.thread65.i, label %digits.exit.thread61.i
 
 digits.exit.thread65.i:                           ; preds = %23
-  %.lhs.trunc.i = trunc nuw i32 %.0 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %.0 to i16
   %25 = udiv i16 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i16 %25 to i32
-  %26 = trunc nuw i16 %25 to i8
+  %26 = trunc nuw nsw i16 %25 to i8
   %27 = or disjoint i8 %26, 48
   store i8 %27, ptr %.05, align 1
   %28 = getelementptr inbounds nuw i8, ptr %.05, i64 1
@@ -240,7 +240,7 @@ digits.exit.thread65.i:                           ; preds = %23
 
 digits.exit.thread57.i:                           ; preds = %31
   %33 = udiv i32 %.0, 10000
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, 48
   store i8 %35, ptr %.05, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.05, i64 1
@@ -252,7 +252,7 @@ digits.exit.thread57.i:                           ; preds = %31
 
 digits.exit.thread49.i:                           ; preds = %37
   %39 = udiv i32 %.0, 1000000
-  %40 = trunc nuw i32 %39 to i8
+  %40 = trunc nuw nsw i32 %39 to i8
   %41 = add nuw nsw i8 %40, 48
   store i8 %41, ptr %.05, align 1
   %42 = getelementptr inbounds nuw i8, ptr %.05, i64 1
@@ -375,7 +375,7 @@ digits.exit.thread41.i:                           ; preds = %7
   br i1 %15, label %digits.exit.thread.i, label %digits.exit.i
 
 digits.exit.thread.i:                             ; preds = %14
-  %16 = trunc nuw i64 %0 to i8
+  %16 = trunc nuw nsw i64 %0 to i8
   %17 = or disjoint i8 %16, 48
   store i8 %17, ptr %1, align 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -390,10 +390,10 @@ digits.exit.thread.i:                             ; preds = %14
   br i1 %22, label %digits.exit.thread65.i, label %digits.exit.thread61.i
 
 digits.exit.thread65.i:                           ; preds = %21
-  %.lhs.trunc.i = trunc nuw i64 %0 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %0 to i16
   %23 = udiv i16 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i16 %23 to i32
-  %24 = trunc nuw i16 %23 to i8
+  %24 = trunc nuw nsw i16 %23 to i8
   %25 = or disjoint i8 %24, 48
   store i8 %25, ptr %1, align 1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -409,7 +409,7 @@ digits.exit.thread65.i:                           ; preds = %21
 
 digits.exit.thread57.i:                           ; preds = %29
   %31 = udiv i32 %5, 10000
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, 48
   store i8 %33, ptr %1, align 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -421,7 +421,7 @@ digits.exit.thread57.i:                           ; preds = %29
 
 digits.exit.thread49.i:                           ; preds = %35
   %37 = udiv i32 %5, 1000000
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = add nuw nsw i8 %38, 48
   store i8 %39, ptr %1, align 1
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 1

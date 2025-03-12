@@ -913,13 +913,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17haee1402d36b63
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !223
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !223
   %15 = trunc i32 %1 to i8
@@ -931,7 +931,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17haee1402d36b63
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !223
   %23 = lshr i32 %1, 6
@@ -2053,7 +2053,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !523, !noalias !520
   %12 = trunc i32 %1 to i8
@@ -2065,7 +2065,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !523, !noalias !520
   %19 = lshr i32 %1, 6

@@ -10952,7 +10952,7 @@ split:                                            ; preds = %54, %._crit_edge
 
 86:                                               ; preds = %83
   %87 = icmp slt i32 %5, 0
-  %88 = trunc i32 %5 to i8
+  %88 = trunc nuw i32 %5 to i8
   %89 = select i1 %87, i8 %81, i8 %88
   br label %90
 

@@ -471,7 +471,7 @@ define internal i32 @acpi_cpufreq_cpu_init(ptr noundef %0) #2 align 16 {
   %188 = zext i32 %174 to i64
   %189 = getelementptr %struct.cpufreq_frequency_table, ptr %134, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
-  %191 = trunc i64 %173 to i32
+  %191 = trunc nuw i64 %173 to i32
   store i32 %191, ptr %190, align 4
   %192 = trunc i64 %187 to i32
   %193 = mul i32 %192, 1000

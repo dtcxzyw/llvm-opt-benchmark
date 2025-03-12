@@ -788,7 +788,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %143 = sub nuw nsw i32 64, %127
   %144 = zext nneg i32 %143 to i64
   %145 = lshr i64 %.sroa.052.1, %144
-  %146 = trunc i64 %145 to i32
+  %146 = trunc nuw i64 %145 to i32
   %147 = sub nsw i32 %.sroa.13.1, %127
   %148 = zext nneg i32 %127 to i64
   %149 = add nsw i32 %127, -1

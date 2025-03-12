@@ -69755,7 +69755,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !9752, !noalias !9749
   %12 = trunc i32 %1 to i8
@@ -69767,7 +69767,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !9752, !noalias !9749
   %19 = lshr i32 %1, 6
@@ -69835,7 +69835,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !9765, !noundef !10
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -74047,7 +74047,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !10241
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17ha531132aec1d2709E.exit.thread", label %104
 
 104:                                              ; preds = %102
@@ -74417,7 +74417,7 @@ default.unreachable42:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !10272
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17h2854b75363a646b7E.exit.thread", label %104
 
 104:                                              ; preds = %102
@@ -132274,7 +132274,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %975 unwind label %386
 
 1942:                                             ; preds = %975
-  %1943 = trunc i8 %.131236 to i1
+  %1943 = trunc nuw i8 %.131236 to i1
   br i1 %1943, label %1944, label %984
 
 1944:                                             ; preds = %1942
@@ -132282,7 +132282,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %984 unwind label %386
 
 1945:                                             ; preds = %984
-  %1946 = trunc i8 %.151188 to i1
+  %1946 = trunc nuw i8 %.151188 to i1
   br i1 %1946, label %1947, label %993
 
 1947:                                             ; preds = %1945
@@ -132290,7 +132290,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %993 unwind label %386
 
 1948:                                             ; preds = %993
-  %1949 = trunc i8 %.171141 to i1
+  %1949 = trunc nuw i8 %.171141 to i1
   br i1 %1949, label %1950, label %1003
 
 1950:                                             ; preds = %1948
@@ -132298,7 +132298,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1003 unwind label %386
 
 1951:                                             ; preds = %1003
-  %1952 = trunc i8 %.191095 to i1
+  %1952 = trunc nuw i8 %.191095 to i1
   br i1 %1952, label %1953, label %1009
 
 1953:                                             ; preds = %1951
@@ -132306,7 +132306,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1009 unwind label %386
 
 1954:                                             ; preds = %1009
-  %1955 = trunc i8 %.211050 to i1
+  %1955 = trunc nuw i8 %.211050 to i1
   br i1 %1955, label %1956, label %1018
 
 1956:                                             ; preds = %1954
@@ -132314,7 +132314,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1018 unwind label %386
 
 1957:                                             ; preds = %1018
-  %1958 = trunc i8 %.231006 to i1
+  %1958 = trunc nuw i8 %.231006 to i1
   br i1 %1958, label %1959, label %1026
 
 1959:                                             ; preds = %1957
@@ -132322,7 +132322,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1026 unwind label %386
 
 1960:                                             ; preds = %1026
-  %1961 = trunc i8 %.25963 to i1
+  %1961 = trunc nuw i8 %.25963 to i1
   br i1 %1961, label %1962, label %1030
 
 1962:                                             ; preds = %1960
@@ -132330,7 +132330,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1030 unwind label %386
 
 1963:                                             ; preds = %1030
-  %1964 = trunc i8 %.27921 to i1
+  %1964 = trunc nuw i8 %.27921 to i1
   br i1 %1964, label %1965, label %1034
 
 1965:                                             ; preds = %1963
@@ -132338,7 +132338,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1034 unwind label %386
 
 1966:                                             ; preds = %1034
-  %1967 = trunc i8 %.29880 to i1
+  %1967 = trunc nuw i8 %.29880 to i1
   br i1 %1967, label %1968, label %1038
 
 1968:                                             ; preds = %1966
@@ -132346,7 +132346,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1038 unwind label %386
 
 1969:                                             ; preds = %1038
-  %1970 = trunc i8 %.31840 to i1
+  %1970 = trunc nuw i8 %.31840 to i1
   br i1 %1970, label %1971, label %1042
 
 1971:                                             ; preds = %1969
@@ -132354,7 +132354,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1042 unwind label %386
 
 1972:                                             ; preds = %1042
-  %1973 = trunc i8 %.33801 to i1
+  %1973 = trunc nuw i8 %.33801 to i1
   br i1 %1973, label %1974, label %1046
 
 1974:                                             ; preds = %1972
@@ -132362,7 +132362,7 @@ define hidden void @"_ZN103_$LT$ockam_api..cloud..project..models..ProjectModel$
           to label %1046 unwind label %386
 
 1975:                                             ; preds = %1046
-  %1976 = trunc i8 %.35 to i1
+  %1976 = trunc nuw i8 %.35 to i1
   br i1 %1976, label %1978, label %1977
 
 1977:                                             ; preds = %1978, %1975, %1046

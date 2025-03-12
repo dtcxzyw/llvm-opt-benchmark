@@ -24444,7 +24444,7 @@ define internal fastcc void @_ZL19doInstrumentAddressPN12_GLOBAL__N_116AddressSa
   br i1 %or.cond, label %35, label %.thread
 
 35:                                               ; preds = %26, %28
-  %36 = trunc i64 %.0.val to i32
+  %36 = trunc nuw nsw i64 %.0.val to i32
   tail call fastcc void @_ZN12_GLOBAL__N_116AddressSanitizer17instrumentAddressEPN4llvm11InstructionES3_PNS1_5ValueENS1_10MaybeAlignEjbS5_bjRNS_19RuntimeCallInserterE(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 %4, i32 noundef %36, i1 noundef zeroext %6, ptr noundef null, i1 noundef zeroext %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(80) %9)
   br label %195
 

@@ -999,11 +999,11 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   %154 = zext i8 %147 to i32
   %155 = zext i8 %150 to i32
   %156 = shl nuw nsw i64 %148, 3
-  %157 = trunc nuw i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = shl nuw nsw i32 %155, %157
   %159 = or i32 %158, %154
   %160 = zext i8 %153 to i32
-  %.tr.i.i = trunc i64 %151 to i32
+  %.tr.i.i = trunc nuw nsw i64 %151 to i32
   %161 = shl nuw nsw i32 %.tr.i.i, 3
   %162 = shl nuw nsw i32 %160, %161
   %163 = or i32 %159, %162
@@ -3050,11 +3050,11 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc nuw i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32
-  %.tr.i = trunc i64 %42 to i32
+  %.tr.i = trunc nuw nsw i64 %42 to i32
   %52 = shl nuw nsw i32 %.tr.i, 3
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %50, %53

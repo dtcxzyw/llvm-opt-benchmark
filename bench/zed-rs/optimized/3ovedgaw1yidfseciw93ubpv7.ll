@@ -165723,7 +165723,7 @@ define hidden void @"_ZN87_$LT$serde..de..impls..range..RangeVisitor$LT$Idx$GT$$
   br label %.loopexit
 
 21:                                               ; preds = %16
-  %trunc19 = trunc i8 %17 to i1
+  %trunc19 = trunc nuw i8 %17 to i1
   br i1 %trunc19, label %24, label %23
 
 22:                                               ; preds = %16

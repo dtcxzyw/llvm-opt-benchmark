@@ -817,7 +817,7 @@ _ZN3ue25depthpLEi.exit42:                         ; preds = %_ZN3ue25depthpLEi.e
   br i1 %or.cond, label %46, label %_ZN3ue25depthC2Ej.exit
 
 _ZN3ue25depthC2Ej.exit:                           ; preds = %_ZN3ue25depthpLEi.exit42
-  %45 = trunc nuw i64 %43 to i32
+  %45 = trunc nuw nsw i64 %43 to i32
   %.sroa.speculated14 = call i32 @llvm.umax.i32(i32 %.sroa.0.0.i.i, i32 %45)
   store i32 %.sroa.speculated14, ptr %4, align 8
   %.sroa.speculated11 = call i32 @llvm.umax.i32(i32 %.sroa.0.0.i.i41, i32 %45)
@@ -834,7 +834,7 @@ _ZN3ue25depthC2Ej.exit:                           ; preds = %_ZN3ue25depthpLEi.e
   br i1 %or.cond27, label %53, label %_ZN3ue25depthC2Ej.exit45
 
 _ZN3ue25depthC2Ej.exit45:                         ; preds = %46
-  %52 = trunc nuw i64 %50 to i32
+  %52 = trunc nuw nsw i64 %50 to i32
   %.sroa.speculated4 = call i32 @llvm.umin.i32(i32 %48, i32 %52)
   store i32 %.sroa.speculated4, ptr %4, align 8
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %47, i32 %52)

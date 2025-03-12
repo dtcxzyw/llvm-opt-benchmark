@@ -416,13 +416,13 @@ switch.lookup37:                                  ; preds = %64
   br i1 %88, label %100, label %112
 
 90:                                               ; preds = %81
-  %91 = trunc nuw i32 %83 to i8
+  %91 = trunc nuw nsw i32 %83 to i8
   store i8 %91, ptr %9, align 4, !alias.scope !60, !noalias !57
   br label %_ZN5serde2de7Visitor10visit_char17he8a582fcb47f7498E.exit
 
 92:                                               ; preds = %85
   %93 = lshr i32 %83, 6
-  %94 = trunc nuw i32 %93 to i8
+  %94 = trunc nuw nsw i32 %93 to i8
   %95 = or disjoint i8 %94, -64
   store i8 %95, ptr %9, align 4, !alias.scope !60, !noalias !57
   %96 = trunc i32 %83 to i8
@@ -434,7 +434,7 @@ switch.lookup37:                                  ; preds = %64
 
 100:                                              ; preds = %87
   %101 = lshr i32 %83, 12
-  %102 = trunc nuw i32 %101 to i8
+  %102 = trunc nuw nsw i32 %101 to i8
   %103 = or disjoint i8 %102, -32
   store i8 %103, ptr %9, align 4, !alias.scope !60, !noalias !57
   %104 = lshr i32 %83, 6

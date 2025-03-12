@@ -5641,7 +5641,7 @@ define hidden void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion_sql..pla
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val41 = load i64, ptr %37, align 8
   %38 = add nsw i128 %32, -3
-  %39 = trunc nsw i128 %38 to i64
+  %39 = trunc nuw nsw i128 %38 to i64
   %40 = icmp ult i128 %38, 35
   %41 = icmp eq i64 %39, 1
   %42 = select i1 %40, i1 %41, i1 false
@@ -6230,7 +6230,7 @@ define hidden void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion_sql..pla
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.val41 = load i64, ptr %37, align 8
   %38 = add nsw i128 %32, -3
-  %39 = trunc nsw i128 %38 to i64
+  %39 = trunc nuw nsw i128 %38 to i64
   %40 = icmp ult i128 %38, 35
   %41 = icmp eq i64 %39, 1
   %42 = select i1 %40, i1 %41, i1 false
@@ -21864,7 +21864,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %.sroa.4.0..sroa_idx.i1667, ptr noundef nonnull align 16 dereferenceable(104) %.sroa.7.i1660, i64 104, i1 false)
   store i128 %2832, ptr %117, align 16, !noalias !2639
   %2836 = add nsw i128 %2832, -3
-  %2837 = trunc nsw i128 %2836 to i64
+  %2837 = trunc nuw nsw i128 %2836 to i64
   %2838 = icmp ult i128 %2836, 35
   %2839 = icmp eq i64 %2837, 24
   %2840 = select i1 %2838, i1 %2839, i1 false
@@ -21988,7 +21988,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
   %.4.i1678 = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1b1d761d130d6398E.exit.i1683" ], [ 1, %2935 ]
   %2871 = load i128, ptr %117, align 16, !range !2611, !noalias !2639, !noundef !5
   %2872 = add nsw i128 %2871, -3
-  %2873 = trunc nsw i128 %2872 to i64
+  %2873 = trunc nuw nsw i128 %2872 to i64
   %2874 = icmp ult i128 %2872, 35
   %2875 = icmp eq i64 %2873, 24
   %2876 = select i1 %2874, i1 %2875, i1 false
@@ -22032,7 +22032,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
   %.pn73.i1672 = phi { ptr, i32 } [ %2896, %2895 ], [ %.pn65.i, %2932 ], [ %.pn.i1673, %2912 ], [ %.pn71.i1679, %2882 ], [ %.pn71.i1679, %2879 ]
   %2889 = load i128, ptr %117, align 16, !range !2611, !noalias !2639, !noundef !5
   %2890 = add nsw i128 %2889, -3
-  %2891 = trunc nsw i128 %2890 to i64
+  %2891 = trunc nuw nsw i128 %2890 to i64
   %2892 = icmp ult i128 %2890, 35
   %2893 = icmp eq i64 %2891, 24
   %2894 = select i1 %2892, i1 %2893, i1 false
@@ -22048,7 +22048,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1997
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115), !noalias !2639
   %2897 = load i128, ptr %117, align 16, !range !2611, !noalias !2639, !noundef !5
   %2898 = add nsw i128 %2897, -3
-  %2899 = trunc nsw i128 %2898 to i64
+  %2899 = trunc nuw nsw i128 %2898 to i64
   %2900 = icmp ult i128 %2898, 35
   %2901 = icmp eq i64 %2899, 24
   %2902 = select i1 %2900, i1 %2901, i1 false
@@ -37050,7 +37050,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %.sroa.4.0..sroa_idx.i1650, ptr noundef nonnull align 16 dereferenceable(104) %.sroa.7.i1643, i64 104, i1 false)
   store i128 %2757, ptr %117, align 16, !noalias !4085
   %2761 = add nsw i128 %2757, -3
-  %2762 = trunc nsw i128 %2761 to i64
+  %2762 = trunc nuw nsw i128 %2761 to i64
   %2763 = icmp ult i128 %2761, 35
   %2764 = icmp eq i64 %2762, 24
   %2765 = select i1 %2763, i1 %2764, i1 false
@@ -37174,7 +37174,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
   %.4.i1661 = phi i8 [ 0, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1b1d761d130d6398E.exit.i1666" ], [ 1, %2860 ]
   %2796 = load i128, ptr %117, align 16, !range !2611, !noalias !4085, !noundef !5
   %2797 = add nsw i128 %2796, -3
-  %2798 = trunc nsw i128 %2797 to i64
+  %2798 = trunc nuw nsw i128 %2797 to i64
   %2799 = icmp ult i128 %2797, 35
   %2800 = icmp eq i64 %2798, 24
   %2801 = select i1 %2799, i1 %2800, i1 false
@@ -37218,7 +37218,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
   %.pn73.i1655 = phi { ptr, i32 } [ %2821, %2820 ], [ %.pn65.i, %2857 ], [ %.pn.i1656, %2837 ], [ %.pn71.i1662, %2807 ], [ %.pn71.i1662, %2804 ]
   %2814 = load i128, ptr %117, align 16, !range !2611, !noalias !4085, !noundef !5
   %2815 = add nsw i128 %2814, -3
-  %2816 = trunc nsw i128 %2815 to i64
+  %2816 = trunc nuw nsw i128 %2815 to i64
   %2817 = icmp ult i128 %2815, 35
   %2818 = icmp eq i64 %2816, 24
   %2819 = select i1 %2817, i1 %2818, i1 false
@@ -37234,7 +37234,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit131.i: ; preds = %1922
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115), !noalias !4085
   %2822 = load i128, ptr %117, align 16, !range !2611, !noalias !4085, !noundef !5
   %2823 = add nsw i128 %2822, -3
-  %2824 = trunc nsw i128 %2823 to i64
+  %2824 = trunc nuw nsw i128 %2823 to i64
   %2825 = icmp ult i128 %2823, 35
   %2826 = icmp eq i64 %2824, 24
   %2827 = select i1 %2825, i1 %2826, i1 false
@@ -46439,15 +46439,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit128: ; preds = %186
 
 224:                                              ; preds = %165
   %225 = icmp eq i8 %167, 2
-  %226 = trunc i8 %167 to i1
-  %.083 = or i1 %225, %226
+  %226 = trunc nuw i8 %167 to i1
+  %.083 = select i1 %225, i1 true, i1 %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %169, ptr noundef nonnull align 16 dereferenceable(272) %25, i64 272, i1 false)
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %25)
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.0172, i64 177
   %228 = load i8, ptr %227, align 1, !range !2542, !noundef !5
   %229 = xor i1 %.083, true
   %230 = icmp eq i8 %228, 2
-  %231 = trunc i8 %228 to i1
+  %231 = trunc nuw i8 %228 to i1
   %spec.select = select i1 %230, i1 %229, i1 %231
   %232 = zext i1 %.083 to i8
   %233 = zext i1 %spec.select to i8
@@ -47207,15 +47207,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit128: ; preds = %186
 
 224:                                              ; preds = %165
   %225 = icmp eq i8 %167, 2
-  %226 = trunc i8 %167 to i1
-  %.083 = or i1 %225, %226
+  %226 = trunc nuw i8 %167 to i1
+  %.083 = select i1 %225, i1 true, i1 %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %169, ptr noundef nonnull align 16 dereferenceable(272) %25, i64 272, i1 false)
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %25)
   %227 = getelementptr inbounds nuw i8, ptr %.sroa.0.0172, i64 177
   %228 = load i8, ptr %227, align 1, !range !2542, !noundef !5
   %229 = xor i1 %.083, true
   %230 = icmp eq i8 %228, 2
-  %231 = trunc i8 %228 to i1
+  %231 = trunc nuw i8 %228 to i1
   %spec.select = select i1 %230, i1 %229, i1 %231
   %232 = zext i1 %.083 to i8
   %233 = zext i1 %spec.select to i8
@@ -56531,7 +56531,7 @@ define internal fastcc void @"_ZN14datafusion_sql5query60_$LT$impl$u20$datafusio
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(104) %.sroa.724, i64 104, i1 false)
   store i128 %60, ptr %39, align 16
   %64 = add nsw i128 %60, -3
-  %65 = trunc nsw i128 %64 to i64
+  %65 = trunc nuw nsw i128 %64 to i64
   %66 = icmp ult i128 %64, 35
   %67 = icmp eq i64 %65, 3
   %68 = select i1 %66, i1 %67, i1 false
@@ -56547,7 +56547,7 @@ define internal fastcc void @"_ZN14datafusion_sql5query60_$LT$impl$u20$datafusio
 71:                                               ; preds = %63
   %72 = load i128, ptr %.sroa.4.0..sroa_idx, align 16, !range !6154, !noundef !5
   %73 = add nsw i128 %72, -2
-  %74 = trunc nsw i128 %73 to i64
+  %74 = trunc nuw nsw i128 %73 to i64
   %75 = icmp ult i128 %73, 41
   %76 = icmp eq i64 %74, 9
   %77 = select i1 %75, i1 %76, i1 false
@@ -56971,7 +56971,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit214: ; preds = %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %.sroa.471.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(104) %.sroa.765, i64 104, i1 false)
   store i128 %197, ptr %22, align 16
   %201 = add nsw i128 %197, -3
-  %202 = trunc nsw i128 %201 to i64
+  %202 = trunc nuw nsw i128 %201 to i64
   %203 = icmp ult i128 %201, 35
   %204 = icmp eq i64 %202, 3
   %205 = select i1 %203, i1 %204, i1 false
@@ -56987,7 +56987,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit214: ; preds = %135
 208:                                              ; preds = %200
   %209 = load i128, ptr %.sroa.471.0..sroa_idx, align 16, !range !6154, !noundef !5
   %210 = add nsw i128 %209, -2
-  %211 = trunc nsw i128 %210 to i64
+  %211 = trunc nuw nsw i128 %210 to i64
   %212 = icmp ult i128 %210, 41
   %213 = icmp eq i64 %211, 9
   %214 = select i1 %212, i1 %213, i1 false
@@ -57447,7 +57447,7 @@ define internal fastcc void @"_ZN14datafusion_sql5query60_$LT$impl$u20$datafusio
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(104) %.sroa.724, i64 104, i1 false)
   store i128 %60, ptr %39, align 16
   %64 = add nsw i128 %60, -3
-  %65 = trunc nsw i128 %64 to i64
+  %65 = trunc nuw nsw i128 %64 to i64
   %66 = icmp ult i128 %64, 35
   %67 = icmp eq i64 %65, 3
   %68 = select i1 %66, i1 %67, i1 false
@@ -57463,7 +57463,7 @@ define internal fastcc void @"_ZN14datafusion_sql5query60_$LT$impl$u20$datafusio
 71:                                               ; preds = %63
   %72 = load i128, ptr %.sroa.4.0..sroa_idx, align 16, !range !6154, !noundef !5
   %73 = add nsw i128 %72, -2
-  %74 = trunc nsw i128 %73 to i64
+  %74 = trunc nuw nsw i128 %73 to i64
   %75 = icmp ult i128 %73, 41
   %76 = icmp eq i64 %74, 9
   %77 = select i1 %75, i1 %76, i1 false
@@ -57887,7 +57887,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit214: ; preds = %135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %.sroa.471.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(104) %.sroa.765, i64 104, i1 false)
   store i128 %197, ptr %22, align 16
   %201 = add nsw i128 %197, -3
-  %202 = trunc nsw i128 %201 to i64
+  %202 = trunc nuw nsw i128 %201 to i64
   %203 = icmp ult i128 %201, 35
   %204 = icmp eq i64 %202, 3
   %205 = select i1 %203, i1 %204, i1 false
@@ -57903,7 +57903,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit214: ; preds = %135
 208:                                              ; preds = %200
   %209 = load i128, ptr %.sroa.471.0..sroa_idx, align 16, !range !6154, !noundef !5
   %210 = add nsw i128 %209, -2
-  %211 = trunc nsw i128 %210 to i64
+  %211 = trunc nuw nsw i128 %210 to i64
   %212 = icmp ult i128 %210, 41
   %213 = icmp eq i64 %211, 9
   %214 = select i1 %212, i1 %213, i1 false
@@ -67603,7 +67603,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0132, i64 272
   %50 = load i128, ptr %.sroa.0.0132, align 16, !range !2611, !noundef !5
   %51 = add nsw i128 %50, -3
-  %52 = trunc nsw i128 %51 to i64
+  %52 = trunc nuw nsw i128 %51 to i64
   %53 = icmp ult i128 %51, 35
   %54 = icmp eq i64 %52, 1
   %55 = select i1 %53, i1 %54, i1 false
@@ -67985,7 +67985,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0132, i64 272
   %50 = load i128, ptr %.sroa.0.0132, align 16, !range !2611, !noundef !5
   %51 = add nsw i128 %50, -3
-  %52 = trunc nsw i128 %51 to i64
+  %52 = trunc nuw nsw i128 %51 to i64
   %53 = icmp ult i128 %51, 35
   %54 = icmp eq i64 %52, 1
   %55 = select i1 %53, i1 %54, i1 false
@@ -69499,7 +69499,7 @@ define hidden void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusion_sql..p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %36)
   %181 = add nsw i128 %172, -3
-  %182 = trunc nsw i128 %181 to i64
+  %182 = trunc nuw nsw i128 %181 to i64
   %183 = icmp ult i128 %181, 35
   %184 = icmp eq i64 %182, 1
   %185 = select i1 %183, i1 %184, i1 false
@@ -70883,7 +70883,7 @@ define hidden void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusion_sql..p
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %36)
   %181 = add nsw i128 %172, -3
-  %182 = trunc nsw i128 %181 to i64
+  %182 = trunc nuw nsw i128 %181 to i64
   %183 = icmp ult i128 %181, 35
   %184 = icmp eq i64 %182, 1
   %185 = select i1 %183, i1 %184, i1 false
@@ -71889,7 +71889,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.046, i64 272
   %40 = load i128, ptr %.sroa.0.046, align 16, !range !2611, !noundef !5
   %41 = add nsw i128 %40, -3
-  %42 = trunc nsw i128 %41 to i64
+  %42 = trunc nuw nsw i128 %41 to i64
   %43 = icmp ult i128 %41, 35
   %44 = icmp eq i64 %42, 34
   %45 = select i1 %43, i1 %44, i1 false
@@ -72543,7 +72543,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.046, i64 272
   %40 = load i128, ptr %.sroa.0.046, align 16, !range !2611, !noundef !5
   %41 = add nsw i128 %40, -3
-  %42 = trunc nsw i128 %41 to i64
+  %42 = trunc nuw nsw i128 %41 to i64
   %43 = icmp ult i128 %41, 35
   %44 = icmp eq i64 %42, 34
   %45 = select i1 %43, i1 %44, i1 false
@@ -73967,7 +73967,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.01.069, i64 272
   %111 = load i128, ptr %.sroa.01.069, align 16, !range !2611, !noundef !5
   %112 = add nsw i128 %111, -3
-  %113 = trunc nsw i128 %112 to i64
+  %113 = trunc nuw nsw i128 %112 to i64
   %114 = icmp ult i128 %112, 35
   %115 = icmp eq i64 %113, 31
   %116 = select i1 %114, i1 %115, i1 false
@@ -74834,7 +74834,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.01.069, i64 272
   %111 = load i128, ptr %.sroa.01.069, align 16, !range !2611, !noundef !5
   %112 = add nsw i128 %111, -3
-  %113 = trunc nsw i128 %112 to i64
+  %113 = trunc nuw nsw i128 %112 to i64
   %114 = icmp ult i128 %112, 35
   %115 = icmp eq i64 %113, 31
   %116 = select i1 %114, i1 %115, i1 false
@@ -79957,7 +79957,7 @@ define hidden void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$31validate_sc
   %.sroa.858 = alloca [12 x i64], align 8
   %19 = load i128, ptr %2, align 16, !range !2611, !noundef !5
   %20 = add nsw i128 %19, -3
-  %21 = trunc nsw i128 %20 to i64
+  %21 = trunc nuw nsw i128 %20 to i64
   %22 = icmp ult i128 %20, 35
   %23 = icmp eq i64 %21, 1
   %24 = select i1 %22, i1 %23, i1 false
@@ -80287,7 +80287,7 @@ define hidden void @"_ZN14datafusion_sql7planner17SqlToRel$LT$S$GT$31validate_sc
   %.sroa.858 = alloca [12 x i64], align 8
   %19 = load i128, ptr %2, align 16, !range !2611, !noundef !5
   %20 = add nsw i128 %19, -3
-  %21 = trunc nsw i128 %20 to i64
+  %21 = trunc nuw nsw i128 %20 to i64
   %22 = icmp ult i128 %20, 35
   %23 = icmp eq i64 %21, 1
   %24 = select i1 %22, i1 %23, i1 false
@@ -118082,7 +118082,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..ex
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i128, ptr %0, align 16, !range !2611, !noundef !5
   %7 = add nsw i128 %6, -3
-  %8 = trunc nsw i128 %7 to i64
+  %8 = trunc nuw nsw i128 %7 to i64
   %9 = icmp ult i128 %7, 35
   %10 = select i1 %9, i64 %8, i64 25
   switch i64 %10, label %11 [
@@ -121857,7 +121857,7 @@ common.resume:                                    ; preds = %67, %.body, %58, %1
 define internal fastcc void @"_ZN4core3ptr58drop_in_place$LT$datafusion_expr..expr..GetFieldAccess$GT$17h24b46a0f86ad45faE"(ptr noalias noundef nonnull align 16 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i128, ptr %0, align 16, !range !14521, !noundef !5
   %3 = add nsw i128 %2, -43
-  %4 = trunc nsw i128 %3 to i64
+  %4 = trunc nuw nsw i128 %3 to i64
   %5 = icmp ult i128 %3, 2
   %6 = add nsw i64 %4, 1
   %7 = select i1 %5, i64 %6, i64 0
@@ -122047,7 +122047,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$datafusion_common..
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i128, ptr %0, align 16, !range !6154, !noundef !5
   %8 = add nsw i128 %7, -2
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 41
   %11 = select i1 %10, i64 %9, i64 5
   switch i64 %11, label %12 [
@@ -128205,7 +128205,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !15766, !noalias !15763
   %12 = trunc i32 %1 to i8
@@ -128217,7 +128217,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !15766, !noalias !15763
   %19 = lshr i32 %1, 6
@@ -128285,7 +128285,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !15779, !noundef !5
   %58 = load i64, ptr %0, align 8, !alias.scope !15779, !noundef !5
@@ -137702,7 +137702,7 @@ define internal fastcc void @"_ZN66_$LT$datafusion_expr..expr..Expr$u20$as$u20$c
   %.sroa.0 = alloca { { { { i64, ptr, {} }, i64 } }, { [6 x i64], i64, [2 x i64] } }, align 8
   %73 = load i128, ptr %1, align 16, !range !2611, !noundef !5
   %74 = add nsw i128 %73, -3
-  %75 = trunc nsw i128 %74 to i64
+  %75 = trunc nuw nsw i128 %74 to i64
   %76 = icmp ult i128 %74, 35
   %77 = select i1 %76, i64 %75, i64 25
   switch i64 %77, label %78 [
@@ -138524,7 +138524,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16834)
   %310 = load i128, ptr %302, align 16, !range !14521, !alias.scope !16834, !noalias !16837, !noundef !5
   %311 = add nsw i128 %310, -43
-  %312 = trunc nsw i128 %311 to i64
+  %312 = trunc nuw nsw i128 %311 to i64
   %313 = icmp ult i128 %311, 2
   %314 = add nsw i64 %312, 1
   %315 = select i1 %313, i64 %314, i64 0
@@ -146198,7 +146198,7 @@ define internal fastcc void @"_ZN77_$LT$datafusion_common..scalar..ScalarValue$u
   %.sroa.525 = alloca [2 x i64], align 8
   %8 = load i128, ptr %1, align 16, !range !6154, !noundef !5
   %9 = add nsw i128 %8, -2
-  %10 = trunc nsw i128 %9 to i64
+  %10 = trunc nuw nsw i128 %9 to i64
   %11 = icmp ult i128 %9, 41
   %12 = select i1 %11, i64 %10, i64 5
   switch i64 %12, label %13 [
@@ -151984,7 +151984,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN91_$LT$core..slice..iter..
   %15 = getelementptr i8, ptr %13, i64 16
   %.val8 = load ptr, ptr %15, align 16
   %16 = add nsw i128 %.val7, -3
-  %17 = trunc nsw i128 %16 to i64
+  %17 = trunc nuw nsw i128 %16 to i64
   %18 = icmp ult i128 %16, 35
   %19 = icmp eq i64 %17, 22
   %20 = select i1 %18, i1 %19, i1 false
@@ -151995,7 +151995,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN91_$LT$core..slice..iter..
   call void @llvm.assume(i1 %22)
   %23 = load i128, ptr %.val8, align 16, !range !2611, !noundef !5
   %24 = add nsw i128 %23, -3
-  %25 = trunc nsw i128 %24 to i64
+  %25 = trunc nuw nsw i128 %24 to i64
   %26 = icmp ult i128 %24, 35
   %27 = icmp eq i64 %25, 1
   %28 = select i1 %26, i1 %27, i1 false
@@ -152146,7 +152146,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN91_$LT$core..slice..iter..
   %15 = getelementptr i8, ptr %13, i64 16
   %.val8 = load ptr, ptr %15, align 16
   %16 = add nsw i128 %.val7, -3
-  %17 = trunc nsw i128 %16 to i64
+  %17 = trunc nuw nsw i128 %16 to i64
   %18 = icmp ult i128 %16, 35
   %19 = icmp eq i64 %17, 22
   %20 = select i1 %18, i1 %19, i1 false
@@ -152157,7 +152157,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN91_$LT$core..slice..iter..
   call void @llvm.assume(i1 %22)
   %23 = load i128, ptr %.val8, align 16, !range !2611, !noundef !5
   %24 = add nsw i128 %23, -3
-  %25 = trunc nsw i128 %24 to i64
+  %25 = trunc nuw nsw i128 %24 to i64
   %26 = icmp ult i128 %24, 35
   %27 = icmp eq i64 %25, 1
   %28 = select i1 %26, i1 %27, i1 false

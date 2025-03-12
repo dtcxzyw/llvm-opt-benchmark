@@ -2480,7 +2480,7 @@ RangeDec_Decode.exit207:                          ; preds = %490
   store i8 %517, ptr %506, align 2, !tbaa !57
   %518 = zext nneg i8 %507 to i32
   %519 = shl nuw nsw i32 3, %518
-  %520 = trunc i32 %519 to i8
+  %520 = trunc nuw i32 %519 to i8
   store i8 %520, ptr %510, align 1, !tbaa !59
   br label %521
 

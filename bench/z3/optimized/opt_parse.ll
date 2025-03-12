@@ -4739,7 +4739,7 @@ _ZN17opt_stream_buffer15skip_whitespaceEv.exit11: ; preds = %_ZN17opt_stream_buf
 
 .lr.ph:                                           ; preds = %_ZN17opt_stream_buffer15skip_whitespaceEv.exit11, %99
   %76 = phi i32 [ %103, %99 ], [ %74, %_ZN17opt_stream_buffer15skip_whitespaceEv.exit11 ]
-  %77 = trunc nuw i32 %76 to i8
+  %77 = trunc nuw nsw i32 %76 to i8
   %78 = load ptr, ptr %3, align 8, !tbaa !162
   %79 = icmp eq ptr %78, null
   br i1 %79, label %86, label %80

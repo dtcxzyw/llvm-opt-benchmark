@@ -1490,7 +1490,7 @@ define dso_local void @hid_dump_device(ptr noundef readonly captures(address) %0
 31:                                               ; preds = %31, %29
   %32 = phi i64 [ 0, %29 ], [ %36, %31 ]
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.490, i32 noundef 4, ptr noundef nonnull @.str.40) #9
-  %33 = trunc i64 %32 to i32
+  %33 = trunc nuw i64 %32 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.56, i32 noundef %33) #9
   %34 = getelementptr [256 x ptr], ptr %30, i64 0, i64 %32
   %35 = load ptr, ptr %34, align 8

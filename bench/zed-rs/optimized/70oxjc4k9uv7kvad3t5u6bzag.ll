@@ -11056,7 +11056,7 @@ _ZN4gpui7element7Element8into_any17hefbdf248ea85be10E.exit.i57: ; preds = %222
   %282 = getelementptr inbounds nuw i8, ptr %54, i64 249
   %283 = and i8 %279, 1
   store i8 %283, ptr %282, align 1
-  %284 = trunc i8 %275 to i1
+  %284 = trunc nuw i8 %275 to i1
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %28)
   br i1 %280, label %286, label %285
 

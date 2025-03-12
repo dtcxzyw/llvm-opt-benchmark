@@ -324,7 +324,7 @@ define dso_local noundef ptr @createStringObject(ptr noundef %0, i64 noundef %1)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %10, align 4, !tbaa !11
   store i32 128, ptr %6, align 8
-  %11 = trunc nuw i64 %1 to i8
+  %11 = trunc nuw nsw i64 %1 to i8
   store i8 %11, ptr %7, align 1, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 17
   store i8 %11, ptr %12, align 1, !tbaa !42
@@ -406,7 +406,7 @@ define dso_local noundef ptr @tryCreateStringObject(ptr noundef %0, i64 noundef 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %10, align 4, !tbaa !11
   store i32 128, ptr %6, align 8
-  %11 = trunc nuw i64 %1 to i8
+  %11 = trunc nuw nsw i64 %1 to i8
   store i8 %11, ptr %7, align 1, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 17
   store i8 %11, ptr %12, align 1, !tbaa !42
@@ -499,7 +499,7 @@ define dso_local ptr @createStringObjectFromLongLongWithOptions(i64 noundef %0, 
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 1, ptr %24, align 4, !tbaa !11
   store i32 128, ptr %20, align 8
-  %25 = trunc nuw i32 %15 to i8
+  %25 = trunc nuw nsw i32 %15 to i8
   store i8 %25, ptr %21, align 1, !tbaa !42
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 17
   store i8 %25, ptr %26, align 1, !tbaa !42
@@ -632,7 +632,7 @@ define dso_local noundef ptr @createStringObjectFromLongLongWithSds(i64 noundef 
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 1, ptr %12, align 4, !tbaa !11
   store i32 128, ptr %8, align 8
-  %13 = trunc nuw i32 %3 to i8
+  %13 = trunc nuw nsw i32 %3 to i8
   store i8 %13, ptr %9, align 1, !tbaa !42
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 17
   store i8 %13, ptr %14, align 1, !tbaa !42
@@ -690,7 +690,7 @@ define dso_local noundef ptr @createStringObjectFromLongDouble(x86_fp80 noundef 
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 1, ptr %14, align 4, !tbaa !11
   store i32 128, ptr %10, align 8
-  %15 = trunc nuw i32 %5 to i8
+  %15 = trunc nuw nsw i32 %5 to i8
   store i8 %15, ptr %11, align 1, !tbaa !42
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 17
   store i8 %15, ptr %16, align 1, !tbaa !42
@@ -2738,7 +2738,7 @@ define dso_local noundef ptr @getDecodedObject(ptr noundef captures(ret: address
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 1, ptr %32, align 4, !tbaa !11
   store i32 128, ptr %28, align 8
-  %33 = trunc nuw i64 %24 to i8
+  %33 = trunc nuw nsw i64 %24 to i8
   store i8 %33, ptr %29, align 1, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 17
   store i8 %33, ptr %34, align 1, !tbaa !42
@@ -3586,7 +3586,7 @@ getLongFromObjectOrReply.exit.i:                  ; preds = %4
   br label %getRangeLongFromObjectOrReply.exit.thread
 
 getRangeLongFromObjectOrReply.exit:               ; preds = %7
-  %13 = trunc i64 %8 to i32
+  %13 = trunc nsw i64 %8 to i32
   store i32 %13, ptr %2, align 4, !tbaa !49
   br label %getRangeLongFromObjectOrReply.exit.thread
 

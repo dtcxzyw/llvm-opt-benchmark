@@ -15534,10 +15534,10 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 
 21:                                               ; preds = %15
   %.not.i.i3 = icmp uge i64 %3, %19
-  %22 = trunc i64 %3 to i32
+  %22 = trunc nuw i64 %3 to i32
   %23 = add i32 %22, 2
   %24 = icmp eq i32 %23, -1
-  %or.cond.i = or i1 %24, %.not.i.i3
+  %or.cond.i = select i1 %.not.i.i3, i1 true, i1 %24
   br i1 %or.cond.i, label %ctl_arenas_i_verify.exit.thread, label %ctl_arenas_i_verify.exit
 
 ctl_arenas_i_verify.exit:                         ; preds = %malloc_mutex_lock.exit, %14, %15, %21
@@ -36874,10 +36874,10 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 
 21:                                               ; preds = %15
   %.not.i.i3 = icmp uge i64 %3, %19
-  %22 = trunc i64 %3 to i32
+  %22 = trunc nuw i64 %3 to i32
   %23 = add i32 %22, 2
   %24 = icmp eq i32 %23, -1
-  %or.cond.i = or i1 %24, %.not.i.i3
+  %or.cond.i = select i1 %.not.i.i3, i1 true, i1 %24
   br i1 %or.cond.i, label %ctl_arenas_i_verify.exit.thread, label %ctl_arenas_i_verify.exit
 
 ctl_arenas_i_verify.exit:                         ; preds = %malloc_mutex_lock.exit, %14, %15, %21

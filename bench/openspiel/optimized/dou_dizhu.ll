@@ -1223,7 +1223,7 @@ _ZN4absl7debian28AlphaNumC2EPKc.exit14:           ; preds = %30
   store ptr @.str.6, ptr %8, align 8
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 5, ptr %32, align 8
-  %33 = trunc nuw i64 %3 to i32
+  %33 = trunc nuw nsw i64 %3 to i32
   %34 = add nsw i32 %33, -51
   call void @_ZN10open_spiel9dou_dizhu10CardStringB5cxx11Ei(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i32 noundef %34)
   %35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #27

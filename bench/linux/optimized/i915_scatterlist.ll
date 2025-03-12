@@ -334,7 +334,7 @@ define dso_local noundef ptr @i915_rsgt_from_buddy_resource(ptr noundef readonly
 21:                                               ; preds = %13
   %22 = add nsw i64 %17, 4095
   %23 = lshr i64 %22, 12
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw i64 %23 to i32
   %25 = tail call i32 @sg_alloc_table(ptr noundef nonnull %14, i32 noundef %24, i32 noundef 3264) #9
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %36, label %27

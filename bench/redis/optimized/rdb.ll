@@ -881,7 +881,7 @@ define dso_local range(i32 -1, 10) i32 @rdbSaveLen(ptr noundef %0, i64 noundef %
 
 36:                                               ; preds = %34
   %37 = lshr i64 %1, 8
-  %38 = trunc nuw i64 %37 to i8
+  %38 = trunc nuw nsw i64 %37 to i8
   %39 = or disjoint i8 %38, 64
   store i8 %39, ptr %4, align 1, !tbaa !59
   %40 = trunc i64 %1 to i8
@@ -2843,7 +2843,7 @@ define dso_local ptr @rdbGenericLoadStringObject(ptr noundef %0, i32 noundef %1,
   ]
 
 18:                                               ; preds = %17, %17, %17
-  %19 = trunc i64 %12 to i32
+  %19 = trunc nuw nsw i64 %12 to i32
   %20 = call ptr @rdbLoadIntegerObject(ptr noundef %0, i32 noundef %19, i32 noundef %1, ptr noundef %2)
   br label %rioRead.exit
 

@@ -1128,8 +1128,8 @@ zend_parse_arg_long_ex.exit72..critedge_crit_edge: ; preds = %zend_parse_arg_lon
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
   %58 = call ptr @php_json_get_validate_methods() #13
-  %59 = trunc nuw i64 %43 to i32
-  %60 = trunc nuw i64 %47 to i32
+  %59 = trunc nuw nsw i64 %43 to i32
+  %60 = trunc nuw nsw i64 %47 to i32
   call void @php_json_parser_init_ex(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %19, i64 noundef %21, i32 noundef %59, i32 noundef %60, ptr noundef %58) #13
   %61 = call i32 @php_json_yyparse(ptr noundef nonnull %3) #13
   %.not.i = icmp eq i32 %61, 0

@@ -8401,7 +8401,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !1284
   %12 = trunc i32 %1 to i8
@@ -8413,7 +8413,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !1284
   %19 = lshr i32 %1, 6
@@ -8481,7 +8481,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !1297, !noundef !9
   %58 = load i64, ptr %0, align 8, !alias.scope !1297, !noundef !9
@@ -16670,8 +16670,8 @@ define hidden void @_ZN10hir_expand16builtin_fn_macro10cfg_expand17hcf6036f040ce
 
 57:                                               ; preds = %52
   %58 = icmp eq i8 %56, 2
-  %59 = trunc i8 %56 to i1
-  %60 = or i1 %58, %59
+  %59 = trunc nuw i8 %56 to i1
+  %60 = select i1 %58, i1 true, i1 %59
   call void @llvm.experimental.noalias.scope.decl(metadata !3040)
   call void @llvm.experimental.noalias.scope.decl(metadata !3043)
   %61 = load ptr, ptr %16, align 8, !alias.scope !3046, !nonnull !9, !noundef !9
@@ -29874,7 +29874,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h0c3a4f99e2da6396E.exit.i: ; pr
   br i1 %.not.i, label %343, label %339
 
 339:                                              ; preds = %338
-  %340 = trunc i8 %256 to i1
+  %340 = trunc nuw i8 %256 to i1
   %341 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !5335
   %342 = icmp samesign ult i64 %341, 2
   br i1 %340, label %409, label %345
@@ -30176,7 +30176,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit240
   br i1 %.not157.i, label %447, label %443
 
 443:                                              ; preds = %442
-  %444 = trunc i8 %344 to i1
+  %444 = trunc nuw i8 %344 to i1
   %445 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !5335
   %446 = icmp samesign ult i64 %445, 2
   br i1 %444, label %487, label %454
@@ -31057,7 +31057,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit266
   br i1 %.not, label %733, label %729
 
 729:                                              ; preds = %728
-  %730 = trunc i8 %137 to i1
+  %730 = trunc nuw i8 %137 to i1
   %731 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %732 = icmp samesign ult i64 %731, 2
   br i1 %730, label %775, label %740

@@ -165434,7 +165434,7 @@ _ZN5boost14multiprecision8backends13cpp_dec_floatILj50EivE3nanEv.exit: ; preds =
   br label %234
 
 80:                                               ; preds = %69
-  %.lhs.trunc = trunc i32 %63 to i8
+  %.lhs.trunc = trunc nsw i32 %63 to i8
   %81 = sdiv i8 %.lhs.trunc, 8
   %.sext = sext i8 %81 to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #59

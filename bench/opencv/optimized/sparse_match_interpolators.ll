@@ -7440,7 +7440,7 @@ _ZNSt6vectorIN2cv8ximgproc11SparseMatchESaIS2_EE17_S_check_init_lenEmRKS3_.exit.
   br label %392
 
 ._crit_edge.loopexit:                             ; preds = %_ZN2cv3Mat2atINS_6Point_IfEEEERT_i.exit404
-  %381 = trunc i64 %469 to i32
+  %381 = trunc nuw i64 %469 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread

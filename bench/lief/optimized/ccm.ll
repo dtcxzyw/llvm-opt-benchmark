@@ -99,13 +99,13 @@ define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr nounde
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %1, ptr %8, align 4, !tbaa !3
-  %9 = trunc nuw i64 %3 to i32
+  %9 = trunc nuw nsw i64 %3 to i32
   %10 = sub nuw nsw i32 15, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %10, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %13 = trunc nuw i64 %3 to i8
+  %13 = trunc nuw nsw i64 %3 to i8
   %14 = sub nuw nsw i8 14, %13
   store i8 %14, ptr %12, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -268,7 +268,7 @@ define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 n
   %.not34.i = icmp eq i64 %1, 0
   %27 = select i1 %.not34.i, i8 0, i8 64
   %28 = load i8, ptr %0, align 8, !tbaa !14
-  %.tr.i = trunc nuw i64 %3 to i8
+  %.tr.i = trunc nuw nsw i64 %3 to i8
   %29 = shl nuw nsw i8 %.tr.i, 2
   %30 = add nsw i8 %29, -8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 64

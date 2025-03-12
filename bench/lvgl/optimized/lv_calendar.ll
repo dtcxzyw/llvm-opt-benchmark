@@ -370,7 +370,7 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   br label %.lr.ph
 
 34:                                               ; preds = %15
-  %.lhs.trunc.i = trunc i32 %.1.i to i8
+  %.lhs.trunc.i = trunc nsw i32 %.1.i to i8
   %35 = srem i8 %.lhs.trunc.i, 7
   %36 = srem i8 %35, 2
   %37 = sub nsw i8 31, %36
@@ -455,7 +455,7 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   br label %get_month_length.exit78
 
 91:                                               ; preds = %._crit_edge
-  %.lhs.trunc.i76 = trunc i32 %.1.i75 to i8
+  %.lhs.trunc.i76 = trunc nsw i32 %.1.i75 to i8
   %92 = srem i8 %.lhs.trunc.i76, 7
   %93 = srem i8 %92, 2
   %94 = sub nsw i8 31, %93
@@ -499,7 +499,7 @@ get_month_length.exit78:                          ; preds = %81, %83, %86, %91
   %115 = zext i8 %.164 to i32
   %116 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %114, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %115) #5
   %117 = load ptr, ptr %10, align 8, !tbaa !29
-  %118 = trunc i64 %indvars.iv97 to i32
+  %118 = trunc nuw nsw i64 %indvars.iv97 to i32
   %119 = add nuw nsw i32 %118, 7
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %117, i32 noundef %119, i32 noundef 64) #5
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
@@ -512,7 +512,7 @@ get_month_length.exit78:                          ; preds = %81, %83, %86, %91
   %122 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %99, i64 0, i64 %indvars.iv99
   %123 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %122, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv101) #5
   %124 = load ptr, ptr %10, align 8, !tbaa !29
-  %125 = trunc i64 %indvars.iv99 to i32
+  %125 = trunc nuw i64 %indvars.iv99 to i32
   %126 = add i32 %125, 7
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %124, i32 noundef %126, i32 noundef 64) #5
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1

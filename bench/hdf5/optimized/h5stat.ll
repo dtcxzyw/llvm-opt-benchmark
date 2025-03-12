@@ -2132,7 +2132,7 @@ ceil_log10.exit.i53:                              ; preds = %.lr.ph.i200.i, %446
 
 .critedge.i:                                      ; preds = %539, %.preheader.i47
   %548 = phi i64 [ 0, %.preheader.i47 ], [ %542, %539 ]
-  %549 = trunc i64 %548 to i32
+  %549 = trunc nuw i64 %548 to i32
   %550 = add nuw nsw i64 %548, 1
   store i64 %550, ptr %513, align 8, !tbaa !100
   %551 = getelementptr inbounds nuw i8, ptr %3, i64 528

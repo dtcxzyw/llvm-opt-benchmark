@@ -457,7 +457,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   br i1 %34, label %292, label %35
 
 35:                                               ; preds = %32
-  %36 = trunc nuw i64 %2 to i32
+  %36 = trunc nuw nsw i64 %2 to i32
   %37 = add nuw nsw i32 %36, 4095
   %38 = and i32 %37, 4190208
   %39 = lshr i32 %37, 12

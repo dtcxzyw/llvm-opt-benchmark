@@ -644,7 +644,7 @@ gv_isspace.exit767.thread:                        ; preds = %.preheader851, %240
   br i1 %254, label %255, label %258
 
 255:                                              ; preds = %252
-  %256 = trunc nuw i32 %.4628 to i8
+  %256 = trunc nuw nsw i32 %.4628 to i8
   %257 = getelementptr inbounds nuw i8, ptr %.0537, i64 1
   store i8 %256, ptr %.0537, align 1, !tbaa !3
   br label %291
@@ -697,7 +697,7 @@ gv_isspace.exit767.thread:                        ; preds = %.preheader851, %240
   br i1 %280, label %281, label %.critedge
 
 281:                                              ; preds = %277, %277, %278
-  %282 = trunc i32 %274 to i8
+  %282 = trunc nuw nsw i32 %274 to i8
   %283 = getelementptr inbounds nuw i8, ptr %.0537, i64 2
   store i8 %282, ptr %270, align 1, !tbaa !3
   br label %291
@@ -711,7 +711,7 @@ gv_isspace.exit767.thread:                        ; preds = %.preheader851, %240
   br i1 %or.cond88, label %.critedge, label %288
 
 288:                                              ; preds = %284
-  %289 = trunc nuw i32 %.4628 to i8
+  %289 = trunc nuw nsw i32 %.4628 to i8
   %290 = getelementptr inbounds nuw i8, ptr %.0537, i64 1
   store i8 %289, ptr %.0537, align 1, !tbaa !3
   br label %291

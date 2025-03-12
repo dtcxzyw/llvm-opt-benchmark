@@ -116,7 +116,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__11TfGetenvIntERKNSt7__c
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %26, %28
-  %29 = trunc i64 %10 to i32
+  %29 = trunc nsw i64 %10 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %30
 

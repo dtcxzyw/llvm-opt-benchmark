@@ -825,7 +825,7 @@ to_words52.exit283:                               ; preds = %get_digit.exit42.i2
   %410 = getelementptr i64, ptr %403, i64 %409
   %411 = getelementptr i8, ptr %410, i64 -8
   store i64 0, ptr %411, align 8, !tbaa !7
-  %.lhs.trunc.i = trunc i32 %12 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %12 to i16
   %412 = urem i16 %.lhs.trunc.i, 5
   %.not.i = icmp eq i16 %412, 0
   br i1 %.not.i, label %413, label %.lr.ph.preheader.i

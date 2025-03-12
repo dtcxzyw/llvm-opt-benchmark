@@ -570,7 +570,7 @@ Cut_CManStart.exit:                               ; preds = %33
 
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv381 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next382, %77 ]
-  %78 = trunc i64 %indvars.iv381 to i8
+  %78 = trunc nuw nsw i64 %indvars.iv381 to i8
   %79 = getelementptr inbounds nuw [12 x i8], ptr %76, i64 0, i64 %indvars.iv381
   store i8 %78, ptr %79, align 1, !tbaa !19
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
@@ -1407,7 +1407,7 @@ Extra_TruthIsEqual.exit.thread.i290.us:           ; preds = %443, %434
 
 498:                                              ; preds = %.lr.ph343.us, %498
   %indvars.iv421 = phi i64 [ 0, %.lr.ph343.us ], [ %indvars.iv.next422, %498 ]
-  %499 = trunc i64 %indvars.iv421 to i8
+  %499 = trunc nuw nsw i64 %indvars.iv421 to i8
   %500 = getelementptr inbounds nuw [12 x i8], ptr %508, i64 0, i64 %indvars.iv421
   store i8 %499, ptr %500, align 1, !tbaa !19
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1

@@ -2724,7 +2724,7 @@ _ZN3ue28flat_setIjSt4lessIjESaIjEE6insertINS_11flat_detail12iter_wrapperIN5boost
   br i1 %283, label %284, label %386
 
 284:                                              ; preds = %279
-  %285 = trunc nuw i64 %282 to i32
+  %285 = trunc nuw nsw i64 %282 to i32
   %286 = invoke { ptr, i64 } @_ZNK3ue28NGHolder16getSpecialVertexEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %285)
           to label %287 unwind label %384
 

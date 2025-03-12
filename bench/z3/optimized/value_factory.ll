@@ -1763,7 +1763,7 @@ define hidden noundef ptr @_ZN17user_sort_factory15get_fresh_valueEP4sort(ptr no
   %41 = load i64, ptr %40, align 8, !tbaa !140
   %.fr.i = freeze i64 %41
   %42 = icmp ult i64 %.fr.i, 4294967295
-  %43 = trunc i64 %.fr.i to i32
+  %43 = trunc nuw i64 %.fr.i to i32
   %spec.select.i = select i1 %42, i32 %43, i32 0
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %45 = load i32, ptr %44, align 8, !tbaa !141
@@ -1832,7 +1832,7 @@ define linkonce_odr hidden noundef ptr @_ZN14simple_factoryIjE15get_fresh_valueE
   %13 = load i64, ptr %12, align 8, !tbaa !140
   %.fr = freeze i64 %13
   %14 = icmp ult i64 %.fr, 4294967295
-  %15 = trunc i64 %.fr to i32
+  %15 = trunc nuw i64 %.fr to i32
   %spec.select = select i1 %14, i32 %15, i32 0
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !141

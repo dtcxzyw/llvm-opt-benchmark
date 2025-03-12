@@ -21,7 +21,7 @@ define dso_local i32 @set_field_just(ptr noundef %0, i32 noundef %1) local_unnam
   br i1 %.not17, label %12, label %9
 
 9:                                                ; preds = %3
-  %10 = trunc nuw i32 %1 to i16
+  %10 = trunc nuw nsw i32 %1 to i16
   store i16 %10, ptr %6, align 2, !tbaa !4
   %11 = tail call i32 @_nc_Synchronize_Attributes(ptr noundef nonnull %5) #4
   br label %12

@@ -2128,7 +2128,7 @@ define internal i32 @pci_timedia_setup(ptr noundef readonly captures(none) %0, p
 
 14:                                               ; preds = %11, %4, %4, %4, %4
   %15 = phi i32 [ %6, %4 ], [ %6, %4 ], [ %6, %4 ], [ %6, %4 ], [ %13, %11 ]
-  %16 = trunc i32 %3 to i8
+  %16 = trunc nuw nsw i32 %3 to i8
   %17 = add nsw i8 %16, -2
   br label %18
 

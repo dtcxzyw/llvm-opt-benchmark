@@ -8372,13 +8372,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h52690bd8ea1
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !2374
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !2374
   %15 = trunc i32 %1 to i8
@@ -8390,7 +8390,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h52690bd8ea1
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !2374
   %23 = lshr i32 %1, 6
@@ -25618,7 +25618,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN4core4iter6traits8iterator8Iterator6
   br i1 %25, label %9, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ba8608695eef21dE.llvm.10723454985916948783.exit"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ba8608695eef21dE.llvm.10723454985916948783.exit": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4794ccc198773a68E.exit.i.i.i.i"
-  %26 = trunc i8 %.sroa.0.0.i8.i.i.i.i to i1
+  %26 = trunc nuw i8 %.sroa.0.0.i8.i.i.i.i to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %27 = load ptr, ptr %5, align 8, !alias.scope !9136, !nonnull !4, !noundef !4
@@ -50707,7 +50707,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !14901, !noalias !14898
   %12 = trunc i32 %1 to i8
@@ -50719,7 +50719,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !14901, !noalias !14898
   %19 = lshr i32 %1, 6
@@ -71999,7 +71999,7 @@ common.resume.i.i.i:                              ; preds = %82, %78, %common.re
   br i1 %97, label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit", label %98
 
 98:                                               ; preds = %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.i.i"
-  %99 = trunc i8 %.sroa.0.0.i.i.i to i1
+  %99 = trunc nuw i8 %.sroa.0.0.i.i.i to i1
   %.neg.i.i.i.i = sext i1 %.sroa.07.0 to i8
   %100 = xor i8 %.sroa.0.0.i.i.i, %.neg.i.i.i.i
   %switch.i.i.i.i = icmp eq i8 %100, -1
@@ -148647,7 +148647,7 @@ _ZN7project7Project9worktrees17h80c52ffc2824d525E.exit: ; preds = %"_ZN98_$LT$sl
   br i1 %52, label %36, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ba8608695eef21dE.llvm.10723454985916948783.exit.i"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3ba8608695eef21dE.llvm.10723454985916948783.exit.i": ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4794ccc198773a68E.exit.i.i.i.i.i"
-  %53 = trunc i8 %.sroa.0.0.i8.i.i.i.i.i to i1
+  %53 = trunc nuw i8 %.sroa.0.0.i8.i.i.i.i.i to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !41778
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   %54 = load ptr, ptr %8, align 8, !alias.scope !41824, !noalias !41778, !nonnull !4, !noundef !4

@@ -2277,7 +2277,7 @@ lj_record_constify.exit.thread:                   ; preds = %163, %lj_record_con
   store i16 %291, ptr %9, align 8, !tbaa !4
   store i16 7, ptr %11, align 2, !tbaa !4
   %292 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
-  %.lhs.trunc.i = trunc nuw i64 %273 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %273 to i32
   %293 = udiv i32 %.lhs.trunc.i, 24
   %294 = tail call i32 @lj_ir_kslot(ptr noundef nonnull %0, i32 noundef %.5105.i, i32 noundef %293) #8
   %295 = trunc i32 %292 to i16

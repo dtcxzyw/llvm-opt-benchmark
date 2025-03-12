@@ -41670,7 +41670,7 @@ _ZL10stbi__get8P13stbi__context.exit299.thread:   ; preds = %261, %_ZL10stbi__ge
   br label %.loopexit
 
 316:                                              ; preds = %312
-  %.lhs.trunc = trunc nuw i32 %65 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %65 to i16
   %317 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %317 to i32
   %318 = mul nuw nsw i32 %.zext, 3

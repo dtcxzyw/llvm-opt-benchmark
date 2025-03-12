@@ -776,7 +776,7 @@ define internal void @realize_virt_arrays(ptr noundef %0) #0 {
   br i1 %.not96117, label %.preheader, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %52
-  %53 = trunc i64 %.086 to i32
+  %53 = trunc nuw i64 %.086 to i32
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 160
   br label %57
 
@@ -786,7 +786,7 @@ define internal void @realize_virt_arrays(ptr noundef %0) #0 {
   br i1 %.not97122, label %.loopexit, label %.lr.ph124
 
 .lr.ph124:                                        ; preds = %.preheader
-  %55 = trunc i64 %.086 to i32
+  %55 = trunc nuw i64 %.086 to i32
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 160
   br label %93
 

@@ -3217,7 +3217,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr noundef writeonly ca
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
-  %.lhs.trunc = trunc nuw i64 %2 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %2 to i32
   %20 = udiv i32 %.lhs.trunc, 500
   %narrow = add nuw nsw i32 %20, 1
   %21 = lshr i32 %narrow, 1

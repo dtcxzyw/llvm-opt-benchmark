@@ -2493,7 +2493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 78:                                               ; preds = %._crit_edge.i.i29
-  %79 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %79 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %80 = or disjoint i8 %79, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

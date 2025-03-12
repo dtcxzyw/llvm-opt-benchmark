@@ -3601,7 +3601,7 @@ define { i64, i32 } @_ZN10open_spiel5chess12ActionToMoveERKlRKNS0_10ChessBoardE(
 
 56:                                               ; preds = %36
   %57 = load i32, ptr %1, align 8
-  %58 = trunc nuw i64 %18 to i32
+  %58 = trunc nuw nsw i64 %18 to i32
   %59 = tail call i64 @_ZN10open_spiel5chess19ActionToDestinationEiii(i32 noundef %58, i32 noundef 8, i32 noundef 73)
   %.sroa.067.sroa.0.0.extract.trunc = trunc i64 %59 to i16
   %.sroa.067.sroa.4.0.extract.shift111 = lshr i64 %59, 8

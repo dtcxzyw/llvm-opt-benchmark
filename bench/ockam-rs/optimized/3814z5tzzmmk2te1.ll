@@ -11608,7 +11608,7 @@ common.ret:                                       ; preds = %.thread457, %473, %
 311:                                              ; preds = %298, %294
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   store i8 1, ptr %282, align 8, !noalias !1355
-  %312 = trunc i8 %285 to i1
+  %312 = trunc nuw i8 %285 to i1
   br i1 %312, label %337, label %321
 
 .body.i.i:                                        ; preds = %309, %272

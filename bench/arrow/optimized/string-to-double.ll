@@ -1890,7 +1890,7 @@ _ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit258.thread: 
   br i1 %265, label %266, label %272
 
 266:                                              ; preds = %262
-  %267 = trunc nuw i16 %263 to i8
+  %267 = trunc nuw nsw i16 %263 to i8
   %268 = add nsw i32 %.0169404, 1
   %269 = sext i32 %.0169404 to i64
   %270 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %269
@@ -2063,7 +2063,7 @@ _ZN14arrow_vendored17double_conversionL7isDigitEii.exit.thread.i263: ; preds = %
   br i1 %345, label %346, label %353
 
 346:                                              ; preds = %342
-  %347 = trunc nuw i16 %343 to i8
+  %347 = trunc nuw nsw i16 %343 to i8
   %348 = add nsw i32 %.4173423, 1
   %349 = sext i32 %.4173423 to i64
   %350 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %349

@@ -3063,7 +3063,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 
 75:                                               ; preds = %72
   %76 = lshr exact i64 %.068.add, 6
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw nsw i64 %76 to i32
   %78 = zext i32 %73 to i64
   %79 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %9, i64 0, i64 %78, i32 6
   store i32 %77, ptr %79, align 8

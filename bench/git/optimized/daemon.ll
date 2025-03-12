@@ -2518,7 +2518,7 @@ define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %0, ptr nounde
   br i1 %or.cond9, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   store i32 %13, ptr %1, align 4, !tbaa !12
   br label %14
 

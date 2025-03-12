@@ -610,7 +610,7 @@ inflateStateCheck.exit:                           ; preds = %17
 36:                                               ; preds = %31
   %37 = zext nneg i32 %1 to i64
   %notmask = shl nsw i64 -1, %37
-  %38 = trunc i64 %notmask to i32
+  %38 = trunc nsw i64 %notmask to i32
   %39 = xor i32 %38, -1
   %40 = and i32 %2, %39
   %41 = shl i32 %40, %33
@@ -2161,7 +2161,7 @@ default.unreachable2869:                          ; preds = %481
 
 ._crit_edge1955.loopexit:                         ; preds = %606
   %617 = zext i8 %.sroa.1867.0.copyload to i32
-  %618 = trunc nuw i64 %indvars.iv.next2794 to i32
+  %618 = trunc nuw nsw i64 %indvars.iv.next2794 to i32
   br label %._crit_edge1955
 
 ._crit_edge1955:                                  ; preds = %._crit_edge1955.loopexit, %.preheader1282
@@ -2529,7 +2529,7 @@ default.unreachable2869:                          ; preds = %481
 
 ._crit_edge2021.loopexit:                         ; preds = %751
   %763 = zext i8 %.sroa.1867.0.copyload69 to i32
-  %764 = trunc nuw i64 %indvars.iv.next2806 to i32
+  %764 = trunc nuw nsw i64 %indvars.iv.next2806 to i32
   br label %._crit_edge2021
 
 ._crit_edge2021:                                  ; preds = %._crit_edge2021.loopexit, %740
@@ -2790,7 +2790,7 @@ default.unreachable2869:                          ; preds = %481
 
 ._crit_edge2066.loopexit:                         ; preds = %856
   %868 = zext i8 %.sroa.1867.0.copyload73 to i32
-  %869 = trunc nuw i64 %indvars.iv.next2815 to i32
+  %869 = trunc nuw nsw i64 %indvars.iv.next2815 to i32
   br label %._crit_edge2066
 
 ._crit_edge2066:                                  ; preds = %._crit_edge2066.loopexit, %845
@@ -3325,7 +3325,7 @@ default.unreachable2869:                          ; preds = %481
   br label %.loopexit1277
 
 .loopexit1277.loopexit2351:                       ; preds = %.lr.ph2106
-  %1072 = trunc nuw i64 %indvars.iv2823 to i32
+  %1072 = trunc nuw nsw i64 %indvars.iv2823 to i32
   br label %.loopexit1277
 
 .loopexit1277.loopexit2359:                       ; preds = %.lr.ph1772

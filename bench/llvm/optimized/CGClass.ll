@@ -9534,7 +9534,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %._crit_edge
   store ptr %91, ptr %12, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.536.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.536, i64 40, i1 false), !tbaa.struct !1360
   store i8 %.sroa.538.0, ptr %.sroa.538.0..sroa_idx, align 8, !tbaa !1270
-  %97 = trunc i64 %indvars.iv to i32
+  %97 = trunc nuw i64 %indvars.iv to i32
   %98 = add nuw i32 %97, 1
   call void @_ZN5clang7CodeGen15CodeGenFunction12EmitParmDeclERKNS_7VarDeclENS1_10ParamValueEj(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull align 8 dereferenceable(100) %96, ptr noundef nonnull byval(%"class.clang::CodeGen::CodeGenFunction::ParamValue") align 8 %12, i32 noundef %98) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.536)

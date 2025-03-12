@@ -5145,13 +5145,13 @@ define dso_local i32 @intel_framebuffer_init(ptr noundef %0, ptr noundef %1, ptr
 
 107:                                              ; preds = %105, %104
   %108 = phi ptr [ %106, %105 ], [ null, %104 ]
-  %109 = trunc i64 %99 to i32
+  %109 = trunc nuw nsw i64 %99 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %108, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %109) #13
   br label %.thread25
 
 110:                                              ; preds = %97
   %111 = load ptr, ptr %0, align 8
-  %112 = trunc i64 %99 to i32
+  %112 = trunc nuw nsw i64 %99 to i32
   %113 = load i64, ptr %93, align 8
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %is_surface_linear.exit.thread, label %.preheader.i

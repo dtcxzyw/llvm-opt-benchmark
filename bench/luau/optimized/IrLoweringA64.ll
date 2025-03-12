@@ -571,7 +571,7 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrLoweringA649lowerInstERNS0_6IrIns
 195:                                              ; preds = %193
   %196 = load ptr, ptr %0, align 8, !tbaa !63
   %.sroa.01937.0.copyload = load i8, ptr %174, align 1, !tbaa !43
-  %197 = trunc nuw i32 %191 to i16
+  %197 = trunc nuw nsw i32 %191 to i16
   %198 = shl nuw nsw i16 %197, 4
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %196, i8 %.sroa.01937.0.copyload, i8 %.sroa.01937.0.copyload, i16 noundef zeroext %198)
   br label %_ZN4Luau7CodeGen3A6413IrLoweringA6417jumpOrFallthroughERNS0_7IrBlockERKS3_.exit
@@ -4032,7 +4032,7 @@ switch.lookup3687:                                ; preds = %1854
 
 2221:                                             ; preds = %2219
   %2222 = load ptr, ptr %0, align 8, !tbaa !63
-  %2223 = trunc nuw i32 %2215 to i16
+  %2223 = trunc nuw nsw i32 %2215 to i16
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643cmpENS1_11RegisterA64Et(ptr noundef nonnull align 8 dereferenceable(176) %2222, i8 %2196, i16 noundef zeroext %2223)
   %2224 = load ptr, ptr %0, align 8, !tbaa !63
   call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA641bENS1_12ConditionA64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(176) %2224, i32 noundef 9, ptr noundef nonnull align 4 dereferenceable(8) %2194)
@@ -6706,7 +6706,7 @@ define dso_local range(i64 16384001, -4278190080) i64 @_ZN4Luau7CodeGen3A6413IrL
   br i1 %13, label %14, label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 
 14:                                               ; preds = %8
-  %15 = trunc nuw i64 %12 to i32
+  %15 = trunc nuw nsw i64 %12 to i32
   br label %39
 
 _ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit: ; preds = %8
@@ -8127,7 +8127,7 @@ _ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46: ; preds = %102, %10
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %_ZN4Luau7CodeGen3A6413IrLoweringA645regOpENS0_4IrOpE.exit46
-  %115 = trunc nuw i32 %112 to i16
+  %115 = trunc nuw nsw i32 %112 to i16
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643addENS1_11RegisterA64ES3_t(ptr noundef nonnull align 8 dereferenceable(176) %92, i8 %91, i8 %.sroa.06.0.copyload.i45, i16 noundef zeroext %115)
   br label %_ZN4Luau7CodeGen3A64L13emitAddOffsetERNS1_18AssemblyBuilderA64ENS1_11RegisterA64ES4_m.exit
 

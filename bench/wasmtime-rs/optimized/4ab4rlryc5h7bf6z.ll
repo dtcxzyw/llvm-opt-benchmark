@@ -1497,7 +1497,7 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT
   %100 = getelementptr inbounds nuw i32, ptr %99, i64 %57
   %101 = shl nuw nsw i64 %95, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr nonnull readonly align 4 %96, i64 %101, i1 false), !alias.scope !136, !noalias !140
-  %102 = trunc nuw i64 %84 to i8
+  %102 = trunc nuw nsw i64 %84 to i8
   store i8 %102, ptr %54, align 1, !alias.scope !89, !noalias !94
   %103 = sub nsw i64 %61, %65
   %104 = add nsw i64 %103, -1
@@ -1624,7 +1624,7 @@ _ZN17cranelift_bforest11slice_shift17h077487e3d4f0b49cE.exit.i: ; preds = %123
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %155, ptr nonnull readonly align 4 %140, i64 %156, i1 false), !alias.scope !161, !noalias !165
   %157 = getelementptr inbounds nuw i32, ptr %136, i64 %134
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr nonnull readonly align 4 %141, i64 %156, i1 false), !alias.scope !167, !noalias !171
-  %158 = trunc nuw i64 %146 to i8
+  %158 = trunc nuw nsw i64 %146 to i8
   store i8 %158, ptr %132, align 1, !alias.scope !89, !noalias !94
   %159 = icmp ugt i8 %138, 7
   br i1 %159, label %160, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h11178c85ffd6cc76E.llvm.1710812290736639100.exit93.i"

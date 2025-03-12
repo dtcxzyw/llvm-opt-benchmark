@@ -21203,7 +21203,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %_ZN12arrayOopDes
   %37 = xor i64 %24, 2147483647
   %38 = and i64 %37, %28
   %.0.in.i = select i1 %36, i64 %38, i64 %35
-  %.0.i = trunc i64 %.0.in.i to i32
+  %.0.i = trunc nuw nsw i64 %.0.in.i to i32
   ret i32 %.0.i
 }
 

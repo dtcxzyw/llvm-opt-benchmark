@@ -20126,8 +20126,8 @@ _ZNK5clang8Selector10getNumArgsEv.exit:           ; preds = %3, %8, %10
   br i1 %.not, label %16, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 16:                                               ; preds = %_ZNK5clang8Selector10getNumArgsEv.exit
-  %17 = trunc i64 %2 to i32
-  %.not1119 = icmp eq i32 %17, 0
+  %17 = trunc nuw i64 %2 to i32
+  %.not1119 = icmp eq i64 %2, 0
   br i1 %.not1119, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
@@ -20154,7 +20154,7 @@ _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us: ; preds = %_ZNK5cl
   %gep41 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %invariant.gep40, i64 %21
   %.sroa.2.0.copyload.us.us = load i64, ptr %gep41, align 8, !tbaa !53
   %.not.i.i12.us.us = icmp eq i64 %.sroa.2.0.copyload.us.us, 0
-  %22 = add nuw i32 %.0920.us.us, 1
+  %22 = add i32 %.0920.us.us, 1
   %.not11.us.us = icmp ne i32 %22, %17
   %or.cond.not = select i1 %.not.i.i12.us.us, i1 %.not11.us.us, i1 false
   br i1 %or.cond.not, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, !llvm.loop !131
@@ -20178,7 +20178,7 @@ _ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us28: ; preds = %_ZNK5
   %gep = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %invariant.gep, i64 %28
   %.sroa.2.0.copyload.us.us32 = load i64, ptr %gep, align 8, !tbaa !53
   %.not.i.i12.us.us33 = icmp eq i64 %.sroa.2.0.copyload.us.us32, 0
-  %29 = add nuw i32 %.0920.us.us29, 1
+  %29 = add i32 %.0920.us.us29, 1
   %.not11.us.us35 = icmp ne i32 %29, %17
   %or.cond75.not = select i1 %.not.i.i12.us.us33, i1 %.not11.us.us35, i1 false
   br i1 %or.cond75.not, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us.us28, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, !llvm.loop !131
@@ -20199,7 +20199,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.us:             ; preds = %_ZNK5clang8Selector
   br i1 %.not18.us, label %_ZN4llvmneENS_9StringRefES0_.exit.thread16.us, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread16.us:    ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.us
-  %32 = add nuw i32 %.0920.us, 1
+  %32 = add i32 %.0920.us, 1
   %.not11.us = icmp eq i32 %32, %17
   br i1 %.not11.us, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i.us, !llvm.loop !131
 
@@ -20240,7 +20240,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %42
   br i1 %.not18, label %_ZN4llvmneENS_9StringRefES0_.exit.thread16, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread16:       ; preds = %_ZNK5clang8Selector14getNameForSlotEj.exit.thread, %42, %_ZN4llvmneENS_9StringRefES0_.exit
-  %44 = add nuw i32 %.0920, 1
+  %44 = add i32 %.0920, 1
   %.not11 = icmp eq i32 %44, %17
   br i1 %.not11, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %_ZNK5clang8Selector24getIdentifierInfoForSlotEj.exit.i, !llvm.loop !131
 

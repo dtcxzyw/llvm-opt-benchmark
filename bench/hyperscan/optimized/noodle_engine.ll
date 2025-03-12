@@ -79,11 +79,11 @@ default.unreachable.i:                            ; preds = %36
   %.sroa.0.2.i = phi <32 x i8> [ undef, %36 ], [ %.sroa.0.1.vec.insert.i, %40 ]
   %44 = load i8, ptr %33, align 1
   %.sroa.0.0.vec.insert.i = insertelement <32 x i8> %.sroa.0.2.i, i8 %44, i64 0
-  %.pre647 = trunc nuw i64 %27 to i32
+  %.pre647 = trunc nuw nsw i64 %27 to i32
   br label %67
 
 45:                                               ; preds = %34
-  %46 = trunc nuw i64 %27 to i32
+  %46 = trunc nuw nsw i64 %27 to i32
   %47 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %48 = lshr i32 %46, 2
   %49 = sub nuw nsw i32 8, %48
@@ -842,11 +842,11 @@ default.unreachable.i34:                          ; preds = %483
   %.sroa.0.2.i29 = phi <32 x i8> [ undef, %483 ], [ %.sroa.0.1.vec.insert.i32, %487 ]
   %491 = load i8, ptr %480, align 1
   %.sroa.0.0.vec.insert.i30 = insertelement <32 x i8> %.sroa.0.2.i29, i8 %491, i64 0
-  %.pre649 = trunc nuw i64 %27 to i32
+  %.pre649 = trunc nuw nsw i64 %27 to i32
   br label %514
 
 492:                                              ; preds = %481
-  %493 = trunc nuw i64 %27 to i32
+  %493 = trunc nuw nsw i64 %27 to i32
   %494 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %495 = lshr i32 %493, 2
   %496 = sub nuw nsw i32 8, %495
@@ -1620,11 +1620,11 @@ default.unreachable.i142:                         ; preds = %943
   %.sroa.0.2.i137 = phi <32 x i8> [ undef, %943 ], [ %.sroa.0.1.vec.insert.i140, %947 ]
   %951 = load i8, ptr %940, align 1
   %.sroa.0.0.vec.insert.i138 = insertelement <32 x i8> %.sroa.0.2.i137, i8 %951, i64 0
-  %.pre644 = trunc nuw i64 %937 to i32
+  %.pre644 = trunc nuw nsw i64 %937 to i32
   br label %974
 
 952:                                              ; preds = %941
-  %953 = trunc nuw i64 %937 to i32
+  %953 = trunc nuw nsw i64 %937 to i32
   %954 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %955 = lshr i32 %953, 2
   %956 = sub nuw nsw i32 8, %955
@@ -2402,11 +2402,11 @@ default.unreachable.i160:                         ; preds = %1439
   %.sroa.0.2.i155 = phi <32 x i8> [ undef, %1439 ], [ %.sroa.0.1.vec.insert.i158, %1443 ]
   %1447 = load i8, ptr %1436, align 1
   %.sroa.0.0.vec.insert.i156 = insertelement <32 x i8> %.sroa.0.2.i155, i8 %1447, i64 0
-  %.pre645 = trunc nuw i64 %1433 to i32
+  %.pre645 = trunc nuw nsw i64 %1433 to i32
   br label %1470
 
 1448:                                             ; preds = %1437
-  %1449 = trunc nuw i64 %1433 to i32
+  %1449 = trunc nuw nsw i64 %1433 to i32
   %1450 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %1451 = lshr i32 %1449, 2
   %1452 = sub nuw nsw i32 8, %1451
@@ -3444,11 +3444,11 @@ default.unreachable.i:                            ; preds = %169
   %.sroa.0.2.i = phi <32 x i8> [ undef, %169 ], [ %.sroa.0.1.vec.insert.i, %173 ]
   %177 = load i8, ptr %166, align 1
   %.sroa.0.0.vec.insert.i = insertelement <32 x i8> %.sroa.0.2.i, i8 %177, i64 0
-  %.pre710 = trunc nuw i64 %160 to i32
+  %.pre710 = trunc nuw nsw i64 %160 to i32
   br label %200
 
 178:                                              ; preds = %167
-  %179 = trunc nuw i64 %160 to i32
+  %179 = trunc nuw nsw i64 %160 to i32
   %180 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %181 = lshr i32 %179, 2
   %182 = sub nuw nsw i32 8, %181
@@ -4207,11 +4207,11 @@ default.unreachable.i93:                          ; preds = %616
   %.sroa.0.2.i88 = phi <32 x i8> [ undef, %616 ], [ %.sroa.0.1.vec.insert.i91, %620 ]
   %624 = load i8, ptr %613, align 1
   %.sroa.0.0.vec.insert.i89 = insertelement <32 x i8> %.sroa.0.2.i88, i8 %624, i64 0
-  %.pre712 = trunc nuw i64 %160 to i32
+  %.pre712 = trunc nuw nsw i64 %160 to i32
   br label %647
 
 625:                                              ; preds = %614
-  %626 = trunc nuw i64 %160 to i32
+  %626 = trunc nuw nsw i64 %160 to i32
   %627 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %628 = lshr i32 %626, 2
   %629 = sub nuw nsw i32 8, %628
@@ -4984,11 +4984,11 @@ default.unreachable.i201:                         ; preds = %1075
   %.sroa.0.2.i196 = phi <32 x i8> [ undef, %1075 ], [ %.sroa.0.1.vec.insert.i199, %1079 ]
   %1083 = load i8, ptr %1072, align 1
   %.sroa.0.0.vec.insert.i197 = insertelement <32 x i8> %.sroa.0.2.i196, i8 %1083, i64 0
-  %.pre706 = trunc nuw i64 %1069 to i32
+  %.pre706 = trunc nuw nsw i64 %1069 to i32
   br label %1106
 
 1084:                                             ; preds = %1073
-  %1085 = trunc nuw i64 %1069 to i32
+  %1085 = trunc nuw nsw i64 %1069 to i32
   %1086 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %1087 = lshr i32 %1085, 2
   %1088 = sub nuw nsw i32 8, %1087
@@ -5766,11 +5766,11 @@ default.unreachable.i219:                         ; preds = %1571
   %.sroa.0.2.i214 = phi <32 x i8> [ undef, %1571 ], [ %.sroa.0.1.vec.insert.i217, %1575 ]
   %1579 = load i8, ptr %1568, align 1
   %.sroa.0.0.vec.insert.i215 = insertelement <32 x i8> %.sroa.0.2.i214, i8 %1579, i64 0
-  %.pre708 = trunc nuw i64 %1565 to i32
+  %.pre708 = trunc nuw nsw i64 %1565 to i32
   br label %1602
 
 1580:                                             ; preds = %1569
-  %1581 = trunc nuw i64 %1565 to i32
+  %1581 = trunc nuw nsw i64 %1565 to i32
   %1582 = load <8 x i32>, ptr getelementptr inbounds nuw (i8, ptr @mm_mask_mask, i64 32), align 32
   %1583 = lshr i32 %1581, 2
   %1584 = sub nuw nsw i32 8, %1583

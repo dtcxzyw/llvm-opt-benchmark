@@ -22844,7 +22844,7 @@ _ZN4core5slice4sort12choose_pivot17hd42b9a4eb6595412E.exit: ; preds = %"_ZN4core
   br i1 %.not32.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 149:                                              ; preds = %142
-  %.lhs.trunc.i.i = trunc nuw i64 %145 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %145 to i16
   %150 = udiv i16 %.lhs.trunc.i.i, 120
   %.zext.i.i = zext nneg i16 %150 to i64
   %151 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -28864,7 +28864,7 @@ _ZN4core5slice4sort12choose_pivot17hc9f204e5fc20119bE.exit: ; preds = %"_ZN4core
   br i1 %.not32.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 164:                                              ; preds = %157
-  %.lhs.trunc.i.i = trunc nuw i64 %160 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %160 to i16
   %165 = udiv i16 %.lhs.trunc.i.i, 56
   %.zext.i.i = zext nneg i16 %165 to i64
   %166 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -29704,7 +29704,7 @@ _ZN4core5slice4sort12choose_pivot17h3ac59c61bc8907f8E.exit: ; preds = %"_ZN4core
   br i1 %.not32.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 168:                                              ; preds = %161
-  %.lhs.trunc.i.i = trunc nuw i64 %164 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %164 to i16
   %169 = udiv i16 %.lhs.trunc.i.i, 40
   %.zext.i.i = zext nneg i16 %169 to i64
   %170 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -30511,7 +30511,7 @@ _ZN4core5slice4sort12choose_pivot17he0037570949066a4E.exit: ; preds = %"_ZN4core
   br i1 %.not52.i.i, label %.thread.i.i, label %.lr.ph.split.i.i
 
 151:                                              ; preds = %144
-  %.lhs.trunc.i.i = trunc nuw i64 %147 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %147 to i16
   %152 = udiv i16 %.lhs.trunc.i.i, 40
   %.zext.i.i = zext nneg i16 %152 to i64
   %153 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -31721,7 +31721,7 @@ _ZN4core5slice4sort12choose_pivot17ha70fdc3a2e92304cE.exit: ; preds = %"_ZN4core
   br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 209:                                              ; preds = %202
-  %.lhs.trunc.i.i = trunc nuw i64 %205 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %205 to i16
   %210 = udiv i16 %.lhs.trunc.i.i, 48
   %.zext.i.i = zext nneg i16 %210 to i64
   %211 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -32579,7 +32579,7 @@ _ZN4core3ops8function5FnMut8call_mut17hadb984013256e1eaE.exit42.i: ; preds = %12
   br i1 %.not32.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 150:                                              ; preds = %143
-  %.lhs.trunc.i.i = trunc nuw i64 %146 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %146 to i16
   %151 = udiv i16 %.lhs.trunc.i.i, 48
   %.zext.i.i = zext nneg i16 %151 to i64
   %152 = icmp ult ptr %.0133.i.i, %.0136.i.i

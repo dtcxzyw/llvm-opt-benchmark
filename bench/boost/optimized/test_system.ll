@@ -698,7 +698,7 @@ _ZN5boost6nowide4test8test_monEv.exit:            ; preds = %19, %17, %14
 
 26:                                               ; preds = %25, %_ZN5boost6nowide4test8test_monEv.exit
   %27 = icmp ugt i32 %13, 127
-  %28 = trunc i32 %13 to i8
+  %28 = trunc nuw nsw i32 %13 to i8
   %29 = select i1 %27, i8 63, i8 %28
   %30 = load i64, ptr %6, align 8, !tbaa !14
   %31 = add i64 %30, 1

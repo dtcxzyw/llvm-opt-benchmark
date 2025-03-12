@@ -980,7 +980,7 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
   br label %8
 
 7:                                                ; preds = %2
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %16, label %9
 
 8:                                                ; preds = %26, %19, %16, %6
@@ -15649,7 +15649,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !4324
-  %18 = trunc i8 %14 to i1
+  %18 = trunc nuw i8 %14 to i1
   br label %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h32077026f3861383E.llvm.8022584466853825857.exit"
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h32077026f3861383E.llvm.8022584466853825857.exit": ; preds = %16, %17
@@ -20433,7 +20433,7 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$core..iter..adapters..GenericShunt
 
 17:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5848
-  %18 = trunc i8 %14 to i1
+  %18 = trunc nuw i8 %14 to i1
   br label %19
 
 19:                                               ; preds = %16, %17
@@ -57673,7 +57673,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..expr..Expr$
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i128, ptr %0, align 16, !range !16015, !noundef !4
   %7 = add nsw i128 %6, -3
-  %8 = trunc nsw i128 %7 to i64
+  %8 = trunc nuw nsw i128 %7 to i64
   %9 = icmp ult i128 %7, 35
   %10 = select i1 %9, i64 %8, i64 25
   switch i64 %10, label %11 [
@@ -60102,7 +60102,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$datafusion_common..scalar..S
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i128, ptr %0, align 16, !range !16799, !noundef !4
   %8 = add nsw i128 %7, -2
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 41
   %11 = select i1 %10, i64 %9, i64 5
   switch i64 %11, label %12 [
@@ -82428,7 +82428,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !22175, !noalias !22172
   %12 = trunc i32 %1 to i8
@@ -82440,7 +82440,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !22175, !noalias !22172
   %19 = lshr i32 %1, 6
@@ -82508,7 +82508,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !22188, !noundef !4
   %58 = load i64, ptr %0, align 8, !alias.scope !22188, !noundef !4
@@ -89806,7 +89806,7 @@ define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..u
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = trunc nsw i64 %spec.select.i to i32
+  %16 = trunc nuw nsw i64 %spec.select.i to i32
   %17 = icmp ugt i32 %2, 1999999999
   br i1 %17, label %.thread, label %18
 
@@ -101454,7 +101454,7 @@ default.unreachable394:                           ; preds = %843, %281, %245, %9
   %128 = icmp slt i64 %127, 0
   %129 = select i1 %128, i64 1000, i64 0
   %spec.select.i.i.i = add nsw i64 %129, %127
-  %130 = trunc nsw i64 %spec.select.i.i.i to i32
+  %130 = trunc nuw nsw i64 %spec.select.i.i.i to i32
   %131 = mul nuw nsw i32 %130, 1000000
   store i64 %.0.i.i.i, ptr %102, align 8, !noalias !24912
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 736
@@ -127534,7 +127534,7 @@ define void @_ZN14deltalake_core16delta_datafusion28partitioned_file_from_action
   %45 = icmp slt i64 %21, 0
   %46 = select i1 %45, i64 86400, i64 0
   %spec.select.i.i = add nsw i64 %46, %21
-  %47 = trunc nsw i64 %spec.select.i.i to i32
+  %47 = trunc nuw nsw i64 %spec.select.i.i to i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.013, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false), !alias.scope !29014
   %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx14, align 8, !alias.scope !29014
@@ -130521,7 +130521,7 @@ define void @"_ZN123_$LT$deltalake_core..delta_datafusion..FindFilesExprProperti
   store ptr %2, ptr %13, align 8
   %14 = load i128, ptr %2, align 16, !range !16015, !noundef !4
   %15 = add nsw i128 %14, -3
-  %16 = trunc nsw i128 %15 to i64
+  %16 = trunc nuw nsw i128 %15 to i64
   %17 = icmp ult i128 %15, 35
   %18 = select i1 %17, i64 %16, i64 25
   switch i64 %18, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit [
@@ -133131,7 +133131,7 @@ _ZN6chrono6expect17h1a46f33ff1df836bE.exit:       ; preds = %81, %77
   %135 = icmp slt i64 %134, 0
   %136 = select i1 %135, i64 1000, i64 0
   %spec.select.i = add nsw i64 %136, %134
-  %137 = trunc nsw i64 %spec.select.i to i32
+  %137 = trunc nuw nsw i64 %spec.select.i to i32
   %138 = mul nuw nsw i32 %137, 1000000
   call fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %28, i64 noundef %.0.i, i32 noundef %138)
   br label %150
@@ -133144,7 +133144,7 @@ _ZN6chrono6expect17h1a46f33ff1df836bE.exit:       ; preds = %81, %77
   %142 = icmp slt i64 %141, 0
   %143 = select i1 %142, i64 1000000, i64 0
   %spec.select.i211 = add nsw i64 %143, %141
-  %144 = trunc nsw i64 %spec.select.i211 to i32
+  %144 = trunc nuw nsw i64 %spec.select.i211 to i32
   %145 = mul nuw nsw i32 %144, 1000
   call fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %28, i64 noundef %.0.i210, i32 noundef %145)
   br label %150

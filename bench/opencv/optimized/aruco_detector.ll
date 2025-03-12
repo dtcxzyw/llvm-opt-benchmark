@@ -24320,7 +24320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
 256:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5) #31
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %6) #31
-  %257 = trunc i64 %237 to i32
+  %257 = trunc nuw i64 %237 to i32
   invoke void @_ZN2cv3Mat4onesEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %6, i32 noundef %257, i32 noundef 2, i32 noundef 5)
           to label %.noexc126.i.i.i.i unwind label %362
 

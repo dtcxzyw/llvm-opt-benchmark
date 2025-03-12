@@ -209,7 +209,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 49:                                               ; preds = %45
   %50 = lshr i64 %34, 6
-  %51 = trunc nuw i64 %50 to i8
+  %51 = trunc nuw nsw i64 %50 to i8
   %52 = or disjoint i8 %51, -64
   store i8 %52, ptr %.06471.i, align 1, !tbaa !16
   br label %120
@@ -226,7 +226,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 59:                                               ; preds = %55
   %60 = lshr i64 %34, 12
-  %61 = trunc nuw i64 %60 to i8
+  %61 = trunc nuw nsw i64 %60 to i8
   %62 = or disjoint i8 %61, -32
   %63 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %62, ptr %.06471.i, align 1, !tbaa !16
@@ -244,7 +244,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 70:                                               ; preds = %66
   %71 = lshr i64 %34, 18
-  %72 = trunc nuw i64 %71 to i8
+  %72 = trunc nuw nsw i64 %71 to i8
   %73 = or disjoint i8 %72, -16
   store i8 %73, ptr %.06471.i, align 1, !tbaa !16
   br label %107
@@ -261,7 +261,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 80:                                               ; preds = %76
   %81 = lshr i64 %34, 24
-  %82 = trunc nuw i64 %81 to i8
+  %82 = trunc nuw nsw i64 %81 to i8
   %83 = or disjoint i8 %82, -8
   %84 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %83, ptr %.06471.i, align 1, !tbaa !16
@@ -277,7 +277,7 @@ trim_nuls.exit:                                   ; preds = %.lr.ph.i
 
 90:                                               ; preds = %85
   %91 = lshr i64 %34, 30
-  %92 = trunc nuw i64 %91 to i8
+  %92 = trunc nuw nsw i64 %91 to i8
   %93 = or disjoint i8 %92, -4
   %94 = getelementptr inbounds nuw i8, ptr %.06471.i, i64 1
   store i8 %93, ptr %.06471.i, align 1, !tbaa !16

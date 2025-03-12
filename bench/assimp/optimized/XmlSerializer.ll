@@ -1360,7 +1360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit187: ; preds = %_Z
   %364 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds nuw %struct.aiString, ptr %365, i64 %361
-  %367 = trunc nuw i64 %358 to i32
+  %367 = trunc nuw nsw i64 %358 to i32
   store i32 %367, ptr %366, align 4
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 4
   %369 = load ptr, ptr %344, align 8
@@ -2456,7 +2456,7 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %.lr.ph400, %_ZNSt7_
 
 176:                                              ; preds = %173
   %177 = getelementptr inbounds nuw i8, ptr %171, i64 236
-  %178 = trunc nuw i64 %174 to i32
+  %178 = trunc nuw nsw i64 %174 to i32
   store i32 %178, ptr %177, align 4
   %179 = getelementptr inbounds nuw i8, ptr %171, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %179, ptr align 1 %.pre419, i64 %174, i1 false)
@@ -7910,7 +7910,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %29, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %30
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %31 = trunc nuw i64 %28 to i32
+  %31 = trunc nuw nsw i64 %28 to i32
   store i32 %31, ptr %3, align 4
   %32 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 1 %32, i64 %28, i1 false)

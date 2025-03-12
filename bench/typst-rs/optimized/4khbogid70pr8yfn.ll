@@ -928,7 +928,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f5
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h1a1937bd3af0cfadE.exit"
 
@@ -941,7 +941,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f5
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -953,7 +953,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f5
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -1990,13 +1990,13 @@ define hidden noundef zeroext i1 @_ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7
   br i1 %15, label %26, label %39
 
 16:                                               ; preds = %2
-  %17 = trunc nuw i32 %1 to i8
+  %17 = trunc nuw nsw i32 %1 to i8
   store i8 %17, ptr %3, align 4, !alias.scope !266, !noalias !263
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.llvm.14566164723027622578.exit.i
 
 18:                                               ; preds = %12
   %19 = lshr i32 %1, 6
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -64
   store i8 %21, ptr %3, align 4, !alias.scope !266, !noalias !263
   %22 = trunc i32 %1 to i8
@@ -2008,7 +2008,7 @@ define hidden noundef zeroext i1 @_ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7
 
 26:                                               ; preds = %14
   %27 = lshr i32 %1, 12
-  %28 = trunc nuw i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = or disjoint i8 %28, -32
   store i8 %29, ptr %3, align 4, !alias.scope !266, !noalias !263
   %30 = lshr i32 %1, 6

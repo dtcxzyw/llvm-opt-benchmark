@@ -8811,7 +8811,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %90, %92
   call void @llvm.experimental.noalias.scope.decl(metadata !457)
   store ptr %.0, ptr %0, align 8, !tbaa !443, !alias.scope !457
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.tr.i = trunc nuw i64 %64 to i32
+  %.tr.i = trunc nuw nsw i64 %64 to i32
   %100 = shl nuw nsw i32 %.tr.i, 3
   %101 = call noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %.val.val.val, i32 noundef %100) #21, !noalias !457
   store ptr %101, ptr %99, align 8, !tbaa !445, !alias.scope !457

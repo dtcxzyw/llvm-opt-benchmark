@@ -1937,7 +1937,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i:  ; preds = %._crit_edge
 
 _ZN4llvm15SmallVectorImplIiE6assignIPKivEEvT_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i, %22
   %25 = phi i32 [ 0, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i ], [ %.pre.i.i, %22 ]
-  %26 = trunc i64 %.sroa.7.0.lcssa to i32
+  %26 = trunc nuw i64 %.sroa.7.0.lcssa to i32
   %27 = add i32 %25, %26
   store i32 %27, ptr %15, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 160

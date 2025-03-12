@@ -1630,7 +1630,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %37, i64 -100
   %54 = load i32, ptr %53, align 4, !tbaa !107
-  %55 = trunc nuw i64 %51 to i32
+  %55 = trunc nuw nsw i64 %51 to i32
   %56 = and i32 %55, 1008
   %57 = and i32 %55, 15
   %58 = icmp eq i32 %57, 0
@@ -3419,7 +3419,7 @@ zend_parse_arg_array_ht.exit:                     ; preds = %31, %15, %zend_pars
 
 52:                                               ; preds = %49
   %53 = load i32, ptr %50, align 4, !tbaa !107
-  %54 = trunc nuw i64 %51 to i32
+  %54 = trunc nuw nsw i64 %51 to i32
   %55 = and i32 %54, 1008
   %56 = and i32 %54, 15
   %57 = icmp eq i32 %56, 0
@@ -5292,7 +5292,7 @@ pdo_stmt_free_default_fetch_mode.exit:            ; preds = %5, %12, %20, %21, %
   br i1 %or.cond.i, label %.critedge.sink.split.i, label %41
 
 41:                                               ; preds = %pdo_stmt_free_default_fetch_mode.exit
-  %42 = trunc nuw i64 %1 to i32
+  %42 = trunc nuw nsw i64 %1 to i32
   %43 = and i32 %42, 15
   %44 = icmp eq i32 %43, 0
   %.027.i = select i1 %44, i32 4, i32 %43

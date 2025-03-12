@@ -4659,7 +4659,7 @@ define dso_local void @_ZN5clang6format17WhitespaceManager15generateChangesEv(pt
   %.sroa.653.0.extract.trunc = trunc nuw i64 %.sroa.653.0.extract.shift to i32
   %21 = icmp ne i32 %.sroa.653.0.extract.trunc, %.sroa.052.0.extract.trunc
   %22 = icmp eq i32 %.sroa.6.0.extract.trunc, %.sroa.052.0.extract.trunc
-  %or.cond = or i1 %21, %22
+  %or.cond = select i1 %21, i1 true, i1 %22
   br i1 %or.cond, label %.critedge2, label %.critedge28
 
 .critedge28:                                      ; preds = %20, %13, %10

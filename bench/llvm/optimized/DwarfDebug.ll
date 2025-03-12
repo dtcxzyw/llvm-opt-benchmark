@@ -11759,7 +11759,7 @@ _ZNK4llvm14DebugLocStream10getEntriesERKNS0_4ListE.exit: ; preds = %62, %65
   br i1 %.not.i, label %116, label %114
 
 114:                                              ; preds = %113
-  %115 = trunc nuw i64 %111 to i32
+  %115 = trunc nuw nsw i64 %111 to i32
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %91, i32 noundef %115) #29
   br label %117
 
@@ -24076,7 +24076,7 @@ define dso_local void @_ZN4llvm10DwarfDebug25emitDebugLocEntryLocationERKNS_14De
   br i1 %.not, label %43, label %41
 
 41:                                               ; preds = %40
-  %42 = trunc nuw i64 %38 to i32
+  %42 = trunc nuw nsw i64 %38 to i32
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %15, i32 noundef %42) #29
   br label %44
 
@@ -25009,7 +25009,7 @@ _ZN4llvm10DwarfDebug15getSectionLabelEPKNS_9MCSectionE.exit.i.i: ; preds = %.lr.
   br i1 %.not.i.i.i, label %503, label %501
 
 501:                                              ; preds = %500
-  %502 = trunc nuw i64 %498 to i32
+  %502 = trunc nuw nsw i64 %498 to i32
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %478, i32 noundef %502) #29
   br label %504
 

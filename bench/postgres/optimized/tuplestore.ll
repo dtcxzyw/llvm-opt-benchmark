@@ -1442,7 +1442,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br i1 %.not39, label %29, label %26
 
 26:                                               ; preds = %19
-  %27 = trunc i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = add i32 %23, %27
   store i32 %28, ptr %22, align 8
   br label %.loopexit
@@ -1481,7 +1481,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %36
-  %45 = trunc i64 %.034 to i32
+  %45 = trunc nuw nsw i64 %.034 to i32
   %46 = sub i32 %37, %45
   store i32 %46, ptr %38, align 8
   br label %.loopexit

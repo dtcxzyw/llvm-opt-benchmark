@@ -4537,7 +4537,7 @@ _ZNK5clang4Type19isFunctionProtoTypeEv.exit:      ; preds = %_ZNK5clang9FPOption
 
 440:                                              ; preds = %431
   %441 = and i32 %435, -268427265
-  %indvars.iv168.tr = trunc nuw i64 %indvars.iv168 to i32
+  %indvars.iv168.tr = trunc nuw nsw i64 %indvars.iv168 to i32
   %442 = shl nuw nsw i32 %indvars.iv168.tr, 20
   %443 = or disjoint i32 %441, %442
   store i32 %443, ptr %434, align 8
@@ -31509,7 +31509,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread80:       ; preds = %25, %_ZN4llvmneENS_
   br i1 %44, label %_ZNK5clang14TypoCorrection15getEditDistanceEb.exit, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZNK5clang14TypoCorrection15getEditDistanceEb.exit: ; preds = %38
-  %45 = trunc nuw i32 %43 to i16
+  %45 = trunc nuw nsw i32 %43 to i16
   %.lhs.trunc.i.i = add nuw nsw i16 %45, 50
   %46 = udiv i16 %.lhs.trunc.i.i, 100
   %47 = zext nneg i16 %46 to i64
@@ -32391,7 +32391,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5clang14TypoCorrection15getEditDista
   br i1 %brmerge.not, label %_ZN5clang14TypoCorrection21NormalizeEditDistanceEj.exit, label %23
 
 _ZN5clang14TypoCorrection21NormalizeEditDistanceEj.exit: ; preds = %14
-  %21 = trunc nuw i32 %19 to i16
+  %21 = trunc nuw nsw i32 %19 to i16
   %.lhs.trunc.i = add nuw nsw i16 %21, 50
   %22 = udiv i16 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i16 %22 to i32
@@ -34660,7 +34660,7 @@ _ZN5clang14TypoCorrectionC2ERKS0_.exit:           ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %145, label %_ZN5clang14TypoCorrection21NormalizeEditDistanceEj.exit.i, label %_ZNK5clang14TypoCorrection15getEditDistanceEb.exit
 
 _ZN5clang14TypoCorrection21NormalizeEditDistanceEj.exit.i: ; preds = %141
-  %146 = trunc nuw i32 %144 to i16
+  %146 = trunc nuw nsw i32 %144 to i16
   %.lhs.trunc.i.i = add nuw nsw i16 %146, 50
   %147 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %147 to i32
@@ -38157,7 +38157,7 @@ _ZN5clang22TypoCorrectionConsumer19getBestEditDistanceEb.exit.thread: ; preds = 
   br label %113
 
 _ZN5clang22TypoCorrectionConsumer19getBestEditDistanceEb.exit: ; preds = %97
-  %107 = trunc nuw i32 %101 to i16
+  %107 = trunc nuw nsw i32 %101 to i16
   %.lhs.trunc.i.i = add nuw nsw i16 %107, 50
   %108 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %108 to i32
@@ -38474,7 +38474,7 @@ _ZN5clang4Sema16FailedCorrectionEPNS_14IdentifierInfoENS_14SourceLocationEb.exit
   br i1 %235, label %_ZN5clang14TypoCorrection21NormalizeEditDistanceEj.exit.i, label %_ZNK5clang14TypoCorrection15getEditDistanceEb.exit
 
 _ZN5clang14TypoCorrection21NormalizeEditDistanceEj.exit.i: ; preds = %229
-  %236 = trunc nuw i32 %234 to i16
+  %236 = trunc nuw nsw i32 %234 to i16
   %.lhs.trunc.i.i108 = add nuw nsw i16 %236, 50
   %237 = udiv i16 %.lhs.trunc.i.i108, 100
   %.zext.i.i109 = zext nneg i16 %237 to i32
@@ -39502,7 +39502,7 @@ _ZN5clang14TypoCorrectionD2Ev.exit40:             ; preds = %163, %_ZNSt6vectorI
   br i1 %178, label %_ZN5clang22TypoCorrectionConsumer19getBestEditDistanceEb.exit, label %179
 
 179:                                              ; preds = %173
-  %180 = trunc nuw i32 %177 to i16
+  %180 = trunc nuw nsw i32 %177 to i16
   %.lhs.trunc.i.i = add nuw nsw i16 %180, 50
   %181 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %181 to i32

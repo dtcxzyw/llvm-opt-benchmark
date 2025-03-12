@@ -481,7 +481,7 @@ cond.exit:                                        ; preds = %87, %92
   br i1 %.wide.i85, label %122, label %._crit_edge.i.i86, !llvm.loop !74
 
 ._crit_edge.i.i86:                                ; preds = %122
-  %128 = trunc i64 %123 to i8
+  %128 = trunc nuw i64 %123 to i8
   store i8 %128, ptr %112, align 2, !tbaa !66
   br label %removevars.exit.i81
 
@@ -611,7 +611,7 @@ checknext.exit.i:                                 ; preds = %154, %cond.exit.i42
   br i1 %.wide.i, label %181, label %._crit_edge.i.i, !llvm.loop !74
 
 ._crit_edge.i.i:                                  ; preds = %181
-  %187 = trunc i64 %182 to i8
+  %187 = trunc nuw i64 %182 to i8
   store i8 %187, ptr %171, align 2, !tbaa !66
   br label %removevars.exit.i
 
@@ -675,7 +675,7 @@ leaveblock.exit:                                  ; preds = %removevars.exit.i, 
   br i1 %.wide.i.i51, label %216, label %._crit_edge.i.i.i52, !llvm.loop !74
 
 ._crit_edge.i.i.i52:                              ; preds = %216
-  %222 = trunc i64 %217 to i8
+  %222 = trunc nuw i64 %217 to i8
   store i8 %222, ptr %206, align 2, !tbaa !66
   br label %removevars.exit.i.i46
 
@@ -975,7 +975,7 @@ adjust_assign.exit:                               ; preds = %311, %314, %316, %3
   br i1 %.wide.i.i39, label %341, label %._crit_edge.i.i.i40, !llvm.loop !74
 
 ._crit_edge.i.i.i40:                              ; preds = %341
-  %347 = trunc i64 %342 to i8
+  %347 = trunc nuw i64 %342 to i8
   store i8 %347, ptr %331, align 2, !tbaa !66
   br label %removevars.exit.i.i35
 
@@ -1081,7 +1081,7 @@ cond.exit.i:                                      ; preds = %367, %357
   br i1 %.wide.i.i, label %390, label %._crit_edge.i.i.i, !llvm.loop !74
 
 ._crit_edge.i.i.i:                                ; preds = %390
-  %396 = trunc i64 %391 to i8
+  %396 = trunc nuw i64 %391 to i8
   store i8 %396, ptr %380, align 2, !tbaa !66
   br label %removevars.exit.i.i
 
@@ -1193,7 +1193,7 @@ breakstat.exit.i:                                 ; preds = %417, %.critedge.i.i
   br i1 %.wide.i27.i, label %443, label %._crit_edge.i.i28.i, !llvm.loop !74
 
 ._crit_edge.i.i28.i:                              ; preds = %443
-  %449 = trunc i64 %444 to i8
+  %449 = trunc nuw i64 %444 to i8
   store i8 %449, ptr %433, align 2, !tbaa !66
   br label %removevars.exit.i23.i
 
@@ -1259,7 +1259,7 @@ leaveblock.exit29.i:                              ; preds = %452, %removevars.ex
   br i1 %.wide.i36.i, label %480, label %._crit_edge.i.i37.i, !llvm.loop !74
 
 ._crit_edge.i.i37.i:                              ; preds = %480
-  %486 = trunc i64 %481 to i8
+  %486 = trunc nuw i64 %481 to i8
   store i8 %486, ptr %470, align 2, !tbaa !66
   br label %removevars.exit.i32.i
 
@@ -2056,7 +2056,7 @@ define internal fastcc void @block(ptr noundef nonnull %0) unnamed_addr #0 {
   br i1 %.wide.i, label %31, label %._crit_edge.i.i, !llvm.loop !74
 
 ._crit_edge.i.i:                                  ; preds = %31
-  %37 = trunc i64 %32 to i8
+  %37 = trunc nuw i64 %32 to i8
   store i8 %37, ptr %21, align 2, !tbaa !66
   br label %removevars.exit.i
 
@@ -3976,7 +3976,7 @@ adjustlocalvars.exit32:                           ; preds = %58, %37
   br i1 %.wide.i41, label %91, label %._crit_edge.i.i42, !llvm.loop !74
 
 ._crit_edge.i.i42:                                ; preds = %91
-  %97 = trunc i64 %92 to i8
+  %97 = trunc nuw i64 %92 to i8
   store i8 %97, ptr %81, align 2, !tbaa !66
   br label %removevars.exit.i37
 
@@ -4037,7 +4037,7 @@ leaveblock.exit43:                                ; preds = %removevars.exit.i37
   br i1 %.wide.i, label %125, label %._crit_edge.i.i, !llvm.loop !74
 
 ._crit_edge.i.i:                                  ; preds = %125
-  %131 = trunc i64 %126 to i8
+  %131 = trunc nuw i64 %126 to i8
   store i8 %131, ptr %115, align 2, !tbaa !66
   br label %removevars.exit.i
 

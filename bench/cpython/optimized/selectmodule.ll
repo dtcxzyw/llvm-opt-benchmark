@@ -873,7 +873,7 @@ update_ufd_array.exit.i:                          ; preds = %.lr.ph.i.i, %55
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %77 = load i32, ptr %76, align 4, !tbaa !32
   %78 = sext i32 %77 to i64
-  %79 = trunc i64 %spec.store.select.i to i32
+  %79 = trunc nsw i64 %spec.store.select.i to i32
   %80 = call i32 @poll(ptr noundef %75, i64 noundef %78, i32 noundef %79) #8
   call void @PyEval_RestoreThread(ptr noundef %72) #8
   %81 = load i32, ptr %73, align 4, !tbaa !24
@@ -1753,7 +1753,7 @@ define internal ptr @select_epoll_poll(ptr noundef readonly captures(none) %0, p
   %69 = tail call ptr @__errno_location() #9
   store i32 0, ptr %69, align 4, !tbaa !24
   %70 = load i32, ptr %63, align 8, !tbaa !45
-  %71 = trunc i64 %.039.i58 to i32
+  %71 = trunc nsw i64 %.039.i58 to i32
   %72 = call i32 @epoll_wait(i32 noundef %70, ptr noundef nonnull %66, i32 noundef %.036.i, i32 noundef %71) #8
   call void @PyEval_RestoreThread(ptr noundef %68) #8
   %73 = load i32, ptr %69, align 4, !tbaa !24

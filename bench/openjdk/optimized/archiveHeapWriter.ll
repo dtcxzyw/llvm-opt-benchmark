@@ -1822,7 +1822,7 @@ define hidden void @_ZN17ArchiveHeapWriter19ensure_buffer_spaceEm(i64 noundef %0
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
-  %8 = trunc nuw i64 %0 to i32
+  %8 = trunc nuw nsw i64 %0 to i32
   store i8 0, ptr %2, align 1
   %9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %2)
   ret void
@@ -2013,7 +2013,7 @@ define hidden void @_ZN17ArchiveHeapWriter20copy_roots_to_bufferEP18GrowableArra
 
 _ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit: ; preds = %33
   %39 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
-  %40 = trunc nuw i64 %35 to i32
+  %40 = trunc nuw nsw i64 %35 to i32
   store i8 0, ptr %2, align 1
   %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %39, i32 noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
@@ -2179,7 +2179,7 @@ define hidden void @_ZN17ArchiveHeapWriter24maybe_fill_gc_region_gapEm(i64 nound
 
 _ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit: ; preds = %25
   %30 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
-  %31 = trunc nuw i64 %24 to i32
+  %31 = trunc nuw nsw i64 %24 to i32
   store i8 0, ptr %2, align 1
   %32 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %30, i32 noundef %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
@@ -2686,7 +2686,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %23, %26, %33, %53
 
 64:                                               ; preds = %_ZN7oopDesc4sizeEv.exit
   %65 = load ptr, ptr @_ZN17ArchiveHeapWriter7_bufferE, align 8
-  %66 = trunc nuw i64 %60 to i32
+  %66 = trunc nuw nsw i64 %60 to i32
   store i8 0, ptr %2, align 1
   %67 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZN26GrowableArrayWithAllocatorIh18GrowableArrayCHeapIhL8MEMFLAGS13EEE7at_growEiRKh(ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)

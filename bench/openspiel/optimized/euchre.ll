@@ -8732,7 +8732,7 @@ define void @_ZN10open_spiel6euchre11EuchreState18ApplyGoAloneActionEi(ptr nound
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %53, %45
-  %58 = trunc i32 %47 to i8
+  %58 = trunc nsw i32 %47 to i8
   %.lhs.trunc = add nsw i8 %58, 2
   %59 = srem i8 %.lhs.trunc, 4
   %.sext = sext i8 %59 to i32

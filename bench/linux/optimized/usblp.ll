@@ -943,7 +943,7 @@ define internal range(i64 -22, 2147483648) i64 @usblp_read(ptr noundef readonly 
 
 97:                                               ; preds = %._crit_edge, %80
   %98 = phi i32 [ %.pre, %._crit_edge ], [ %83, %80 ]
-  %99 = trunc i64 %86 to i32
+  %99 = trunc nuw nsw i64 %86 to i32
   %100 = add i32 %98, %99
   store i32 %100, ptr %82, align 8
   %101 = icmp eq i32 %100, %73

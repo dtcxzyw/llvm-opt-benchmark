@@ -167,7 +167,7 @@ _ZN11duckdb_zstdL19HUF_compressWeightsEPvmPKvmS0_m.exit: ; preds = %71
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %77
-  %84 = trunc i64 %75 to i8
+  %84 = trunc nuw nsw i64 %75 to i8
   store i8 %84, ptr %0, align 1, !tbaa !3
   %85 = add nuw nsw i64 %75, 1
   br label %.thread70
@@ -257,7 +257,7 @@ define noundef i64 @_ZN11duckdb_zstd14HUF_readCTableEPmPjPKvmS1_(ptr noundef cap
 26:                                               ; preds = %21
   %27 = add i32 %22, -1
   store i32 %27, ptr %1, align 4, !tbaa !11
-  %28 = trunc nuw i32 %19 to i8
+  %28 = trunc nuw nsw i32 %19 to i8
   %29 = trunc i32 %27 to i8
   store i8 %28, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2862,7 +2862,7 @@ _ZN11duckdb_zstd15HUF_cardinalityEPKjj.exit:      ; preds = %.lr.ph.i
   br i1 %or.cond.us, label %.loopexit, label %29
 
 29:                                               ; preds = %25
-  %30 = trunc nsw i64 %23 to i32
+  %30 = trunc nuw nsw i64 %23 to i32
   %31 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %30, ptr noundef %3, i64 noundef %4)
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %_ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us, label %.thread67.us
@@ -2901,7 +2901,7 @@ _ZN11duckdb_zstd26HUF_estimateCompressedSizeEPKmPKjj.exit.us: ; preds = %29
   br i1 %or.cond, label %.loopexit, label %44
 
 44:                                               ; preds = %40
-  %45 = trunc nsw i64 %38 to i32
+  %45 = trunc nuw nsw i64 %38 to i32
   %46 = tail call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %45, ptr noundef %3, i64 noundef %4)
   %47 = icmp ult i64 %46, -119
   br i1 %47, label %.lr.ph.i59, label %.thread67
@@ -3102,7 +3102,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL21HUF_compress_internalEPvm
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %.thread198
-  %83 = trunc nsw i64 %80 to i32
+  %83 = trunc nuw nsw i64 %80 to i32
   %84 = load i32, ptr %13, align 4, !tbaa !11
   %85 = call noundef i64 @_ZN11duckdb_zstd20HUF_writeCTable_wkspEPvmPKmjjS0_m(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %77, i32 noundef %84, i32 noundef %83, ptr noundef nonnull %55, i64 noundef 748)
   %86 = icmp ult i64 %85, -119

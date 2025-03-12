@@ -2483,7 +2483,7 @@ pushtoken.exit76:                                 ; preds = %80
   br label %90
 
 90:                                               ; preds = %pushtoken.exit76, %79
-  %91 = trunc i32 %7 to i8
+  %91 = trunc nuw nsw i32 %7 to i8
   store i8 %91, ptr %3, align 16
   store i8 0, ptr %5, align 1
   %92 = call noalias ptr @g_strdup(ptr noundef nonnull %3)

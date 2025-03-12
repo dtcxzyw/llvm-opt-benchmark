@@ -6525,7 +6525,7 @@ _ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit.i: ; preds = %47, %47
   br i1 %54, label %55, label %60, !prof !41
 
 55:                                               ; preds = %.noexc39
-  %56 = trunc nuw i64 %53 to i32
+  %56 = trunc nuw nsw i64 %53 to i32
   %57 = invoke i32 @BIO_write(ptr noundef %52, ptr noundef nonnull %50, i32 noundef %56)
           to label %.noexc40 unwind label %.loopexit.split-lp
 

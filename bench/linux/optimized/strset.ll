@@ -739,7 +739,7 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
 
 100:                                              ; preds = %88
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  %101 = trunc i64 %89 to i32
+  %101 = trunc nuw i64 %89 to i32
   store i32 %101, ptr %4, align 4
   %102 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8

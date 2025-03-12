@@ -2000,7 +2000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i.i.i: ; pr
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i
 
 693:                                              ; preds = %._crit_edge.i.i54.i.i
-  %694 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %694 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   %695 = or disjoint i8 %694, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i
 

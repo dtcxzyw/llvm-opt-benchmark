@@ -6373,7 +6373,7 @@ rb_array_len.exit.i.thread:                       ; preds = %16
   unreachable
 
 28:                                               ; preds = %rb_array_len.exit.i
-  %29 = trunc i64 %21 to i32
+  %29 = trunc nsw i64 %21 to i32
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %31 = load ptr, ptr %30, align 8, !tbaa !44
   br label %rb_array_const_ptr.exit
@@ -7320,10 +7320,10 @@ define internal noundef i64 @lazy_init_iterator(i64 noundef %0, i64 noundef %1, 
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %12
-  %17 = trunc i64 %14 to i32
+  %17 = trunc nsw i64 %14 to i32
   %sext = shl i64 %14, 32
   %18 = ashr exact i64 %sext, 32
-  %19 = icmp ult i32 %17, 128
+  %19 = icmp ult i64 %14, 128
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %rb_long2int_inline.exit
@@ -7891,7 +7891,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
   unreachable
 
 23:                                               ; preds = %rb_array_len.exit.i.i
-  %24 = trunc i64 %16 to i32
+  %24 = trunc nsw i64 %16 to i32
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !44
   br label %lazyenum_yield_values.exit
@@ -7966,7 +7966,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %12
   unreachable
 
 25:                                               ; preds = %rb_array_len.exit.i.i
-  %26 = trunc i64 %18 to i32
+  %26 = trunc nsw i64 %18 to i32
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !44
   br label %lazyenum_yield_values.exit
@@ -8315,7 +8315,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
   unreachable
 
 23:                                               ; preds = %rb_array_len.exit.i.i
-  %24 = trunc i64 %16 to i32
+  %24 = trunc nsw i64 %16 to i32
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !44
   br label %lazyenum_yield_values.exit
@@ -8925,7 +8925,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %10
   unreachable
 
 23:                                               ; preds = %rb_array_len.exit.i.i
-  %24 = trunc i64 %16 to i32
+  %24 = trunc nsw i64 %16 to i32
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !44
   br label %lazyenum_yield_values.exit
@@ -9136,7 +9136,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %19
   unreachable
 
 32:                                               ; preds = %rb_array_len.exit.i.i
-  %33 = trunc i64 %25 to i32
+  %33 = trunc nsw i64 %25 to i32
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !44
   br label %lazyenum_yield_values.exit
@@ -9591,7 +9591,7 @@ rb_array_len.exit.i:                              ; preds = %16, %13
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
-  %21 = trunc i64 %.0.i.i to i32
+  %21 = trunc nsw i64 %.0.i.i to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #18
   store i64 %0, ptr %3, align 8, !tbaa !114
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8

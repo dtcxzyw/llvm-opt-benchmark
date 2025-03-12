@@ -17790,7 +17790,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14RISCVInstrInfo17verifyInstructio
   ]
 
 _ZN4llvm14RISCVFPRndModeL19isValidRoundingModeEj.exit: ; preds = %164
-  %175 = trunc nuw i64 %33 to i32
+  %175 = trunc nuw nsw i64 %33 to i32
   %176 = shl nuw i32 1, %175
   %177 = add i32 %176, -8
   %178 = icmp ult i32 %177, 57

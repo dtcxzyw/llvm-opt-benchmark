@@ -403,7 +403,7 @@ cleanup.done:                                     ; preds = %entry
   br i1 %cmp26, label %if.then, label %if.end
 
 if.then:                                          ; preds = %cleanup.done
-  %4 = trunc i64 %value to i8
+  %4 = trunc nuw i64 %value to i8
   %conv28 = or i8 %instruction, %4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %byte.addr.i)
   store i8 %conv28, ptr %byte.addr.i, align 1

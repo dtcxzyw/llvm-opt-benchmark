@@ -1010,7 +1010,7 @@ define dso_local noundef i32 @_ZNK9Stockfish6OptioncviEv(ptr noundef nonnull ali
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %20, %22
-  %23 = trunc i64 %11 to i32
+  %23 = trunc nsw i64 %11 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %28
 

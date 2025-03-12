@@ -1164,7 +1164,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit91:       ; preds = %_ZNK6icu_7713Unicod
 
 87:                                               ; preds = %85
   %88 = and i16 %66, 31
-  %.tr.i.i.i = trunc nuw i32 %67 to i16
+  %.tr.i.i.i = trunc nuw nsw i32 %67 to i16
   %89 = shl nuw nsw i16 %.tr.i.i.i, 5
   %90 = or disjoint i16 %89, %88
   store i16 %90, ptr %17, align 8, !tbaa !21

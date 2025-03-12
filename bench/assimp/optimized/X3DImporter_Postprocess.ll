@@ -543,7 +543,7 @@ define hidden void @_ZNK6Assimp11X3DImporter22Postprocess_BuildLightERK18X3DNode
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = trunc nuw i64 %16 to i32
+  %20 = trunc nuw nsw i64 %16 to i32
   store i32 %20, ptr %8, align 4
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %22 = load ptr, ptr %19, align 8
@@ -4665,7 +4665,7 @@ define hidden void @_ZNK6Assimp11X3DImporter21Postprocess_BuildNodeERK18X3DNodeE
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %57 = trunc nuw i64 %53 to i32
+  %57 = trunc nuw nsw i64 %53 to i32
   store i32 %57, ptr %48, align 4
   %58 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %59 = load ptr, ptr %56, align 8
@@ -5164,7 +5164,7 @@ define hidden void @_ZNK6Assimp11X3DImporter27Postprocess_CollectMetadataERK18X3
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw %struct.aiString, ptr %84, i64 %80
-  %86 = trunc nuw i64 %77 to i32
+  %86 = trunc nuw nsw i64 %77 to i32
   store i32 %86, ptr %85, align 4
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %88 = load ptr, ptr %69, align 8
@@ -5235,7 +5235,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; 
   %120 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw %struct.aiString, ptr %121, i64 %117
-  %123 = trunc nuw i64 %114 to i32
+  %123 = trunc nuw nsw i64 %114 to i32
   store i32 %123, ptr %122, align 4
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %125 = load ptr, ptr %108, align 8
@@ -5315,7 +5315,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i53: 
   %160 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw %struct.aiString, ptr %161, i64 %157
-  %163 = trunc nuw i64 %154 to i32
+  %163 = trunc nuw nsw i64 %154 to i32
   store i32 %163, ptr %162, align 4
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %165 = load ptr, ptr %150, align 8
@@ -5398,7 +5398,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i59: 
   %203 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds nuw %struct.aiString, ptr %204, i64 %200
-  %206 = trunc nuw i64 %197 to i32
+  %206 = trunc nuw nsw i64 %197 to i32
   store i32 %206, ptr %205, align 4
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %208 = load ptr, ptr %193, align 8
@@ -5562,7 +5562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %271 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr inbounds nuw %struct.aiString, ptr %272, i64 %268
-  %274 = trunc nuw i64 %265 to i32
+  %274 = trunc nuw nsw i64 %265 to i32
   store i32 %274, ptr %273, align 4
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 4
   %276 = load ptr, ptr %261, align 8

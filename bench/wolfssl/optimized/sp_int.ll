@@ -22,7 +22,7 @@ define range(i32 -98, 1) i32 @sp_init_size(ptr noundef writeonly captures(addres
   store i16 0, ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %7, align 8, !tbaa !8
-  %8 = trunc nuw i32 %1 to i16
+  %8 = trunc nuw nsw i32 %1 to i16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %8, ptr %9, align 2, !tbaa !10
   br label %10
@@ -3684,7 +3684,7 @@ _sp_sub_off.exit:                                 ; preds = %_sp_sub_off.exit.si
   br i1 %130, label %131, label %sp_lshb.exit.thread242
 
 131:                                              ; preds = %129
-  %132 = trunc nuw i32 %4 to i16
+  %132 = trunc nuw nsw i32 %4 to i16
   br label %133
 
 133:                                              ; preds = %131, %133
@@ -3707,7 +3707,7 @@ _sp_sub_off.exit:                                 ; preds = %_sp_sub_off.exit.si
   store i16 0, ptr %140, align 8, !tbaa !3
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i64 0, ptr %143, align 8, !tbaa !8
-  %144 = trunc nuw i32 %4 to i16
+  %144 = trunc nuw nsw i32 %4 to i16
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 2
   store i16 %144, ptr %145, align 2, !tbaa !10
   %146 = add i16 %11, 2
@@ -10865,7 +10865,7 @@ sp_count_bits.exit:                               ; preds = %10, %.lr.ph36.i, %5
   %45 = load i64, ptr %44, align 8, !tbaa !8
   %46 = or i64 %45, %42
   store i64 %46, ptr %44, align 8, !tbaa !8
-  %47 = trunc i32 %36 to i16
+  %47 = trunc nuw i32 %36 to i16
   %48 = add nuw i16 %47, 1
   store i16 %48, ptr %0, align 8, !tbaa !12
   %.not.i41 = icmp ult i16 %48, %32
@@ -11086,7 +11086,7 @@ define range(i32 -98, 1) i32 @sp_read_unsigned_bin(ptr noundef captures(address_
 14:                                               ; preds = %8
   %15 = add nuw nsw i32 %2, 7
   %16 = lshr i32 %15, 3
-  %17 = trunc i32 %16 to i16
+  %17 = trunc nuw i32 %16 to i16
   store i16 %17, ptr %0, align 8, !tbaa !12
   %18 = add nsw i32 %2, -1
   %19 = icmp samesign ugt i32 %2, 7
@@ -11235,7 +11235,7 @@ default.unreachable:                              ; preds = %65
   unreachable
 
 110:                                              ; preds = %106, %._crit_edge
-  %.not.i = icmp eq i16 %17, 0
+  %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %sp_clamp_ct.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %110

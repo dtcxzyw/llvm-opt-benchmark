@@ -31698,7 +31698,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %1701
 
 1701:                                             ; preds = %1700, %1698
-  %1702 = trunc i64 %1680 to i32
+  %1702 = trunc nsw i64 %1680 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #34
   %1703 = load ptr, ptr %115, align 8
   %1704 = icmp eq ptr %1703, %1304
@@ -65822,7 +65822,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %153, %151, %147, %1
   br label %190
 
 187:                                              ; preds = %._crit_edge.i.i72
-  %188 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %188 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %189 = or disjoint i8 %188, 48
   br label %190
 

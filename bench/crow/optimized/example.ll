@@ -19481,7 +19481,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %29, %27, %23, %19, 
   br label %68
 
 65:                                               ; preds = %._crit_edge.i.i6
-  %66 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %66 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %67 = or disjoint i8 %66, 48
   br label %68
 
@@ -23530,7 +23530,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %108, %106, %102, %9
   br label %_ZNSt7__cxx119to_stringEl.exit
 
 144:                                              ; preds = %._crit_edge.i.i
-  %145 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %145 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %146 = or disjoint i8 %145, 48
   br label %_ZNSt7__cxx119to_stringEl.exit
 
@@ -23697,7 +23697,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i144: ; preds = %185, %183, %179, %1
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 221:                                              ; preds = %._crit_edge.i.i146
-  %222 = trunc nuw i64 %.0.lcssa.i.i147 to i8
+  %222 = trunc nuw nsw i64 %.0.lcssa.i.i147 to i8
   %223 = or disjoint i8 %222, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -37747,7 +37747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i.i.
   br label %"_ZZZ4mainENK3$_0clEiiENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES5_.exit.i.i"
 
 74:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %75 = trunc nuw i32 %.0.lcssa.i.i.i.i.i to i8
+  %75 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i to i8
   %76 = or disjoint i8 %75, 48
   br label %"_ZZZ4mainENK3$_0clEiiENKUlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE_clES5_.exit.i.i"
 
@@ -46162,7 +46162,7 @@ define linkonce_odr dso_local void @_ZNK4crow4json6rvalue8unescapeEv(ptr noundef
 
 76:                                               ; preds = %74
   %77 = lshr i32 %58, 6
-  %78 = trunc nuw i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   %79 = or disjoint i8 %78, -64
   %80 = getelementptr inbounds nuw i8, ptr %.03446, i64 1
   store i8 %79, ptr %.03446, align 1, !tbaa !14
@@ -60362,7 +60362,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %62, %60, %56, %52, 
   br label %101
 
 98:                                               ; preds = %._crit_edge.i.i14
-  %99 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %99 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %100 = or disjoint i8 %99, 48
   br label %101
 
@@ -104651,7 +104651,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %724, %722, %718, %7
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 760:                                              ; preds = %._crit_edge.i.i297
-  %761 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %761 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %762 = or disjoint i8 %761, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 

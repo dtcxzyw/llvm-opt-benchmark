@@ -2753,7 +2753,7 @@ _ZSt8_DestroyIPN3nix8DirEntryES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZNSt7__cxx1
   br label %71
 
 71:                                               ; preds = %70, %68
-  %72 = trunc i64 %52 to i32
+  %72 = trunc nsw i64 %52 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i32 %72, ptr %8, align 4
   %73 = load ptr, ptr %26, align 8

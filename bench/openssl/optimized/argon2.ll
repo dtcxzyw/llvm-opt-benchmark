@@ -1515,7 +1515,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
 
 43:                                               ; preds = %74, %.lr.ph.i4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i, %74 ]
-  %indvars25 = trunc i64 %indvars.iv.i to i32
+  %indvars25 = trunc nuw i64 %indvars.iv.i to i32
   %44 = load i32, ptr %2, align 8, !tbaa !17
   %45 = zext i32 %44 to i64
   %.not.i5 = icmp samesign ult i64 %indvars.iv.i, %45
@@ -1558,7 +1558,7 @@ define internal fastcc range(i32 0, 2) i32 @fill_memory_blocks(ptr noundef %0) u
   br i1 %65, label %.preheader.i8, label %74
 
 .preheader.i8:                                    ; preds = %._crit_edge125.i
-  %.not104.i = icmp eq i32 %indvars25, 0
+  %.not104.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not104.i, label %.loopexit.i.thread, label %.lr.ph99.preheader.i
 
 .lr.ph99.preheader.i:                             ; preds = %.preheader.i8

@@ -4747,7 +4747,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split.us:     ; preds = %_ZN4llvm5SDLocC2EPK
 
 44:                                               ; preds = %55, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 2, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split.us ]
-  %45 = trunc i64 %indvars.iv to i16
+  %45 = trunc nuw nsw i64 %indvars.iv to i16
   %.not.i.i.i.us = icmp eq i16 %.sroa.0.0.copyload.i.i, %45
   br i1 %.not.i.i.i.us, label %_ZNK4llvm3EVT6bitsGEES0_.exit.thread.us, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us
 
@@ -4813,7 +4813,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us:          ; preds = %_ZNK4llvm3EVT6bitsG
 
 _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split:        ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split.preheader, %69
   %indvars.iv87 = phi i64 [ 2, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit.split.preheader ], [ %indvars.iv.next88, %69 ]
-  %59 = trunc i64 %indvars.iv87 to i16
+  %59 = trunc nuw nsw i64 %indvars.iv87 to i16
   %.not.i.i.i = icmp eq i16 %.sroa.0.0.copyload.i.i, %59
   br i1 %.not.i.i.i, label %_ZNK4llvm3EVT6bitsGEES0_.exit.thread, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i
 
@@ -7626,7 +7626,7 @@ define internal fastcc noundef i32 @_ZL18findFPToIntLibcallN4llvm3EVTES0_RS0_b(i
 
 _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us.us:    ; preds = %.split.us, %20
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %20 ], [ 2, %.split.us ]
-  %12 = trunc i64 %indvars.iv66 to i16
+  %12 = trunc nuw nsw i64 %indvars.iv66 to i16
   store i16 %12, ptr %4, align 8, !tbaa !52
   store ptr null, ptr %.sroa.429.0..sroa_idx, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -7670,7 +7670,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us.us:       ; preds = %_ZNK4llvm3EVT6bitsG
 
 .split.us.split:                                  ; preds = %.split.us, %31
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %31 ], [ 2, %.split.us ]
-  %24 = trunc i64 %indvars.iv63 to i16
+  %24 = trunc nuw nsw i64 %indvars.iv63 to i16
   store i16 %24, ptr %4, align 8, !tbaa !52
   store ptr null, ptr %.sroa.429.0..sroa_idx, align 8, !tbaa !54
   %.not.i.i.i.us = icmp eq i16 %.fr, %24
@@ -7718,7 +7718,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us:          ; preds = %_ZNK4llvm3EVT6bitsG
 
 _ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i.us39:     ; preds = %.split, %43
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %43 ], [ 2, %.split ]
-  %35 = trunc i64 %indvars.iv60 to i16
+  %35 = trunc nuw nsw i64 %indvars.iv60 to i16
   store i16 %35, ptr %4, align 8, !tbaa !52
   store ptr null, ptr %.sroa.429.0..sroa_idx, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -7766,7 +7766,7 @@ _ZNK4llvm3EVT6bitsGEES0_.exit.thread.us50:        ; preds = %_ZNK4llvm3EVT6bitsG
 
 .split.split:                                     ; preds = %.split, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 2, %.split ]
-  %47 = trunc i64 %indvars.iv to i16
+  %47 = trunc nuw nsw i64 %indvars.iv to i16
   store i16 %47, ptr %4, align 8, !tbaa !52
   store ptr null, ptr %.sroa.429.0..sroa_idx, align 8, !tbaa !54
   %.not.i.i.i = icmp eq i16 %.fr, %47

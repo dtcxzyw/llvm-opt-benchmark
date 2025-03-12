@@ -70,7 +70,7 @@ define internal fastcc noundef nonnull ptr @unicode_to_utf8(i32 noundef range(i3
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %1, align 1
   %12 = trunc i32 %0 to i8
@@ -86,7 +86,7 @@ define internal fastcc noundef nonnull ptr @unicode_to_utf8(i32 noundef range(i3
 
 18:                                               ; preds = %16
   %19 = lshr i32 %0, 12
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %1, align 1
   %22 = lshr i32 %0, 6

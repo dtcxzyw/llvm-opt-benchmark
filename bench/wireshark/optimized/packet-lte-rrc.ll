@@ -59537,7 +59537,7 @@ define internal i32 @dissect_lte_rrc_MCC_MNC_Digit(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %13, label %16
 
 13:                                               ; preds = %5
-  %14 = trunc nuw i32 %11 to i8
+  %14 = trunc nuw nsw i32 %11 to i8
   %15 = or disjoint i8 %14, 48
   call void @wmem_strbuf_append_c(ptr noundef nonnull %9, i8 noundef signext %15)
   br label %16

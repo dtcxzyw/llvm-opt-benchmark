@@ -142,7 +142,7 @@ define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %0, ptr nou
 
 10:                                               ; preds = %8
   %11 = lshr i32 %0, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %1, align 1, !tbaa !8
   %14 = trunc i32 %0 to i8
@@ -158,7 +158,7 @@ define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %0, ptr nou
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %1, align 1, !tbaa !8
   %24 = lshr i32 %0, 6
@@ -180,7 +180,7 @@ define hidden range(i32 0, 5) i32 @PyExpat_XmlUtf8Encode(i32 noundef %0, ptr nou
 
 35:                                               ; preds = %33
   %36 = lshr i32 %0, 18
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -16
   store i8 %38, ptr %1, align 1, !tbaa !8
   %39 = lshr i32 %0, 12
@@ -309,7 +309,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   br i1 %or.cond, label %.critedge, label %29
 
 29:                                               ; preds = %27
-  %30 = trunc i32 %18 to i8
+  %30 = trunc nsw i32 %18 to i8
   %31 = sub nsw i8 3, %30
   %32 = getelementptr [256 x i8], ptr %5, i64 0, i64 %indvars.iv119
   store i8 %31, ptr %32, align 1, !tbaa !8
@@ -345,7 +345,7 @@ define hidden noundef ptr @PyExpat_XmlInitUnknownEncoding(ptr noundef writeonly 
   %46 = getelementptr i8, ptr %44, i64 1
   store i8 %45, ptr %46, align 1, !tbaa !8
   %47 = icmp eq i32 %18, 0
-  %48 = trunc nuw i32 %18 to i16
+  %48 = trunc nuw nsw i32 %18 to i16
   %49 = select i1 %47, i16 -1, i16 %48
   %50 = getelementptr [256 x i16], ptr %6, i64 0, i64 %indvars.iv119
   store i16 %49, ptr %50, align 2, !tbaa !11
@@ -446,13 +446,13 @@ checkCharRefNumber.exit:                          ; preds = %58, %53, %51
 
 100:                                              ; preds = %96
   %101 = lshr i32 %18, 6
-  %102 = trunc nuw i32 %101 to i8
+  %102 = trunc nuw nsw i32 %101 to i8
   %103 = or disjoint i8 %102, -64
   br label %PyExpat_XmlUtf8Encode.exit
 
 104:                                              ; preds = %96
   %105 = lshr i32 %18, 12
-  %106 = trunc nuw i32 %105 to i8
+  %106 = trunc nuw nsw i32 %105 to i8
   %107 = or disjoint i8 %106, -32
   %108 = lshr i32 %18, 6
   %109 = trunc i32 %18 to i8
@@ -690,7 +690,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
 
 37:                                               ; preds = %35
   %38 = lshr i32 %29, 6
-  %39 = trunc nuw i32 %38 to i8
+  %39 = trunc nuw nsw i32 %38 to i8
   %40 = or disjoint i8 %39, -64
   store i8 %40, ptr %6, align 1, !tbaa !8
   %41 = trunc i32 %29 to i8
@@ -705,7 +705,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
 
 46:                                               ; preds = %44
   %47 = lshr i32 %29, 12
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -32
   store i8 %49, ptr %6, align 1, !tbaa !8
   %50 = lshr i32 %29, 6
@@ -725,7 +725,7 @@ define internal range(i32 0, 3) i32 @unknown_toUtf8(ptr noundef readonly capture
 
 59:                                               ; preds = %57
   %60 = lshr i32 %29, 18
-  %61 = trunc nuw i32 %60 to i8
+  %61 = trunc nuw nsw i32 %60 to i8
   %62 = or disjoint i8 %61, -16
   store i8 %62, ptr %6, align 1, !tbaa !8
   %63 = lshr i32 %29, 12

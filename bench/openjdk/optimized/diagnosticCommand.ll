@@ -3193,7 +3193,7 @@ define hidden void @_ZN12HeapDumpDCmd7executeE10DCmdSourceP10JavaThread(ptr noun
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = trunc i64 %.08 to i32
+  %45 = trunc nsw i64 %.08 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 275
   %47 = load i8, ptr %46, align 1
   %48 = trunc i8 %47 to i1

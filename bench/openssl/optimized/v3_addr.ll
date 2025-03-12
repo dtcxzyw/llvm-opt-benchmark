@@ -527,7 +527,7 @@ define internal fastcc range(i32 0, 2) i32 @make_addressPrefix(ptr noundef nonnu
   %32 = getelementptr i8, ptr %30, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -1
   %34 = load i8, ptr %33, align 1, !tbaa !16
-  %35 = trunc i32 %27 to i8
+  %35 = trunc nsw i32 %27 to i8
   %36 = and i8 %34, %35
   store i8 %36, ptr %33, align 1, !tbaa !16
   br label %37

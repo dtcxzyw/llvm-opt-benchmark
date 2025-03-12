@@ -385,7 +385,7 @@ define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 
 LzmaDec_UpdateWithUncompressed.exit:              ; preds = %._crit_edge.i, %123, %128
   %129 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %125, %128 ], [ %125, %123 ]
-  %130 = trunc i64 %113 to i32
+  %130 = trunc nuw i64 %113 to i32
   %131 = add i32 %129, %130
   store i32 %131, ptr %.phi.trans.insert.i, align 8, !tbaa !30
   %132 = load i64, ptr %7, align 8, !tbaa !18

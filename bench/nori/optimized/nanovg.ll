@@ -45651,7 +45651,7 @@ stbi__get8.exit297.thread:                        ; preds = %193, %stbi__get8.ex
   br label %.loopexit
 
 235:                                              ; preds = %232
-  %.lhs.trunc = trunc nuw i32 %52 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %52 to i16
   %236 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %236 to i32
   %237 = mul nuw nsw i32 %.zext, 3

@@ -6535,7 +6535,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc nuw i16 %2 to i8
+  %conv27 = trunc nuw nsw i16 %2 to i8
   %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv27, ptr %utf8_output.addr.062, align 1
   %inc29 = add i64 %pos.061, 1
@@ -6705,7 +6705,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc nuw i16 %or.i53 to i8
+  %conv27 = trunc nuw nsw i16 %or.i53 to i8
   %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.062, i64 1
   store i8 %conv27, ptr %utf8_output.addr.062, align 1
   %inc29 = add i64 %pos.061, 1
@@ -6873,7 +6873,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc nuw i16 %2 to i8
+  %conv27 = trunc nuw nsw i16 %2 to i8
   %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv27, ptr %utf8_output.addr.066, align 1
   %inc29 = add i64 %pos.065, 1
@@ -7046,7 +7046,7 @@ cond.end21:                                       ; preds = %while.body.cond.end
   br i1 %cmp25, label %if.then26, label %if.else
 
 if.then26:                                        ; preds = %cond.end21
-  %conv27 = trunc nuw i16 %or.i56 to i8
+  %conv27 = trunc nuw nsw i16 %or.i56 to i8
   %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.066, i64 1
   store i8 %conv27, ptr %utf8_output.addr.066, align 1
   %inc29 = add i64 %pos.065, 1
@@ -7210,7 +7210,7 @@ cond.end21.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp25.i, label %if.then26.i, label %if.else.i
 
 if.then26.i:                                      ; preds = %cond.end21.i
-  %conv27.i = trunc nuw i16 %2 to i8
+  %conv27.i = trunc nuw nsw i16 %2 to i8
   %incdec.ptr28.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.060.i, i64 1
   store i8 %conv27.i, ptr %utf8_output.addr.060.i, align 1
   %inc29.i = add i64 %pos.059.i, 1
@@ -7365,7 +7365,7 @@ cond.end21.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp25.i, label %if.then26.i, label %if.else.i
 
 if.then26.i:                                      ; preds = %cond.end21.i
-  %conv27.i = trunc nuw i16 %or.i51.i to i8
+  %conv27.i = trunc nuw nsw i16 %or.i51.i to i8
   %incdec.ptr28.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.060.i, i64 1
   store i8 %conv27.i, ptr %utf8_output.addr.060.i, align 1
   %inc29.i = add i64 %pos.059.i, 1
@@ -7682,7 +7682,7 @@ if.end9:                                          ; preds = %while.body.if.end9_
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end9
-  %conv14 = trunc nuw i32 %2 to i8
+  %conv14 = trunc nuw nsw i32 %2 to i8
   %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv14, ptr %utf8_output.addr.046, align 1
   br label %if.end73
@@ -7693,7 +7693,7 @@ if.else:                                          ; preds = %if.end9
 
 if.then18:                                        ; preds = %if.else
   %shr = lshr i32 %2, 6
-  %3 = trunc nuw i32 %shr to i8
+  %3 = trunc nuw nsw i32 %shr to i8
   %conv19 = or disjoint i8 %3, -64
   %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv19, ptr %utf8_output.addr.046, align 1
@@ -7715,7 +7715,7 @@ if.then29:                                        ; preds = %if.else26
 
 if.end33:                                         ; preds = %if.then29
   %shr34 = lshr i32 %2, 12
-  %7 = trunc nuw i32 %shr34 to i8
+  %7 = trunc nuw nsw i32 %shr34 to i8
   %conv36 = or disjoint i8 %7, -32
   %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv36, ptr %utf8_output.addr.046, align 1
@@ -7738,7 +7738,7 @@ if.else48:                                        ; preds = %if.else26
 
 if.end51:                                         ; preds = %if.else48
   %shr52 = lshr i32 %2, 18
-  %12 = trunc nuw i32 %shr52 to i8
+  %12 = trunc nuw nsw i32 %shr52 to i8
   %conv54 = or disjoint i8 %12, -16
   %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.046, i64 1
   store i8 %conv54, ptr %utf8_output.addr.046, align 1
@@ -7833,7 +7833,7 @@ if.end9:                                          ; preds = %while.body.if.end9_
   br i1 %cmp12, label %if.then13, label %if.else
 
 if.then13:                                        ; preds = %if.end9
-  %conv14 = trunc nuw i32 %2 to i8
+  %conv14 = trunc nuw nsw i32 %2 to i8
   %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv14, ptr %utf8_output.addr.049, align 1
   br label %if.end73
@@ -7844,7 +7844,7 @@ if.else:                                          ; preds = %if.end9
 
 if.then18:                                        ; preds = %if.else
   %shr = lshr i32 %2, 6
-  %3 = trunc nuw i32 %shr to i8
+  %3 = trunc nuw nsw i32 %shr to i8
   %conv19 = or disjoint i8 %3, -64
   %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv19, ptr %utf8_output.addr.049, align 1
@@ -7866,7 +7866,7 @@ if.then29:                                        ; preds = %if.else26
 
 if.end33:                                         ; preds = %if.then29
   %shr34 = lshr i32 %2, 12
-  %7 = trunc nuw i32 %shr34 to i8
+  %7 = trunc nuw nsw i32 %shr34 to i8
   %conv36 = or disjoint i8 %7, -32
   %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv36, ptr %utf8_output.addr.049, align 1
@@ -7889,7 +7889,7 @@ if.else48:                                        ; preds = %if.else26
 
 if.end51:                                         ; preds = %if.else48
   %shr52 = lshr i32 %2, 18
-  %12 = trunc nuw i32 %shr52 to i8
+  %12 = trunc nuw nsw i32 %shr52 to i8
   %conv54 = or disjoint i8 %12, -16
   %incdec.ptr55 = getelementptr inbounds nuw i8, ptr %utf8_output.addr.049, i64 1
   store i8 %conv54, ptr %utf8_output.addr.049, align 1
@@ -7980,7 +7980,7 @@ if.end9.i:                                        ; preds = %if.then.i, %while.b
   br i1 %cmp12.i, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %if.end9.i
-  %conv14.i = trunc nuw i32 %2 to i8
+  %conv14.i = trunc nuw nsw i32 %2 to i8
   %incdec.ptr15.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.042.i, i64 1
   store i8 %conv14.i, ptr %utf8_output.addr.042.i, align 1
   br label %if.end66.i
@@ -7991,7 +7991,7 @@ if.else.i:                                        ; preds = %if.end9.i
 
 if.then18.i:                                      ; preds = %if.else.i
   %shr.i = lshr i32 %2, 6
-  %3 = trunc nuw i32 %shr.i to i8
+  %3 = trunc nuw nsw i32 %shr.i to i8
   %conv19.i = or disjoint i8 %3, -64
   %incdec.ptr20.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.042.i, i64 1
   store i8 %conv19.i, ptr %utf8_output.addr.042.i, align 1
@@ -8010,7 +8010,7 @@ if.else26.i:                                      ; preds = %if.else.i
 
 if.then29.i:                                      ; preds = %if.else26.i
   %shr30.i = lshr i32 %2, 12
-  %6 = trunc nuw i32 %shr30.i to i8
+  %6 = trunc nuw nsw i32 %shr30.i to i8
   %conv32.i = or disjoint i8 %6, -32
   store i8 %conv32.i, ptr %utf8_output.addr.042.i, align 1
   %shr34.i = lshr i32 %2, 6
@@ -19921,7 +19921,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp234.i, label %if.then235.i, label %if.else237.i
 
 if.then235.i:                                     ; preds = %for.body.i
-  %conv236.i = trunc nuw i32 %83 to i8
+  %conv236.i = trunc nuw nsw i32 %83 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv236.i, ptr %utf8_output.addr.2328.i, align 1
   br label %for.inc.i
@@ -19932,7 +19932,7 @@ if.else237.i:                                     ; preds = %for.body.i
 
 if.then240.i:                                     ; preds = %if.else237.i
   %shr241.i = lshr i32 %83, 6
-  %84 = trunc nuw i32 %shr241.i to i8
+  %84 = trunc nuw nsw i32 %shr241.i to i8
   %conv243.i = or disjoint i8 %84, -64
   %incdec.ptr244.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv243.i, ptr %utf8_output.addr.2328.i, align 1
@@ -19954,7 +19954,7 @@ if.then252.i:                                     ; preds = %if.else249.i
 
 if.end257.i:                                      ; preds = %if.then252.i
   %shr258.i = lshr i32 %83, 12
-  %88 = trunc nuw i32 %shr258.i to i8
+  %88 = trunc nuw nsw i32 %shr258.i to i8
   %conv260.i = or disjoint i8 %88, -32
   %incdec.ptr261.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv260.i, ptr %utf8_output.addr.2328.i, align 1
@@ -19977,7 +19977,7 @@ if.else271.i:                                     ; preds = %if.else249.i
 
 if.end276.i:                                      ; preds = %if.else271.i
   %shr277.i = lshr i32 %83, 18
-  %93 = trunc nuw i32 %shr277.i to i8
+  %93 = trunc nuw nsw i32 %shr277.i to i8
   %conv279.i = or disjoint i8 %93, -16
   %incdec.ptr280.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv279.i, ptr %utf8_output.addr.2328.i, align 1
@@ -20304,7 +20304,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp252.i, label %if.then253.i, label %if.else255.i
 
 if.then253.i:                                     ; preds = %for.body.i
-  %conv254.i = trunc nuw i32 %87 to i8
+  %conv254.i = trunc nuw nsw i32 %87 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv254.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !165
   br label %for.inc.i
@@ -20315,7 +20315,7 @@ if.else255.i:                                     ; preds = %for.body.i
 
 if.then258.i:                                     ; preds = %if.else255.i
   %shr259.i = lshr i32 %87, 6
-  %88 = trunc nuw i32 %shr259.i to i8
+  %88 = trunc nuw nsw i32 %shr259.i to i8
   %conv261.i = or disjoint i8 %88, -64
   %incdec.ptr262.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv261.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !165
@@ -20344,7 +20344,7 @@ if.then273.i:                                     ; preds = %if.then270.i
 
 if.end280.i:                                      ; preds = %if.then270.i
   %shr281.i = lshr i32 %87, 12
-  %92 = trunc nuw i32 %shr281.i to i8
+  %92 = trunc nuw nsw i32 %shr281.i to i8
   %conv283.i = or disjoint i8 %92, -32
   %incdec.ptr284.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv283.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !165
@@ -20374,7 +20374,7 @@ if.then296.i:                                     ; preds = %if.else294.i
 
 if.end303.i:                                      ; preds = %if.else294.i
   %shr304.i = lshr i32 %87, 18
-  %97 = trunc nuw i32 %shr304.i to i8
+  %97 = trunc nuw nsw i32 %shr304.i to i8
   %conv306.i = or disjoint i8 %97, -16
   %incdec.ptr307.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv306.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !165
@@ -31487,7 +31487,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp204.i, label %if.then205.i, label %if.else207.i
 
 if.then205.i:                                     ; preds = %for.body.i
-  %conv206.i = trunc nuw i16 %73 to i8
+  %conv206.i = trunc nuw nsw i16 %73 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2266.i, i64 1
   store i8 %conv206.i, ptr %utf8_output.addr.2266.i, align 1
   br label %for.inc.i
@@ -31548,7 +31548,7 @@ if.end260.i:                                      ; preds = %if.else243.i
   %add263.i = or disjoint i32 %shl.i, %conv255.i
   %add264.i = add nuw nsw i32 %add263.i, 65536
   %shr265.i = lshr i32 %add264.i, 18
-  %84 = trunc nuw i32 %shr265.i to i8
+  %84 = trunc nuw nsw i32 %shr265.i to i8
   %conv267.i = or i8 %84, -16
   %incdec.ptr268.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2266.i, i64 1
   store i8 %conv267.i, ptr %utf8_output.addr.2266.i, align 1
@@ -31815,7 +31815,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp209.i, label %if.then210.i, label %if.else212.i
 
 if.then210.i:                                     ; preds = %for.body.i
-  %conv211.i = trunc nuw i16 %or.i241.i to i8
+  %conv211.i = trunc nuw nsw i16 %or.i241.i to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2270.i, i64 1
   store i8 %conv211.i, ptr %utf8_output.addr.2270.i, align 1
   br label %for.inc.i
@@ -31877,7 +31877,7 @@ if.end266.i:                                      ; preds = %if.else248.i
   %add269.i = or disjoint i32 %shl.i, %conv261.i
   %add270.i = add nuw nsw i32 %add269.i, 65536
   %shr271.i = lshr i32 %add270.i, 18
-  %85 = trunc nuw i32 %shr271.i to i8
+  %85 = trunc nuw nsw i32 %shr271.i to i8
   %conv273.i = or i8 %85, -16
   %incdec.ptr274.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2270.i, i64 1
   store i8 %conv273.i, ptr %utf8_output.addr.2270.i, align 1
@@ -32140,7 +32140,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp204.i, label %if.then205.i, label %if.else207.i
 
 if.then205.i:                                     ; preds = %for.body.i
-  %conv206.i = trunc nuw i16 %73 to i8
+  %conv206.i = trunc nuw nsw i16 %73 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2277.i, i64 1
   store i8 %conv206.i, ptr %utf8_output.addr.2277.i, align 1, !noalias !454
   br label %for.inc.i
@@ -32201,7 +32201,7 @@ if.end265.i:                                      ; preds = %if.else243.i
   %add268.i = or disjoint i32 %shl.i, %conv255.i
   %add269.i = add nuw nsw i32 %add268.i, 65536
   %shr270.i = lshr i32 %add269.i, 18
-  %84 = trunc nuw i32 %shr270.i to i8
+  %84 = trunc nuw nsw i32 %shr270.i to i8
   %conv272.i = or i8 %84, -16
   %incdec.ptr273.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2277.i, i64 1
   store i8 %conv272.i, ptr %utf8_output.addr.2277.i, align 1, !noalias !454
@@ -32484,7 +32484,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp209.i, label %if.then210.i, label %if.else212.i
 
 if.then210.i:                                     ; preds = %for.body.i
-  %conv211.i = trunc nuw i16 %or.i256.i to i8
+  %conv211.i = trunc nuw nsw i16 %or.i256.i to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2280.i, i64 1
   store i8 %conv211.i, ptr %utf8_output.addr.2280.i, align 1, !noalias !459
   br label %for.inc.i
@@ -32546,7 +32546,7 @@ if.end271.i:                                      ; preds = %if.else248.i
   %add274.i = or disjoint i32 %shl.i, %conv261.i
   %add275.i = add nuw nsw i32 %add274.i, 65536
   %shr276.i = lshr i32 %add275.i, 18
-  %85 = trunc nuw i32 %shr276.i to i8
+  %85 = trunc nuw nsw i32 %shr276.i to i8
   %conv278.i = or i8 %85, -16
   %incdec.ptr279.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2280.i, i64 1
   store i8 %conv278.i, ptr %utf8_output.addr.2280.i, align 1, !noalias !459
@@ -32866,7 +32866,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp234.i, label %if.then235.i, label %if.else237.i
 
 if.then235.i:                                     ; preds = %for.body.i
-  %conv236.i = trunc nuw i32 %83 to i8
+  %conv236.i = trunc nuw nsw i32 %83 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv236.i, ptr %utf8_output.addr.2328.i, align 1
   br label %for.inc.i
@@ -32877,7 +32877,7 @@ if.else237.i:                                     ; preds = %for.body.i
 
 if.then240.i:                                     ; preds = %if.else237.i
   %shr241.i = lshr i32 %83, 6
-  %84 = trunc nuw i32 %shr241.i to i8
+  %84 = trunc nuw nsw i32 %shr241.i to i8
   %conv243.i = or disjoint i8 %84, -64
   %incdec.ptr244.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv243.i, ptr %utf8_output.addr.2328.i, align 1
@@ -32899,7 +32899,7 @@ if.then252.i:                                     ; preds = %if.else249.i
 
 if.end257.i:                                      ; preds = %if.then252.i
   %shr258.i = lshr i32 %83, 12
-  %88 = trunc nuw i32 %shr258.i to i8
+  %88 = trunc nuw nsw i32 %shr258.i to i8
   %conv260.i = or disjoint i8 %88, -32
   %incdec.ptr261.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv260.i, ptr %utf8_output.addr.2328.i, align 1
@@ -32922,7 +32922,7 @@ if.else271.i:                                     ; preds = %if.else249.i
 
 if.end276.i:                                      ; preds = %if.else271.i
   %shr277.i = lshr i32 %83, 18
-  %93 = trunc nuw i32 %shr277.i to i8
+  %93 = trunc nuw nsw i32 %shr277.i to i8
   %conv279.i = or disjoint i8 %93, -16
   %incdec.ptr280.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2328.i, i64 1
   store i8 %conv279.i, ptr %utf8_output.addr.2328.i, align 1
@@ -33498,7 +33498,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.inc
   br i1 %cmp252.i, label %if.then253.i, label %if.else255.i
 
 if.then253.i:                                     ; preds = %for.body.i
-  %conv254.i = trunc nuw i32 %87 to i8
+  %conv254.i = trunc nuw nsw i32 %87 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv254.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !467
   br label %for.inc.i
@@ -33509,7 +33509,7 @@ if.else255.i:                                     ; preds = %for.body.i
 
 if.then258.i:                                     ; preds = %if.else255.i
   %shr259.i = lshr i32 %87, 6
-  %88 = trunc nuw i32 %shr259.i to i8
+  %88 = trunc nuw nsw i32 %shr259.i to i8
   %conv261.i = or disjoint i8 %88, -64
   %incdec.ptr262.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv261.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !467
@@ -33538,7 +33538,7 @@ if.then273.i:                                     ; preds = %if.then270.i
 
 if.end280.i:                                      ; preds = %if.then270.i
   %shr281.i = lshr i32 %87, 12
-  %92 = trunc nuw i32 %shr281.i to i8
+  %92 = trunc nuw nsw i32 %shr281.i to i8
   %conv283.i = or disjoint i8 %92, -32
   %incdec.ptr284.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv283.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !467
@@ -33568,7 +33568,7 @@ if.then296.i:                                     ; preds = %if.else294.i
 
 if.end303.i:                                      ; preds = %if.else294.i
   %shr304.i = lshr i32 %87, 18
-  %97 = trunc nuw i32 %shr304.i to i8
+  %97 = trunc nuw nsw i32 %shr304.i to i8
   %conv306.i = or disjoint i8 %97, -16
   %incdec.ptr307.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.2331.i, i64 1
   store i8 %conv306.i, ptr %utf8_output.addr.2331.i, align 1, !noalias !467
@@ -45393,7 +45393,7 @@ for.body.i:                                       ; preds = %if.else95.i, %for.i
   br i1 %cmp109.i, label %if.then110.i, label %if.else112.i
 
 if.then110.i:                                     ; preds = %for.body.i
-  %conv111.i = trunc nuw i16 %61 to i8
+  %conv111.i = trunc nuw nsw i16 %61 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3147.i, i64 1
   store i8 %conv111.i, ptr %utf8_output.addr.3147.i, align 1
   br label %for.inc.i
@@ -45454,7 +45454,7 @@ if.end165.i:                                      ; preds = %if.else148.i
   %add168.i = or disjoint i32 %shl.i, %conv160.i
   %add169.i = add nuw nsw i32 %add168.i, 65536
   %shr170.i = lshr i32 %add169.i, 18
-  %72 = trunc nuw i32 %shr170.i to i8
+  %72 = trunc nuw nsw i32 %shr170.i to i8
   %conv172.i = or i8 %72, -16
   %incdec.ptr173.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3147.i, i64 1
   store i8 %conv172.i, ptr %utf8_output.addr.3147.i, align 1
@@ -45710,7 +45710,7 @@ for.body.i:                                       ; preds = %if.else100.i, %for.
   br i1 %cmp115.i, label %if.then116.i, label %if.else118.i
 
 if.then116.i:                                     ; preds = %for.body.i
-  %conv117.i = trunc nuw i16 %or.i117.i to i8
+  %conv117.i = trunc nuw nsw i16 %or.i117.i to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3152.i, i64 1
   store i8 %conv117.i, ptr %utf8_output.addr.3152.i, align 1
   br label %for.inc.i
@@ -45772,7 +45772,7 @@ if.end172.i:                                      ; preds = %if.else154.i
   %add175.i = or disjoint i32 %shl.i, %conv167.i
   %add176.i = add nuw nsw i32 %add175.i, 65536
   %shr177.i = lshr i32 %add176.i, 18
-  %76 = trunc nuw i32 %shr177.i to i8
+  %76 = trunc nuw nsw i32 %shr177.i to i8
   %conv179.i = or i8 %76, -16
   %incdec.ptr180.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3152.i, i64 1
   store i8 %conv179.i, ptr %utf8_output.addr.3152.i, align 1
@@ -46023,7 +46023,7 @@ for.body.i:                                       ; preds = %if.else95.i, %for.i
   br i1 %cmp109.i, label %if.then110.i, label %if.else112.i
 
 if.then110.i:                                     ; preds = %for.body.i
-  %conv111.i = trunc nuw i16 %61 to i8
+  %conv111.i = trunc nuw nsw i16 %61 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3158.i, i64 1
   store i8 %conv111.i, ptr %utf8_output.addr.3158.i, align 1, !noalias !646
   br label %for.inc.i
@@ -46084,7 +46084,7 @@ if.end170.i:                                      ; preds = %if.else148.i
   %add173.i = or disjoint i32 %shl.i, %conv160.i
   %add174.i = add nuw nsw i32 %add173.i, 65536
   %shr175.i = lshr i32 %add174.i, 18
-  %72 = trunc nuw i32 %shr175.i to i8
+  %72 = trunc nuw nsw i32 %shr175.i to i8
   %conv177.i = or i8 %72, -16
   %incdec.ptr178.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3158.i, i64 1
   store i8 %conv177.i, ptr %utf8_output.addr.3158.i, align 1, !noalias !646
@@ -46358,7 +46358,7 @@ for.body.i:                                       ; preds = %if.else100.i, %for.
   br i1 %cmp115.i, label %if.then116.i, label %if.else118.i
 
 if.then116.i:                                     ; preds = %for.body.i
-  %conv117.i = trunc nuw i16 %or.i135.i to i8
+  %conv117.i = trunc nuw nsw i16 %or.i135.i to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3162.i, i64 1
   store i8 %conv117.i, ptr %utf8_output.addr.3162.i, align 1, !noalias !651
   br label %for.inc.i
@@ -46420,7 +46420,7 @@ if.end177.i:                                      ; preds = %if.else154.i
   %add180.i = or disjoint i32 %shl.i, %conv167.i
   %add181.i = add nuw nsw i32 %add180.i, 65536
   %shr182.i = lshr i32 %add181.i, 18
-  %76 = trunc nuw i32 %shr182.i to i8
+  %76 = trunc nuw nsw i32 %shr182.i to i8
   %conv184.i = or i8 %76, -16
   %incdec.ptr185.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3162.i, i64 1
   store i8 %conv184.i, ptr %utf8_output.addr.3162.i, align 1, !noalias !651
@@ -47124,7 +47124,7 @@ for.body.i:                                       ; preds = %if.else151.i, %for.
   br i1 %cmp162.i, label %if.then163.i, label %if.else165.i
 
 if.then163.i:                                     ; preds = %for.body.i
-  %conv164.i = trunc nuw i32 %77 to i8
+  %conv164.i = trunc nuw nsw i32 %77 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3227.i, i64 1
   store i8 %conv164.i, ptr %utf8_output.addr.3227.i, align 1
   br label %for.inc.i
@@ -47135,7 +47135,7 @@ if.else165.i:                                     ; preds = %for.body.i
 
 if.then168.i:                                     ; preds = %if.else165.i
   %shr169.i = lshr i32 %77, 6
-  %78 = trunc nuw i32 %shr169.i to i8
+  %78 = trunc nuw nsw i32 %shr169.i to i8
   %conv171.i = or disjoint i8 %78, -64
   %incdec.ptr172.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3227.i, i64 1
   store i8 %conv171.i, ptr %utf8_output.addr.3227.i, align 1
@@ -47157,7 +47157,7 @@ if.then180.i:                                     ; preds = %if.else177.i
 
 if.end185.i:                                      ; preds = %if.then180.i
   %shr186.i = lshr i32 %77, 12
-  %82 = trunc nuw i32 %shr186.i to i8
+  %82 = trunc nuw nsw i32 %shr186.i to i8
   %conv188.i = or disjoint i8 %82, -32
   %incdec.ptr189.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3227.i, i64 1
   store i8 %conv188.i, ptr %utf8_output.addr.3227.i, align 1
@@ -47180,7 +47180,7 @@ if.else199.i:                                     ; preds = %if.else177.i
 
 if.end204.i:                                      ; preds = %if.else199.i
   %shr205.i = lshr i32 %77, 18
-  %87 = trunc nuw i32 %shr205.i to i8
+  %87 = trunc nuw nsw i32 %shr205.i to i8
   %conv207.i = or disjoint i8 %87, -16
   %incdec.ptr208.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3227.i, i64 1
   store i8 %conv207.i, ptr %utf8_output.addr.3227.i, align 1
@@ -47508,7 +47508,7 @@ for.body.i:                                       ; preds = %if.else177.i, %for.
   br i1 %cmp192.i, label %if.then193.i, label %if.else195.i
 
 if.then193.i:                                     ; preds = %for.body.i
-  %conv194.i = trunc nuw i32 %83 to i8
+  %conv194.i = trunc nuw nsw i32 %83 to i8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3243.i, i64 1
   store i8 %conv194.i, ptr %utf8_output.addr.3243.i, align 1, !noalias !664
   br label %for.inc.i
@@ -47519,7 +47519,7 @@ if.else195.i:                                     ; preds = %for.body.i
 
 if.then198.i:                                     ; preds = %if.else195.i
   %shr199.i = lshr i32 %83, 6
-  %84 = trunc nuw i32 %shr199.i to i8
+  %84 = trunc nuw nsw i32 %shr199.i to i8
   %conv201.i = or disjoint i8 %84, -64
   %incdec.ptr202.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3243.i, i64 1
   store i8 %conv201.i, ptr %utf8_output.addr.3243.i, align 1, !noalias !664
@@ -47548,7 +47548,7 @@ if.then213.i:                                     ; preds = %if.then210.i
 
 if.end220.i:                                      ; preds = %if.then210.i
   %shr221.i = lshr i32 %83, 12
-  %88 = trunc nuw i32 %shr221.i to i8
+  %88 = trunc nuw nsw i32 %shr221.i to i8
   %conv223.i = or disjoint i8 %88, -32
   %incdec.ptr224.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3243.i, i64 1
   store i8 %conv223.i, ptr %utf8_output.addr.3243.i, align 1, !noalias !664
@@ -47578,7 +47578,7 @@ if.then236.i:                                     ; preds = %if.else234.i
 
 if.end243.i:                                      ; preds = %if.else234.i
   %shr244.i = lshr i32 %83, 18
-  %93 = trunc nuw i32 %shr244.i to i8
+  %93 = trunc nuw nsw i32 %shr244.i to i8
   %conv246.i = or disjoint i8 %93, -16
   %incdec.ptr247.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.3243.i, i64 1
   store i8 %conv246.i, ptr %utf8_output.addr.3243.i, align 1, !noalias !664

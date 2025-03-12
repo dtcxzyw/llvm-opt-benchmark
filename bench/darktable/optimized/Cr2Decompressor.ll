@@ -1999,7 +1999,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %376 = sub nuw nsw i32 64, %373
   %377 = zext nneg i32 %376 to i64
   %378 = lshr i64 %.sroa.0116.5, %377
-  %379 = trunc i64 %378 to i32
+  %379 = trunc nuw nsw i64 %378 to i32
   %380 = sub nsw i32 %.sroa.18.5, %373
   %381 = zext nneg i8 %.0233 to i64
   %382 = shl i64 %.sroa.0116.5, %381
@@ -2898,7 +2898,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %377 = sub nuw nsw i32 64, %374
   %378 = zext nneg i32 %377 to i64
   %379 = lshr i64 %.sroa.0116.5, %378
-  %380 = trunc i64 %379 to i32
+  %380 = trunc nuw nsw i64 %379 to i32
   %381 = sub nsw i32 %.sroa.18.5, %374
   %382 = zext nneg i8 %.0233 to i64
   %383 = shl i64 %.sroa.0116.5, %382
@@ -3777,7 +3777,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %362 = sub nuw nsw i32 64, %359
   %363 = zext nneg i32 %362 to i64
   %364 = lshr i64 %.sroa.0118.5, %363
-  %365 = trunc i64 %364 to i32
+  %365 = trunc nuw nsw i64 %364 to i32
   %366 = sub nsw i32 %.sroa.18.5, %359
   %367 = zext nneg i8 %.0235 to i64
   %368 = shl i64 %.sroa.0118.5, %367
@@ -4666,7 +4666,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %373 = sub nuw nsw i32 64, %370
   %374 = zext nneg i32 %373 to i64
   %375 = lshr i64 %.sroa.0116.5, %374
-  %376 = trunc i64 %375 to i32
+  %376 = trunc nuw nsw i64 %375 to i32
   %377 = sub nsw i32 %.sroa.18.5, %370
   %378 = zext nneg i8 %.0233 to i64
   %379 = shl i64 %.sroa.0116.5, %378

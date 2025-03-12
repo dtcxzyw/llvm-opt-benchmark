@@ -7110,7 +7110,7 @@ define dso_local i32 @intel_rps_set_max_frequency(ptr noundef %0, i32 noundef %1
   br i1 %23, label %92, label %96
 
 92:                                               ; preds = %90
-  %93 = trunc i32 %65 to i16
+  %93 = trunc nuw nsw i32 %65 to i16
   %94 = mul nuw nsw i16 %93, 50
   %.lhs.trunc = or disjoint i16 %94, 1
   %95 = udiv i16 %.lhs.trunc, 3

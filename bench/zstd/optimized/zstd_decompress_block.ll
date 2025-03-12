@@ -1902,7 +1902,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef %0, ptr nou
 BIT_initDStream.exit.thread439.i:                 ; preds = %101
   %106 = zext i8 %105 to i32
   %107 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %106, i1 true)
-  %108 = trunc nuw i64 %4 to i32
+  %108 = trunc nuw nsw i64 %4 to i32
   %109 = shl nuw nsw i32 %108, 3
   %reass.sub = sub nsw i32 %107, %109
   %110 = add nsw i32 %reass.sub, 41
@@ -4635,7 +4635,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 BIT_initDStream.exit.thread144.i:                 ; preds = %90
   %95 = zext i8 %94 to i32
   %96 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %95, i1 true)
-  %97 = trunc nuw i64 %4 to i32
+  %97 = trunc nuw nsw i64 %4 to i32
   %98 = shl nuw nsw i32 %97, 3
   %reass.sub = sub nsw i32 %96, %98
   %99 = add nsw i32 %reass.sub, 41
@@ -6604,7 +6604,7 @@ define internal fastcc i64 @ZSTD_decompressSequences(ptr noundef captures(none) 
 BIT_initDStream.exit.thread61.i:                  ; preds = %98
   %103 = zext i8 %102 to i32
   %104 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %103, i1 true)
-  %105 = trunc nuw i64 %4 to i32
+  %105 = trunc nuw nsw i64 %4 to i32
   %106 = shl nuw nsw i32 %105, 3
   %reass.sub = sub nsw i32 %104, %106
   %107 = add nsw i32 %reass.sub, 41
@@ -7758,7 +7758,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesLong_bmi2(ptr noundef %0, pt
 BIT_initDStream.exit.thread439:                   ; preds = %97
   %102 = zext i8 %101 to i32
   %103 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %102, i1 true)
-  %104 = trunc nuw i64 %4 to i32
+  %104 = trunc nuw nsw i64 %4 to i32
   %105 = shl nuw nsw i32 %104, 3
   %reass.sub = sub nsw i32 %103, %105
   %106 = add nsw i32 %reass.sub, 41
@@ -11007,7 +11007,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer_bmi2(ptr noun
 BIT_initDStream.exit.thread144:                   ; preds = %86
   %91 = zext i8 %90 to i32
   %92 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %91, i1 true)
-  %93 = trunc nuw i64 %4 to i32
+  %93 = trunc nuw nsw i64 %4 to i32
   %94 = shl nuw nsw i32 %93, 3
   %reass.sub = sub nsw i32 %92, %94
   %95 = add nsw i32 %reass.sub, 41
@@ -12962,7 +12962,7 @@ define internal fastcc i64 @ZSTD_decompressSequences_bmi2(ptr noundef captures(n
 BIT_initDStream.exit.thread61:                    ; preds = %94
   %99 = zext i8 %98 to i32
   %100 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %99, i1 true)
-  %101 = trunc nuw i64 %4 to i32
+  %101 = trunc nuw nsw i64 %4 to i32
   %102 = shl nuw nsw i32 %101, 3
   %reass.sub = sub nsw i32 %100, %102
   %103 = add nsw i32 %reass.sub, 41

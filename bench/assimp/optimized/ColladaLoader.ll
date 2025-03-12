@@ -1473,7 +1473,7 @@ _ZN10aiMetadata5AllocEj.exit:                     ; preds = %455, %435
   %476 = getelementptr inbounds nuw i8, ptr %463, i64 8
   %477 = load ptr, ptr %476, align 8
   %478 = getelementptr inbounds nuw %struct.aiString, ptr %477, i64 %473
-  %479 = trunc nuw i64 %470 to i32
+  %479 = trunc nuw nsw i64 %470 to i32
   store i32 %479, ptr %478, align 4
   %480 = getelementptr inbounds nuw i8, ptr %478, i64 4
   %481 = load ptr, ptr %465, align 8
@@ -2232,7 +2232,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp13ColladaLoader14BuildHierarchyERKN
   br i1 %15, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %16
 
 16:                                               ; preds = %12
-  %17 = trunc nuw i64 %14 to i32
+  %17 = trunc nuw nsw i64 %14 to i32
   store i32 %17, ptr %11, align 4
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 1 %.pre, i64 %14, i1 false)
@@ -6849,7 +6849,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt
   br i1 %707, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %708
 
 708:                                              ; preds = %705
-  %709 = trunc nuw i64 %706 to i32
+  %709 = trunc nuw nsw i64 %706 to i32
   store i32 %709, ptr %702, align 4
   %710 = getelementptr inbounds nuw i8, ptr %545, i64 240
   %711 = load ptr, ptr %.sroa.0583.0787, align 8
@@ -8459,7 +8459,7 @@ define hidden noundef ptr @_ZN6Assimp13ColladaLoader10CreateMeshERKNS_13ColladaP
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 236
-  %34 = trunc nuw i64 %29 to i32
+  %34 = trunc nuw nsw i64 %29 to i32
   store i32 %34, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 240
   %36 = load ptr, ptr %32, align 8
@@ -8476,7 +8476,7 @@ define hidden noundef ptr @_ZN6Assimp13ColladaLoader10CreateMeshERKNS_13ColladaP
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %17, i64 236
-  %44 = trunc nuw i64 %40 to i32
+  %44 = trunc nuw nsw i64 %40 to i32
   store i32 %44, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 240
   %46 = load ptr, ptr %2, align 8
@@ -10282,7 +10282,7 @@ _ZNSt6vectorIS_I14aiVertexWeightSaIS0_EESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Dest
   br i1 %833, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit498, label %834
 
 834:                                              ; preds = %817
-  %835 = trunc nuw i64 %832 to i32
+  %835 = trunc nuw nsw i64 %832 to i32
   store i32 %835, ptr %816, align 4
   %836 = getelementptr inbounds nuw i8, ptr %816, i64 4
   %837 = load ptr, ptr %830, align 8
@@ -10708,7 +10708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit513: ; preds = %.n
   br i1 %1100, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %1101
 
 1101:                                             ; preds = %1098
-  %1102 = trunc nuw i64 %1099 to i32
+  %1102 = trunc nuw nsw i64 %1099 to i32
   store i32 %1102, ptr %816, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1051, ptr align 1 %.pre1065, i64 %1099, i1 false)
   %1103 = getelementptr inbounds nuw [1024 x i8], ptr %1051, i64 0, i64 %1099
@@ -15245,7 +15245,7 @@ _ZSt8_DestroyIPN6Assimp7Collada9TransformES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %
   br i1 %1134, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %1135
 
 1135:                                             ; preds = %1129
-  %1136 = trunc nuw i64 %1133 to i32
+  %1136 = trunc nuw nsw i64 %1133 to i32
   store i32 %1136, ptr %1128, align 4
   %1137 = getelementptr inbounds nuw i8, ptr %1128, i64 4
   %1138 = load ptr, ptr %19, align 8
@@ -15545,7 +15545,7 @@ _ZNSt6vectorIN6Assimp7Collada12ChannelEntryESaIS2_EE9push_backERKS2_.exit599: ; 
   br i1 %1257, label %.lr.ph1711.preheader, label %1258
 
 1258:                                             ; preds = %1255
-  %1259 = trunc nuw i64 %1256 to i32
+  %1259 = trunc nuw nsw i64 %1256 to i32
   store i32 %1259, ptr %1254, align 4
   %1260 = getelementptr inbounds nuw i8, ptr %1254, i64 4
   %1261 = load ptr, ptr %19, align 8
@@ -16301,7 +16301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit656: ; preds = %_Z
   br i1 %1557, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit657, label %1558
 
 1558:                                             ; preds = %1546
-  %1559 = trunc nuw i64 %1556 to i32
+  %1559 = trunc nuw nsw i64 %1556 to i32
   store i32 %1559, ptr %1545, align 4
   %1560 = getelementptr inbounds nuw i8, ptr %1545, i64 4
   %1561 = load ptr, ptr %4, align 8
@@ -18271,7 +18271,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %108, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %109
 
 109:                                              ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
-  %110 = trunc nuw i64 %107 to i32
+  %110 = trunc nuw nsw i64 %107 to i32
   store i32 %110, ptr %0, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr align 1 %.pre, i64 %107, i1 false)
@@ -18348,7 +18348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %141, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit44, label %142
 
 142:                                              ; preds = %129
-  %143 = trunc nuw i64 %140 to i32
+  %143 = trunc nuw nsw i64 %140 to i32
   store i32 %143, ptr %0, align 4
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %144, ptr nonnull align 1 %133, i64 %140, i1 false)
@@ -18493,7 +18493,7 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__nor
   br i1 %209, label %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backERKS1_.exit, label %210
 
 210:                                              ; preds = %208
-  %211 = trunc nuw i64 %201 to i32
+  %211 = trunc nuw nsw i64 %201 to i32
   store i32 %211, ptr %0, align 4
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %213 = load ptr, ptr %199, align 8
@@ -19797,7 +19797,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8

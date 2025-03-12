@@ -5791,7 +5791,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit228.thread382:   ; preds = %325, %330, %332, %_
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendEmS1_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !135
 
 _ZN4llvm15SmallVectorImplINS_9StringRefEE6appendEmS1_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
-  %354 = trunc nuw i64 %346 to i32
+  %354 = trunc nuw nsw i64 %346 to i32
   %355 = add i32 %350, %354
   br label %.sink.split.i
 

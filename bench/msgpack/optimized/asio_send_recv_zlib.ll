@@ -16561,7 +16561,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINS0_7zbufferEE14pack_i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #37
   store i8 -48, ptr %5, align 1, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.sroa.0.0.extract.trunc.i = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i = trunc nsw i32 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %24, align 1, !tbaa !19
   %25 = load ptr, ptr %0, align 8, !tbaa !422
   call void @_ZN7msgpack2v17zbuffer5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull %5, i64 noundef 2)
@@ -16574,7 +16574,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINS0_7zbufferEE14pack_i
 
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #37
-  %.sroa.0.0.extract.trunc.i16 = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i16 = trunc nsw i32 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i16, ptr %6, align 1, !tbaa !19
   %29 = load ptr, ptr %0, align 8, !tbaa !422
   call void @_ZN7msgpack2v17zbuffer5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull %6, i64 noundef 1)
@@ -16658,7 +16658,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %18 = trunc nuw i64 %8 to i8
+  %18 = trunc nuw nsw i64 %8 to i8
   %19 = or disjoint i8 %18, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #37
   store i8 %19, ptr %4, align 1, !tbaa !19

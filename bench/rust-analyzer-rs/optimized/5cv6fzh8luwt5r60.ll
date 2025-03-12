@@ -36290,7 +36290,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$chalk_ir..debug..SeparatorTraitRef$
   br label %14
 
 12:                                               ; preds = %2
-  %13 = trunc i8 %4 to i1
+  %13 = trunc nuw i8 %4 to i1
   br label %14
 
 14:                                               ; preds = %12, %6
@@ -36790,7 +36790,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$chalk_ir..debug..VariableKindsDebug
   br label %17
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %17
 
 17:                                               ; preds = %15, %8

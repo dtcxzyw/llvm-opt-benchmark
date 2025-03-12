@@ -12766,7 +12766,7 @@ RSTRING_PTR.exit136:                              ; preds = %.loopexit183, %153
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %.loopexit
-  %167 = trunc i64 %73 to i32
+  %167 = trunc nsw i64 %73 to i32
   %168 = tail call i64 @rb_str_to_inum(i64 noundef %0, i32 noundef 10, i32 noundef 0) #29
   %169 = tail call i64 @rb_str_to_inum(i64 noundef %.0..0..0.162.pre203, i32 noundef 10, i32 noundef 0) #29
   %170 = and i64 %168, 1
@@ -13064,7 +13064,7 @@ RSTRING_PTR.exit39:                               ; preds = %RSTRING_PTR.exit.th
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %.loopexit
-  %58 = trunc i64 %55 to i32
+  %58 = trunc nsw i64 %55 to i32
   %59 = tail call i64 @rb_str_to_inum(i64 noundef %0, i32 noundef 10, i32 noundef 0) #29
   %60 = and i64 %59, 1
   %.not = icmp eq i64 %60, 0
@@ -21011,7 +21011,7 @@ rb_array_len.exit.i.thread:                       ; preds = %6
   unreachable
 
 18:                                               ; preds = %rb_array_len.exit.i
-  %19 = trunc i64 %11 to i32
+  %19 = trunc nsw i64 %11 to i32
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   br label %rb_array_const_ptr.exit

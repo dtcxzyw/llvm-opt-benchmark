@@ -4700,7 +4700,7 @@ Vec_QueGrow.exit.i.i.Vec_QueGrow.exit25.i.i_crit_edge: ; preds = %Vec_QueGrow.ex
 
 99:                                               ; preds = %Vec_QueGrow.exit.i.i
   %100 = shl nsw i32 %98, 1
-  %101 = trunc i64 %indvars.iv.i to i32
+  %101 = trunc nsw i64 %indvars.iv.i to i32
   %102 = add nsw i32 %101, 1
   %103 = tail call noundef i32 @llvm.smax.i32(i32 %102, i32 %100)
   %104 = getelementptr inbounds nuw i8, ptr %58, i64 8

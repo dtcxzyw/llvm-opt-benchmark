@@ -890,7 +890,7 @@ define internal fastcc i32 @do_buf(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not33.i85.us, label %103, label %99
 
 99:                                               ; preds = %97
-  %100 = trunc nuw i64 %72 to i32
+  %100 = trunc nuw nsw i64 %72 to i32
   %101 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %9, i64 noundef 11, ptr noundef nonnull @.str.17, i32 noundef %100) #8
   %102 = call i32 %5(ptr noundef %6, ptr noundef nonnull %9, i32 noundef 3) #8, !callees !5
   %.not37.i86.us = icmp eq i32 %102, 0

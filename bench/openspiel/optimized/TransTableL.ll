@@ -3323,7 +3323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -3843,7 +3843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 58:                                               ; preds = %._crit_edge.i
-  %59 = trunc nuw i32 %.0.lcssa.i to i8
+  %59 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %60 = or disjoint i8 %59, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -5910,7 +5910,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
   %16 = icmp samesign ult i64 %indvars.iv45, 10
   %17 = trunc nuw nsw i64 %indvars.iv45 to i32
   %18 = icmp ugt i64 %indvars.iv45, 9
-  %19 = trunc nuw i64 %indvars.iv45 to i8
+  %19 = trunc nuw nsw i64 %indvars.iv45 to i8
   %20 = or disjoint i8 %19, 48
   %21 = shl nuw nsw i32 %17, 1
   %22 = or disjoint i32 %21, 1

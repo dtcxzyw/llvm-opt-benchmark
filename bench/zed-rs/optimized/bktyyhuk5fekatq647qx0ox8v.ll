@@ -1662,7 +1662,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Pa
   %2 = load i64, ptr %0, align 8, !range !5, !noundef !4
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 227
-  %5 = trunc i64 %3 to i8
+  %5 = trunc nuw i64 %3 to i8
   %trunc = select i1 %4, i8 %5, i8 97
   switch i8 %trunc, label %6 [
     i8 0, label %"_ZN4core3ptr51drop_in_place$LT$proto..CheckFileExistsResponse$GT$17hae15f764117a36d5E.exit"
@@ -40565,7 +40565,7 @@ define { ptr, ptr } @_ZN5proto20build_typed_envelope17h3b206962e3bebe60E(i32 nou
 108:                                              ; preds = %5
   %109 = add nsw i64 %105, -2
   %110 = icmp ult i64 %109, 227
-  %111 = trunc i64 %109 to i8
+  %111 = trunc nuw i64 %109 to i8
   %trunc = select i1 %110, i8 %111, i8 97
   switch i8 %trunc, label %107 [
     i8 0, label %112
@@ -49644,7 +49644,7 @@ common.resume:                                    ; preds = %2253, %2253, %1322,
 2829:                                             ; preds = %2827
   %2830 = add nsw i64 %2828, -2
   %2831 = icmp ult i64 %2830, 227
-  %2832 = trunc i64 %2830 to i8
+  %2832 = trunc nuw i64 %2830 to i8
   %trunc155 = select i1 %2831, i8 %2832, i8 97
   switch i8 %trunc155, label %107 [
     i8 0, label %"_ZN4core3ptr39drop_in_place$LT$proto..RoomUpdated$GT$17h54dc9e214ccb832dE.exit"

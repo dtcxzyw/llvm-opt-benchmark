@@ -60,7 +60,7 @@ define range(i32 -3, 1) i32 @nsis_BZ2_bzDecompressInit(ptr noundef %0, i32 nound
   store i32 0, ptr %29, align 4, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %30, align 8, !tbaa !24
-  %31 = trunc nuw i32 %2 to i8
+  %31 = trunc nuw nsw i32 %2 to i8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i8 %31, ptr %32, align 4, !tbaa !25
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 3152

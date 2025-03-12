@@ -8665,7 +8665,7 @@ common.resume:                                    ; preds = %4, %13, %18
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr56drop_in_place$LT$async_channel..Send$LT$$LP$$RP$$GT$$GT$17h73adcfac8a96ad49E.exit": ; preds = %8, %19, %23
-  %26 = trunc i8 %3 to i1
+  %26 = trunc nuw i8 %3 to i1
   ret i1 %26
 
 27:                                               ; preds = %6

@@ -150,7 +150,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdConta
   br label %.lr.ph.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_21HdContainerDataSourceEELj8EE12_InitStorageEm.exit.i: ; preds = %3
-  %.pre.i.i = trunc nuw i64 %2 to i32
+  %.pre.i.i = trunc nuw nsw i64 %2 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %.pre.i.i, ptr %13, align 8
   %.not9.i.i.i.i = icmp eq i64 %2, 0

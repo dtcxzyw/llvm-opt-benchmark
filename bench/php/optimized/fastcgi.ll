@@ -484,7 +484,7 @@ is_port_number.exit:                              ; preds = %12
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %57 = add nuw nsw i64 %54, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %57, i1 false)
-  %58 = trunc nuw i64 %54 to i32
+  %58 = trunc nuw nsw i64 %54 to i32
   %59 = add nuw nsw i32 %58, 2
   %60 = tail call i32 @unlink(ptr noundef nonnull %0) #32
   br label %62

@@ -4304,7 +4304,7 @@ define hidden zeroext i16 @de_nas_5gs_cmn_s_nssai(ptr noundef %0, ptr noundef %1
   ]
 
 23:                                               ; preds = %20, %20
-  %24 = trunc nuw i32 %4 to i16
+  %24 = trunc nuw nsw i32 %4 to i16
   br label %30
 
 25:                                               ; preds = %20

@@ -2038,7 +2038,7 @@ select.unfold:                                    ; preds = %162, %134
 
 .thread31:                                        ; preds = %333, %335, %336, %328
   %338 = icmp slt i32 %325, 0
-  %339 = trunc nuw i64 %2 to i32
+  %339 = trunc nuw nsw i64 %2 to i32
   %340 = select i1 %338, i32 %325, i32 %339
   br label %354
 

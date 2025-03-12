@@ -1293,7 +1293,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
   %23 = lshr i32 %.05.i.i, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   %26 = lshr i32 %.05.i.i, 6
   %27 = trunc i32 %26 to i8
@@ -1303,7 +1303,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
   %33 = lshr i32 %.05.i.i, 6
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   %36 = trunc i32 %.05.i.i to i8
   %37 = and i8 %36, 63
@@ -1426,7 +1426,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %63
   %.0.i.ph.i6 = phi i32 [ 92, %41 ], [ 92, %43 ], [ %57, %55 ], [ %.05.i.i, %58 ]
   %75 = phi i32 [ 1114113, %41 ], [ %39, %43 ], [ %39, %55 ], [ 1114112, %58 ]
   %76 = phi i8 [ %.ph, %41 ], [ 2, %43 ], [ %56, %55 ], [ %.ph, %58 ]
-  %77 = trunc nuw i32 %.0.i.ph.i6 to i8
+  %77 = trunc nuw nsw i32 %.0.i.ph.i6 to i8
   %78 = load i64, ptr %4, align 8, !alias.scope !479, !noalias !478, !noundef !9
   %79 = load i64, ptr %.0.val, align 8, !alias.scope !479, !noalias !478, !noundef !9
   %80 = icmp eq i64 %78, %79
@@ -1491,7 +1491,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
   %23 = lshr i32 %.05.i.i, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   %26 = lshr i32 %.05.i.i, 6
   %27 = trunc i32 %26 to i8
@@ -1501,7 +1501,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.16954148956069160696.exit.
   %31 = and i8 %30, 63
   %32 = or disjoint i8 %31, -128
   %33 = lshr i32 %.05.i.i, 6
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   %36 = trunc i32 %.05.i.i to i8
   %37 = and i8 %36, 63
@@ -1624,7 +1624,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %63
   %.0.i.ph.i6 = phi i32 [ 92, %41 ], [ 92, %43 ], [ %57, %55 ], [ %.05.i.i, %58 ]
   %75 = phi i32 [ 1114113, %41 ], [ %39, %43 ], [ %39, %55 ], [ 1114112, %58 ]
   %76 = phi i8 [ %.ph, %41 ], [ 2, %43 ], [ %56, %55 ], [ %.ph, %58 ]
-  %77 = trunc nuw i32 %.0.i.ph.i6 to i8
+  %77 = trunc nuw nsw i32 %.0.i.ph.i6 to i8
   %78 = load i64, ptr %4, align 8, !alias.scope !511, !noalias !510, !noundef !9
   %79 = load i64, ptr %.0.val, align 8, !alias.scope !511, !noalias !510, !noundef !9
   %80 = icmp eq i64 %78, %79
@@ -3338,7 +3338,7 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.169541
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !966
   %12 = trunc i32 %1 to i8
@@ -3350,7 +3350,7 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.169541
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !966
   %19 = lshr i32 %1, 6
@@ -3418,7 +3418,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !979, !noundef !9
   %58 = load i64, ptr %0, align 8, !alias.scope !979, !noundef !9

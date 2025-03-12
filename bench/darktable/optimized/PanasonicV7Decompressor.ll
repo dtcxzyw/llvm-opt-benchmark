@@ -154,7 +154,7 @@ define hidden void @_ZN8rawspeed23PanasonicV7DecompressorC2ENS_8RawImageENS_10By
   br label %74
 
 56:                                               ; preds = %36
-  %57 = trunc i64 %40 to i32
+  %57 = trunc nuw nsw i64 %40 to i32
   %58 = shl nuw i32 %57, 4
   %59 = zext nneg i32 %44 to i64
   %60 = zext i32 %58 to i64

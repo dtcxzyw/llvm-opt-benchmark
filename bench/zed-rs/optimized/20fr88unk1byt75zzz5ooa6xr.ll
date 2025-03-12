@@ -10904,31 +10904,33 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2245), !noalias !2248
   %22 = load ptr, ptr %21, align 8, !alias.scope !2245, !noalias !2249, !nonnull !5, !align !36, !noundef !5
   %23 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %22), !range !37, !noalias !2251
-  %24 = trunc i8 %23 to i1
+  %.not.i = icmp eq i8 %23, 2
+  %24 = xor i8 %23, 1
+  %25 = select i1 %.not.i, i8 0, i8 %24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2252), !noalias !2248
-  %25 = load ptr, ptr %21, align 8, !alias.scope !2252, !noalias !2255, !nonnull !5, !align !36, !noundef !5
-  %26 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.04.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %25), !range !37, !noalias !2257
-  %27 = icmp ne i8 %26, 2
-  %28 = trunc i8 %26 to i1
-  %.sroa.0.0.i2.i = xor i1 %27, %28
-  %29 = icmp eq i8 %23, 2
-  %30 = xor i1 %29, %24
-  %31 = and i1 %30, %.sroa.0.0.i2.i
+  %26 = load ptr, ptr %21, align 8, !alias.scope !2252, !noalias !2255, !nonnull !5, !align !36, !noundef !5
+  %27 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.04.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %26), !range !37, !noalias !2257
+  %.not4.i = icmp eq i8 %27, 2
+  %28 = xor i8 %27, 1
+  %29 = select i1 %.not4.i, i8 0, i8 %28
+  %30 = sub nsw i8 %25, %29
+  %31 = icmp eq i8 %30, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2258)
   %32 = load ptr, ptr %4, align 8, !alias.scope !2258, !noalias !2261, !nonnull !5, !align !36, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2264)
   %33 = load ptr, ptr %32, align 8, !alias.scope !2264, !noalias !2267, !nonnull !5, !align !36, !noundef !5
   %34 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %33), !range !37, !noalias !2269
-  %35 = trunc i8 %34 to i1
+  %.not.i12 = icmp eq i8 %34, 2
+  %35 = xor i8 %34, 1
+  %36 = select i1 %.not.i12, i8 0, i8 %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2270)
-  %36 = load ptr, ptr %32, align 8, !alias.scope !2270, !noalias !2273, !nonnull !5, !align !36, !noundef !5
-  %37 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.08.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %36), !range !37, !noalias !2275
-  %38 = icmp ne i8 %37, 2
-  %39 = trunc i8 %37 to i1
-  %.sroa.0.0.i2.i12 = xor i1 %38, %39
-  %40 = icmp eq i8 %34, 2
-  %41 = xor i1 %40, %35
-  %42 = and i1 %41, %.sroa.0.0.i2.i12
+  %37 = load ptr, ptr %32, align 8, !alias.scope !2270, !noalias !2273, !nonnull !5, !align !36, !noundef !5
+  %38 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.08.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %37), !range !37, !noalias !2275
+  %.not4.i13 = icmp eq i8 %38, 2
+  %39 = xor i8 %38, 1
+  %40 = select i1 %.not4.i13, i8 0, i8 %39
+  %41 = sub nsw i8 %36, %40
+  %42 = icmp eq i8 %41, -1
   %43 = xor i1 %31, %42
   br i1 %43, label %_ZN4core5slice4sort6shared5pivot7median317he3aa0f9e81a4b962E.llvm.7428513249094624621.exit, label %44
 
@@ -10938,16 +10940,17 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11median3_rec
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2282)
   %46 = load ptr, ptr %45, align 8, !alias.scope !2282, !noalias !2285, !nonnull !5, !align !36, !noundef !5
   %47 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.04.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %46), !range !37, !noalias !2287
-  %48 = trunc i8 %47 to i1
+  %.not.i14 = icmp eq i8 %47, 2
+  %48 = xor i8 %47, 1
+  %49 = select i1 %.not.i14, i8 0, i8 %48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2288)
-  %49 = load ptr, ptr %45, align 8, !alias.scope !2288, !noalias !2291, !nonnull !5, !align !36, !noundef !5
-  %50 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.08.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %49), !range !37, !noalias !2293
-  %51 = icmp ne i8 %50, 2
-  %52 = trunc i8 %50 to i1
-  %.sroa.0.0.i2.i13 = xor i1 %51, %52
-  %53 = icmp eq i8 %47, 2
-  %54 = xor i1 %53, %48
-  %55 = and i1 %54, %.sroa.0.0.i2.i13
+  %50 = load ptr, ptr %45, align 8, !alias.scope !2288, !noalias !2291, !nonnull !5, !align !36, !noundef !5
+  %51 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.08.0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %50), !range !37, !noalias !2293
+  %.not4.i15 = icmp eq i8 %51, 2
+  %52 = xor i8 %51, 1
+  %53 = select i1 %.not4.i15, i8 0, i8 %52
+  %54 = sub nsw i8 %49, %53
+  %55 = icmp eq i8 %54, -1
   %56 = xor i1 %31, %55
   %..i = select i1 %56, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317he3aa0f9e81a4b962E.llvm.7428513249094624621.exit
@@ -13557,29 +13560,31 @@ define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3078), !noalias !3081
   %15 = load ptr, ptr %14, align 8, !alias.scope !3078, !noalias !3082, !nonnull !5, !align !36, !noundef !5
   %16 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %15), !range !37, !noalias !3084
-  %17 = trunc i8 %16 to i1
+  %.not.i = icmp eq i8 %16, 2
+  %17 = xor i8 %16, 1
+  %18 = select i1 %.not.i, i8 0, i8 %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3085), !noalias !3081
-  %18 = load ptr, ptr %14, align 8, !alias.scope !3085, !noalias !3088, !nonnull !5, !align !36, !noundef !5
-  %19 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(1176) %18), !range !37, !noalias !3090
-  %20 = icmp ne i8 %19, 2
-  %21 = trunc i8 %19 to i1
-  %.sroa.0.0.i2.i = xor i1 %20, %21
-  %22 = icmp eq i8 %16, 2
-  %23 = xor i1 %22, %17
-  %24 = and i1 %23, %.sroa.0.0.i2.i
+  %19 = load ptr, ptr %14, align 8, !alias.scope !3085, !noalias !3088, !nonnull !5, !align !36, !noundef !5
+  %20 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(1176) %19), !range !37, !noalias !3090
+  %.not4.i = icmp eq i8 %20, 2
+  %21 = xor i8 %20, 1
+  %22 = select i1 %.not4.i, i8 0, i8 %21
+  %23 = sub nsw i8 %18, %22
+  %24 = icmp eq i8 %23, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3091)
   %25 = load ptr, ptr %14, align 8, !alias.scope !3091, !noalias !3094, !nonnull !5, !align !36, !noundef !5
   %26 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %25), !range !37, !noalias !3100
-  %27 = trunc i8 %26 to i1
+  %.not.i2 = icmp eq i8 %26, 2
+  %27 = xor i8 %26, 1
+  %28 = select i1 %.not.i2, i8 0, i8 %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3101)
-  %28 = load ptr, ptr %14, align 8, !alias.scope !3101, !noalias !3104, !nonnull !5, !align !36, !noundef !5
-  %29 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(1176) %28), !range !37, !noalias !3106
-  %30 = icmp ne i8 %29, 2
-  %31 = trunc i8 %29 to i1
-  %.sroa.0.0.i2.i2 = xor i1 %30, %31
-  %32 = icmp eq i8 %26, 2
-  %33 = xor i1 %32, %27
-  %34 = and i1 %33, %.sroa.0.0.i2.i2
+  %29 = load ptr, ptr %14, align 8, !alias.scope !3101, !noalias !3104, !nonnull !5, !align !36, !noundef !5
+  %30 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(1176) %29), !range !37, !noalias !3106
+  %.not4.i3 = icmp eq i8 %30, 2
+  %31 = xor i8 %30, 1
+  %32 = select i1 %.not4.i3, i8 0, i8 %31
+  %33 = sub nsw i8 %28, %32
+  %34 = icmp eq i8 %33, -1
   %35 = xor i1 %24, %34
   br i1 %35, label %_ZN4core5slice4sort6shared5pivot7median317he3aa0f9e81a4b962E.llvm.7428513249094624621.exit, label %36
 
@@ -13587,16 +13592,17 @@ define hidden noundef range(i64 0, 768614336404564651) i64 @_ZN4core5slice4sort6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3107)
   %37 = load ptr, ptr %14, align 8, !alias.scope !3107, !noalias !3110, !nonnull !5, !align !36, !noundef !5
   %38 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 8 dereferenceable(1176) %37), !range !37, !noalias !3116
-  %39 = trunc i8 %38 to i1
+  %.not.i4 = icmp eq i8 %38, 2
+  %39 = xor i8 %38, 1
+  %40 = select i1 %.not.i4, i8 0, i8 %39
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3117)
-  %40 = load ptr, ptr %14, align 8, !alias.scope !3117, !noalias !3120, !nonnull !5, !align !36, !noundef !5
-  %41 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(1176) %40), !range !37, !noalias !3122
-  %42 = icmp ne i8 %41, 2
-  %43 = trunc i8 %41 to i1
-  %.sroa.0.0.i2.i3 = xor i1 %42, %43
-  %44 = icmp eq i8 %38, 2
-  %45 = xor i1 %44, %39
-  %46 = and i1 %45, %.sroa.0.0.i2.i3
+  %41 = load ptr, ptr %14, align 8, !alias.scope !3117, !noalias !3120, !nonnull !5, !align !36, !noundef !5
+  %42 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(1176) %41), !range !37, !noalias !3122
+  %.not4.i5 = icmp eq i8 %42, 2
+  %43 = xor i8 %42, 1
+  %44 = select i1 %.not4.i5, i8 0, i8 %43
+  %45 = sub nsw i8 %40, %44
+  %46 = icmp eq i8 %45, -1
   %47 = xor i1 %24, %46
   %..i = select i1 %47, ptr %8, ptr %7
   br label %_ZN4core5slice4sort6shared5pivot7median317he3aa0f9e81a4b962E.llvm.7428513249094624621.exit
@@ -17748,29 +17754,31 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317he3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4309)
   %6 = load ptr, ptr %5, align 8, !alias.scope !4309, !noalias !4312, !nonnull !5, !align !36, !noundef !5
   %7 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %6), !range !37, !noalias !4314
-  %8 = trunc i8 %7 to i1
+  %.not.i = icmp eq i8 %7, 2
+  %8 = xor i8 %7, 1
+  %9 = select i1 %.not.i, i8 0, i8 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4315)
-  %9 = load ptr, ptr %5, align 8, !alias.scope !4315, !noalias !4318, !nonnull !5, !align !36, !noundef !5
-  %10 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(1176) %9), !range !37, !noalias !4320
-  %11 = icmp ne i8 %10, 2
-  %12 = trunc i8 %10 to i1
-  %.sroa.0.0.i2.i = xor i1 %11, %12
-  %13 = icmp eq i8 %7, 2
-  %14 = xor i1 %13, %8
-  %15 = and i1 %14, %.sroa.0.0.i2.i
+  %10 = load ptr, ptr %5, align 8, !alias.scope !4315, !noalias !4318, !nonnull !5, !align !36, !noundef !5
+  %11 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(1176) %10), !range !37, !noalias !4320
+  %.not4.i = icmp eq i8 %11, 2
+  %12 = xor i8 %11, 1
+  %13 = select i1 %.not4.i, i8 0, i8 %12
+  %14 = sub nsw i8 %9, %13
+  %15 = icmp eq i8 %14, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4321)
   %16 = load ptr, ptr %5, align 8, !alias.scope !4321, !noalias !4324, !nonnull !5, !align !36, !noundef !5
   %17 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(1176) %16), !range !37, !noalias !4330
-  %18 = trunc i8 %17 to i1
+  %.not.i1 = icmp eq i8 %17, 2
+  %18 = xor i8 %17, 1
+  %19 = select i1 %.not.i1, i8 0, i8 %18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4331)
-  %19 = load ptr, ptr %5, align 8, !alias.scope !4331, !noalias !4334, !nonnull !5, !align !36, !noundef !5
-  %20 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %19), !range !37, !noalias !4336
-  %21 = icmp ne i8 %20, 2
-  %22 = trunc i8 %20 to i1
-  %.sroa.0.0.i2.i1 = xor i1 %21, %22
-  %23 = icmp eq i8 %17, 2
-  %24 = xor i1 %23, %18
-  %25 = and i1 %24, %.sroa.0.0.i2.i1
+  %20 = load ptr, ptr %5, align 8, !alias.scope !4331, !noalias !4334, !nonnull !5, !align !36, !noundef !5
+  %21 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %20), !range !37, !noalias !4336
+  %.not4.i2 = icmp eq i8 %21, 2
+  %22 = xor i8 %21, 1
+  %23 = select i1 %.not4.i2, i8 0, i8 %22
+  %24 = sub nsw i8 %19, %23
+  %25 = icmp eq i8 %24, -1
   %26 = xor i1 %15, %25
   br i1 %26, label %39, label %27
 
@@ -17778,16 +17786,17 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317he3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4337)
   %28 = load ptr, ptr %5, align 8, !alias.scope !4337, !noalias !4340, !nonnull !5, !align !36, !noundef !5
   %29 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(1176) %28), !range !37, !noalias !4346
-  %30 = trunc i8 %29 to i1
+  %.not.i3 = icmp eq i8 %29, 2
+  %30 = xor i8 %29, 1
+  %31 = select i1 %.not.i3, i8 0, i8 %30
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4347)
-  %31 = load ptr, ptr %5, align 8, !alias.scope !4347, !noalias !4350, !nonnull !5, !align !36, !noundef !5
-  %32 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %31), !range !37, !noalias !4352
-  %33 = icmp ne i8 %32, 2
-  %34 = trunc i8 %32 to i1
-  %.sroa.0.0.i2.i2 = xor i1 %33, %34
-  %35 = icmp eq i8 %29, 2
-  %36 = xor i1 %35, %30
-  %37 = and i1 %36, %.sroa.0.0.i2.i2
+  %32 = load ptr, ptr %5, align 8, !alias.scope !4347, !noalias !4350, !nonnull !5, !align !36, !noundef !5
+  %33 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %32), !range !37, !noalias !4352
+  %.not4.i4 = icmp eq i8 %33, 2
+  %34 = xor i8 %33, 1
+  %35 = select i1 %.not4.i4, i8 0, i8 %34
+  %36 = sub nsw i8 %31, %35
+  %37 = icmp eq i8 %36, -1
   %38 = xor i1 %15, %37
   %. = select i1 %38, ptr %2, ptr %1
   br label %39
@@ -22228,7 +22237,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !5145, !noalias !5142
   %12 = trunc i32 %1 to i8
@@ -22240,7 +22249,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !5145, !noalias !5142
   %19 = lshr i32 %1, 6
@@ -32637,16 +32646,17 @@ define hidden noundef zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8056)
   %5 = load ptr, ptr %4, align 8, !alias.scope !8056, !noalias !8059, !nonnull !5, !align !36, !noundef !5
   %6 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(1176) %5), !range !37, !noalias !8056
-  %7 = trunc i8 %6 to i1
+  %.not = icmp eq i8 %6, 2
+  %7 = xor i8 %6, 1
+  %8 = select i1 %.not, i8 0, i8 %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8061)
-  %8 = load ptr, ptr %4, align 8, !alias.scope !8061, !noalias !8064, !nonnull !5, !align !36, !noundef !5
-  %9 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %8), !range !37, !noalias !8061
-  %10 = icmp ne i8 %9, 2
-  %11 = trunc i8 %9 to i1
-  %.sroa.0.0.i2 = xor i1 %10, %11
-  %12 = icmp eq i8 %6, 2
-  %13 = xor i1 %12, %7
-  %14 = and i1 %13, %.sroa.0.0.i2
+  %9 = load ptr, ptr %4, align 8, !alias.scope !8061, !noalias !8064, !nonnull !5, !align !36, !noundef !5
+  %10 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(1176) %9), !range !37, !noalias !8061
+  %.not4 = icmp eq i8 %10, 2
+  %11 = xor i8 %10, 1
+  %12 = select i1 %.not4, i8 0, i8 %11
+  %13 = sub nsw i8 %8, %12
+  %14 = icmp eq i8 %13, -1
   ret i1 %14
 }
 
@@ -75758,8 +75768,9 @@ define hidden noundef zeroext i1 @"_ZN9workspace6reload28_$u7b$$u7b$closure$u7d$
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !36, !noundef !5
   %4 = tail call noundef i8 @"_ZN4gpui6window21WindowHandle$LT$V$GT$9is_active17h53cf1b25541560ddE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(1176) %3), !range !37
   %5 = icmp ne i8 %4, 2
-  %6 = trunc i8 %4 to i1
-  %.sroa.0.0 = xor i1 %5, %6
+  %6 = trunc nuw i8 %4 to i1
+  %7 = xor i1 %6, true
+  %.sroa.0.0 = select i1 %5, i1 %7, i1 false
   ret i1 %.sroa.0.0
 }
 

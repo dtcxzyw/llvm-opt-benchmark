@@ -15354,7 +15354,7 @@ define internal fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h
 37:                                               ; preds = %27
   %38 = add nuw nsw i64 %1, 33
   %39 = lshr i64 %38, 6
-  %40 = trunc i64 %39 to i8
+  %40 = trunc nuw nsw i64 %39 to i8
   %41 = add nuw nsw i8 %40, -64
   %42 = trunc i64 %38 to i8
   %43 = and i8 %42, 63
@@ -15424,7 +15424,7 @@ define internal fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h
 66:                                               ; preds = %62
   %narrow = add nuw nsw i32 %2, 33
   %67 = lshr i32 %narrow, 6
-  %68 = trunc i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   %69 = add nuw nsw i8 %68, -64
   %70 = trunc i32 %narrow to i8
   %71 = and i8 %70, 63

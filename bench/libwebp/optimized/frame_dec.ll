@@ -53,7 +53,7 @@ define hidden void @VP8InitDithering(ptr noundef readonly captures(address_is_nu
   br i1 %8, label %.preheader, label %9
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i32 %5 to i16
+  %10 = trunc nuw nsw i32 %5 to i16
   %.lhs.trunc = mul nuw nsw i16 %10, 255
   %11 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %11 to i32

@@ -2120,7 +2120,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_126AArch64InstructionSelect
   br i1 %or.cond3, label %122, label %435
 
 122:                                              ; preds = %120
-  %.lhs.trunc = trunc i64 %2 to i8
+  %.lhs.trunc = trunc nsw i64 %2 to i8
   %123 = srem i8 %.lhs.trunc, 3
   %124 = icmp eq i8 %123, 0
   br label %435

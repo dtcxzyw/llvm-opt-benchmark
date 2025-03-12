@@ -5412,7 +5412,7 @@ switch.early.test:                                ; preds = %78
 85:                                               ; preds = %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #29
-  %86 = trunc i32 %67 to i8
+  %86 = trunc nuw nsw i32 %67 to i8
   %87 = zext nneg i32 %.0.ph to i64
   %88 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %87
   store i8 %86, ptr %88, align 1, !tbaa !17
@@ -5537,7 +5537,7 @@ switch.early.test39:                              ; preds = %120
   ]
 
 121:                                              ; preds = %switch.early.test39, %switch.early.test39, %switch.early.test39, %120
-  %122 = trunc nuw i32 %67 to i8
+  %122 = trunc nuw nsw i32 %67 to i8
   %123 = zext nneg i32 %.0.ph to i64
   %124 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 0, i64 %123
   store i8 %122, ptr %124, align 1, !tbaa !17

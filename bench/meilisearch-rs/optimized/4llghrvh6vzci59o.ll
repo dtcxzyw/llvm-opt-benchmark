@@ -9245,13 +9245,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h9d88833af0f
   br i1 %10, label %20, label %31
 
 11:                                               ; preds = %2
-  %12 = trunc nuw i32 %1 to i8
+  %12 = trunc nuw nsw i32 %1 to i8
   store i8 %12, ptr %.sroa.0, align 4, !alias.scope !1813
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit
 
 13:                                               ; preds = %7
   %14 = lshr i32 %1, 6
-  %15 = trunc nuw i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %.sroa.0, align 4, !alias.scope !1813
   %17 = trunc i32 %1 to i8
@@ -9263,7 +9263,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h9d88833af0f
 
 20:                                               ; preds = %9
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %.sroa.0, align 4, !alias.scope !1813
   %24 = lshr i32 %1, 6
@@ -9382,13 +9382,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hf34c8d17fda
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !1831
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !1831
   %16 = trunc i32 %1 to i8
@@ -9400,7 +9400,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hf34c8d17fda
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !1831
   %24 = lshr i32 %1, 6
@@ -17750,7 +17750,7 @@ define hidden { i64, ptr } @_ZN4time10formatting22format_number_pad_zero17heacb5
   %.sroa.04.037.i = phi i16 [ %31, %.thread.i ], [ %.sroa.04.0.in.i, %41 ]
   %.sroa.010.136.i = phi i64 [ 1, %.thread.i ], [ %.sroa.010.1.i, %41 ]
   %51 = add nsw i64 %.sroa.010.136.i, -1
-  %52 = trunc nuw i16 %.sroa.04.037.i to i8
+  %52 = trunc nuw nsw i16 %.sroa.04.037.i to i8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 %51
   %54 = or disjoint i8 %52, 48
   store i8 %54, ptr %53, align 1, !alias.scope !3617
@@ -28997,7 +28997,7 @@ default.unreachable:                              ; preds = %156
   %228 = load i64, ptr %128, align 8, !alias.scope !5280, !noalias !5278, !noundef !11
   %229 = add i64 %228, %.sroa.6130.0.copyload
   store i64 %229, ptr %128, align 8, !alias.scope !5280, !noalias !5278
-  %230 = trunc nuw i64 %.sroa.564.0 to i8
+  %230 = trunc nuw nsw i64 %.sroa.564.0 to i8
   %231 = load i64, ptr %45, align 8, !alias.scope !5281, !noundef !11
   %232 = icmp eq i64 %229, %231
   br i1 %232, label %233, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6eb764acc4ce05caE.exit187"
@@ -29136,7 +29136,7 @@ default.unreachable:                              ; preds = %156
   %268 = load i64, ptr %128, align 8, !alias.scope !5308, !noalias !5306, !noundef !11
   %269 = add i64 %268, %.sroa.6130.0.copyload
   store i64 %269, ptr %128, align 8, !alias.scope !5308, !noalias !5306
-  %270 = trunc nuw i64 %.sroa.569.0 to i8
+  %270 = trunc nuw nsw i64 %.sroa.569.0 to i8
   %271 = select i1 %.sroa.068.0.not.not, i8 %270, i8 undef
   %272 = load i64, ptr %45, align 8, !alias.scope !5309, !noundef !11
   %273 = icmp eq i64 %269, %272
@@ -43761,7 +43761,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5e338d973de9fa1eE.llvm.19292657444
   %.sroa.04.037.i.i.i.i.i.i.i.i.i.i.i = phi i16 [ %78, %.thread.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.04.0.in.i.i.i.i.i.i.i.i.i.i.i, %87 ]
   %.sroa.010.136.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 1, %.thread.i.i.i.i.i.i.i.i.i.i.i ], [ %.sroa.010.1.i.i.i.i.i.i.i.i.i.i.i, %87 ]
   %97 = add nsw i64 %.sroa.010.136.i.i.i.i.i.i.i.i.i.i.i, -1
-  %98 = trunc nuw i16 %.sroa.04.037.i.i.i.i.i.i.i.i.i.i.i to i8
+  %98 = trunc nuw nsw i16 %.sroa.04.037.i.i.i.i.i.i.i.i.i.i.i to i8
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 %97
   %100 = or disjoint i8 %98, 48
   store i8 %100, ptr %99, align 1, !alias.scope !6929, !noalias !6928

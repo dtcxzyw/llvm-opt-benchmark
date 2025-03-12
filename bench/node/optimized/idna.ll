@@ -1414,7 +1414,7 @@ if.end21:                                         ; preds = %uv__get_surrogate_v
   br i1 %cmp22, label %if.then23, label %if.else24
 
 if.then23:                                        ; preds = %if.end21
-  %conv = trunc nuw i32 %retval.0.i to i8
+  %conv = trunc nuw nsw i32 %retval.0.i to i8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %target.1142, i64 1
   store i8 %conv, ptr %target.1142, align 1
   br label %if.end100
@@ -1425,7 +1425,7 @@ if.else24:                                        ; preds = %if.end21
 
 if.then27:                                        ; preds = %if.else24
   %shr = lshr i32 %retval.0.i, 6
-  %11 = trunc nuw i32 %shr to i8
+  %11 = trunc nuw nsw i32 %shr to i8
   %conv28 = or disjoint i8 %11, -64
   %incdec.ptr29 = getelementptr inbounds nuw i8, ptr %target.1142, i64 1
   store i8 %conv28, ptr %target.1142, align 1
@@ -1448,7 +1448,7 @@ if.else37:                                        ; preds = %if.else24
 
 if.then40:                                        ; preds = %if.else37
   %shr41 = lshr i32 %retval.0.i, 12
-  %14 = trunc nuw i32 %shr41 to i8
+  %14 = trunc nuw nsw i32 %shr41 to i8
   %conv43 = or disjoint i8 %14, -32
   store i8 %conv43, ptr %target.1142, align 1
   br i1 %cmp45, label %while.end, label %if.end48

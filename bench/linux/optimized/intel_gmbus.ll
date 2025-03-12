@@ -1137,7 +1137,7 @@ define dso_local i32 @intel_gmbus_setup(ptr noundef %0) local_unnamed_addr #1 al
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 108
   store i32 1, ptr %72, align 4
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 1028
-  %74 = trunc i64 %26 to i32
+  %74 = trunc nuw nsw i64 %26 to i32
   store i32 %74, ptr %73, align 4
   %75 = load i32, ptr %4, align 4
   %76 = and i32 %75, 16

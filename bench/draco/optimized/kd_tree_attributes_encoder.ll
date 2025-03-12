@@ -7270,7 +7270,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 
 227:                                              ; preds = %224
   %228 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i109
-  %229 = trunc i64 %225 to i32
+  %229 = trunc nsw i64 %225 to i32
   store i32 %229, ptr %228, align 4, !tbaa !52
   %230 = getelementptr inbounds nuw i8, ptr %.02034.i110, i64 8
   %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i109, 1
@@ -7333,7 +7333,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5draco17GeometryAttribute12ConvertVa
 
 262:                                              ; preds = %259
   %263 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i122
-  %264 = trunc nuw i64 %260 to i32
+  %264 = trunc nuw nsw i64 %260 to i32
   store i32 %264, ptr %263, align 4, !tbaa !52
   %265 = getelementptr inbounds nuw i8, ptr %.02034.i123, i64 8
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i122, 1

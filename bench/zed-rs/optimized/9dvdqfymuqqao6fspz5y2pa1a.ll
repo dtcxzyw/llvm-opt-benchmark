@@ -10137,7 +10137,7 @@ default.unreachable23:                            ; preds = %12, %2
   br label %25
 
 30:                                               ; preds = %24
-  %31 = trunc i8 %19 to i1
+  %31 = trunc nuw i8 %19 to i1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i64, ptr %32, align 8, !range !62, !noalias !2165, !noundef !9
   %34 = icmp eq i64 %33, -9223372036854775808
@@ -13019,7 +13019,7 @@ _ZN3std4path4Path4join17h0a9f8b918b442e00E.exit.i.i: ; preds = %697
   br label %968
 
 973:                                              ; preds = %967
-  %974 = trunc i8 %962 to i1
+  %974 = trunc nuw i8 %962 to i1
   %975 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %976 = load i64, ptr %975, align 8, !range !62, !noalias !2204, !noundef !9
   %977 = icmp eq i64 %976, -9223372036854775808
@@ -13836,7 +13836,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit.i: ; preds = %137
   br label %232
 
 237:                                              ; preds = %231
-  %238 = trunc i8 %226 to i1
+  %238 = trunc nuw i8 %226 to i1
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %240 = load i64, ptr %239, align 8, !range !62, !noalias !2755, !noundef !9
   %241 = icmp eq i64 %240, -9223372036854775808

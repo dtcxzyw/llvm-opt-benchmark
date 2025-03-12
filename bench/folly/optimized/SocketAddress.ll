@@ -964,7 +964,7 @@ define void @_ZN5folly13SocketAddress11setFromPathENS_5RangeIPKcEE(ptr noundef n
 
 20:                                               ; preds = %._crit_edge, %17
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %18, %17 ]
-  %22 = trunc nuw i64 %6 to i32
+  %22 = trunc nuw nsw i64 %6 to i32
   %23 = add nuw nsw i32 %22, 2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %23, ptr %24, align 8, !tbaa !31

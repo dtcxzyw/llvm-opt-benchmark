@@ -798,7 +798,7 @@ Ppmd7_MakeEscFreq.exit:                           ; preds = %294, %295
   store i8 %358, ptr %347, align 2, !tbaa !70
   %359 = zext nneg i8 %348 to i32
   %360 = shl nuw nsw i32 3, %359
-  %361 = trunc i32 %360 to i8
+  %361 = trunc nuw i32 %360 to i8
   store i8 %361, ptr %351, align 1, !tbaa !72
   br label %362
 
@@ -1888,7 +1888,7 @@ RangeEnc_Encode.exit226:                          ; preds = %RangeEnc_ShiftLow.e
   store i8 %548, ptr %537, align 2, !tbaa !70
   %549 = zext nneg i8 %538 to i32
   %550 = shl nuw nsw i32 3, %549
-  %551 = trunc i32 %550 to i8
+  %551 = trunc nuw i32 %550 to i8
   store i8 %551, ptr %541, align 1, !tbaa !72
   br label %552
 
@@ -2130,7 +2130,7 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
   %55 = load i16, ptr %54, align 2, !tbaa !57
   %56 = zext i16 %55 to i32
   %57 = udiv i32 %56, %50
-  %58 = trunc nuw i32 %57 to i16
+  %58 = trunc nuw nsw i32 %57 to i16
   %59 = sub nsw i16 16384, %58
   br label %60
 

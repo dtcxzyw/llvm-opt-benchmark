@@ -438,7 +438,7 @@ define internal i32 @adler32_x86_avx512_vl256_vnni(i32 noundef %0, ptr noundef %
   br i1 %.not165, label %130, label %100
 
 100:                                              ; preds = %97
-  %101 = trunc i64 %.2137 to i32
+  %101 = trunc nuw nsw i64 %.2137 to i32
   %102 = insertelement <8 x i32> poison, i32 %101, i64 0
   %103 = shufflevector <8 x i32> %102, <8 x i32> poison, <8 x i32> zeroinitializer
   %104 = mul <8 x i32> %103, %99
@@ -459,7 +459,7 @@ define internal i32 @adler32_x86_avx512_vl256_vnni(i32 noundef %0, ptr noundef %
   %117 = getelementptr inbounds nuw i8, ptr %.5, i64 32
   %118 = add nsw i64 %.2137, -32
   %119 = add <32 x i8> %109, <i8 0, i8 -1, i8 -2, i8 -3, i8 -4, i8 -5, i8 -6, i8 -7, i8 -8, i8 -9, i8 -10, i8 -11, i8 -12, i8 -13, i8 -14, i8 -15, i8 -16, i8 -17, i8 -18, i8 -19, i8 -20, i8 -21, i8 -22, i8 -23, i8 -24, i8 -25, i8 -26, i8 -27, i8 -28, i8 -29, i8 -30, i8 -31>
-  %.pre = trunc i64 %118 to i32
+  %.pre = trunc nuw nsw i64 %118 to i32
   br label %120
 
 120:                                              ; preds = %112, %100

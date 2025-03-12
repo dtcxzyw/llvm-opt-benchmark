@@ -1651,7 +1651,7 @@ define dso_local noundef zeroext i1 @virtqueue_rewind(ptr noundef captures(none)
   br label %.sink.split
 
 25:                                               ; preds = %14
-  %26 = trunc i32 %1 to i16
+  %26 = trunc nuw i32 %1 to i16
   %27 = sub i16 %13, %26
   br label %.sink.split
 
@@ -2162,7 +2162,7 @@ vring_used_write.exit.i:                          ; preds = %92, %.lr.ph.split.i
   br i1 %.not66.i, label %147, label %118
 
 118:                                              ; preds = %108
-  %119 = trunc i32 %117 to i16
+  %119 = trunc nuw i32 %117 to i16
   %120 = sub i16 %115, %119
   store i16 %120, ptr %20, align 8
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -2300,7 +2300,7 @@ virtqueue_ordered_flush.exit:                     ; preds = %26, %29, %32, %.thr
   br i1 %.not27.i, label %virtqueue_packed_flush.exit, label %180
 
 180:                                              ; preds = %._crit_edge.i11
-  %181 = trunc i32 %179 to i16
+  %181 = trunc nuw i32 %179 to i16
   %182 = sub i16 %177, %181
   store i16 %182, ptr %174, align 8
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -3818,7 +3818,7 @@ virtqueue_packed_read_next_desc.exit.i:           ; preds = %.thread13.i.i, %.th
   br i1 %.not100.i, label %227, label %223
 
 223:                                              ; preds = %213
-  %224 = trunc i32 %222 to i16
+  %224 = trunc nuw i32 %222 to i16
   %225 = sub i16 %217, %224
   store i16 %225, ptr %44, align 8
   %226 = xor i8 %.pre.i, 1
@@ -4594,7 +4594,7 @@ rcu_read_auto_lock.exit.i:                        ; preds = %21, %16
   br i1 %.not31.i, label %70, label %65
 
 65:                                               ; preds = %._crit_edge.i
-  %66 = trunc i32 %64 to i16
+  %66 = trunc nuw i32 %64 to i16
   %67 = sub i16 %62, %66
   store i16 %67, ptr %33, align 8
   %68 = load i8, ptr %35, align 2, !range !5, !noundef !6

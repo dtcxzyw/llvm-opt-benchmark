@@ -35033,7 +35033,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN10polynomial10
   br i1 %.wide, label %472, label %._crit_edge, !llvm.loop !398
 
 ._crit_edge:                                      ; preds = %472
-  %675 = trunc nuw i64 %584 to i32
+  %675 = trunc nuw nsw i64 %584 to i32
   %676 = add i32 %666, 17
   switch i32 %675, label %789 [
     i32 2, label %677

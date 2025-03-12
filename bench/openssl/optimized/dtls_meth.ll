@@ -39,8 +39,8 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4328
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = tail call ptr @pqueue_pop(ptr noundef %14) #7
-  %.not.i156 = icmp eq ptr %15, null
-  br i1 %.not.i156, label %.lr.ph, label %._crit_edge
+  %.not.i155 = icmp eq ptr %15, null
+  br i1 %.not.i155, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4072
@@ -83,8 +83,8 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   br label %65
 
 ._crit_edge:                                      ; preds = %.backedge, %12
-  %.lcssa151 = phi ptr [ %15, %12 ], [ %80, %.backedge ]
-  %53 = getelementptr i8, ptr %.lcssa151, i64 8
+  %.lcssa150 = phi ptr [ %15, %12 ], [ %80, %.backedge ]
+  %53 = getelementptr i8, ptr %.lcssa150, i64 8
   %.val.i = load ptr, ptr %53, align 8, !tbaa !24
   call void @ossl_tls_buffer_release(ptr noundef nonnull %7) #7
   %54 = load ptr, ptr %.val.i, align 8, !tbaa !27
@@ -104,7 +104,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %61, ptr noundef nonnull align 1 dereferenceable(6) %63, i64 6, i1 false)
   %64 = load ptr, ptr %53, align 8, !tbaa !24
   call void @CRYPTO_free(ptr noundef %64, ptr noundef nonnull @.str, i32 noundef 359) #7
-  call void @pitem_free(ptr noundef nonnull %.lcssa151) #7
+  call void @pitem_free(ptr noundef nonnull %.lcssa150) #7
   store i64 1, ptr %5, align 8, !tbaa !33
   br label %dtls_rlayer_buffer_record.exit
 
@@ -116,10 +116,10 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
 67:                                               ; preds = %65
   %68 = load i64, ptr %17, align 8, !tbaa !32
   %69 = icmp ult i64 %68, 13
-  br i1 %69, label %70, label %._crit_edge164
+  br i1 %69, label %70, label %._crit_edge163
 
-._crit_edge164:                                   ; preds = %67
-  %.pre165 = load i64, ptr %24, align 8, !tbaa !35
+._crit_edge163:                                   ; preds = %67
+  %.pre164 = load i64, ptr %24, align 8, !tbaa !35
   br label %131
 
 70:                                               ; preds = %67, %65
@@ -136,7 +136,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %.not109 = icmp eq i64 %78, 13
   br i1 %.not109, label %81, label %.backedge.sink.split
 
-.backedge.sink.split.sink.split:                  ; preds = %439, %242, %244, %267, %264, %233, %satsub64be.exit.thread15.i, %148, %143, %126, %123, %119, %117
+.backedge.sink.split.sink.split:                  ; preds = %435, %240, %242, %265, %262, %231, %satsub64be.exit.thread15.i, %148, %143, %126, %123, %119, %117
   store i64 0, ptr %24, align 8, !tbaa !35
   br label %.backedge.sink.split
 
@@ -144,7 +144,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   store i64 0, ptr %17, align 8, !tbaa !32
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %238
+.backedge:                                        ; preds = %.backedge.sink.split, %236
   %79 = load ptr, ptr %13, align 8, !tbaa !23
   %80 = call ptr @pqueue_pop(ptr noundef %79) #7
   %.not.i = icmp eq ptr %80, null
@@ -197,25 +197,25 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
 113:                                              ; preds = %111, %81
   %114 = load i32, ptr %27, align 4, !tbaa !46
   %.not111 = icmp eq i32 %114, 0
-  br i1 %.not111, label %115, label %._crit_edge162
+  br i1 %.not111, label %115, label %._crit_edge161
 
-._crit_edge162:                                   ; preds = %113
+._crit_edge161:                                   ; preds = %113
   %.pre = load i32, ptr %28, align 4, !tbaa !47
   br label %119
 
 115:                                              ; preds = %113
   %116 = load i32, ptr %21, align 4, !tbaa !41
   %.not112 = icmp eq i32 %116, 21
-  %.pre163 = load i32, ptr %28, align 4, !tbaa !47
+  %.pre162 = load i32, ptr %28, align 4, !tbaa !47
   br i1 %.not112, label %119, label %117
 
 117:                                              ; preds = %115
   %118 = load i32, ptr %6, align 8, !tbaa !42
-  %.not113 = icmp eq i32 %118, %.pre163
+  %.not113 = icmp eq i32 %118, %.pre162
   br i1 %.not113, label %119, label %.backedge.sink.split.sink.split
 
-119:                                              ; preds = %._crit_edge162, %117, %115
-  %120 = phi i32 [ %.pre, %._crit_edge162 ], [ %.pre163, %117 ], [ %.pre163, %115 ]
+119:                                              ; preds = %._crit_edge161, %117, %115
+  %120 = phi i32 [ %.pre, %._crit_edge161 ], [ %.pre162, %117 ], [ %.pre162, %115 ]
   %121 = icmp eq i32 %120, 131071
   %122 = ashr i32 %120, 8
   %spec.select = select i1 %121, i32 254, i32 %122
@@ -232,15 +232,15 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %128 = add i32 %127, 320
   %129 = zext i32 %128 to i64
   %130 = icmp samesign ugt i64 %124, %129
-  br i1 %130, label %.backedge.sink.split.sink.split, label %._crit_edge166
+  br i1 %130, label %.backedge.sink.split.sink.split, label %._crit_edge165
 
-._crit_edge166:                                   ; preds = %126
-  %.pre167 = load i64, ptr %17, align 8, !tbaa !32
+._crit_edge165:                                   ; preds = %126
+  %.pre166 = load i64, ptr %17, align 8, !tbaa !32
   br label %131
 
-131:                                              ; preds = %._crit_edge166, %._crit_edge164
-  %132 = phi i64 [ %68, %._crit_edge164 ], [ %.pre167, %._crit_edge166 ]
-  %133 = phi i64 [ %.pre165, %._crit_edge164 ], [ %124, %._crit_edge166 ]
+131:                                              ; preds = %._crit_edge165, %._crit_edge163
+  %132 = phi i64 [ %68, %._crit_edge163 ], [ %.pre166, %._crit_edge165 ]
+  %133 = phi i64 [ %.pre164, %._crit_edge163 ], [ %124, %._crit_edge165 ]
   %134 = add i64 %132, -13
   %135 = icmp ugt i64 %133, %134
   br i1 %135, label %136, label %145
@@ -349,7 +349,7 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   %223 = icmp ugt i64 %184, %221
   %224 = icmp slt i64 %222, 0
   %or.cond.i.i = and i1 %223, %224
-  br i1 %or.cond.i.i, label %238, label %225
+  br i1 %or.cond.i.i, label %236, label %225
 
 225:                                              ; preds = %153
   %226 = icmp ugt i64 %221, %184
@@ -358,464 +358,459 @@ define range(i32 -2147483648, 2) i32 @dtls_get_more_records(ptr noundef initiali
   br i1 %or.cond3.i.i, label %satsub64be.exit.thread15.i, label %228
 
 228:                                              ; preds = %225
-  %229 = icmp sgt i64 %222, 128
   %spec.select45.i.i = call i64 @llvm.smax.i64(i64 %222, i64 -128)
-  %spec.select.i.i = trunc i64 %spec.select45.i.i to i32
-  %230 = icmp sgt i32 %spec.select.i.i, 0
-  %or.cond.i = or i1 %229, %230
-  br i1 %or.cond.i, label %238, label %satsub64be.exit.thread15.i
+  %spec.select.i.i = trunc nsw i64 %spec.select45.i.i to i32
+  br i1 %227, label %236, label %satsub64be.exit.thread15.i
 
 satsub64be.exit.thread15.i:                       ; preds = %228, %225
   %.0.i17.i = phi i32 [ -128, %225 ], [ %spec.select.i.i, %228 ]
-  %231 = sub nsw i32 0, %.0.i17.i
-  %232 = icmp samesign ugt i32 %231, 63
-  br i1 %232, label %.backedge.sink.split.sink.split, label %233
+  %229 = sub nsw i32 0, %.0.i17.i
+  %230 = icmp samesign ugt i32 %229, 63
+  br i1 %230, label %.backedge.sink.split.sink.split, label %231
 
-233:                                              ; preds = %satsub64be.exit.thread15.i
-  %234 = zext nneg i32 %231 to i64
-  %235 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
-  %236 = shl nuw i64 1, %234
-  %237 = and i64 %235, %236
-  %.not.i125 = icmp eq i64 %237, 0
-  br i1 %.not.i125, label %238, label %.backedge.sink.split.sink.split
+231:                                              ; preds = %satsub64be.exit.thread15.i
+  %232 = zext nneg i32 %229 to i64
+  %233 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
+  %234 = shl nuw i64 1, %232
+  %235 = and i64 %233, %234
+  %.not.i125 = icmp eq i64 %235, 0
+  br i1 %.not.i125, label %236, label %.backedge.sink.split.sink.split
 
-238:                                              ; preds = %233, %228, %153
+236:                                              ; preds = %231, %228, %153
   call void @ossl_tls_rl_record_set_seq_num(ptr noundef nonnull %6, ptr noundef nonnull %34) #7
-  %239 = load i64, ptr %24, align 8, !tbaa !35
-  %240 = icmp eq i64 %239, 0
-  br i1 %240, label %.backedge, label %241
+  %237 = load i64, ptr %24, align 8, !tbaa !35
+  %238 = icmp eq i64 %237, 0
+  br i1 %238, label %.backedge, label %239
 
-241:                                              ; preds = %238
-  br i1 %147, label %269, label %242
+239:                                              ; preds = %236
+  br i1 %147, label %267, label %240
 
-242:                                              ; preds = %241
-  %243 = load i32, ptr %41, align 8, !tbaa !52
-  %.not122 = icmp eq i32 %243, 0
-  br i1 %.not122, label %.backedge.sink.split.sink.split, label %244
+240:                                              ; preds = %239
+  %241 = load i32, ptr %41, align 8, !tbaa !52
+  %.not122 = icmp eq i32 %241, 0
+  br i1 %.not122, label %.backedge.sink.split.sink.split, label %242
 
-244:                                              ; preds = %242
-  %245 = load ptr, ptr %42, align 8, !tbaa !53
-  %246 = call i64 @pqueue_size(ptr noundef %245) #7
-  %247 = icmp ugt i64 %246, 99
-  br i1 %247, label %.backedge.sink.split.sink.split, label %248
+242:                                              ; preds = %240
+  %243 = load ptr, ptr %42, align 8, !tbaa !53
+  %244 = call i64 @pqueue_size(ptr noundef %243) #7
+  %245 = icmp ugt i64 %244, 99
+  br i1 %245, label %.backedge.sink.split.sink.split, label %246
 
-248:                                              ; preds = %244
-  %249 = call noalias ptr @CRYPTO_malloc(i64 noundef 136, ptr noundef nonnull @.str, i32 noundef 291) #7
-  %250 = call ptr @pitem_new(ptr noundef nonnull %43, ptr noundef %249) #7
-  %251 = icmp eq ptr %249, null
-  %252 = icmp eq ptr %250, null
-  %or.cond.i127 = select i1 %251, i1 true, i1 %252
-  br i1 %or.cond.i127, label %253, label %254
+246:                                              ; preds = %242
+  %247 = call noalias ptr @CRYPTO_malloc(i64 noundef 136, ptr noundef nonnull @.str, i32 noundef 291) #7
+  %248 = call ptr @pitem_new(ptr noundef nonnull %43, ptr noundef %247) #7
+  %249 = icmp eq ptr %247, null
+  %250 = icmp eq ptr %248, null
+  %or.cond.i = select i1 %249, i1 true, i1 %250
+  br i1 %or.cond.i, label %251, label %252
 
-253:                                              ; preds = %248
-  call void @CRYPTO_free(ptr noundef %249, ptr noundef nonnull @.str, i32 noundef 294) #7
-  call void @pitem_free(ptr noundef %250) #7
+251:                                              ; preds = %246
+  call void @CRYPTO_free(ptr noundef %247, ptr noundef nonnull @.str, i32 noundef 294) #7
+  call void @pitem_free(ptr noundef %248) #7
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 296, ptr noundef nonnull @__func__.dtls_rlayer_buffer_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #7
   br label %dtls_rlayer_buffer_record.exit
 
-254:                                              ; preds = %248
-  %255 = load ptr, ptr %20, align 8, !tbaa !30
-  store ptr %255, ptr %249, align 8, !tbaa !27
-  %256 = load i64, ptr %17, align 8, !tbaa !32
-  %257 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store i64 %256, ptr %257, align 8, !tbaa !31
-  %258 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %258, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
-  %259 = getelementptr inbounds nuw i8, ptr %249, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %259, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
-  %260 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store ptr %249, ptr %260, align 8, !tbaa !24
+252:                                              ; preds = %246
+  %253 = load ptr, ptr %20, align 8, !tbaa !30
+  store ptr %253, ptr %247, align 8, !tbaa !27
+  %254 = load i64, ptr %17, align 8, !tbaa !32
+  %255 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store i64 %254, ptr %255, align 8, !tbaa !31
+  %256 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %256, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
+  %257 = getelementptr inbounds nuw i8, ptr %247, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %257, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
+  %258 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  store ptr %247, ptr %258, align 8, !tbaa !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %7, i8 0, i64 120, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  %261 = call i32 @tls_setup_read_buffer(ptr noundef nonnull %0) #7
-  %.not.i128 = icmp eq i32 %261, 0
-  br i1 %.not.i128, label %262, label %264
+  %259 = call i32 @tls_setup_read_buffer(ptr noundef nonnull %0) #7
+  %.not.i127 = icmp eq i32 %259, 0
+  br i1 %.not.i127, label %260, label %262
 
-262:                                              ; preds = %254
-  %263 = load ptr, ptr %258, align 8, !tbaa !54
-  call void @CRYPTO_free(ptr noundef %263, ptr noundef nonnull @.str, i32 noundef 314) #7
-  call void @CRYPTO_free(ptr noundef nonnull %249, ptr noundef nonnull @.str, i32 noundef 315) #7
-  call void @pitem_free(ptr noundef nonnull %250) #7
+260:                                              ; preds = %252
+  %261 = load ptr, ptr %256, align 8, !tbaa !54
+  call void @CRYPTO_free(ptr noundef %261, ptr noundef nonnull @.str, i32 noundef 314) #7
+  call void @CRYPTO_free(ptr noundef nonnull %247, ptr noundef nonnull @.str, i32 noundef 315) #7
+  call void @pitem_free(ptr noundef nonnull %248) #7
   br label %dtls_rlayer_buffer_record.exit
 
-264:                                              ; preds = %254
-  %265 = call ptr @pqueue_insert(ptr noundef %245, ptr noundef nonnull %250) #7
-  %266 = icmp eq ptr %265, null
-  br i1 %266, label %267, label %.backedge.sink.split.sink.split
+262:                                              ; preds = %252
+  %263 = call ptr @pqueue_insert(ptr noundef %243, ptr noundef nonnull %248) #7
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %265, label %.backedge.sink.split.sink.split
 
-267:                                              ; preds = %264
-  %268 = load ptr, ptr %258, align 8, !tbaa !54
-  call void @CRYPTO_free(ptr noundef %268, ptr noundef nonnull @.str, i32 noundef 322) #7
-  call void @CRYPTO_free(ptr noundef nonnull %249, ptr noundef nonnull @.str, i32 noundef 323) #7
-  call void @pitem_free(ptr noundef nonnull %250) #7
+265:                                              ; preds = %262
+  %266 = load ptr, ptr %256, align 8, !tbaa !54
+  call void @CRYPTO_free(ptr noundef %266, ptr noundef nonnull @.str, i32 noundef 322) #7
+  call void @CRYPTO_free(ptr noundef nonnull %247, ptr noundef nonnull @.str, i32 noundef 323) #7
+  call void @pitem_free(ptr noundef nonnull %248) #7
   br label %.backedge.sink.split.sink.split
 
-269:                                              ; preds = %241
+267:                                              ; preds = %239
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %270 = load ptr, ptr %20, align 8, !tbaa !30
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 13
-  store ptr %271, ptr %44, align 8, !tbaa !55
-  %272 = icmp ugt i64 %239, 17728
-  br i1 %272, label %273, label %274
+  %268 = load ptr, ptr %20, align 8, !tbaa !30
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 13
+  store ptr %269, ptr %44, align 8, !tbaa !55
+  %270 = icmp ugt i64 %237, 17728
+  br i1 %270, label %271, label %272
 
-273:                                              ; preds = %269
+271:                                              ; preds = %267
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 141, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 22, i32 noundef 150, ptr noundef null) #7
   br label %dtls_process_record.exit.thread
 
-274:                                              ; preds = %269
-  store ptr %271, ptr %45, align 8, !tbaa !56
-  store i64 %239, ptr %46, align 8, !tbaa !57
-  %275 = load ptr, ptr %47, align 8, !tbaa !58
-  %.not.i130 = icmp eq ptr %275, null
-  br i1 %.not.i130, label %.thread.i, label %276
+272:                                              ; preds = %267
+  store ptr %269, ptr %45, align 8, !tbaa !56
+  store i64 %237, ptr %46, align 8, !tbaa !57
+  %273 = load ptr, ptr %47, align 8, !tbaa !58
+  %.not.i129 = icmp eq ptr %273, null
+  br i1 %.not.i129, label %.thread.i, label %274
+
+274:                                              ; preds = %272
+  %275 = call ptr @EVP_MD_CTX_get0_md(ptr noundef nonnull %273) #7
+  %.not87.i = icmp eq ptr %275, null
+  br i1 %.not87.i, label %.thread.i, label %276
 
 276:                                              ; preds = %274
-  %277 = call ptr @EVP_MD_CTX_get0_md(ptr noundef nonnull %275) #7
-  %.not87.i = icmp eq ptr %277, null
-  br i1 %.not87.i, label %.thread.i, label %278
+  %277 = call i32 @EVP_MD_get_size(ptr noundef nonnull %275) #7
+  %278 = add i32 %277, -1
+  %279 = icmp ult i32 %278, 64
+  br i1 %279, label %280, label %282, !prof !59
 
-278:                                              ; preds = %276
-  %279 = call i32 @EVP_MD_get_size(ptr noundef nonnull %277) #7
-  %280 = add i32 %279, -1
-  %281 = icmp ult i32 %280, 64
-  br i1 %281, label %282, label %284, !prof !59
-
-282:                                              ; preds = %278
-  %283 = zext nneg i32 %279 to i64
+280:                                              ; preds = %276
+  %281 = zext nneg i32 %277 to i64
   br label %.thread.i
 
-284:                                              ; preds = %278
+282:                                              ; preds = %276
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 524294, ptr noundef null) #7
   br label %dtls_process_record.exit.thread
 
-.thread.i:                                        ; preds = %282, %276, %274
-  %.078.i = phi i64 [ 0, %274 ], [ 0, %276 ], [ %283, %282 ]
-  %285 = load i32, ptr %48, align 8, !tbaa !60
-  %.not88.i = icmp eq i32 %285, 0
-  br i1 %.not88.i, label %305, label %286
+.thread.i:                                        ; preds = %280, %274, %272
+  %.078.i = phi i64 [ 0, %272 ], [ 0, %274 ], [ %281, %280 ]
+  %283 = load i32, ptr %48, align 8, !tbaa !60
+  %.not88.i = icmp eq i32 %283, 0
+  br i1 %.not88.i, label %303, label %284
 
-286:                                              ; preds = %.thread.i
-  %287 = load ptr, ptr %47, align 8, !tbaa !58
-  %.not89.i = icmp eq ptr %287, null
-  br i1 %.not89.i, label %305, label %288
+284:                                              ; preds = %.thread.i
+  %285 = load ptr, ptr %47, align 8, !tbaa !58
+  %.not89.i = icmp eq ptr %285, null
+  br i1 %.not89.i, label %303, label %286
 
-288:                                              ; preds = %286
-  %289 = load i64, ptr %46, align 8, !tbaa !57
-  %290 = icmp ult i64 %289, %.078.i
-  br i1 %290, label %291, label %292
+286:                                              ; preds = %284
+  %287 = load i64, ptr %46, align 8, !tbaa !57
+  %288 = icmp ult i64 %287, %.078.i
+  br i1 %288, label %289, label %290
 
-291:                                              ; preds = %288
+289:                                              ; preds = %286
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 166, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 50, i32 noundef 160, ptr noundef null) #7
   br label %dtls_process_record.exit.thread
 
-292:                                              ; preds = %288
-  %293 = load i64, ptr %24, align 8, !tbaa !35
-  %294 = sub i64 %293, %.078.i
-  store i64 %294, ptr %24, align 8, !tbaa !35
-  %295 = load ptr, ptr %45, align 8, !tbaa !56
-  %296 = load ptr, ptr %18, align 8, !tbaa !36
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 16
-  %298 = load ptr, ptr %297, align 8, !tbaa !61
-  %299 = call i32 %298(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 0) #7
-  %300 = icmp eq i32 %299, 0
-  br i1 %300, label %304, label %301
+290:                                              ; preds = %286
+  %291 = load i64, ptr %24, align 8, !tbaa !35
+  %292 = sub i64 %291, %.078.i
+  store i64 %292, ptr %24, align 8, !tbaa !35
+  %293 = load ptr, ptr %45, align 8, !tbaa !56
+  %294 = load ptr, ptr %18, align 8, !tbaa !36
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
+  %296 = load ptr, ptr %295, align 8, !tbaa !61
+  %297 = call i32 %296(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 0) #7
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %302, label %299
 
-301:                                              ; preds = %292
-  %302 = getelementptr inbounds nuw i8, ptr %295, i64 %294
-  %303 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %2, ptr noundef %302, i64 noundef %.078.i) #7
-  %.not90.i = icmp eq i32 %303, 0
-  br i1 %.not90.i, label %305, label %304
+299:                                              ; preds = %290
+  %300 = getelementptr inbounds nuw i8, ptr %293, i64 %292
+  %301 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %2, ptr noundef %300, i64 noundef %.078.i) #7
+  %.not90.i = icmp eq i32 %301, 0
+  br i1 %.not90.i, label %303, label %302
 
-304:                                              ; preds = %301, %292
+302:                                              ; preds = %299, %290
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 20, i32 noundef 281, ptr noundef null) #7
   br label %dtls_process_record.exit.thread
 
-305:                                              ; preds = %301, %286, %.thread.i
-  %.381.i = phi i64 [ %.078.i, %286 ], [ %.078.i, %.thread.i ], [ 0, %301 ]
-  %306 = call i32 @ERR_set_mark() #7
-  %307 = load ptr, ptr %18, align 8, !tbaa !36
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %309 = load ptr, ptr %308, align 8, !tbaa !62
-  %310 = call i32 %309(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %.381.i) #7
-  %311 = icmp eq i32 %310, 0
-  br i1 %311, label %312, label %316
+303:                                              ; preds = %299, %284, %.thread.i
+  %.381.i = phi i64 [ %.078.i, %284 ], [ %.078.i, %.thread.i ], [ 0, %299 ]
+  %304 = call i32 @ERR_set_mark() #7
+  %305 = load ptr, ptr %18, align 8, !tbaa !36
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  %307 = load ptr, ptr %306, align 8, !tbaa !62
+  %308 = call i32 %307(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 1, i32 noundef 0, ptr noundef nonnull %3, i64 noundef %.381.i) #7
+  %309 = icmp eq i32 %308, 0
+  br i1 %309, label %310, label %314
 
-312:                                              ; preds = %305
-  %313 = call i32 @ERR_pop_to_mark() #7
-  %314 = load i32, ptr %30, align 8, !tbaa !49
-  %.not97.i = icmp eq i32 %314, -1
-  br i1 %.not97.i, label %315, label %dtls_record_bitmap_update.exit.i
+310:                                              ; preds = %303
+  %311 = call i32 @ERR_pop_to_mark() #7
+  %312 = load i32, ptr %30, align 8, !tbaa !49
+  %.not97.i = icmp eq i32 %312, -1
+  br i1 %.not97.i, label %313, label %dtls_record_bitmap_update.exit.i
 
-315:                                              ; preds = %312
+313:                                              ; preds = %310
   store i64 0, ptr %24, align 8, !tbaa !35
   store i64 0, ptr %17, align 8, !tbaa !32
   br label %dtls_record_bitmap_update.exit.i
 
-316:                                              ; preds = %305
-  %317 = call i32 @ERR_clear_last_mark() #7
-  %318 = load i32, ptr %48, align 8, !tbaa !60
-  %.not91.i = icmp eq i32 %318, 0
-  br i1 %.not91.i, label %319, label %.thread106thread-pre-split.i
+314:                                              ; preds = %303
+  %315 = call i32 @ERR_clear_last_mark() #7
+  %316 = load i32, ptr %48, align 8, !tbaa !60
+  %.not91.i = icmp eq i32 %316, 0
+  br i1 %.not91.i, label %317, label %.thread106thread-pre-split.i
 
-319:                                              ; preds = %316
-  %320 = load ptr, ptr %49, align 8, !tbaa !63
-  %.not92.i = icmp eq ptr %320, null
-  br i1 %.not92.i, label %.thread106thread-pre-split.i, label %321
+317:                                              ; preds = %314
+  %318 = load ptr, ptr %49, align 8, !tbaa !63
+  %.not92.i = icmp eq ptr %318, null
+  br i1 %.not92.i, label %.thread106thread-pre-split.i, label %319
 
-321:                                              ; preds = %319
-  %322 = load ptr, ptr %47, align 8, !tbaa !58
-  %323 = call ptr @EVP_MD_CTX_get0_md(ptr noundef %322) #7
-  %.not93.i = icmp eq ptr %323, null
-  br i1 %.not93.i, label %.thread106thread-pre-split.i, label %324
+319:                                              ; preds = %317
+  %320 = load ptr, ptr %47, align 8, !tbaa !58
+  %321 = call ptr @EVP_MD_CTX_get0_md(ptr noundef %320) #7
+  %.not93.i = icmp eq ptr %321, null
+  br i1 %.not93.i, label %.thread106thread-pre-split.i, label %322
 
-324:                                              ; preds = %321
-  %325 = load ptr, ptr %18, align 8, !tbaa !36
-  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
-  %327 = load ptr, ptr %326, align 8, !tbaa !61
-  %328 = call i32 %327(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 0) #7
-  %329 = icmp eq i32 %328, 0
-  %330 = load ptr, ptr %3, align 8
-  %331 = icmp eq ptr %330, null
-  %or.cond.i132 = select i1 %329, i1 true, i1 %331
-  br i1 %or.cond.i132, label %.thread108.i, label %332
+322:                                              ; preds = %319
+  %323 = load ptr, ptr %18, align 8, !tbaa !36
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
+  %325 = load ptr, ptr %324, align 8, !tbaa !61
+  %326 = call i32 %325(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 0) #7
+  %327 = icmp eq i32 %326, 0
+  %328 = load ptr, ptr %3, align 8
+  %329 = icmp eq ptr %328, null
+  %or.cond.i131 = select i1 %327, i1 true, i1 %329
+  br i1 %or.cond.i131, label %.thread108.i, label %330
 
-332:                                              ; preds = %324
-  %333 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %2, ptr noundef nonnull %330, i64 noundef %.381.i) #7
-  %.not94.i = icmp eq i32 %333, 0
-  br i1 %.not94.i, label %334, label %.thread108.i
+330:                                              ; preds = %322
+  %331 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %2, ptr noundef nonnull %328, i64 noundef %.381.i) #7
+  %.not94.i = icmp eq i32 %331, 0
+  br i1 %.not94.i, label %332, label %.thread108.i
 
-334:                                              ; preds = %332
-  %335 = load i64, ptr %24, align 8, !tbaa !35
-  %336 = add nuw nsw i64 %.381.i, 17408
-  %337 = icmp ugt i64 %335, %336
-  br i1 %337, label %.thread108.i, label %.thread106.i
+332:                                              ; preds = %330
+  %333 = load i64, ptr %24, align 8, !tbaa !35
+  %334 = add nuw nsw i64 %.381.i, 17408
+  %335 = icmp ugt i64 %333, %334
+  br i1 %335, label %.thread108.i, label %.thread106.i
 
-.thread108.i:                                     ; preds = %334, %332, %324
+.thread108.i:                                     ; preds = %332, %330, %322
   store i64 0, ptr %24, align 8, !tbaa !35
   store i64 0, ptr %17, align 8, !tbaa !32
   br label %dtls_record_bitmap_update.exit.i
 
-.thread106thread-pre-split.i:                     ; preds = %321, %319, %316
+.thread106thread-pre-split.i:                     ; preds = %319, %317, %314
   %.pre111.pr.i = load i64, ptr %24, align 8, !tbaa !35
   br label %.thread106.i
 
-.thread106.i:                                     ; preds = %.thread106thread-pre-split.i, %334
-  %.pre111.i = phi i64 [ %.pre111.pr.i, %.thread106thread-pre-split.i ], [ %335, %334 ]
-  %338 = load ptr, ptr %50, align 8, !tbaa !64
-  %.not95.i = icmp eq ptr %338, null
-  br i1 %.not95.i, label %345, label %339
+.thread106.i:                                     ; preds = %.thread106thread-pre-split.i, %332
+  %.pre111.i = phi i64 [ %.pre111.pr.i, %.thread106thread-pre-split.i ], [ %333, %332 ]
+  %336 = load ptr, ptr %50, align 8, !tbaa !64
+  %.not95.i = icmp eq ptr %336, null
+  br i1 %.not95.i, label %343, label %337
 
-339:                                              ; preds = %.thread106.i
-  %340 = icmp ugt i64 %.pre111.i, 17408
-  br i1 %340, label %341, label %342
+337:                                              ; preds = %.thread106.i
+  %338 = icmp ugt i64 %.pre111.i, 17408
+  br i1 %338, label %339, label %340
 
-341:                                              ; preds = %339
+339:                                              ; preds = %337
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 240, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 22, i32 noundef 140, ptr noundef null) #7
   br label %dtls_record_bitmap_update.exit.i
 
-342:                                              ; preds = %339
-  %343 = call i32 @tls_do_uncompress(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
-  %.not96.i = icmp eq i32 %343, 0
-  br i1 %.not96.i, label %344, label %._crit_edge.i
+340:                                              ; preds = %337
+  %341 = call i32 @tls_do_uncompress(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
+  %.not96.i = icmp eq i32 %341, 0
+  br i1 %.not96.i, label %342, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %342
+._crit_edge.i:                                    ; preds = %340
   %.pre.i = load i64, ptr %24, align 8, !tbaa !35
-  br label %345
+  br label %343
 
-344:                                              ; preds = %342
+342:                                              ; preds = %340
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 30, i32 noundef 107, ptr noundef null) #7
   br label %dtls_record_bitmap_update.exit.i
 
-345:                                              ; preds = %._crit_edge.i, %.thread106.i
-  %346 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre111.i, %.thread106.i ]
-  %347 = load i32, ptr %29, align 4, !tbaa !48
-  %348 = zext i32 %347 to i64
-  %349 = icmp ugt i64 %346, %348
-  br i1 %349, label %350, label %351
+343:                                              ; preds = %._crit_edge.i, %.thread106.i
+  %344 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre111.i, %.thread106.i ]
+  %345 = load i32, ptr %29, align 4, !tbaa !48
+  %346 = zext i32 %345 to i64
+  %347 = icmp ugt i64 %344, %346
+  br i1 %347, label %348, label %349
 
-350:                                              ; preds = %345
+348:                                              ; preds = %343
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 254, ptr noundef nonnull @__func__.dtls_process_record) #7
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 22, i32 noundef 146, ptr noundef null) #7
   br label %dtls_record_bitmap_update.exit.i
 
-351:                                              ; preds = %345
+349:                                              ; preds = %343
   store i64 0, ptr %51, align 8, !tbaa !65
   store i64 0, ptr %17, align 8, !tbaa !32
-  %352 = load i8, ptr %34, align 1, !tbaa !40
-  %353 = zext i8 %352 to i64
-  %354 = shl nuw i64 %353, 56
-  %355 = load i8, ptr %35, align 1, !tbaa !40
-  %356 = zext i8 %355 to i64
-  %357 = shl nuw nsw i64 %356, 48
-  %358 = or disjoint i64 %357, %354
-  %359 = load i8, ptr %23, align 1, !tbaa !40
-  %360 = zext i8 %359 to i64
-  %361 = shl nuw nsw i64 %360, 40
-  %362 = or disjoint i64 %358, %361
-  %363 = load i8, ptr %36, align 1, !tbaa !40
-  %364 = zext i8 %363 to i64
-  %365 = shl nuw nsw i64 %364, 32
-  %366 = or disjoint i64 %362, %365
-  %367 = load i8, ptr %37, align 1, !tbaa !40
-  %368 = zext i8 %367 to i64
-  %369 = shl nuw nsw i64 %368, 24
-  %370 = or disjoint i64 %366, %369
-  %371 = load i8, ptr %38, align 1, !tbaa !40
-  %372 = zext i8 %371 to i64
-  %373 = shl nuw nsw i64 %372, 16
-  %374 = or disjoint i64 %370, %373
-  %375 = load i8, ptr %39, align 1, !tbaa !40
-  %376 = zext i8 %375 to i64
-  %377 = shl nuw nsw i64 %376, 8
-  %378 = or i64 %374, %377
-  %379 = load i8, ptr %40, align 1, !tbaa !40
-  %380 = zext i8 %379 to i64
-  %381 = or i64 %378, %380
-  %382 = load i8, ptr %154, align 1, !tbaa !40
-  %383 = zext i8 %382 to i64
-  %384 = shl nuw i64 %383, 56
-  %385 = load i8, ptr %185, align 1, !tbaa !40
-  %386 = zext i8 %385 to i64
-  %387 = shl nuw nsw i64 %386, 48
-  %388 = or disjoint i64 %387, %384
-  %389 = load i8, ptr %189, align 1, !tbaa !40
-  %390 = zext i8 %389 to i64
-  %391 = shl nuw nsw i64 %390, 40
-  %392 = or disjoint i64 %388, %391
-  %393 = load i8, ptr %194, align 1, !tbaa !40
-  %394 = zext i8 %393 to i64
-  %395 = shl nuw nsw i64 %394, 32
-  %396 = or disjoint i64 %392, %395
-  %397 = load i8, ptr %199, align 1, !tbaa !40
-  %398 = zext i8 %397 to i64
-  %399 = shl nuw nsw i64 %398, 24
-  %400 = or disjoint i64 %396, %399
-  %401 = load i8, ptr %204, align 1, !tbaa !40
-  %402 = zext i8 %401 to i64
-  %403 = shl nuw nsw i64 %402, 16
-  %404 = or disjoint i64 %400, %403
-  %405 = load i8, ptr %209, align 1, !tbaa !40
-  %406 = zext i8 %405 to i64
-  %407 = shl nuw nsw i64 %406, 8
-  %408 = or i64 %404, %407
-  %409 = load i8, ptr %214, align 1, !tbaa !40
-  %410 = zext i8 %409 to i64
-  %411 = or i64 %408, %410
-  %412 = sub i64 %381, %411
-  %413 = icmp ugt i64 %381, %411
-  %414 = icmp slt i64 %412, 0
-  %or.cond.i.i.i = and i1 %413, %414
-  br i1 %or.cond.i.i.i, label %.thread.i.i, label %415
+  %350 = load i8, ptr %34, align 1, !tbaa !40
+  %351 = zext i8 %350 to i64
+  %352 = shl nuw i64 %351, 56
+  %353 = load i8, ptr %35, align 1, !tbaa !40
+  %354 = zext i8 %353 to i64
+  %355 = shl nuw nsw i64 %354, 48
+  %356 = or disjoint i64 %355, %352
+  %357 = load i8, ptr %23, align 1, !tbaa !40
+  %358 = zext i8 %357 to i64
+  %359 = shl nuw nsw i64 %358, 40
+  %360 = or disjoint i64 %356, %359
+  %361 = load i8, ptr %36, align 1, !tbaa !40
+  %362 = zext i8 %361 to i64
+  %363 = shl nuw nsw i64 %362, 32
+  %364 = or disjoint i64 %360, %363
+  %365 = load i8, ptr %37, align 1, !tbaa !40
+  %366 = zext i8 %365 to i64
+  %367 = shl nuw nsw i64 %366, 24
+  %368 = or disjoint i64 %364, %367
+  %369 = load i8, ptr %38, align 1, !tbaa !40
+  %370 = zext i8 %369 to i64
+  %371 = shl nuw nsw i64 %370, 16
+  %372 = or disjoint i64 %368, %371
+  %373 = load i8, ptr %39, align 1, !tbaa !40
+  %374 = zext i8 %373 to i64
+  %375 = shl nuw nsw i64 %374, 8
+  %376 = or i64 %372, %375
+  %377 = load i8, ptr %40, align 1, !tbaa !40
+  %378 = zext i8 %377 to i64
+  %379 = or i64 %376, %378
+  %380 = load i8, ptr %154, align 1, !tbaa !40
+  %381 = zext i8 %380 to i64
+  %382 = shl nuw i64 %381, 56
+  %383 = load i8, ptr %185, align 1, !tbaa !40
+  %384 = zext i8 %383 to i64
+  %385 = shl nuw nsw i64 %384, 48
+  %386 = or disjoint i64 %385, %382
+  %387 = load i8, ptr %189, align 1, !tbaa !40
+  %388 = zext i8 %387 to i64
+  %389 = shl nuw nsw i64 %388, 40
+  %390 = or disjoint i64 %386, %389
+  %391 = load i8, ptr %194, align 1, !tbaa !40
+  %392 = zext i8 %391 to i64
+  %393 = shl nuw nsw i64 %392, 32
+  %394 = or disjoint i64 %390, %393
+  %395 = load i8, ptr %199, align 1, !tbaa !40
+  %396 = zext i8 %395 to i64
+  %397 = shl nuw nsw i64 %396, 24
+  %398 = or disjoint i64 %394, %397
+  %399 = load i8, ptr %204, align 1, !tbaa !40
+  %400 = zext i8 %399 to i64
+  %401 = shl nuw nsw i64 %400, 16
+  %402 = or disjoint i64 %398, %401
+  %403 = load i8, ptr %209, align 1, !tbaa !40
+  %404 = zext i8 %403 to i64
+  %405 = shl nuw nsw i64 %404, 8
+  %406 = or i64 %402, %405
+  %407 = load i8, ptr %214, align 1, !tbaa !40
+  %408 = zext i8 %407 to i64
+  %409 = or i64 %406, %408
+  %410 = sub i64 %379, %409
+  %411 = icmp ugt i64 %379, %409
+  %412 = icmp slt i64 %410, 0
+  %or.cond.i.i.i = and i1 %411, %412
+  br i1 %or.cond.i.i.i, label %.thread.i.i, label %413
 
-415:                                              ; preds = %351
-  %416 = icmp ugt i64 %411, %381
-  %417 = icmp sgt i64 %412, 0
-  %or.cond3.i.i.i = and i1 %416, %417
-  br i1 %or.cond3.i.i.i, label %satsub64be.exit.thread19.i.i, label %418
+413:                                              ; preds = %349
+  %414 = icmp ugt i64 %409, %379
+  %415 = icmp sgt i64 %410, 0
+  %or.cond3.i.i.i = and i1 %414, %415
+  br i1 %or.cond3.i.i.i, label %satsub64be.exit.thread19.i.i, label %416
 
-418:                                              ; preds = %415
-  %419 = icmp sgt i64 %412, 128
-  br i1 %419, label %.thread.i.i, label %satsub64be.exit.i.i
+416:                                              ; preds = %413
+  %417 = icmp sgt i64 %410, 128
+  br i1 %417, label %.thread.i.i, label %satsub64be.exit.i.i
 
-satsub64be.exit.i.i:                              ; preds = %418
-  %spec.select45.i.i.i = call i64 @llvm.smax.i64(i64 %412, i64 -128)
-  %spec.select.i.i.i = trunc i64 %spec.select45.i.i.i to i32
-  %420 = icmp sgt i32 %spec.select.i.i.i, 0
-  br i1 %420, label %421, label %satsub64be.exit.thread19.i.i
+satsub64be.exit.i.i:                              ; preds = %416
+  %spec.select45.i.i.i = call i64 @llvm.smax.i64(i64 %410, i64 -128)
+  %spec.select.i.i.i = trunc nsw i64 %spec.select45.i.i.i to i32
+  br i1 %415, label %418, label %satsub64be.exit.thread19.i.i
 
-421:                                              ; preds = %satsub64be.exit.i.i
-  %422 = icmp samesign ult i32 %spec.select.i.i.i, 64
-  br i1 %422, label %423, label %.thread.i.i
+418:                                              ; preds = %satsub64be.exit.i.i
+  %419 = icmp samesign ult i64 %410, 64
+  br i1 %419, label %420, label %.thread.i.i
 
-423:                                              ; preds = %421
-  %424 = and i64 %spec.select45.i.i.i, 63
-  %425 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
-  %426 = shl i64 %425, %424
-  %427 = add nuw nsw i64 %426, 1
+420:                                              ; preds = %418
+  %421 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
+  %422 = shl i64 %421, %spec.select45.i.i.i
+  %423 = or disjoint i64 %422, 1
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %423, %421, %418, %351
-  %storemerge.i.i = phi i64 [ %427, %423 ], [ 1, %421 ], [ 1, %418 ], [ 1, %351 ]
+.thread.i.i:                                      ; preds = %420, %418, %416, %349
+  %storemerge.i.i = phi i64 [ %423, %420 ], [ 1, %418 ], [ 1, %416 ], [ 1, %349 ]
   store i64 %storemerge.i.i, ptr %.0.i124.ph, align 8, !tbaa !51
-  %428 = load i64, ptr %34, align 1
-  store i64 %428, ptr %154, align 8
+  %424 = load i64, ptr %34, align 1
+  store i64 %424, ptr %154, align 8
   br label %dtls_record_bitmap_update.exit.i
 
-satsub64be.exit.thread19.i.i:                     ; preds = %satsub64be.exit.i.i, %415
-  %.0.i21.i.i = phi i32 [ %spec.select.i.i.i, %satsub64be.exit.i.i ], [ -128, %415 ]
-  %429 = sub nsw i32 0, %.0.i21.i.i
-  %430 = icmp samesign ult i32 %429, 64
-  br i1 %430, label %431, label %dtls_record_bitmap_update.exit.i
+satsub64be.exit.thread19.i.i:                     ; preds = %satsub64be.exit.i.i, %413
+  %.0.i21.i.i = phi i32 [ %spec.select.i.i.i, %satsub64be.exit.i.i ], [ -128, %413 ]
+  %425 = sub nsw i32 0, %.0.i21.i.i
+  %426 = icmp samesign ult i32 %425, 64
+  br i1 %426, label %427, label %dtls_record_bitmap_update.exit.i
 
-431:                                              ; preds = %satsub64be.exit.thread19.i.i
-  %432 = zext nneg i32 %429 to i64
-  %433 = shl nuw i64 1, %432
-  %434 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
-  %435 = or i64 %434, %433
-  store i64 %435, ptr %.0.i124.ph, align 8, !tbaa !51
+427:                                              ; preds = %satsub64be.exit.thread19.i.i
+  %428 = zext nneg i32 %425 to i64
+  %429 = shl nuw i64 1, %428
+  %430 = load i64, ptr %.0.i124.ph, align 8, !tbaa !51
+  %431 = or i64 %430, %429
+  store i64 %431, ptr %.0.i124.ph, align 8, !tbaa !51
   br label %dtls_record_bitmap_update.exit.i
 
-dtls_record_bitmap_update.exit.i:                 ; preds = %431, %satsub64be.exit.thread19.i.i, %.thread.i.i, %350, %344, %341, %.thread108.i, %315, %312
-  %.not118 = phi i1 [ true, %312 ], [ true, %315 ], [ true, %.thread108.i ], [ true, %341 ], [ true, %350 ], [ true, %344 ], [ false, %.thread.i.i ], [ false, %satsub64be.exit.thread19.i.i ], [ false, %431 ]
-  %436 = load i32, ptr %52, align 8, !tbaa !66
-  %.not98.i = icmp eq i32 %436, 0
-  br i1 %.not98.i, label %dtls_process_record.exit, label %437
+dtls_record_bitmap_update.exit.i:                 ; preds = %427, %satsub64be.exit.thread19.i.i, %.thread.i.i, %348, %342, %339, %.thread108.i, %313, %310
+  %.not118 = phi i1 [ true, %310 ], [ true, %313 ], [ true, %.thread108.i ], [ true, %339 ], [ true, %348 ], [ true, %342 ], [ false, %.thread.i.i ], [ false, %satsub64be.exit.thread19.i.i ], [ false, %427 ]
+  %432 = load i32, ptr %52, align 8, !tbaa !66
+  %.not98.i = icmp eq i32 %432, 0
+  br i1 %.not98.i, label %dtls_process_record.exit, label %433
 
-437:                                              ; preds = %dtls_record_bitmap_update.exit.i
-  %438 = load ptr, ptr %3, align 8, !tbaa !68
-  call void @CRYPTO_free(ptr noundef %438, ptr noundef nonnull @.str, i32 noundef 277) #7
+433:                                              ; preds = %dtls_record_bitmap_update.exit.i
+  %434 = load ptr, ptr %3, align 8, !tbaa !68
+  call void @CRYPTO_free(ptr noundef %434, ptr noundef nonnull @.str, i32 noundef 277) #7
   br label %dtls_process_record.exit
 
-dtls_process_record.exit.thread:                  ; preds = %273, %284, %291, %304
+dtls_process_record.exit.thread:                  ; preds = %271, %282, %289, %302
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
-  br label %439
+  br label %435
 
-dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_update.exit.i, %437
+dtls_process_record.exit:                         ; preds = %dtls_record_bitmap_update.exit.i, %433
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #7
-  br i1 %.not118, label %439, label %441
+  br i1 %.not118, label %435, label %437
 
-439:                                              ; preds = %dtls_process_record.exit.thread, %dtls_process_record.exit
-  %440 = load i32, ptr %30, align 8, !tbaa !49
-  %.not119 = icmp eq i32 %440, -1
+435:                                              ; preds = %dtls_process_record.exit.thread, %dtls_process_record.exit
+  %436 = load i32, ptr %30, align 8, !tbaa !49
+  %.not119 = icmp eq i32 %436, -1
   br i1 %.not119, label %.backedge.sink.split.sink.split, label %dtls_rlayer_buffer_record.exit
 
-441:                                              ; preds = %dtls_process_record.exit
-  %442 = load ptr, ptr %18, align 8, !tbaa !36
-  %443 = getelementptr inbounds nuw i8, ptr %442, i64 56
-  %444 = load ptr, ptr %443, align 8, !tbaa !69
-  %.not120 = icmp eq ptr %444, null
-  br i1 %.not120, label %447, label %445
+437:                                              ; preds = %dtls_process_record.exit
+  %438 = load ptr, ptr %18, align 8, !tbaa !36
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 56
+  %440 = load ptr, ptr %439, align 8, !tbaa !69
+  %.not120 = icmp eq ptr %440, null
+  br i1 %.not120, label %443, label %441
 
-445:                                              ; preds = %441
-  %446 = call i32 %444(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
-  %.not121 = icmp eq i32 %446, 0
-  br i1 %.not121, label %dtls_rlayer_buffer_record.exit, label %447
+441:                                              ; preds = %437
+  %442 = call i32 %440(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
+  %.not121 = icmp eq i32 %442, 0
+  br i1 %.not121, label %dtls_rlayer_buffer_record.exit, label %443
 
-447:                                              ; preds = %445, %441
+443:                                              ; preds = %441, %437
   store i64 1, ptr %5, align 8, !tbaa !33
   br label %dtls_rlayer_buffer_record.exit
 
-dtls_rlayer_buffer_record.exit:                   ; preds = %439, %143, %70, %262, %253, %445, %10, %447, %._crit_edge
-  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %447 ], [ -2, %10 ], [ -2, %445 ], [ -2, %253 ], [ -2, %262 ], [ -2, %439 ], [ -2, %143 ], [ %75, %70 ]
+dtls_rlayer_buffer_record.exit:                   ; preds = %435, %143, %70, %260, %251, %441, %10, %443, %._crit_edge
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %443 ], [ -2, %10 ], [ -2, %441 ], [ -2, %251 ], [ -2, %260 ], [ -2, %435 ], [ -2, %143 ], [ %75, %70 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret i32 %.0
 }

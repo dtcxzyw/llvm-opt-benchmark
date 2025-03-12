@@ -1807,7 +1807,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %47 = shl i64 %41, %46
   store i64 %47, ptr %0, align 8, !tbaa !163
   %48 = ashr i64 %41, %44
-  %49 = trunc i64 %48 to i32
+  %49 = trunc nsw i64 %48 to i32
   br label %50
 
 50:                                               ; preds = %2, %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit

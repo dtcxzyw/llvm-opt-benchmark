@@ -7803,7 +7803,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3e057a5db4a1
 6:                                                ; preds = %2
   %7 = zext i32 %3 to i64
   %8 = add nsw i64 %7, -1
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %1, align 8, !alias.scope !1708
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }, ptr %10, i64 %8
@@ -7827,7 +7827,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6ce0fe268ed6
 6:                                                ; preds = %2
   %7 = zext i32 %3 to i64
   %8 = add nsw i64 %7, -1
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %9, ptr %1, align 8, !alias.scope !1714
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds { ptr, i64, { i64, i64 } }, ptr %10, i64 %8
@@ -7852,7 +7852,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hb33aaa0b92c9
 7:                                                ; preds = %2
   %8 = zext i32 %3 to i64
   %9 = add nsw i64 %8, -1
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   store i32 %10, ptr %1, align 8, !alias.scope !1720
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = getelementptr inbounds { { i64, { i64, [1 x i64] } }, ptr, i64 }, ptr %11, i64 %9
@@ -7872,7 +7872,7 @@ define hidden { ptr, i64 } @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hce1d
 4:                                                ; preds = %1
   %5 = zext i32 %2 to i64
   %6 = add nsw i64 %5, -1
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1726
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds { ptr, i64, {} }, ptr %8, i64 %6
@@ -7900,7 +7900,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h005ecef
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1732
   br label %6
 }
@@ -7916,7 +7916,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h03e58a2
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1738
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -7992,7 +7992,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h0456ce3
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1768
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {}, {} }, { i32, i16, [1 x i16] }, i8, i8, [6 x i8] }, i16, [3 x i16] }, ptr %8, i64 %1
@@ -8070,7 +8070,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h0eeae5d
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1804
   br label %6
 }
@@ -8086,7 +8086,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h1080f29
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 4, !alias.scope !1810
   br label %6
 }
@@ -8102,7 +8102,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h13b1353
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1816
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }, ptr %8, i64 %1
@@ -8178,7 +8178,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h16ba781
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1822
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8254,7 +8254,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h1994cb7
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1852
   br label %6
 }
@@ -8270,7 +8270,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h1cfff6b
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1858
   br label %6
 }
@@ -8286,7 +8286,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h203919d
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1864
   br label %6
 }
@@ -8302,7 +8302,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h23376b0
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1870
   br label %6
 }
@@ -8318,7 +8318,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h2914050
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1876
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { ptr, { { { ptr, i64 } }, {}, {} } }, { { i64, i64 } } }, ptr %8, i64 %1
@@ -8396,7 +8396,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h2dc6fa5
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1912
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8472,7 +8472,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h2df1ba0
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1942
   br label %6
 }
@@ -8488,7 +8488,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h3584f69
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1948
   br label %6
 }
@@ -8504,7 +8504,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h36362b6
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1954
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8580,7 +8580,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h3758d88
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !1984
   br label %6
 }
@@ -8596,7 +8596,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h3a6d411
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !1990
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8672,7 +8672,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h3d8f510
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2020
   br label %6
 }
@@ -8688,7 +8688,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h43a2c2f
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2026
   br label %6
 }
@@ -8704,7 +8704,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h45a4f69
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2032
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8780,7 +8780,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h4a42d19
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2062
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8856,7 +8856,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h52f48c2
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2092
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -8932,7 +8932,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h53452e4
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2122
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -9008,7 +9008,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h55b6f36
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2152
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -9084,7 +9084,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h58b5471
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2182
   br label %6
 }
@@ -9100,7 +9100,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h58e34f7
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 4, !alias.scope !2188
   br label %6
 }
@@ -9116,7 +9116,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h5eeb0e5
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2194
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { ptr, { { { ptr, i64 } }, {}, {} } }, { { i64, i64 } } }, ptr %8, i64 %1
@@ -9194,7 +9194,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h5f03b3b
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2230
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -9270,7 +9270,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h654e268
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2260
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }, ptr %9, i64 %1
@@ -9290,7 +9290,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h65f5e33
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2266
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { i64, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] } }, ptr %8, i64 %1
@@ -9368,7 +9368,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h6614465
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2302
   br label %6
 }
@@ -9384,7 +9384,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h6bef3df
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2308
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -9460,7 +9460,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h6e1135c
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2338
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { i64, [8 x i64] }, ptr %8, i64 %1
@@ -9554,7 +9554,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h74f0238
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2388
   br label %6
 }
@@ -9570,7 +9570,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h760fff1
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2394
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { i64, { { { [4 x i64] }, i64 } } }, ptr %8, i64 %1
@@ -9625,7 +9625,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h765f5da
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2400
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %8, i64 %1
@@ -9680,7 +9680,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h859fc11
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2406
   br label %6
 }
@@ -9696,7 +9696,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h87f020e
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2412
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -9772,7 +9772,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h8a4ef55
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2442
   br label %6
 }
@@ -9788,7 +9788,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h8cff0f5
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2448
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }, ptr %9, i64 %1
@@ -9808,7 +9808,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h8f0e40a
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2454
   br label %6
 }
@@ -9824,7 +9824,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h9a5f325
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2460
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -9900,7 +9900,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h9b9951e
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2490
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { ptr, { { i64, i64 } } }, ptr %8, i64 %1
@@ -9980,7 +9980,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha09952b
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2532
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -10056,7 +10056,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha354e99
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 4, !alias.scope !2562
   br label %6
 }
@@ -10072,7 +10072,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha4ff2a0
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2568
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -10148,7 +10148,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha54b7b4
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2598
   br label %6
 }
@@ -10164,7 +10164,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha83154e
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2604
   br label %6
 }
@@ -10180,7 +10180,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha8ac9b3
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2610
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { { i64, [3 x i64] }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } }, i64 }, ptr %8, i64 %1
@@ -10235,7 +10235,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha97f2ee
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2616
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { i64, [2 x i64] }, ptr }, ptr %8, i64 %1
@@ -10311,7 +10311,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hab86475
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2646
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { i64, i64 }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 } } }, ptr %8, i64 %1
@@ -10366,7 +10366,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17haf9c8ed
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2652
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -10442,7 +10442,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hb4c6b6d
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2682
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -10518,7 +10518,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hb81bc05
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2712
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -10594,7 +10594,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hc8072d2
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 4, !alias.scope !2742
   br label %6
 }
@@ -10610,7 +10610,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hc8eefd0
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2748
   br label %6
 }
@@ -10626,7 +10626,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hca34879
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 4, !alias.scope !2754
   br label %6
 }
@@ -10642,7 +10642,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hcdbe66e
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2760
   br label %6
 }
@@ -10658,7 +10658,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hd2e99e0
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2766
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { i32, [7 x i32] }, ptr %8, i64 %1
@@ -10713,7 +10713,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hd7cce2f
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2772
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -10789,7 +10789,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17he661273
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2802
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] }, ptr %8, i64 %1
@@ -10844,7 +10844,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17he79155c
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2808
   br label %6
 }
@@ -10860,7 +10860,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hea05983
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2814
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { ptr, i64 }, ptr %8, i64 %1
@@ -10936,7 +10936,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17heafcaef
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2844
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -11012,7 +11012,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hec2ebc2
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !2874
   br label %6
 }
@@ -11028,7 +11028,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hf4d9841
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2880
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { i64, [62 x i64] }, { i32, i32 } }, ptr %8, i64 %1
@@ -11114,7 +11114,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hf5bc1f6
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 4, !alias.scope !2906
   br label %6
 }
@@ -11130,7 +11130,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hf807827
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2912
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }, ptr %8, i64 %1
@@ -11185,7 +11185,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hf82f6b9
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2918
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] } }, { [32 x i8], i8, [7 x i8] } }, ptr %8, i64 %1
@@ -11281,7 +11281,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hfba55df
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2968
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -11357,7 +11357,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hfc3d19c
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !2998
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1

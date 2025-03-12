@@ -2772,7 +2772,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   br i1 %138, label %.lr.ph52.split, label %.loopexit, !llvm.loop !19
 
 .loopexit.loopexit64:                             ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit.us
-  %indvars84 = trunc i64 %indvars.iv.next82 to i32
+  %indvars84 = trunc nsw i64 %indvars.iv.next82 to i32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit

@@ -46157,7 +46157,7 @@ _ZSteqIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEbRKNSt7__cxx1112basic_st
   tail call void @_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiPKcS5_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 7, i32 noundef 420, ptr noundef nonnull @.str.596, ptr noundef nonnull @.str.597) #22
   tail call void @_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiPKcS5_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef 8, i32 noundef 310, ptr noundef nonnull @.str.596, ptr noundef nonnull @.str.597) #22
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %96 = trunc nuw i32 %.0309 to i8
+  %96 = trunc nuw nsw i32 %.0309 to i8
   store i8 %96, ptr %95, align 4
   br label %426
 
@@ -69077,7 +69077,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i32 %.0.lcssa.i to i8
+  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -69196,7 +69196,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i32 %.0.lcssa.i to i8
+  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

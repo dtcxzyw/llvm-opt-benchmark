@@ -568,7 +568,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %72, %70
 81:                                               ; preds = %79, %77
   %82 = phi ptr [ %78, %77 ], [ %80, %79 ]
   store ptr %82, ptr %34, align 8, !tbaa !32
-  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
   %83 = shl i32 %indvars.iv.tr, 1
   br label %Vec_PtrPush.exit
 
@@ -633,7 +633,7 @@ Vec_PtrGrow.exit.i100:                            ; preds = %98, %96
 107:                                              ; preds = %105, %103
   %108 = phi ptr [ %104, %103 ], [ %106, %105 ]
   store ptr %108, ptr %42, align 8, !tbaa !32
-  %indvars.iv157.tr = trunc i64 %indvars.iv157 to i32
+  %indvars.iv157.tr = trunc nuw i64 %indvars.iv157 to i32
   %109 = shl i32 %indvars.iv157.tr, 1
   br label %Vec_PtrPush.exit101
 

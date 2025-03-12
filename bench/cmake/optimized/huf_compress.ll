@@ -158,7 +158,7 @@ HUF_compressWeights.exit:                         ; preds = %71
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %77
-  %84 = trunc i64 %75 to i8
+  %84 = trunc nuw nsw i64 %75 to i8
   store i8 %84, ptr %0, align 1, !tbaa !4
   %85 = add nuw nsw i64 %75, 1
   br label %.thread70
@@ -268,7 +268,7 @@ define dso_local i64 @HUF_readCTable(ptr noundef captures(none) %0, ptr noundef 
   br label %._crit_edge62
 
 .lr.ph58:                                         ; preds = %.preheader53
-  %29 = trunc nuw i32 %19 to i8
+  %29 = trunc nuw nsw i32 %19 to i8
   %30 = add nuw nsw i8 %29, 1
   %wide.trip.count77 = zext i32 %22 to i64
   br label %37
@@ -2813,7 +2813,7 @@ HUF_cardinality.exit:                             ; preds = %.lr.ph.i
   br i1 %or.cond.us, label %.loopexit, label %29
 
 29:                                               ; preds = %25
-  %30 = trunc nsw i64 %23 to i32
+  %30 = trunc nuw nsw i64 %23 to i32
   %31 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %30, ptr noundef %3, i64 noundef %4)
   %32 = icmp ult i64 %31, -119
   br i1 %32, label %HUF_estimateCompressedSize.exit.us, label %37
@@ -2852,7 +2852,7 @@ HUF_estimateCompressedSize.exit.us:               ; preds = %29
   br i1 %or.cond, label %.loopexit, label %45
 
 45:                                               ; preds = %41
-  %46 = trunc nsw i64 %39 to i32
+  %46 = trunc nuw nsw i64 %39 to i32
   %47 = tail call i64 @HUF_writeCTable_wksp(ptr noundef nonnull %13, i64 noundef %14, ptr noundef %5, i32 noundef %2, i32 noundef %46, ptr noundef %3, i64 noundef %4)
   %48 = icmp ult i64 %47, -119
   br i1 %48, label %.lr.ph.i55, label %63
@@ -3076,7 +3076,7 @@ HUF_validateCTable.exit.thread.thread:            ; preds = %HUF_validateCTable.
   br i1 %91, label %92, label %.thread
 
 92:                                               ; preds = %.thread212
-  %93 = trunc nsw i64 %90 to i32
+  %93 = trunc nuw nsw i64 %90 to i32
   %94 = load i32, ptr %13, align 4, !tbaa !12
   %95 = add i32 %94, 2
   %96 = zext i32 %95 to i64

@@ -24,7 +24,7 @@ define void @DES_ofb_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %16 = add nsw i32 %2, -32
   %17 = zext nneg i32 %16 to i64
   %notmask146 = shl nsw i64 -1, %17
-  %18 = trunc i64 %notmask146 to i32
+  %18 = trunc nsw i64 %notmask146 to i32
   %19 = xor i32 %18, -1
   br label %25
 

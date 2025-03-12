@@ -122,7 +122,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_file(ptr noundef %0,
   br i1 %8, label %9, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %6
-  %.pre.i = trunc nuw i64 %7 to i32
+  %.pre.i = trunc nuw nsw i64 %7 to i32
   br label %sub_0
 
 9:                                                ; preds = %6
@@ -208,7 +208,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_buffer(ptr noundef %
   br i1 %9, label %10, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7
-  %.pre = trunc nuw i64 %8 to i32
+  %.pre = trunc nuw nsw i64 %8 to i32
   br label %15
 
 10:                                               ; preds = %7
@@ -468,7 +468,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_file(ptr nounde
   br i1 %7, label %8, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %5
-  %.pre.i = trunc nuw i64 %6 to i32
+  %.pre.i = trunc nuw nsw i64 %6 to i32
   br label %sub_0
 
 8:                                                ; preds = %5
@@ -554,7 +554,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nolibxml_export_diff_buffer(ptr noun
   br i1 %8, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6
-  %.pre = trunc nuw i64 %7 to i32
+  %.pre = trunc nuw nsw i64 %7 to i32
   br label %14
 
 9:                                                ; preds = %6

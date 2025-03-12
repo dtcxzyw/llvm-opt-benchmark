@@ -6480,7 +6480,7 @@ default.unreachable308:                           ; preds = %168
 
 1446:                                             ; preds = %1446, %1443
   %1447 = phi i64 [ %1445, %1443 ], [ %1449, %1446 ]
-  %1448 = trunc i64 %1447 to i32
+  %1448 = trunc nuw nsw i64 %1447 to i32
   call void @input_set_abs_params(ptr noundef %8, i32 noundef %1448, i32 noundef -1, i32 noundef 1, i32 noundef 0, i32 noundef 0) #11
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %1444, i64 %1447) #11, !srcloc !46
   %1449 = add nuw nsw i64 %1447, 1

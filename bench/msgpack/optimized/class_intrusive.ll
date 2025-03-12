@@ -8681,7 +8681,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %19 = trunc nuw i64 %9 to i8
+  %19 = trunc nuw nsw i64 %9 to i8
   %20 = or disjoint i8 %19, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
   store i8 %20, ptr %4, align 1, !tbaa !40
@@ -8793,7 +8793,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #24
   store i8 -48, ptr %5, align 1, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.sroa.0.0.extract.trunc.i = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i = trunc nsw i32 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %28, align 1, !tbaa !40
   %29 = load ptr, ptr %0, align 8, !tbaa !243
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -8807,7 +8807,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #24
-  %.sroa.0.0.extract.trunc.i16 = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i16 = trunc nsw i32 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i16, ptr %6, align 1, !tbaa !40
   %35 = load ptr, ptr %0, align 8, !tbaa !243
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16

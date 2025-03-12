@@ -5973,7 +5973,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   br label %.thread3000
 
 2378:                                             ; preds = %2372
-  %2379 = trunc i64 %45 to i32
+  %2379 = trunc nsw i64 %45 to i32
   %2380 = load ptr, ptr %13, align 8, !tbaa !23
   %2381 = load i16, ptr %82, align 8, !tbaa !24
   %2382 = zext i16 %2381 to i32
@@ -6308,7 +6308,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
   br label %.thread3000
 
 2546:                                             ; preds = %2540
-  %2547 = trunc i64 %45 to i32
+  %2547 = trunc nsw i64 %45 to i32
   %2548 = load ptr, ptr %13, align 8, !tbaa !23
   %2549 = load i16, ptr %82, align 8, !tbaa !24
   %2550 = zext i16 %2549 to i32
@@ -6574,7 +6574,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
 ._crit_edge3305.loopexit:                         ; preds = %2663, %2653, %2655, %._crit_edge3421
   %.pre3423 = phi i16 [ %2672, %._crit_edge3421 ], [ %2648, %2655 ], [ %2648, %2653 ], [ %.pre3423.pre, %2663 ]
   %.92100.lcssa.ph.in = phi i64 [ %indvars.iv.next3389, %._crit_edge3421 ], [ %indvars.iv3388, %2655 ], [ %indvars.iv3388, %2653 ], [ %indvars.iv3388, %2663 ]
-  %.92100.lcssa.ph = trunc i64 %.92100.lcssa.ph.in to i32
+  %.92100.lcssa.ph = trunc nuw i64 %.92100.lcssa.ph.in to i32
   %2678 = add i32 %.92100.lcssa.ph, 1
   br label %._crit_edge3305
 
@@ -6918,9 +6918,8 @@ cli_rawaddr.exit2939:                             ; preds = %1627
 ._crit_edge3321:                                  ; preds = %._crit_edge3425, %2818, %2816, %2826
   %.pre3427 = phi i16 [ %2835, %._crit_edge3425 ], [ %2811, %2818 ], [ %2811, %2816 ], [ %.pre3427.pre, %2826 ]
   %.112102.lcssa.ph.in = phi i64 [ %indvars.iv.next3398, %._crit_edge3425 ], [ %indvars.iv3397, %2818 ], [ %indvars.iv3397, %2816 ], [ %indvars.iv3397, %2826 ]
-  %.112102.lcssa.ph = trunc i64 %.112102.lcssa.ph.in to i32
-  %2839 = zext i16 %.pre3427 to i32
-  %.not2785 = icmp eq i32 %.112102.lcssa.ph, %2839
+  %2839 = zext i16 %.pre3427 to i64
+  %.not2785 = icmp eq i64 %.112102.lcssa.ph.in, %2839
   br i1 %.not2785, label %._crit_edge3321.thread, label %2840
 
 2840:                                             ; preds = %._crit_edge3321
@@ -10607,7 +10606,7 @@ define i32 @cli_check_auth_header(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %61
-  %65 = trunc i64 %52 to i32
+  %65 = trunc nuw i64 %52 to i32
   %66 = sub i32 %24, %65
   %67 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 %65, ptr %67, align 4, !tbaa !129

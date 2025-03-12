@@ -16788,7 +16788,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_16HdDataS
   br label %.lr.ph.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_16HdDataSourceBaseEELj32EE12_InitStorageEm.exit.i: ; preds = %3
-  %.pre.i.i = trunc nuw i64 %1 to i32
+  %.pre.i.i = trunc nuw nsw i64 %1 to i32
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store i32 %.pre.i.i, ptr %13, align 8
   %.not.i = icmp eq i64 %1, 0

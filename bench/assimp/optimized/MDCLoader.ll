@@ -1274,7 +1274,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
 
 217:                                              ; preds = %211
   %218 = getelementptr inbounds nuw i8, ptr %188, i64 236
-  %219 = trunc nuw i64 %215 to i32
+  %219 = trunc nuw nsw i64 %215 to i32
   store i32 %219, ptr %218, align 4
   %220 = getelementptr inbounds nuw i8, ptr %188, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %220, ptr align 1 %.pre419, i64 %215, i1 false)
@@ -2230,7 +2230,7 @@ _ZN10aiMaterial11AddPropertyI9aiColor3DEE8aiReturnPKT_jPKcjj.exit300: ; preds = 
   br i1 %680, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit301, label %681
 
 681:                                              ; preds = %678
-  %682 = trunc nuw i64 %679 to i32
+  %682 = trunc nuw nsw i64 %679 to i32
   store i32 %682, ptr %12, align 4
   %683 = load ptr, ptr %662, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %629, ptr align 1 %683, i64 %679, i1 false)

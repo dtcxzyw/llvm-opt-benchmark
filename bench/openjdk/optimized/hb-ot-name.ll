@@ -2810,7 +2810,7 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %28, %
 
 59:                                               ; preds = %55
   %60 = lshr i32 %.0.i42, 6
-  %61 = trunc nuw i32 %60 to i8
+  %61 = trunc nuw nsw i32 %60 to i8
   %62 = or disjoint i8 %61, -64
   %63 = getelementptr inbounds nuw i8, ptr %.13363, i64 1
   store i8 %62, ptr %.13363, align 1
@@ -2833,7 +2833,7 @@ _ZN13hb_utf16_xe_tIN2OT7IntTypeItLj2EEEE4nextEPKS2_S5_Pjj.exit: ; preds = %28, %
 
 74:                                               ; preds = %72
   %75 = lshr i32 %.0.i42, 12
-  %76 = trunc nuw i32 %75 to i8
+  %76 = trunc nuw nsw i32 %75 to i8
   %77 = or disjoint i8 %76, -32
   %78 = getelementptr inbounds nuw i8, ptr %.13363, i64 1
   store i8 %77, ptr %.13363, align 1

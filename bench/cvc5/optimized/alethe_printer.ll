@@ -3061,7 +3061,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %392, %390, %386, %3
   br label %429
 
 426:                                              ; preds = %._crit_edge.i.i237
-  %427 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %427 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %428 = or disjoint i8 %427, 48
   br label %429
 
@@ -4368,7 +4368,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %170, %168, %164, %1
   br label %209
 
 206:                                              ; preds = %._crit_edge.i.i
-  %207 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %207 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %208 = or disjoint i8 %207, 48
   br label %209
 
@@ -4956,7 +4956,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i372: ; preds = %406, %404, %400, %3
   br label %443
 
 440:                                              ; preds = %._crit_edge.i.i374
-  %441 = trunc nuw i64 %.0.lcssa.i.i375 to i8
+  %441 = trunc nuw nsw i64 %.0.lcssa.i.i375 to i8
   %442 = or disjoint i8 %441, 48
   br label %443
 
@@ -6239,7 +6239,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i508: ; preds = %937, %935, %931, %9
   br label %976
 
 973:                                              ; preds = %._crit_edge.i.i510
-  %974 = trunc nuw i64 %.0.lcssa.i.i511 to i8
+  %974 = trunc nuw nsw i64 %.0.lcssa.i.i511 to i8
   %975 = or disjoint i8 %974, 48
   br label %976
 
@@ -6970,7 +6970,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i588: ; preds = %1233, %1231, %1227,
   br label %1272
 
 1269:                                             ; preds = %._crit_edge.i.i590
-  %1270 = trunc nuw i64 %.0.lcssa.i.i591 to i8
+  %1270 = trunc nuw nsw i64 %.0.lcssa.i.i591 to i8
   %1271 = or disjoint i8 %1270, 48
   br label %1272
 
@@ -7713,7 +7713,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i674: ; preds = %1535, %1533, %1529,
   br label %1613
 
 1571:                                             ; preds = %._crit_edge.i.i676
-  %1572 = trunc nuw i64 %.0.lcssa.i.i677 to i8
+  %1572 = trunc nuw nsw i64 %.0.lcssa.i.i677 to i8
   %1573 = or disjoint i8 %1572, 48
   br label %1613
 

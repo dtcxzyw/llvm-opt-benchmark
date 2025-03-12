@@ -13779,7 +13779,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit351: ; preds = %_Z
   br label %759
 
 ._crit_edge1395.loopexit:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit386
-  %703 = trunc i64 %824 to i32
+  %703 = trunc nuw i64 %824 to i32
   br label %._crit_edge1395
 
 ._crit_edge1395:                                  ; preds = %._crit_edge1395.loopexit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit351

@@ -4676,13 +4676,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h340a2a68b29
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !570
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !570
   %15 = trunc i32 %1 to i8
@@ -4694,7 +4694,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h340a2a68b29
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !570
   %23 = lshr i32 %1, 6
@@ -4760,13 +4760,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h7425010244c1c
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !573
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !573
   %16 = trunc i32 %1 to i8
@@ -4778,7 +4778,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h7425010244c1c
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !573
   %24 = lshr i32 %1, 6
@@ -14146,7 +14146,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !1829, !noalias !1826
   %12 = trunc i32 %1 to i8
@@ -14158,7 +14158,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !1829, !noalias !1826
   %19 = lshr i32 %1, 6
@@ -25648,7 +25648,7 @@ common.resume:                                    ; preds = %448, %251, %.thread
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hedd3a321802bb52eE.exit: ; preds = %.loopexit353
   %297 = zext i32 %295 to i64
   %298 = add nsw i64 %297, -1
-  %299 = trunc i64 %298 to i32
+  %299 = trunc nuw i64 %298 to i32
   store i32 %299, ptr %0, align 8, !alias.scope !3742, !noalias !3735
   %300 = getelementptr inbounds { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }, ptr %148, i64 %298
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %43, ptr noundef nonnull align 8 dereferenceable(120) %300, i64 120, i1 false), !alias.scope !3745
@@ -27390,7 +27390,7 @@ common.resume:                                    ; preds = %175, %158, %90, %28
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hedd3a321802bb52eE.exit: ; preds = %183
   %186 = zext i32 %184 to i64
   %187 = add nsw i64 %186, -1
-  %188 = trunc i64 %187 to i32
+  %188 = trunc nuw i64 %187 to i32
   store i32 %188, ptr %0, align 8, !alias.scope !4163, !noalias !4156
   %189 = getelementptr inbounds { ptr, i64, { { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i64, { { { [4 x i64] }, i64 } }, i32, [1 x i32] } }, ptr %40, i64 %187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef nonnull align 8 dereferenceable(120) %189, i64 120, i1 false), !alias.scope !4166
@@ -27832,7 +27832,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h8af0edd9d0a3a6b9E.exit: ; p
   br i1 %85, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d1e0ed39f25cce9E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1d1e0ed39f25cce9E.exit"
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hba287dcc48109d3bE.exit: ; preds = %73
-  %86 = trunc i64 %71 to i32
+  %86 = trunc nuw i64 %71 to i32
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hba287dcc48109d3bE.exit, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h8af0edd9d0a3a6b9E.exit53.thread
@@ -28139,7 +28139,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$15search_backward17
   br i1 %62, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16ca74ebde57506eE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16ca74ebde57506eE.exit"
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hb1746b17ece418ceE.exit: ; preds = %51
-  %63 = trunc i64 %49 to i32
+  %63 = trunc nuw i64 %49 to i32
   store i32 %63, ptr %17, align 8, !alias.scope !4383, !noalias !4388
   br label %.backedge.backedge
 
@@ -29595,7 +29595,7 @@ define hidden noundef align 8 dereferenceable_or_null(600) ptr @"_ZN90_$LT$sum_t
   br label %37
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3d3618686b8fa995E.exit: ; preds = %._crit_edge24, %._crit_edge
-  %36 = trunc i64 %12 to i32
+  %36 = trunc nuw i64 %12 to i32
   br label %37
 
 37:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3d3618686b8fa995E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf57d5f7e1f96b096E.exit"

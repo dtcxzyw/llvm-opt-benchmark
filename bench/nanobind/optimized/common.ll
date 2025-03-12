@@ -2801,7 +2801,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
 
 _ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %53, %51, %39
   %.sink17 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
-  %58 = trunc i64 %.sink17 to i8
+  %58 = trunc nsw i64 %.sink17 to i8
   store i8 %58, ptr %2, align 1
   br label %_ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit
 
@@ -2830,7 +2830,7 @@ _ZN8nanobind6detail8load_intIaLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
 
 _ZN8nanobind6detail8load_intIaLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %22, %10
   %.sink18 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
-  %65 = trunc i64 %.sink18 to i8
+  %65 = trunc nsw i64 %.sink18 to i8
   store i8 %65, ptr %2, align 1
   br label %_ZN8nanobind6detail8load_intIaLb1EEEbP7_objectjPT_.exit
 
@@ -3119,7 +3119,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
 
 _ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %53, %51, %39
   %.sink17 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
-  %58 = trunc i64 %.sink17 to i16
+  %58 = trunc nsw i64 %.sink17 to i16
   store i16 %58, ptr %2, align 2
   br label %_ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit
 
@@ -3148,7 +3148,7 @@ _ZN8nanobind6detail8load_intIsLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
 
 _ZN8nanobind6detail8load_intIsLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %22, %10
   %.sink18 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
-  %65 = trunc i64 %.sink18 to i16
+  %65 = trunc nsw i64 %.sink18 to i16
   store i16 %65, ptr %2, align 2
   br label %_ZN8nanobind6detail8load_intIsLb1EEEbP7_objectjPT_.exit
 
@@ -3437,7 +3437,7 @@ _ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit: ; preds = %27
 
 _ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit.sink.split: ; preds = %53, %51, %39
   %.sink17 = phi i64 [ %43, %39 ], [ %46, %51 ], [ %46, %53 ]
-  %58 = trunc i64 %.sink17 to i32
+  %58 = trunc nsw i64 %.sink17 to i32
   store i32 %58, ptr %2, align 4
   br label %_ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit
 
@@ -3466,7 +3466,7 @@ _ZN8nanobind6detail8load_intIiLb0EEEbP7_objectjPT_.exit: ; preds = %_ZN8nanobind
 
 _ZN8nanobind6detail8load_intIiLb1EEEbP7_objectjPT_.exit.sink.split: ; preds = %23, %22, %10
   %.sink18 = phi i64 [ %14, %10 ], [ %17, %22 ], [ %17, %23 ]
-  %65 = trunc i64 %.sink18 to i32
+  %65 = trunc nsw i64 %.sink18 to i32
   store i32 %65, ptr %2, align 4
   br label %_ZN8nanobind6detail8load_intIiLb1EEEbP7_objectjPT_.exit
 

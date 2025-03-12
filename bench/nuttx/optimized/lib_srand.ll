@@ -56,7 +56,7 @@ define range(i32 0, 2147483647) i32 @rand_r(ptr noundef captures(none) %0) local
 nrand_r.exit:                                     ; preds = %4
   %13 = trunc nuw nsw i64 %8 to i32
   store i32 %13, ptr %0, align 4
-  %14 = trunc nuw i64 %12 to i32
+  %14 = trunc nuw nsw i64 %12 to i32
   ret i32 %14
 }
 

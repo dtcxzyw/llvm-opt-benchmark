@@ -2664,7 +2664,7 @@ define internal fastcc ptr @nexthop_get_nhc_lookup(ptr noundef nonnull %0, i32 n
 .split14.us:                                      ; preds = %28, %34, %78, %75
   %.us-phi = phi i64 [ %44, %75 ], [ %44, %78 ], [ %18, %34 ], [ %18, %28 ]
   %.us-phi15 = phi ptr [ %49, %75 ], [ %49, %78 ], [ %23, %34 ], [ %23, %28 ]
-  %82 = trunc i64 %.us-phi to i32
+  %82 = trunc nuw nsw i64 %.us-phi to i32
   br label %.thread9.sink.split
 
 83:                                               ; preds = %4
@@ -5204,7 +5204,7 @@ put_child.exit56:                                 ; preds = %711, %715
   store i32 %832, ptr %829, align 8
   %833 = getelementptr inbounds nuw i8, ptr %818, i64 36
   store i8 %802, ptr %833, align 4
-  %834 = trunc i32 %804 to i8
+  %834 = trunc nuw i32 %804 to i8
   %835 = getelementptr inbounds nuw i8, ptr %818, i64 37
   store i8 %834, ptr %835, align 1
   %836 = getelementptr inbounds nuw i8, ptr %818, i64 38

@@ -1190,7 +1190,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   %24 = phi i64 [ 0, %21 ], [ %48, %46 ]
   %25 = getelementptr [8 x %struct.acpi_lpi_state], ptr %22, i64 0, i64 %24
   %26 = getelementptr %struct.cpuidle_driver, ptr @acpi_idle_driver, i64 0, i32 3, i64 %24
-  %27 = trunc i64 %24 to i32
+  %27 = trunc nuw nsw i64 %24 to i32
   %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %26, i64 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %27) #17
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 34
@@ -1231,7 +1231,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
   br i1 %53, label %23, label %54, !llvm.loop !23
 
 54:                                               ; preds = %46
-  %55 = trunc i64 %48 to i32
+  %55 = trunc nuw nsw i64 %48 to i32
   br label %.loopexit
 
 56:                                               ; preds = %13
@@ -1265,7 +1265,7 @@ define internal fastcc void @acpi_processor_setup_cpuidle_states(ptr noundef %0)
 72:                                               ; preds = %65
   %73 = sext i32 %68 to i64
   %74 = getelementptr %struct.cpuidle_driver, ptr @acpi_idle_driver, i64 0, i32 3, i64 %73
-  %75 = trunc i64 %67 to i32
+  %75 = trunc nuw nsw i64 %67 to i32
   %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %74, i64 noundef 16, ptr noundef nonnull @.str.14, i32 noundef %75) #17
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 17

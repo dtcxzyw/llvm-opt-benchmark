@@ -2032,7 +2032,7 @@ RSTRING_PTR.exit:                                 ; preds = %get_zstream.exit, %
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nsw i64 %18 to i32
   %22 = call i32 @deflateSetDictionary(ptr noundef nonnull %10, ptr noundef %.sroa.2.0.i, i32 noundef %21) #18
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %26, label %23
@@ -2752,7 +2752,7 @@ RSTRING_PTR.exit:                                 ; preds = %get_zstream.exit, %
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nsw i64 %18 to i32
   %22 = call i32 @inflateSetDictionary(ptr noundef nonnull %10, ptr noundef %.sroa.2.0.i, i32 noundef %21) #18
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %26, label %23

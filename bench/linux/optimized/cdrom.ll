@@ -928,7 +928,7 @@ define dso_local i32 @cdrom_open(ptr noundef %0, i32 noundef %1) #1 align 16 {
 95:                                               ; preds = %111, %92
   %.sroa.0.1 = phi i32 [ 0, %92 ], [ %.sroa.0.2, %111 ]
   %96 = phi i32 [ %93, %92 ], [ %112, %111 ]
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw i32 %96 to i8
   store i8 %97, ptr %4, align 4
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 80
@@ -3483,7 +3483,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.sroa.11.1 = phi i32 [ 0, %649 ], [ %.sroa.11.2, %674 ]
   %.sroa.15.1 = phi i32 [ 0, %649 ], [ %.sroa.15.2, %674 ]
   %653 = phi i32 [ %650, %649 ], [ %675, %674 ]
-  %654 = trunc i32 %653 to i8
+  %654 = trunc nuw i32 %653 to i8
   store i8 %654, ptr %6, align 4
   %655 = load ptr, ptr %0, align 8
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 80
@@ -6548,7 +6548,7 @@ define internal fastcc range(i32 -124, 2) i32 @check_for_audio_disc(ptr noundef 
 65:                                               ; preds = %73, %62
   %.sroa.6.1 = phi i32 [ 0, %62 ], [ %.sroa.6.2, %73 ]
   %66 = phi i32 [ %63, %62 ], [ %78, %73 ]
-  %67 = trunc i32 %66 to i8
+  %67 = trunc nuw i32 %66 to i8
   store i8 %67, ptr %4, align 4
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 80

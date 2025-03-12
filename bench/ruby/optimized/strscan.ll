@@ -3391,7 +3391,7 @@ declare i32 @onig_name_to_backref_number(ptr noundef, ptr noundef, ptr noundef, 
 declare void @rb_enc_raise(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc noundef i32 @rb_long2int_inline(i64 noundef %0) unnamed_addr #8 {
+define internal fastcc i32 @rb_long2int_inline(i64 noundef %0) unnamed_addr #8 {
   %2 = add i64 %0, 2147483648
   %.not = icmp ult i64 %2, 4294967296
   br i1 %.not, label %4, label %3
@@ -3401,7 +3401,7 @@ define internal fastcc noundef i32 @rb_long2int_inline(i64 noundef %0) unnamed_a
   unreachable
 
 4:                                                ; preds = %1
-  %5 = trunc i64 %0 to i32
+  %5 = trunc nsw i64 %0 to i32
   ret i32 %5
 }
 

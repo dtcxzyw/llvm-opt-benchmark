@@ -9601,7 +9601,7 @@ define void @quantize_row_tq2_0_ref(ptr noalias noundef readonly captures(none) 
   %48 = trunc i64 %47 to i32
   %49 = add i32 %48, 1
   %50 = and i32 %49, 3
-  %.036.tr = trunc nuw i64 %.03648 to i32
+  %.036.tr = trunc nuw nsw i64 %.03648 to i32
   %51 = shl nuw nsw i32 %.036.tr, 1
   %52 = shl nuw nsw i32 %50, %51
   %53 = trunc nuw i32 %52 to i8
@@ -9713,7 +9713,7 @@ define i64 @quantize_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr n
   %52 = trunc i64 %51 to i32
   %53 = add i32 %52, 1
   %54 = and i32 %53, 3
-  %.036.tr.i = trunc nuw i64 %.03648.i to i32
+  %.036.tr.i = trunc nuw nsw i64 %.03648.i to i32
   %55 = shl nuw nsw i32 %.036.tr.i, 1
   %56 = shl nuw nsw i32 %54, %55
   %57 = trunc nuw i32 %56 to i8

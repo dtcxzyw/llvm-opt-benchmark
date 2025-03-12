@@ -540,7 +540,7 @@ define dso_local void @skl_write_plane_wm(ptr noundef readonly captures(none) %0
 
 23:                                               ; preds = %34, %17
   %24 = phi i64 [ 0, %17 ], [ %36, %34 ]
-  %25 = trunc i64 %24 to i32
+  %25 = trunc nuw nsw i64 %24 to i32
   %26 = shl nuw nsw i32 %25, 2
   %27 = add i32 %19, %26
   %28 = icmp eq i64 %24, 0
@@ -872,7 +872,7 @@ define dso_local void @skl_write_cursor_wm(ptr noundef readonly captures(none) %
 
 26:                                               ; preds = %24, %21
   %27 = phi ptr [ %25, %24 ], [ %17, %21 ]
-  %28 = trunc i64 %19 to i32
+  %28 = trunc nuw nsw i64 %19 to i32
   %29 = shl nuw nsw i32 %28, 2
   %30 = add i32 %14, %29
   tail call fastcc void @skl_write_wm_level(ptr noundef %3, i32 %30, ptr noundef %27)
@@ -1272,7 +1272,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %215 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %216 = load i8, ptr %215, align 2
   %217 = zext i8 %216 to i32
-  %218 = trunc i64 %162 to i32
+  %218 = trunc nuw nsw i64 %162 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %202, ptr noundef %203, i32 noundef %218, i32 noundef %204, i32 noundef %207, i32 noundef %210, i32 noundef %211, i32 noundef %214, i32 noundef %217) #16
   %.pre22 = load i8, ptr %139, align 8
   br label %219
@@ -1359,7 +1359,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %279 = getelementptr inbounds nuw i8, ptr %229, i64 4
   %280 = load i8, ptr %279, align 2
   %281 = zext i8 %280 to i32
-  %282 = trunc i64 %225 to i32
+  %282 = trunc nuw nsw i64 %225 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %265, ptr noundef nonnull @.str.1, i32 noundef %266, ptr noundef %267, i32 noundef %282, i32 noundef %268, i32 noundef %271, i32 noundef %274, i32 noundef %275, i32 noundef %278, i32 noundef %281) #16
   %.pre = load i8, ptr %139, align 8
   br label %283
@@ -1696,7 +1696,7 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
 .split.us:                                        ; preds = %34, %.split.us
   %37 = phi i64 [ %57, %.split.us ], [ 0, %34 ]
   %38 = load ptr, ptr %11, align 8
-  %39 = trunc i64 %37 to i32
+  %39 = trunc nuw nsw i64 %37 to i32
   %40 = shl nuw nsw i32 %39, 2
   %41 = add i32 %12, %40
   %42 = tail call i32 %38(ptr noundef nonnull %10, i32 %41, i1 noundef zeroext true) #15
@@ -3382,7 +3382,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 
 188:                                              ; preds = %179, %183, %.split.us
   %189 = phi i32 [ 0, %.split.us ], [ %187, %183 ], [ %177, %179 ]
-  %190 = trunc i64 %172 to i32
+  %190 = trunc nuw nsw i64 %172 to i32
   call fastcc void @skl_compute_plane_wm(ptr noundef %27, ptr noundef %52, i32 noundef %190, i32 noundef %189, ptr noundef nonnull %6, ptr noundef %173, ptr noundef %174)
   %191 = add nuw nsw i64 %172, 1
   %192 = load i8, ptr %162, align 8
@@ -3423,7 +3423,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 
 216:                                              ; preds = %211, %.split
   %217 = phi i32 [ 0, %.split ], [ %spec.select265, %211 ]
-  %218 = trunc i64 %195 to i32
+  %218 = trunc nuw nsw i64 %195 to i32
   call fastcc void @skl_compute_plane_wm(ptr noundef %27, ptr noundef %52, i32 noundef %218, i32 noundef %217, ptr noundef nonnull %6, ptr noundef %196, ptr noundef %197)
   %219 = add nuw nsw i64 %195, 1
   %220 = load i8, ptr %162, align 8
@@ -4436,7 +4436,7 @@ mbus_ddb_offset.exit:                             ; preds = %628, %661, %664
 
 900:                                              ; preds = %897, %893, %877
   %901 = phi i32 [ 0, %877 ], [ %894, %893 ], [ %899, %897 ]
-  %902 = trunc i64 %878 to i32
+  %902 = trunc nuw nsw i64 %878 to i32
   call fastcc void @skl_compute_plane_wm(ptr noundef %811, ptr noundef %841, i32 noundef %902, i32 noundef %901, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %2)
   %903 = load i16, ptr %2, align 8
   %904 = icmp eq i16 %903, -1
@@ -7212,7 +7212,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
 
 59:                                               ; preds = %50, %54, %.split.us
   %60 = phi i32 [ 0, %.split.us ], [ %58, %54 ], [ %48, %50 ]
-  %61 = trunc i64 %43 to i32
+  %61 = trunc nuw nsw i64 %43 to i32
   call fastcc void @skl_compute_plane_wm(ptr noundef %0, ptr noundef %2, i32 noundef %61, i32 noundef %60, ptr noundef nonnull %5, ptr noundef %44, ptr noundef %45)
   %62 = add nuw nsw i64 %43, 1
   %63 = load i8, ptr %33, align 8
@@ -7253,7 +7253,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
 
 87:                                               ; preds = %82, %.split
   %88 = phi i32 [ 0, %.split ], [ %spec.select, %82 ]
-  %89 = trunc i64 %66 to i32
+  %89 = trunc nuw nsw i64 %66 to i32
   call fastcc void @skl_compute_plane_wm(ptr noundef %0, ptr noundef %2, i32 noundef %89, i32 noundef %88, ptr noundef nonnull %5, ptr noundef %67, ptr noundef %68)
   %90 = add nuw nsw i64 %66, 1
   %91 = load i8, ptr %33, align 8

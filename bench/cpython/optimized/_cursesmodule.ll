@@ -2860,7 +2860,7 @@ _PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %14
   br label %_curses_halfdelay_impl.exit
 
 _PyCursesStatefulCheckFunction.exit.i:            ; preds = %14
-  %18 = trunc nuw i64 %3 to i32
+  %18 = trunc nuw nsw i64 %3 to i32
   %19 = tail call i32 @halfdelay(i32 noundef %18) #9
   %.not.i3.i = icmp eq i32 %19, -1
   br i1 %.not.i3.i, label %20, label %_curses_halfdelay_impl.exit
@@ -2972,7 +2972,7 @@ component_converter.exit.thread:                  ; preds = %component_converter
   br label %_curses_init_color_impl.exit
 
 47:                                               ; preds = %43
-  %48 = trunc i64 %35 to i32
+  %48 = trunc nuw nsw i64 %35 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   %49 = getelementptr i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !11
@@ -3010,7 +3010,7 @@ component_converter.exit18.thread:                ; preds = %component_converter
   br label %_curses_init_color_impl.exit
 
 63:                                               ; preds = %59
-  %64 = trunc i64 %51 to i32
+  %64 = trunc nuw nsw i64 %51 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %65 = getelementptr i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !11
@@ -3048,7 +3048,7 @@ component_converter.exit23.thread:                ; preds = %component_converter
   br label %_curses_init_color_impl.exit
 
 79:                                               ; preds = %75
-  %80 = trunc i64 %67 to i32
+  %80 = trunc nuw nsw i64 %67 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %.b.i = load i1, ptr @curses_initscr_called, align 4
   br i1 %.b.i, label %_PyCursesStatefulCheckFunction.exit.i, label %_PyCursesStatefulCheckFunction.exit.thread.i
@@ -5712,7 +5712,7 @@ define internal noundef ptr @_curses_resizeterm(ptr noundef %0, ptr noundef read
   br label %_curses_resizeterm_impl.exit
 
 .thread32:                                        ; preds = %10, %16
-  %20 = trunc i64 %8 to i32
+  %20 = trunc nsw i64 %8 to i32
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = tail call i64 @PyLong_AsLong(ptr noundef %22) #9
@@ -5753,7 +5753,7 @@ _PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread38
   br label %_curses_resizeterm_impl.exit
 
 _PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread38
-  %38 = trunc i64 %23 to i32
+  %38 = trunc nsw i64 %23 to i32
   %39 = tail call i32 @resizeterm(i32 noundef %20, i32 noundef %38) #9
   %.not.i12.i = icmp eq i32 %39, -1
   br i1 %.not.i12.i, label %PyCursesCheckERR.exit.thread.i, label %PyCursesCheckERR.exit.i
@@ -5829,7 +5829,7 @@ define internal noundef ptr @_curses_resize_term(ptr noundef %0, ptr noundef rea
   br label %_curses_resize_term_impl.exit
 
 .thread32:                                        ; preds = %10, %16
-  %20 = trunc i64 %8 to i32
+  %20 = trunc nsw i64 %8 to i32
   %21 = getelementptr i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11
   %23 = tail call i64 @PyLong_AsLong(ptr noundef %22) #9
@@ -5870,7 +5870,7 @@ _PyCursesStatefulCheckFunction.exit.thread.i:     ; preds = %.thread38
   br label %_curses_resize_term_impl.exit
 
 _PyCursesStatefulCheckFunction.exit.i:            ; preds = %.thread38
-  %38 = trunc i64 %23 to i32
+  %38 = trunc nsw i64 %23 to i32
   %39 = tail call i32 @resize_term(i32 noundef %20, i32 noundef %38) #9
   %.not.i12.i = icmp eq i32 %39, -1
   br i1 %.not.i12.i, label %PyCursesCheckERR.exit.thread.i, label %PyCursesCheckERR.exit.i
@@ -7540,7 +7540,7 @@ Py_DECREF.exit:                                   ; preds = %61, %63, %66
   br i1 %67, label %79, label %.thread55.thread
 
 .thread55.thread:                                 ; preds = %Py_DECREF.exit
-  %68 = trunc nsw i64 %.2 to i32
+  %68 = trunc nuw nsw i64 %.2 to i32
   store i32 %68, ptr %2, align 4, !tbaa !14
   br label %.thread
 
@@ -9822,7 +9822,7 @@ define internal noundef ptr @_curses_window_addch(ptr noundef readonly captures(
 
 57:                                               ; preds = %47
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  %58 = trunc i64 %48 to i32
+  %58 = trunc nuw i64 %48 to i32
   %.not22.i.i = icmp ult i64 %48, 4294967296
   br i1 %.not22.i.i, label %79, label %59
 

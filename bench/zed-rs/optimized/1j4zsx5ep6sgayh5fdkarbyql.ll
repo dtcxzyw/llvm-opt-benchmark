@@ -838,7 +838,7 @@ define internal fastcc void @"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$G
   br label %44
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h5fb6e66000a53f1dE.exit.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i, %._crit_edge24.i.i.i.i.i
-  %43 = trunc i64 %17 to i32
+  %43 = trunc nuw i64 %17 to i32
   br label %44
 
 44:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h5fb6e66000a53f1dE.exit.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9e3773f4d7f79201E.exit.i.i.i.i.i"
@@ -3458,7 +3458,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12futures_lite6stream9StreamExt9poll
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  %trunc.i = trunc i8 %3 to i1
+  %trunc.i = trunc nuw i8 %3 to i1
   br i1 %trunc.i, label %"_ZN89_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h8dd26504e5bd8e14E.llvm.14019313651612263248.exit", label %9
 
 6:                                                ; preds = %2
@@ -3504,7 +3504,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12futures_lite6stream9StreamExt9poll
   br label %"_ZN89_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h8dd26504e5bd8e14E.llvm.14019313651612263248.exit"
 
 "_ZN89_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h8dd26504e5bd8e14E.llvm.14019313651612263248.exit": ; preds = %5, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i", %19
-  %.sroa.0.0.i = phi i8 [ %22, %19 ], [ 1, %5 ], [ %3, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i" ]
+  %.sroa.0.0.i = phi i8 [ %22, %19 ], [ 1, %5 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i" ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -18115,7 +18115,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr87drop
   br label %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i"
 
 "_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i", %85, %82
-  %92 = trunc i8 %77 to i1
+  %92 = trunc nuw i8 %77 to i1
   br i1 %92, label %.thread.i, label %.thread91
 
 .thread.i:                                        ; preds = %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i"
@@ -18962,7 +18962,7 @@ default.unreachable183:                           ; preds = %950, %724, %170, %1
   br label %"_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i"
 
 "_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i", %83, %80
-  %90 = trunc i8 %75 to i1
+  %90 = trunc nuw i8 %75 to i1
   br i1 %90, label %.thread.i, label %943
 
 .thread.i:                                        ; preds = %"_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i"
@@ -31743,7 +31743,7 @@ default.unreachable85:                            ; preds = %171, %142, %117, %9
   br label %"_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i"
 
 "_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i", %73, %70
-  %80 = trunc i8 %65 to i1
+  %80 = trunc nuw i8 %65 to i1
   br i1 %80, label %.thread120.i, label %908
 
 .thread120.i:                                     ; preds = %"_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i"
@@ -42375,13 +42375,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h6d085de411a94
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !7616
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !7616
   %15 = trunc i32 %1 to i8
@@ -42393,7 +42393,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h6d085de411a94
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !7616
   %23 = lshr i32 %1, 6
@@ -93960,7 +93960,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !21468, !noalias !21465
   %12 = trunc i32 %1 to i8
@@ -93972,7 +93972,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !21468, !noalias !21465
   %19 = lshr i32 %1, 6
@@ -112793,7 +112793,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN89_$LT$futures_channel..mpsc..Recei
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %18, label %9
 
 6:                                                ; preds = %2
@@ -112828,7 +112828,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN89_$LT$futures_channel..mpsc..Recei
   br label %18
 
 18:                                               ; preds = %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit", %5, %20
-  %.sroa.0.0 = phi i8 [ %23, %20 ], [ 1, %5 ], [ %3, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit" ]
+  %.sroa.0.0 = phi i8 [ %23, %20 ], [ 1, %5 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit" ]
   ret i8 %.sroa.0.0
 
 19:                                               ; preds = %6
@@ -112854,7 +112854,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h380311a
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !24697
   br label %6
 }
@@ -112870,7 +112870,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h387c0d5
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !24703
   br label %6
 }
@@ -112886,7 +112886,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h469504b
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !24709
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
@@ -112962,7 +112962,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h771b859
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !24739
   br label %6
 }
@@ -112978,7 +112978,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hd545165
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !24745
   br label %6
 }
@@ -112994,7 +112994,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hf07a174
   ret void
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %1 to i32
+  %7 = trunc nuw i64 %1 to i32
   store i32 %7, ptr %0, align 8, !alias.scope !24751
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw { i32, [7 x i32] }, ptr %8, i64 %1
@@ -113049,7 +113049,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hf84029f
   ret void
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %1 to i32
+  %8 = trunc nuw i64 %1 to i32
   store i32 %8, ptr %0, align 8, !alias.scope !24757
   br label %6
 }
@@ -117969,7 +117969,7 @@ thread-pre-split:                                 ; preds = %41, %.noexc62
   br label %88
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h5fb6e66000a53f1dE.exit.i.i.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i, %._crit_edge24.i.i.i.i.i.i
-  %87 = trunc i64 %61 to i32
+  %87 = trunc nuw i64 %61 to i32
   br label %88
 
 88:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h5fb6e66000a53f1dE.exit.i.i.i.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h9e3773f4d7f79201E.exit.i.i.i.i.i.i"
@@ -122604,7 +122604,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %103
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds = %87, %.preheader44, %._crit_edge
-  %102 = trunc i64 %23 to i32
+  %102 = trunc nuw i64 %23 to i32
   br label %103
 
 103:                                              ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00bff9d31a5b929fE.exit15"
@@ -122762,7 +122762,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %64
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds = %._crit_edge53, %._crit_edge52
-  %63 = trunc i64 %22 to i32
+  %63 = trunc nuw i64 %22 to i32
   br label %64
 
 64:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00bff9d31a5b929fE.exit15"
@@ -122924,9 +122924,9 @@ thread-pre-split.preheader:                       ; preds = %20, %9
   br i1 %61, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h316a39231fe99872E.exit"
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit: ; preds = %48
-  %62 = trunc i64 %46 to i32
+  %62 = trunc nuw i64 %46 to i32
   store i32 %62, ptr %0, align 8, !alias.scope !28007, !noalias !28012
-  %63 = icmp eq i32 %62, 0
+  %63 = icmp eq i64 %46, 0
   br i1 %63, label %.loopexit, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hd9a6c44d5420a1c2E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h00bff9d31a5b929fE.exit21"
@@ -137121,7 +137121,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
   br label %"_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i.i"
 
 "_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i.i46", %229, %226
-  %236 = trunc i8 %221 to i1
+  %236 = trunc nuw i8 %221 to i1
   br i1 %236, label %237, label %242
 
 237:                                              ; preds = %"_ZN4core3ptr97drop_in_place$LT$oo7..dbus..collection..Collection..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17h9c507caf2443ab50E.exit.i.i"
@@ -142741,7 +142741,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h1a61d013df91b7b4E.exit.i: ; pre
   br label %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i"
 
 "_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i.i89", %352, %349
-  %359 = trunc i8 %344 to i1
+  %359 = trunc nuw i8 %344 to i1
   br i1 %359, label %.thread.i.i, label %.thread117.i
 
 .thread.i.i:                                      ; preds = %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i"
@@ -143990,7 +143990,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i.i, 
   br label %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i126"
 
 "_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i126": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i.i128", %745, %742
-  %752 = trunc i8 %737 to i1
+  %752 = trunc nuw i8 %737 to i1
   br i1 %752, label %.thread.i.i127, label %.sink.split.i
 
 .thread.i.i127:                                   ; preds = %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i126"
@@ -148434,7 +148434,7 @@ common.ret:                                       ; preds = %1357, %"_ZN4core3pt
   br label %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i"
 
 "_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i": ; preds = %"_ZN4core3ptr50drop_in_place$LT$event_listener..EventListener$GT$17h553ab92b1c428905E.exit.i.i.i.i.i.i.i.i79", %454, %451
-  %461 = trunc i8 %446 to i1
+  %461 = trunc nuw i8 %446 to i1
   br i1 %461, label %.thread105.i.i, label %1351
 
 .thread105.i.i:                                   ; preds = %"_ZN4core3ptr85drop_in_place$LT$oo7..dbus..item..Item..is_available..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf51bd264b19d2393E.exit.i.i"

@@ -6979,7 +6979,7 @@ _ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.thread.us.i: ; p
 
 60:                                               ; preds = %select.unfold._crit_edge
   %61 = and i32 %3, 255
-  %62 = trunc i64 %39 to i32
+  %62 = trunc nuw i64 %39 to i32
   %63 = or i32 %61, %62
   br label %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
 
@@ -7430,7 +7430,7 @@ _ZNK5Darts7Details18DoubleArrayBuilder15is_valid_offsetEjj.exit.thread.us.i: ; p
 
 40:                                               ; preds = %._crit_edge
   %41 = and i32 %5, 255
-  %42 = trunc i64 %19 to i32
+  %42 = trunc nuw i64 %19 to i32
   %43 = or i32 %41, %42
   br label %_ZNK5Darts7Details18DoubleArrayBuilder17find_valid_offsetEj.exit
 

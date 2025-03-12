@@ -155,7 +155,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
 
 24:                                               ; preds = %.split7
   %25 = icmp eq i64 %22, 0
-  %26 = trunc i64 %22 to i32
+  %26 = trunc nuw nsw i64 %22 to i32
   br i1 %17, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %24
@@ -188,7 +188,7 @@ define dso_local i32 @intel_sseu_copy_eumask_to_user(ptr noundef %0, ptr noundef
   %39 = phi i8 [ %70, %.loopexit ], [ %21, %24 ]
   %40 = zext i8 %39 to i32
   %41 = mul i32 %40, %26
-  %42 = trunc i64 %38 to i32
+  %42 = trunc nuw nsw i64 %38 to i32
   %43 = add i32 %41, %42
   %44 = mul i32 %43, %8
   %45 = load i8, ptr %15, align 1
@@ -855,7 +855,7 @@ define dso_local void @intel_sseu_info_init(ptr noundef %0) local_unnamed_addr #
   %315 = getelementptr [3 x i8], ptr %302, i64 0, i64 %308
   store i8 %301, ptr %315, align 1
   %316 = load ptr, ptr %272, align 8
-  %317 = trunc i64 %308 to i32
+  %317 = trunc nuw nsw i64 %308 to i32
   %318 = shl nuw nsw i32 %317, 2
   %319 = add nuw nsw i32 %318, 37172
   %320 = tail call i32 %316(ptr noundef %271, i32 %319, i1 noundef zeroext true) #11
@@ -2167,7 +2167,7 @@ define dso_local void @intel_sseu_dump(ptr noundef %0, ptr noundef %1) local_unn
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %42) #10, !srcloc !6
-  %44 = trunc i64 %39 to i32
+  %44 = trunc nuw nsw i64 %39 to i32
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %1, ptr noundef nonnull @.str.5, i32 noundef %44, i32 noundef %43, i32 noundef %42) #11
   %45 = add nuw nsw i64 %39, 1
   %46 = load i8, ptr %36, align 8
@@ -2244,7 +2244,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
   %27 = phi i64 [ 0, %22 ], [ %41, %26 ]
   %28 = getelementptr [64 x i16], ptr %23, i64 0, i64 %27
   %29 = load i16, ptr %28, align 2
-  %30 = trunc i64 %27 to i32
+  %30 = trunc nuw nsw i64 %27 to i32
   %31 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %24, i64 %27) #11, !srcloc !24
   %32 = icmp ult i8 %31, 2
   tail call void @llvm.assume(i1 %32)
@@ -2277,7 +2277,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
   %55 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %54) #10, !srcloc !6
-  %56 = trunc i64 %51 to i32
+  %56 = trunc nuw nsw i64 %51 to i32
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %2, ptr noundef nonnull @.str.24, i32 noundef %56, i32 noundef %55, i32 noundef %54) #11
   %57 = load i8, ptr %47, align 1
   %58 = icmp eq i8 %57, 0
@@ -2293,7 +2293,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
   %63 = load i16, ptr %62, align 2
   %64 = zext i16 %63 to i32
   %65 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %64) #10, !srcloc !6
-  %66 = trunc i64 %61 to i32
+  %66 = trunc nuw nsw i64 %61 to i32
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %2, ptr noundef nonnull @.str.25, i32 noundef %66, i32 noundef %65, i32 noundef %64) #11
   %67 = add nuw nsw i64 %61, 1
   %68 = load i8, ptr %47, align 1
@@ -2324,7 +2324,7 @@ define dso_local void @intel_sseu_print_topology(ptr noundef readonly captures(n
   %81 = load i16, ptr %80, align 2
   %82 = zext i16 %81 to i32
   %83 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %82) #10, !srcloc !6
-  %84 = trunc i64 %71 to i32
+  %84 = trunc nuw nsw i64 %71 to i32
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %2, ptr noundef nonnull @.str.25, i32 noundef %84, i32 noundef %83, i32 noundef %82) #11
   %85 = add nuw nsw i64 %71, 1
   %86 = load i8, ptr %47, align 1

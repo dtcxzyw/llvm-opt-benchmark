@@ -7972,7 +7972,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.ex
   br i1 %249, label %256, label %255
 
 250:                                              ; preds = %246
-  %.tr8.i.i = trunc nuw i64 %236 to i32
+  %.tr8.i.i = trunc nuw nsw i64 %236 to i32
   %251 = shl nuw nsw i32 %.tr8.i.i, 2
   %252 = lshr i32 158663784, %251
   %253 = and i32 %252, 15
@@ -7983,7 +7983,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h8b570f6f6c4b1838E.ex
   br i1 %145, label %261, label %265, !prof !5
 
 256:                                              ; preds = %248
-  %.tr.i.i = trunc nuw i64 %241 to i32
+  %.tr.i.i = trunc nuw nsw i64 %241 to i32
   %257 = shl nuw nsw i32 %.tr.i.i, 2
   %258 = lshr i32 266017486, %257
   %259 = and i32 %258, 15
@@ -8647,7 +8647,7 @@ split.i:                                          ; preds = %555, %.preheader.i6
   br i1 %530, label %537, label %536
 
 531:                                              ; preds = %527
-  %.tr8.i.i110 = trunc nuw i64 %517 to i32
+  %.tr8.i.i110 = trunc nuw nsw i64 %517 to i32
   %532 = shl nuw nsw i32 %.tr8.i.i110, 2
   %533 = lshr i32 158663784, %532
   %534 = and i32 %533, 15
@@ -8658,7 +8658,7 @@ split.i:                                          ; preds = %555, %.preheader.i6
   br i1 %422, label %542, label %546, !prof !5
 
 537:                                              ; preds = %529
-  %.tr.i.i109 = trunc nuw i64 %522 to i32
+  %.tr.i.i109 = trunc nuw nsw i64 %522 to i32
   %538 = shl nuw nsw i32 %.tr.i.i109, 2
   %539 = lshr i32 266017486, %538
   %540 = and i32 %539, 15
@@ -9323,7 +9323,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.ex
   br i1 %819, label %826, label %825
 
 820:                                              ; preds = %816
-  %.tr8.i.i197 = trunc nuw i64 %806 to i32
+  %.tr8.i.i197 = trunc nuw nsw i64 %806 to i32
   %821 = shl nuw nsw i32 %.tr8.i.i197, 2
   %822 = lshr i32 158663784, %821
   %823 = and i32 %822, 15
@@ -9334,7 +9334,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417hf1b7e9de66f72937E.ex
   br i1 %709, label %831, label %835, !prof !5
 
 826:                                              ; preds = %818
-  %.tr.i.i196 = trunc nuw i64 %811 to i32
+  %.tr.i.i196 = trunc nuw nsw i64 %811 to i32
   %827 = shl nuw nsw i32 %.tr.i.i196, 2
   %828 = lshr i32 266017486, %827
   %829 = and i32 %828, 15
@@ -10007,7 +10007,7 @@ split.i249:                                       ; preds = %1134, %.preheader.i
   br i1 %1109, label %1116, label %1115
 
 1110:                                             ; preds = %1106
-  %.tr8.i.i284 = trunc nuw i64 %1096 to i32
+  %.tr8.i.i284 = trunc nuw nsw i64 %1096 to i32
   %1111 = shl nuw nsw i32 %.tr8.i.i284, 2
   %1112 = lshr i32 158663784, %1111
   %1113 = and i32 %1112, 15
@@ -10018,7 +10018,7 @@ split.i249:                                       ; preds = %1134, %.preheader.i
   br i1 %1001, label %1121, label %1125, !prof !5
 
 1116:                                             ; preds = %1108
-  %.tr.i.i283 = trunc nuw i64 %1101 to i32
+  %.tr.i.i283 = trunc nuw nsw i64 %1101 to i32
   %1117 = shl nuw nsw i32 %.tr.i.i283, 2
   %1118 = lshr i32 266017486, %1117
   %1119 = and i32 %1118, 15
@@ -11178,7 +11178,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   br i1 %1747, label %1754, label %1753
 
 1748:                                             ; preds = %1744
-  %.tr8.i.i338 = trunc nuw i64 %1734 to i32
+  %.tr8.i.i338 = trunc nuw nsw i64 %1734 to i32
   %1749 = shl nuw nsw i32 %.tr8.i.i338, 2
   %1750 = lshr i32 158663784, %1749
   %1751 = and i32 %1750, 15
@@ -11189,7 +11189,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h20513cdbdcca8182
   br i1 %1295, label %1759, label %1763, !prof !5
 
 1754:                                             ; preds = %1746
-  %.tr.i.i337 = trunc nuw i64 %1739 to i32
+  %.tr.i.i337 = trunc nuw nsw i64 %1739 to i32
   %1755 = shl nuw nsw i32 %.tr.i.i337, 2
   %1756 = lshr i32 266017486, %1755
   %1757 = and i32 %1756, 15
@@ -12514,7 +12514,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   br i1 %2495, label %2502, label %2501
 
 2496:                                             ; preds = %2492
-  %.tr8.i.i396 = trunc nuw i64 %2482 to i32
+  %.tr8.i.i396 = trunc nuw nsw i64 %2482 to i32
   %2497 = shl nuw nsw i32 %.tr8.i.i396, 2
   %2498 = lshr i32 158663784, %2497
   %2499 = and i32 %2498, 15
@@ -12525,7 +12525,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h5a79e25c19198ebd
   br i1 %2062, label %2507, label %2511, !prof !5
 
 2502:                                             ; preds = %2494
-  %.tr.i.i395 = trunc nuw i64 %2487 to i32
+  %.tr.i.i395 = trunc nuw nsw i64 %2487 to i32
   %2503 = shl nuw nsw i32 %.tr.i.i395, 2
   %2504 = lshr i32 266017486, %2503
   %2505 = and i32 %2504, 15
@@ -13774,7 +13774,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   br i1 %3198, label %3205, label %3204
 
 3199:                                             ; preds = %3195
-  %.tr8.i.i466 = trunc nuw i64 %3185 to i32
+  %.tr8.i.i466 = trunc nuw nsw i64 %3185 to i32
   %3200 = shl nuw nsw i32 %.tr8.i.i466, 2
   %3201 = lshr i32 158663784, %3200
   %3202 = and i32 %3201, 15
@@ -13785,7 +13785,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h59a30d9a82497e49
   br i1 %2765, label %3210, label %3214, !prof !5
 
 3205:                                             ; preds = %3197
-  %.tr.i.i465 = trunc nuw i64 %3190 to i32
+  %.tr.i.i465 = trunc nuw nsw i64 %3190 to i32
   %3206 = shl nuw nsw i32 %.tr.i.i465, 2
   %3207 = lshr i32 266017486, %3206
   %3208 = and i32 %3207, 15
@@ -14610,7 +14610,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
   br i1 %3607, label %3614, label %3613
 
 3608:                                             ; preds = %3604
-  %.tr8.i.i520 = trunc nuw i64 %3594 to i32
+  %.tr8.i.i520 = trunc nuw nsw i64 %3594 to i32
   %3609 = shl nuw nsw i32 %.tr8.i.i520, 2
   %3610 = lshr i32 158663784, %3609
   %3611 = and i32 %3610, 15
@@ -14621,7 +14621,7 @@ _ZN6brotli3enc19backward_references24CreateBackwardReferences17h6a6a90d8d16354c7
   br i1 %3471, label %3619, label %3623, !prof !5
 
 3614:                                             ; preds = %3606
-  %.tr.i.i519 = trunc nuw i64 %3599 to i32
+  %.tr.i.i519 = trunc nuw nsw i64 %3599 to i32
   %3615 = shl nuw nsw i32 %.tr.i.i519, 2
   %3616 = lshr i32 266017486, %3615
   %3617 = and i32 %3616, 15
@@ -15213,7 +15213,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.ex
   br i1 %3878, label %3885, label %3884
 
 3879:                                             ; preds = %3875
-  %.tr8.i.i577 = trunc nuw i64 %3865 to i32
+  %.tr8.i.i577 = trunc nuw nsw i64 %3865 to i32
   %3880 = shl nuw nsw i32 %.tr8.i.i577, 2
   %3881 = lshr i32 158663784, %3880
   %3882 = and i32 %3881, 15
@@ -15224,7 +15224,7 @@ _ZN6brotli3enc19backward_references9AnyHasher10Store4Vec417h3adf352f8c60d962E.ex
   br i1 %3750, label %3890, label %3894, !prof !5
 
 3885:                                             ; preds = %3877
-  %.tr.i.i576 = trunc nuw i64 %3870 to i32
+  %.tr.i.i576 = trunc nuw nsw i64 %3870 to i32
   %3886 = shl nuw nsw i32 %.tr.i.i576, 2
   %3887 = lshr i32 266017486, %3886
   %3888 = and i32 %3887, 15

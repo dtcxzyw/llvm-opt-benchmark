@@ -159403,7 +159403,7 @@ _ZN5boost8geometry4math6divideIlEET_RKS3_S5_.exit: ; preds = %24, %28, %33, %37
 
 _ZN5boost8geometry4util12numeric_castIilEET_RKT0_.exit: ; preds = %6, %44
   %.ph30 = phi i64 [ %42, %44 ], [ 0, %6 ]
-  %50 = trunc i64 %.ph30 to i32
+  %50 = trunc nsw i64 %.ph30 to i32
   %51 = add nsw i32 %17, %50
   store i32 %51, ptr %1, align 4, !tbaa !263
   %52 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -159474,7 +159474,7 @@ _ZN5boost8geometry4math6divideIlEET_RKS3_S5_.exit14: ; preds = %60, %64, %69, %7
 
 _ZN5boost8geometry4util12numeric_castIilEET_RKT0_.exit16: ; preds = %_ZN5boost8geometry4util12numeric_castIilEET_RKT0_.exit, %80
   %.ph41 = phi i64 [ %78, %80 ], [ 0, %_ZN5boost8geometry4util12numeric_castIilEET_RKT0_.exit ]
-  %86 = trunc i64 %.ph41 to i32
+  %86 = trunc nsw i64 %.ph41 to i32
   %87 = add nsw i32 %53, %86
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %87, ptr %88, align 4, !tbaa !263

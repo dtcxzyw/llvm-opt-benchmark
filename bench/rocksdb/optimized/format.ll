@@ -187,7 +187,7 @@ define void @_ZN7rocksdb9cassandra10ColumnBase11DeserializeEPKcm(ptr dead_on_unw
   %12 = getelementptr i8, ptr %10, i64 %.09.i.i
   %13 = load i8, ptr %12, align 1, !tbaa !17, !noalias !18
   %14 = zext i8 %13 to i32
-  %.0.tr.i.i = trunc nuw i64 %.09.i.i to i32
+  %.0.tr.i.i = trunc nuw nsw i64 %.09.i.i to i32
   %15 = shl nuw nsw i32 %.0.tr.i.i, 3
   %16 = sub nuw nsw i32 24, %15
   %17 = shl nuw i32 %14, %16
@@ -267,7 +267,7 @@ _ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i13: ; preds = %.preheader57
   %50 = getelementptr i8, ptr %48, i64 %.09.i16.i
   %51 = load i8, ptr %50, align 1, !tbaa !17, !noalias !32
   %52 = zext i8 %51 to i32
-  %.0.tr.i.i14 = trunc nuw i64 %.09.i16.i to i32
+  %.0.tr.i.i14 = trunc nuw nsw i64 %.09.i16.i to i32
   %53 = shl nuw nsw i32 %.0.tr.i.i14, 3
   %54 = sub nuw nsw i32 24, %53
   %55 = shl nuw i32 %52, %54
@@ -288,7 +288,7 @@ _ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit.i15: ; preds = %49
   %62 = getelementptr i8, ptr %60, i64 %.09.i19.i
   %63 = load i8, ptr %62, align 1, !tbaa !17, !noalias !32
   %64 = zext i8 %63 to i32
-  %.0.tr.i21.i = trunc nuw i64 %.09.i19.i to i32
+  %.0.tr.i21.i = trunc nuw nsw i64 %.09.i19.i to i32
   %65 = shl nuw nsw i32 %.0.tr.i21.i, 3
   %66 = sub nuw nsw i32 24, %65
   %67 = shl nuw i32 %64, %66
@@ -338,7 +338,7 @@ _ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit.i23: ; preds = %.preheader
   %85 = getelementptr i8, ptr %83, i64 %.09.i13.i
   %86 = load i8, ptr %85, align 1, !tbaa !17, !noalias !38
   %87 = zext i8 %86 to i32
-  %.0.tr.i.i24 = trunc nuw i64 %.09.i13.i to i32
+  %.0.tr.i.i24 = trunc nuw nsw i64 %.09.i13.i to i32
   %88 = shl nuw nsw i32 %.0.tr.i.i24, 3
   %89 = sub nuw nsw i32 24, %88
   %90 = shl nuw i32 %87, %89
@@ -392,7 +392,7 @@ define void @_ZN7rocksdb9cassandra9Tombstone11DeserializeEPKcm(ptr dead_on_unwin
   %10 = getelementptr i8, ptr %8, i64 %.09.i
   %11 = load i8, ptr %10, align 1, !tbaa !17
   %12 = zext i8 %11 to i32
-  %.0.tr.i = trunc nuw i64 %.09.i to i32
+  %.0.tr.i = trunc nuw nsw i64 %.09.i to i32
   %13 = shl nuw nsw i32 %.0.tr.i, 3
   %14 = sub nuw nsw i32 24, %13
   %15 = shl nuw i32 %12, %14
@@ -536,7 +536,7 @@ _ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit: ; preds = %9
   %20 = getelementptr i8, ptr %18, i64 %.09.i16
   %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = zext i8 %21 to i32
-  %.0.tr.i = trunc nuw i64 %.09.i16 to i32
+  %.0.tr.i = trunc nuw nsw i64 %.09.i16 to i32
   %23 = shl nuw nsw i32 %.0.tr.i, 3
   %24 = sub nuw nsw i32 24, %23
   %25 = shl nuw i32 %22, %24
@@ -558,7 +558,7 @@ _ZN7rocksdb9cassandra11DeserializeIiEET_PKcm.exit: ; preds = %19
   %33 = getelementptr i8, ptr %31, i64 %.09.i19
   %34 = load i8, ptr %33, align 1, !tbaa !17
   %35 = zext i8 %34 to i32
-  %.0.tr.i21 = trunc nuw i64 %.09.i19 to i32
+  %.0.tr.i21 = trunc nuw nsw i64 %.09.i19 to i32
   %36 = shl nuw nsw i32 %.0.tr.i21, 3
   %37 = sub nuw nsw i32 24, %36
   %38 = shl nuw i32 %35, %37
@@ -681,7 +681,7 @@ _ZN7rocksdb9cassandra11DeserializeIlEET_PKcm.exit: ; preds = %9
   %20 = getelementptr i8, ptr %18, i64 %.09.i13
   %21 = load i8, ptr %20, align 1, !tbaa !17
   %22 = zext i8 %21 to i32
-  %.0.tr.i = trunc nuw i64 %.09.i13 to i32
+  %.0.tr.i = trunc nuw nsw i64 %.09.i13 to i32
   %23 = shl nuw nsw i32 %.0.tr.i, 3
   %24 = sub nuw nsw i32 24, %23
   %25 = shl nuw i32 %22, %24
@@ -783,7 +783,7 @@ _ZN7rocksdb9cassandra9SerializeIlEEvT_PNSt7__cxx1112basic_stringIcSt11char_trait
 
 24:                                               ; preds = %24, %_ZN7rocksdb9cassandra9SerializeIlEEvT_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.04.i5 = phi i64 [ 0, %_ZN7rocksdb9cassandra9SerializeIlEEvT_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %31, %24 ]
-  %.0.tr.i = trunc nuw i64 %.04.i5 to i32
+  %.0.tr.i = trunc nuw nsw i64 %.04.i5 to i32
   %25 = shl nuw nsw i32 %.0.tr.i, 3
   %26 = sub nuw nsw i32 24, %25
   %27 = ashr i32 %23, %26
@@ -850,7 +850,7 @@ define void @_ZNK7rocksdb9cassandra14ExpiringColumn9SerializeEPNSt7__cxx1112basi
 
 6:                                                ; preds = %6, %2
   %.04.i = phi i64 [ 0, %2 ], [ %13, %6 ]
-  %.0.tr.i = trunc nuw i64 %.04.i to i32
+  %.0.tr.i = trunc nuw nsw i64 %.04.i to i32
   %7 = shl nuw nsw i32 %.0.tr.i, 3
   %8 = sub nuw nsw i32 24, %7
   %9 = ashr i32 %4, %8
@@ -990,7 +990,7 @@ define void @_ZNK7rocksdb9cassandra9Tombstone9SerializeEPNSt7__cxx1112basic_stri
 
 14:                                               ; preds = %14, %2
   %.04.i = phi i64 [ 0, %2 ], [ %21, %14 ]
-  %.0.tr.i = trunc nuw i64 %.04.i to i32
+  %.0.tr.i = trunc nuw nsw i64 %.04.i to i32
   %15 = shl nuw nsw i32 %.0.tr.i, 3
   %16 = sub nuw nsw i32 24, %15
   %17 = ashr i32 %13, %16
@@ -1124,7 +1124,7 @@ define void @_ZNK7rocksdb9cassandra8RowValue9SerializeEPNSt7__cxx1112basic_strin
 
 5:                                                ; preds = %5, %2
   %.04.i = phi i64 [ 0, %2 ], [ %12, %5 ]
-  %.0.tr.i = trunc nuw i64 %.04.i to i32
+  %.0.tr.i = trunc nuw nsw i64 %.04.i to i32
   %6 = shl nuw nsw i32 %.0.tr.i, 3
   %7 = sub nuw nsw i32 24, %6
   %8 = ashr i32 %3, %7
@@ -2810,7 +2810,7 @@ define void @_ZN7rocksdb9cassandra8RowValue11DeserializeEPKcm(ptr dead_on_unwind
   %8 = getelementptr i8, ptr %1, i64 %.09.i
   %9 = load i8, ptr %8, align 1, !tbaa !17
   %10 = zext i8 %9 to i32
-  %.0.tr.i = trunc nuw i64 %.09.i to i32
+  %.0.tr.i = trunc nuw nsw i64 %.09.i to i32
   %11 = shl nuw nsw i32 %.0.tr.i, 3
   %12 = sub nuw nsw i32 24, %11
   %13 = shl nuw i32 %10, %12

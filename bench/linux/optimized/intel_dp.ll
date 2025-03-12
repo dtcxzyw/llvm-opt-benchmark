@@ -1837,7 +1837,7 @@ define dso_local range(i32 -2147483648, 1) i32 @intel_dp_dsc_compute_config(ptr 
   %173 = load i16, ptr %172, align 8
   %174 = icmp ult i16 %173, 13
   %175 = select i1 %174, i32 23, i32 27
-  %.lhs.trunc = trunc i32 %153 to i8
+  %.lhs.trunc = trunc nuw i32 %153 to i8
   %176 = udiv i8 %.lhs.trunc, 3
   %177 = getelementptr i8, ptr %81, i64 2447
   %178 = load i8, ptr %177, align 1

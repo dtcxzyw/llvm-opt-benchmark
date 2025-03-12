@@ -5868,7 +5868,7 @@ define dso_local noundef range(i32 -1, 1) i32 @e1000_read_mac_addr(ptr noundef c
 4:                                                ; preds = %10, %1
   %5 = phi i64 [ 0, %1 ], [ %18, %10 ]
   %6 = lshr exact i64 %5, 1
-  %7 = trunc i64 %6 to i16
+  %7 = trunc nuw nsw i64 %6 to i16
   %8 = call i32 @e1000_read_eeprom(ptr noundef %0, i16 noundef zeroext %7, i16 noundef zeroext 1, ptr noundef nonnull %2), !range !9
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %.loopexit, label %10

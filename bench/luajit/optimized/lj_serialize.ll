@@ -76,7 +76,7 @@ define hidden void @lj_serialize_dict_prep_str(ptr noundef %0, ptr noundef %1) l
 
 35:                                               ; preds = %21, %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %lftr.wideiv = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %16, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !15
 
@@ -165,7 +165,7 @@ define hidden void @lj_serialize_dict_prep_mt(ptr noundef %0, ptr noundef %1) lo
 
 35:                                               ; preds = %21, %27, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %lftr.wideiv = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %16, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !17
 
@@ -1681,7 +1681,7 @@ define internal fastcc nonnull ptr @serialize_wu124_(ptr noundef writeonly captu
 4:                                                ; preds = %2
   %5 = add nsw i32 %1, -224
   %6 = lshr i32 %5, 8
-  %7 = trunc i32 %6 to i8
+  %7 = trunc nuw nsw i32 %6 to i8
   %8 = or i8 %7, -32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = trunc i32 %5 to i8

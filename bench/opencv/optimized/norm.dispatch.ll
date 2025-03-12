@@ -3066,10 +3066,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit264: ; preds = %_Z
 237:                                              ; preds = %235
   %238 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %239 = load i64, ptr %238, align 8, !tbaa !118
-  %.fr368 = freeze i64 %239
-  %240 = trunc i64 %.fr368 to i32
+  %.fr367 = freeze i64 %239
+  %240 = trunc i64 %.fr367 to i32
   %241 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %wide.trip.count.i267 = and i64 %.fr368, 2147483647
+  %wide.trip.count.i267 = and i64 %.fr367, 2147483647
   br i1 %207, label %.split350.us, label %.split350
 
 .split350.us:                                     ; preds = %237, %_ZN2cv3hal11normHammingEPKhii.exit274.us
@@ -3189,8 +3189,8 @@ _ZN2cv3hal11normHammingEPKhii.exit274:            ; preds = %.split350.split
 277:                                              ; preds = %274
   %278 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %279 = load i64, ptr %278, align 8, !tbaa !118
-  %.fr = freeze i64 %279
-  %280 = icmp ult i64 %.fr, 2147483647
+  %.fr365 = freeze i64 %279
+  %280 = icmp ult i64 %.fr365, 2147483647
   br i1 %280, label %285, label %283
 
 281:                                              ; preds = %283, %274
@@ -3199,7 +3199,7 @@ _ZN2cv3hal11normHammingEPKhii.exit274:            ; preds = %.split350.split
   br label %436
 
 283:                                              ; preds = %277
-  invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %.fr, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv4normERKNS_11_InputArrayEiS2_E15__cv_check__637) #19
+  invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %.fr365, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv4normERKNS_11_InputArrayEiS2_E15__cv_check__637) #19
           to label %284 unwind label %281
 
 284:                                              ; preds = %283
@@ -3229,7 +3229,7 @@ _ZN2cv3hal11normHammingEPKhii.exit274:            ; preds = %.split350.split
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %288, %291
   %298 = phi i64 [ %297, %291 ], [ 0, %288 ]
-  %299 = trunc nuw i64 %.fr to i32
+  %299 = trunc nuw nsw i64 %.fr365 to i32
   %300 = and i1 %33, %287
   %301 = select i1 %300, i32 8388608, i32 32768
   %302 = udiv i32 %301, %75
@@ -3238,9 +3238,9 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %288, %291
   store i32 0, ptr %29, align 4, !tbaa !11
   %303 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %invariant.op = sub nsw i32 %302, %.sroa.speculated304
-  %.not388 = icmp eq i64 %.fr, 0
+  %.not377 = icmp eq i64 %.fr365, 0
   %304 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  br i1 %.not388, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
+  br i1 %.not377, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %._crit_edge.us340
   %.0184.us = phi i32 [ %.2186.us, %._crit_edge.us340 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
@@ -3250,8 +3250,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSiz
   br i1 %306, label %.preheader.us, label %.split342.us
 
 307:                                              ; preds = %.preheader.us, %330
-  %308 = phi ptr [ %.pre377, %.preheader.us ], [ %331, %330 ]
-  %309 = phi ptr [ %.pre376, %.preheader.us ], [ %326, %330 ]
+  %308 = phi ptr [ %.pre376, %.preheader.us ], [ %331, %330 ]
+  %309 = phi ptr [ %.pre375, %.preheader.us ], [ %326, %330 ]
   %.0182339.us = phi i32 [ 0, %.preheader.us ], [ %332, %330 ]
   %.1185338.us = phi i32 [ %.0184.us, %.preheader.us ], [ %.2186.us, %330 ]
   %310 = sub nsw i32 %299, %.0182339.us
@@ -3305,8 +3305,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSiz
 
 .preheader.us:                                    ; preds = %_ZNK2cv3Mat8elemSizeEv.exit.split.us
   %334 = add nuw i64 %.0183.us, 1
-  %.pre376 = load ptr, ptr %26, align 16, !tbaa !124
-  %.pre377 = load ptr, ptr %304, align 8, !tbaa !124
+  %.pre375 = load ptr, ptr %26, align 16, !tbaa !124
+  %.pre376 = load ptr, ptr %304, align 8, !tbaa !124
   br label %307
 
 ._crit_edge.us340:                                ; preds = %330
@@ -3372,7 +3372,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
 
 _ZNK2cv3Mat8elemSizeEv.exit276:                   ; preds = %347, %350
   %357 = phi i64 [ %356, %350 ], [ 0, %347 ]
-  %358 = trunc nuw i64 %.fr to i32
+  %358 = trunc nuw nsw i64 %.fr365 to i32
   %359 = trunc nuw nsw i32 %74 to i16
   %.lhs.trunc = or disjoint i16 %359, 1024
   %.rhs.trunc = trunc nuw nsw i32 %75 to i16
@@ -3401,9 +3401,9 @@ _ZNK2cv3Mat8elemSizeEv.exit276:                   ; preds = %347, %350
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit:            ; preds = %.noexc279, %_ZNK2cv3Mat8elemSizeEv.exit276
   %368 = phi ptr [ %367, %.noexc279 ], [ %363, %_ZNK2cv3Mat8elemSizeEv.exit276 ]
   %369 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %.not387 = icmp eq i64 %.fr, 0
+  %.not366 = icmp eq i64 %.fr365, 0
   %370 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  br i1 %.not387, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us
+  br i1 %.not366, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us
 
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us:   ; preds = %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit, %._crit_edge.us
   %.0147.us = phi i64 [ %390, %._crit_edge.us ], [ 0, %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit ]
@@ -4498,8 +4498,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %_Z
 344:                                              ; preds = %340
   %345 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %346 = load i64, ptr %345, align 8, !tbaa !118
-  %.fr = freeze i64 %346
-  %347 = icmp ult i64 %.fr, 2147483647
+  %.fr401 = freeze i64 %346
+  %347 = icmp ult i64 %.fr401, 2147483647
   br i1 %347, label %352, label %350
 
 348:                                              ; preds = %350, %340
@@ -4508,7 +4508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %_Z
   br label %517
 
 350:                                              ; preds = %344
-  invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %.fr, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv4normERKNS_11_InputArrayES2_iS2_E16__cv_check__1133) #19
+  invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %.fr401, i64 noundef 2147483647, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv4normERKNS_11_InputArrayES2_iS2_E16__cv_check__1133) #19
           to label %351 unwind label %348
 
 351:                                              ; preds = %350
@@ -4538,7 +4538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit315: ; preds = %_Z
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %355, %358
   %365 = phi i64 [ %364, %358 ], [ 0, %355 ]
-  %366 = trunc nuw i64 %.fr to i32
+  %366 = trunc nuw nsw i64 %.fr401 to i32
   %367 = and i1 %122, %354
   %368 = select i1 %367, i32 8388608, i32 32768
   %369 = udiv i32 %368, %86
@@ -4547,10 +4547,10 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %355, %358
   store i32 0, ptr %32, align 4, !tbaa !11
   %370 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %invariant.op = sub nsw i32 %369, %.sroa.speculated345
-  %.not424 = icmp eq i64 %.fr, 0
+  %.not414 = icmp eq i64 %.fr401, 0
   %371 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %372 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  br i1 %.not424, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
+  br i1 %.not414, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %._crit_edge.us391
   %.0203.us = phi i32 [ %.2205.us, %._crit_edge.us391 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
@@ -4688,7 +4688,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
 
 _ZNK2cv3Mat8elemSizeEv.exit317:                   ; preds = %419, %422
   %429 = phi i64 [ %428, %422 ], [ 0, %419 ]
-  %430 = trunc nuw i64 %.fr to i32
+  %430 = trunc nuw nsw i64 %.fr401 to i32
   %431 = trunc nuw nsw i32 %85 to i16
   %.lhs.trunc = or disjoint i16 %431, 512
   %.rhs.trunc = trunc nuw nsw i32 %86 to i16
@@ -4720,10 +4720,10 @@ _ZN2cv10AutoBufferIfLm1026EEC2Em.exit:            ; preds = %.noexc319, %_ZNK2cv
   %442 = zext nneg i32 %433 to i64
   %443 = getelementptr inbounds nuw float, ptr %441, i64 %442
   %444 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %.not423 = icmp eq i64 %.fr, 0
+  %.not402 = icmp eq i64 %.fr401, 0
   %445 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %446 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  br i1 %.not423, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us
+  br i1 %.not402, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us
 
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us:   ; preds = %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit, %._crit_edge.us
   %.0160.us = phi i64 [ %470, %._crit_edge.us ], [ 0, %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit ]
@@ -4807,8 +4807,8 @@ _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split:      ; preds = %_ZN2cv10AutoBufferI
   %478 = load ptr, ptr %33, align 8, !tbaa !130
   %.not.i.i320 = icmp eq ptr %478, %436
   %479 = icmp eq ptr %478, null
-  %or.cond421 = or i1 %.not.i.i320, %479
-  br i1 %or.cond421, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit, label %480
+  %or.cond422 = or i1 %.not.i.i320, %479
+  br i1 %or.cond422, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit, label %480
 
 480:                                              ; preds = %.split.us
   call void @_ZdaPv(ptr noundef nonnull %478) #20
@@ -4833,8 +4833,8 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit:            ; preds = %480, %.split.us
   %485 = load ptr, ptr %33, align 8, !tbaa !130
   %.not.i.i322 = icmp eq ptr %485, %436
   %486 = icmp eq ptr %485, null
-  %or.cond422 = or i1 %.not.i.i322, %486
-  br i1 %or.cond422, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit323, label %487
+  %or.cond423 = or i1 %.not.i.i322, %486
+  br i1 %or.cond423, label %_ZN2cv10AutoBufferIfLm1026EED2Ev.exit323, label %487
 
 487:                                              ; preds = %484
   call void @_ZdaPv(ptr noundef nonnull %485) #20

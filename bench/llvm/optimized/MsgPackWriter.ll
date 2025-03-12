@@ -339,7 +339,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer5writeENS_9StringRefE(ptr noundef 
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %3
-  %13 = trunc nuw i64 %2 to i8
+  %13 = trunc nuw nsw i64 %2 to i8
   %14 = or disjoint i8 %13, -96
   %15 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -531,7 +531,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer14writeArraySizeEj(ptr noundef non
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   %11 = or disjoint i8 %10, -112
   %12 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
@@ -595,7 +595,7 @@ define dso_local void @_ZN4llvm7msgpack6Writer12writeMapSizeEj(ptr noundef nonnu
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   %11 = or disjoint i8 %10, -128
   %12 = load ptr, ptr %0, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)

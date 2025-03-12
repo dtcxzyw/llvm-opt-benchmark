@@ -495,7 +495,7 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   br i1 %.not21.i.i, label %php_dom_named_node_map_get_item.exit.thread.i, label %29
 
 29:                                               ; preds = %26
-  %30 = trunc nuw i64 %15 to i32
+  %30 = trunc nuw nsw i64 %15 to i32
   %31 = call ptr @php_dom_libxml_hash_iter(ptr noundef nonnull %22, i32 noundef %30) #4
   br label %php_dom_named_node_map_get_item.exit.i
 

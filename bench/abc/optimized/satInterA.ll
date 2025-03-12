@@ -181,7 +181,7 @@ define i32 @Inta_ManGlobalVars(ptr noundef readonly captures(none) %0) local_unn
   br label %56
 
 .critedge4.preheader.loopexit:                    ; preds = %56
-  %indvars85 = trunc i64 %indvars.iv.next83 to i32
+  %indvars85 = trunc nsw i64 %indvars.iv.next83 to i32
   br label %.critedge4.preheader
 
 .critedge4.preheader:                             ; preds = %.critedge4.preheader.loopexit, %.critedge2

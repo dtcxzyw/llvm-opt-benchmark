@@ -8444,7 +8444,7 @@ _ZSt10accumulateIPN4llvm17BranchProbabilityEmZNS1_22normalizeProbabilitiesIS2_EE
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = trunc nuw i64 %.0.i.i.i to i32
+  %46 = trunc nuw nsw i64 %.0.i.i.i to i32
   %.lhs.trunc.i = sub nuw i32 -2147483648, %46
   %47 = udiv i32 %.lhs.trunc.i, %.1.i
   br label %48
@@ -8578,7 +8578,7 @@ _ZSt10accumulateIPN4llvm17BranchProbabilityEmZNS1_22normalizeProbabilitiesIS2_EE
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %84
-  %87 = trunc nuw i64 %.0.i.i.i12 to i32
+  %87 = trunc nuw nsw i64 %.0.i.i.i12 to i32
   %.lhs.trunc.i25 = sub nuw i32 -2147483648, %87
   %88 = udiv i32 %.lhs.trunc.i25, %.1.i10
   br label %89

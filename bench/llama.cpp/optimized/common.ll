@@ -433,7 +433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 73:                                               ; preds = %._crit_edge.i.i
-  %74 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %74 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %75 = or disjoint i8 %74, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -3592,7 +3592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 73:                                               ; preds = %._crit_edge.i.i
-  %74 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %74 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %75 = or disjoint i8 %74, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -4106,7 +4106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 147:                                              ; preds = %._crit_edge.i.i
-  %148 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %148 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %149 = or disjoint i8 %148, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -4675,7 +4675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 157:                                              ; preds = %._crit_edge.i.i
-  %158 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %158 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %159 = or disjoint i8 %158, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -4817,7 +4817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i66: ;
   br label %_ZNSt7__cxx119to_stringEi.exit74
 
 227:                                              ; preds = %._crit_edge.i.i67
-  %228 = trunc nuw i32 %.0.lcssa.i.i68 to i8
+  %228 = trunc nuw nsw i32 %.0.lcssa.i.i68 to i8
   %229 = or disjoint i8 %228, 48
   br label %_ZNSt7__cxx119to_stringEi.exit74
 
@@ -4945,7 +4945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i85: ;
   br label %_ZNSt7__cxx119to_stringEi.exit93
 
 292:                                              ; preds = %._crit_edge.i.i86
-  %293 = trunc nuw i32 %.0.lcssa.i.i87 to i8
+  %293 = trunc nuw nsw i32 %.0.lcssa.i.i87 to i8
   %294 = or disjoint i8 %293, 48
   br label %_ZNSt7__cxx119to_stringEi.exit93
 
@@ -5074,7 +5074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i104: 
   br label %_ZNSt7__cxx119to_stringEi.exit112
 
 358:                                              ; preds = %._crit_edge.i.i105
-  %359 = trunc nuw i32 %.0.lcssa.i.i106 to i8
+  %359 = trunc nuw nsw i32 %.0.lcssa.i.i106 to i8
   %360 = or disjoint i8 %359, 48
   br label %_ZNSt7__cxx119to_stringEi.exit112
 
@@ -5162,7 +5162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i123: 
 
 407:                                              ; preds = %._crit_edge.i.i124.thread, %._crit_edge.i.i124
   %.0.lcssa.i.i125300 = phi i32 [ 1, %._crit_edge.i.i124.thread ], [ %372, %._crit_edge.i.i124 ]
-  %408 = trunc nuw i32 %.0.lcssa.i.i125300 to i8
+  %408 = trunc nuw nsw i32 %.0.lcssa.i.i125300 to i8
   %409 = or disjoint i8 %408, 48
   br label %_ZNSt7__cxx119to_stringEi.exit131
 
@@ -9413,7 +9413,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %141
 
 141:                                              ; preds = %140, %138
-  %142 = trunc i64 %120 to i32
+  %142 = trunc nsw i64 %120 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #37, !noalias !428
   %143 = load ptr, ptr %10, align 8, !tbaa !25, !noalias !428
   %144 = icmp eq ptr %143, %23
@@ -9489,7 +9489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.i: ; preds = %_
 
 160:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i85.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #37, !noalias !428
-  %161 = icmp slt i32 %142, 0
+  %161 = icmp slt i64 %120, 0
   br i1 %161, label %.thread104.i, label %166
 
 .thread104.i:                                     ; preds = %160, %.critedge.i, %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.i
@@ -9502,7 +9502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.i: ; preds = %_
           to label %.invoke.i unwind label %158
 
 166:                                              ; preds = %160
-  %167 = icmp eq i32 %142, 0
+  %167 = icmp eq i64 %120, 0
   br i1 %167, label %168, label %176
 
 168:                                              ; preds = %166

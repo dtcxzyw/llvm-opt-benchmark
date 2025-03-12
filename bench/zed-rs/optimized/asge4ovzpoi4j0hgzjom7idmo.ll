@@ -69266,7 +69266,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$
   %2 = load i64, ptr %0, align 8, !range !21336, !noundef !4
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 227
-  %5 = trunc i64 %3 to i8
+  %5 = trunc nuw i64 %3 to i8
   %trunc = select i1 %4, i8 %5, i8 97
   switch i8 %trunc, label %6 [
     i8 0, label %"_ZN4core3ptr51drop_in_place$LT$proto..CheckFileExistsResponse$GT$17h391b659ec8d0299bE.exit"
@@ -91290,7 +91290,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$futures_channel..mpsc..Recei
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %.noexc1
-  %trunc.i = trunc i8 %4 to i1
+  %trunc.i = trunc nuw i8 %4 to i1
   br i1 %trunc.i, label %.preheader.i.backedge, label %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h539ce8f13bf7cc23E.llvm.5026109878215741006.exit"
 
 7:                                                ; preds = %.noexc1
@@ -126076,7 +126076,7 @@ define hidden void @"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %.preheader
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %.preheader.backedge, label %.loopexit
 
 7:                                                ; preds = %.preheader

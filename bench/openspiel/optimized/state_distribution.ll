@@ -9122,7 +9122,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv30
   store ptr %61, ptr %62, align 8
-  %63 = trunc i64 %indvars.iv30 to i8
+  %63 = trunc nuw i64 %indvars.iv30 to i8
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i8 %63, ptr %64, align 1
   store ptr %2, ptr %61, align 8

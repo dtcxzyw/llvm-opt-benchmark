@@ -601,7 +601,7 @@ define void @_ZN10open_spiel20ultimate_tic_tac_toe16UltimateTTTState13DoApplyAct
   br label %133
 
 28:                                               ; preds = %22
-  %29 = trunc nuw i64 %1 to i32
+  %29 = trunc nuw nsw i64 %1 to i32
   store i32 %29, ptr %13, align 4
   br label %132
 

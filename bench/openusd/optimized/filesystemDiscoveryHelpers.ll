@@ -382,7 +382,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSERKS0_.exit45: ; preds = %_ZN32px
   br label %130
 
 130:                                              ; preds = %129, %127
-  %131 = trunc i64 %111 to i32
+  %131 = trunc nsw i64 %111 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10NdrVersionC1Eii(ptr noundef nonnull align 4 dereferenceable(9) %11, i32 noundef %131, i32 noundef 0)
           to label %132 unwind label %100
@@ -572,7 +572,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %185, %
   br label %223
 
 223:                                              ; preds = %222, %220
-  %224 = trunc i64 %204 to i32
+  %224 = trunc nsw i64 %204 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %225 = load ptr, ptr %29, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 -32
@@ -627,7 +627,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %185, %
   br label %248
 
 248:                                              ; preds = %247, %245
-  %249 = trunc i64 %229 to i32
+  %249 = trunc nsw i64 %229 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10NdrVersionC1Eii(ptr noundef nonnull align 4 dereferenceable(9) %13, i32 noundef %224, i32 noundef %249)
           to label %250 unwind label %100
@@ -753,7 +753,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit79: ; preds = %_ZN32pxrInt
   br label %304
 
 304:                                              ; preds = %303, %301
-  %305 = trunc i64 %285 to i32
+  %305 = trunc nsw i64 %285 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__10NdrVersionC1Eii(ptr noundef nonnull align 4 dereferenceable(9) %16, i32 noundef %305, i32 noundef 0)
           to label %306 unwind label %100

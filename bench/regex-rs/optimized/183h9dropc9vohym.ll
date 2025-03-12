@@ -329,8 +329,8 @@ define hidden void @_ZN14regex_automata4meta7literal20alternation_literals17h57f
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 122
   %36 = load i8, ptr %35, align 2, !range !15, !alias.scope !16, !noundef !4
   %37 = icmp eq i8 %36, 2
-  %38 = trunc i8 %36 to i1
-  %.0.i = or i1 %37, %38
+  %38 = trunc nuw i8 %36 to i1
+  %.0.i = select i1 %37, i1 true, i1 %38
   br i1 %.0.i, label %40, label %39
 
 39:                                               ; preds = %30, %19, %4, %27, %34
@@ -684,8 +684,8 @@ define noundef zeroext i1 @_ZN14regex_automata3nfa8thompson8compiler6Config8get_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %3 = load i8, ptr %2, align 2, !range !15, !noundef !4
   %4 = icmp eq i8 %3, 2
-  %5 = trunc i8 %3 to i1
-  %.0 = or i1 %4, %5
+  %5 = trunc nuw i8 %3 to i1
+  %.0 = select i1 %4, i1 true, i1 %5
   ret i1 %.0
 }
 

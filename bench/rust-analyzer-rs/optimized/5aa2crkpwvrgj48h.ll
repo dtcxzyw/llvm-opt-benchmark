@@ -342,7 +342,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
 
 25:                                               ; preds = %.lr.ph50, %22
   %.0.i19.ph = phi i8 [ %23, %22 ], [ 0, %.lr.ph50 ]
-  %26 = trunc i8 %.0.i19.ph to i1
+  %26 = trunc nuw i8 %.0.i19.ph to i1
   %27 = icmp eq ptr %21, %19
   br i1 %27, label %common.ret59, label %.lr.ph50
 
@@ -368,7 +368,7 @@ define noundef range(i8 0, 3) i8 @_ZN3cfg8cfg_expr7CfgExpr4fold17h16e409600b5065
 
 39:                                               ; preds = %.lr.ph, %36
   %.0.i23.ph = phi i8 [ %37, %36 ], [ 1, %.lr.ph ]
-  %40 = trunc i8 %.0.i23.ph to i1
+  %40 = trunc nuw i8 %.0.i23.ph to i1
   %41 = icmp eq ptr %35, %33
   br i1 %41, label %common.ret59, label %.lr.ph
 

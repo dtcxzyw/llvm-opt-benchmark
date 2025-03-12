@@ -338,7 +338,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
 83:                                               ; preds = %81, %80
   %84 = phi ptr [ %82, %81 ], [ null, %80 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %84, i32 noundef 2, ptr noundef nonnull @.str.7) #7
-  %.pre = trunc i64 %63 to i32
+  %.pre = trunc nuw nsw i64 %63 to i32
   br label %.thread15
 
 85:                                               ; preds = %.thread
@@ -347,7 +347,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   %88 = getelementptr [4 x i32], ptr %58, i64 0, i64 %63
   %89 = load i32, ptr %88, align 4
   %90 = mul i32 %87, %89
-  %91 = trunc i64 %63 to i32
+  %91 = trunc nuw nsw i64 %63 to i32
   %92 = tail call i64 @drm_format_info_min_pitch(ptr noundef nonnull %7, i32 noundef %91, i32 noundef %72) #7
   %93 = getelementptr [4 x i32], ptr %59, i64 0, i64 %63
   %94 = load i32, ptr %93, align 4
@@ -395,7 +395,7 @@ define dso_local i32 @drm_gem_fb_init_with_funcs(ptr noundef %0, ptr noundef %1,
   br i1 %117, label %62, label %118, !llvm.loop !22
 
 118:                                              ; preds = %113
-  %119 = trunc i64 %114 to i32
+  %119 = trunc nuw nsw i64 %114 to i32
   tail call void @drm_helper_mode_fill_fb_struct(ptr noundef %0, ptr noundef %1, ptr noundef %3) #7
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %121 = shl nuw nsw i64 %114, 3
@@ -567,7 +567,7 @@ define dso_local i32 @drm_gem_fb_vmap(ptr noundef readonly captures(none) %0, pt
 
 .preheader:                                       ; preds = %3, %17
   %9 = phi i64 [ %18, %17 ], [ 0, %3 ]
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw nsw i64 %9 to i32
   %11 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %10)
   %12 = icmp eq ptr %11, null
   br i1 %12, label %46, label %13

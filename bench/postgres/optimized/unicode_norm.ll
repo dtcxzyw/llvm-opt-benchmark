@@ -326,7 +326,7 @@ get_canonical_class.exit109:                      ; preds = %get_code_entry.exit
   br i1 %or.cond7.i, label %148, label %155
 
 148:                                              ; preds = %146
-  %.lhs.trunc.i = trunc nuw i32 %147 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %147 to i16
   %149 = urem i16 %.lhs.trunc.i, 28
   %150 = icmp eq i16 %149, 0
   %151 = add i32 %106, -4519
@@ -464,7 +464,7 @@ define internal fastcc i32 @get_decomposed_size(i32 noundef %0, i1 noundef zeroe
   br i1 %or.cond, label %5, label %7
 
 5:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %4 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %4 to i16
   %6 = urem i16 %.lhs.trunc, 28
   %.not24 = icmp eq i16 %6, 0
   %. = select i1 %.not24, i32 2, i32 3
@@ -583,7 +583,7 @@ define internal fastcc void @decompose_code(i32 noundef %0, i1 noundef zeroext %
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %2, align 8
-  %.lhs.trunc = trunc nuw i32 %6 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %6 to i16
   %9 = udiv i16 %.lhs.trunc, 588
   %10 = or disjoint i16 %9, 4352
   %11 = zext nneg i16 %10 to i32

@@ -6722,7 +6722,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7ObjFile8
   %153 = load ptr, ptr %87, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 64
   %155 = load ptr, ptr %154, align 8
-  %156 = trunc nuw i64 %150 to i32
+  %156 = trunc nuw nsw i64 %150 to i32
   store i32 %156, ptr %155, align 4
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %158 = load ptr, ptr %5, align 8

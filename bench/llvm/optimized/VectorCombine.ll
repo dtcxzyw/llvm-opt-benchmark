@@ -2800,7 +2800,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit170.i: ; pred
   %870 = load ptr, ptr %869, align 8, !tbaa !199
   %871 = getelementptr inbounds nuw i8, ptr %.0.val, i64 192
   %872 = load i32, ptr %871, align 8, !tbaa !131
-  %873 = trunc i64 %839 to i32
+  %873 = trunc nuw i64 %839 to i32
   %874 = call { i64, i32 } @_ZNK4llvm19TargetTransformInfo18getVectorInstrCostEjPNS_4TypeENS0_14TargetCostKindEjPNS_5ValueES5_(ptr noundef nonnull align 8 dereferenceable(8) %870, i32 noundef 62, ptr noundef %841, i32 noundef %872, i32 noundef %873, ptr noundef null, ptr noundef null) #26
   %.fr.i = freeze { i64, i32 } %874
   %.fca.0.extract41.i = extractvalue { i64, i32 } %.fr.i, 0
@@ -19281,7 +19281,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit:              ; preds = %_ZSt6fill_nIPimiET_
   br i1 %.not.i.i.i.i.i.i, label %_ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !543
 
 _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit
-  %29 = trunc i64 %1 to i32
+  %29 = trunc nuw i64 %1 to i32
   store i32 %29, ptr %17, align 8, !tbaa !26
   br label %30
 
@@ -21846,7 +21846,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIiE6resizeEmi(ptr noun
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = trunc i64 %1 to i32
+  %11 = trunc nuw i64 %1 to i32
   br label %.sink.split
 
 12:                                               ; preds = %8

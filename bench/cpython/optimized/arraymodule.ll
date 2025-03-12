@@ -1183,7 +1183,7 @@ define internal range(i32 -1, 1) i32 @b_setitem(ptr noundef readonly captures(no
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %15
-  %18 = trunc i16 %7 to i8
+  %18 = trunc nsw i16 %7 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !53
   %21 = getelementptr i8, ptr %20, i64 %1

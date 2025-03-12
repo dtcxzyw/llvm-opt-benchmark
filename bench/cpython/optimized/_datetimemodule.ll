@@ -2372,7 +2372,7 @@ define internal ptr @new_date_ex(i32 noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %or.cond.i.i, label %19, label %is_leap.exit.thread.i.i
 
 19:                                               ; preds = %15
-  %.lhs.trunc.i = trunc nuw i32 %0 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %0 to i16
   %20 = urem i16 %.lhs.trunc.i, 100
   %.not.i.i.i = icmp ne i16 %20, 0
   %21 = urem i16 %.lhs.trunc.i, 400
@@ -2407,13 +2407,13 @@ check_date_args.exit:                             ; preds = %days_in_month.exit.
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 -1, ptr %32, align 8, !tbaa !49
   %33 = lshr i32 %0, 8
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 25
   store i8 %34, ptr %35, align 1, !tbaa !15
   %36 = trunc i32 %0 to i8
   %37 = getelementptr i8, ptr %30, i64 26
   store i8 %36, ptr %37, align 1, !tbaa !15
-  %38 = trunc nuw i32 %1 to i8
+  %38 = trunc nuw nsw i32 %1 to i8
   %39 = getelementptr i8, ptr %30, i64 27
   store i8 %38, ptr %39, align 1, !tbaa !15
   %40 = trunc i32 %2 to i8
@@ -2491,17 +2491,17 @@ check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.
   store i8 %9, ptr %29, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 -1, ptr %30, align 8, !tbaa !47
-  %31 = trunc nuw i32 %0 to i8
+  %31 = trunc nuw nsw i32 %0 to i8
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 25
   store i8 %31, ptr %32, align 1, !tbaa !15
-  %33 = trunc nuw i32 %1 to i8
+  %33 = trunc nuw nsw i32 %1 to i8
   %34 = getelementptr i8, ptr %27, i64 26
   store i8 %33, ptr %34, align 1, !tbaa !15
-  %35 = trunc nuw i32 %2 to i8
+  %35 = trunc nuw nsw i32 %2 to i8
   %36 = getelementptr i8, ptr %27, i64 27
   store i8 %35, ptr %36, align 1, !tbaa !15
   %37 = lshr i32 %3, 16
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = getelementptr i8, ptr %27, i64 28
   store i8 %38, ptr %39, align 1, !tbaa !15
   %40 = lshr i32 %3, 8
@@ -2529,7 +2529,7 @@ _Py_NewRef.exit:                                  ; preds = %45, %48
   br label %51
 
 51:                                               ; preds = %_Py_NewRef.exit, %28
-  %52 = trunc nuw i32 %5 to i8
+  %52 = trunc nuw nsw i32 %5 to i8
   %53 = getelementptr inbounds nuw i8, ptr %27, i64 31
   store i8 %52, ptr %53, align 1, !tbaa !48
   br label %54
@@ -2574,7 +2574,7 @@ define internal ptr @new_datetime_ex2(i32 noundef %0, i32 noundef %1, i32 nounde
   br i1 %or.cond.i.i, label %27, label %is_leap.exit.thread.i.i
 
 27:                                               ; preds = %23
-  %.lhs.trunc.i = trunc nuw i32 %0 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %0 to i16
   %28 = urem i16 %.lhs.trunc.i, 100
   %.not.i.i.i = icmp ne i16 %28, 0
   %29 = urem i16 %.lhs.trunc.i, 400
@@ -2661,29 +2661,29 @@ check_tzinfo_subclass.exit:                       ; preds = %PyObject_TypeCheck.
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 -1, ptr %56, align 8, !tbaa !49
   %57 = lshr i32 %0, 8
-  %58 = trunc nuw i32 %57 to i8
+  %58 = trunc nuw nsw i32 %57 to i8
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 25
   store i8 %58, ptr %59, align 1, !tbaa !15
   %60 = trunc i32 %0 to i8
   %61 = getelementptr i8, ptr %53, i64 26
   store i8 %60, ptr %61, align 1, !tbaa !15
-  %62 = trunc nuw i32 %1 to i8
+  %62 = trunc nuw nsw i32 %1 to i8
   %63 = getelementptr i8, ptr %53, i64 27
   store i8 %62, ptr %63, align 1, !tbaa !15
   %64 = trunc i32 %2 to i8
   %65 = getelementptr i8, ptr %53, i64 28
   store i8 %64, ptr %65, align 1, !tbaa !15
-  %66 = trunc nuw i32 %3 to i8
+  %66 = trunc nuw nsw i32 %3 to i8
   %67 = getelementptr i8, ptr %53, i64 29
   store i8 %66, ptr %67, align 1, !tbaa !15
-  %68 = trunc nuw i32 %4 to i8
+  %68 = trunc nuw nsw i32 %4 to i8
   %69 = getelementptr i8, ptr %53, i64 30
   store i8 %68, ptr %69, align 1, !tbaa !15
-  %70 = trunc nuw i32 %5 to i8
+  %70 = trunc nuw nsw i32 %5 to i8
   %71 = getelementptr i8, ptr %53, i64 31
   store i8 %70, ptr %71, align 1, !tbaa !15
   %72 = lshr i32 %6, 16
-  %73 = trunc nuw i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = getelementptr i8, ptr %53, i64 32
   store i8 %73, ptr %74, align 1, !tbaa !15
   %75 = lshr i32 %6, 8
@@ -2711,7 +2711,7 @@ _Py_NewRef.exit:                                  ; preds = %80, %83
   br label %86
 
 86:                                               ; preds = %_Py_NewRef.exit, %54
-  %87 = trunc nuw i32 %8 to i8
+  %87 = trunc nuw nsw i32 %8 to i8
   %88 = getelementptr inbounds nuw i8, ptr %53, i64 35
   store i8 %87, ptr %88, align 1, !tbaa !57
   br label %check_date_args.exit.thread
@@ -9317,7 +9317,7 @@ define internal fastcc range(i32 -4, 1) i32 @iso_to_ymd(i32 noundef %0, i32 noun
   %13 = add nsw i32 %0, -1
   %14 = mul nuw nsw i32 %13, 365
   %15 = lshr i32 %13, 2
-  %.neg.i.i.i39.lhs.trunc = trunc i32 %13 to i16
+  %.neg.i.i.i39.lhs.trunc = trunc nuw nsw i32 %13 to i16
   %.neg.i.i.i3940 = udiv i16 %.neg.i.i.i39.lhs.trunc, 100
   %.neg.i.i.i39.zext = zext nneg i16 %.neg.i.i.i3940 to i32
   %16 = udiv i16 %.neg.i.i.i39.lhs.trunc, 400
@@ -9338,7 +9338,7 @@ define internal fastcc range(i32 -4, 1) i32 @iso_to_ymd(i32 noundef %0, i32 noun
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %22
-  %.lhs.trunc50 = trunc nuw i32 %0 to i16
+  %.lhs.trunc50 = trunc nuw nsw i32 %0 to i16
   %26 = urem i16 %.lhs.trunc50, 100
   %.not.i = icmp ne i16 %26, 0
   %27 = urem i16 %.lhs.trunc50, 400
@@ -9356,7 +9356,7 @@ is_leap.exit.thread35:                            ; preds = %12, %25, %8
   %31 = mul nuw nsw i32 %30, 365
   %32 = lshr i32 %30, 2
   %33 = add nuw nsw i32 %32, %31
-  %.neg.i.i.i3346.lhs.trunc = trunc i32 %30 to i16
+  %.neg.i.i.i3346.lhs.trunc = trunc nuw nsw i32 %30 to i16
   %.neg.i.i.i334647 = udiv i16 %.neg.i.i.i3346.lhs.trunc, 100
   %.neg.i.i.i3346.zext = zext nneg i16 %.neg.i.i.i334647 to i32
   %34 = sub nsw i32 %33, %.neg.i.i.i3346.zext
@@ -17941,7 +17941,7 @@ utc_to_seconds.exit.thread:                       ; preds = %25
   br i1 %36, label %37, label %is_leap.exit.thread.i.i.i
 
 37:                                               ; preds = %34
-  %.lhs.trunc.i = trunc nuw i32 %11 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %11 to i16
   %38 = urem i16 %.lhs.trunc.i, 100
   %.not.i.i.i.i = icmp eq i16 %38, 0
   br i1 %.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -17964,7 +17964,7 @@ utc_to_seconds.exit:                              ; preds = %29, %is_leap.exit.t
   %42 = add nsw i32 %10, 1899
   %43 = mul nuw nsw i32 %42, 365
   %44 = lshr i32 %42, 2
-  %.neg.i.i17.lhs.trunc.i = trunc i32 %42 to i16
+  %.neg.i.i17.lhs.trunc.i = trunc nuw nsw i32 %42 to i16
   %.neg.i.i1718.i = udiv i16 %.neg.i.i17.lhs.trunc.i, 100
   %.neg.i.i17.zext.i = zext nneg i16 %.neg.i.i1718.i to i32
   %45 = udiv i16 %.neg.i.i17.lhs.trunc.i, 400
@@ -18079,7 +18079,7 @@ define internal fastcc range(i64 -193404524822528, 193404524732468) i64 @local(i
   br i1 %30, label %31, label %is_leap.exit.thread.i.i.i
 
 31:                                               ; preds = %28
-  %.lhs.trunc.i = trunc nuw i32 %8 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %8 to i16
   %32 = urem i16 %.lhs.trunc.i, 100
   %.not.i.i.i.i = icmp eq i16 %32, 0
   br i1 %.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -18102,7 +18102,7 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
   %36 = add nsw i32 %7, 1899
   %37 = mul nuw nsw i32 %36, 365
   %38 = lshr i32 %36, 2
-  %.neg.i.i17.lhs.trunc.i = trunc i32 %36 to i16
+  %.neg.i.i17.lhs.trunc.i = trunc nuw nsw i32 %36 to i16
   %.neg.i.i1718.i = udiv i16 %.neg.i.i17.lhs.trunc.i, 100
   %.neg.i.i17.zext.i = zext nneg i16 %.neg.i.i1718.i to i32
   %39 = udiv i16 %.neg.i.i17.lhs.trunc.i, 400
@@ -18162,7 +18162,7 @@ define internal fastcc range(i64 -943436811112934, 943436813834522) i64 @local_t
   br i1 %19, label %20, label %is_leap.exit.thread.i.i.i
 
 20:                                               ; preds = %17
-  %.lhs.trunc.i = trunc nuw i32 %0 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %0 to i16
   %21 = urem i16 %.lhs.trunc.i, 100
   %.not.i.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i.i, label %is_leap.exit.i.i.i, label %is_leap.exit.thread6.i.i.i
@@ -18185,7 +18185,7 @@ ymd_to_ord.exit.i:                                ; preds = %is_leap.exit.thread
   %25 = add nsw i32 %0, -1
   %26 = mul nuw nsw i32 %25, 365
   %27 = lshr i32 %25, 2
-  %.neg.i.i17.lhs.trunc.i = trunc i32 %25 to i16
+  %.neg.i.i17.lhs.trunc.i = trunc nuw nsw i32 %25 to i16
   %.neg.i.i1718.i = udiv i16 %.neg.i.i17.lhs.trunc.i, 100
   %.neg.i.i17.zext.i = zext nneg i16 %.neg.i.i1718.i to i32
   %28 = udiv i16 %.neg.i.i17.lhs.trunc.i, 400

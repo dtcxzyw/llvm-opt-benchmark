@@ -42,7 +42,7 @@ if.then2:                                         ; preds = %if.else
   %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %conv3, ptr %arrayidx, align 1
   %shr = lshr i32 %cp, 6
-  %3 = trunc nuw i32 %shr to i8
+  %3 = trunc nuw nsw i32 %shr to i8
   %conv6 = or disjoint i8 %3, -64
   br label %if.end111
 
@@ -63,7 +63,7 @@ if.then10:                                        ; preds = %if.else8
   %arrayidx19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
   %shr20 = lshr i32 %cp, 12
-  %8 = trunc nuw i32 %shr20 to i8
+  %8 = trunc nuw nsw i32 %shr20 to i8
   %conv23 = or disjoint i8 %8, -32
   br label %if.end111
 
@@ -90,7 +90,7 @@ if.then28:                                        ; preds = %if.else26
   %arrayidx42 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %conv41, ptr %arrayidx42, align 1
   %shr43 = lshr i32 %cp, 18
-  %15 = trunc nuw i32 %shr43 to i8
+  %15 = trunc nuw nsw i32 %shr43 to i8
   %conv46 = or disjoint i8 %15, -16
   br label %if.end111
 
@@ -177,7 +177,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp5, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %for.body
-  %conv8 = trunc nuw i16 %0 to i8
+  %conv8 = trunc nuw nsw i16 %0 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext %conv8) #10
   br label %for.inc
 
@@ -264,7 +264,7 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %conv5 = trunc nuw i16 %0 to i8
+  %conv5 = trunc nuw nsw i16 %0 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %dest, i8 noundef signext %conv5) #10
   br label %for.inc
 

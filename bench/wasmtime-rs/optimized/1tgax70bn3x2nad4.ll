@@ -2061,7 +2061,7 @@ _ZN4core5slice4sort12choose_pivot17hd548ac4f762e1820E.exit: ; preds = %"_ZN4core
   br i1 %exitcond50.not.i.i, label %.thread.i.i, label %.lr.ph.split.us.i.i
 
 155:                                              ; preds = %140
-  %.lhs.trunc.i.i = trunc nuw i64 %143 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %143 to i16
   %156 = udiv i16 %.lhs.trunc.i.i, 48
   %.zext.i.i = zext nneg i16 %156 to i64
   %157 = icmp ult ptr %.0140.i.i, %.0143.i.i

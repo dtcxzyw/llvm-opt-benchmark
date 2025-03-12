@@ -212,12 +212,12 @@ define hidden void @av1_loop_filter_init(ptr noundef captures(none) initializes(
   %spec.store.select.us.i = tail call i32 @llvm.smax.i32(i32 %spec.select.us.i, i32 1)
   %14 = getelementptr inbounds nuw [64 x %struct.loop_filter_thresh], ptr %2, i64 0, i64 %indvars.iv25.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = trunc i32 %spec.store.select.us.i to i8
+  %16 = trunc nuw nsw i32 %spec.store.select.us.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 %16, i64 16, i1 false)
   %17 = shl i32 %12, 1
   %18 = add i32 %17, 4
   %19 = add nuw nsw i32 %18, %spec.store.select.us.i
-  %20 = trunc i32 %19 to i8
+  %20 = trunc nuw i32 %19 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 %20, i64 16, i1 false)
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 64
@@ -230,12 +230,12 @@ define hidden void @av1_loop_filter_init(ptr noundef captures(none) initializes(
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
   %23 = getelementptr inbounds nuw [64 x %struct.loop_filter_thresh], ptr %2, i64 0, i64 %indvars.iv.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = trunc i32 %spec.store.select.i to i8
+  %25 = trunc nuw nsw i32 %spec.store.select.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, i8 %25, i64 16, i1 false)
   %26 = shl i32 %21, 1
   %27 = add i32 %26, 4
   %28 = add nuw nsw i32 %27, %spec.store.select.i
-  %29 = trunc i32 %28 to i8
+  %29 = trunc nuw i32 %28 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %23, i8 %29, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
@@ -288,12 +288,12 @@ define hidden void @av1_loop_filter_frame_init(ptr noundef captures(none) %0, i3
   %spec.store.select.us.i = tail call i32 @llvm.smax.i32(i32 %spec.select.us.i, i32 1)
   %19 = getelementptr inbounds nuw [64 x %struct.loop_filter_thresh], ptr %6, i64 0, i64 %indvars.iv25.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = trunc i32 %spec.store.select.us.i to i8
+  %21 = trunc nuw nsw i32 %spec.store.select.us.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 %21, i64 16, i1 false)
   %22 = shl i32 %17, 1
   %23 = add i32 %22, 4
   %24 = add nuw nsw i32 %23, %spec.store.select.us.i
-  %25 = trunc i32 %24 to i8
+  %25 = trunc nuw i32 %24 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, i8 %25, i64 16, i1 false)
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 64
@@ -306,12 +306,12 @@ define hidden void @av1_loop_filter_frame_init(ptr noundef captures(none) %0, i3
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %27, i32 1)
   %28 = getelementptr inbounds nuw [64 x %struct.loop_filter_thresh], ptr %6, i64 0, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = trunc i32 %spec.store.select.i to i8
+  %30 = trunc nuw nsw i32 %spec.store.select.i to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %29, i8 %30, i64 16, i1 false)
   %31 = shl i32 %26, 1
   %32 = add i32 %31, 4
   %33 = add nuw nsw i32 %32, %spec.store.select.i
-  %34 = trunc i32 %33 to i8
+  %34 = trunc nuw i32 %33 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, i8 %34, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64

@@ -4261,7 +4261,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i: ; preds = %.
 
 32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
   %spec.select20.i = call i64 @llvm.smax.i64(i64 %.28.i, i64 -128)
-  %spec.select.i = trunc i64 %spec.select20.i to i8
+  %spec.select.i = trunc nsw i64 %spec.select20.i to i8
   br label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i, %32
@@ -4768,7 +4768,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i: ; preds = %.
 
 32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
   %spec.select20.i = call i64 @llvm.smax.i64(i64 %.28.i, i64 -32768)
-  %spec.select.i = trunc i64 %spec.select20.i to i16
+  %spec.select.i = trunc nsw i64 %spec.select20.i to i16
   br label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i, %32
@@ -5955,7 +5955,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i: ; preds = %.
 
 32:                                               ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i
   %spec.select20.i = call i64 @llvm.smax.i64(i64 %.28.i, i64 -2147483648)
-  %spec.select.i = trunc i64 %spec.select20.i to i32
+  %spec.select.i = trunc nsw i64 %spec.select20.i to i32
   br label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit: ; preds = %20, %.critedge.thread.i.i, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i, %32
@@ -20712,7 +20712,7 @@ define linkonce_odr dso_local void @_ZNK11flexbuffers9Reference18AsFixedTypedVec
   br i1 %6, label %7, label %36
 
 7:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %5 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %5 to i8
   %8 = udiv i8 %.lhs.trunc, 3
   %9 = add nuw nsw i8 %8, 2
   %10 = urem i8 %.lhs.trunc, 3

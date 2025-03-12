@@ -11980,7 +11980,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h817cd94cd11adcccE.exit: ; p
   br i1 %85, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22254a0e8b0d9849E.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h22254a0e8b0d9849E.exit"
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h811bf84c37fe054cE.exit: ; preds = %73
-  %86 = trunc i64 %71 to i32
+  %86 = trunc nuw i64 %71 to i32
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h811bf84c37fe054cE.exit, %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17h817cd94cd11adcccE.exit53.thread

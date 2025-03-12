@@ -347,7 +347,7 @@ define noundef i8 @_ZN9softposit4p8e07convert21convert_u32_to_p8bits17h8208a4084
   br i1 %4, label %5, label %.lr.ph
 
 5:                                                ; preds = %3
-  %.tr = trunc nuw i32 %0 to i8
+  %.tr = trunc nuw nsw i32 %0 to i8
   %6 = shl nuw nsw i8 %.tr, 6
   br label %32
 
@@ -402,7 +402,7 @@ define noundef i8 @_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e4
   br i1 %4, label %5, label %.lr.ph
 
 5:                                                ; preds = %3
-  %.tr = trunc nuw i64 %0 to i8
+  %.tr = trunc nuw nsw i64 %0 to i8
   %6 = shl nuw nsw i8 %.tr, 6
   br label %32
 

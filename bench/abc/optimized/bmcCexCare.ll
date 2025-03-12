@@ -985,7 +985,7 @@ define void @Bmc_CexCarePropagateBwdOne(ptr noundef readonly captures(none) %0, 
 
 Gia_ObjIsPi.exit:                                 ; preds = %95
   %97 = lshr i64 %89, 32
-  %98 = trunc nuw i64 %97 to i32
+  %98 = trunc nuw nsw i64 %97 to i32
   %99 = and i32 %98, 536870911
   %.val.i = load i32, ptr %49, align 8, !tbaa !33
   %.val3.i = load ptr, ptr %6, align 8, !tbaa !40
@@ -1007,7 +1007,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %95, %Gia_ObjIsPi.ex
 
 Gia_ObjIsPi.exit97:                               ; preds = %Gia_ObjIsPi.exit.thread
   %105 = lshr i64 %94, 32
-  %106 = trunc nuw i64 %105 to i32
+  %106 = trunc nuw nsw i64 %105 to i32
   %107 = and i32 %106, 536870911
   %.val.i94 = load i32, ptr %49, align 8, !tbaa !33
   %.val3.i95 = load ptr, ptr %6, align 8, !tbaa !40

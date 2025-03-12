@@ -1364,7 +1364,7 @@ select.unfold:                                    ; preds = %49, %select.unfold.
   br i1 %59, label %31, label %60, !llvm.loop !31
 
 60:                                               ; preds = %55
-  %61 = trunc i64 %56 to i32
+  %61 = trunc nuw i64 %56 to i32
   br label %62
 
 62:                                               ; preds = %60, %24
@@ -1374,7 +1374,7 @@ select.unfold:                                    ; preds = %49, %select.unfold.
   br i1 %65, label %.loopexit, label %68
 
 66:                                               ; preds = %select.unfold
-  %67 = trunc i64 %32 to i32
+  %67 = trunc nuw i64 %32 to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %2, ptr noundef nonnull @.str.10, i32 noundef %67, ptr noundef %34) #16
   br label %68
 

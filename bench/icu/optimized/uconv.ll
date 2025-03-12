@@ -1536,7 +1536,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit327:      ; preds = %612
 
 636:                                              ; preds = %630
   %637 = lshr i32 %634, 20
-  %638 = trunc nuw i32 %637 to i8
+  %638 = trunc nuw nsw i32 %637 to i8
   %639 = icmp samesign ult i32 %634, 10485760
   %640 = or disjoint i8 %638, 48
   %narrow.i328 = add nuw nsw i8 %638, 87

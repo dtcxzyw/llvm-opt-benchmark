@@ -398,7 +398,7 @@ _ZNK4absl12_GLOBAL__N_112SafeMultiplyINS_7uint128EEclES2_S2_.exit.i: ; preds = %
 
 34:                                               ; preds = %27
   %35 = udiv i128 %22, 4000000000
-  %.sroa.0.0.extract.trunc.i.i40.i = trunc nuw i128 %35 to i64
+  %.sroa.0.0.extract.trunc.i.i40.i = trunc nuw nsw i128 %35 to i64
   %.neg.pn.i.i = mul i64 %.sroa.0.0.extract.trunc.i.i40.i, 294967296
   %.079.in.i.i = add i64 %.neg.pn.i.i, %.sroa.0.0.extract.trunc.i.i.i
   %.079.i.i = trunc i64 %.079.in.i.i to i32
@@ -500,7 +500,7 @@ _ZN4absl12_GLOBAL__N_114NormalizeTicksEPlS1_.exit.i: ; preds = %37
   %.054.i = select i1 %40, i64 %41, i64 %33
   %.lobit.i = ashr i64 %33, 63
   %.0.i = add nsw i64 %.lobit.i, %39
-  %42 = trunc i64 %.054.i to i32
+  %42 = trunc nuw i64 %.054.i to i32
   br label %_ZN4absl12_GLOBAL__N_111ScaleDoubleISt10multipliesEENS_8DurationES3_d.exit
 
 _ZN4absl12_GLOBAL__N_111ScaleDoubleISt10multipliesEENS_8DurationES3_d.exit: ; preds = %11, %27, %29, %37, %_ZN4absl12_GLOBAL__N_114NormalizeTicksEPlS1_.exit.i
@@ -580,7 +580,7 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
 
 20:                                               ; preds = %15
   %21 = udiv i128 %10, 4000000000
-  %.sroa.0.0.extract.trunc.i.i33.i = trunc nuw i128 %21 to i64
+  %.sroa.0.0.extract.trunc.i.i33.i = trunc nuw nsw i128 %21 to i64
   br label %22
 
 22:                                               ; preds = %20, %13
@@ -683,7 +683,7 @@ _ZN4absl12_GLOBAL__N_114NormalizeTicksEPlS1_.exit.i: ; preds = %36
   %.054.i = select i1 %39, i64 %40, i64 %32
   %.lobit.i = ashr i64 %32, 63
   %.0.i36 = add nsw i64 %.lobit.i, %38
-  %41 = trunc i64 %.054.i to i32
+  %41 = trunc nuw i64 %.054.i to i32
   br label %_ZN4absl12_GLOBAL__N_111ScaleDoubleISt7dividesEENS_8DurationES3_d.exit
 
 _ZN4absl12_GLOBAL__N_111ScaleDoubleISt7dividesEENS_8DurationES3_d.exit: ; preds = %10, %26, %28, %36, %_ZN4absl12_GLOBAL__N_114NormalizeTicksEPlS1_.exit.i
@@ -1238,7 +1238,7 @@ define dso_local { i64, i32 } @_ZN4absl20DurationFromTimespecE8timespec(i64 %0, 
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %.tr = trunc nuw i64 %1 to i32
+  %.tr = trunc nuw nsw i64 %1 to i32
   %5 = shl nuw i32 %.tr, 2
   br label %_ZN4abslplENS_8DurationES0_.exit
 
@@ -1289,7 +1289,7 @@ define dso_local { i64, i32 } @_ZN4absl19DurationFromTimevalE7timeval(i64 %0, i6
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i64 %1 to i32
+  %5 = trunc nuw nsw i64 %1 to i32
   %6 = mul nuw i32 %5, 4000
   br label %_ZN4abslplENS_8DurationES0_.exit
 
@@ -2668,7 +2668,7 @@ _ZN4absl8DurationpLES0_.exit:                     ; preds = %.sink.split.i, %83,
 
 105:                                              ; preds = %100
   %106 = udiv i128 %95, 4000000000
-  %.sroa.0.0.extract.trunc.i.i33.i.i.i = trunc nuw i128 %106 to i64
+  %.sroa.0.0.extract.trunc.i.i33.i.i.i = trunc nuw nsw i128 %106 to i64
   br label %107
 
 107:                                              ; preds = %105, %98
@@ -2898,7 +2898,7 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %_ZN4abslltENS_8Dura
   %.sroa.03.0.insert.ext.i.i = and i128 %.sroa.03.0.insert.insert.i168, 18446744073709549568
   %.sroa.03.0.insert.insert.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i, %.sroa.03.0.insert.ext.i.i
   %36 = udiv i128 %.sroa.03.0.insert.insert.i.i, 4000000000
-  %.sroa.0.0.extract.trunc.i.i = trunc nuw i128 %36 to i64
+  %.sroa.0.0.extract.trunc.i.i = trunc nuw nsw i128 %36 to i64
   br label %37
 
 37:                                               ; preds = %35, %28

@@ -1714,7 +1714,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder18writeValueAndFinalEia(ptr nou
   br label %21
 
 18:                                               ; preds = %13
-  %19 = trunc nuw i32 %14 to i16
+  %19 = trunc nuw nsw i32 %14 to i16
   %20 = or disjoint i16 %19, 16384
   br label %21
 
@@ -1771,14 +1771,14 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder17writeValueAndTypeEaii(ptr nou
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %.tr = trunc nuw i32 %2 to i16
+  %.tr = trunc nuw nsw i32 %2 to i16
   %21 = shl nuw nsw i16 %.tr, 6
   %22 = add nuw nsw i16 %21, 64
   br label %30
 
 23:                                               ; preds = %18
   %24 = lshr i32 %2, 10
-  %25 = trunc nuw i32 %24 to i16
+  %25 = trunc nuw nsw i32 %24 to i16
   %26 = and i16 %25, 16320
   %27 = add nuw nsw i16 %26, 16448
   %28 = trunc i32 %2 to i16
@@ -1821,7 +1821,7 @@ define noundef i32 @_ZN6icu_7717UCharsTrieBuilder12writeDeltaToEi(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %3) #13
   %14 = icmp samesign ult i32 %6, 67043328
   %15 = lshr i32 %6, 16
-  %16 = trunc nuw i32 %15 to i16
+  %16 = trunc nuw nsw i32 %15 to i16
   br i1 %14, label %17, label %19
 
 17:                                               ; preds = %13

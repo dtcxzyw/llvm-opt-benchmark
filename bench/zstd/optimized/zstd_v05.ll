@@ -210,7 +210,7 @@ define range(i32 0, 2) i32 @FSEv05_isError(i64 noundef %0) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define ptr @FSEv05_getErrorName(i64 noundef %0) local_unnamed_addr #9 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
@@ -606,7 +606,7 @@ define i64 @FSEv05_decompress_usingDTable(ptr noundef %0, i64 noundef %1, ptr no
 BITv05_initDStream.exit.thread314:                ; preds = %62
   %67 = zext i8 %65 to i32
   %68 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
-  %69 = trunc nuw i64 %3 to i32
+  %69 = trunc nuw nsw i64 %3 to i32
   %70 = shl nuw nsw i32 %69, 3
   %reass.sub = sub nsw i32 %68, %70
   %71 = add nsw i32 %reass.sub, 41
@@ -1145,7 +1145,7 @@ BITv05_endOfDStream.exit102.thread:               ; preds = %BITv05_reloadDStrea
 BITv05_initDStream.exit107.thread344:             ; preds = %324
   %329 = zext i8 %327 to i32
   %330 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %329, i1 true)
-  %331 = trunc nuw i64 %3 to i32
+  %331 = trunc nuw nsw i64 %3 to i32
   %332 = shl nuw nsw i32 %331, 3
   %reass.sub510 = sub nsw i32 %330, %332
   %333 = add nsw i32 %reass.sub510, 41
@@ -1664,7 +1664,7 @@ define range(i32 0, 2) i32 @HUFv05_isError(i64 noundef %0) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define ptr @HUFv05_getErrorName(i64 noundef %0) local_unnamed_addr #9 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
@@ -1962,7 +1962,7 @@ FSEv05_decompress.exit:                           ; preds = %47
   br i1 %or.cond, label %97, label %.critedge
 
 97:                                               ; preds = %85
-  %98 = trunc i64 %.074 to i32
+  %98 = trunc nuw i64 %.074 to i32
   %99 = add i32 %98, 1
   store i32 %99, ptr %2, align 4, !tbaa !17
   store i32 %77, ptr %3, align 4, !tbaa !17
@@ -2085,7 +2085,7 @@ BITv05_initDStream.exit.thread25:                 ; preds = %66
   %71 = zext i8 %69 to i32
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %74 = trunc nuw i64 %3 to i32
+  %74 = trunc nuw nsw i64 %3 to i32
   %75 = shl nuw nsw i32 %74, 3
   %reass.sub = sub nsw i32 %72, %75
   %76 = add nsw i32 %reass.sub, 41
@@ -2244,7 +2244,7 @@ define internal fastcc range(i64 1, 0) i64 @BITv05_initDStream(ptr noundef nonnu
   %71 = zext i8 %69 to i32
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = trunc nuw i64 %2 to i32
+  %74 = trunc nuw nsw i64 %2 to i32
   %75 = shl nuw nsw i32 %74, 3
   %76 = sub nsw i32 %72, %75
   %77 = add nsw i32 %76, 41
@@ -2524,7 +2524,7 @@ define range(i64 1, 0) i64 @HUFv05_decompress1X2(ptr noundef %0, i64 noundef %1,
   br i1 %15, label %HUFv05_readDTableX2.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = trunc nuw i32 %14 to i16
+  %17 = trunc nuw nsw i32 %14 to i16
   store i16 %17, ptr %9, align 16, !tbaa !3
   %.not3738.i = icmp eq i32 %14, 0
   br i1 %.not3738.i, label %.preheader.i, label %.lr.ph.preheader.i
@@ -2540,7 +2540,7 @@ define range(i64 1, 0) i64 @HUFv05_decompress1X2(ptr noundef %0, i64 noundef %1,
   br i1 %.not.i, label %HUFv05_readDTableX2.exit.thread20, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %.preheader.i
-  %20 = trunc nuw i32 %14 to i8
+  %20 = trunc nuw nsw i32 %14 to i8
   %21 = add nuw nsw i8 %20, 1
   %wide.trip.count54.i = zext i32 %19 to i64
   br label %28
@@ -3656,7 +3656,7 @@ define i64 @HUFv05_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %15, label %HUFv05_readDTableX2.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = trunc nuw i32 %14 to i16
+  %17 = trunc nuw nsw i32 %14 to i16
   store i16 %17, ptr %9, align 16, !tbaa !3
   %.not3738.i = icmp eq i32 %14, 0
   br i1 %.not3738.i, label %.preheader.i, label %.lr.ph.preheader.i
@@ -3672,7 +3672,7 @@ define i64 @HUFv05_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %.not.i, label %HUFv05_readDTableX2.exit.thread20, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %.preheader.i
-  %20 = trunc nuw i32 %14 to i8
+  %20 = trunc nuw nsw i32 %14 to i8
   %21 = add nuw nsw i8 %20, 1
   %wide.trip.count54.i = zext i32 %19 to i64
   br label %28
@@ -4176,7 +4176,7 @@ BITv05_initDStream.exit.thread19:                 ; preds = %62
   %67 = zext i8 %65 to i32
   %68 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %70 = trunc nuw i64 %3 to i32
+  %70 = trunc nuw nsw i64 %3 to i32
   %71 = shl nuw nsw i32 %70, 3
   %reass.sub = sub nsw i32 %68, %71
   %72 = add nsw i32 %reass.sub, 41
@@ -5629,7 +5629,7 @@ define range(i32 0, 2) i32 @ZSTDv05_isError(i64 noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @ZSTDv05_getErrorName(i64 noundef %0) local_unnamed_addr #9 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27
@@ -6539,7 +6539,7 @@ ZSTDv05_decodeSeqHeaders.exit.i:                  ; preds = %357, %372, %362, %3
 BITv05_initDStream.exit.thread164.i:              ; preds = %434
   %438 = zext i8 %436 to i32
   %439 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %438, i1 true)
-  %440 = trunc nuw i64 %gepdiff.i to i32
+  %440 = trunc nuw nsw i64 %gepdiff.i to i32
   %441 = shl nuw nsw i32 %440, 3
   %reass.sub = sub nsw i32 %439, %441
   %442 = add nsw i32 %reass.sub, 41
@@ -8387,7 +8387,7 @@ define range(i32 0, 2) i32 @ZBUFFv05_isError(i64 noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define ptr @ZBUFFv05_getErrorName(i64 noundef %0) local_unnamed_addr #9 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #27

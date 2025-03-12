@@ -5246,7 +5246,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit286: ; preds = %_Z
   %449 = shl i32 %.087631, 10
   %450 = and i32 %449, 1047552
   %451 = add nuw nsw i32 %450, 65536
-  %452 = trunc nuw i64 %360 to i32
+  %452 = trunc nuw nsw i64 %360 to i32
   %453 = and i32 %452, 1023
   %454 = or disjoint i32 %453, %451
   %455 = call noundef i32 @_ZN11flatbuffers6ToUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %454, ptr noundef nonnull %67)
@@ -17847,7 +17847,7 @@ define dso_local void @_ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112
   ]
 
 47:                                               ; preds = %5, %5
-  %48 = trunc i32 %46 to i8
+  %48 = trunc nuw nsw i32 %46 to i8
   tail call void @_ZN11flatbuffers6Parser4NextEv(ptr dead_on_unwind writable sret(%"class.flatbuffers::CheckedError") align 1 %0, ptr noundef nonnull align 8 dereferenceable(1920) %1)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %49, align 1, !tbaa !165
@@ -42836,7 +42836,7 @@ _ZN11flatbuffers12_GLOBAL__N_111atot_scalarIaEEbPKcPT_St17integral_constantIbLb0
 _ZN11flatbuffers12_GLOBAL__N_111atot_scalarIaEEbPKcPT_St17integral_constantIbLb0EE.exit: ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
   %46 = icmp sgt i64 %.28.i.i, -129
   %spec.select20.i.i = call i64 @llvm.smax.i64(i64 %.28.i.i, i64 -128)
-  %spec.select.i.i = trunc i64 %spec.select20.i.i to i8
+  %spec.select.i.i = trunc nsw i64 %spec.select20.i.i to i8
   store i8 %spec.select.i.i, ptr %3, align 1, !tbaa !13
   br i1 %46, label %47, label %49
 
@@ -43910,7 +43910,7 @@ _ZN11flatbuffers12_GLOBAL__N_111atot_scalarIsEEbPKcPT_St17integral_constantIbLb0
 _ZN11flatbuffers12_GLOBAL__N_111atot_scalarIsEEbPKcPT_St17integral_constantIbLb0EE.exit: ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
   %46 = icmp sgt i64 %.28.i.i, -32769
   %spec.select20.i.i = call i64 @llvm.smax.i64(i64 %.28.i.i, i64 -32768)
-  %spec.select.i.i = trunc i64 %spec.select20.i.i to i16
+  %spec.select.i.i = trunc nsw i64 %spec.select20.i.i to i16
   store i16 %spec.select.i.i, ptr %3, align 2, !tbaa !353
   br i1 %46, label %47, label %49
 
@@ -45492,7 +45492,7 @@ _ZN11flatbuffers12_GLOBAL__N_111atot_scalarIiEEbPKcPT_St17integral_constantIbLb0
 _ZN11flatbuffers12_GLOBAL__N_111atot_scalarIiEEbPKcPT_St17integral_constantIbLb0EE.exit: ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i.i
   %46 = icmp sgt i64 %.28.i.i, -2147483649
   %spec.select20.i.i = call i64 @llvm.smax.i64(i64 %.28.i.i, i64 -2147483648)
-  %spec.select.i.i = trunc i64 %spec.select20.i.i to i32
+  %spec.select.i.i = trunc nsw i64 %spec.select20.i.i to i32
   store i32 %spec.select.i.i, ptr %3, align 4, !tbaa !192
   br i1 %46, label %47, label %49
 
@@ -70715,7 +70715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit410: ; preds = %_Z
   store i16 %661, ptr %662, align 8, !tbaa !428
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %27) #35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %663 = trunc nuw i64 %indvars.iv.next to i32
+  %663 = trunc nuw nsw i64 %indvars.iv.next to i32
   %664 = load ptr, ptr %338, align 8, !tbaa !426
   %665 = load ptr, ptr %337, align 8, !tbaa !427
   %666 = ptrtoint ptr %664 to i64
@@ -79031,7 +79031,7 @@ _ZN11flatbuffers11StringToIntEPKci.exit.thread:   ; preds = %196, %187
   br label %353
 
 220:                                              ; preds = %23, %23
-  %221 = trunc i32 %26 to i8
+  %221 = trunc nuw nsw i32 %26 to i8
   invoke void @_ZN11flatbuffers6Parser4NextEv(ptr dead_on_unwind nonnull writable sret(%"class.flatbuffers::CheckedError") align 1 %0, ptr noundef nonnull align 8 dereferenceable(1920) %1)
           to label %222 unwind label %225
 
@@ -142692,7 +142692,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i200: ; preds =
 
 166:                                              ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i200
   %spec.select20.i202 = call i64 @llvm.smax.i64(i64 %.28.i201, i64 -128)
-  %spec.select.i203 = trunc i64 %spec.select20.i202 to i8
+  %spec.select.i203 = trunc nsw i64 %spec.select20.i202 to i8
   br label %_ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIaEEbPKcPT_.exit: ; preds = %166, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i200, %.critedge.thread.i.i197, %154
@@ -142878,7 +142878,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i234: ; preds =
 
 242:                                              ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i234
   %spec.select20.i236 = call i64 @llvm.smax.i64(i64 %.28.i235, i64 -32768)
-  %spec.select.i237 = trunc i64 %spec.select20.i236 to i16
+  %spec.select.i237 = trunc nsw i64 %spec.select20.i236 to i16
   br label %_ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIsEEbPKcPT_.exit: ; preds = %242, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i234, %.critedge.thread.i.i231, %230
@@ -143064,7 +143064,7 @@ _ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i267: ; preds =
 
 318:                                              ; preds = %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i267
   %spec.select20.i269 = call i64 @llvm.smax.i64(i64 %.28.i268, i64 -2147483648)
-  %spec.select.i270 = trunc i64 %spec.select20.i269 to i32
+  %spec.select.i270 = trunc nsw i64 %spec.select20.i269 to i32
   br label %_ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit
 
 _ZN11flatbuffers14StringToNumberIiEEbPKcPT_.exit: ; preds = %318, %_ZN11flatbuffers19StringToIntegerImplIlEEbPT_PKcib.exit.i.thread.i267, %.critedge.thread.i.i264, %306

@@ -5855,8 +5855,8 @@ _ZN11parking_lot7condvar7Condvar10notify_all17h4281c1b5e82a9165E.llvm.1809027223
 
 .noexc48:                                         ; preds = %.critedge.i
   %69 = icmp eq i8 %68, 2
-  %70 = trunc i8 %68 to i1
-  %spec.select.i.i = or i1 %69, %70
+  %70 = trunc nuw i8 %68 to i1
+  %spec.select.i.i = select i1 %69, i1 true, i1 %70
   br i1 %spec.select.i.i, label %71, label %72
 
 71:                                               ; preds = %.noexc48

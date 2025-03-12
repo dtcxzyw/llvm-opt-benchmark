@@ -7708,7 +7708,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %.body.i.i103 unwind label %2058, !noalias !47
 
 2055:                                             ; preds = %.invoke.i.i.i105
-  %2056 = trunc i8 %2050 to i1
+  %2056 = trunc nuw i8 %2050 to i1
   br i1 %2056, label %2057, label %2060
 
 2057:                                             ; preds = %2055
@@ -10372,7 +10372,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_record17h4a6791a41642e275E.e
           to label %.body.i unwind label %363, !noalias !61
 
 360:                                              ; preds = %.invoke.i.i
-  %361 = trunc i8 %354 to i1
+  %361 = trunc nuw i8 %354 to i1
   br i1 %361, label %362, label %370
 
 362:                                              ; preds = %360
@@ -15012,7 +15012,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator12path
           to label %17 unwind label %15
 
 12:                                               ; preds = %.invoke
-  %13 = trunc i8 %5 to i1
+  %13 = trunc nuw i8 %5 to i1
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %12
@@ -15097,7 +15097,7 @@ define void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$was
           to label %common.resume unwind label %24, !noalias !71
 
 21:                                               ; preds = %.invoke.i
-  %22 = trunc i8 %11 to i1
+  %22 = trunc nuw i8 %11 to i1
   br i1 %22, label %23, label %_ZN20wasmtime_wit_bindgen18InterfaceGenerator12path_to_root17hbc1e7ed6792e01bcE.exit
 
 23:                                               ; preds = %21

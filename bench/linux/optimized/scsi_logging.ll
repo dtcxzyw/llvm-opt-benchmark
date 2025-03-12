@@ -554,7 +554,7 @@ define dso_local void @scsi_print_command(ptr noundef %0) #0 align 16 {
   %66 = phi i64 [ %100, %97 ], [ 0, %58 ]
   %67 = phi i16 [ %101, %97 ], [ %64, %58 ]
   %68 = zext i16 %67 to i32
-  %69 = trunc i64 %66 to i32
+  %69 = trunc nuw nsw i64 %66 to i32
   %70 = sub nsw i32 %68, %69
   %71 = tail call i32 @llvm.smin.i32(i32 %70, i32 16)
   %72 = sext i32 %71 to i64

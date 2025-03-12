@@ -429,7 +429,7 @@ define hidden range(i32 0, 2) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef
   br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !31
 
 .loopexit.loopexit:                               ; preds = %49
-  %56 = trunc i64 %.255 to i32
+  %56 = trunc nuw nsw i64 %.255 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %.loopexit.loopexit, %._crit_edge, %.preheader

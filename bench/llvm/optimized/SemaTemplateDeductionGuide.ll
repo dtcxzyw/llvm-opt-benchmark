@@ -2316,7 +2316,7 @@ _ZN5clang4Decl14getDeclContextEv.exit113.i:       ; preds = %185, %173
 
 199:                                              ; preds = %_ZN5clang4Decl14getDeclContextEv.exit113.i
   %200 = and i32 %194, -268427265
-  %indvars.iv.tr.i = trunc nuw i64 %indvars.iv.i to i32
+  %indvars.iv.tr.i = trunc nuw nsw i64 %indvars.iv.i to i32
   %201 = shl nuw nsw i32 %indvars.iv.tr.i, 20
   %202 = or disjoint i32 %200, %201
   store i32 %202, ptr %193, align 8

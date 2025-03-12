@@ -628,7 +628,7 @@ _ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit79: ; preds = %.
   %99 = trunc nuw i32 %.027.lcssa.i to i8
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %99, ptr %100, align 8, !tbaa !12
-  %101 = trunc nuw i32 %.027.lcssa.i47 to i8
+  %101 = trunc nuw nsw i32 %.027.lcssa.i47 to i8
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %101, ptr %102, align 1, !tbaa !12
   %103 = load i32, ptr %3, align 4, !tbaa !24

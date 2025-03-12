@@ -1009,7 +1009,7 @@ switch.lookup:                                    ; preds = %74
 
 99:                                               ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %126 ]
-  %indvars829 = trunc i64 %indvars.iv to i32
+  %indvars829 = trunc nuw i64 %indvars.iv to i32
   %100 = getelementptr inbounds nuw [100 x float], ptr %98, i64 0, i64 %indvars.iv
   %101 = load float, ptr %100, align 4, !tbaa !67
   %102 = add nsw i64 %indvars.iv, -1
@@ -1080,7 +1080,7 @@ switch.lookup:                                    ; preds = %74
 134:                                              ; preds = %.lr.ph773, %152
   %135 = phi i32 [ %92, %.lr.ph773 ], [ %153, %152 ]
   %indvars.iv830 = phi i64 [ 1, %.lr.ph773 ], [ %indvars.iv.next831, %152 ]
-  %indvars832 = trunc i64 %indvars.iv830 to i32
+  %indvars832 = trunc nuw i64 %indvars.iv830 to i32
   %136 = getelementptr inbounds nuw [100 x float], ptr %133, i64 0, i64 %indvars.iv830
   %137 = load float, ptr %136, align 4, !tbaa !67
   %138 = add nsw i64 %indvars.iv830, -1
@@ -3011,7 +3011,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_j2k_is_imf_compliant(ptr noundef
   br i1 %.not310, label %.thread320, label %125
 
 125:                                              ; preds = %118
-  %126 = trunc i64 %indvars.iv336 to i32
+  %126 = trunc nuw i64 %indvars.iv336 to i32
   %127 = add nuw i32 %126, 1
   %128 = call i32 (ptr, i32, ptr, ...) @opj_event_msg(ptr noundef %2, i32 noundef 2, ptr noundef nonnull @.str.132, i32 noundef %127, i32 noundef %121, i32 noundef %124) #21
   br label %.thread320

@@ -1120,7 +1120,7 @@ _ZN6Assimp8SkipLineIcEEbPPKT_S3_.exit.i105:       ; preds = %254, %252
   br i1 %282, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %283
 
 283:                                              ; preds = %280
-  %284 = trunc nuw i64 %281 to i32
+  %284 = trunc nuw nsw i64 %281 to i32
   store i32 %284, ptr %.0533, align 4
   %285 = load ptr, ptr %174, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %176, ptr align 1 %285, i64 %281, i1 false)
@@ -4247,7 +4247,7 @@ define hidden void @_ZN6Assimp12AC3DImporter15ConvertMaterialERKNS0_6ObjectERKNS
   br i1 %13, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %14
 
 14:                                               ; preds = %12
-  %15 = trunc nuw i64 %11 to i32
+  %15 = trunc nuw nsw i64 %11 to i32
   store i32 %15, ptr %5, align 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %17 = load ptr, ptr %9, align 8
@@ -4275,7 +4275,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   br i1 %29, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit35, label %30
 
 30:                                               ; preds = %26
-  %31 = trunc nuw i64 %28 to i32
+  %31 = trunc nuw nsw i64 %28 to i32
   store i32 %31, ptr %5, align 4
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %33 = load ptr, ptr %22, align 8
@@ -6043,7 +6043,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %819, %818, %_ZNSt6v
   br i1 %829, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %830
 
 830:                                              ; preds = %828
-  %831 = trunc nuw i64 %827 to i32
+  %831 = trunc nuw nsw i64 %827 to i32
   store i32 %831, ptr %7, align 4
   %832 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %833 = load ptr, ptr %825, align 8

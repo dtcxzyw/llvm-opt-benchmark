@@ -15638,7 +15638,7 @@ if.then.i.i.i:                                    ; preds = %if.then18
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then18
-  %4 = trunc nuw i64 %sub.ptr.sub5 to i8
+  %4 = trunc nuw nsw i64 %sub.ptr.sub5 to i8
   %conv.i.i.i.i52 = sub nuw nsw i8 23, %4
   store i8 %conv.i.i.i.i52, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit

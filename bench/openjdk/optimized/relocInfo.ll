@@ -2456,20 +2456,20 @@ _ZN10Relocation17normalize_addressERPhPK11CodeSectionb.exit: ; preds = %2, %10, 
   %49 = trunc nuw i32 %48 to i16
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %49, ptr %4, align 2
-  %51 = trunc i32 %.0.i to i16
+  %51 = trunc nsw i32 %.0.i to i16
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %51, ptr %50, align 2
   br label %69
 
 53:                                               ; preds = %45
-  %54 = trunc i32 %.0.i to i16
+  %54 = trunc nsw i32 %.0.i to i16
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %54, ptr %4, align 2
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %_ZN10Relocation14pack_2_ints_toEPsii.exit, label %56
 
 56:                                               ; preds = %53
-  %57 = trunc i32 %40 to i16
+  %57 = trunc nsw i32 %40 to i16
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i16 %57, ptr %55, align 2
   br label %_ZN10Relocation14pack_2_ints_toEPsii.exit

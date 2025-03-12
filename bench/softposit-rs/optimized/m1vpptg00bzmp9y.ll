@@ -350,7 +350,7 @@ define noundef i8 @"_ZN9softposit4p8e07convert39_$LT$impl$u20$softposit..p8e0..P
   br i1 %7, label %8, label %.lr.ph.i
 
 8:                                                ; preds = %6
-  %.tr.i = trunc nuw i64 %spec.select to i8
+  %.tr.i = trunc nuw nsw i64 %spec.select to i8
   %9 = shl nuw nsw i8 %.tr.i, 6
   br label %_ZN9softposit4p8e07convert21convert_u64_to_p8bits17h11b8db6e42347b7eE.exit
 

@@ -427,7 +427,7 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %39
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i, ptr nonnull readonly align 1 %15, i64 %18, i1 false), !alias.scope !60, !noalias !64
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load i32, ptr %.sroa.0.i, align 4, !noalias !54
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
-  %42 = trunc nuw i64 %18 to i40
+  %42 = trunc nuw nsw i64 %18 to i40
   %.sroa.2.0.insert.ext.i = shl nuw nsw i40 %42, 32
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i to i40
   %.sroa.0.0.insert.insert.i = or disjoint i40 %.sroa.2.0.insert.ext.i, %.sroa.0.0.insert.ext.i
@@ -627,7 +627,7 @@ _ZN5uu_wc4utf810Incomplete3new17h7d0aced35673f8aaE.exit: ; preds = %45
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i, ptr nonnull readonly align 1 %21, i64 %24, i1 false), !alias.scope !84, !noalias !88
   %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i = load i32, ptr %.sroa.0.i, align 4, !noalias !78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0.i)
-  %48 = trunc nuw i64 %24 to i40
+  %48 = trunc nuw nsw i64 %24 to i40
   %.sroa.2.0.insert.ext.i = shl nuw nsw i40 %48, 32
   %.sroa.0.0.insert.ext.i = zext i32 %.sroa.0.i.0..sroa.0.i.0..sroa.0.i.0..sroa.0.0..sroa.0.0..i to i40
   %.sroa.0.0.insert.insert.i = or disjoint i40 %.sroa.2.0.insert.ext.i, %.sroa.0.0.insert.ext.i

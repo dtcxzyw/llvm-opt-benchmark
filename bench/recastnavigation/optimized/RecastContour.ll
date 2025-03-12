@@ -313,7 +313,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %112, %109
   %168 = icmp eq i32 %.0301.us, %176
   %169 = trunc nuw nsw i64 %indvars.iv to i32
   %170 = shl nuw nsw i32 1, %169
-  %171 = trunc nuw i32 %170 to i8
+  %171 = trunc nuw nsw i32 %170 to i8
   %172 = select i1 %168, i8 %171, i8 0
   %.1298.us = or i8 %172, %.0297845.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2265,7 +2265,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i605.us: ; preds 
 
 .noexc434.us:                                     ; preds = %.sink.split.i600.us, %1047
   %1070 = phi i64 [ %1045, %.sink.split.i600.us ], [ %1043, %1047 ]
-  %1071 = trunc i64 %1070 to i32
+  %1071 = trunc nsw i64 %1070 to i32
   %1072 = sdiv i32 %1071, 4
   %.0310582.i.us = add nsw i32 %1072, -1
   %1073 = icmp sgt i32 %.0310582.i.us, %.0304588.i.us
@@ -3014,7 +3014,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i590.us: ; preds 
 
 .noexc481.us:                                     ; preds = %.sink.split.i.us, %1387
   %1410 = phi i64 [ %1385, %.sink.split.i.us ], [ %1383, %1387 ]
-  %1411 = trunc i64 %1410 to i32
+  %1411 = trunc nsw i64 %1410 to i32
   %1412 = sdiv i32 %1411, 4
   %.0283592.i.us = add nsw i32 %1412, -1
   %1413 = icmp sgt i32 %.0283592.i.us, %.0308598.i.us

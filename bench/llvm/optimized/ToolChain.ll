@@ -2276,7 +2276,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   br label %229
 
 133:                                              ; preds = %74
-  %134 = trunc i64 %75 to i32
+  %134 = trunc nsw i64 %75 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #28
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %134, i32 0)
   %.pre = load i8, ptr %66, align 8, !tbaa !101, !range !103
@@ -16952,7 +16952,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread: ; preds = %92, %87
   br label %.critedge2
 
 95:                                               ; preds = %92
-  %96 = trunc i64 %93 to i32
+  %96 = trunc nsw i64 %93 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #28
   %97 = icmp slt i32 %.042, %96
   br i1 %97, label %98, label %.critedge2
@@ -18756,7 +18756,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit57:          ; preds = %_ZNSt7__cxx1112basi
   br i1 %.not.i58, label %._crit_edge.i, label %.lr.ph.i
 
 279:                                              ; preds = %277
-  %.lhs.trunc.i = trunc nuw i64 %178 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %178 to i16
   %280 = udiv i16 %.lhs.trunc.i, 100
   %281 = urem i16 %.lhs.trunc.i, 100
   %282 = zext nneg i16 %280 to i64
@@ -21357,7 +21357,7 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
   %16 = sub nuw nsw i64 64, %15
   %17 = shl nuw nsw i64 1, %16
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = shl i32 %18, 2
   %20 = udiv i32 %19, 3
   %21 = add nuw nsw i32 %20, 1

@@ -165,7 +165,7 @@ define internal fastcc void @sha512_generic_block_fn(ptr noundef captures(none) 
   %38 = phi i64 [ %26, %20 ], [ %265, %.loopexit ]
   %39 = phi i64 [ %27, %20 ], [ %296, %.loopexit ]
   %40 = phi i64 [ %28, %20 ], [ %327, %.loopexit ]
-  %41 = trunc i64 %32 to i32
+  %41 = trunc nuw nsw i64 %32 to i32
   %42 = and i32 %41, 8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %.loopexit

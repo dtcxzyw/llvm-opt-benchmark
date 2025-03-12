@@ -73,7 +73,7 @@ XXH32_endian_align.exit.thread:                   ; preds = %13
 
 XXH32_endian_align.exit:                          ; preds = %5
   %45 = add i32 %2, 374761393
-  %46 = trunc nuw i64 %1 to i32
+  %46 = trunc nuw nsw i64 %1 to i32
   %47 = add i32 %45, %46
   br label %50
 

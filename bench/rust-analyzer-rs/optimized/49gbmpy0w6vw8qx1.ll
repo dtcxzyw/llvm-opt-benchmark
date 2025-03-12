@@ -741,7 +741,7 @@ _ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds 
   %140 = getelementptr inbounds i8, ptr %.val43, i64 %.val2.i.i
   store i32 -1, ptr %140, align 1, !noalias !125
   %141 = add i64 %.val2.i.i, 1
-  %.lhs.trunc.i = trunc nuw i64 %.0.i54 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %.0.i54 to i16
   %142 = udiv i16 %.lhs.trunc.i, 255
   %.zext.i = zext nneg i16 %142 to i64
   %143 = add i64 %141, %.zext.i
@@ -830,7 +830,7 @@ _ZN8lz4_flex5block8compress13write_integer17h81b7816e5ff18e58E.exit65: ; preds =
   %182 = getelementptr inbounds i8, ptr %.val43, i64 %.val2.i.i60
   store i32 -1, ptr %182, align 1, !noalias !143
   %183 = add i64 %.val2.i.i60, 1
-  %.lhs.trunc.i62 = trunc nuw i64 %.0.i61 to i16
+  %.lhs.trunc.i62 = trunc nuw nsw i64 %.0.i61 to i16
   %184 = udiv i16 %.lhs.trunc.i62, 255
   %.zext.i63 = zext nneg i16 %184 to i64
   %185 = add i64 %183, %.zext.i63
@@ -1133,7 +1133,7 @@ _ZN8lz4_flex5block8compress16count_same_bytes17he8ecf976d2e556bfE.exit: ; preds 
   %142 = getelementptr inbounds i8, ptr %.val43, i64 %.val2.i.i
   store i32 -1, ptr %142, align 1, !noalias !179
   %143 = add i64 %.val2.i.i, 1
-  %.lhs.trunc.i = trunc nuw i64 %.0.i54 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %.0.i54 to i16
   %144 = udiv i16 %.lhs.trunc.i, 255
   %.zext.i = zext nneg i16 %144 to i64
   %145 = add i64 %143, %.zext.i
@@ -1222,7 +1222,7 @@ _ZN8lz4_flex5block8compress13write_integer17h81b7816e5ff18e58E.exit65: ; preds =
   %184 = getelementptr inbounds i8, ptr %.val43, i64 %.val2.i.i60
   store i32 -1, ptr %184, align 1, !noalias !197
   %185 = add i64 %.val2.i.i60, 1
-  %.lhs.trunc.i62 = trunc nuw i64 %.0.i61 to i16
+  %.lhs.trunc.i62 = trunc nuw nsw i64 %.0.i61 to i16
   %186 = udiv i16 %.lhs.trunc.i62, 255
   %.zext.i63 = zext nneg i16 %186 to i64
   %187 = add i64 %185, %.zext.i63
@@ -1291,7 +1291,7 @@ _ZN8lz4_flex5block8compress13write_integer17h81b7816e5ff18e58E.exit: ; preds = %
   %25 = getelementptr inbounds i8, ptr %.val8, i64 %.val2.i.i
   store i32 -1, ptr %25, align 1, !noalias !209
   %26 = add i64 %.val2.i.i, 1
-  %.lhs.trunc.i = trunc nuw i64 %.0.i to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %.0.i to i16
   %27 = udiv i16 %.lhs.trunc.i, 255
   %.zext.i = zext nneg i16 %27 to i64
   %28 = add i64 %26, %.zext.i

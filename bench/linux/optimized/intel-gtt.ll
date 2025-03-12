@@ -1957,7 +1957,7 @@ define internal ptr @intel_fake_agp_alloc_by_type(i64 noundef %0, i32 noundef %1
 
 39:                                               ; preds = %.thread8, %31
   %40 = phi ptr [ %22, %.thread8 ], [ %37, %31 ]
-  %41 = trunc i64 %0 to i32
+  %41 = trunc nuw nsw i64 %0 to i32
   %42 = tail call ptr @agp_create_memory(i32 noundef %41) #9
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.thread, label %44

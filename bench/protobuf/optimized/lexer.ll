@@ -5799,7 +5799,7 @@ if.else88:                                        ; preds = %if.end82
 
 if.then90:                                        ; preds = %if.else88
   %shr = lshr i32 %rune.1, 6
-  %45 = trunc nuw i32 %shr to i8
+  %45 = trunc nuw nsw i32 %shr to i8
   %conv93 = or disjoint i8 %45, -64
   store i8 %conv93, ptr %out_utf8, align 1
   %46 = trunc i32 %rune.1 to i8
@@ -5816,7 +5816,7 @@ if.else102:                                       ; preds = %if.else88
 
 if.then104:                                       ; preds = %if.else102
   %shr105 = lshr i32 %rune.1, 12
-  %48 = trunc nuw i32 %shr105 to i8
+  %48 = trunc nuw nsw i32 %shr105 to i8
   %conv108 = or disjoint i8 %48, -32
   store i8 %conv108, ptr %out_utf8, align 1
   %shr110 = lshr i32 %rune.1, 6

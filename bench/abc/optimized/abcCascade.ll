@@ -1801,7 +1801,7 @@ Abc_ResPrint.exit:                                ; preds = %._crit_edge.us.i
   br i1 %177, label %178, label %488
 
 178:                                              ; preds = %176
-  %.lhs.trunc = trunc nuw i32 %2 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %2 to i8
   %179 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %179 to i32
   %180 = urem i8 %.lhs.trunc, 3

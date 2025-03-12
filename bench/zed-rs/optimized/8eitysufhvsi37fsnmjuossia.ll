@@ -5956,7 +5956,7 @@ _ZN3vte4ansi11PrivateMode3new17h86949433fa76faa0E.exit648.i: ; preds = %1563, %1
 
 .split449.i:                                      ; preds = %1738, %1737, %1735, %1735
   %.sroa.0145.0.ph.i = phi i8 [ 1, %1737 ], [ 2, %1738 ], [ 0, %1735 ], [ 0, %1735 ]
-  %1741 = trunc i16 %1736 to i8
+  %1741 = trunc nuw nsw i16 %1736 to i8
   %1742 = and i8 %1741, 1
   %1743 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1744 = load ptr, ptr %1743, align 8, !alias.scope !395, !noalias !402, !nonnull !4, !align !5, !noundef !4
@@ -7530,7 +7530,7 @@ default.unreachable:                              ; preds = %.noexc116.i.i
 2322:                                             ; preds = %2318
   call void @llvm.assume(i1 %2265)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !525
-  %2323 = trunc nuw i64 %indvars.iv.i.i to i8
+  %2323 = trunc nuw nsw i64 %indvars.iv.i.i to i8
   call fastcc void @"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h54db297f7c80af2fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i8 %2323), !noalias !516
   call fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$u20$as$u20$vte..ansi..Handler$GT$22dynamic_color_sequence17h7aca4f3c59e1771aE"(ptr noalias noundef align 8 dereferenceable(1736) %.val3984, ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i64 noundef %2279, ptr noalias noundef nonnull readonly align 1 %anon.e3cc8027431ef4e63f1cd1d874429458.281.anon.e3cc8027431ef4e63f1cd1d874429458.280.i.i, i64 noundef %..i.i71), !noalias !516
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !525

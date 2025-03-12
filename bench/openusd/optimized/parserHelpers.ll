@@ -29610,7 +29610,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathC2ERKS0_.exit.i.i.i: ; preds 
 define linkonce_odr noundef zeroext i8 @_ZSt13__invoke_implIhRN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIhvEEJRKmEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp ugt i64 %3, 255
-  %5 = trunc nuw i64 %3 to i16
+  %5 = trunc nuw nsw i64 %3 to i16
   %6 = or i16 %5, 256
   %.sroa.06.0.insert.insert.i.i.i = select i1 %4, i16 0, i16 %6
   %7 = and i16 %.sroa.06.0.insert.insert.i.i.i, 256
@@ -29697,7 +29697,7 @@ define linkonce_odr noundef ptr @_ZNKSt19bad_optional_access4whatEv(ptr noundef 
 define linkonce_odr noundef zeroext i8 @_ZSt13__invoke_implIhRN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIhvEEJRKlEET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   %or.cond.not.i.i = icmp ult i64 %3, 256
-  %4 = trunc nuw i64 %3 to i16
+  %4 = trunc nuw nsw i64 %3 to i16
   %5 = or i16 %4, 256
   %.sroa.06.0.insert.insert.i.i.i = select i1 %or.cond.not.i.i, i16 %5, i16 0
   %6 = and i16 %.sroa.06.0.insert.insert.i.i.i, 256
@@ -30657,7 +30657,7 @@ common.resume:                                    ; preds = %53, %56, %13, %23, 
   unreachable
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIiEERN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers8_GetImplIivEERKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_7TfTokenENS5_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES9_SL_.exit: ; preds = %9
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %10 to i32
+  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nsw i64 %10 to i32
   br label %70
 
 29:                                               ; preds = %2

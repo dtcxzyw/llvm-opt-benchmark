@@ -115,7 +115,7 @@ define noundef i64 @BUF_MEM_grow(ptr noundef captures(none) %0, i64 noundef %1) 
   br label %43
 
 18:                                               ; preds = %15
-  %19 = trunc nuw i64 %1 to i32
+  %19 = trunc nuw nsw i64 %1 to i32
   %.lhs.trunc = add nuw nsw i32 %19, 3
   %20 = udiv i32 %.lhs.trunc, 3
   %21 = shl nuw i32 %20, 2
@@ -228,7 +228,7 @@ define noundef i64 @BUF_MEM_grow_clean(ptr noundef captures(none) %0, i64 nounde
   br label %47
 
 22:                                               ; preds = %19
-  %23 = trunc nuw i64 %1 to i32
+  %23 = trunc nuw nsw i64 %1 to i32
   %.lhs.trunc = add nuw nsw i32 %23, 3
   %24 = udiv i32 %.lhs.trunc, 3
   %25 = shl nuw i32 %24, 2

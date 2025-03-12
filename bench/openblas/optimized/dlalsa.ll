@@ -388,7 +388,7 @@ define void @dlalsa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1335457 = phi i32 [ %231, %.loopexit458 ], [ 1, %220 ]
   %.1337456 = phi i32 [ %.1.i371, %.loopexit458 ], [ 1, %220 ]
   %232 = mul nsw i64 %indvars.iv440, %217
-  %indvars.iv440.tr = trunc i64 %indvars.iv440 to i32
+  %indvars.iv440.tr = trunc nuw i64 %indvars.iv440 to i32
   %233 = shl i32 %indvars.iv440.tr, 1
   %234 = add i32 %233, -1
   %235 = mul nsw i32 %234, %52

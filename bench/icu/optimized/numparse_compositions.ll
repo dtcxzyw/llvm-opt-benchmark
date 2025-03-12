@@ -265,7 +265,7 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %11
 
 .loopexit70:                                      ; preds = %32, %.thread
   %.3.in = phi i8 [ %.247, %.thread ], [ %.045, %32 ]
-  %.3 = trunc i8 %.3.in to i1
+  %.3 = trunc nuw i8 %.3.in to i1
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #14
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #14
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #14

@@ -384,7 +384,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   br i1 %111, label %.lr.ph.preheader.i, label %.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %112 = trunc i64 %.04886.i to i16
+  %112 = trunc nuw i64 %.04886.i to i16
   %113 = add i16 %.087.i, -1
   %umin = call i16 @llvm.umin.i16(i16 %113, i16 %112)
   br label %.lr.ph.i

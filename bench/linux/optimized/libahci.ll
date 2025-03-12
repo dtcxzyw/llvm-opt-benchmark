@@ -374,7 +374,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   br i1 %61, label %43, label %62, !llvm.loop !7
 
 62:                                               ; preds = %43
-  %63 = trunc i64 %57 to i32
+  %63 = trunc nuw i64 %57 to i32
   %64 = shl i32 %63, 16
   %65 = or disjoint i32 %64, 5
   br label %66
@@ -3082,7 +3082,7 @@ define internal range(i32 0, 2) i32 @ahci_single_level_irq_intr(i32 %0, ptr noun
 19:                                               ; preds = %49, %16
   %20 = phi i64 [ 0, %16 ], [ %51, %49 ]
   %21 = phi i32 [ 0, %16 ], [ %50, %49 ]
-  %22 = trunc i64 %20 to i32
+  %22 = trunc nuw i64 %20 to i32
   %23 = shl nuw i32 1, %22
   %.reass.reass = and i32 %23, %invariant.op
   %24 = icmp eq i32 %.reass.reass, 0
@@ -4415,7 +4415,7 @@ define dso_local range(i32 0, 2) i32 @ahci_handle_port_intr(ptr noundef readonly
 9:                                                ; preds = %40, %6
   %10 = phi i64 [ 0, %6 ], [ %42, %40 ]
   %11 = phi i32 [ 0, %6 ], [ %41, %40 ]
-  %12 = trunc i64 %10 to i32
+  %12 = trunc nuw i64 %10 to i32
   %13 = shl nuw i32 1, %12
   %14 = and i32 %13, %1
   %15 = icmp eq i32 %14, 0

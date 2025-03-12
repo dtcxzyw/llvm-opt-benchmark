@@ -451,7 +451,7 @@ define hidden void @_ZN5alloc4task9raw_waker11wake_by_ref17h4a56052a42ca9b13E(pt
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4e5ec050b9dc13dbE.llvm.606029798833714216.exit.i.i": ; preds = %4
-  %8 = trunc i8 %5 to i1
+  %8 = trunc nuw i8 %5 to i1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !91
   br i1 %8, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hd3968ec32da198b6E.exit", label %9
 

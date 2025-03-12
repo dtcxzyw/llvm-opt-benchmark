@@ -4209,7 +4209,7 @@ define dso_local void @_ZN11VHashSha25612digestBinaryB5cxx11Ev(ptr dead_on_unwin
   %7 = lshr i64 %.010, 2
   %8 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !57
-  %.0.tr = trunc nuw i64 %.010 to i32
+  %.0.tr = trunc nuw nsw i64 %.010 to i32
   %10 = shl nuw nsw i32 %.0.tr, 3
   %11 = and i32 %10, 24
   %12 = xor i32 %11, 24

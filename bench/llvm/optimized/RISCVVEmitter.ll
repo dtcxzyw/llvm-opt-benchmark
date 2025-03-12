@@ -6732,7 +6732,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5.i131.i:         ; preds = %293, %291
 
 "_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit133.i": ; preds = %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit133.i.preheader", %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit143.i"
   %.085201.i = phi i32 [ %415, %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit143.i" ], [ 2, %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit133.i.preheader" ]
-  %315 = trunc nuw i32 %.085201.i to i8
+  %315 = trunc nuw nsw i32 %.085201.i to i8
   %316 = or disjoint i8 %315, 32
   %.sroa.2179.0.insert.ext.i = zext nneg i8 %316 to i24
   %.sroa.2179.0.insert.shift.i = shl nuw nsw i24 %.sroa.2179.0.insert.ext.i, 8
@@ -7096,7 +7096,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5.i158.i:         ; preds = %496, %494
 
 "_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit160.i": ; preds = %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit160.i.preheader", %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit165.i"
   %.082204.i = phi i32 [ %569, %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit165.i" ], [ 2, %"_ZZN12_GLOBAL__N_110RVVEmitter12createHeaderERN4llvm11raw_ostreamEENK3$_0clIPN5clang5RISCV7RVVTypeEEEDaT_.exit160.i.preheader" ]
-  %518 = trunc nuw i32 %.082204.i to i8
+  %518 = trunc nuw nsw i32 %.082204.i to i8
   %519 = or disjoint i8 %518, 32
   %.sroa.2.0.insert.ext.i = zext nneg i8 %519 to i24
   %.sroa.2.0.insert.shift.i = shl nuw nsw i24 %.sroa.2.0.insert.ext.i, 8

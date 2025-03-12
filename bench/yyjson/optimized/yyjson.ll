@@ -11455,7 +11455,7 @@ read_number.exit433:                              ; preds = %1173, %.loopexit429
   %1879 = add nuw nsw i32 %1878, 1024
   %1880 = add nsw i32 %1878, -56613888
   %1881 = lshr i32 %1880, 18
-  %1882 = trunc i32 %1881 to i8
+  %1882 = trunc nuw nsw i32 %1881 to i8
   %1883 = or i8 %1882, -16
   %1884 = getelementptr inbounds nuw i8, ptr %.0.i706, i64 1
   store i8 %1883, ptr %.0.i706, align 1, !tbaa !75
@@ -13348,7 +13348,7 @@ read_null.exit824:                                ; preds = %2176
   %2770 = add nuw nsw i32 %2769, 1024
   %2771 = add nsw i32 %2769, -56613888
   %2772 = lshr i32 %2771, 18
-  %2773 = trunc i32 %2772 to i8
+  %2773 = trunc nuw nsw i32 %2772 to i8
   %2774 = or i8 %2773, -16
   %2775 = getelementptr inbounds nuw i8, ptr %.0.i790, i64 1
   store i8 %2774, ptr %.0.i790, align 1, !tbaa !75
@@ -14535,7 +14535,7 @@ read_string.exit816:                              ; preds = %.split.loop.exit476
   %3375 = add nuw nsw i32 %3374, 1024
   %3376 = add nsw i32 %3374, -56613888
   %3377 = lshr i32 %3376, 18
-  %3378 = trunc i32 %3377 to i8
+  %3378 = trunc nuw nsw i32 %3377 to i8
   %3379 = or i8 %3378, -16
   %3380 = getelementptr inbounds nuw i8, ptr %.0.i748, i64 1
   store i8 %3379, ptr %.0.i748, align 1, !tbaa !75
@@ -21741,7 +21741,7 @@ read_number.exit:                                 ; preds = %6211, %.loopexit419
   %6915 = add nuw nsw i32 %6914, 1024
   %6916 = add nsw i32 %6914, -56613888
   %6917 = lshr i32 %6916, 18
-  %6918 = trunc i32 %6917 to i8
+  %6918 = trunc nuw nsw i32 %6917 to i8
   %6919 = or i8 %6918, -16
   %6920 = getelementptr inbounds nuw i8, ptr %.0.i591, i64 1
   store i8 %6919, ptr %.0.i591, align 1, !tbaa !75
@@ -23421,7 +23421,7 @@ read_null.exit:                                   ; preds = %7212
   %7732 = add nuw nsw i32 %7731, 1024
   %7733 = add nsw i32 %7731, -56613888
   %7734 = lshr i32 %7733, 18
-  %7735 = trunc i32 %7734 to i8
+  %7735 = trunc nuw nsw i32 %7734 to i8
   %7736 = or i8 %7735, -16
   %7737 = getelementptr inbounds nuw i8, ptr %.0.i664, i64 1
   store i8 %7736, ptr %.0.i664, align 1, !tbaa !75
@@ -24597,7 +24597,7 @@ read_string.exit690:                              ; preds = %.split.loop.exit537
   %8335 = add nuw nsw i32 %8334, 1024
   %8336 = add nsw i32 %8334, -56613888
   %8337 = lshr i32 %8336, 18
-  %8338 = trunc i32 %8337 to i8
+  %8338 = trunc nuw nsw i32 %8337 to i8
   %8339 = or i8 %8338, -16
   %8340 = getelementptr inbounds nuw i8, ptr %.0.i622, i64 1
   store i8 %8339, ptr %.0.i622, align 1, !tbaa !75
@@ -31782,7 +31782,7 @@ read_number.exit:                                 ; preds = %1293, %1032
   %1627 = add nuw nsw i32 %1626, 1024
   %1628 = add nsw i32 %1626, -56613888
   %1629 = lshr i32 %1628, 18
-  %1630 = trunc i32 %1629 to i8
+  %1630 = trunc nuw nsw i32 %1629 to i8
   %1631 = or i8 %1630, -16
   %1632 = getelementptr inbounds nuw i8, ptr %.0.i181, i64 1
   store i8 %1631, ptr %.0.i181, align 1, !tbaa !75

@@ -1348,7 +1348,7 @@ _ZNK6vectorIPjLb0EjE4sizeEv.exit47:               ; preds = %98, %_ZNK6vectorIPj
   %60 = getelementptr inbounds nuw %class.vector.1, ptr %59, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nuw i64 %indvars.iv.next to i32
   %61 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !15
   %63 = trunc nuw i64 %indvars.iv to i32

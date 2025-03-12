@@ -507,7 +507,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 55:                                               ; preds = %53
   %56 = lshr i16 %52, 8
-  %57 = trunc nuw i16 %56 to i8
+  %57 = trunc nuw nsw i16 %56 to i8
   %58 = or disjoint i8 %57, -128
   %59 = load ptr, ptr %6, align 8, !tbaa !37
   store i8 %58, ptr %59, align 1, !tbaa !34
@@ -1049,7 +1049,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %or.cond, label %36, label %58
 
 36:                                               ; preds = %34
-  %.lhs.trunc = trunc nuw i32 %35 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %35 to i16
   %37 = udiv i16 %.lhs.trunc, 588
   %38 = zext nneg i16 %37 to i64
   %39 = getelementptr [32 x i8], ptr @u2johabidx_choseong, i64 0, i64 %38

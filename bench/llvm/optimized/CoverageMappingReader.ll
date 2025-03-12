@@ -2435,7 +2435,7 @@ _ZN4llvm5ErrorD2Ev.exit145:                       ; preds = %_ZN4llvm5ErrorD2Ev.
   br label %.critedge97.thread
 
 _ZNSt7variantIJSt9monostateN4llvm8coverage4mcdc18DecisionParametersENS3_16BranchParametersEEEaSIS5_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_S4_S5_EE4typeEE18is_constructible_vISD_SA_E15is_assignable_vIRSD_SA_EERS6_E4typeESB_.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit145
-  %110 = trunc nuw i64 %100 to i16
+  %110 = trunc nuw nsw i64 %100 to i16
   %111 = add nsw i16 %110, -1
   %112 = load i64, ptr %26, align 8, !tbaa !49
   %113 = trunc i64 %112 to i32
@@ -2515,7 +2515,7 @@ _ZNSt7variantIJSt9monostateN4llvm8coverage4mcdc18DecisionParametersENS3_16Branch
   store ptr null, ptr %0, align 8, !tbaa !23, !alias.scope !275
   %.sroa.5234.0.insert.ext = shl nuw nsw i64 %129, 32
   %.sroa.0233.0.insert.insert = or disjoint i64 %.sroa.5234.0.insert.ext, %121
-  %.sroa.0244.sroa.0.0.extract.trunc = trunc nuw i64 %.sroa.0233.0.insert.insert to i48
+  %.sroa.0244.sroa.0.0.extract.trunc = trunc nuw nsw i64 %.sroa.0233.0.insert.insert to i48
   br label %_ZN4llvm5ErrorD2Ev.exit134
 
 135:                                              ; preds = %90
@@ -2670,7 +2670,7 @@ _ZN4llvm5ErrorD2Ev.exit181:                       ; preds = %168
   %180 = select i1 %or.cond, i64 1, i64 %150
   %.sroa.019.0.copyload = load i64, ptr %20, align 8
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
-  %181 = trunc i64 %.080 to i32
+  %181 = trunc nuw nsw i64 %.080 to i32
   %182 = trunc nuw i64 %161 to i32
   %183 = add i32 %176, %182
   %.sroa.0244.sroa.0.0.insert.ext = zext i48 %.sroa.0244.sroa.0.sroa.0.2 to i64

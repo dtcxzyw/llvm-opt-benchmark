@@ -3643,7 +3643,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   br i1 %3, label %4, label %34
 
 4:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %5 = udiv i16 %.lhs.trunc, 100
   %6 = shl nuw nsw i16 %5, 1
   %7 = urem i16 %.lhs.trunc, 100
@@ -3705,7 +3705,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
   %38 = urem i32 %0, 10000
   %39 = udiv i32 %0, 1000000
   %40 = shl nuw nsw i32 %39, 1
-  %.lhs.trunc111 = trunc nuw i32 %37 to i16
+  %.lhs.trunc111 = trunc nuw nsw i32 %37 to i16
   %41 = urem i16 %.lhs.trunc111, 100
   %42 = shl nuw nsw i16 %41, 1
   %.lhs.trunc113 = trunc nuw nsw i32 %38 to i16
@@ -4104,7 +4104,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %39 = urem i32 %5, 10000
   %40 = udiv i32 %5, 1000000
   %41 = shl nuw nsw i32 %40, 1
-  %.lhs.trunc = trunc nuw i32 %38 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %38 to i16
   %42 = urem i16 %.lhs.trunc, 100
   %43 = shl nuw nsw i16 %42, 1
   %.lhs.trunc257 = trunc nuw nsw i32 %39 to i16
@@ -4195,7 +4195,7 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
   %99 = urem i32 %95, 10000
   %100 = udiv i32 %95, 1000000
   %101 = shl nuw nsw i32 %100, 1
-  %.lhs.trunc261 = trunc nuw i32 %98 to i16
+  %.lhs.trunc261 = trunc nuw nsw i32 %98 to i16
   %102 = urem i16 %.lhs.trunc261, 100
   %103 = shl nuw nsw i16 %102, 1
   %.lhs.trunc263 = trunc nuw nsw i32 %99 to i16
@@ -9360,7 +9360,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit: ; preds
 
 50:                                               ; preds = %48
   %51 = lshr i32 %1, 6
-  %52 = trunc nuw i32 %51 to i8
+  %52 = trunc nuw nsw i32 %51 to i8
   %53 = or disjoint i8 %52, -64
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
@@ -9533,7 +9533,7 @@ _ZN3pxr9rapidjson8internal5StackINS0_12CrtAllocatorEE6ExpandIcEEvm.exit143: ; pr
 
 151:                                              ; preds = %140
   %152 = lshr i32 %1, 12
-  %153 = trunc nuw i32 %152 to i8
+  %153 = trunc nuw nsw i32 %152 to i8
   %154 = or disjoint i8 %153, -32
   br i1 %150, label %155, label %182
 

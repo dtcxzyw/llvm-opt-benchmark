@@ -1953,7 +1953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit35: ; preds = %9
   %11 = lshr i32 %1, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %3, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -1969,7 +1969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit35: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit47: ; preds = %18
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 8, !tbaa !12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -1991,7 +1991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit47: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit63: ; preds = %32
   %34 = lshr i32 %1, 18
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %3, align 8, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 17
@@ -3925,7 +3925,7 @@ define internal fastcc void @_ZL24unicode_utf8_to_byte_mapB5cxx11v() unnamed_add
 
 10:                                               ; preds = %0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.0324 = phi i32 [ 33, %0 ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %11 = trunc nuw i32 %.0324 to i8
+  %11 = trunc nuw nsw i32 %.0324 to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #30
   invoke void @_Z19unicode_cpt_to_utf8B5cxx11j(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %1, i32 noundef %.0324)
           to label %12 unwind label %21
@@ -4953,7 +4953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.preheader: ;
   br i1 %219, label %220, label %222
 
 220:                                              ; preds = %.lr.ph1853
-  %221 = trunc nuw i32 %218 to i8
+  %221 = trunc nuw nsw i32 %218 to i8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit
 
 222:                                              ; preds = %.lr.ph1853
@@ -10788,7 +10788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit35.i.i: ; preds = %2428
   %2430 = lshr i32 %2423, 6
-  %2431 = trunc nuw i32 %2430 to i8
+  %2431 = trunc nuw nsw i32 %2430 to i8
   %2432 = or disjoint i8 %2431, -64
   store i8 %2432, ptr %2404, align 8, !tbaa !12, !alias.scope !245, !noalias !243
   %2433 = trunc i32 %2423 to i8
@@ -10803,7 +10803,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit35.i.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit47.i.i: ; preds = %2436
   %2438 = lshr i32 %2423, 12
-  %2439 = trunc nuw i32 %2438 to i8
+  %2439 = trunc nuw nsw i32 %2438 to i8
   %2440 = or disjoint i8 %2439, -32
   store i8 %2440, ptr %2404, align 8, !tbaa !12, !alias.scope !245, !noalias !243
   %2441 = lshr i32 %2423, 6
@@ -10823,7 +10823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit47.i.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit63.i.i: ; preds = %2448
   %2450 = lshr i32 %2423, 18
-  %2451 = trunc nuw i32 %2450 to i8
+  %2451 = trunc nuw nsw i32 %2450 to i8
   %2452 = or disjoint i8 %2451, -16
   store i8 %2452, ptr %2404, align 8, !tbaa !12, !alias.scope !245, !noalias !243
   %2453 = lshr i32 %2423, 12
@@ -11429,7 +11429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit35.i: ; preds = %2660
   %2662 = lshr i32 %2655, 6
-  %2663 = trunc nuw i32 %2662 to i8
+  %2663 = trunc nuw nsw i32 %2662 to i8
   %2664 = or disjoint i8 %2663, -64
   store i8 %2664, ptr %2398, align 8, !tbaa !12, !alias.scope !253
   %2665 = trunc i32 %2655 to i8
@@ -11444,7 +11444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit35.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit47.i: ; preds = %2668
   %2670 = lshr i32 %2655, 12
-  %2671 = trunc nuw i32 %2670 to i8
+  %2671 = trunc nuw nsw i32 %2670 to i8
   %2672 = or disjoint i8 %2671, -32
   store i8 %2672, ptr %2398, align 8, !tbaa !12, !alias.scope !253
   %2673 = lshr i32 %2655, 6
@@ -11464,7 +11464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit47.i: ; pr
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit63.i: ; preds = %2680
   %2682 = lshr i32 %2655, 18
-  %2683 = trunc nuw i32 %2682 to i8
+  %2683 = trunc nuw nsw i32 %2682 to i8
   %2684 = or disjoint i8 %2683, -16
   store i8 %2684, ptr %2398, align 8, !tbaa !12, !alias.scope !253
   %2685 = lshr i32 %2655, 12

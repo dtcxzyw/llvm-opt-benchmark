@@ -1563,7 +1563,7 @@ define i32 @cli_add_content_match_pattern(ptr noundef %0, ptr noundef %1, ptr no
 
 .lr.ph381:                                        ; preds = %.lr.ph381.preheader, %140
   %.4380 = phi i64 [ %141, %140 ], [ 1, %.lr.ph381.preheader ]
-  %130 = trunc i64 %.4380 to i32
+  %130 = trunc nuw nsw i64 %.4380 to i32
   %131 = add nsw i32 %130, -1
   %132 = tail call ptr @cli_strtok(ptr noundef nonnull %2, i32 noundef %131, ptr noundef nonnull @.str.33) #21
   %133 = icmp eq ptr %132, null

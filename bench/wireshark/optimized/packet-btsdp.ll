@@ -7199,7 +7199,7 @@ define internal fastcc void @dissect_uuid(ptr noundef %0, ptr noundef readonly c
   ]
 
 .thread:                                          ; preds = %10, %33, %17, %40, %40, %40
-  %46 = trunc nuw i32 %4 to i8
+  %46 = trunc nuw nsw i32 %4 to i8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %46, ptr %47, align 2
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 3

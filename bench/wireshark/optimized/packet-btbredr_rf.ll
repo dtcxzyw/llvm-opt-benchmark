@@ -627,7 +627,7 @@ lookup_connection_info.exit.thread:               ; preds = %20, %62, %58, %54, 
   %105 = load i32, ptr %37, align 8
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 48
   store i32 %105, ptr %106, align 8
-  %107 = trunc nuw i32 %3 to i8
+  %107 = trunc nuw nsw i32 %3 to i8
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 68
   store i8 %107, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %102, i64 24

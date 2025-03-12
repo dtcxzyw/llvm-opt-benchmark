@@ -142,7 +142,7 @@ define noundef zeroext i1 @_ZNK3net16HpackInputStream8PeekBitsEPmPj(ptr noundef 
   %23 = trunc nuw nsw i64 %16 to i32
   %24 = or disjoint i32 %23, 24
   %25 = shl i32 %22, %24
-  %26 = trunc nuw i64 %9 to i32
+  %26 = trunc nuw nsw i64 %9 to i32
   %27 = lshr i32 %25, %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   %28 = load i32, ptr %2, align 4, !tbaa !19

@@ -939,7 +939,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   br i1 %.not40, label %103, label %44
 
 44:                                               ; preds = %41
-  %45 = trunc nuw i64 %.02651 to i32
+  %45 = trunc nuw nsw i64 %.02651 to i32
   %46 = add nuw nsw i32 %45, 1
   %47 = load ptr, ptr %11, align 8, !tbaa !52
   %48 = invoke noundef i32 @_ZNK6icu_7012RegexMatcher10groupCountEv(ptr noundef nonnull align 8 dereferenceable(336) %47)

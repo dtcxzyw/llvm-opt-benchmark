@@ -11579,7 +11579,7 @@ define noundef i64 @_ZNK15scountovf_csr_t4readEv(ptr noundef nonnull readonly al
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(37) %20) #30
   %.lobit = lshr i64 %24, 63
   %25 = trunc nuw nsw i64 %.lobit to i32
-  %26 = trunc nuw i64 %.0910 to i32
+  %26 = trunc nuw nsw i64 %.0910 to i32
   %27 = add nuw nsw i32 %26, 3
   %28 = shl nuw i32 %25, %27
   %29 = sext i32 %28 to i64

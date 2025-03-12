@@ -31778,7 +31778,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail18write_int_noinlineIcNS0_14ba
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 31:                                               ; preds = %._crit_edge.i
-  %32 = trunc nuw i32 %.018.lcssa.i to i8
+  %32 = trunc nuw nsw i32 %.018.lcssa.i to i8
   %33 = or disjoint i8 %32, 48
   %34 = add i32 %.0.lcssa.i, -1
   %35 = zext i32 %34 to i64
@@ -32501,7 +32501,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit35:        ; preds = %31, %38
   br label %78
 
 44:                                               ; preds = %2, %2, %2
-  %45 = trunc i32 %4 to i8
+  %45 = trunc nuw nsw i32 %4 to i8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !798
   %48 = add i64 %47, 1
@@ -33406,7 +33406,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_ge
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45: ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
-  %92 = trunc nuw i64 %.0.i to i32
+  %92 = trunc nuw nsw i64 %.0.i to i32
   ret i32 %92
 }
 
@@ -39738,7 +39738,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 72:                                               ; preds = %._crit_edge.i13
-  %73 = trunc nuw i32 %.018.lcssa.i14 to i8
+  %73 = trunc nuw nsw i32 %.018.lcssa.i14 to i8
   %74 = or disjoint i8 %73, 48
   %75 = add i32 %.0.lcssa.i15, -1
   %76 = zext i32 %75 to i64
@@ -40036,7 +40036,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit
 
 61:                                               ; preds = %._crit_edge.i
-  %62 = trunc nuw i64 %.018.lcssa.i to i32
+  %62 = trunc nuw nsw i64 %.018.lcssa.i to i32
   %63 = or disjoint i32 %62, 48
   %64 = add i32 %.0.lcssa.i, -1
   %65 = zext i32 %64 to i64
@@ -40162,7 +40162,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit
 
 47:                                               ; preds = %._crit_edge.i
-  %48 = trunc nuw i64 %.018.lcssa.i to i32
+  %48 = trunc nuw nsw i64 %.018.lcssa.i to i32
   %49 = or disjoint i32 %48, 48
   %50 = add i32 %.0.lcssa.i, -1
   %51 = zext i32 %50 to i64
@@ -40207,7 +40207,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 71:                                               ; preds = %._crit_edge.i13
-  %72 = trunc nuw i64 %.018.lcssa.i14 to i8
+  %72 = trunc nuw nsw i64 %.018.lcssa.i14 to i8
   %73 = or disjoint i8 %72, 48
   %74 = add i32 %.0.lcssa.i15, -1
   %75 = zext i32 %74 to i64
@@ -40324,7 +40324,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i64 %.018.lcssa.i to i32
+  %57 = trunc nuw nsw i64 %.018.lcssa.i to i32
   %58 = or disjoint i32 %57, 48
   %59 = add i32 %.0.lcssa.i, -1
   %60 = zext i32 %59 to i64
@@ -40494,7 +40494,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwoEEPT_S4_T0_i.exit
 
 69:                                               ; preds = %._crit_edge.i
-  %70 = trunc nuw i128 %.020.lcssa.i to i32
+  %70 = trunc nuw nsw i128 %.020.lcssa.i to i32
   %71 = or disjoint i32 %70, 48
   %72 = add i32 %.0.lcssa.i, -1
   %73 = zext i32 %72 to i64
@@ -40626,7 +40626,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwoEEPT_S4_T0_i.exit
 
 48:                                               ; preds = %._crit_edge.i
-  %49 = trunc nuw i128 %.020.lcssa.i to i32
+  %49 = trunc nuw nsw i128 %.020.lcssa.i to i32
   %50 = or disjoint i32 %49, 48
   %51 = add i32 %.0.lcssa.i, -1
   %52 = zext i32 %51 to i64
@@ -40671,7 +40671,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   %67 = add i32 %.0.lcssa.i24, -2
   %68 = zext i32 %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 %68
-  %70 = trunc nuw i128 %.020.lcssa.i23 to i64
+  %70 = trunc nuw nsw i128 %.020.lcssa.i23 to i64
   %71 = shl nuw nsw i64 %70, 1
   %72 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %71
   %73 = load i16, ptr %72, align 2
@@ -40679,7 +40679,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit
 
 74:                                               ; preds = %._crit_edge.i22
-  %75 = trunc nuw i128 %.020.lcssa.i23 to i8
+  %75 = trunc nuw nsw i128 %.020.lcssa.i23 to i8
   %76 = or disjoint i8 %75, 48
   %77 = add i32 %.0.lcssa.i24, -1
   %78 = zext i32 %77 to i64
@@ -40824,7 +40824,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwoEEPT_S4_T0_i.exit
 
 62:                                               ; preds = %._crit_edge.i
-  %63 = trunc nuw i128 %.020.lcssa.i to i32
+  %63 = trunc nuw nsw i128 %.020.lcssa.i to i32
   %64 = or disjoint i32 %63, 48
   %65 = add i32 %.0.lcssa.i, -1
   %66 = zext i32 %65 to i64
@@ -41356,7 +41356,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail18write_int_noinlineIwNS0_14ba
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 31:                                               ; preds = %._crit_edge.i
-  %32 = trunc nuw i32 %.018.lcssa.i to i8
+  %32 = trunc nuw nsw i32 %.018.lcssa.i to i8
   %33 = or disjoint i8 %32, 48
   %34 = add i32 %.0.lcssa.i, -1
   %35 = zext i32 %34 to i64
@@ -44028,7 +44028,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 39:                                               ; preds = %._crit_edge.i
-  %40 = trunc nuw i64 %.018.lcssa.i to i8
+  %40 = trunc nuw nsw i64 %.018.lcssa.i to i8
   %41 = or disjoint i8 %40, 48
   %42 = add i32 %.0.lcssa.i, -1
   %43 = zext i32 %42 to i64
@@ -44073,7 +44073,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit20
 
 63:                                               ; preds = %._crit_edge.i13
-  %64 = trunc nuw i64 %.018.lcssa.i14 to i8
+  %64 = trunc nuw nsw i64 %.018.lcssa.i14 to i8
   %65 = or disjoint i8 %64, 48
   %66 = add i32 %.0.lcssa.i15, -1
   %67 = zext i32 %66 to i64
@@ -45911,7 +45911,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   %35 = add i32 %.0.lcssa.i, -2
   %36 = zext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 %36
-  %38 = trunc nuw i128 %.020.lcssa.i to i64
+  %38 = trunc nuw nsw i128 %.020.lcssa.i to i64
   %39 = shl nuw nsw i64 %38, 1
   %40 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %39
   %41 = load i16, ptr %40, align 2
@@ -45919,7 +45919,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit
 
 42:                                               ; preds = %._crit_edge.i
-  %43 = trunc nuw i128 %.020.lcssa.i to i8
+  %43 = trunc nuw nsw i128 %.020.lcssa.i to i8
   %44 = or disjoint i8 %43, 48
   %45 = add i32 %.0.lcssa.i, -1
   %46 = zext i32 %45 to i64
@@ -45964,7 +45964,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   %61 = add i32 %.0.lcssa.i24, -2
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 %62
-  %64 = trunc nuw i128 %.020.lcssa.i23 to i64
+  %64 = trunc nuw nsw i128 %.020.lcssa.i23 to i64
   %65 = shl nuw nsw i64 %64, 1
   %66 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %65
   %67 = load i16, ptr %66, align 2
@@ -45972,7 +45972,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit29
 
 68:                                               ; preds = %._crit_edge.i22
-  %69 = trunc nuw i128 %.020.lcssa.i23 to i8
+  %69 = trunc nuw nsw i128 %.020.lcssa.i23 to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i24, -1
   %72 = zext i32 %71 to i64
@@ -48321,7 +48321,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 41:                                               ; preds = %._crit_edge.i
-  %42 = trunc nuw i32 %.018.lcssa.i to i8
+  %42 = trunc nuw nsw i32 %.018.lcssa.i to i8
   %43 = or disjoint i8 %42, 48
   %44 = add i32 %.0.lcssa.i, -1
   %45 = zext i32 %44 to i64
@@ -48368,7 +48368,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit20
 
 67:                                               ; preds = %._crit_edge.i13
-  %68 = trunc nuw i32 %.018.lcssa.i14 to i8
+  %68 = trunc nuw nsw i32 %.018.lcssa.i14 to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i15, -1
   %71 = zext i32 %70 to i64
@@ -49941,7 +49941,7 @@ define linkonce_odr hidden noundef ptr @_ZN3fmt3v116detail17write_significandIwm
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit
 
 33:                                               ; preds = %._crit_edge.i
-  %34 = trunc nuw i64 %.018.lcssa.i to i32
+  %34 = trunc nuw nsw i64 %.018.lcssa.i to i32
   %35 = or disjoint i32 %34, 48
   %36 = add i32 %.0.lcssa.i, -1
   %37 = zext i32 %36 to i64
@@ -50058,7 +50058,7 @@ _ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit: ; preds = %22, %33
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit42
 
 98:                                               ; preds = %._crit_edge.i33
-  %99 = trunc nuw i64 %.018.lcssa.i34 to i32
+  %99 = trunc nuw nsw i64 %.018.lcssa.i34 to i32
   %100 = or disjoint i32 %99, 48
   %101 = add i32 %.0.lcssa.i35, -1
   %102 = zext i32 %101 to i64
@@ -57992,7 +57992,7 @@ _ZNK3fmt3v1116basic_format_argINS0_15generic_contextINS0_14basic_appenderIwEEwEE
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_15generic_contextINS0_14basic_appenderIwEEwEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45: ; preds = %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextINS0_14basic_appenderIwEEwEEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
-  %99 = trunc nuw i64 %.0.i to i32
+  %99 = trunc nuw nsw i64 %.0.i to i32
   ret i32 %99
 }
 
@@ -58049,7 +58049,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail18write_int_noinlineIwNS0_14ba
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = trunc nuw i64 %.018.lcssa.i to i8
+  %31 = trunc nuw nsw i64 %.018.lcssa.i to i8
   %32 = or disjoint i8 %31, 48
   %33 = add i32 %.0.lcssa.i, -1
   %34 = zext i32 %33 to i64
@@ -58583,7 +58583,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail18write_int_noinlineIwNS0_14ba
   %24 = add i32 %.0.lcssa.i, -2
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 %25
-  %27 = trunc nuw i128 %.020.lcssa.i to i64
+  %27 = trunc nuw nsw i128 %.020.lcssa.i to i64
   %28 = shl nuw nsw i64 %27, 1
   %29 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %28
   %30 = load i16, ptr %29, align 2
@@ -58591,7 +58591,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail18write_int_noinlineIwNS0_14ba
   br label %_ZN3fmt3v116detail17do_format_decimalIcoEEPT_S4_T0_i.exit
 
 31:                                               ; preds = %._crit_edge.i
-  %32 = trunc nuw i128 %.020.lcssa.i to i8
+  %32 = trunc nuw nsw i128 %.020.lcssa.i to i8
   %33 = or disjoint i8 %32, 48
   %34 = add i32 %.0.lcssa.i, -1
   %35 = zext i32 %34 to i64
@@ -69605,7 +69605,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -71133,7 +71133,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt3v116detail7to_utf8IDiNS0_
 
 20:                                               ; preds = %18
   %21 = lshr i32 %10, 6
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -64
   %24 = load i64, ptr %6, align 8, !tbaa !798
   %25 = add i64 %24, 1
@@ -71173,7 +71173,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit46: ; preds = %20, %28
 
 43:                                               ; preds = %40
   %44 = lshr i32 %10, 12
-  %45 = trunc nuw i32 %44 to i8
+  %45 = trunc nuw nsw i32 %44 to i8
   %46 = or disjoint i8 %45, -32
   %47 = load i64, ptr %6, align 8, !tbaa !798
   %48 = add i64 %47, 1
@@ -71235,7 +71235,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit58: ; preds = %_ZN3fmt3v116detail
 
 78:                                               ; preds = %76
   %79 = lshr i32 %10, 18
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, -16
   %82 = load i64, ptr %6, align 8, !tbaa !798
   %83 = add i64 %82, 1
@@ -71435,7 +71435,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 53:                                               ; preds = %._crit_edge.i
-  %54 = trunc nuw i64 %.018.lcssa.i to i8
+  %54 = trunc nuw nsw i64 %.018.lcssa.i to i8
   %55 = or disjoint i8 %54, 48
   %56 = add i32 %.0.lcssa.i, -1
   %57 = zext i32 %56 to i64
@@ -75234,7 +75234,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit
 
 61:                                               ; preds = %._crit_edge.i
-  %62 = trunc nuw i64 %.018.lcssa.i to i32
+  %62 = trunc nuw nsw i64 %.018.lcssa.i to i32
   %63 = or disjoint i32 %62, 48
   %64 = add i32 %.0.lcssa.i, -1
   %65 = zext i32 %64 to i64
@@ -75710,7 +75710,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextINS0_14basic_appenderI
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_15generic_contextINS0_14basic_appenderIwEEwEES5_lSt5ratioILl1ELl1EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -76866,7 +76866,7 @@ _ZN3fmt3v116detail10to_pointerIwEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIwmEEPT_S4_T0_i.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i64 %.018.lcssa.i to i32
+  %57 = trunc nuw nsw i64 %.018.lcssa.i to i32
   %58 = or disjoint i32 %57, 48
   %59 = add i32 %.0.lcssa.i, -1
   %60 = zext i32 %59 to i64
@@ -80375,7 +80375,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -85642,7 +85642,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail17ansi_color_escapeIwEC2ENS1_
 17:                                               ; preds = %14, %5
   %.1 = phi i32 [ %.zext, %14 ], [ %spec.select, %5 ]
   %.021 = phi i64 [ 3, %14 ], [ 2, %5 ]
-  %.lhs.trunc27 = trunc i32 %.1 to i8
+  %.lhs.trunc27 = trunc nuw nsw i32 %.1 to i8
   %18 = udiv i8 %.lhs.trunc27, 10
   %19 = or i8 %18, 48
   %20 = zext nneg i8 %19 to i32

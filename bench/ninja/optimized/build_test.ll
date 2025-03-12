@@ -14597,7 +14597,7 @@ _ZN7testing7MessageD2Ev.exit293:                  ; preds = %107, %_ZNKSt14defau
   %.057706 = phi i32 [ 0, %.preheader672 ], [ %175, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit312 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %117 = trunc nuw i32 %.057706 to i8
+  %117 = trunc nuw nsw i32 %.057706 to i8
   %118 = add nuw nsw i8 %117, 49
   store ptr %88, ptr %6, align 8, !tbaa !4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %118)

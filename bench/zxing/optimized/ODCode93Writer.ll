@@ -271,7 +271,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i66.i: ; 
   %89 = load ptr, ptr %9, align 8, !tbaa !20, !alias.scope !3
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %77
   store i8 0, ptr %90, align 1, !tbaa !19
-  %91 = trunc nuw i32 %.fr146.i to i8
+  %91 = trunc nuw nsw i32 %.fr146.i to i8
   %92 = add nuw nsw i8 %91, 38
   %93 = load i64, ptr %14, align 8, !tbaa !17, !alias.scope !3
   %94 = add i64 %93, 1
@@ -386,7 +386,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i78.i: ; 
   %137 = load ptr, ptr %9, align 8, !tbaa !20, !alias.scope !3
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 %125
   store i8 0, ptr %138, align 1, !tbaa !19
-  %139 = trunc nuw i32 %.fr146.i to i8
+  %139 = trunc nuw nsw i32 %.fr146.i to i8
   %140 = add nuw nsw i8 %139, 32
   %141 = load i64, ptr %14, align 8, !tbaa !17, !alias.scope !3
   %142 = add i64 %141, 1
@@ -530,7 +530,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i98.i: ; 
   %201 = load ptr, ptr %9, align 8, !tbaa !20, !alias.scope !3
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 %189
   store i8 0, ptr %202, align 1, !tbaa !19
-  %203 = trunc nuw i32 %.fr146.i to i8
+  %203 = trunc nuw nsw i32 %.fr146.i to i8
   %204 = add nuw nsw i8 %203, 11
   %205 = load i64, ptr %14, align 8, !tbaa !17, !alias.scope !3
   %206 = add i64 %205, 1
@@ -646,7 +646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit117.i: ; p
 
 .invoke.i:                                        ; preds = %263, %260, %251
   %.sink158.i = phi i8 [ -32, %260 ], [ -43, %263 ], [ -16, %251 ]
-  %252 = trunc nuw i32 %.fr146.i to i8
+  %252 = trunc nuw nsw i32 %.fr146.i to i8
   %253 = add nsw i8 %.sink158.i, %252
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 noundef signext %253)
           to label %312 unwind label %.loopexit.i
@@ -919,7 +919,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %335
   store i32 0, ptr %344, align 8
   %.zext137 = lshr i64 %345, 6
   %348 = getelementptr inbounds nuw i64, ptr %341, i64 %.zext137
-  %349 = trunc nuw i64 %345 to i32
+  %349 = trunc nuw nsw i64 %345 to i32
   %350 = and i32 %349, 63
   store ptr %348, ptr %343, align 8
   store i32 %350, ptr %342, align 8

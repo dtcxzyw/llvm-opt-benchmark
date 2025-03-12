@@ -2816,7 +2816,7 @@ define internal i32 @lo_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i6
   %380 = load ptr, ptr %369, align 8
   tail call void @blk_mq_freeze_queue(ptr noundef %380) #14
   %381 = load ptr, ptr %369, align 8
-  %382 = trunc nuw i64 %3 to i32
+  %382 = trunc nuw nsw i64 %3 to i32
   tail call void @blk_queue_logical_block_size(ptr noundef %381, i32 noundef %382) #14
   %383 = load ptr, ptr %369, align 8
   tail call void @blk_queue_physical_block_size(ptr noundef %383, i32 noundef %382) #14

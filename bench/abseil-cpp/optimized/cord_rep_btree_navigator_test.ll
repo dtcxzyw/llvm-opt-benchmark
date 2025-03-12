@@ -4767,7 +4767,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit:  ; preds = %94, %99
   %.sink5.i.i.i.i.i = select i1 %112, i64 2, i64 58
   %113 = lshr i64 %108, %.sink6.i.i.i.i.i
   %114 = add nuw nsw i64 %113, %.sink5.i.i.i.i.i
-  %115 = trunc i64 %114 to i8
+  %115 = trunc nuw nsw i64 %114 to i8
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 12
   store i8 %115, ptr %116, align 4, !tbaa !213
   store i64 %101, ptr %109, align 8, !tbaa !218
@@ -4837,7 +4837,7 @@ _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit19: ; preds = %123, %127
   %.sink5.i.i.i.i.i26 = select i1 %140, i64 2, i64 58
   %141 = lshr i64 %136, %.sink6.i.i.i.i.i25
   %142 = add nuw nsw i64 %141, %.sink5.i.i.i.i.i26
-  %143 = trunc i64 %142 to i8
+  %143 = trunc nuw nsw i64 %142 to i8
   %144 = getelementptr inbounds nuw i8, ptr %137, i64 12
   store i8 %143, ptr %144, align 4, !tbaa !213
   store i64 %129, ptr %137, align 8, !tbaa !218
@@ -5887,7 +5887,7 @@ define linkonce_odr dso_local void @_ZN4absl15cordrep_testing21CreateFlatsFromSt
   %.sink5.i.i.i.i.i = select i1 %22, i64 2, i64 58
   %23 = lshr i64 %18, %.sink6.i.i.i.i.i
   %24 = add nuw nsw i64 %23, %.sink5.i.i.i.i.i
-  %25 = trunc i64 %24 to i8
+  %25 = trunc nuw nsw i64 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i8 %25, ptr %26, align 4, !tbaa !213
   store i64 %.sroa.speculated.i, ptr %19, align 8, !tbaa !218
@@ -6080,7 +6080,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 10:                                               ; preds = %3
   %11 = add nuw nsw i64 %8, 1
-  %.rhs.trunc = trunc nuw i64 %11 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %11 to i32
   %12 = udiv i32 2147483645, %.rhs.trunc
   %.zext = zext nneg i32 %12 to i64
   %13 = mul nuw nsw i64 %11, %.zext
@@ -6097,7 +6097,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 19:                                               ; preds = %14
   store i64 %17, ptr %1, align 8, !tbaa !200
-  %.lhs.trunc = trunc nsw i64 %18 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %18 to i32
   %20 = udiv i32 %.lhs.trunc, %12
   %.zext29 = zext nneg i32 %20 to i64
   br label %.loopexit

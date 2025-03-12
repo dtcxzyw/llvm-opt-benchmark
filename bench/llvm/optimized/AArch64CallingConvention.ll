@@ -1569,7 +1569,7 @@ define linkonce_odr hidden i32 @_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEE(p
   br i1 %21, label %6, label %._crit_edge.i, !llvm.loop !97
 
 ._crit_edge.i:                                    ; preds = %18, %3
-  %22 = trunc i64 %2 to i32
+  %22 = trunc nuw i64 %2 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %6, %._crit_edge.i
@@ -2098,7 +2098,7 @@ define linkonce_odr hidden i32 @_ZN4llvm7CCState11AllocateRegENS_8ArrayRefItEEPK
   br i1 %22, label %7, label %._crit_edge.i, !llvm.loop !97
 
 ._crit_edge.i:                                    ; preds = %19, %4
-  %23 = trunc i64 %2 to i32
+  %23 = trunc nuw i64 %2 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %7, %._crit_edge.i

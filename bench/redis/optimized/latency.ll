@@ -1482,7 +1482,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %.lhs.trunc = trunc nuw i32 %25 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %25 to i16
   %32 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %32 to i32
   %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 64, ptr noundef nonnull @.str.46, i32 noundef %.zext) #14

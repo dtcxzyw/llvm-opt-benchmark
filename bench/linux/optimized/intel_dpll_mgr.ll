@@ -2900,7 +2900,7 @@ ehl_combo_pll_div_frac_wa_needed.exit15:          ; preds = %259, %263
   %371 = phi i32 [ 2, %365 ], [ 1, %364 ], [ 1, %354 ]
   %372 = mul nuw nsw i32 %294, 132
   %373 = udiv i32 2000000000, %372
-  %374 = trunc i32 %373 to i16
+  %374 = trunc nuw nsw i32 %373 to i16
   %.lhs.trunc = add nuw nsw i16 %374, 5
   %375 = udiv i16 %.lhs.trunc, 10
   %.zext = zext nneg i16 %375 to i32
@@ -6951,7 +6951,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_compute_dpll(ptr noundef read
   ]
 
 108:                                              ; preds = %107, %107
-  %.lhs.trunc = trunc i32 %78 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %78 to i8
   %109 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %109 to i32
   br label %.thread12
@@ -7816,7 +7816,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_compute_dpll(ptr noundef read
   %60 = phi i32 [ %52, %49 ], [ %108, %106 ]
   %61 = phi i32 [ %53, %49 ], [ %107, %106 ]
   %62 = icmp eq i32 %61, 0
-  %63 = trunc i64 %58 to i32
+  %63 = trunc nuw nsw i64 %58 to i32
   br i1 %62, label %106, label %64
 
 64:                                               ; preds = %57

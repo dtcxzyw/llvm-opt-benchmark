@@ -1908,7 +1908,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL28ZSTD_decompressSequencesL
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread555.i: ; preds = %107
   %112 = zext i8 %111 to i32
   %113 = tail call noundef range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %112, i1 true)
-  %114 = trunc nuw i64 %4 to i32
+  %114 = trunc nuw nsw i64 %4 to i32
   %115 = shl nuw nsw i32 %114, 3
   %reass.sub = sub nsw i32 %113, %115
   %116 = add nsw i32 %reass.sub, 41
@@ -4707,7 +4707,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL38ZSTD_decompressSequencesS
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread169.i: ; preds = %90
   %95 = zext i8 %94 to i32
   %96 = tail call noundef range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %95, i1 true)
-  %97 = trunc nuw i64 %4 to i32
+  %97 = trunc nuw nsw i64 %4 to i32
   %98 = shl nuw nsw i32 %97, 3
   %reass.sub = sub nsw i32 %96, %98
   %99 = add nsw i32 %reass.sub, 41
@@ -6656,7 +6656,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL24ZSTD_decompressSequencesE
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread71.i: ; preds = %98
   %103 = zext i8 %102 to i32
   %104 = tail call noundef range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %103, i1 true)
-  %105 = trunc nuw i64 %4 to i32
+  %105 = trunc nuw nsw i64 %4 to i32
   %106 = shl nuw nsw i32 %105, 3
   %reass.sub = sub nsw i32 %104, %106
   %107 = add nsw i32 %reass.sub, 41
@@ -7808,7 +7808,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL33ZSTD_decompressSequencesL
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread555: ; preds = %103
   %108 = zext i8 %107 to i32
   %109 = tail call noundef range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %108, i1 true)
-  %110 = trunc nuw i64 %4 to i32
+  %110 = trunc nuw nsw i64 %4 to i32
   %111 = shl nuw nsw i32 %110, 3
   %reass.sub = sub nsw i32 %109, %111
   %112 = add nsw i32 %reass.sub, 41
@@ -11111,7 +11111,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43ZSTD_decompressSequencesS
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread169: ; preds = %86
   %91 = zext i8 %90 to i32
   %92 = tail call noundef range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %91, i1 true)
-  %93 = trunc nuw i64 %4 to i32
+  %93 = trunc nuw nsw i64 %4 to i32
   %94 = shl nuw nsw i32 %93, 3
   %reass.sub = sub nsw i32 %92, %94
   %95 = add nsw i32 %reass.sub, 41
@@ -13046,7 +13046,7 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL29ZSTD_decompressSequences_
 _ZN11duckdb_zstdL15BIT_initDStreamEPNS_13BIT_DStream_tEPKvm.exit.thread71: ; preds = %94
   %99 = zext i8 %98 to i32
   %100 = tail call noundef range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %99, i1 true)
-  %101 = trunc nuw i64 %4 to i32
+  %101 = trunc nuw nsw i64 %4 to i32
   %102 = shl nuw nsw i32 %101, 3
   %reass.sub = sub nsw i32 %100, %102
   %103 = add nsw i32 %reass.sub, 41

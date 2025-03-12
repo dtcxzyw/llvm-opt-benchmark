@@ -1183,7 +1183,7 @@ define noundef range(i64 0, 5) i64 @_ZN2c417decode_code_pointEPhmj(ptr noalias n
 
 9:                                                ; preds = %7
   %10 = lshr i32 %2, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %0, align 1, !tbaa !45
   %13 = trunc i32 %2 to i8
@@ -1199,7 +1199,7 @@ define noundef range(i64 0, 5) i64 @_ZN2c417decode_code_pointEPhmj(ptr noalias n
 
 19:                                               ; preds = %17
   %20 = lshr i32 %2, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %0, align 1, !tbaa !45
   %23 = lshr i32 %2, 6
@@ -1221,7 +1221,7 @@ define noundef range(i64 0, 5) i64 @_ZN2c417decode_code_pointEPhmj(ptr noalias n
 
 34:                                               ; preds = %32
   %35 = lshr i32 %2, 18
-  %36 = trunc nuw i32 %35 to i8
+  %36 = trunc nuw nsw i32 %35 to i8
   %37 = or disjoint i8 %36, -16
   store i8 %37, ptr %0, align 1, !tbaa !45
   %38 = lshr i32 %2, 12
@@ -1303,7 +1303,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread.thread: ; preds = %
 
 22:                                               ; preds = %20
   %23 = lshr i32 %.019, 6
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -64
   store i8 %25, ptr %0, align 1, !tbaa !45, !alias.scope !49
   %26 = trunc i32 %.019 to i8
@@ -1319,7 +1319,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread.thread: ; preds = %
 
 32:                                               ; preds = %30
   %33 = lshr i32 %.019, 12
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -32
   store i8 %35, ptr %0, align 1, !tbaa !45, !alias.scope !49
   %36 = lshr i32 %.019, 6
@@ -1341,7 +1341,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread.thread: ; preds = %
 
 47:                                               ; preds = %45
   %48 = lshr i32 %.019, 18
-  %49 = trunc nuw i32 %48 to i8
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = or disjoint i8 %49, -16
   store i8 %50, ptr %0, align 1, !tbaa !45, !alias.scope !49
   %51 = lshr i32 %.019, 12
@@ -45035,7 +45035,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit92.thread: ; preds = %.crit
 
 325:                                              ; preds = %323
   %326 = lshr i32 %.0261284, 6
-  %327 = trunc nuw i32 %326 to i8
+  %327 = trunc nuw nsw i32 %326 to i8
   %328 = or disjoint i8 %327, -64
   store i8 %328, ptr %.sroa.0200, align 8, !tbaa !45, !alias.scope !377
   %329 = trunc i32 %.0261284 to i8
@@ -45050,7 +45050,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit92.thread: ; preds = %.crit
 
 334:                                              ; preds = %332
   %335 = lshr i32 %.0261284, 12
-  %336 = trunc nuw i32 %335 to i8
+  %336 = trunc nuw nsw i32 %335 to i8
   %337 = or disjoint i8 %336, -32
   store i8 %337, ptr %.sroa.0200, align 8, !tbaa !45, !alias.scope !377
   %338 = lshr i32 %.0261284, 6
@@ -45070,7 +45070,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit92.thread: ; preds = %.crit
 
 347:                                              ; preds = %345
   %348 = lshr i32 %.0261284, 18
-  %349 = trunc nuw i32 %348 to i8
+  %349 = trunc nuw nsw i32 %348 to i8
   %350 = or disjoint i8 %349, -16
   store i8 %350, ptr %.sroa.0200, align 8, !tbaa !45, !alias.scope !377
   %351 = lshr i32 %.0261284, 12
@@ -45302,7 +45302,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread: ; preds = %.crited
 
 449:                                              ; preds = %447
   %450 = lshr i32 %.0259282, 6
-  %451 = trunc nuw i32 %450 to i8
+  %451 = trunc nuw nsw i32 %450 to i8
   %452 = or disjoint i8 %451, -64
   store i8 %452, ptr %.sroa.0182, align 8, !tbaa !45, !alias.scope !383
   %453 = trunc i32 %.0259282 to i8
@@ -45317,7 +45317,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread: ; preds = %.crited
 
 458:                                              ; preds = %456
   %459 = lshr i32 %.0259282, 12
-  %460 = trunc nuw i32 %459 to i8
+  %460 = trunc nuw nsw i32 %459 to i8
   %461 = or disjoint i8 %460, -32
   store i8 %461, ptr %.sroa.0182, align 8, !tbaa !45, !alias.scope !383
   %462 = lshr i32 %.0259282, 6
@@ -45337,7 +45337,7 @@ _ZN2c48read_hexIjEEbNS_15basic_substringIKcEEPT_.exit.thread: ; preds = %.crited
 
 471:                                              ; preds = %469
   %472 = lshr i32 %.0259282, 18
-  %473 = trunc nuw i32 %472 to i8
+  %473 = trunc nuw nsw i32 %472 to i8
   %474 = or disjoint i8 %473, -16
   store i8 %474, ptr %.sroa.0182, align 8, !tbaa !45, !alias.scope !383
   %475 = lshr i32 %.0259282, 12
@@ -52307,7 +52307,7 @@ _ZN2c410digits_decImEENSt9enable_ifIXeqstT_Lj8EEjE4typeES2_.exit: ; preds = %11,
   br label %_ZN2c49write_decImEEmNS_15basic_substringIcEET_.exit
 
 77:                                               ; preds = %._crit_edge
-  %78 = trunc nuw i64 %.0.i7.lcssa to i8
+  %78 = trunc nuw nsw i64 %.0.i7.lcssa to i8
   %79 = or disjoint i8 %78, 48
   br label %_ZN2c49write_decImEEmNS_15basic_substringIcEET_.exit
 
@@ -53876,7 +53876,7 @@ _ZN2c410digits_decImEENSt9enable_ifIXeqstT_Lj8EEjE4typeES2_.exit: ; preds = %11,
   br label %_ZN2c49write_decImEEmNS_15basic_substringIcEET_.exit
 
 77:                                               ; preds = %._crit_edge
-  %78 = trunc nuw i64 %.0.i7.lcssa to i8
+  %78 = trunc nuw nsw i64 %.0.i7.lcssa to i8
   %79 = or disjoint i8 %78, 48
   br label %_ZN2c49write_decImEEmNS_15basic_substringIcEET_.exit
 

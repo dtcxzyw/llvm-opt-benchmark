@@ -20782,7 +20782,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8900334472148293471.exit.
   br i1 %147, label %.loopexit, label %148
 
 148:                                              ; preds = %145
-  %trunc122.i = trunc i8 %146 to i1
+  %trunc122.i = trunc nuw i8 %146 to i1
   br i1 %trunc122.i, label %151, label %149
 
 149:                                              ; preds = %148
@@ -21927,7 +21927,7 @@ _ZN9async_tar7archive13poll_next_raw17h27bd31aaa96fac28E.exit: ; preds = %"_ZN4c
   br i1 %.not375.not.not.not.not, label %484, label %.loopexit72.i
 
 484:                                              ; preds = %482
-  %trunc44.i = trunc i8 %483 to i1
+  %trunc44.i = trunc nuw i8 %483 to i1
   br i1 %trunc44.i, label %487, label %485
 
 485:                                              ; preds = %484

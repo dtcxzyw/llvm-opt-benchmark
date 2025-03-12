@@ -2418,13 +2418,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h0e2a7dc7c02
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !612
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !612
   %15 = trunc i32 %1 to i8
@@ -2436,7 +2436,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h0e2a7dc7c02
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !612
   %23 = lshr i32 %1, 6
@@ -2502,13 +2502,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h254a4742a8492
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !615
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !615
   %16 = trunc i32 %1 to i8
@@ -2520,7 +2520,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h254a4742a8492
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !615
   %24 = lshr i32 %1, 6
@@ -3384,7 +3384,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !783, !noalias !780
   %12 = trunc i32 %1 to i8
@@ -3396,7 +3396,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !783, !noalias !780
   %19 = lshr i32 %1, 6
@@ -15524,8 +15524,8 @@ define noundef zeroext i1 @"_ZN144_$LT$settings_ui..appearance_settings_controls
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = tail call noundef i8 @_ZN4gpui11text_system13font_features12FontFeatures15is_calt_enabled17hcbd5ee48b0ca33e8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5), !range !1723
   %7 = icmp eq i8 %6, 2
-  %8 = trunc i8 %6 to i1
-  %.sroa.0.0 = or i1 %7, %8
+  %8 = trunc nuw i8 %6 to i1
+  %.sroa.0.0 = select i1 %7, i1 true, i1 %8
   ret i1 %.sroa.0.0
 }
 
@@ -15878,8 +15878,8 @@ common.resume:                                    ; preds = %22, %14
 
 _ZN2ui10components5label5label5Label3new17h0ff4cedb231d97c5E.exit: ; preds = %2
   %16 = icmp eq i8 %11, 2
-  %17 = trunc i8 %11 to i1
-  %.sroa.0.0.i = or i1 %16, %17
+  %17 = trunc nuw i8 %11 to i1
+  %.sroa.0.0.i = select i1 %16, i1 true, i1 %17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 824
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !alias.scope !2447
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull align 8 dereferenceable(824) %3, i64 824, i1 false), !noalias !2445

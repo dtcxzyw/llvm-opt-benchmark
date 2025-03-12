@@ -480,7 +480,7 @@ loadByte.exit.i.i:                                ; preds = %18, %.thread.i.i.i
   br i1 %.not.i.i, label %loadInt.exit, label %9
 
 loadInt.exit:                                     ; preds = %27
-  %33 = trunc nuw i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 44
   store i32 %33, ptr %34, align 4, !tbaa !45
   br label %35
@@ -538,7 +538,7 @@ loadByte.exit.i.i28:                              ; preds = %.loadByte.exit.i.i2
   br i1 %.not.i.i29, label %loadInt.exit30, label %35
 
 loadInt.exit30:                                   ; preds = %54
-  %59 = trunc nuw i64 %58 to i32
+  %59 = trunc nuw nsw i64 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %59, ptr %60, align 8, !tbaa !46
   %61 = load ptr, ptr %7, align 8, !tbaa !17
@@ -718,7 +718,7 @@ loadByte.exit.i.i.i:                              ; preds = %.loadByte.exit.i.i.
   br i1 %.not.i.i.i37, label %loadUint.exit.i, label %115
 
 loadUint.exit.i:                                  ; preds = %134
-  %139 = trunc nuw i64 %138 to i32
+  %139 = trunc nuw nsw i64 %138 to i32
   %140 = trunc i64 %131 to i32
   %141 = and i32 %140, 3
   %.not.i.i38 = icmp eq i32 %141, 0
@@ -850,7 +850,7 @@ loadByte.exit.i.i.i43:                            ; preds = %.loadByte.exit.i.i.
   br i1 %.not.i.i.i44, label %loadUint.exit.i45, label %loadCode.exit
 
 loadUint.exit.i45:                                ; preds = %190
-  %195 = trunc nuw i64 %194 to i32
+  %195 = trunc nuw nsw i64 %194 to i32
   %196 = load ptr, ptr %0, align 8, !tbaa !16
   %197 = shl nuw nsw i64 %194, 4
   %198 = call ptr @luaM_malloc_(ptr noundef %196, i64 noundef %197, i32 noundef 0) #8
@@ -1054,7 +1054,7 @@ loadByte.exit.i.i.i51:                            ; preds = %262, %.thread.i.i.i
   br i1 %.not.i.i.i52, label %loadUint.exit.i53, label %loadConstants.exit
 
 loadUint.exit.i53:                                ; preds = %271
-  %277 = trunc nuw i64 %276 to i32
+  %277 = trunc nuw nsw i64 %276 to i32
   %278 = load ptr, ptr %0, align 8, !tbaa !16
   %279 = shl nuw nsw i64 %276, 4
   %280 = call ptr @luaM_malloc_(ptr noundef %278, i64 noundef %279, i32 noundef 0) #8
@@ -1249,7 +1249,7 @@ loadByte.exit.i.i89:                              ; preds = %344, %.thread.i.i.i
   br i1 %.not.i.i90, label %loadUint.exit, label %loadUpvalues.exit
 
 loadUint.exit:                                    ; preds = %353
-  %359 = trunc nuw i64 %358 to i32
+  %359 = trunc nuw nsw i64 %358 to i32
   %360 = load ptr, ptr %0, align 8, !tbaa !16
   %361 = shl nuw nsw i64 %358, 3
   %362 = call ptr @luaM_malloc_(ptr noundef %360, i64 noundef %361, i32 noundef 0) #8
@@ -1356,7 +1356,7 @@ loadByte.exit.i.i.i69:                            ; preds = %392, %.thread.i.i.i
   br i1 %.not.i.i.i70, label %loadUint.exit.i71, label %383
 
 loadUint.exit.i71:                                ; preds = %401
-  %407 = trunc nuw i64 %406 to i32
+  %407 = trunc nuw nsw i64 %406 to i32
   %408 = load i8, ptr %94, align 8, !tbaa !18
   %.not.i72 = icmp eq i8 %408, 0
   br i1 %.not.i72, label %418, label %409
@@ -1460,7 +1460,7 @@ loadByte.exit.i.i75.i:                            ; preds = %.loadByte.exit.i.i7
   br i1 %.not.i.i76.i, label %loadUint.exit77.i, label %428
 
 loadUint.exit77.i:                                ; preds = %447
-  %452 = trunc nuw i64 %451 to i32
+  %452 = trunc nuw nsw i64 %451 to i32
   %.not69.i = icmp eq i64 %451, 0
   br i1 %.not69.i, label %.preheader, label %453
 
@@ -1596,7 +1596,7 @@ loadByte.exit.i.i86.i:                            ; preds = %.loadByte.exit.i.i8
   br i1 %.not.i.i87.i, label %loadUint.exit88.i, label %486
 
 loadUint.exit88.i:                                ; preds = %505
-  %510 = trunc nuw i64 %509 to i32
+  %510 = trunc nuw nsw i64 %509 to i32
   %511 = load ptr, ptr %0, align 8, !tbaa !16
   %512 = shl nuw nsw i64 %509, 4
   %513 = call ptr @luaM_malloc_(ptr noundef %511, i64 noundef %512, i32 noundef 0) #8
@@ -1671,7 +1671,7 @@ loadByte.exit.i.i92.i:                            ; preds = %528, %.thread.i.i.i
   br i1 %.not.i.i93.i, label %loadInt.exit.i, label %519
 
 loadInt.exit.i:                                   ; preds = %537
-  %543 = trunc nuw i64 %542 to i32
+  %543 = trunc nuw nsw i64 %542 to i32
   %544 = load ptr, ptr %514, align 8, !tbaa !71
   %545 = getelementptr inbounds nuw %struct.LocVar, ptr %544, i64 %indvars.iv130.i, i32 1
   store i32 %543, ptr %545, align 8, !tbaa !75
@@ -1730,7 +1730,7 @@ loadByte.exit.i.i97.i:                            ; preds = %.loadByte.exit.i.i9
   br i1 %.not.i.i98.i, label %loadInt.exit99.i, label %546
 
 loadInt.exit99.i:                                 ; preds = %565
-  %570 = trunc nuw i64 %569 to i32
+  %570 = trunc nuw nsw i64 %569 to i32
   %571 = load ptr, ptr %514, align 8, !tbaa !71
   %572 = getelementptr inbounds nuw %struct.LocVar, ptr %571, i64 %indvars.iv130.i, i32 2
   store i32 %570, ptr %572, align 4, !tbaa !76

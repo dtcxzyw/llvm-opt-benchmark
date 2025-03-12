@@ -1804,7 +1804,7 @@ define hidden ptr @phpdbg_short_zval_print(ptr noundef readonly captures(none) %
   %47 = add nsw i32 %1, -2
   %48 = sext i32 %47 to i64
   %.not84 = icmp ugt i64 %38, %48
-  %49 = trunc i64 %38 to i32
+  %49 = trunc nuw i64 %38 to i32
   %50 = add nsw i32 %1, -3
   %51 = select i1 %.not84, i32 %50, i32 %49
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 24

@@ -4385,7 +4385,7 @@ define dso_local void @_ZN7V3Error4initEv() local_unnamed_addr #8 align 2 person
 
 10:                                               ; preds = %0, %10
   %.011 = phi i32 [ 0, %0 ], [ %13, %10 ]
-  %11 = trunc nuw i32 %.011 to i8
+  %11 = trunc nuw nsw i32 %.011 to i8
   call void @_ZN7V3Error17describedEachWarnE11V3ErrorCodeb(i8 %11, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1) #30
   store i8 %11, ptr %1, align 1, !tbaa !11

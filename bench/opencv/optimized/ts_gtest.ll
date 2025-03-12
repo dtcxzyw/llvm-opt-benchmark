@@ -25177,7 +25177,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %70, align 1, !tbaa !13
-  %71 = trunc nuw i32 %1 to i8
+  %71 = trunc nuw nsw i32 %1 to i8
   br label %110
 
 72:                                               ; preds = %67
@@ -25193,7 +25193,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %79 = or disjoint i8 %78, -128
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %79, ptr %80, align 1, !tbaa !13
-  %81 = trunc nuw i32 %76 to i8
+  %81 = trunc nuw nsw i32 %76 to i8
   %82 = or disjoint i8 %81, -64
   br label %110
 
@@ -25216,7 +25216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   store i8 %88, ptr %95, align 1, !tbaa !13
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %92, ptr %96, align 1, !tbaa !13
-  %97 = trunc nuw i32 %89 to i8
+  %97 = trunc nuw nsw i32 %89 to i8
   %98 = or disjoint i8 %97, -32
   br label %110
 
@@ -25233,7 +25233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %106 = or disjoint i8 %105, -128
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %106, ptr %107, align 1, !tbaa !13
-  %108 = trunc nuw i32 %103 to i8
+  %108 = trunc nuw nsw i32 %103 to i8
   %109 = or disjoint i8 %108, -16
   br label %110
 
@@ -62461,7 +62461,7 @@ _ZN7testing7MessageD2Ev.exit60:                   ; preds = %.body41, %142
   br label %149
 
 146:                                              ; preds = %79
-  %147 = trunc i64 %11 to i32
+  %147 = trunc nsw i64 %11 to i32
   store i32 %147, ptr %2, align 4, !tbaa !18
   br label %148
 
@@ -80357,7 +80357,7 @@ _ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit.thread
 
 61:                                               ; preds = %56
-  %62 = trunc i64 %52 to i32
+  %62 = trunc nsw i64 %52 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #56
   %63 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %64 = load i64, ptr %63, align 8, !tbaa !11
@@ -80394,7 +80394,7 @@ _ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit.thread
 
 81:                                               ; preds = %76
-  %82 = trunc i64 %72 to i32
+  %82 = trunc nsw i64 %72 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #56
   %83 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %84 = load i64, ptr %83, align 8, !tbaa !11
@@ -80431,7 +80431,7 @@ _ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit.thread
 
 _ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit25: ; preds = %96
-  %101 = trunc i64 %92 to i32
+  %101 = trunc nsw i64 %92 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #56
   %102 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #59
           to label %124 unwind label %112
@@ -96560,7 +96560,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN7testing8internalL20Print
   br i1 %26, label %27, label %39
 
 27:                                               ; preds = %24
-  %28 = trunc nuw i32 %0 to i8
+  %28 = trunc nuw nsw i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 %28, ptr %3, align 1, !tbaa !13
   %29 = load ptr, ptr %1, align 8, !tbaa !23

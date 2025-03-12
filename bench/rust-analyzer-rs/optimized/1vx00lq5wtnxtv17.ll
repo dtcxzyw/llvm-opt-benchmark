@@ -1751,7 +1751,7 @@ _ZN4core3ops8function5FnMut8call_mut17h84f62f24595e906cE.exit.thread: ; preds = 
   br i1 %.not31.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 131:                                              ; preds = %124
-  %.lhs.trunc.i.i = trunc nuw i64 %127 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %127 to i16
   %132 = udiv i16 %.lhs.trunc.i.i, 48
   %.zext.i.i = zext nneg i16 %132 to i64
   %133 = icmp ult ptr %.0140.i.i, %.0143.i.i

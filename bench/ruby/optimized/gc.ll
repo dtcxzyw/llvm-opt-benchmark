@@ -1361,7 +1361,7 @@ define hidden noundef ptr @rb_objspace_alloc() local_unnamed_addr #0 {
   %25 = getelementptr [5 x %struct.rb_heap_struct], ptr %12, i64 0, i64 %indvars.iv.i
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   %narrow26.i = shl nuw nsw i32 40, %26
-  %27 = trunc nuw i32 %narrow26.i to i16
+  %27 = trunc nuw nsw i32 %narrow26.i to i16
   store i16 %27, ptr %25, align 8, !tbaa !147
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 88
@@ -21474,7 +21474,7 @@ define internal fastcc zeroext i1 @gc_compact_move(ptr noundef %0, ptr noundef %
   br i1 %8, label %9, label %heap_idx_for_size.exit.i
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i64 %5 to i16
+  %10 = trunc nuw nsw i64 %5 to i16
   %.lhs.trunc.i = add nuw nsw i16 %10, 39
   %11 = udiv i16 %.lhs.trunc.i, 40
   %.zext.i = zext nneg i16 %11 to i64
@@ -31181,7 +31181,7 @@ define internal noundef i32 @desired_compaction_pages_i(ptr noundef readonly cap
   br i1 %27, label %28, label %heap_idx_for_size.exit.i
 
 28:                                               ; preds = %26
-  %29 = trunc nuw i64 %24 to i16
+  %29 = trunc nuw nsw i64 %24 to i16
   %.lhs.trunc.i = add nuw nsw i16 %29, 39
   %30 = udiv i16 %.lhs.trunc.i, 40
   %.zext.i = zext nneg i16 %30 to i64

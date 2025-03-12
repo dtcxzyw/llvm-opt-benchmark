@@ -19901,7 +19901,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 
 40:                                               ; preds = %30
   %41 = lshr i32 %4, 16
-  %42 = trunc nuw i32 %41 to i16
+  %42 = trunc nuw nsw i32 %41 to i16
   %43 = lshr i32 %4, 8
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -19916,7 +19916,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 
 48:                                               ; preds = %32
   %49 = lshr i32 %4, 16
-  %50 = trunc nuw i32 %49 to i16
+  %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %50, ptr %51, align 2
   br label %28

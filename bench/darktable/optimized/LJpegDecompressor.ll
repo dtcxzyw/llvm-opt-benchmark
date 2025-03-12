@@ -1181,7 +1181,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %300 = sub nuw nsw i32 64, %297
   %301 = zext nneg i32 %300 to i64
   %302 = lshr i64 %.sroa.0212.6, %301
-  %303 = trunc i64 %302 to i32
+  %303 = trunc nuw nsw i64 %302 to i32
   %304 = sub nsw i32 %.sroa.33.7, %297
   %305 = zext nneg i8 %.0582 to i64
   %306 = shl i64 %.sroa.0212.6, %305
@@ -2221,7 +2221,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %315 = sub nuw nsw i32 64, %312
   %316 = zext nneg i32 %315 to i64
   %317 = lshr i64 %.sroa.0279.13, %316
-  %318 = trunc i64 %317 to i32
+  %318 = trunc nuw nsw i64 %317 to i32
   %319 = sub nsw i32 %.sroa.48.14, %312
   %320 = zext nneg i8 %.0772 to i64
   %321 = shl i64 %.sroa.0279.13, %320
@@ -2586,7 +2586,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %486 = sub nuw nsw i32 64, %483
   %487 = zext nneg i32 %486 to i64
   %488 = lshr i64 %.sroa.0279.5, %487
-  %489 = trunc i64 %488 to i32
+  %489 = trunc nuw nsw i64 %488 to i32
   %490 = sub nsw i32 %.sroa.48.6, %483
   %491 = zext nneg i8 %.0771 to i64
   %492 = shl i64 %.sroa.0279.5, %491
@@ -3663,7 +3663,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %316 = sub nuw nsw i32 64, %313
   %317 = zext nneg i32 %316 to i64
   %318 = lshr i64 %.sroa.0275.13, %317
-  %319 = trunc i64 %318 to i32
+  %319 = trunc nuw nsw i64 %318 to i32
   %320 = sub nsw i32 %.sroa.48.14, %313
   %321 = zext nneg i8 %.0771 to i64
   %322 = shl i64 %.sroa.0275.13, %321
@@ -4028,7 +4028,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %487 = sub nuw nsw i32 64, %484
   %488 = zext nneg i32 %487 to i64
   %489 = lshr i64 %.sroa.0275.5, %488
-  %490 = trunc i64 %489 to i32
+  %490 = trunc nuw nsw i64 %489 to i32
   %491 = sub nsw i32 %.sroa.48.6, %484
   %492 = zext nneg i8 %.0770 to i64
   %493 = shl i64 %.sroa.0275.5, %492
@@ -5109,7 +5109,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %319 = sub nuw nsw i32 64, %316
   %320 = zext nneg i32 %319 to i64
   %321 = lshr i64 %.sroa.0275.13, %320
-  %322 = trunc i64 %321 to i32
+  %322 = trunc nuw nsw i64 %321 to i32
   %323 = sub nsw i32 %.sroa.48.14, %316
   %324 = zext nneg i8 %.0772 to i64
   %325 = shl i64 %.sroa.0275.13, %324
@@ -5474,7 +5474,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %490 = sub nuw nsw i32 64, %487
   %491 = zext nneg i32 %490 to i64
   %492 = lshr i64 %.sroa.0275.5, %491
-  %493 = trunc i64 %492 to i32
+  %493 = trunc nuw nsw i64 %492 to i32
   %494 = sub nsw i32 %.sroa.48.6, %487
   %495 = zext nneg i8 %.0771 to i64
   %496 = shl i64 %.sroa.0275.5, %495
@@ -6613,7 +6613,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %354 = sub nuw nsw i32 64, %351
   %355 = zext nneg i32 %354 to i64
   %356 = lshr i64 %.sroa.0274.15, %355
-  %357 = trunc i64 %356 to i32
+  %357 = trunc nuw nsw i64 %356 to i32
   %358 = sub nsw i32 %.sroa.48.16, %351
   %359 = zext nneg i8 %.0771 to i64
   %360 = shl i64 %.sroa.0274.15, %359
@@ -7011,7 +7011,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %541 = sub nuw nsw i32 64, %538
   %542 = zext nneg i32 %541 to i64
   %543 = lshr i64 %.sroa.0274.6, %542
-  %544 = trunc i64 %543 to i32
+  %544 = trunc nuw nsw i64 %543 to i32
   %545 = sub nsw i32 %.sroa.48.7, %538
   %546 = zext nneg i8 %.0770 to i64
   %547 = shl i64 %.sroa.0274.6, %546

@@ -2530,7 +2530,7 @@ define dso_local void @_ZNK4llvm6object15XCOFFObjectFile19checkSectionAddressEmm
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(96) %0) #24
-  %.lhs.trunc = trunc i64 %7 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %7 to i32
   %.rhs.trunc = select i1 %27, i32 72, i32 40
   %28 = urem i32 %.lhs.trunc, %.rhs.trunc
   %.not8 = icmp eq i32 %28, 0

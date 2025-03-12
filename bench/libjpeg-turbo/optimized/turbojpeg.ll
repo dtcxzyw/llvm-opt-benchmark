@@ -10811,7 +10811,7 @@ tj3YUVPlaneWidth.exit:                            ; preds = %199, %.sink.split.i
 
 tj3YUVPlaneHeight.exit:                           ; preds = %228, %.sink.split.i247
   %.0.i248 = phi i64 [ %.1.i249, %228 ], [ 0, %.sink.split.i247 ]
-  %231 = trunc nuw i64 %.0.i248 to i32
+  %231 = trunc nuw nsw i64 %.0.i248 to i32
   %232 = getelementptr inbounds nuw [10 x i32], ptr %7, i64 0, i64 %indvars.iv325
   store i32 %231, ptr %232, align 4, !tbaa !88
   %.not240 = icmp eq i32 %171, %203

@@ -18,7 +18,7 @@ define dso_local noundef range(i32 0, 2) i32 @FSE_isError(i64 noundef %0) local_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @FSE_getErrorName(i64 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %5 = select i1 %2, i32 0, i32 %4
   %6 = tail call ptr @ERR_getErrorString(i32 noundef %5) #10
@@ -35,7 +35,7 @@ define dso_local noundef range(i32 0, 2) i32 @HUF_isError(i64 noundef %0) local_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @HUF_getErrorName(i64 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %5 = select i1 %2, i32 0, i32 %4
   %6 = tail call ptr @ERR_getErrorString(i32 noundef %5) #10
@@ -745,7 +745,7 @@ define dso_local i64 @HUF_readStats_wksp(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %98, label %99, label %.thread10
 
 99:                                               ; preds = %85
-  %100 = trunc i64 %50 to i32
+  %100 = trunc nuw i64 %50 to i32
   %101 = add i32 %100, 1
   store i32 %101, ptr %3, align 4
   %102 = add nuw nsw i64 %49, 1
@@ -890,7 +890,7 @@ define internal fastcc range(i64 -119, -9223372036854775808) i64 @HUF_readStats_
   br i1 %93, label %94, label %.thread10
 
 94:                                               ; preds = %80
-  %95 = trunc i64 %45 to i32
+  %95 = trunc nuw i64 %45 to i32
   %96 = add i32 %95, 1
   store i32 %96, ptr %3, align 4
   %97 = add nuw nsw i64 %44, 1

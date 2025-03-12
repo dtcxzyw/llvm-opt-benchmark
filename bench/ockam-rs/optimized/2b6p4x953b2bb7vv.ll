@@ -8313,8 +8313,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.4873177213157824197.exit.th
 "_ZN5flume17Hook$LT$T$C$S$GT$4lock17h209ee617e8a02bf2E.llvm.4873177213157824197.exit.thread": ; preds = %1, %"_ZN5flume17Hook$LT$T$C$S$GT$8is_empty28_$u7b$$u7b$closure$u7d$$u7d$17h1099c02e163988c7E.llvm.4873177213157824197.exit"
   %.06 = phi i8 [ %38, %"_ZN5flume17Hook$LT$T$C$S$GT$8is_empty28_$u7b$$u7b$closure$u7d$$u7d$17h1099c02e163988c7E.llvm.4873177213157824197.exit" ], [ 2, %1 ]
   %39 = icmp eq i8 %.06, 2
-  %40 = trunc i8 %.06 to i1
-  %.0 = or i1 %39, %40
+  %40 = trunc nuw i8 %.06 to i1
+  %.0 = select i1 %39, i1 true, i1 %40
   ret i1 %.0
 }
 

@@ -2619,7 +2619,7 @@ _ZNK6vectorIP4exprLb0EjE8capacityEv.exit.thread.i.i: ; preds = %_ZNK6vectorIP4ex
   br label %.critedge
 
 _ZN16check_sat_result9get_modelER3refI5modelE.exit183: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit170, %328, %.noexc181, %331
-  %.4331 = trunc i64 %indvars.iv373 to i32
+  %.4331 = trunc nuw i64 %indvars.iv373 to i32
   call void @_ZN15model_evaluatorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   br label %91, !llvm.loop !242

@@ -5449,7 +5449,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1660)
   %.promoted.i.i.i.i.i.i = load ptr, ptr %9, align 8, !alias.scope !1663, !noalias !1664
-  %trunc.i.i.i.i.i.i.i = trunc i64 %18 to i1
+  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %18 to i1
   %.promoted17.i.i.i.i.i.i = load ptr, ptr %10, align 8, !alias.scope !1663, !noalias !1664
   br i1 %trunc.i.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i.i, label %.split.i.i.i.i.i.i
 
@@ -5612,7 +5612,7 @@ select.unfold.i.i.i.i.i.i:                        ; preds = %.sink.split.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1728)
   call void @llvm.experimental.noalias.scope.decl(metadata !1731)
   %.promoted.i.i.i.i.i.i.i.i = load ptr, ptr %53, align 8, !alias.scope !1734, !noalias !1735
-  %trunc.i.i.i.i.i.i.i.i.i = trunc i64 %63 to i1
+  %trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %63 to i1
   %.promoted17.i.i.i.i.i.i.i.i = load ptr, ptr %54, align 8, !alias.scope !1734, !noalias !1735
   br i1 %trunc.i.i.i.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i.i.i.i, label %.split.i.i.i.i.i.i.i.i
 

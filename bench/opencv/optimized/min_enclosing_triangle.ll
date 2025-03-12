@@ -1693,7 +1693,7 @@ _ZN20minEnclosingTriangleL32findMinimumAreaEnclosingTriangleERKSt6vectorIN2cv6Po
 
 949:                                              ; preds = %_ZN20minEnclosingTriangleL10initialiseERSt6vectorIN2cv6Point_IfEESaIS3_EERd.exit.i.i
   %950 = lshr exact i64 %63, 3
-  %951 = trunc nuw i64 %950 to i32
+  %951 = trunc nuw nsw i64 %950 to i32
   br label %952
 
 952:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.i.i.i, %949

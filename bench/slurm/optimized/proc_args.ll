@@ -1551,7 +1551,7 @@ thread-pre-split:                                 ; preds = %9, %9, %13
   unreachable
 
 31:                                               ; preds = %26
-  %32 = trunc nuw i64 %.0 to i32
+  %32 = trunc nuw nsw i64 %.0 to i32
   store i32 %32, ptr %2, align 4
   %33 = load i8, ptr %18, align 1
   switch i8 %33, label %36 [
@@ -1627,7 +1627,7 @@ thread-pre-split49:                               ; preds = %36, %36, %41
   br i1 %.not47, label %61, label %59
 
 59:                                               ; preds = %58
-  %60 = trunc nuw i64 %.1 to i32
+  %60 = trunc nuw nsw i64 %.1 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %59

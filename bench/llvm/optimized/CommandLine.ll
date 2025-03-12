@@ -1755,7 +1755,7 @@ _ZN4llvm2cl6parserIiE5parseERNS0_6OptionENS_9StringRefES5_Ri.exit.thread: ; pred
   br label %35
 
 24:                                               ; preds = %12
-  %25 = trunc i64 %13 to i32
+  %25 = trunc nsw i64 %13 to i32
   store i32 %25, ptr %10, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1801,7 +1801,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm2cl6parserIiE5parseERNS0_6OptionENS
   br i1 %.not.i, label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:  ; preds = %12
-  %15 = trunc i64 %13 to i32
+  %15 = trunc nsw i64 %13 to i32
   store i32 %15, ptr %6, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #26
   br label %25
@@ -13830,7 +13830,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %41, i64 noundef %42) #26
   %44 = load i64, ptr %19, align 8, !tbaa !112
   %45 = icmp ult i64 %44, 8
-  %46 = trunc i64 %44 to i32
+  %46 = trunc nuw nsw i64 %44 to i32
   %47 = sub nuw nsw i32 8, %46
   %48 = select i1 %45, i32 %47, i32 0
   %49 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -14015,7 +14015,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %41, i64 noundef %42) #26
   %44 = load i64, ptr %19, align 8, !tbaa !112
   %45 = icmp ult i64 %44, 8
-  %46 = trunc i64 %44 to i32
+  %46 = trunc nuw nsw i64 %44 to i32
   %47 = sub nuw nsw i32 8, %46
   %48 = select i1 %45, i32 %47, i32 0
   %49 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -14197,7 +14197,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %41, i64 noundef %42) #26
   %44 = load i64, ptr %19, align 8, !tbaa !112
   %45 = icmp ult i64 %44, 8
-  %46 = trunc i64 %44 to i32
+  %46 = trunc nuw nsw i64 %44 to i32
   %47 = sub nuw nsw i32 8, %46
   %48 = select i1 %45, i32 %47, i32 0
   %49 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -14378,7 +14378,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %37
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %40, i64 noundef %41) #26
   %43 = load i64, ptr %19, align 8, !tbaa !112
   %44 = icmp ult i64 %43, 8
-  %45 = trunc i64 %43 to i32
+  %45 = trunc nuw nsw i64 %43 to i32
   %46 = sub nuw nsw i32 8, %45
   %47 = select i1 %44, i32 %46, i32 0
   %48 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -14560,7 +14560,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %37
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %40, i64 noundef %41) #26
   %43 = load i64, ptr %19, align 8, !tbaa !112
   %44 = icmp ult i64 %43, 8
-  %45 = trunc i64 %43 to i32
+  %45 = trunc nuw nsw i64 %43 to i32
   %46 = sub nuw nsw i32 8, %45
   %47 = select i1 %44, i32 %46, i32 0
   %48 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -14743,7 +14743,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %41, i64 noundef %42) #26
   %44 = load i64, ptr %19, align 8, !tbaa !112
   %45 = icmp ult i64 %44, 8
-  %46 = trunc i64 %44 to i32
+  %46 = trunc nuw nsw i64 %44 to i32
   %47 = sub nuw nsw i32 8, %46
   %48 = select i1 %45, i32 %47, i32 0
   %49 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -14924,7 +14924,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %37
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %40, i64 noundef %41) #26
   %43 = load i64, ptr %19, align 8, !tbaa !112
   %44 = icmp ult i64 %43, 8
-  %45 = trunc i64 %43 to i32
+  %45 = trunc nuw nsw i64 %43 to i32
   %46 = sub nuw nsw i32 8, %45
   %47 = select i1 %44, i32 %46, i32 0
   %48 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -15106,7 +15106,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %37
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %40, i64 noundef %41) #26
   %43 = load i64, ptr %19, align 8, !tbaa !112
   %44 = icmp ult i64 %43, 8
-  %45 = trunc i64 %43 to i32
+  %45 = trunc nuw nsw i64 %43 to i32
   %46 = sub nuw nsw i32 8, %45
   %47 = select i1 %44, i32 %46, i32 0
   %48 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -15288,7 +15288,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %37
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %40, i64 noundef %41) #26
   %43 = load i64, ptr %19, align 8, !tbaa !112
   %44 = icmp ult i64 %43, 8
-  %45 = trunc i64 %43 to i32
+  %45 = trunc nuw nsw i64 %43 to i32
   %46 = sub nuw nsw i32 8, %45
   %47 = select i1 %44, i32 %46, i32 0
   %48 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -15471,7 +15471,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %41, i64 noundef %42) #26
   %44 = load i64, ptr %19, align 8, !tbaa !112
   %45 = icmp ult i64 %44, 8
-  %46 = trunc i64 %44 to i32
+  %46 = trunc nuw nsw i64 %44 to i32
   %47 = sub nuw nsw i32 8, %46
   %48 = select i1 %45, i32 %47, i32 0
   %49 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -15669,7 +15669,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %42, %44
   %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %47, i64 noundef %48) #26
   %50 = load i64, ptr %19, align 8, !tbaa !112
   %51 = icmp ult i64 %50, 8
-  %52 = trunc i64 %50 to i32
+  %52 = trunc nuw nsw i64 %50 to i32
   %53 = sub nuw nsw i32 8, %52
   %54 = select i1 %51, i32 %53, i32 0
   %55 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #26
@@ -15864,7 +15864,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %39, %42
   br i1 %45, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.thread, label %48
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.thread: ; preds = %41, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
-  %46 = trunc i64 %3 to i32
+  %46 = trunc nuw nsw i64 %3 to i32
   %47 = sub nuw nsw i32 8, %46
   br label %48
 

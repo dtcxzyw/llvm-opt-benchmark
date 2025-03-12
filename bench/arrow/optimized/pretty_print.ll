@@ -5135,7 +5135,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i279
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i.i
 
 1048:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i281
-  %1049 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i.i to i8
+  %1049 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i.i to i8
   %1050 = or disjoint i8 %1049, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i.i
 
@@ -5684,7 +5684,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i373
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i378
 
 1301:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i375
-  %1302 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i.i377 to i8
+  %1302 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i.i377 to i8
   %1303 = or disjoint i8 %1302, 48
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i378
 
@@ -6224,7 +6224,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i474
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i
 
 1552:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i476
-  %1553 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i478 to i8
+  %1553 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i478 to i8
   %1554 = or disjoint i8 %1553, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i
 
@@ -6773,7 +6773,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i575
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i580
 
 1805:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i577
-  %1806 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i579 to i8
+  %1806 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i579 to i8
   %1807 = or disjoint i8 %1806, 48
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i580
 
@@ -7311,7 +7311,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i676
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i
 
 2054:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i678
-  %2055 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i.i680 to i8
+  %2055 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i.i680 to i8
   %2056 = or disjoint i8 %2055, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i
 
@@ -7858,7 +7858,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i778
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i783
 
 2305:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i780
-  %2306 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i.i782 to i8
+  %2306 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i.i782 to i8
   %2307 = or disjoint i8 %2306, 48
   br label %_ZN5arrow6StatusD2Ev.exit49.i.i.i.i.i783
 
@@ -8398,7 +8398,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i: ; p
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
 2556:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %2557 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %2557 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %2558 = or disjoint i8 %2557, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -13638,7 +13638,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i164
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i1653
 
 4928:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i1650
-  %4929 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i.i1652 to i8
+  %4929 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i.i1652 to i8
   %4930 = or disjoint i8 %4929, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i1653
 
@@ -14788,10 +14788,10 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i184
 
 5481:                                             ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i1840
   %5482 = sdiv i64 %5478, 86400000
-  %5483 = trunc i64 %5482 to i32
+  %5483 = trunc nsw i64 %5482 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %62) #20, !noalias !713
   %5484 = add nsw i32 %5483, 719468
-  %5485 = icmp sgt i32 %5483, -719469
+  %5485 = icmp sgt i64 %5478, -62162121600000
   %5486 = add nuw nsw i32 %5483, 573372
   %5487 = select i1 %5485, i32 %5484, i32 %5486
   %5488 = sdiv i32 %5487, 146097
@@ -15476,7 +15476,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i195
 
 5813:                                             ; preds = %5811
   %5814 = sdiv i64 %5810, 86400000
-  %5815 = trunc i64 %5814 to i32
+  %5815 = trunc nsw i64 %5814 to i32
   %5816 = mul nsw i64 %5814, 86400000
   %.not53.i.i.i.i.i.i.i.i.i = icmp slt i64 %5810, %5816
   br i1 %.not53.i.i.i.i.i.i.i.i.i, label %5819, label %5817
@@ -16299,7 +16299,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
 
 6279:                                             ; preds = %6277
   %6280 = sdiv i64 %5810, 86400
-  %6281 = trunc i64 %6280 to i32
+  %6281 = trunc nsw i64 %6280 to i32
   %6282 = mul nsw i64 %6280, 86400
   %.not46.i.i.i.i.i.i.i.i.i = icmp slt i64 %5810, %6282
   br i1 %.not46.i.i.i.i.i.i.i.i.i, label %6285, label %6283
@@ -17083,7 +17083,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i201
   %6665 = add nsw i64 %.neg.i5.i.i.i.i.i.i.i.i.i.i.i2037, %6661
   %.neg.i6.i.i.i.i.i.i.i.i.i.i.i2038 = mul nsw i64 %6664, -60000
   %6666 = add nsw i64 %6665, %.neg.i6.i.i.i.i.i.i.i.i.i.i.i2038
-  %.lhs.trunc24.i.i.i.i.i.i.i.i.i = trunc i64 %6666 to i32
+  %.lhs.trunc24.i.i.i.i.i.i.i.i.i = trunc nsw i64 %6666 to i32
   %6667 = sdiv i32 %.lhs.trunc24.i.i.i.i.i.i.i.i.i, 1000
   %.sext.i.i.i.i.i.i.i.i.i = sext i32 %6667 to i64
   %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i2039 = mul nsw i64 %.sext.i.i.i.i.i.i.i.i.i, -1000
@@ -17208,7 +17208,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %.zext.i16.i.i.i.i.i.i.i.i = zext nneg i32 %6725 to i64
   %.neg.i6.i.i.i17.i.i.i.i.i.i.i.i = mul nsw i64 %.zext.i16.i.i.i.i.i.i.i.i, -60000000
   %6726 = add nsw i64 %.neg.i6.i.i.i17.i.i.i.i.i.i.i.i, %6724
-  %.lhs.trunc22.i.i.i.i.i.i.i.i.i = trunc i64 %6726 to i32
+  %.lhs.trunc22.i.i.i.i.i.i.i.i.i = trunc nsw i64 %6726 to i32
   %6727 = sdiv i32 %.lhs.trunc22.i.i.i.i.i.i.i.i.i, 1000000
   %.sext.i18.i.i.i.i.i.i.i.i = sext i32 %6727 to i64
   %.neg.i.i.i.i.i19.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i18.i.i.i.i.i.i.i.i, -1000000
@@ -18008,7 +18008,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i213
 
 7095:                                             ; preds = %7094
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %45) #20, !noalias !798
-  %.lhs.trunc.i.i.i.i.i.i.i.i.i2179 = trunc nuw i64 %7093 to i32
+  %.lhs.trunc.i.i.i.i.i.i.i.i.i2179 = trunc nuw nsw i64 %7093 to i32
   %7096 = udiv i32 %.lhs.trunc.i.i.i.i.i.i.i.i.i2179, 3600000
   %.zext.i.i.i.i.i.i.i.i.i2180 = zext nneg i32 %7096 to i64
   %7097 = udiv i32 %.lhs.trunc.i.i.i.i.i.i.i.i.i2179, 60000
@@ -18019,7 +18019,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i213
   %7099 = add nsw i64 %.neg.i5.i.i.i.i.i.i.i.i.i.i.i2183, %7093
   %.neg.i6.i.i.i.i.i.i.i.i.i.i.i2184 = mul nsw i64 %7098, -60000
   %7100 = add nsw i64 %7099, %.neg.i6.i.i.i.i.i.i.i.i.i.i.i2184
-  %.lhs.trunc24.i.i.i.i.i.i.i.i.i2185 = trunc i64 %7100 to i32
+  %.lhs.trunc24.i.i.i.i.i.i.i.i.i2185 = trunc nsw i64 %7100 to i32
   %7101 = sdiv i32 %.lhs.trunc24.i.i.i.i.i.i.i.i.i2185, 1000
   %.sext.i.i.i.i.i.i.i.i.i2186 = sext i32 %7101 to i64
   %.neg.i.i.i.i.i.i.i.i.i.i.i.i.i2187 = mul nsw i64 %.sext.i.i.i.i.i.i.i.i.i2186, -1000
@@ -18391,7 +18391,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 7281:                                             ; preds = %7280
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %42) #20, !noalias !798
-  %.lhs.trunc.i70.i.i.i.i.i.i.i.i = trunc nuw i64 %7093 to i32
+  %.lhs.trunc.i70.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %7093 to i32
   %7282 = udiv i32 %.lhs.trunc.i70.i.i.i.i.i.i.i.i, 3600
   %.zext.i71.i.i.i.i.i.i.i.i = zext nneg i32 %7282 to i64
   %7283 = udiv i32 %.lhs.trunc.i70.i.i.i.i.i.i.i.i, 60
@@ -18965,7 +18965,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i227
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i2284
 
 7547:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i2281
-  %7548 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i.i2283 to i8
+  %7548 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i.i2283 to i8
   %7549 = or disjoint i8 %7548, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i2284
 
@@ -19031,7 +19031,7 @@ _ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i.i2284: ; p
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2287
 
 7582:                                             ; preds = %._crit_edge.i5.i.i.i.i.i.i.i
-  %7583 = trunc nuw i32 %.0.lcssa.i6.i.i.i.i.i.i.i to i8
+  %7583 = trunc nuw nsw i32 %.0.lcssa.i6.i.i.i.i.i.i.i to i8
   %7584 = or disjoint i8 %7583, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2287
 
@@ -19097,7 +19097,7 @@ _ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2287: ; p
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit15.i.i.i.i.i.i.i
 
 7617:                                             ; preds = %._crit_edge.i10.i.i.i.i.i.i.i
-  %7618 = trunc nuw i32 %.0.lcssa.i11.i.i.i.i.i.i.i to i8
+  %7618 = trunc nuw nsw i32 %.0.lcssa.i11.i.i.i.i.i.i.i to i8
   %7619 = or disjoint i8 %7618, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit15.i.i.i.i.i.i.i
 
@@ -19649,7 +19649,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit46.i.i.i.i.i237
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2380
 
 7872:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i2377
-  %7873 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i2379 to i8
+  %7873 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i2379 to i8
   %7874 = or disjoint i8 %7873, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2380
 
@@ -20206,7 +20206,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter18IndentAfterNewlineEv.exit44.i.i.i.i.i247
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2482
 
 8126:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i2479
-  %8127 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i2481 to i8
+  %8127 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i2481 to i8
   %8128 = or disjoint i8 %8127, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2482
 
@@ -20272,7 +20272,7 @@ _ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i.i2482: ; p
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit9.i.i.i.i.i.i.i
 
 8161:                                             ; preds = %._crit_edge.i4.i.i.i.i.i.i.i
-  %8162 = trunc nuw i32 %.0.lcssa.i5.i.i.i.i.i.i.i to i8
+  %8162 = trunc nuw nsw i32 %.0.lcssa.i5.i.i.i.i.i.i.i to i8
   %8163 = or disjoint i8 %8162, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit9.i.i.i.i.i.i.i
 
@@ -25184,7 +25184,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %31, %29, %25, %21, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
 71:                                               ; preds = %._crit_edge.i.i.i
-  %72 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %72 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %73 = or disjoint i8 %72, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
@@ -25370,7 +25370,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19: ; preds = %120, %118, %114, %
   br label %._crit_edge.loopexit48
 
 160:                                              ; preds = %._crit_edge.i.i.i21
-  %161 = trunc nuw i32 %.0.lcssa.i.i.i22 to i8
+  %161 = trunc nuw nsw i32 %.0.lcssa.i.i.i22 to i8
   %162 = or disjoint i8 %161, 48
   br label %._crit_edge.loopexit48
 
@@ -25806,7 +25806,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %31, %29, %25, %21, 
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
@@ -25988,7 +25988,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i19: ; preds = %116, %114, %110, %
   br label %._crit_edge.loopexit48
 
 152:                                              ; preds = %._crit_edge.i.i.i21
-  %153 = trunc nuw i64 %.0.lcssa.i.i.i22 to i8
+  %153 = trunc nuw nsw i64 %.0.lcssa.i.i.i22 to i8
   %154 = or disjoint i8 %153, 48
   br label %._crit_edge.loopexit48
 
@@ -34842,7 +34842,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %24, %22, %18, %14, 
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit.._crit_edge_crit_edge
 
 60:                                               ; preds = %._crit_edge.i.i.i
-  %61 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %61 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %62 = or disjoint i8 %61, 48
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit.._crit_edge_crit_edge
 
@@ -35010,7 +35010,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i17: ; preds = %105, %103, %99, %9
   br label %._crit_edge.loopexit47
 
 140:                                              ; preds = %._crit_edge.i.i.i19
-  %141 = trunc nuw i64 %.0.lcssa.i.i.i20 to i8
+  %141 = trunc nuw nsw i64 %.0.lcssa.i.i.i20 to i8
   %142 = or disjoint i8 %141, 48
   br label %._crit_edge.loopexit47
 

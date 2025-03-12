@@ -1891,7 +1891,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr noundef nonnull writeonl
 
 8:                                                ; preds = %6
   %9 = lshr i64 %1, 6
-  %10 = trunc nuw i64 %9 to i8
+  %10 = trunc nuw nsw i64 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %0, align 1, !tbaa !26
   %12 = trunc i64 %1 to i8
@@ -1907,7 +1907,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr noundef nonnull writeonl
 
 18:                                               ; preds = %16
   %19 = lshr i64 %1, 12
-  %20 = trunc nuw i64 %19 to i8
+  %20 = trunc nuw nsw i64 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %0, align 1, !tbaa !26
   %22 = lshr i64 %1, 6
@@ -1929,7 +1929,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr noundef nonnull writeonl
 
 33:                                               ; preds = %31
   %34 = lshr i64 %1, 18
-  %35 = trunc nuw i64 %34 to i8
+  %35 = trunc nuw nsw i64 %34 to i8
   %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %0, align 1, !tbaa !26
   %37 = lshr i64 %1, 12
@@ -1957,7 +1957,7 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr noundef nonnull writeonl
 
 53:                                               ; preds = %51
   %54 = lshr i64 %1, 24
-  %55 = trunc nuw i64 %54 to i8
+  %55 = trunc nuw nsw i64 %54 to i8
   %56 = or disjoint i8 %55, -8
   store i8 %56, ptr %0, align 1, !tbaa !26
   %57 = lshr i64 %1, 18
@@ -1991,11 +1991,11 @@ define dso_local range(i32 1, 7) i32 @rb_uv_to_utf8(ptr noundef nonnull writeonl
 
 78:                                               ; preds = %76
   %79 = lshr i64 %1, 30
-  %80 = trunc nuw i64 %79 to i8
+  %80 = trunc nuw nsw i64 %79 to i8
   %81 = or disjoint i8 %80, -4
   store i8 %81, ptr %0, align 1, !tbaa !26
   %82 = lshr i64 %1, 24
-  %83 = trunc nuw i64 %82 to i8
+  %83 = trunc nuw nsw i64 %82 to i8
   %84 = and i8 %83, 63
   %85 = or disjoint i8 %84, -128
   %86 = getelementptr i8, ptr %0, i64 1

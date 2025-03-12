@@ -522,7 +522,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
   br i1 %or.cond.not, label %21, label %16, !prof !66
 
 16:                                               ; preds = %11
-  %17 = trunc nuw i64 %14 to i8
+  %17 = trunc nuw nsw i64 %14 to i8
   %18 = sub nuw nsw i8 23, %17
   store i8 %18, ptr %7, align 1, !tbaa !37
   %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
@@ -1636,7 +1636,7 @@ define linkonce_odr void @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_1
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %24, %23, %21, %10
-  %25 = trunc nuw i64 %4 to i8
+  %25 = trunc nuw nsw i64 %4 to i8
   %26 = sub nuw nsw i8 23, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %26, ptr %27, align 1, !tbaa !37

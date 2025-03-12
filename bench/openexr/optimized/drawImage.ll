@@ -1425,7 +1425,7 @@ _ZN12_GLOBAL__N_15scaleEfRN7Imf_3_44RgbaE.exit.us: ; preds = %270, %267, %265, %
   %303 = add nsw i32 %299, -94
   %304 = shl i32 %302, %303
   %305 = lshr i32 %302, %300
-  %306 = trunc nuw i32 %305 to i16
+  %306 = trunc nuw nsw i32 %305 to i16
   %307 = icmp ugt i32 %304, -2147483648
   br i1 %307, label %311, label %308
 

@@ -23949,7 +23949,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc nuw i32 %.0.lcssa.i to i8
+  %58 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -161111,13 +161111,13 @@ _ZNK4CGAL23CartesianKernelFunctors14Bounded_side_3INS_16Simple_cartesianINS_11In
   %.sroa.0.0.i.i.i.i.i41 = phi i32 [ 1, %_ZNK4CGAL23CartesianKernelFunctors14Bounded_side_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Sphere_3IS5_EERKNS_7Point_3IS5_EE.exit37 ], [ -1, %307 ], [ %314, %311 ]
   %316 = icmp slt i32 %.sroa.5.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i35
   %317 = icmp slt i32 %.sroa.5.0.i.i.i.i.i34, %.sroa.0.0.i.i.i.i.i
-  %or.cond.i.i = or i1 %317, %316
+  %or.cond.i.i = select i1 %316, i1 true, i1 %317
   br i1 %or.cond.i.i, label %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit, label %318
 
 318:                                              ; preds = %_ZNK4CGAL23CartesianKernelFunctors14Bounded_side_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEclERKNS_8Sphere_3IS5_EERKNS_7Point_3IS5_EE.exit43
   %319 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
   %320 = icmp eq i32 %.sroa.0.0.i.i.i.i.i35, %.sroa.5.0.i.i.i.i.i34
-  %or.cond8.i.i = and i1 %319, %320
+  %or.cond8.i.i = select i1 %319, i1 %320, i1 false
   %spec.select.i.i = zext i1 %or.cond8.i.i to i16
   %321 = or disjoint i16 %spec.select.i.i, 256
   br label %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit
@@ -161136,13 +161136,13 @@ _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit: ; preds = %_Z
 326:                                              ; preds = %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit
   %327 = icmp slt i32 %.sroa.5.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i41
   %328 = icmp slt i32 %.sroa.5.0.i.i.i.i.i40, %.sroa.0.0.i.i.i.i.i
-  %or.cond.i.i50 = or i1 %328, %327
+  %or.cond.i.i50 = select i1 %327, i1 true, i1 %328
   br i1 %or.cond.i.i50, label %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56, label %329
 
 329:                                              ; preds = %326
   %330 = icmp eq i32 %.sroa.0.0.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i
   %331 = icmp eq i32 %.sroa.0.0.i.i.i.i.i41, %.sroa.5.0.i.i.i.i.i40
-  %or.cond8.i.i51 = and i1 %330, %331
+  %or.cond8.i.i51 = select i1 %330, i1 %331, i1 false
   %spec.select.i.i52 = zext i1 %or.cond8.i.i51 to i16
   %332 = or disjoint i16 %spec.select.i.i52, 256
   br label %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56
@@ -161161,13 +161161,13 @@ _ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56: ; preds = %
 337:                                              ; preds = %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit56
   %338 = icmp slt i32 %.sroa.5.0.i.i.i.i.i34, %.sroa.0.0.i.i.i.i.i41
   %339 = icmp slt i32 %.sroa.5.0.i.i.i.i.i40, %.sroa.0.0.i.i.i.i.i35
-  %or.cond.i.i63 = or i1 %339, %338
+  %or.cond.i.i63 = select i1 %338, i1 true, i1 %339
   br i1 %or.cond.i.i63, label %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69, label %340
 
 340:                                              ; preds = %337
   %341 = icmp eq i32 %.sroa.0.0.i.i.i.i.i35, %.sroa.5.0.i.i.i.i.i34
   %342 = icmp eq i32 %.sroa.0.0.i.i.i.i.i41, %.sroa.5.0.i.i.i.i.i40
-  %or.cond8.i.i64 = and i1 %341, %342
+  %or.cond8.i.i64 = select i1 %341, i1 %342, i1 false
   %spec.select.i.i65 = zext i1 %or.cond8.i.i64 to i16
   %343 = or disjoint i16 %spec.select.i.i65, 256
   br label %_ZN4CGALneINS_12Bounded_sideEEENS_9UncertainIbEENS2_IT_EES5_.exit69

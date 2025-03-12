@@ -8998,7 +8998,7 @@ define internal fastcc range(i32 -1, 1) i32 @l_mod(ptr noundef %0, ptr noundef r
 
 fast_mod.exit:                                    ; preds = %15, %17
   %.0.i = phi i32 [ %16, %15 ], [ %21, %17 ]
-  %22 = trunc nuw i64 %.val to i32
+  %22 = trunc nuw nsw i64 %.val to i32
   %23 = and i32 %22, 3
   %24 = sub nsw i32 1, %23
   %25 = mul i32 %.0.i, %24
@@ -11430,7 +11430,7 @@ define internal fastcc ptr @_PyLong_FromSTwoDigits(i64 noundef %0) unnamed_addr 
   br i1 %7, label %37, label %8
 
 8:                                                ; preds = %5
-  %9 = trunc i64 %0 to i32
+  %9 = trunc nsw i64 %0 to i32
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %11 = load ptr, ptr %10, align 8, !tbaa !9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -18798,7 +18798,7 @@ define internal fastcc ptr @long_new_impl(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not33, label %63, label %60
 
 60:                                               ; preds = %56
-  %61 = trunc i64 %46 to i32
+  %61 = trunc nuw nsw i64 %46 to i32
   %62 = tail call ptr @PyLong_FromUnicodeObject(ptr noundef nonnull %1, i32 noundef %61)
   br label %long_subtype_new.exit
 
@@ -18848,7 +18848,7 @@ PyObject_TypeCheck.exit45.thread:                 ; preds = %63, %PyObject_TypeC
 PyByteArray_AS_STRING.exit:                       ; preds = %70, %PyObject_TypeCheck.exit45.thread, %73
   %.val = phi i64 [ %.val.pre, %73 ], [ %.val.i46, %70 ], [ 0, %PyObject_TypeCheck.exit45.thread ]
   %.0 = phi ptr [ %74, %73 ], [ %72, %70 ], [ @_PyByteArray_empty_string, %PyObject_TypeCheck.exit45.thread ]
-  %75 = trunc i64 %46 to i32
+  %75 = trunc nuw nsw i64 %46 to i32
   %76 = tail call ptr @_PyLong_FromBytes(ptr noundef %.0, i64 noundef %.val, i32 noundef %75)
   br label %long_subtype_new.exit
 

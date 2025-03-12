@@ -1375,7 +1375,7 @@ define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %0, ptr noundef r
   br i1 %or.cond51, label %ossl_quic_vlint_encode_len.exit, label %17
 
 17:                                               ; preds = %13
-  %18 = trunc nuw i64 %0 to i32
+  %18 = trunc nuw nsw i64 %0 to i32
   %19 = add nuw nsw i32 %18, 1
   %20 = add nuw nsw i32 %19, %15
   br label %ossl_quic_vlint_encode_len.exit

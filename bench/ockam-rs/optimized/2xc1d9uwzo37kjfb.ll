@@ -1308,7 +1308,7 @@ default.unreachable23:                            ; preds = %885, %874, %858, %5
 414:                                              ; preds = %401, %397
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %29)
   store i8 1, ptr %385, align 8, !noalias !111
-  %415 = trunc i8 %388 to i1
+  %415 = trunc nuw i8 %388 to i1
   br i1 %415, label %440, label %424
 
 .body.i.i.i:                                      ; preds = %412, %375
@@ -2995,7 +2995,7 @@ default.unreachable23:                            ; preds = %885, %874, %858, %5
 967:                                              ; preds = %954, %950
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   store i8 1, ptr %938, align 8, !noalias !307
-  %968 = trunc i8 %941 to i1
+  %968 = trunc nuw i8 %941 to i1
   br i1 %968, label %982, label %977
 
 .body.i.i366.i:                                   ; preds = %965, %928

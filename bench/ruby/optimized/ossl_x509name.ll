@@ -699,7 +699,7 @@ RSTRING_PTR.exit:                                 ; preds = %rb_num2int_inline.e
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %95 = trunc i64 %92 to i32
+  %95 = trunc nsw i64 %92 to i32
   %96 = call i32 @X509_NAME_add_entry_by_txt(ptr noundef nonnull %74, ptr noundef %43, i32 noundef %84, ptr noundef %.sroa.2.0.i, i32 noundef %95, i32 noundef %.0, i32 noundef %.09) #8
   %.not16 = icmp eq i32 %96, 0
   br i1 %.not16, label %97, label %99
@@ -767,7 +767,7 @@ rb_check_arity.exit:                              ; preds = %3
   unreachable
 
 ossl_x509name_to_s_old.exit:                      ; preds = %16
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nsw i64 %17 to i32
   %21 = tail call i64 @ossl_buf2str(ptr noundef nonnull %13, i32 noundef %20) #8
   br label %29
 

@@ -283,7 +283,7 @@ define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt1
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = trunc i32 %8 to i16
+  %11 = trunc nsw i32 %8 to i16
   store i16 %11, ptr %2, align 2, !tbaa !24
   br label %12
 

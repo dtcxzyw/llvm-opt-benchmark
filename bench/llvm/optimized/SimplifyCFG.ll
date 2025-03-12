@@ -23579,7 +23579,7 @@ _ZN4llvm9adl_beginIRKNS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMap
 
 .lr.ph.split.split.us.i.i.i.i.i.i.i:              ; preds = %.lr.ph.split.i.i.i.i.i.i.i
   %2332 = add i64 %2307, 1
-  %2333 = trunc i64 %2332 to i32
+  %2333 = trunc nuw i64 %2332 to i32
   br label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.us22.i.i.i.i.i.i.i
 
 _ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.us22.i.i.i.i.i.i.i: ; preds = %_ZN4llvm16DenseMapIteratorIPNS_7PHINodeEPNS_4TypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EELb1EEppEv.exit.us.i.i.i.i.i.i.i, %.lr.ph.split.split.us.i.i.i.i.i.i.i
@@ -23686,7 +23686,7 @@ _ZN4llvm16DenseMapIteratorIPNS_7PHINodeEPNS_4TypeENS_12DenseMapInfoIS2_vEENS_6de
 .lr.ph.split.split.split.i.i.i.i.i.i.i:           ; preds = %.lr.ph.split.split.i.i.i.i.i.i.i
   %.0.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %2305, align 8, !tbaa !196
   %2362 = add i64 %.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  %2363 = trunc i64 %2362 to i32
+  %2363 = trunc nuw i64 %2362 to i32
   br label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm16DenseMapIteratorIPNS_7PHINodeEPNS_4TypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EELb1EEppEv.exit.i.i.i.i.i.i.i, %.lr.ph.split.split.split.i.i.i.i.i.i.i
@@ -23965,7 +23965,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12Dense
 .lr.ph.i276.i:                                    ; preds = %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit.i.i
   %2474 = getelementptr inbounds nuw i8, ptr %2134, i64 32
   %2475 = getelementptr inbounds nuw i8, ptr %2134, i64 40
-  %2476 = trunc i64 %.0395.i to i32
+  %2476 = trunc nuw i64 %.0395.i to i32
   br label %2477
 
 2477:                                             ; preds = %_ZN4llvm16DenseMapIteratorIPNS_7PHINodeEPNS_4TypeENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EELb1EEppEv.exit.i.i, %.lr.ph.i276.i
@@ -40837,7 +40837,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i270.i:       ; preds = %308
   br i1 %.not.i.i.i.i.i.i.i274.i, label %_ZSt20uninitialized_fill_nIPmmmET_S1_T0_RKT1_.exit.i271.i, label %.lr.ph.i.i.i.i.i.i.i272.i, !llvm.loop !1114
 
 _ZSt20uninitialized_fill_nIPmmmET_S1_T0_RKT1_.exit.i271.i: ; preds = %.lr.ph.i.i.i.i.i.i.i272.i, %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i270.i
-  %323 = trunc nuw i64 %313 to i32
+  %323 = trunc nuw nsw i64 %313 to i32
   store i32 %323, ptr %100, align 8, !tbaa !26
   br label %_ZN4llvm15SmallVectorImplImE6assignEmm.exit279.i
 
@@ -63208,7 +63208,7 @@ _ZN4llvm9adl_beginIRNS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapI
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm9adl_beginIRNS_13SmallDenseMapIPNS_7PHINodeEPNS_4TypeELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEEEEDTclsr10adl_detailE10begin_implclsr3stdE7forwardIT_Efp_EEEOSD_.exit
   %.val.val4.fr.i.i.i.i = freeze i64 %.40.val
-  %32 = trunc i64 %.0.val to i32
+  %32 = trunc nuw i64 %.0.val to i32
   %33 = getelementptr inbounds nuw i8, ptr %.32.val, i64 %.val.val4.fr.i.i.i.i
   %.not15.not.i.i.i.i.i.i.i.i = icmp eq i64 %.val.val4.fr.i.i.i.i, 0
   br i1 %.not15.not.i.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN4llvm16DenseMapIteratorIPNS0_7PHINodeEPNS0_4TypeENS0_12DenseMapInfoIS3_vEENS0_6detail12DenseMapPairIS3_S5_EELb0EEEZL19switchToLookupTablePNS0_10SwitchInstERNS0_9IRBuilderINS0_14ConstantFolderENS0_24IRBuilderDefaultInserterEEEPNS0_14DomTreeUpdaterERKNS0_10DataLayoutERKNS0_19TargetTransformInfoEE3$_0EbT_SS_T0_.exit", label %.lr.ph.split.i.i.i.i

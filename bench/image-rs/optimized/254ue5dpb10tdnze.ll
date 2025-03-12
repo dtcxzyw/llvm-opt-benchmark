@@ -44107,7 +44107,7 @@ define hidden i16 @"_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..tra
   unreachable
 
 "_ZN69_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..traits..Pixel$GT$16apply_with_alpha17hf6ec43edf55e6ec6E.llvm.1609853135345852838.exit": ; preds = %3
-  %.sroa.0.0.insert.ext = trunc nuw i32 %.0.in.sroa.speculated.i.i.i to i16
+  %.sroa.0.0.insert.ext = trunc nuw nsw i32 %.0.in.sroa.speculated.i.i.i to i16
   %.sroa.0.0.insert.mask = and i16 %4, -256
   %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
   ret i16 %.sroa.0.0.insert.insert

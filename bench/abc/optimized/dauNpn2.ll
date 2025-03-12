@@ -3561,7 +3561,7 @@ define void @Dtt_MakePI(i32 noundef %0, ptr noundef writeonly captures(none) %1)
   br label %.loopexit
 
 11:                                               ; preds = %6
-  %12 = trunc nuw i32 %.012 to i8
+  %12 = trunc nuw nsw i32 %.012 to i8
   %char = add nuw nsw i8 %12, 97
   store i8 %char, ptr %1, align 1
   %nul = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -3701,7 +3701,7 @@ Dtt_ComposeNP.exit:                               ; preds = %52, %74
   br label %Dtt_MakePI.exit
 
 72:                                               ; preds = %67
-  %73 = trunc nuw i32 %.012.i to i8
+  %73 = trunc nuw nsw i32 %.012.i to i8
   %char.i = add nuw nsw i8 %73, 97
   store i8 %char.i, ptr %9, align 16
   %nul.i = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -3864,7 +3864,7 @@ Dtt_ComposeNP.exit:                               ; preds = %22, %44
   br label %Dtt_MakePI.exit
 
 42:                                               ; preds = %37
-  %43 = trunc nuw i32 %.012.i to i8
+  %43 = trunc nuw nsw i32 %.012.i to i8
   %char.i = add nuw nsw i8 %43, 97
   store i8 %char.i, ptr %8, align 16
   %nul.i = getelementptr inbounds nuw i8, ptr %8, i64 1

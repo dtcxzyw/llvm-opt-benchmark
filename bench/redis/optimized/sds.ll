@@ -153,7 +153,7 @@ switch.lookup79:                                  ; preds = %switch.lookup
   %58 = getelementptr inbounds i8, ptr %33, i64 -9
   %59 = trunc i64 %1 to i32
   store i32 %59, ptr %58, align 1, !tbaa !16
-  %60 = trunc i64 %43 to i32
+  %60 = trunc nuw i64 %43 to i32
   %61 = getelementptr inbounds i8, ptr %33, i64 -5
   store i32 %60, ptr %61, align 1, !tbaa !16
   br label %65

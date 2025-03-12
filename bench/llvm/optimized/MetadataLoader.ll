@@ -23116,7 +23116,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i:    ; preds = %72, %_ZN4llvm23Smal
 
 _ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit: ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i, %73
   %77 = phi i32 [ %.pre8.i, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i ], [ %.pre.i28, %73 ]
-  %78 = trunc nsw i64 %66 to i32
+  %78 = trunc nuw nsw i64 %66 to i32
   %79 = add i32 %77, %78
   br label %147
 
@@ -23172,7 +23172,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit.i32:  ; preds = %98, %_ZN4llvm23Smal
 
 _ZN4llvm15SmallVectorImplImE6appendIPKmvEEvT_S5_.exit37: ; preds = %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i32, %99
   %103 = phi i32 [ %.pre8.i33, %_ZN4llvm15SmallVectorImplImE7reserveEm.exit.i32 ], [ %.pre.i35, %99 ]
-  %104 = trunc nsw i64 %92 to i32
+  %104 = trunc nuw nsw i64 %92 to i32
   %105 = add i32 %103, %104
   store i32 %105, ptr %45, align 8, !tbaa !26
   %106 = load i32, ptr %46, align 4, !tbaa !27

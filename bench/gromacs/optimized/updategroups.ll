@@ -313,7 +313,7 @@ define void @_ZN3gmx34makeUpdateGroupingsPerMoleculeTypeB5cxx11ERK10gmx_mtop_t(p
   br i1 %61, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i, label %62
 
 62:                                               ; preds = %56
-  %63 = trunc nuw i64 %.024.i.i.i to i32
+  %63 = trunc nuw nsw i64 %.024.i.i.i to i32
   %.not.i.i.i.i.i = icmp eq ptr %52, %51
   br i1 %.not.i.i.i.i.i, label %66, label %64
 
@@ -535,7 +535,7 @@ _ZN3gmxL21hasIncompatibleVsitesERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit
   br i1 %154, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i30.i, label %155
 
 155:                                              ; preds = %149
-  %156 = trunc nuw i64 %.024.i.i26.i to i32
+  %156 = trunc nuw nsw i64 %.024.i.i26.i to i32
   %.not.i.i.i.i28.i = icmp eq ptr %145, %144
   br i1 %.not.i.i.i.i28.i, label %159, label %157
 
@@ -1490,7 +1490,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit.i.i.i:         ; preds = %.noexc.i, %.lr.ph.i
   br i1 %526, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i, label %527
 
 527:                                              ; preds = %521
-  %528 = trunc nuw i64 %.024.i.i.i.i to i32
+  %528 = trunc nuw nsw i64 %.024.i.i.i.i to i32
   %.not.i.i.i20.i.i.i = icmp eq ptr %517, %516
   br i1 %.not.i.i.i20.i.i.i, label %531, label %529
 
@@ -2576,7 +2576,7 @@ define internal fastcc noundef zeroext i1 @_ZN3gmxL22hasFlexibleConstraintsERK13
   br i1 %16, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i, label %17
 
 17:                                               ; preds = %11
-  %18 = trunc nuw i64 %.024.i to i32
+  %18 = trunc nuw nsw i64 %.024.i to i32
   %.not.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i, label %21, label %19
 
@@ -2988,7 +2988,7 @@ define internal fastcc i64 @_ZN3gmxL19vsiteConstructRangeEiRK13gmx_moltype_t(i32
   br i1 %16, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i, label %17
 
 17:                                               ; preds = %11
-  %18 = trunc nuw i64 %.024.i to i32
+  %18 = trunc nuw nsw i64 %.024.i to i32
   %.not.i.i.i = icmp eq ptr %7, %6
   br i1 %.not.i.i.i, label %21, label %19
 
@@ -5083,7 +5083,7 @@ define noundef zeroext i1 @_ZN3gmx28systemHasConstraintsOrVsitesERK10gmx_mtop_t(
   br i1 %31, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i.i.i.i.i, label %32
 
 32:                                               ; preds = %26
-  %33 = trunc nuw i64 %.024.i.i.i.i.i.i.i.i to i32
+  %33 = trunc nuw nsw i64 %.024.i.i.i.i.i.i.i.i to i32
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %22, %21
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %36, label %34
 

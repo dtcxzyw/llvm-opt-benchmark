@@ -7003,7 +7003,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = 
   br i1 %115, label %120, label %116, !prof !34
 
 116:                                              ; preds = %114
-  %.rhs.trunc.i = trunc nuw i64 %8 to i16
+  %.rhs.trunc.i = trunc nuw nsw i64 %8 to i16
   %117 = udiv i16 256, %.rhs.trunc.i
   %.zext.i = zext nneg i16 %117 to i64
   %118 = add nuw nsw i64 %.zext.i, 1
@@ -9306,7 +9306,7 @@ define noundef zeroext i1 @"_ZN83_$LT$actix_http..header..shared..quality..Quali
   br label %11
 
 34:                                               ; preds = %22
-  %.lhs.trunc = trunc nuw i16 %4 to i8
+  %.lhs.trunc = trunc nuw nsw i16 %4 to i8
   %35 = urem i8 %.lhs.trunc, 10
   %36 = udiv i8 %.lhs.trunc, 10
   %37 = icmp eq i8 %35, 0

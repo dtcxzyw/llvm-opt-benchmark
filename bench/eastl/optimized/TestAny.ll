@@ -8477,7 +8477,7 @@ if.then.i.i.i:                                    ; preds = %if.end
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %if.end
-  %11 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %11 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 23, %11
   store i8 %conv.i.i.i5.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
@@ -9313,7 +9313,7 @@ if.then.i.i.i.i:                                  ; preds = %sw.bb2
   br label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %sw.bb2
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %5
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl3any24storage_handler_internalINS_12basic_stringIcNS_9allocatorEEEE9constructIRS4_EEvRNS0_7storageEOT_.exit

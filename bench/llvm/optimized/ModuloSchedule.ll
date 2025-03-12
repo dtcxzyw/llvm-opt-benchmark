@@ -29675,7 +29675,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %257, %_ZN4llvm11raw
   br i1 %.not.i.i33.i, label %275, label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i.i
 
 275:                                              ; preds = %272
-  %276 = trunc i64 %273 to i32
+  %276 = trunc nsw i64 %273 to i32
   store i32 %276, ptr %263, align 4, !tbaa !144
   br label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i.i
 
@@ -29698,7 +29698,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i.i: ; preds = %275, %272, %_ZNK
   br i1 %.not.i24.i.i, label %286, label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit26.i.i
 
 286:                                              ; preds = %283
-  %287 = trunc i64 %284 to i32
+  %287 = trunc nsw i64 %284 to i32
   store i32 %287, ptr %262, align 4, !tbaa !144
   br label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit26.i.i
 

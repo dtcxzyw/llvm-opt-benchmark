@@ -743,7 +743,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   br label %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJRS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %while.body
-  %13 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
+  %13 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %13
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJRS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
@@ -1484,7 +1484,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body
   br label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJRS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %while.body
-  %13 = trunc nuw i64 %sub.ptr.div.i.i.i to i8
+  %13 = trunc nuw nsw i64 %sub.ptr.div.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 11, %13
   store i8 %conv.i.i.i5.i.i, ptr %mnRemainingSize.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJRS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
@@ -6734,7 +6734,7 @@ if.then.i.i.i:                                    ; preds = %if.then4
   br label %_ZN5eastl12basic_stringIc15MallocAllocatorEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then4
-  %16 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %16 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 23, %16
   store i8 %conv.i.i.i5.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIc15MallocAllocatorEC2ERKS2_.exit
@@ -6833,7 +6833,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else
   br label %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.else
-  %33 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
+  %33 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %33
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i16, align 1
   br label %_ZN5eastl9hashtableINS_12basic_stringIc15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
@@ -7205,7 +7205,7 @@ if.then.i.i.i:                                    ; preds = %if.then4
   br label %_ZN5eastl12basic_stringIDs15MallocAllocatorEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then4
-  %16 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %16 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 11, %16
   store i8 %conv.i.i.i5.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIDs15MallocAllocatorEC2ERKS2_.exit
@@ -7305,7 +7305,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else
   br label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.else
-  %33 = trunc nuw i64 %sub.ptr.div.i.i.i to i8
+  %33 = trunc nuw nsw i64 %sub.ptr.div.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 11, %33
   store i8 %conv.i.i.i5.i.i, ptr %mnRemainingSize.i.i.i.i.i.i.i17, align 1
   br label %_ZN5eastl9hashtableINS_12basic_stringIDs15MallocAllocatorEES3_NS_9allocatorENS_8use_selfIS3_EENS_8equal_toIS3_EENS_11string_hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit

@@ -2282,7 +2282,7 @@ Abc_TtStretch6.exit204:                           ; preds = %._crit_edge.us.i202
   %223 = sext i32 %193 to i64
   %224 = getelementptr inbounds i64, ptr %58, i64 %223
   %225 = add nsw i64 %indvars.iv262, -6
-  %226 = trunc nsw i64 %225 to i32
+  %226 = trunc nuw nsw i64 %225 to i32
   %227 = shl nuw i32 1, %226
   %228 = icmp sgt i32 %193, 0
   br i1 %228, label %.preheader.lr.ph.i, label %Abc_TtFlip.exit

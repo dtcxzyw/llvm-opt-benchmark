@@ -11468,7 +11468,7 @@ malloc_conf_error.exit:                           ; preds = %131, %128
   br i1 %141, label %142, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 142:                                              ; preds = %140
-  %143 = trunc i64 %.41608 to i32
+  %143 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 12, ptr noundef nonnull %.016192070, i32 noundef %143, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -11526,7 +11526,7 @@ malloc_conf_error.exit686:                        ; preds = %153, %150
   br i1 %161, label %162, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 162:                                              ; preds = %malloc_conf_error.exit686
-  %163 = trunc i64 %.41608 to i32
+  %163 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 5, ptr noundef nonnull %.016192070, i32 noundef %163, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -11570,7 +11570,7 @@ malloc_conf_error.exit687:                        ; preds = %171, %168
   br i1 %179, label %180, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 180:                                              ; preds = %malloc_conf_error.exit687
-  %181 = trunc i64 %.41608 to i32
+  %181 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 10, ptr noundef nonnull %.016192070, i32 noundef %181, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -11614,7 +11614,7 @@ malloc_conf_error.exit688:                        ; preds = %189, %186
   br i1 %197, label %198, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 198:                                              ; preds = %malloc_conf_error.exit688
-  %199 = trunc i64 %.41608 to i32
+  %199 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 15, ptr noundef nonnull %.016192070, i32 noundef %199, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -11658,7 +11658,7 @@ malloc_conf_error.exit689:                        ; preds = %207, %204
   br i1 %215, label %216, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 216:                                              ; preds = %malloc_conf_error.exit689
-  %217 = trunc i64 %.41608 to i32
+  %217 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 13, ptr noundef nonnull %.016192070, i32 noundef %217, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -11759,7 +11759,7 @@ malloc_conf_error.exit691:                        ; preds = %249, %246
   br i1 %257, label %258, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 258:                                              ; preds = %malloc_conf_error.exit691
-  %259 = trunc i64 %.41608 to i32
+  %259 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 6, ptr noundef nonnull %.016192070, i32 noundef %259, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -12457,7 +12457,7 @@ malloc_conf_error.exit708:                        ; preds = %543, %540
   br i1 %551, label %552, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 552:                                              ; preds = %malloc_conf_error.exit708
-  %553 = trunc i64 %.41608 to i32
+  %553 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 11, ptr noundef nonnull %.016192070, i32 noundef %553, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -12728,7 +12728,7 @@ malloc_conf_error.exit721:                        ; preds = %630, %638, %642, %6
   br i1 %648, label %649, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 649:                                              ; preds = %malloc_conf_error.exit721
-  %650 = trunc i64 %.41608 to i32
+  %650 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 4, ptr noundef nonnull %.016192070, i32 noundef %650, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -12772,7 +12772,7 @@ malloc_conf_error.exit722:                        ; preds = %658, %655
   br i1 %666, label %667, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 667:                                              ; preds = %malloc_conf_error.exit722
-  %668 = trunc i64 %.41608 to i32
+  %668 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 4, ptr noundef nonnull %.016192070, i32 noundef %668, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -12816,7 +12816,7 @@ malloc_conf_error.exit723:                        ; preds = %676, %673
   br i1 %684, label %685, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 685:                                              ; preds = %malloc_conf_error.exit723
-  %686 = trunc i64 %.41608 to i32
+  %686 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 27, ptr noundef nonnull %.016192070, i32 noundef %686, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -12860,7 +12860,7 @@ malloc_conf_error.exit724:                        ; preds = %694, %691
   br i1 %702, label %703, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 703:                                              ; preds = %malloc_conf_error.exit724
-  %704 = trunc i64 %.41608 to i32
+  %704 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 22, ptr noundef nonnull %.016192070, i32 noundef %704, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -12912,7 +12912,7 @@ malloc_conf_error.exit725:                        ; preds = %715, %712
 
 725:                                              ; preds = %malloc_conf_error.exit725
   %726 = trunc i64 %95 to i32
-  %727 = trunc i64 %.41608 to i32
+  %727 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %726, ptr noundef nonnull %.016192070, i32 noundef %727, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -13685,7 +13685,7 @@ malloc_conf_error.exit730.thread:                 ; preds = %838, %834, %malloc_
   br i1 %1048, label %1049, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 1049:                                             ; preds = %1046
-  %1050 = trunc i64 %.41608 to i32
+  %1050 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 17, ptr noundef nonnull %.016192070, i32 noundef %1050, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -13805,7 +13805,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1099, label %1100, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 1100:                                             ; preds = %1097
-  %1101 = trunc i64 %.41608 to i32
+  %1101 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 3, ptr noundef nonnull %.016192070, i32 noundef %1101, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -14028,7 +14028,7 @@ sub_2:                                            ; preds = %sub_1
 
 1193:                                             ; preds = %1190
   %1194 = trunc i64 %95 to i32
-  %1195 = trunc i64 %.41608 to i32
+  %1195 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef %1194, ptr noundef nonnull %.016192070, i32 noundef %1195, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
@@ -14600,7 +14600,7 @@ sub_22031:                                        ; preds = %sub_12030
   br i1 %1430, label %1431, label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 
 1431:                                             ; preds = %1428
-  %1432 = trunc i64 %.41608 to i32
+  %1432 = trunc nuw nsw i64 %.41608 to i32
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.100, i32 noundef 12, ptr noundef nonnull %.016192070, i32 noundef %1432, ptr noundef nonnull %91) #20
   br label %malloc_conf_error.exit.thread1634, !llvm.loop !221
 

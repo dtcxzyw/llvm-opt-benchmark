@@ -334,7 +334,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %43, %41, %20
   br label %.loopexit
 
 44:                                               ; preds = %17
-  %45 = trunc nuw i16 %12 to i8
+  %45 = trunc nuw nsw i16 %12 to i8
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef signext %45) #11
   br label %53
 

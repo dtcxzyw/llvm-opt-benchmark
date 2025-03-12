@@ -423,7 +423,7 @@ define void @_Z9WideToUtfPKwPcm(ptr noundef readonly captures(none) %0, ptr noun
 18:                                               ; preds = %17
   %19 = add nsw i64 %.04079, -2
   %20 = lshr i32 %6, 6
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -64
   %23 = getelementptr inbounds nuw i8, ptr %.04477, i64 1
   store i8 %22, ptr %.04477, align 1, !tbaa !3
@@ -468,7 +468,7 @@ define void @_Z9WideToUtfPKwPcm(ptr noundef readonly captures(none) %0, ptr noun
 41:                                               ; preds = %.thread
   %42 = add nsw i64 %.2, -2
   %43 = lshr i32 %6, 12
-  %44 = trunc nuw i32 %43 to i8
+  %44 = trunc nuw nsw i32 %43 to i8
   %45 = or disjoint i8 %44, -32
   %46 = getelementptr inbounds nuw i8, ptr %.04477, i64 1
   store i8 %45, ptr %.04477, align 1, !tbaa !3
@@ -498,7 +498,7 @@ define void @_Z9WideToUtfPKwPcm(ptr noundef readonly captures(none) %0, ptr noun
 
 60:                                               ; preds = %.thread66
   %61 = lshr i32 %.06170, 18
-  %62 = trunc nuw i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   %63 = or disjoint i8 %62, -16
   %64 = getelementptr inbounds nuw i8, ptr %.04477, i64 1
   store i8 %63, ptr %.04477, align 1, !tbaa !3

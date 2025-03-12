@@ -190,7 +190,7 @@ if.end7:                                          ; preds = %if.else.i, %if.then
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 %sub.i.i.i, i64 %9
   %add13.i.i = add i64 %cond.i.i.i, %conv.i
   %cmp.i.i.i.i.i.i7 = icmp ult i64 %add13.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %add13.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %add13.i.i to i32
   %retval.0.i.i.i = select i1 %cmp.i.i.i.i.i.i7, i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, i32 -1
   ret i32 %retval.0.i.i.i
 }
@@ -696,7 +696,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %3 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %3
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1

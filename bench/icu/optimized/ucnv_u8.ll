@@ -64,7 +64,7 @@ define void @ucnv_fromUnicode_UTF8_77(ptr noundef captures(none) %0, ptr noundef
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %24
-  %30 = trunc nuw i16 %26 to i8
+  %30 = trunc nuw nsw i16 %26 to i8
   %31 = getelementptr inbounds nuw i8, ptr %.190, i64 1
   store i8 %30, ptr %.190, align 1, !tbaa !25
   br label %.loopexit
@@ -75,7 +75,7 @@ define void @ucnv_fromUnicode_UTF8_77(ptr noundef captures(none) %0, ptr noundef
 
 34:                                               ; preds = %32
   %35 = lshr i16 %26, 6
-  %36 = trunc nuw i16 %35 to i8
+  %36 = trunc nuw nsw i16 %35 to i8
   %37 = or disjoint i8 %36, -64
   %38 = getelementptr inbounds nuw i8, ptr %.190, i64 1
   store i8 %37, ptr %.190, align 1, !tbaa !25
@@ -317,7 +317,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   %32 = add nsw i32 %.1114, 1
   %33 = getelementptr inbounds nuw i8, ptr %.1123, i64 4
   store i32 %.1114, ptr %.1123, align 4, !tbaa !33
-  %34 = trunc nuw i16 %28 to i8
+  %34 = trunc nuw nsw i16 %28 to i8
   %35 = getelementptr inbounds nuw i8, ptr %.1129, i64 1
   store i8 %34, ptr %.1129, align 1, !tbaa !25
   br label %.loopexit
@@ -330,7 +330,7 @@ define void @ucnv_fromUnicode_UTF8_OFFSETS_LOGIC_77(ptr noundef captures(none) %
   %39 = getelementptr inbounds nuw i8, ptr %.1123, i64 4
   store i32 %.1114, ptr %.1123, align 4, !tbaa !33
   %40 = lshr i16 %28, 6
-  %41 = trunc nuw i16 %40 to i8
+  %41 = trunc nuw nsw i16 %40 to i8
   %42 = or disjoint i8 %41, -64
   %43 = getelementptr inbounds nuw i8, ptr %.1129, i64 1
   store i8 %42, ptr %.1129, align 1, !tbaa !25

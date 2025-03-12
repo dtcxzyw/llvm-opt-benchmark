@@ -26932,7 +26932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10GfMatrix4dELj4EE12_Ini
   br label %213
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10GfMatrix4dELj4EE12_InitStorageEm.exit.i: ; preds = %205
-  %.pre.i.i = trunc nuw i64 %6 to i32
+  %.pre.i.i = trunc nuw nsw i64 %6 to i32
   %.pre345 = shl nuw nsw i64 %6, 7
   br label %213
 
@@ -28521,7 +28521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10GfMatrix4dELj4EE12_Ini
   br label %.lr.ph.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_10GfMatrix4dELj4EE12_InitStorageEm.exit: ; preds = %2
-  %.pre.i = trunc nuw i64 %1 to i32
+  %.pre.i = trunc nuw nsw i64 %1 to i32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i32 %.pre.i, ptr %11, align 8
   %.not = icmp eq i64 %1, 0

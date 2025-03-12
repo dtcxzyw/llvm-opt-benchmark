@@ -4264,7 +4264,7 @@ _ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEED2Ev.exit: ; preds = %._crit_edge
   %48 = and i32 %47, -64
   %49 = call i32 @llvm.umin.i32(i32 %41, i32 %48)
   %50 = lshr i32 %40, 6
-  %51 = trunc i32 %50 to i8
+  %51 = trunc nuw nsw i32 %50 to i8
   %52 = or i8 %51, -64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %52, ptr %5, align 1
@@ -4651,7 +4651,7 @@ _ZNSt3mapIjS_IhjSt4lessIhESaISt4pairIKhjEEES0_IjESaIS2_IKjS6_EEED2Ev.exit: ; pre
   %73 = and i32 %72, -64
   %74 = call i32 @llvm.umin.i32(i32 %66, i32 %73)
   %75 = lshr i32 %65, 12
-  %76 = trunc i32 %75 to i8
+  %76 = trunc nuw nsw i32 %75 to i8
   %77 = or i8 %76, -32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -4883,7 +4883,7 @@ _ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread.i138: ; preds = %_
   %164 = and i32 %163, -4096
   %165 = call i32 @llvm.umin.i32(i32 %.0104, i32 %164)
   %166 = lshr i32 %.0102, 12
-  %167 = trunc i32 %166 to i8
+  %167 = trunc nuw nsw i32 %166 to i8
   %168 = or i8 %167, -32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %168, ptr %6, align 1
@@ -5581,7 +5581,7 @@ _ZNSt3mapIjS_IhjSt4lessIhESaISt4pairIKhjEEES0_IjESaIS2_IKjS6_EEED2Ev.exit: ; pre
   %88 = and i32 %87, -64
   %89 = call i32 @llvm.umin.i32(i32 %81, i32 %88)
   %90 = lshr i32 %80, 18
-  %91 = trunc i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or i8 %91, -16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
@@ -5855,7 +5855,7 @@ _ZNSt3mapIhjSt4lessIhESaISt4pairIKhjEEE4findERS3_.exit.thread.i212: ; preds = %_
   %197 = and i32 %196, -4096
   %198 = call i32 @llvm.umin.i32(i32 %.0169, i32 %197)
   %199 = lshr i32 %.0166, 18
-  %200 = trunc i32 %199 to i8
+  %200 = trunc nuw nsw i32 %199 to i8
   %201 = or i8 %200, -16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #23
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
@@ -6238,7 +6238,7 @@ _ZN3ue218UTF8ComponentClass19ensureTwoDotTrailerERNS_18GlushkovBuildStateE.exit:
   %366 = and i32 %365, -262144
   %367 = call i32 @llvm.umin.i32(i32 %.1170, i32 %366)
   %368 = lshr i32 %.1167, 18
-  %369 = trunc i32 %368 to i8
+  %369 = trunc nuw nsw i32 %368 to i8
   %370 = or i8 %369, -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %370, ptr %5, align 1

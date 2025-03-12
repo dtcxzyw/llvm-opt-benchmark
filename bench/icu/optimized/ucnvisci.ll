@@ -1571,7 +1571,7 @@ switch.early.test801:                             ; preds = %_ZL14isPNJConsonant
   ]
 
 753:                                              ; preds = %751, %751, %751
-  %754 = trunc i16 %752 to i8
+  %754 = trunc nuw i16 %752 to i8
   %755 = getelementptr inbounds nuw i8, ptr %744, i64 65
   store i8 %754, ptr %755, align 1, !tbaa !35
   %756 = getelementptr inbounds nuw i8, ptr %744, i64 64

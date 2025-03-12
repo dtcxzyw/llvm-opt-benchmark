@@ -1757,7 +1757,7 @@ context_setemax.exit:                             ; preds = %51, %context_setemi
   br i1 %or.cond.i, label %context_setstatus_list.exit.sink.split, label %context_setcapitals.exit
 
 context_setcapitals.exit:                         ; preds = %59
-  %60 = trunc nuw i64 %55 to i32
+  %60 = trunc nuw nsw i64 %55 to i32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %60, ptr %61, align 8, !tbaa !51
   br label %62
@@ -2161,7 +2161,7 @@ define internal range(i32 -1, 1) i32 @context_setcapitals(ptr noundef writeonly 
   br label %13
 
 10:                                               ; preds = %8
-  %11 = trunc nuw i64 %4 to i32
+  %11 = trunc nuw nsw i64 %4 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %11, ptr %12, align 8, !tbaa !51
   br label %13
@@ -23610,7 +23610,7 @@ sequence_as_tuple.exit.thread:                    ; preds = %62, %59, %sequence_
   br i1 %or.cond7.us, label %.thread110, label %99
 
 99:                                               ; preds = %98
-  %100 = trunc nuw i64 %96 to i8
+  %100 = trunc nuw nsw i64 %96 to i8
   %101 = or disjoint i8 %100, 48
   %102 = getelementptr i8, ptr %.1129.us, i64 1
   store i8 %101, ptr %.1129.us, align 1, !tbaa !38

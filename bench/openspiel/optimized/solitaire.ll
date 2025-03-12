@@ -4458,7 +4458,7 @@ _ZNSt6vectorIN10open_spiel9solitaire8SuitTypeESaIS2_EEaSEOS4_.exit: ; preds = %1
   br i1 %or.cond3, label %34, label %37
 
 34:                                               ; preds = %32
-  %35 = trunc nuw i64 %1 to i32
+  %35 = trunc nuw nsw i64 %1 to i32
   %36 = add nsw i32 %35, -184
   br label %65
 
@@ -4468,7 +4468,7 @@ _ZNSt6vectorIN10open_spiel9solitaire8SuitTypeESaIS2_EEaSEOS4_.exit: ; preds = %1
   br i1 %or.cond5, label %39, label %42
 
 39:                                               ; preds = %37
-  %40 = trunc nuw i64 %1 to i32
+  %40 = trunc nuw nsw i64 %1 to i32
   %41 = add nsw i32 %40, -188
   br label %65
 
@@ -4478,7 +4478,7 @@ _ZNSt6vectorIN10open_spiel9solitaire8SuitTypeESaIS2_EEaSEOS4_.exit: ; preds = %1
   br i1 %or.cond7, label %44, label %47
 
 44:                                               ; preds = %42
-  %45 = trunc nuw i64 %1 to i32
+  %45 = trunc nuw nsw i64 %1 to i32
   %46 = add nsw i32 %45, -192
   br label %65
 
@@ -4490,7 +4490,7 @@ _ZNSt6vectorIN10open_spiel9solitaire8SuitTypeESaIS2_EEaSEOS4_.exit: ; preds = %1
 _ZNSt6vectorIN10open_spiel9solitaire8SuitTypeESaIS2_EEaSEOS4_.exit56: ; preds = %47
   %49 = add nsw i64 %1, -195
   %50 = lshr i64 %49, 1
-  %51 = trunc i64 %50 to i32
+  %51 = trunc nuw nsw i64 %50 to i32
   store i32 %51, ptr %6, align 4
   call void @_ZN10open_spiel9solitaire16GetOppositeSuitsERKNS0_8SuitTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %52 = and i64 %49, 1

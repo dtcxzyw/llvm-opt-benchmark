@@ -2182,7 +2182,7 @@ _ZNK8rawspeed23PrefixCodeLookupDecoderINS_15BaselineCodeTagEE26finishReadingPart
   %181 = sub nuw nsw i32 64, %179
   %182 = zext nneg i32 %181 to i64
   %183 = lshr i64 %.sroa.037.2, %182
-  %184 = trunc i64 %183 to i32
+  %184 = trunc nuw nsw i64 %183 to i32
   %185 = sub nsw i32 %.sroa.16.2, %179
   %186 = zext nneg i8 %.0202 to i64
   %187 = shl i64 %.sroa.037.2, %186

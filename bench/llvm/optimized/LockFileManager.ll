@@ -155,7 +155,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread: ; preds = %43, %26
   br label %98
 
 46:                                               ; preds = %43
-  %47 = trunc i64 %44 to i32
+  %47 = trunc nsw i64 %44 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #16

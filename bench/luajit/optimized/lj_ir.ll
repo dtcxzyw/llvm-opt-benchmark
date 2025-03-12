@@ -1481,7 +1481,7 @@ define hidden void @lj_ir_rollback(ptr noundef captures(none) %0, i32 noundef %1
   br i1 %.wide, label %11, label %._crit_edge.loopexit, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %11
-  %20 = trunc i64 %12 to i32
+  %20 = trunc nuw i64 %12 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2

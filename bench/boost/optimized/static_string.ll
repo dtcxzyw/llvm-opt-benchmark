@@ -6350,7 +6350,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   unreachable
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i64 %1 to i16
+  %7 = trunc nuw nsw i64 %1 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %1, 0
@@ -6376,7 +6376,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   unreachable
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i64 %1 to i16
+  %7 = trunc nuw nsw i64 %1 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %1, 0
@@ -6403,7 +6403,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   unreachable
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i64 %2 to i16
+  %7 = trunc nuw nsw i64 %2 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %2, 0
@@ -6429,7 +6429,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   unreachable
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i64 %2 to i16
+  %7 = trunc nuw nsw i64 %2 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %2, 0
@@ -6457,7 +6457,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   unreachable
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %3 to i16
+  %7 = trunc nuw nsw i64 %3 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %3, 0
@@ -6484,7 +6484,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   unreachable
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %3 to i16
+  %7 = trunc nuw nsw i64 %3 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %3, 0
@@ -6550,7 +6550,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   unreachable
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i64 %2 to i16
+  %7 = trunc nuw nsw i64 %2 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %2, 0
@@ -6596,7 +6596,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
   unreachable
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %3 to i16
+  %7 = trunc nuw nsw i64 %3 to i16
   store i16 %7, ptr %0, align 2, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = icmp eq i64 %3, 0
@@ -8341,7 +8341,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resizeEmc.exit
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6resizeEmc.exit: ; preds = %5, %9
-  %13 = trunc nuw i64 %1 to i16
+  %13 = trunc nuw nsw i64 %1 to i16
   store i16 %13, ptr %0, align 2, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = getelementptr inbounds nuw [421 x i8], ptr %14, i64 0, i64 %1
@@ -8372,7 +8372,7 @@ define weak_odr hidden void @_ZN5boost14static_strings19basic_static_stringILm42
   br label %_ZNSt11char_traitsIcE6assignEPcmc.exit
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %10, %6
-  %14 = trunc nuw i64 %1 to i16
+  %14 = trunc nuw nsw i64 %1 to i16
   store i16 %14, ptr %0, align 2, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = getelementptr inbounds nuw [421 x i8], ptr %15, i64 0, i64 %1
@@ -8571,7 +8571,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i:         ; preds = %27, %21
 
 _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE7replaceEPKcS6_mc.exit: ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i, %30
   %31 = add nuw nsw i64 %18, %3
-  %32 = trunc i64 %31 to i16
+  %32 = trunc nuw nsw i64 %31 to i16
   store i16 %32, ptr %0, align 2, !tbaa !4
   ret ptr %0
 }
@@ -8623,7 +8623,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit:           ; preds = %16, %25
 
 _ZNSt11char_traitsIcE6assignEPcmc.exit:           ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit, %28
   %29 = add nuw nsw i64 %13, %3
-  %30 = trunc i64 %29 to i16
+  %30 = trunc nuw nsw i64 %29 to i16
   store i16 %30, ptr %0, align 2, !tbaa !4
   ret ptr %0
 }
@@ -25325,7 +25325,7 @@ _ZN5boost14static_strings6testTSIyEEbT_PKcb.exit38: ; preds = %.preheader.i.i.i.
   unreachable
 
 132:                                              ; preds = %128
-  %133 = trunc nuw i64 %129 to i8
+  %133 = trunc nuw nsw i64 %129 to i8
   store i8 %133, ptr %24, align 1, !tbaa !133, !alias.scope !132
   %134 = icmp eq i64 %129, 0
   br i1 %134, label %_ZN5boost14static_strings16to_static_stringEf.exit.thread, label %.lr.ph.preheader
@@ -25437,7 +25437,7 @@ _ZN5boost14static_stringseqILm13EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   unreachable
 
 168:                                              ; preds = %164
-  %169 = trunc nuw i64 %165 to i8
+  %169 = trunc nuw nsw i64 %165 to i8
   store i8 %169, ptr %25, align 1, !tbaa !142, !alias.scope !141
   %170 = icmp eq i64 %165, 0
   br i1 %170, label %_ZN5boost14static_strings16to_static_stringEd.exit.thread, label %.lr.ph260.preheader
@@ -25549,7 +25549,7 @@ _ZN5boost14static_stringseqILm21EcSt11char_traitsIcEEEbRKNS0_19basic_static_stri
   unreachable
 
 204:                                              ; preds = %200
-  %205 = trunc nuw i64 %201 to i8
+  %205 = trunc nuw nsw i64 %201 to i8
   store i8 %205, ptr %26, align 1, !tbaa !151, !alias.scope !150
   %206 = icmp eq i64 %201, 0
   br i1 %206, label %_ZN5boost14static_strings16to_static_stringEe.exit.thread, label %.lr.ph264.preheader
@@ -25839,7 +25839,7 @@ _ZN5boost14static_strings7testTWSIyEEbT_PKwb.exit134: ; preds = %.preheader.i.i.
   unreachable
 
 326:                                              ; preds = %322
-  %327 = trunc nuw i64 %323 to i8
+  %327 = trunc nuw nsw i64 %323 to i8
   store i8 %327, ptr %27, align 4, !tbaa !195, !alias.scope !194
   %328 = icmp eq i64 %323, 0
   br i1 %328, label %_ZN5boost14static_strings17to_static_wstringEf.exit.thread, label %_ZN5boost14static_strings17to_static_wstringEf.exit
@@ -25957,7 +25957,7 @@ _ZN5boost14static_stringseqILm13EwSt11char_traitsIwEEEbRKNS0_19basic_static_stri
   unreachable
 
 365:                                              ; preds = %361
-  %366 = trunc nuw i64 %362 to i8
+  %366 = trunc nuw nsw i64 %362 to i8
   store i8 %366, ptr %28, align 4, !tbaa !204, !alias.scope !203
   %367 = icmp eq i64 %362, 0
   br i1 %367, label %_ZN5boost14static_strings17to_static_wstringEd.exit.thread, label %_ZN5boost14static_strings17to_static_wstringEd.exit
@@ -26075,7 +26075,7 @@ _ZN5boost14static_stringseqILm21EwSt11char_traitsIwEEEbRKNS0_19basic_static_stri
   unreachable
 
 404:                                              ; preds = %400
-  %405 = trunc nuw i64 %401 to i8
+  %405 = trunc nuw nsw i64 %401 to i8
   store i8 %405, ptr %29, align 4, !tbaa !213, !alias.scope !212
   %406 = icmp eq i64 %401, 0
   br i1 %406, label %_ZN5boost14static_strings17to_static_wstringEe.exit.thread, label %_ZN5boost14static_strings17to_static_wstringEe.exit
@@ -26368,7 +26368,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings6testTSI
   unreachable
 
 _ZN5boost14static_strings16to_static_stringEj.exit: ; preds = %.loopexit.i.i
-  %25 = trunc nuw i64 %18 to i8
+  %25 = trunc nuw nsw i64 %18 to i8
   store i8 %25, ptr %5, align 1, !tbaa !91, !alias.scope !230
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %.09.i.i.i, i64 %18, i1 false)
   %26 = getelementptr inbounds nuw [11 x i8], ptr %19, i64 0, i64 %18
@@ -26893,7 +26893,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   unreachable
 
 29:                                               ; preds = %.loopexit.i.i
-  %30 = trunc nuw i64 %26 to i8
+  %30 = trunc nuw nsw i64 %26 to i8
   store i8 %30, ptr %5, align 4, !tbaa !273, !alias.scope !270
   %31 = icmp eq i64 %.0.i.idx.i.i, 44
   br i1 %31, label %_ZN5boost14static_strings17to_static_wstringEi.exit, label %32
@@ -27000,7 +27000,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   unreachable
 
 _ZN5boost14static_strings17to_static_wstringEj.exit: ; preds = %.loopexit.i.i
-  %25 = trunc nuw i64 %19 to i8
+  %25 = trunc nuw nsw i64 %19 to i8
   store i8 %25, ptr %5, align 4, !tbaa !283, !alias.scope !281
   %26 = call ptr @wmemmove(ptr noundef nonnull %scevgep.i.i.i.i, ptr noundef nonnull %.09.i.i.i, i64 noundef %19) #36
   %.pre.i.i.i.i = load i8, ptr %5, align 4, !tbaa !283, !alias.scope !281
@@ -27122,7 +27122,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   unreachable
 
 27:                                               ; preds = %.loopexit.i.i
-  %28 = trunc nuw i64 %24 to i8
+  %28 = trunc nuw nsw i64 %24 to i8
   store i8 %28, ptr %5, align 4, !tbaa !163, !alias.scope !291
   %29 = icmp eq i64 %.0.i.idx.i.i, 80
   br i1 %29, label %_ZN5boost14static_strings17to_static_wstringEx.exit, label %30
@@ -27204,7 +27204,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   unreachable
 
 14:                                               ; preds = %10
-  %15 = trunc nuw i64 %11 to i8
+  %15 = trunc nuw nsw i64 %11 to i8
   store i8 %15, ptr %5, align 4, !tbaa !204, !alias.scope !298
   %16 = icmp eq i64 %11, 0
   br i1 %16, label %_ZN5boost14static_strings17to_static_wstringEd.exit, label %17
@@ -27303,7 +27303,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   unreachable
 
 14:                                               ; preds = %10
-  %15 = trunc nuw i64 %11 to i8
+  %15 = trunc nuw nsw i64 %11 to i8
   store i8 %15, ptr %5, align 4, !tbaa !213, !alias.scope !309
   %16 = icmp eq i64 %11, 0
   br i1 %16, label %_ZN5boost14static_strings17to_static_wstringEe.exit, label %17
@@ -27403,7 +27403,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14static_strings7testTWS
   unreachable
 
 15:                                               ; preds = %11
-  %16 = trunc nuw i64 %12 to i8
+  %16 = trunc nuw nsw i64 %12 to i8
   store i8 %16, ptr %5, align 4, !tbaa !195, !alias.scope !316
   %17 = icmp eq i64 %12, 0
   br i1 %17, label %_ZN5boost14static_strings17to_static_wstringEf.exit, label %18
@@ -76332,7 +76332,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %26, %20
 
 _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceEmmmc.exit: ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i, %29
   %30 = add nuw nsw i64 %17, %3
-  %31 = trunc i64 %30 to i16
+  %31 = trunc nuw nsw i64 %30 to i16
   store i16 %31, ptr %0, align 2, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %33 = load i16, ptr %5, align 2, !tbaa !54
@@ -76340,7 +76340,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replac
   br i1 %or.cond.not.i, label %34, label %_ZN5boost14static_stringseqILm400ELm400EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET1_T2_EERKNS4_IXT0_ES5_S6_EE.exit
 
 34:                                               ; preds = %_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceEmmmc.exit
-  %35 = icmp eq i16 %31, 0
+  %35 = icmp eq i64 %30, 0
   br i1 %35, label %_ZN5boost14static_stringseqILm400ELm400EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET1_T2_EERKNS4_IXT0_ES5_S6_EE.exit, label %36
 
 36:                                               ; preds = %34
@@ -80102,7 +80102,7 @@ _ZN5boost14static_strings19basic_static_stringILm20EcSt11char_traitsIcEE6insertE
 _ZN5boost14static_stringsplILm10ELm10EcSt11char_traitsIcEEENS0_19basic_static_stringIXplT_T0_ET1_T2_EERAT__KS5_RKNS4_IXT0_ES5_S6_EE.exit: ; preds = %114, %115, %_ZN5boost14static_strings19basic_static_stringILm20EcSt11char_traitsIcEE6insertEmPKc.exit.sink.split.i
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %120, i8 0, i64 21, i1 false), !alias.scope !1605
-  %121 = trunc nuw i64 %101 to i8
+  %121 = trunc nuw nsw i64 %101 to i8
   %122 = add nuw nsw i8 %121, 5
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %124 = zext nneg i8 %122 to i64

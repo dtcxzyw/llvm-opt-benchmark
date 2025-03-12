@@ -359,7 +359,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 15:                                               ; preds = %15, %13
   %16 = phi i64 [ 0, %13 ], [ %24, %15 ]
   %17 = load ptr, ptr %14, align 8
-  %18 = trunc i64 %16 to i32
+  %18 = trunc nuw i64 %16 to i32
   %19 = add i32 %4, %18
   %20 = zext i32 %19 to i64
   %21 = getelementptr i64, ptr %17, i64 %20
@@ -441,7 +441,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
   br i1 %72, label %62, label %73, !llvm.loop !15
 
 73:                                               ; preds = %62
-  %74 = trunc i64 %69 to i32
+  %74 = trunc nuw i64 %69 to i32
   store i32 %74, ptr %56, align 4
   %75 = icmp ult i32 %4, %74
   br i1 %75, label %.preheader, label %.thread
@@ -449,7 +449,7 @@ define dso_local void @mpi_rshift(ptr noundef %0, ptr noundef readonly captures(
 .preheader:                                       ; preds = %73, %.preheader
   %76 = phi i64 [ %84, %.preheader ], [ 0, %73 ]
   %77 = load ptr, ptr %61, align 8
-  %78 = trunc i64 %76 to i32
+  %78 = trunc nuw i64 %76 to i32
   %79 = add i32 %4, %78
   %80 = zext i32 %79 to i64
   %81 = getelementptr i64, ptr %77, i64 %80
@@ -819,7 +819,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly captures(
 116:                                              ; preds = %116, %114
   %117 = phi i64 [ 0, %114 ], [ %125, %116 ]
   %118 = load ptr, ptr %115, align 8
-  %119 = trunc i64 %117 to i32
+  %119 = trunc nuw i64 %117 to i32
   %120 = add nuw i32 %109, %119
   %121 = zext i32 %120 to i64
   %122 = getelementptr i64, ptr %118, i64 %121

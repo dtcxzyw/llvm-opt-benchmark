@@ -759,7 +759,7 @@ define hidden void @png_set_sCAL_s(ptr noalias noundef %0, ptr noalias noundef c
   unreachable
 
 33:                                               ; preds = %30
-  %34 = trunc nuw i32 %2 to i8
+  %34 = trunc nuw nsw i32 %2 to i8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 316
   store i8 %34, ptr %35, align 4
   %36 = add i64 %14, 1

@@ -38,7 +38,7 @@ search.exit.thread:                               ; preds = %7, %search.exit
   br label %22
 
 12:                                               ; preds = %search.exit
-  %.tr = trunc nuw i32 %.02.i to i8
+  %.tr = trunc nuw nsw i32 %.02.i to i8
   %13 = shl nuw nsw i8 %.tr, 4
   %14 = icmp samesign ult i32 %.02.i, 2
   %15 = trunc i32 %.017 to i8

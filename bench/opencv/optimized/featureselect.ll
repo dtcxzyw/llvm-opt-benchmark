@@ -1998,7 +1998,7 @@ _ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exi
   br label %73
 
 ._crit_edge:                                      ; preds = %_ZN2cv19goodFeaturesToTrackERKNS_11_InputArrayERKNS_12_OutputArrayEiddS2_ibd.exit
-  %72 = trunc i64 %64 to i32
+  %72 = trunc nuw nsw i64 %64 to i32
   store i32 %72, ptr %4, align 4, !tbaa !32
   %.not.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, label %73

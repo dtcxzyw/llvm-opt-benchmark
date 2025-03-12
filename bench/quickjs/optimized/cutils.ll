@@ -596,7 +596,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %0, align 1, !tbaa !7
   br label %61
@@ -607,7 +607,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
 
 15:                                               ; preds = %13
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %18, ptr %0, align 1, !tbaa !7
@@ -619,7 +619,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
 
 22:                                               ; preds = %20
   %23 = lshr i32 %1, 18
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -16
   store i8 %25, ptr %0, align 1, !tbaa !7
   br label %50
@@ -630,7 +630,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
 
 28:                                               ; preds = %26
   %29 = lshr i32 %1, 24
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %31, ptr %0, align 1, !tbaa !7
@@ -647,7 +647,7 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %38, ptr %0, align 1, !tbaa !7
   %40 = lshr i32 %1, 24
-  %41 = trunc nuw i32 %40 to i8
+  %41 = trunc nuw nsw i32 %40 to i8
   %42 = and i8 %41, 63
   %43 = or disjoint i8 %42, -128
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 2

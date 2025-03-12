@@ -9559,7 +9559,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %126
 
 314:                                              ; preds = %286
-  %315 = trunc i8 %288 to i1
+  %315 = trunc nuw i8 %288 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !2061)
@@ -9660,7 +9660,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %126
 
 342:                                              ; preds = %316
-  %343 = trunc i8 %318 to i1
+  %343 = trunc nuw i8 %318 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !2067)
@@ -10732,7 +10732,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %126
 
 314:                                              ; preds = %286
-  %315 = trunc i8 %288 to i1
+  %315 = trunc nuw i8 %288 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !2249)
@@ -10833,7 +10833,7 @@ define internal fastcc void @"_ZN78_$LT$parquet..format..Statistics$u20$as$u20$p
   br label %126
 
 342:                                              ; preds = %316
-  %343 = trunc i8 %318 to i1
+  %343 = trunc nuw i8 %318 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !2255)
@@ -24654,7 +24654,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %211
 
 266:                                              ; preds = %221
-  %267 = trunc i8 %223 to i1
+  %267 = trunc nuw i8 %223 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73), !noalias !4725
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72), !noalias !4725
   call void @llvm.experimental.noalias.scope.decl(metadata !4848)
@@ -25406,7 +25406,7 @@ define internal fastcc void @"_ZN87_$LT$parquet..format..EncryptionAlgorithm$u20
   br label %447
 
 502:                                              ; preds = %457
-  %503 = trunc i8 %459 to i1
+  %503 = trunc nuw i8 %459 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35), !noalias !4972
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34), !noalias !4972
   call void @llvm.experimental.noalias.scope.decl(metadata !5095)

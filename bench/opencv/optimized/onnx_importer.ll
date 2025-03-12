@@ -68384,7 +68384,7 @@ _ZN2cv3dnn14dnn4_v2024122312ONNXImporter7getBlobERKN11opencv_onnx9NodeProtoEi.ex
   store double %147, ptr %16, align 8, !tbaa !381
   %148 = getelementptr inbounds nuw i8, ptr %16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %148, i8 0, i64 24, i1 false)
-  %149 = trunc i64 %138 to i32
+  %149 = trunc nuw i64 %138 to i32
   invoke void @_ZN2cv3MatC1EiPKiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %149, ptr noundef nonnull %134, i32 noundef %.025, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %150 unwind label %158
 

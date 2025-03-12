@@ -38889,7 +38889,7 @@ _ZNK4llvm6detail12DenseSetImplIPKNS_4SCEVENS_8DenseMapIS4_NS0_13DenseSetEmptyENS
   %.neg81 = phi i64 [ -1, %83 ], [ %.neg, %86 ]
   %91 = add nsw i64 %.neg81, %81
   %92 = load i32, ptr %13, align 8, !tbaa !1275
-  %93 = trunc i64 %91 to i32
+  %93 = trunc nuw i64 %91 to i32
   %94 = add i32 %92, %93
   br label %95
 

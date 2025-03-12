@@ -10011,7 +10011,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.4253.0.extract.trunc = trunc nuw i64 %.sroa.4253.0.extract.shift to i32
   %84 = trunc i64 %83 to i1
   %.not107 = icmp ne i32 %2, %.sroa.4253.0.extract.trunc
-  %or.cond277.not = and i1 %.not107, %84
+  %or.cond277.not = select i1 %84, i1 %.not107, i1 false
   br i1 %or.cond277.not, label %_ZNR4absl7debian28optionalIiEdeEv.exit117, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit127
 
 _ZNR4absl7debian28optionalIiEdeEv.exit117:        ; preds = %.preheader302

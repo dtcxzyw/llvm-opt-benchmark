@@ -44208,7 +44208,7 @@ _ZN4llvm12PowerOf2CeilEm.exit.i:                  ; preds = %264
   %270 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %266, i1 true)
   %271 = sub nuw nsw i64 64, %270
   %272 = shl nuw nsw i64 1, %271
-  %273 = trunc i64 %272 to i32
+  %273 = trunc nuw nsw i64 %272 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93) #35
   %274 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %275 = load ptr, ptr %274, align 8, !tbaa !421
@@ -89311,7 +89311,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %71
   %157 = load ptr, ptr %156, align 8, !tbaa !421
   %.sroa.023.0.copyload = load i16, ptr %5, align 8, !tbaa !226
   %.sroa.225.0.copyload = load ptr, ptr %31, align 8, !tbaa !342
-  %158 = trunc i64 %72 to i32
+  %158 = trunc nuw i64 %72 to i32
   %159 = add i32 %158, 1
   %160 = call { i16, ptr } @_ZN4llvm3EVT11getVectorVTERNS_11LLVMContextES0_jb(ptr noundef nonnull align 8 dereferenceable(8) %157, i16 %.sroa.023.0.copyload, ptr %.sroa.225.0.copyload, i32 noundef %159, i1 noundef zeroext false)
   %161 = extractvalue { i16, ptr } %160, 0
@@ -111162,7 +111162,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit336: ; pre
   br i1 %536, label %521, label %._crit_edge.i, !llvm.loop !2011
 
 ._crit_edge.i:                                    ; preds = %533, %512
-  %537 = trunc i64 %518 to i32
+  %537 = trunc nuw i64 %518 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit: ; preds = %521

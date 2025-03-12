@@ -25491,7 +25491,7 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %194
 .lr.ph.i.i.i.i.i:                                 ; preds = %209
   %216 = lshr i64 %215, 2
   %217 = and i64 %215, 4294967292
-  %218 = trunc i64 %.0.i.i.i.i.i.i to i32
+  %218 = trunc nuw i64 %.0.i.i.i.i.i.i to i32
   br label %219
 
 219:                                              ; preds = %286, %.lr.ph.i.i.i.i.i
@@ -25751,7 +25751,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %348
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %356 = load ptr, ptr %355, align 8, !tbaa !121
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #29
-  %357 = trunc i64 %.0.i.i.i.i.i.i to i32
+  %357 = trunc nuw i64 %.0.i.i.i.i.i.i to i32
   %358 = sub i32 %206, %357
   call void @_ZN4llvm5APInt13getLowBitsSetEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %16, i32 noundef %206, i32 noundef %358)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #29

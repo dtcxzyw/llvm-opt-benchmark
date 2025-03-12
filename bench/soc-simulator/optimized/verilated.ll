@@ -17203,7 +17203,7 @@ define dso_local noundef i32 @_Z10VL_FREAD_IiiiPvjjj(i32 noundef %0, i32 noundef
   %59 = phi i16 [ %.pre146, %.lr.ph.split.split.us._crit_edge ], [ 0, %.lr.ph.split.split.us ]
   %60 = shl i32 %53, %.083101.us109
   %61 = and i32 %60, %31
-  %62 = trunc i32 %61 to i16
+  %62 = trunc nuw i32 %61 to i16
   %63 = or i16 %59, %62
   store i16 %63, ptr %56, align 2
   %64 = add i32 %.080103.us107, 1

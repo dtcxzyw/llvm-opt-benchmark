@@ -3179,7 +3179,7 @@ default.unreachable62:                            ; preds = %899, %886, %866, %5
 991:                                              ; preds = %978, %974
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   store i8 1, ptr %962, align 8, !noalias !318
-  %992 = trunc i8 %965 to i1
+  %992 = trunc nuw i8 %965 to i1
   br i1 %992, label %1008, label %1003
 
 .body.i.i.i:                                      ; preds = %989, %948
@@ -12510,7 +12510,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !1512
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17hd7c763d3cd7d4e60E.exit.thread", label %104
 
 104:                                              ; preds = %102

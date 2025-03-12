@@ -3009,7 +3009,7 @@ _ZN4base16IsValidCharacterEj.exit.thread:         ; preds = %71, %68
   br i1 %92, label %93, label %118
 
 93:                                               ; preds = %91
-  %94 = trunc nuw i32 %66 to i8
+  %94 = trunc nuw nsw i32 %66 to i8
   %95 = load ptr, ptr %38, align 8, !tbaa !62
   %.not.i = icmp eq ptr %95, null
   br i1 %.not.i, label %113, label %96
@@ -3206,7 +3206,7 @@ _ZN4base16IsValidCharacterEj.exit25:              ; preds = %149
   br i1 %170, label %171, label %196
 
 171:                                              ; preds = %165
-  %172 = trunc nuw i32 %146 to i8
+  %172 = trunc nuw nsw i32 %146 to i8
   %173 = load ptr, ptr %38, align 8, !tbaa !62
   %.not.i26 = icmp eq ptr %173, null
   br i1 %.not.i26, label %191, label %174
@@ -3992,7 +3992,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 
 35:                                               ; preds = %33
   %36 = lshr i32 %6, 6
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -64
   store i8 %38, ptr %4, align 4, !tbaa !22
   br label %._crit_edge.i.i
@@ -4003,7 +4003,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 
 41:                                               ; preds = %39
   %42 = lshr i32 %6, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   br label %54
 
@@ -4250,7 +4250,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
 
 69:                                               ; preds = %67
   %70 = lshr i32 %56, 6
-  %71 = trunc nuw i32 %70 to i8
+  %71 = trunc nuw nsw i32 %70 to i8
   %72 = or disjoint i8 %71, -64
   store i8 %72, ptr %5, align 8, !tbaa !22
   br label %91
@@ -4261,14 +4261,14 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
 
 .thread49:                                        ; preds = %67, %73
   %75 = lshr i32 %56, 12
-  %76 = trunc nuw i32 %75 to i8
+  %76 = trunc nuw nsw i32 %75 to i8
   %77 = or disjoint i8 %76, -32
   store i8 %77, ptr %5, align 8, !tbaa !22
   br label %86
 
 78:                                               ; preds = %73
   %79 = lshr i32 %56, 18
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, -16
   store i8 %81, ptr %5, align 8, !tbaa !22
   %82 = lshr i32 %56, 12
@@ -4331,7 +4331,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
 
 110:                                              ; preds = %108
   %111 = lshr i32 %22, 6
-  %112 = trunc nuw i32 %111 to i8
+  %112 = trunc nuw nsw i32 %111 to i8
   %113 = or disjoint i8 %112, -64
   store i8 %113, ptr %5, align 8, !tbaa !22
   br label %132
@@ -4342,14 +4342,14 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
 
 .thread53:                                        ; preds = %108, %114
   %116 = lshr i32 %22, 12
-  %117 = trunc nuw i32 %116 to i8
+  %117 = trunc nuw nsw i32 %116 to i8
   %118 = or disjoint i8 %117, -32
   store i8 %118, ptr %5, align 8, !tbaa !22
   br label %127
 
 119:                                              ; preds = %114
   %120 = lshr i32 %22, 18
-  %121 = trunc nuw i32 %120 to i8
+  %121 = trunc nuw nsw i32 %120 to i8
   %122 = or disjoint i8 %121, -16
   store i8 %122, ptr %5, align 8, !tbaa !22
   %123 = lshr i32 %22, 12

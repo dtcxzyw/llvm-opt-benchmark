@@ -1286,7 +1286,7 @@ define hidden noundef ptr @_ZN10duckdb_re26Regexp15StarPlusOrQuestENS_8RegexpOpE
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store i8 0, ptr %27, align 1, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 2
-  %29 = trunc i32 %2 to i16
+  %29 = trunc nuw i32 %2 to i16
   store i16 %29, ptr %28, align 2, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i16 1, ptr %30, align 4, !tbaa !12
@@ -1547,7 +1547,7 @@ _ZN10duckdb_re28PODArrayIPNS_6RegexpEED2Ev.exit88: ; preds = %60
 .thread131:                                       ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %86, ptr %87, align 8, !tbaa !32
-  %88 = trunc i32 %.060 to i16
+  %88 = trunc nuw i32 %.060 to i16
   store i16 %88, ptr %81, align 2, !tbaa !13
   br label %.lr.ph.preheader
 

@@ -7085,7 +7085,7 @@ _ZNSt7__cxx119to_stringEi.exit.i.i:               ; preds = %_ZNSt7__cxx1112basi
   %666 = zext nneg i32 %.lobit.i.i.i to i64
   %667 = load ptr, ptr %82, align 8, !tbaa !11, !alias.scope !491
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 %666
-  %669 = trunc nuw i32 %.03231.i.i to i8
+  %669 = trunc nuw nsw i32 %.03231.i.i to i8
   %670 = or disjoint i8 %669, 48
   store i8 %670, ptr %668, align 1, !tbaa !13
   call void @llvm.experimental.noalias.scope.decl(metadata !494)

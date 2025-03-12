@@ -128,7 +128,7 @@ define hidden range(i32 -151, 1) i32 @psa_free_key_slot(i64 noundef %0, ptr noun
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw [23 x ptr], ptr @global_data, i64 0, i64 %0
   %8 = load ptr, ptr %7, align 8, !tbaa !3
-  %9 = trunc nuw i64 %0 to i32
+  %9 = trunc nuw nsw i64 %0 to i32
   %10 = shl nuw nsw i32 16, %9
   %11 = zext nneg i32 %10 to i64
   %12 = icmp uge ptr %1, %8

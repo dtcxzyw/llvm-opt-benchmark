@@ -3923,7 +3923,7 @@ define internal void @dev_watchdog(ptr noundef %0) #0 align 16 {
   br i1 %64, label %.thread5, label %65, !prof !110
 
 65:                                               ; preds = %59
-  %66 = trunc i64 %41 to i32
+  %66 = trunc nuw i64 %41 to i32
   tail call fastcc void @trace_net_dev_xmit_timeout(ptr noundef %2, i32 noundef %66)
   %67 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !111
   tail call void (ptr, ptr, ...) @netdev_crit(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %67, i32 noundef %66, i32 noundef %62) #22

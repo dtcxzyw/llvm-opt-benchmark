@@ -1918,7 +1918,7 @@ _ZNK4llvm5APInt3uleEm.exit.i:                     ; preds = %_ZNK4llvm5APInt13ge
   %.0.in.i.i.i.i = select i1 %100, ptr %95, ptr %104
   %.0.i.i.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !14, !noalias !139
   %.not.i = icmp ugt i64 %.0.i.i.i.i, %97
-  %105 = trunc i64 %.0.i.i.i.i to i32
+  %105 = trunc nuw i64 %.0.i.i.i.i to i32
   %spec.select.i = select i1 %.not.i, ptr %58, ptr %75
   %spec.select30.i = select i1 %.not.i, i32 0, i32 %105
   br label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_12OneUse_matchINS0_14CastInst_matchINS0_7bind_tyIS2_EENS_9TruncInstEEEEEEEbPT_RKT0_.exit.thread.sink.split.i

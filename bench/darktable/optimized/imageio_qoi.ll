@@ -88,7 +88,7 @@ define noalias noundef ptr @qoi_encode(ptr noundef readonly captures(address_is_
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 7
   store i8 %45, ptr %46, align 1, !tbaa !14
   %47 = lshr i32 %13, 24
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 %48, ptr %49, align 1, !tbaa !14
   %50 = lshr i32 %13, 16

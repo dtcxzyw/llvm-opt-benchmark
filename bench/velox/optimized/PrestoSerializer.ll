@@ -6575,7 +6575,7 @@ for.end.i415:                                     ; preds = %for.end.loopexit.i4
   br i1 %cmp21.i418, label %if.then.i420, label %_ZN8facebook5velox10serializer6presto12_GLOBAL__N_129estimateWrapperSerializedSizeERKN5folly5RangeIPKiEEPPiPKNS0_10BaseVectorERNS0_7ScratchE.exit
 
 if.then.i420:                                     ; preds = %for.end.i415
-  %273 = trunc i64 %sub.ptr.div.i.i413 to i32
+  %273 = trunc nuw i64 %sub.ptr.div.i.i413 to i32
   %conv23.i421 = sub i32 %273, %i.0.lcssa.i416
   %.sroa.speculated.i.i422 = call i32 @llvm.smin.i32(i32 %conv23.i421, i32 8)
   %conv.i.i.i423 = sext i32 %.sroa.speculated.i.i422 to i64
@@ -75030,7 +75030,7 @@ for.end.i:                                        ; preds = %for.end.loopexit.i,
   br i1 %cmp21.i, label %if.then.i28, label %if.end42
 
 if.then.i28:                                      ; preds = %for.end.i
-  %18 = trunc i64 %sub.ptr.div.i.i to i32
+  %18 = trunc nuw i64 %sub.ptr.div.i.i to i32
   %conv23.i = sub i32 %18, %i.0.lcssa.i
   %.sroa.speculated.i.i = call i32 @llvm.smin.i32(i32 %conv23.i, i32 8)
   %conv.i.i.i = sext i32 %.sroa.speculated.i.i to i64
@@ -75881,7 +75881,7 @@ _ZN8facebook5velox10raw_vectorIcE12allocateDataEiRi.exit.i.i.i.i: ; preds = %_ZN
   %shl.i.i.i.i.i.i.i = shl nuw nsw i64 1, %sub.i.i.i.i.i.i.i
   %cmp1.i.i.i.i.i.i.i = icmp eq i64 %shl.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 2, %sub.i.i.i.i.i.i.i
-  %77 = trunc i64 %mul.i.i.i.i.i.i.i to i32
+  %77 = trunc nuw i64 %mul.i.i.i.i.i.i.i to i32
   %78 = select i1 %cmp1.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i158.i, i32 %77
   %conv3.i.i.i.i.i = sext i32 %78 to i64
   %call4.i.i.i.i.i = call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i.i.i) #40
@@ -76942,7 +76942,7 @@ _ZN8facebook5velox10raw_vectorIcE12allocateDataEiRi.exit.i.i.i.i390: ; preds = %
   %shl.i.i.i.i.i.i.i396 = shl nuw nsw i64 1, %sub.i.i.i.i.i.i.i395
   %cmp1.i.i.i.i.i.i.i397 = icmp eq i64 %shl.i.i.i.i.i.i.i396, %conv.i.i.i.i.i.i394
   %mul.i.i.i.i.i.i.i398 = shl nuw nsw i64 2, %sub.i.i.i.i.i.i.i395
-  %245 = trunc i64 %mul.i.i.i.i.i.i.i398 to i32
+  %245 = trunc nuw i64 %mul.i.i.i.i.i.i.i398 to i32
   %246 = select i1 %cmp1.i.i.i.i.i.i.i397, i32 %add.i.i.i.i.i.i393, i32 %245
   %conv3.i.i.i.i.i399 = sext i32 %246 to i64
   %call4.i.i.i.i.i400 = tail call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i.i.i399) #40
@@ -77487,7 +77487,7 @@ _ZN8facebook5velox10raw_vectorIcE12allocateDataEiRi.exit.i.i.i.i.i: ; preds = %_
   %shl.i.i.i.i.i.i.i.i = shl nuw nsw i64 1, %sub.i.i.i.i.i.i.i.i
   %cmp1.i.i.i.i.i.i.i.i = icmp eq i64 %shl.i.i.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
   %mul.i.i.i.i.i.i.i.i = shl nuw nsw i64 2, %sub.i.i.i.i.i.i.i.i
-  %316 = trunc i64 %mul.i.i.i.i.i.i.i.i to i32
+  %316 = trunc nuw i64 %mul.i.i.i.i.i.i.i.i to i32
   %317 = select i1 %cmp1.i.i.i.i.i.i.i.i, i32 %add.i.i.i.i.i70.i.i, i32 %316
   %conv3.i.i.i.i.i.i = sext i32 %317 to i64
   %call4.i.i.i.i.i.i = call noalias align 32 ptr @aligned_alloc(i64 noundef 32, i64 noundef %conv3.i.i.i.i.i.i) #40

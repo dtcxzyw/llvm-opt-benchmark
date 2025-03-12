@@ -5496,7 +5496,7 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
 104:                                              ; preds = %95
   %105 = add i64 %100, %spec.store.select
   store i64 %105, ptr %99, align 8
-  %106 = trunc i64 %spec.store.select to i32
+  %106 = trunc nuw nsw i64 %spec.store.select to i32
   %107 = sub nsw i32 %.04385, %106
   %108 = load ptr, ptr %.06183, align 8
   %109 = add nuw nsw i32 %.04484, 1

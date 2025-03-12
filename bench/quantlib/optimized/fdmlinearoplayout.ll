@@ -37,7 +37,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp10.not, label %if.end19, label %if.then11
 
 if.then11:                                        ; preds = %if.else
-  %.tr = trunc i64 %6 to i32
+  %.tr = trunc nuw nsw i64 %6 to i32
   %7 = shl nuw i32 %.tr, 1
   %reass.sub = sub i32 %7, %add
   %conv18 = add i32 %reass.sub, -2
@@ -84,7 +84,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp16.not, label %if.end25, label %if.then17
 
 if.then17:                                        ; preds = %if.else
-  %.tr = trunc i64 %8 to i32
+  %.tr = trunc nuw nsw i64 %8 to i32
   %9 = shl nuw i32 %.tr, 1
   %reass.sub = sub i32 %9, %add
   %conv24 = add i32 %reass.sub, -2
@@ -108,7 +108,7 @@ if.else33:                                        ; preds = %if.end25
   br i1 %cmp37.not, label %if.end47, label %if.then38
 
 if.then38:                                        ; preds = %if.else33
-  %.tr23 = trunc i64 %11 to i32
+  %.tr23 = trunc nuw nsw i64 %11 to i32
   %12 = shl nuw i32 %.tr23, 1
   %reass.sub40 = sub i32 %12, %add29
   %conv45 = add i32 %reass.sub40, -2
@@ -177,7 +177,7 @@ if.else:                                          ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.else
-  %.tr = trunc i64 %3 to i32
+  %.tr = trunc nuw nsw i64 %3 to i32
   %4 = shl nuw i32 %.tr, 1
   %reass.sub = sub i32 %4, %add
   %conv12 = add i32 %reass.sub, -2

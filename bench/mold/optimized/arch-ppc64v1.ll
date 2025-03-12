@@ -600,7 +600,7 @@ _ZNK4mold6SymbolINS_7PPC64V1EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = 
   store i8 60, ptr %1, align 1, !tbaa !260
   store i8 0, ptr %74, align 1, !tbaa !260
   %77 = lshr i32 %11, 24
-  %78 = trunc nuw i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   store i8 %78, ptr %75, align 1, !tbaa !260
   %79 = trunc i32 %73 to i8
   store i8 %79, ptr %76, align 1, !tbaa !260

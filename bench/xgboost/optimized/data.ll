@@ -25942,7 +25942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i.i:
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i
 
 200:                                              ; preds = %._crit_edge.i.i.i.i
-  %201 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %201 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   %202 = or disjoint i8 %201, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i
 
@@ -45540,7 +45540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 69:                                               ; preds = %._crit_edge.i.i
-  %70 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %70 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %71 = or disjoint i8 %70, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

@@ -5393,7 +5393,7 @@ Vec_WecStart.exit.i:                              ; preds = %104, %82
 
 161:                                              ; preds = %.lr.ph.i.i
   %162 = shl nsw i32 %159, 1
-  %163 = trunc i64 %indvars.iv.i.i to i32
+  %163 = trunc nsw i64 %indvars.iv.i.i to i32
   %164 = add nsw i32 %163, 1
   %165 = call noundef i32 @llvm.smax.i32(i32 %162, i32 %164)
   %166 = load i32, ptr %102, align 8, !tbaa !35

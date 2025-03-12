@@ -3326,7 +3326,7 @@ define dso_local ptr @SPI_fname(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br label %21
 
 18:                                               ; preds = %8
-  %19 = trunc i32 %1 to i16
+  %19 = trunc nsw i32 %1 to i16
   %20 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %19) #15
   br label %21
 
@@ -3388,7 +3388,7 @@ define dso_local ptr @SPI_getvalue(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %30
 
 27:                                               ; preds = %16
-  %28 = trunc i32 %2 to i16
+  %28 = trunc nsw i32 %2 to i16
   %29 = call ptr @SystemAttributeDefinition(i16 noundef signext %28) #15
   br label %30
 
@@ -3592,7 +3592,7 @@ define dso_local ptr @SPI_gettype(ptr noundef readonly captures(none) %0, i32 no
   br label %21
 
 18:                                               ; preds = %8
-  %19 = trunc i32 %1 to i16
+  %19 = trunc nsw i32 %1 to i16
   %20 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %19) #15
   br label %21
 
@@ -3661,7 +3661,7 @@ define dso_local i32 @SPI_gettypeid(ptr noundef readonly captures(none) %0, i32 
   br label %24
 
 19:                                               ; preds = %8
-  %20 = trunc i32 %1 to i16
+  %20 = trunc nsw i32 %1 to i16
   %21 = tail call ptr @SystemAttributeDefinition(i16 noundef signext %20) #15
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %23 = load i32, ptr %22, align 4

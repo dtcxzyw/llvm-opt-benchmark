@@ -582,7 +582,7 @@ define internal fastcc noundef zeroext i1 @update_best_guess_timestamp(i64 nound
 
 8:                                                ; preds = %5
   store i64 %0, ptr %6, align 8
-  %9 = trunc nuw i64 %1 to i32
+  %9 = trunc nuw nsw i64 %1 to i32
   %10 = mul nuw nsw i32 %9, 1000
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %10, ptr %11, align 8

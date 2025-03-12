@@ -270,13 +270,13 @@ _ZN5serde2de7Visitor9visit_f3217hdf0f65e76a6ac525E.exit: ; preds = %56, %62
   br i1 %76, label %86, label %97
 
 77:                                               ; preds = %69
-  %78 = trunc nuw i32 %71 to i8
+  %78 = trunc nuw nsw i32 %71 to i8
   store i8 %78, ptr %.sroa.0.i, align 4, !alias.scope !62, !noalias !59
   br label %_ZN5serde2de7Visitor10visit_char17hc76a61911b0f74e6E.exit
 
 79:                                               ; preds = %73
   %80 = lshr i32 %71, 6
-  %81 = trunc nuw i32 %80 to i8
+  %81 = trunc nuw nsw i32 %80 to i8
   %82 = or disjoint i8 %81, -64
   store i8 %82, ptr %.sroa.0.i, align 4, !alias.scope !62, !noalias !59
   %83 = trunc i32 %71 to i8
@@ -288,7 +288,7 @@ _ZN5serde2de7Visitor9visit_f3217hdf0f65e76a6ac525E.exit: ; preds = %56, %62
 
 86:                                               ; preds = %75
   %87 = lshr i32 %71, 12
-  %88 = trunc nuw i32 %87 to i8
+  %88 = trunc nuw nsw i32 %87 to i8
   %89 = or disjoint i8 %88, -32
   store i8 %89, ptr %.sroa.0.i, align 4, !alias.scope !62, !noalias !59
   %90 = lshr i32 %71, 6

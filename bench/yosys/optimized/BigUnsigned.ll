@@ -281,7 +281,7 @@ define noundef i32 @_ZNK11BigUnsigned13toUnsignedIntEv(ptr noundef nonnull reado
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = load i64, ptr %6, align 8, !tbaa !15
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = icmp ugt i64 %7, 4294967295
   br i1 %9, label %10, label %_ZNK11BigUnsigned18convertToPrimitiveIjEET_v.exit
 
@@ -309,7 +309,7 @@ define noundef zeroext i16 @_ZNK11BigUnsigned15toUnsignedShortEv(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = load i64, ptr %6, align 8, !tbaa !15
-  %8 = trunc i64 %7 to i16
+  %8 = trunc nuw i64 %7 to i16
   %9 = icmp ugt i64 %7, 65535
   br i1 %9, label %10, label %_ZNK11BigUnsigned18convertToPrimitiveItEET_v.exit
 
@@ -358,7 +358,7 @@ _ZNK11BigUnsigned24convertToSignedPrimitiveIlEET_v.exit: ; preds = %1, %_ZNK11Bi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, -2147483648) i32 @_ZNK11BigUnsigned5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK11BigUnsigned5toIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !14
   switch i32 %3, label %10 [
@@ -381,8 +381,8 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK11BigUnsigned5toIntEv(ptr noun
   unreachable
 
 _ZNK11BigUnsigned18convertToPrimitiveIiEET_v.exit.i: ; preds = %4
-  %12 = trunc i64 %7 to i32
-  %13 = icmp sgt i32 %12, -1
+  %12 = trunc nuw nsw i64 %7 to i32
+  %13 = icmp sgt i64 %7, -1
   br i1 %13, label %_ZNK11BigUnsigned24convertToSignedPrimitiveIiEET_v.exit, label %14
 
 14:                                               ; preds = %_ZNK11BigUnsigned18convertToPrimitiveIiEET_v.exit.i
@@ -397,7 +397,7 @@ _ZNK11BigUnsigned24convertToSignedPrimitiveIiEET_v.exit: ; preds = %1, %_ZNK11Bi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i16 0, -32768) i16 @_ZNK11BigUnsigned7toShortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define noundef signext i16 @_ZNK11BigUnsigned7toShortEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !14
   switch i32 %3, label %10 [
@@ -420,8 +420,8 @@ define noundef signext range(i16 0, -32768) i16 @_ZNK11BigUnsigned7toShortEv(ptr
   unreachable
 
 _ZNK11BigUnsigned18convertToPrimitiveIsEET_v.exit.i: ; preds = %4
-  %12 = trunc i64 %7 to i16
-  %13 = icmp sgt i16 %12, -1
+  %12 = trunc nuw nsw i64 %7 to i16
+  %13 = icmp sgt i64 %7, -1
   br i1 %13, label %_ZNK11BigUnsigned24convertToSignedPrimitiveIsEET_v.exit, label %14
 
 14:                                               ; preds = %_ZNK11BigUnsigned18convertToPrimitiveIsEET_v.exit.i

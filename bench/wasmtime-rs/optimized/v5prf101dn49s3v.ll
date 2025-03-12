@@ -19398,7 +19398,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29:
   br i1 %23, label %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.noexc
-  %.sroa.58.0.extract.trunc.i.i.i = trunc nuw i64 %21 to i32
+  %.sroa.58.0.extract.trunc.i.i.i = trunc nuw nsw i64 %21 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3505
   store i32 %.sroa.58.0.extract.trunc.i.i.i, ptr %3, align 4, !noalias !3505
   %24 = zext i32 %22 to i64
@@ -19608,7 +19608,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29:
   br i1 %23, label %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, label %.split.i.i.i
 
 .split.i.i.i:                                     ; preds = %.noexc
-  %.sroa.58.0.extract.trunc.i.i.i = trunc nuw i64 %21 to i32
+  %.sroa.58.0.extract.trunc.i.i.i = trunc nuw nsw i64 %21 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !3530
   store i32 %.sroa.58.0.extract.trunc.i.i.i, ptr %3, align 4, !noalias !3530
   %24 = zext i32 %22 to i64

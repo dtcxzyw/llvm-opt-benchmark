@@ -112,7 +112,7 @@ if.end38:                                         ; preds = %if.then35, %if.end3
 
 if.then41:                                        ; preds = %if.end38
   %data42 = getelementptr inbounds nuw i8, ptr %c, i64 40
-  %conv44 = trunc nuw i64 %len.addr.1 to i32
+  %conv44 = trunc nuw nsw i64 %len.addr.1 to i32
   store i32 %conv44, ptr %num, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %data42, ptr align 1 %data.1, i64 %len.addr.1, i1 false)
   br label %return
@@ -1514,7 +1514,7 @@ if.then41.i:                                      ; preds = %if.end32.i, %if.end
   %data.1.i21 = phi ptr [ %add.ptr36.i, %if.end38.i ], [ %d, %if.end32.i ]
   %len.addr.1.i20 = phi i64 [ %sub37.i, %if.end38.i ], [ %n, %if.end32.i ]
   %data42.i = getelementptr inbounds nuw i8, ptr %c, i64 40
-  %conv44.i = trunc nuw i64 %len.addr.1.i20 to i32
+  %conv44.i = trunc nuw nsw i64 %len.addr.1.i20 to i32
   store i32 %conv44.i, ptr %num.i, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data42.i, ptr align 1 %data.1.i21, i64 %len.addr.1.i20, i1 false)
   br label %SHA256_Update.exit

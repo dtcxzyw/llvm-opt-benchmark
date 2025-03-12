@@ -251,7 +251,7 @@ define noundef i32 @stb__clex_parse_string(ptr noundef captures(none) %0, ptr no
 
 .thread:                                          ; preds = %16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  %20 = trunc i32 %17 to i8
+  %20 = trunc nuw i32 %17 to i8
   br label %29
 
 21:                                               ; preds = %16
@@ -1011,7 +1011,7 @@ switch.early.test291:                             ; preds = %.lr.ph287
 
 .thread.i:                                        ; preds = %266
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %270 = trunc i32 %267 to i8
+  %270 = trunc nuw i32 %267 to i8
   br label %278
 
 271:                                              ; preds = %266

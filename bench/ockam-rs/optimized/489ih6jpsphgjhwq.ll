@@ -6920,7 +6920,7 @@ define hidden void @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deserialize$u2
   br i1 %6, label %10, label %9
 
 9:                                                ; preds = %2
-  %trunc.i.i = trunc i8 %5 to i1
+  %trunc.i.i = trunc nuw i8 %5 to i1
   br i1 %trunc.i.i, label %21, label %12
 
 10:                                               ; preds = %2
@@ -9328,8 +9328,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h8bee6f742a9de919E.llvm.6104221742955183211.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.011 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %13, i1 true, i1 %14
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5)
   call void @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$16receive_extended28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1a8e49b56fe4c95cE.llvm.6104221742955183211"(ptr noalias noundef nonnull sret({ i64, [29 x i64] }) align 8 captures(none) dereferenceable(240) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i64, ptr %5, align 8, !range !204, !noundef !10

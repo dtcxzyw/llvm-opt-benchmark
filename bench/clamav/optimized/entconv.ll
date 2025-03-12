@@ -2040,7 +2040,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = trunc nuw i16 %spec.select to i8
+  %35 = trunc nuw nsw i16 %spec.select to i8
   %36 = add nuw i64 %.090106, 1
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 %.090106
   store i8 %35, ptr %37, align 1, !tbaa !3
@@ -2052,7 +2052,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
 
 40:                                               ; preds = %38
   %41 = lshr i16 %spec.select, 6
-  %42 = trunc nuw i16 %41 to i8
+  %42 = trunc nuw nsw i16 %41 to i8
   %43 = or disjoint i8 %42, -64
   %44 = getelementptr inbounds nuw i8, ptr %15, i64 %.090106
   store i8 %43, ptr %44, align 1, !tbaa !3
@@ -2102,7 +2102,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %74 = load i16, ptr %73, align 1, !tbaa !3
   %75 = add i16 %74, 1024
   %76 = lshr i16 %72, 8
-  %77 = trunc nuw i16 %76 to i8
+  %77 = trunc nuw nsw i16 %76 to i8
   %78 = or disjoint i8 %77, -16
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 %.090106
   store i8 %78, ptr %79, align 1, !tbaa !3

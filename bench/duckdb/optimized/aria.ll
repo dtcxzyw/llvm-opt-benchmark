@@ -65,7 +65,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %32 = add nsw i32 %2, -128
   %33 = lshr exact i32 %32, 6
   %34 = lshr exact i32 %32, 5
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = add nuw nsw i8 %35, 12
   store i8 %36, ptr %0, align 4, !tbaa !7
   %37 = zext nneg i32 %33 to i64

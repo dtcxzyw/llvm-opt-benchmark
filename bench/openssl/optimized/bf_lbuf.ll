@@ -108,7 +108,7 @@ define internal i32 @linebuffer_write(ptr noundef %0, ptr noundef %1, i32 nounde
 44:                                               ; preds = %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1126, i64 %.pre-phi221, i1 false)
   %45 = load i32, ptr %16, align 4, !tbaa !23
-  %46 = trunc i64 %.pre-phi221 to i32
+  %46 = trunc nuw nsw i64 %.pre-phi221 to i32
   %47 = add i32 %45, %46
   store i32 %47, ptr %16, align 4, !tbaa !23
   %48 = sub i32 %.1137, %46

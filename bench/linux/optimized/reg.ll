@@ -7820,7 +7820,7 @@ define internal fastcc void @print_rd_rules(ptr noundef readonly captures(none) 
   br i1 %17, label %69, label %20
 
 20:                                               ; preds = %9
-  %21 = trunc i64 %10 to i32
+  %21 = trunc nuw i64 %10 to i32
   %22 = call i32 @llvm.umin.i32(i32 %11, i32 %21)
   %23 = zext i32 %22 to i64
   %24 = icmp ugt i32 %11, %21

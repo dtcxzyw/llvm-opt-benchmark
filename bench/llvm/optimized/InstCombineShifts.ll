@@ -4038,7 +4038,7 @@ _ZNK4llvm5APInt3ultEm.exit.i:                     ; preds = %_ZNK4llvm5APInt3ugt
   br i1 %115, label %116, label %_ZNK4llvm5APInt3ultEm.exit.thread.i
 
 116:                                              ; preds = %_ZNK4llvm5APInt3ultEm.exit.i
-  %117 = trunc i64 %.0.i.i26.i to i32
+  %117 = trunc nuw i64 %.0.i.i26.i to i32
   %118 = sub i32 %113, %117
   %119 = sub i32 %117, %1
   %120 = select i1 %86, i32 %118, i32 %119
@@ -13259,7 +13259,7 @@ _ZNK4llvm5APInt3ultEm.exit:                       ; preds = %72, %_ZNK4llvm5APIn
   br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %_ZNK4llvm5APInt3ultEm.exit
-  %84 = trunc i64 %.0.i.i to i32
+  %84 = trunc nuw i64 %.0.i.i to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   %85 = ptrtoint ptr %5 to i64
   %86 = load i8, ptr %52, align 8, !tbaa !19

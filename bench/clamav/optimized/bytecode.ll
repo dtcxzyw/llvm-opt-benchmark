@@ -10998,7 +10998,7 @@ define void @cli_bytevalue_describe(ptr noundef %0, i32 noundef %1) local_unname
 
 38:                                               ; preds = %.lr.ph58, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next, %49 ]
-  %indvars72 = trunc i64 %indvars.iv to i32
+  %indvars72 = trunc nuw i64 %indvars.iv to i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.191, i32 noundef %indvars72, i32 noundef %indvars72)
   %40 = load ptr, ptr %37, align 8, !tbaa !109
@@ -11023,7 +11023,7 @@ define void @cli_bytevalue_describe(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %52, label %38, label %._crit_edge59.loopexit
 
 ._crit_edge59.loopexit:                           ; preds = %49
-  %indvars71.le = trunc i64 %indvars.iv.next to i32
+  %indvars71.le = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge59
 
 ._crit_edge59:                                    ; preds = %._crit_edge59.loopexit, %._crit_edge
@@ -11093,7 +11093,7 @@ define void @cli_byteinst_describe(ptr noundef readonly %0, ptr noundef captures
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i8, ptr %16, align 4, !tbaa !195
   %18 = zext i8 %17 to i32
-  %.rhs.trunc = trunc nuw i32 %4 to i8
+  %.rhs.trunc = trunc nuw nsw i32 %4 to i8
   %19 = urem i8 %17, %.rhs.trunc
   %.zext219 = zext nneg i8 %19 to i32
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 256, ptr noundef nonnull @.str.201, ptr noundef %15, i32 noundef %4, i32 noundef %18, i32 noundef %.zext219) #25

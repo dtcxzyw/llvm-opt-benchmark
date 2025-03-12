@@ -9833,7 +9833,7 @@ _ZNSt6vectorIN7rocksdb12DeadlockPathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
           to label %_ZNSt6vectorIN7rocksdb12DeadlockPathESaIS1_EE6resizeEm.exit unwind label %93
 
 _ZNSt6vectorIN7rocksdb12DeadlockPathESaIS1_EE6resizeEm.exit: ; preds = %90, %88
-  %92 = trunc i64 %78 to i32
+  %92 = trunc nuw i64 %78 to i32
   br label %_ZNSt6vectorIN7rocksdb12DeadlockPathESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit
 
 93:                                               ; preds = %90

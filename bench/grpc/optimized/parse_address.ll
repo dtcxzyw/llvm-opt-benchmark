@@ -801,7 +801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %_ZNK
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4copyEPcmm.exit: ; preds = %59, %62
-  %64 = trunc nuw i64 %1 to i32
+  %64 = trunc nuw nsw i64 %1 to i32
   %65 = add nuw nsw i32 %64, 3
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 %65, ptr %66, align 4, !tbaa !28

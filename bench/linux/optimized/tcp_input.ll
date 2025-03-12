@@ -1547,7 +1547,7 @@ define internal fastcc noundef zeroext i1 @tcp_ack_update_rtt(ptr noundef %0, i3
   br i1 %150, label %192, label %188
 
 151:                                              ; preds = %71
-  %152 = trunc i64 %48 to i32
+  %152 = trunc nuw i64 %48 to i32
   %153 = shl i32 %152, 3
   %154 = shl i32 %152, 1
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 1584
@@ -8867,7 +8867,7 @@ tcp_try_coalesce.exit:                            ; preds = %200, %205, %217, %2
   %1041 = phi i32 [ 1, %1035 ], [ %1079, %1078 ]
   %1042 = phi i8 [ %1033, %1035 ], [ %1047, %1078 ]
   %1043 = getelementptr inbounds nuw i8, ptr %1040, i64 4
-  %1044 = trunc i32 %1041 to i8
+  %1044 = trunc nuw i32 %1041 to i8
   br label %1046
 
 .loopexit36:                                      ; preds = %1071, %1065

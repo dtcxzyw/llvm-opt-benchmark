@@ -185,7 +185,7 @@ commonPrefix.exit.thread:                         ; preds = %67
   br i1 %95, label %96, label %100
 
 96:                                               ; preds = %89
-  %97 = trunc nuw i32 %.0.lcssa.i to i8
+  %97 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %98 = shl nuw i8 %97, 1
   %99 = add nuw i8 %98, 3
   store i8 %99, ptr %93, align 1
@@ -241,7 +241,7 @@ formTextDatum.exit:                               ; preds = %100, %96
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %118
-  %128 = trunc nuw i64 %125 to i8
+  %128 = trunc nuw nsw i64 %125 to i8
   %129 = shl nuw i8 %128, 1
   %130 = or disjoint i8 %129, 1
   store i8 %130, ptr %123, align 1
@@ -342,7 +342,7 @@ searchChar.exit:                                  ; preds = %156
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %171
-  %182 = trunc nuw i32 %169 to i8
+  %182 = trunc nuw nsw i32 %169 to i8
   %183 = shl nuw i8 %182, 1
   %184 = add nuw i8 %183, 3
   store i8 %184, ptr %178, align 1
@@ -612,7 +612,7 @@ commonPrefix.exit:                                ; preds = %.lr.ph.i, %100, %95
   br i1 %121, label %122, label %126
 
 122:                                              ; preds = %112
-  %123 = trunc nuw i64 %120 to i8
+  %123 = trunc nuw nsw i64 %120 to i8
   %124 = shl nuw i8 %123, 1
   %125 = or disjoint i8 %124, 1
   store i8 %125, ptr %118, align 1
@@ -862,7 +862,7 @@ formTextDatum.exit:                               ; preds = %126, %122
   br i1 %276, label %277, label %281
 
 277:                                              ; preds = %267
-  %278 = trunc nuw i64 %275 to i8
+  %278 = trunc nuw nsw i64 %275 to i8
   %279 = shl nuw i8 %278, 1
   %280 = or disjoint i8 %279, 1
   store i8 %280, ptr %273, align 1

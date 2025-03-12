@@ -4623,7 +4623,7 @@ define internal fastcc noundef range(i32 259, 265) i32 @_ZN17duckdb_libpgqueryL2
   br label %34
 
 32:                                               ; preds = %26
-  %33 = trunc i64 %23 to i32
+  %33 = trunc nsw i64 %23 to i32
   store i32 %33, ptr %1, align 8, !tbaa !32
   br label %34
 

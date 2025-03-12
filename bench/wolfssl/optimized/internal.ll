@@ -13866,7 +13866,7 @@ define internal fastcc i32 @Poly1305TagOld(ptr noundef readonly captures(none) %
   %28 = trunc i32 %12 to i8
   store i8 %28, ptr %7, align 8, !tbaa !45
   %29 = lshr i32 %12, 8
-  %30 = trunc i32 %29 to i8
+  %30 = trunc nuw i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %30, ptr %31, align 1, !tbaa !45
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 2

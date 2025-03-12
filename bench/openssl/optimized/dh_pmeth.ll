@@ -640,7 +640,7 @@ define internal i32 @pkey_dh_ctrl(ptr noundef readonly captures(none) %0, i32 no
   br i1 %or.cond5, label %84, label %46
 
 46:                                               ; preds = %44
-  %47 = trunc nuw i32 %2 to i8
+  %47 = trunc nuw nsw i32 %2 to i8
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i8 %47, ptr %48, align 4, !tbaa !15
   br label %84

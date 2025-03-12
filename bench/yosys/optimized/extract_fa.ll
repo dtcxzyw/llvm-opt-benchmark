@@ -66977,7 +66977,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit114:              ; preds = %_ZSt8_DestroyIPN5Yo
 
 _ZN5Yosys9ConstEval4pushEv.exit:                  ; preds = %165, %168
   call void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef 1)
-  %169 = trunc nuw i32 %.052298 to i8
+  %169 = trunc nuw nsw i32 %.052298 to i8
   %170 = and i8 %169, 1
   invoke void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 noundef zeroext %170, i32 noundef 1)
           to label %171 unwind label %224
@@ -67780,7 +67780,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit220:              ; preds = %_ZSt8_DestroyIPN5Yo
 
 _ZN5Yosys9ConstEval4pushEv.exit222:               ; preds = %504, %507
   call void @_ZN5Yosys5RTLIL7SigSpecC1ERKNS0_6SigBitEi(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(12) %24, i32 noundef 1)
-  %508 = trunc nuw i32 %.053300 to i8
+  %508 = trunc nuw nsw i32 %.053300 to i8
   %509 = and i8 %508, 1
   invoke void @_ZN5Yosys5RTLIL5ConstC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(40) %32, i8 noundef zeroext %509, i32 noundef 1)
           to label %510 unwind label %591

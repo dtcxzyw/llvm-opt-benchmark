@@ -8968,7 +8968,7 @@ _ZN11GfColorTestC2ERKN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceE.exit1278
           to label %3942 unwind label %.loopexit1795
 
 3942:                                             ; preds = %3940
-  %3943 = trunc nuw i32 %.01800 to i16
+  %3943 = trunc nuw nsw i32 %.01800 to i16
   %.lhs.trunc = add nsw i16 %3943, -1000
   %3944 = udiv i16 %.lhs.trunc, 1000
   %3945 = zext nneg i16 %3944 to i64

@@ -2022,7 +2022,7 @@ define hidden void @"_ZN169_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br i1 %9, label %13, label %12
 
 12:                                               ; preds = %2
-  %trunc = trunc i8 %8 to i1
+  %trunc = trunc nuw i8 %8 to i1
   br i1 %trunc, label %28, label %15
 
 13:                                               ; preds = %2
@@ -2906,7 +2906,7 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br i1 %8, label %12, label %11
 
 11:                                               ; preds = %2
-  %trunc = trunc i8 %7 to i1
+  %trunc = trunc nuw i8 %7 to i1
   br i1 %trunc, label %23, label %14
 
 12:                                               ; preds = %2

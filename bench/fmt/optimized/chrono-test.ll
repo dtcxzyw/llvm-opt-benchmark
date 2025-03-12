@@ -87501,7 +87501,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_ge
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45: ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
-  %92 = trunc nuw i64 %.0.i to i32
+  %92 = trunc nuw nsw i64 %.0.i to i32
   ret i32 %92
 }
 
@@ -89816,7 +89816,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -90706,7 +90706,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 39:                                               ; preds = %._crit_edge.i
-  %40 = trunc nuw i64 %.018.lcssa.i to i8
+  %40 = trunc nuw nsw i64 %.018.lcssa.i to i8
   %41 = or disjoint i8 %40, 48
   %42 = add i32 %.0.lcssa.i, -1
   %43 = zext i32 %42 to i64
@@ -90751,7 +90751,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit20
 
 63:                                               ; preds = %._crit_edge.i13
-  %64 = trunc nuw i64 %.018.lcssa.i14 to i8
+  %64 = trunc nuw nsw i64 %.018.lcssa.i14 to i8
   %65 = or disjoint i8 %64, 48
   %66 = add i32 %.0.lcssa.i15, -1
   %67 = zext i32 %66 to i64
@@ -91545,7 +91545,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt3v116detail7to_utf8IDiNS0_
 
 20:                                               ; preds = %18
   %21 = lshr i32 %10, 6
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -64
   %24 = load i64, ptr %6, align 8, !tbaa !2873
   %25 = add i64 %24, 1
@@ -91585,7 +91585,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit46: ; preds = %20, %28
 
 43:                                               ; preds = %40
   %44 = lshr i32 %10, 12
-  %45 = trunc nuw i32 %44 to i8
+  %45 = trunc nuw nsw i32 %44 to i8
   %46 = or disjoint i8 %45, -32
   %47 = load i64, ptr %6, align 8, !tbaa !2873
   %48 = add i64 %47, 1
@@ -91647,7 +91647,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit58: ; preds = %_ZN3fmt3v116detail
 
 78:                                               ; preds = %76
   %79 = lshr i32 %10, 18
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, -16
   %82 = load i64, ptr %6, align 8, !tbaa !2873
   %83 = add i64 %82, 1
@@ -91847,7 +91847,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 53:                                               ; preds = %._crit_edge.i
-  %54 = trunc nuw i64 %.018.lcssa.i to i8
+  %54 = trunc nuw nsw i64 %.018.lcssa.i to i8
   %55 = or disjoint i8 %54, 48
   %56 = add i32 %.0.lcssa.i, -1
   %57 = zext i32 %56 to i64
@@ -93006,7 +93006,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit35:        ; preds = %31, %38
   br label %78
 
 44:                                               ; preds = %2, %2, %2
-  %45 = trunc i32 %4 to i8
+  %45 = trunc nuw nsw i32 %4 to i8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !2873
   %48 = add i64 %47, 1
@@ -100418,7 +100418,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit
 
 53:                                               ; preds = %._crit_edge.i
-  %54 = trunc nuw i64 %.018.lcssa.i to i8
+  %54 = trunc nuw nsw i64 %.018.lcssa.i to i8
   %55 = or disjoint i8 %54, 48
   %56 = add i32 %.0.lcssa.i, -1
   %57 = zext i32 %56 to i64
@@ -100850,7 +100850,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -100924,7 +100924,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl1ELl1EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -101062,7 +101062,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 41:                                               ; preds = %._crit_edge.i
-  %42 = trunc nuw i32 %.018.lcssa.i to i8
+  %42 = trunc nuw nsw i32 %.018.lcssa.i to i8
   %43 = or disjoint i8 %42, 48
   %44 = add i32 %.0.lcssa.i, -1
   %45 = zext i32 %44 to i64
@@ -101109,7 +101109,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.thread: ; 
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit20
 
 67:                                               ; preds = %._crit_edge.i13
-  %68 = trunc nuw i32 %.018.lcssa.i14 to i8
+  %68 = trunc nuw nsw i32 %.018.lcssa.i14 to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i15, -1
   %71 = zext i32 %70 to i64
@@ -102684,7 +102684,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i32 %.018.lcssa.i to i8
+  %56 = trunc nuw nsw i32 %.018.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   %58 = add i32 %.0.lcssa.i, -1
   %59 = zext i32 %58 to i64
@@ -103016,7 +103016,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -105138,7 +105138,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -107260,7 +107260,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -109394,7 +109394,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -109468,7 +109468,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl1ELl1000000000EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -111529,7 +111529,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -111603,7 +111603,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl1ELl1000000EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -113664,7 +113664,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -113738,7 +113738,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl1ELl1000EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -115789,7 +115789,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -117917,7 +117917,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -120177,7 +120177,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -122195,7 +122195,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -124213,7 +124213,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -126231,7 +126231,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -128249,7 +128249,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -130234,7 +130234,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -132219,7 +132219,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -134204,7 +134204,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -136210,7 +136210,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -136284,7 +136284,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl60ELl1EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -138216,7 +138216,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -138290,7 +138290,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl3600ELl1EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -140222,7 +140222,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -140296,7 +140296,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIliTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEElSt5ratioILl86400ELl1EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -142275,7 +142275,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -144423,7 +144423,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -149575,7 +149575,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -154644,7 +154644,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %5, %15
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit.i.i
 
 49:                                               ; preds = %._crit_edge.i.i.i
-  %50 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %50 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %51 = or disjoint i8 %50, 48
   %52 = add i32 %.0.lcssa.i.i.i, -1
   %53 = zext i32 %52 to i64
@@ -154744,7 +154744,7 @@ _ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit.i.i: ; preds = %49, %4
   br label %_ZN3fmt3v116detail17write_significandINS0_14basic_appenderIcEEjcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_iiT1_.exit
 
 103:                                              ; preds = %._crit_edge.i33.i.i
-  %104 = trunc nuw i32 %.018.lcssa.i34.i.i to i8
+  %104 = trunc nuw nsw i32 %.018.lcssa.i34.i.i to i8
   %105 = or disjoint i8 %104, 48
   %106 = add i32 %.0.lcssa.i35.i.i, -1
   %107 = zext i32 %106 to i64
@@ -156058,7 +156058,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail17write_significandINS0_14basi
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit.i.i
 
 34:                                               ; preds = %._crit_edge.i.i.i
-  %35 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %35 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %36 = or disjoint i8 %35, 48
   %37 = add i32 %.0.lcssa.i.i.i, -1
   %38 = zext i32 %37 to i64
@@ -156160,7 +156160,7 @@ _ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit.i.i: ; preds = %34, %2
   br label %_ZN3fmt3v116detail17write_significandINS0_14basic_appenderIcEEjcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_iiT1_.exit
 
 90:                                               ; preds = %._crit_edge.i33.i.i
-  %91 = trunc nuw i32 %.018.lcssa.i34.i.i to i8
+  %91 = trunc nuw nsw i32 %.018.lcssa.i34.i.i to i8
   %92 = or disjoint i8 %91, 48
   %93 = add i32 %.0.lcssa.i35.i.i, -1
   %94 = zext i32 %93 to i64
@@ -156226,7 +156226,7 @@ _ZN3fmt3v116detail17write_significandINS0_14basic_appenderIcEEjcTnNSt9enable_ifI
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit.i.i41
 
 123:                                              ; preds = %._crit_edge.i.i.i38
-  %124 = trunc nuw i32 %.018.lcssa.i.i.i39 to i8
+  %124 = trunc nuw nsw i32 %.018.lcssa.i.i.i39 to i8
   %125 = or disjoint i8 %124, 48
   %126 = add i32 %.0.lcssa.i.i.i40, -1
   %127 = zext i32 %126 to i64
@@ -156328,7 +156328,7 @@ _ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit.i.i41: ; preds = %123,
   br label %_ZN3fmt3v116detail17write_significandIcjTnNSt9enable_ifIXsr3std11is_integralIT0_EE5valueEiE4typeELi0EEEPT_S8_S4_iiS7_.exit.i
 
 179:                                              ; preds = %._crit_edge.i33.i.i26
-  %180 = trunc nuw i32 %.018.lcssa.i34.i.i27 to i8
+  %180 = trunc nuw nsw i32 %.018.lcssa.i34.i.i27 to i8
   %181 = or disjoint i8 %180, 48
   %182 = add i32 %.0.lcssa.i35.i.i28, -1
   %183 = zext i32 %182 to i64
@@ -167669,7 +167669,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit:          ; preds = %5, %15
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit.i.i
 
 47:                                               ; preds = %._crit_edge.i.i.i
-  %48 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %48 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %49 = or disjoint i8 %48, 48
   %50 = add i32 %.0.lcssa.i.i.i, -1
   %51 = zext i32 %50 to i64
@@ -167766,7 +167766,7 @@ _ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit.i.i: ; preds = %47, %4
   br label %_ZN3fmt3v116detail17write_significandINS0_14basic_appenderIcEEmcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_iiT1_.exit
 
 98:                                               ; preds = %._crit_edge.i33.i.i
-  %99 = trunc nuw i64 %.018.lcssa.i34.i.i to i8
+  %99 = trunc nuw nsw i64 %.018.lcssa.i34.i.i to i8
   %100 = or disjoint i8 %99, 48
   %101 = add i32 %.0.lcssa.i35.i.i, -1
   %102 = zext i32 %101 to i64
@@ -168315,7 +168315,7 @@ define linkonce_odr hidden ptr @_ZN3fmt3v116detail17write_significandINS0_14basi
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit.i.i
 
 32:                                               ; preds = %._crit_edge.i.i.i
-  %33 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %33 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %34 = or disjoint i8 %33, 48
   %35 = add i32 %.0.lcssa.i.i.i, -1
   %36 = zext i32 %35 to i64
@@ -168414,7 +168414,7 @@ _ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit.i.i: ; preds = %32, %2
   br label %_ZN3fmt3v116detail17write_significandINS0_14basic_appenderIcEEmcTnNSt9enable_ifIXntsr3std10is_pointerINSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEES8_S8_T0_iiT1_.exit
 
 85:                                               ; preds = %._crit_edge.i33.i.i
-  %86 = trunc nuw i64 %.018.lcssa.i34.i.i to i8
+  %86 = trunc nuw nsw i64 %.018.lcssa.i34.i.i to i8
   %87 = or disjoint i8 %86, 48
   %88 = add i32 %.0.lcssa.i35.i.i, -1
   %89 = zext i32 %88 to i64
@@ -168478,7 +168478,7 @@ _ZN3fmt3v116detail17write_significandINS0_14basic_appenderIcEEmcTnNSt9enable_ifI
   br label %_ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit.i.i41
 
 116:                                              ; preds = %._crit_edge.i.i.i38
-  %117 = trunc nuw i64 %.018.lcssa.i.i.i39 to i8
+  %117 = trunc nuw nsw i64 %.018.lcssa.i.i.i39 to i8
   %118 = or disjoint i8 %117, 48
   %119 = add i32 %.0.lcssa.i.i.i40, -1
   %120 = zext i32 %119 to i64
@@ -168577,7 +168577,7 @@ _ZN3fmt3v116detail17do_format_decimalIcmEEPT_S4_T0_i.exit.i.i41: ; preds = %116,
   br label %_ZN3fmt3v116detail17write_significandIcmTnNSt9enable_ifIXsr3std11is_integralIT0_EE5valueEiE4typeELi0EEEPT_S8_S4_iiS7_.exit.i
 
 169:                                              ; preds = %._crit_edge.i33.i.i26
-  %170 = trunc nuw i64 %.018.lcssa.i34.i.i27 to i8
+  %170 = trunc nuw nsw i64 %.018.lcssa.i34.i.i27 to i8
   %171 = or disjoint i8 %170, 48
   %172 = add i32 %.0.lcssa.i35.i.i28, -1
   %173 = zext i32 %172 to i64
@@ -174235,7 +174235,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -176484,7 +176484,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -183720,7 +183720,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -186979,7 +186979,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %_ZN3fmt3v116detail21format_duration_valueIcjNS0_14basic_appenderIcEETnNSt9enable_ifIXsr3std11is_integralIT0_EE5valueEiE4typeELi0EEET1_S9_S6_i.exit
 
 78:                                               ; preds = %._crit_edge.i.i.i
-  %79 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %79 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %80 = or disjoint i8 %79, 48
   %81 = add i32 %.0.lcssa.i.i.i, -1
   %82 = zext i32 %81 to i64
@@ -188323,7 +188323,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -190499,7 +190499,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -190573,7 +190573,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ratioILl1ELl1000000000000000000EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -195625,7 +195625,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -195699,7 +195699,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ratioILl1ELl3EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -197900,7 +197900,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -197974,7 +197974,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ra
   resume { ptr, i32 } %26
 
 _ZN3fmt3v116detail18to_nonnegative_intIxiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEExSt5ratioILl1ELl7EEE10write_signEv.exit
-  %27 = trunc nuw i64 %1 to i32
+  %27 = trunc nuw nsw i64 %1 to i32
   %28 = or i32 %27, 1
   %29 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %30 = xor i32 %29, 31
@@ -200044,7 +200044,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -201747,7 +201747,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit: ; preds =
   br label %_ZN3fmt3v116detail17do_format_decimalIcjEEPT_S4_T0_i.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i32 %.018.lcssa.i to i8
+  %57 = trunc nuw nsw i32 %.018.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   %59 = add i32 %.0.lcssa.i, -1
   %60 = zext i32 %59 to i64
@@ -202085,7 +202085,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %75
 
 68:                                               ; preds = %._crit_edge.i.i.i
-  %69 = trunc nuw i32 %.018.lcssa.i.i.i to i8
+  %69 = trunc nuw nsw i32 %.018.lcssa.i.i.i to i8
   %70 = or disjoint i8 %69, 48
   %71 = add i32 %.0.lcssa.i.i.i, -1
   %72 = zext i32 %71 to i64
@@ -206544,7 +206544,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -211755,7 +211755,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -216849,7 +216849,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -221943,7 +221943,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -227154,7 +227154,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -232347,7 +232347,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -237880,7 +237880,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -243167,7 +243167,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -248395,7 +248395,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail9tm_writerINS0_14basic_append
   br i1 %or.cond, label %9, label %17
 
 9:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i64 %8 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %8 to i16
   %10 = udiv i16 %.lhs.trunc, 100
   %11 = shl nuw nsw i16 %10, 1
   %12 = zext nneg i16 %11 to i64
@@ -249906,7 +249906,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %_ZN3fmt3v116detail21format_duration_valueIcmNS0_14basic_appenderIcEETnNSt9enable_ifIXsr3std11is_integralIT0_EE5valueEiE4typeELi0EEET1_S9_S6_i.exit
 
 77:                                               ; preds = %._crit_edge.i.i.i
-  %78 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %78 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %79 = or disjoint i8 %78, 48
   %80 = add i32 %.0.lcssa.i.i.i, -1
   %81 = zext i32 %80 to i64
@@ -251250,7 +251250,7 @@ _ZN3fmt3v116detail10to_pointerIcEEPT_NS0_14basic_appenderIS3_EEm.exit.i.i: ; pre
   br label %74
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.018.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.018.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   %70 = add i32 %.0.lcssa.i.i.i, -1
   %71 = zext i32 %70 to i64
@@ -251324,7 +251324,7 @@ _ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEmSt5ra
   resume { ptr, i32 } %27
 
 _ZN3fmt3v116detail18to_nonnegative_intImiTnNSt9enable_ifIXsr3std11is_integralIT_EE5valueEiE4typeELi0EEET0_S4_S7_.exit: ; preds = %_ZN3fmt3v116detail16chrono_formatterINS0_7contextENS0_14basic_appenderIcEEmSt5ratioILl1000000000ELl1EEE10write_signEv.exit
-  %28 = trunc nuw i64 %1 to i32
+  %28 = trunc nuw nsw i64 %1 to i32
   %29 = or i32 %28, 1
   %30 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %29, i1 true)
   %31 = xor i32 %30, 31

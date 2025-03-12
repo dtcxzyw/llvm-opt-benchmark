@@ -1528,7 +1528,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
   br i1 %or.cond.not, label %21, label %16, !prof !92
 
 16:                                               ; preds = %11
-  %17 = trunc nuw i64 %14 to i8
+  %17 = trunc nuw nsw i64 %14 to i8
   %18 = sub nuw nsw i8 23, %17
   store i8 %18, ptr %7, align 1, !tbaa !10
   %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14

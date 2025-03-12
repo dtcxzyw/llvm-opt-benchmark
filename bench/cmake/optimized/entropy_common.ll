@@ -18,7 +18,7 @@ define dso_local range(i32 0, 2) i32 @FSE_isError(i64 noundef %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @FSE_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #8
@@ -35,7 +35,7 @@ define dso_local range(i32 0, 2) i32 @HUF_isError(i64 noundef %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @HUF_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #8
@@ -458,7 +458,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
   br i1 %or.cond.i.i, label %77, label %HUF_readStats_body_default.exit
 
 77:                                               ; preds = %65
-  %78 = trunc i64 %.074.i.i to i32
+  %78 = trunc nuw i64 %.074.i.i to i32
   %79 = add i32 %78, 1
   store i32 %79, ptr %3, align 4, !tbaa !4
   %80 = add nuw nsw i64 %.073.i.i, 1

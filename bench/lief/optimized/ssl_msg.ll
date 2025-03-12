@@ -6961,7 +6961,7 @@ define internal fastcc void @ssl_bitmask_set(ptr noundef captures(none) %0, i64 
   %37 = phi i8 [ %.promoted56, %32 ], [ %41, %36 ]
   %38 = sub nuw nsw i32 8, %.03758
   %39 = shl nuw nsw i32 1, %38
-  %40 = trunc i32 %39 to i8
+  %40 = trunc nuw i32 %39 to i8
   %41 = or i8 %37, %40
   %42 = add nsw i32 %.03758, -1
   %.not48 = icmp eq i32 %42, 0
@@ -7018,7 +7018,7 @@ define internal fastcc range(i32 -1, 1) i32 @ssl_bitmask_check(ptr noundef reado
 
 14:                                               ; preds = %.lr.ph17, %12
   %.116 = phi i64 [ 0, %.lr.ph17 ], [ %13, %12 ]
-  %15 = trunc i64 %.116 to i32
+  %15 = trunc nuw nsw i64 %.116 to i32
   %16 = sub nuw nsw i32 7, %15
   %17 = shl nuw nsw i32 1, %16
   %18 = and i32 %17, %9
@@ -7132,7 +7132,7 @@ define internal fastcc i32 @ssl_handle_possible_reconnect(ptr noundef %0) unname
 67:                                               ; preds = %59
   %68 = zext i8 %63 to i32
   %69 = sub nsw i64 %20, %53
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nsw i64 %69 to i32
   %71 = add nsw i32 %70, -61
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @.str, i32 noundef 3541, ptr noundef nonnull @.str.220, i32 noundef %68, i32 noundef %71) #19
   br label %mbedtls_ssl_check_dtls_clihlo_cookie.exit.thread

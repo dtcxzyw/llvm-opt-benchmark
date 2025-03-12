@@ -1037,7 +1037,7 @@ _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.prehead
 ._crit_edge779.i:                                 ; preds = %.lr.ph778.preheader.i, %440
   %.3429.lcssa.i = phi i32 [ %442, %440 ], [ %449, %.lr.ph778.preheader.i ]
   %.9423.lcssa.i = phi ptr [ %.7421660.i, %440 ], [ %scevgep864.i, %.lr.ph778.preheader.i ]
-  %.lhs.trunc.i = trunc nuw i32 %.3429.lcssa.i to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %.3429.lcssa.i to i16
   %450 = udiv i16 %.lhs.trunc.i, 255
   %451 = zext nneg i16 %450 to i64
   %452 = getelementptr inbounds nuw i8, ptr %.9423.lcssa.i, i64 %451
@@ -1048,7 +1048,7 @@ _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.prehead
   br label %459
 
 456:                                              ; preds = %.loopexit.i
-  %457 = trunc nuw i32 %.2428.fr.i to i8
+  %457 = trunc nuw nsw i32 %.2428.fr.i to i8
   %458 = add i8 %439, %457
   store i8 %458, ptr %.0476783.i, align 1, !tbaa !3
   br label %459
@@ -1303,7 +1303,7 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
   br label %578
 
 576:                                              ; preds = %565
-  %.0389.tr.i = trunc nuw i64 %.0389.i to i8
+  %.0389.tr.i = trunc nuw nsw i64 %.0389.i to i8
   %577 = shl nuw i8 %.0389.tr.i, 4
   store i8 %577, ptr %.0414722.i, align 1, !tbaa !3
   br label %578

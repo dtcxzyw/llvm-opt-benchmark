@@ -3086,7 +3086,7 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit506.i: ; preds =
 
 102:                                              ; preds = %94, %91, %91, %91
   %103 = phi i64 [ %99, %94 ], [ %93, %91 ], [ %93, %91 ], [ %93, %91 ]
-  %104 = trunc i16 %.sroa.6.0.copyload.i to i8
+  %104 = trunc nuw nsw i16 %.sroa.6.0.copyload.i to i8
   %105 = load i64, ptr %1, align 8, !alias.scope !629, !noalias !640, !noundef !4
   %106 = icmp eq i64 %105, %103
   br i1 %106, label %107, label %109
@@ -4644,7 +4644,7 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit506.i: ; preds =
 
 101:                                              ; preds = %93, %90, %90, %90
   %102 = phi i64 [ %98, %93 ], [ %92, %90 ], [ %92, %90 ], [ %92, %90 ]
-  %103 = trunc i16 %.sroa.6.0.copyload.i to i8
+  %103 = trunc nuw nsw i16 %.sroa.6.0.copyload.i to i8
   %104 = load i64, ptr %31, align 8, !alias.scope !1138, !noalias !1149, !noundef !4
   %105 = icmp eq i64 %104, %102
   br i1 %105, label %106, label %108

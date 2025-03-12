@@ -10328,7 +10328,7 @@ define internal fastcc void @_ZN3ue2L17find_better_daddyERNS_12_GLOBAL__N_18dfa_
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %37
-  %41 = trunc nuw i16 %38 to i8
+  %41 = trunc nuw nsw i16 %38 to i8
   %.lhs.trunc = add nsw i8 %41, -2
   %42 = sdiv i8 %.lhs.trunc, 3
   %.sext = zext nneg i8 %42 to i32

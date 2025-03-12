@@ -5069,7 +5069,7 @@ define internal fastcc void @dissect_hsdsch_type_2_channel_info(ptr noundef %0, 
   %189 = trunc i64 %.lcssa to i16
   %190 = load i32, ptr @hf_fp_data, align 4
   %191 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %190, ptr noundef %0, i32 noundef %.6238, i32 noundef -1, i32 noundef 0)
-  %192 = trunc i64 %.lcssa to i32
+  %192 = trunc nuw i64 %.lcssa to i32
   %193 = and i32 %192, 65535
   %194 = and i32 %188, 65535
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %191, ptr noundef nonnull @.str.587, i32 noundef %193, i32 noundef %194)
@@ -5919,7 +5919,7 @@ define internal fastcc void @dissect_e_dch_channel_info(ptr noundef %0, ptr noun
 
 171:                                              ; preds = %166
   %172 = zext i16 %167 to i32
-  %173 = trunc i64 %169 to i32
+  %173 = trunc nuw nsw i64 %169 to i32
   %174 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0171.i, ptr noundef nonnull @ei_fp_mac_is_sdus_miscount, ptr noundef nonnull @.str.600, i32 noundef %172, i32 noundef %173)
   br label %175
 
@@ -6256,7 +6256,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br label %358
 
 348:                                              ; preds = %337
-  %349 = trunc nuw i64 %344 to i16
+  %349 = trunc nuw nsw i64 %344 to i16
   %350 = getelementptr [64 x i16], ptr %315, i64 0, i64 %indvars.iv490
   store i16 %349, ptr %350, align 2
   %351 = add nuw nsw i32 %.0304414, 12

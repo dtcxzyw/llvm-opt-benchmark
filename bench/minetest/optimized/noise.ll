@@ -3106,7 +3106,7 @@ for.body16:                                       ; preds = %_ZN5Noise13updateRe
   %div26 = fdiv nsz float %15, %17
   %18 = load i32, ptr %seed, align 8, !tbaa !45
   %19 = load i32, ptr %seed28, align 4, !tbaa !89
-  %20 = trunc i64 %oct.097 to i32
+  %20 = trunc nuw nsw i64 %oct.097 to i32
   %add = add i32 %18, %20
   %conv31 = add i32 %add, %19
   tail call void @_ZN5Noise13gradientMap2DEffffi(ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %mul17, float noundef %mul18, float noundef %div22, float noundef %div26, i32 noundef %conv31)
@@ -4146,7 +4146,7 @@ for.body20:                                       ; preds = %_ZN5Noise13updateRe
   %div35 = fdiv nsz float %17, %20
   %21 = load i32, ptr %seed, align 8, !tbaa !45
   %22 = load i32, ptr %seed37, align 4, !tbaa !89
-  %23 = trunc i64 %oct.0109 to i32
+  %23 = trunc nuw nsw i64 %oct.0109 to i32
   %add = add i32 %21, %23
   %conv40 = add i32 %add, %22
   tail call void @_ZN5Noise13gradientMap3DEffffffi(ptr noundef nonnull align 8 dereferenceable(88) %this, float noundef %mul21, float noundef %mul22, float noundef %mul23, float noundef %div27, float noundef %div31, float noundef %div35, i32 noundef %conv40)

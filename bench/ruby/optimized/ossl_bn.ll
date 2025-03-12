@@ -590,7 +590,7 @@ rb_integer_type_p.exit.thread35:                  ; preds = %36, %rb_integer_typ
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %70
-  %78 = trunc i64 %75 to i32
+  %78 = trunc nsw i64 %75 to i32
   %79 = load ptr, ptr %4, align 8, !tbaa !21
   %80 = call ptr @BN_mpi2bn(ptr noundef %71, i32 noundef %78, ptr noundef %79) #11
   %.not20 = icmp eq ptr %80, null
@@ -616,7 +616,7 @@ RSTRING_LENINT.exit:                              ; preds = %70
   unreachable
 
 RSTRING_LENINT.exit33:                            ; preds = %83
-  %91 = trunc i64 %88 to i32
+  %91 = trunc nsw i64 %88 to i32
   %92 = load ptr, ptr %4, align 8, !tbaa !21
   %93 = call ptr @BN_bin2bn(ptr noundef %84, i32 noundef %91, ptr noundef %92) #11
   %.not19 = icmp eq ptr %93, null
@@ -3214,7 +3214,7 @@ RSTRING_PTR.exit37:                               ; preds = %31, %41
 .sink.split:                                      ; preds = %57, %49
   %.sink54 = phi i64 [ %50, %49 ], [ %58, %57 ]
   %.sink = phi ptr [ %46, %49 ], [ %54, %57 ]
-  %63 = trunc i64 %.sink54 to i32
+  %63 = trunc nsw i64 %.sink54 to i32
   %64 = tail call i64 @ossl_buf2str(ptr noundef nonnull %.sink, i32 noundef %63) #11
   br label %65
 

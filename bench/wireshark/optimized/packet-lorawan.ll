@@ -776,7 +776,7 @@ dissect_lorawan_join_request.exit:                ; preds = %116, %get_root_key.
   %154 = zext nneg i32 %152 to i64
   %155 = add nsw i64 %149, -1
   %156 = getelementptr i8, ptr %146, i64 %154
-  %157 = trunc i32 %148 to i8
+  %157 = trunc nuw nsw i32 %148 to i8
   br label %158
 
 158:                                              ; preds = %186, %.lr.ph.i

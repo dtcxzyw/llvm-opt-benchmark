@@ -41773,7 +41773,7 @@ _ZN4llvm5APIntD2Ev.exit727:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br label %491
 
 488:                                              ; preds = %482
-  %489 = trunc i64 %.0.i to i32
+  %489 = trunc nuw i64 %.0.i to i32
   %490 = sub i32 %485, %489
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #34
@@ -41790,7 +41790,7 @@ _ZN4llvm5APIntD2Ev.exit727:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %495, label %496, label %.thread1181
 
 496:                                              ; preds = %491
-  %497 = trunc i64 %.0.i to i32
+  %497 = trunc nuw i64 %.0.i to i32
   %498 = sub i32 %493, %497
   br label %499
 
@@ -67924,7 +67924,7 @@ _ZL20isMemSrcFromConstantN4llvm7SDValueERNS_22ConstantDataArraySliceE.exit: ; pr
   %.sroa.4.8.insert.insert.i322 = or disjoint i64 %.sroa.6.8.insert.insert.i319.sink, %.sroa.4.8.insert.shift.i321
   %.sroa.2.8.insert.ext.i323 = zext i1 %.0294 to i64
   %.sroa.2.8.insert.insert.i324 = or disjoint i64 %.sroa.4.8.insert.insert.i322, %.sroa.2.8.insert.ext.i323
-  %.sroa.2185.0.extract.trunc.sink = trunc i64 %.sroa.2.8.insert.insert.i324 to i56
+  %.sroa.2185.0.extract.trunc.sink = trunc nuw i64 %.sroa.2.8.insert.insert.i324 to i56
   store i64 %6, ptr %28, align 8
   %125 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i56 %.sroa.2185.0.extract.trunc.sink, ptr %125, align 8
@@ -88830,7 +88830,7 @@ _ZN4llvm8dyn_castINS_16FrameIndexSDNodeENS_6SDNodeEEEDcPT0_.exit.thread9.i141: ;
   store i32 %.sroa.7.0..sroa.7.0..sroa.7.0..sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.5152)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7)
-  %349 = trunc i64 %.088188 to i32
+  %349 = trunc nuw i64 %.088188 to i32
   %350 = call noundef ptr @_ZN4llvm12DIExpression14appendOpsToArgEPKS0_NS_8ArrayRefImEEjb(ptr noundef %.089187, ptr nonnull %17, i64 6, i32 noundef %349, i1 noundef zeroext false) #34
   %.pre208 = load i32, ptr %69, align 8, !tbaa !26
   br label %351

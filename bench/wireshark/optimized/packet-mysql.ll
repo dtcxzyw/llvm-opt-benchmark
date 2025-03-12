@@ -3302,7 +3302,7 @@ tvb_get_fle.exit.i.i:                             ; preds = %594, %592, %589, %5
 621:                                              ; preds = %620
   %622 = tail call ptr @wmem_file_scope()
   %623 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %622, i64 noundef 32) #13
-  %624 = trunc nuw i64 %.0116.i.i to i16
+  %624 = trunc nuw nsw i64 %.0116.i.i to i16
   store i16 %624, ptr %623, align 8
   %625 = tail call ptr @wmem_file_scope()
   %626 = shl nuw nsw i64 %.0116.i.i, 1
@@ -6559,7 +6559,7 @@ add_session_tracker_entry_to_tree.exit:           ; preds = %mysql_set_encoding_
 352:                                              ; preds = %349, %345
   %.1111 = phi i64 [ %351, %349 ], [ %.0110, %345 ]
   %353 = load i32, ptr @hf_mysql_message, align 4
-  %354 = trunc i64 %.1111 to i32
+  %354 = trunc nuw i64 %.1111 to i32
   %355 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %353, ptr noundef %0, i32 noundef %.0, i32 noundef %354, i32 noundef 0)
   %356 = add i32 %.0, %354
   br label %.loopexit

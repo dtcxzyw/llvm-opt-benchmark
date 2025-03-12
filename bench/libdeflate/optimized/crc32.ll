@@ -242,7 +242,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
 24:                                               ; preds = %11
   %25 = trunc nuw nsw i64 %2 to i32
   %notmask = shl nsw i32 -1, %25
-  %26 = trunc i32 %notmask to i16
+  %26 = trunc nsw i32 %notmask to i16
   %27 = xor i16 %26, -1
   %28 = bitcast i16 %27 to <16 x i1>
   %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr %1, i32 1, <16 x i1> %28, <16 x i8> zeroinitializer)
@@ -779,7 +779,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
 24:                                               ; preds = %11
   %25 = trunc nuw nsw i64 %2 to i32
   %notmask = shl nsw i32 -1, %25
-  %26 = trunc i32 %notmask to i16
+  %26 = trunc nsw i32 %notmask to i16
   %27 = xor i16 %26, -1
   %28 = bitcast i16 %27 to <16 x i1>
   %29 = tail call <16 x i8> @llvm.masked.load.v16i8.p0(ptr %1, i32 1, <16 x i1> %28, <16 x i8> zeroinitializer)

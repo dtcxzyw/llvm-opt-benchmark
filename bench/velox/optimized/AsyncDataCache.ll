@@ -9045,7 +9045,7 @@ invoke.cont34.i:                                  ; preds = %if.end.i66.i, %_ZNS
   br i1 %cmp.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !188
 
 for.end.i.loopexit:                               ; preds = %invoke.cont34.i
-  %50 = trunc i64 %sub.ptr.div.i.i to i32
+  %50 = trunc nuw i64 %sub.ptr.div.i.i to i32
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.i.loopexit, %call2.i28.i.noexc

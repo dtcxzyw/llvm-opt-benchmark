@@ -123,7 +123,7 @@ _ZL13do_setsockoptIiEiPKvmPT_.exit.thread:        ; preds = %3
   br i1 %or.cond, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = trunc nuw i32 %7 to i8
+  %9 = trunc nuw nsw i32 %7 to i8
   store i8 %9, ptr %2, align 1, !tbaa !15
   br label %12
 

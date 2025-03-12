@@ -5424,7 +5424,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %101
 
 101:                                              ; preds = %100, %98
-  %102 = trunc i64 %80 to i32
+  %102 = trunc nsw i64 %80 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #33
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %102, i32 0)
   br label %105

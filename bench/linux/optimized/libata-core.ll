@@ -7039,7 +7039,7 @@ select.unfold.backedge:                           ; preds = %119
   store i64 6, ptr %5, align 8
   %208 = trunc nuw i16 %195 to i8
   store i8 %208, ptr %35, align 8
-  %209 = trunc nuw i16 %194 to i8
+  %209 = trunc nuw nsw i16 %194 to i8
   %210 = add nuw nsw i8 %209, 15
   %211 = and i8 %210, 15
   %212 = or disjoint i8 %.12, %211
@@ -8217,7 +8217,7 @@ ata_id_n_sectors.exit:                            ; preds = %227, %245, %267, %2
   %449 = getelementptr inbounds nuw i8, ptr %2, i64 13
   store i8 %448, ptr %449, align 1
   %450 = lshr i64 %431, 40
-  %451 = trunc i64 %450 to i8
+  %451 = trunc nuw i64 %450 to i8
   %452 = getelementptr inbounds nuw i8, ptr %2, i64 14
   store i8 %451, ptr %452, align 2
   br label %458

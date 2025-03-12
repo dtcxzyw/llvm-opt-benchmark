@@ -733,7 +733,7 @@ Py_DECREF.exit.i:                                 ; preds = %35, %32, %28
 
 get_ascii_order.exit:                             ; preds = %Py_DECREF.exit.i, %Py_DECREF.exit.i, %Py_DECREF.exit.i
   %37 = load ptr, ptr %3, align 8, !tbaa !9
-  %38 = trunc nuw i64 %15 to i32
+  %38 = trunc nuw nsw i64 %15 to i32
   %39 = call ptr @PyMemoryView_GetContiguous(ptr noundef %37, i32 noundef %38, i8 noundef signext %30) #14
   br label %get_ascii_order.exit.thread
 

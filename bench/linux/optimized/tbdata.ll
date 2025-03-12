@@ -528,7 +528,7 @@ default.unreachable26:                            ; preds = %60
   br i1 %103, label %.preheader, label %.thread19, !llvm.loop !5
 
 104:                                              ; preds = %94
-  %105 = trunc i64 %54 to i32
+  %105 = trunc nuw i64 %54 to i32
   store i32 %105, ptr %2, align 4
   br label %118
 

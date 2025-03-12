@@ -3038,7 +3038,7 @@ define dso_local noundef range(i32 -22, 1) i32 @build_open_flags(ptr noundef rea
   %54 = or i64 %53, %8
   %55 = trunc nuw nsw i64 %54 to i32
   store i32 %55, ptr %1, align 4
-  %56 = trunc nuw i64 %3 to i32
+  %56 = trunc nuw nsw i64 %3 to i32
   %57 = lshr i32 %56, 8
   %58 = and i32 %57, 2
   %59 = lshr i32 %56, 7

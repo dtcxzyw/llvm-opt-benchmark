@@ -1335,7 +1335,7 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
 
 50:                                               ; preds = %26, %26
   %51 = load ptr, ptr %10, align 8, !tbaa !6
-  %.lhs.trunc = trunc i32 %27 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %27 to i8
   %52 = udiv i8 %.lhs.trunc, 3
   %53 = zext nneg i8 %52 to i64
   %54 = getelementptr inbounds nuw i32, ptr %11, i64 %53

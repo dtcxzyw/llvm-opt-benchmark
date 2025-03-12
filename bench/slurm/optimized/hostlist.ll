@@ -2085,7 +2085,7 @@ _is_bracket_needed.exit.i:                        ; preds = %hostrange_prefix_cm
   br i1 %266, label %271, label %267
 
 267:                                              ; preds = %259
-  %268 = trunc nsw i64 %265 to i32
+  %268 = trunc nuw nsw i64 %265 to i32
   %269 = add nuw nsw i32 %.2.i, %268
   %270 = zext nneg i32 %269 to i64
   %.not54.i = icmp ugt i64 %251, %270

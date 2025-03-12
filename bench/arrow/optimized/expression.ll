@@ -47407,7 +47407,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %24, %22, %18, %14, 
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit.._crit_edge_crit_edge
 
 60:                                               ; preds = %._crit_edge.i.i.i
-  %61 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %61 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %62 = or disjoint i8 %61, 48
   br label %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit.._crit_edge_crit_edge
 
@@ -47575,7 +47575,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i17: ; preds = %105, %103, %99, %9
   br label %._crit_edge.loopexit47
 
 140:                                              ; preds = %._crit_edge.i.i.i19
-  %141 = trunc nuw i64 %.0.lcssa.i.i.i20 to i8
+  %141 = trunc nuw nsw i64 %.0.lcssa.i.i.i20 to i8
   %142 = or disjoint i8 %141, 48
   br label %._crit_edge.loopexit47
 

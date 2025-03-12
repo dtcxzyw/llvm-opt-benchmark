@@ -86369,7 +86369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
   br label %124
 
 118:                                              ; preds = %._crit_edge.i.i.i
-  %119 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %119 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %120 = or disjoint i8 %119, 48
   br label %124
 
@@ -86676,7 +86676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i45:
   br label %255
 
 249:                                              ; preds = %._crit_edge.i.i.i46
-  %250 = trunc nuw i32 %.0.lcssa.i.i.i47 to i8
+  %250 = trunc nuw nsw i32 %.0.lcssa.i.i.i47 to i8
   %251 = or disjoint i8 %250, 48
   br label %255
 
@@ -86983,7 +86983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i71:
   br label %386
 
 380:                                              ; preds = %._crit_edge.i.i.i72
-  %381 = trunc nuw i32 %.0.lcssa.i.i.i73 to i8
+  %381 = trunc nuw nsw i32 %.0.lcssa.i.i.i73 to i8
   %382 = or disjoint i8 %381, 48
   br label %386
 
@@ -87291,7 +87291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i97:
   br label %"_ZZN8limit_fd11test_methodEvENK3$_0clB5cxx11EP8_IO_FILE.exit105"
 
 512:                                              ; preds = %._crit_edge.i.i.i98
-  %513 = trunc nuw i32 %.0.lcssa.i.i.i99 to i8
+  %513 = trunc nuw nsw i32 %.0.lcssa.i.i.i99 to i8
   %514 = or disjoint i8 %513, 48
   br label %"_ZZN8limit_fd11test_methodEvENK3$_0clB5cxx11EP8_IO_FILE.exit105"
 

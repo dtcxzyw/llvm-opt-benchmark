@@ -964,11 +964,11 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store i32 67324752, ptr %7, align 16
   %214 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %215 = trunc i32 %.0319 to i16
-  %216 = trunc i32 %.0319 to i8
+  %215 = trunc nuw nsw i32 %.0319 to i16
+  %216 = trunc nuw nsw i32 %.0319 to i8
   store i8 %216, ptr %214, align 4, !tbaa !41
   %217 = lshr i32 %.0319, 8
-  %218 = trunc i32 %217 to i8
+  %218 = trunc nuw nsw i32 %217 to i8
   %219 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store i8 %218, ptr %219, align 1, !tbaa !41
   %220 = getelementptr inbounds nuw i8, ptr %7, i64 6
@@ -1226,7 +1226,7 @@ cd_alloc.exit:                                    ; preds = %354, %362, %369
   %384 = add nuw nsw i16 %215, 768
   store i8 %216, ptr %383, align 1, !tbaa !41
   %385 = lshr i16 %384, 8
-  %386 = trunc nuw i16 %385 to i8
+  %386 = trunc nuw nsw i16 %385 to i8
   %387 = getelementptr inbounds nuw i8, ptr %382, i64 5
   store i8 %386, ptr %387, align 1, !tbaa !41
   %388 = load ptr, ptr %377, align 8, !tbaa !85

@@ -501,7 +501,7 @@ define internal i32 @ext4_getfsmap_datadev(ptr noundef %0, ptr noundef captures(
 
 .preheader43:                                     ; preds = %47, %63
   %77 = phi i64 [ %71, %63 ], [ 0, %47 ]
-  %78 = trunc i64 %77 to i32
+  %78 = trunc nuw i64 %77 to i32
   %79 = call ptr @ext4_get_group_desc(ptr noundef %0, i32 noundef %78, ptr noundef null) #12
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.thread, label %81

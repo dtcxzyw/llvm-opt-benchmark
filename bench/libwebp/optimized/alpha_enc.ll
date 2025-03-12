@@ -126,7 +126,7 @@ define internal range(i32 0, 2) i32 @CompressAlphaJob(ptr noundef captures(none)
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %46
-  %.lhs.trunc.i = trunc nuw i32 %16 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %16 to i8
   %49 = udiv i8 %.lhs.trunc.i, 5
   %narrow.i = add nuw nsw i8 %49, 2
   %50 = zext nneg i8 %narrow.i to i32

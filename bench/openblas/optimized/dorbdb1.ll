@@ -111,7 +111,7 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
 70:                                               ; preds = %.lr.ph, %173
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %173 ]
   %.0.neg288 = phi i32 [ -1, %.lr.ph ], [ %.pre-phi292, %173 ]
-  %indvars290 = trunc i64 %indvars.iv to i32
+  %indvars290 = trunc nuw i64 %indvars.iv to i32
   %71 = load i32, ptr %1, align 4, !tbaa !3
   %72 = add nsw i32 %.0.neg288, 1
   %73 = add i32 %72, %71
@@ -182,7 +182,7 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
   br i1 %120, label %122, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %70
-  %121 = trunc i64 %indvars.iv to i32
+  %121 = trunc nuw i64 %indvars.iv to i32
   %.pre291 = xor i32 %121, -1
   br label %173
 
@@ -251,7 +251,7 @@ define void @dorbdb1_(ptr noundef readonly captures(none) %0, ptr noundef readon
   %163 = add i32 %.neg285, %162
   store i32 %163, ptr %18, align 4, !tbaa !3
   %164 = load i32, ptr %2, align 4, !tbaa !3
-  %165 = trunc i64 %indvars.iv to i32
+  %165 = trunc nuw nsw i64 %indvars.iv to i32
   %166 = xor i32 %165, -1
   %167 = add i32 %164, %166
   store i32 %167, ptr %19, align 4, !tbaa !3

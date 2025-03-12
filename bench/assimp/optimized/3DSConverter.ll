@@ -164,7 +164,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter22ReplaceDefaultMaterialEv(pt
 
 ._crit_edge77:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %13 = icmp eq i32 %.127.fr, -842150451
-  %14 = trunc i64 %99 to i32
+  %14 = trunc nuw i64 %99 to i32
   %spec.select = select i1 %13, i32 %14, i32 %.127.fr
   br label %._crit_edge77.thread
 
@@ -1395,7 +1395,7 @@ define hidden void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiT
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = trunc nuw i64 %7 to i32
+  %11 = trunc nuw nsw i64 %7 to i32
   store i32 %11, ptr %4, align 4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load ptr, ptr %10, align 8
@@ -1482,7 +1482,7 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter15ConvertMaterialERNS_4D3DS8M
   br i1 %19, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %20
 
 20:                                               ; preds = %18
-  %21 = trunc nuw i64 %13 to i32
+  %21 = trunc nuw nsw i64 %13 to i32
   store i32 %21, ptr %4, align 4
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %23 = load ptr, ptr %11, align 8
@@ -1572,7 +1572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %59, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66, label %60
 
 60:                                               ; preds = %40
-  %61 = trunc nuw i64 %58 to i32
+  %61 = trunc nuw nsw i64 %58 to i32
   store i32 %61, ptr %6, align 4
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %63 = load ptr, ptr %56, align 8
@@ -1757,7 +1757,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66: 
   br i1 %144, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit67, label %145
 
 145:                                              ; preds = %143
-  %146 = trunc nuw i64 %142 to i32
+  %146 = trunc nuw nsw i64 %142 to i32
   store i32 %146, ptr %10, align 4
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %148 = load ptr, ptr %56, align 8
@@ -3302,7 +3302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br i1 %333, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %334
 
 334:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %335 = trunc nuw i64 %332 to i32
+  %335 = trunc nuw nsw i64 %332 to i32
   store i32 %335, ptr %2, align 4
   %336 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %336, ptr align 1 %.pre, i64 %332, i1 false)
@@ -3368,7 +3368,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
 
 356:                                              ; preds = %352
   %357 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %358 = trunc nuw i64 %354 to i32
+  %358 = trunc nuw nsw i64 %354 to i32
   store i32 %358, ptr %2, align 4
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %360 = load ptr, ptr %357, align 8
@@ -3871,7 +3871,7 @@ _ZNK8aiStringeqERKS_.exit273.thread:              ; preds = %616, %_ZNK8aiString
 
 646:                                              ; preds = %632
   %647 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %648 = trunc nuw i64 %644 to i32
+  %648 = trunc nuw nsw i64 %644 to i32
   store i32 %648, ptr %615, align 4
   %649 = getelementptr inbounds nuw i8, ptr %615, i64 4
   %650 = load ptr, ptr %647, align 8

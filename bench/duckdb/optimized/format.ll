@@ -5563,7 +5563,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge.i.i.i
-  %51 = trunc nuw i32 %.024.lcssa.i.i.i to i8
+  %51 = trunc nuw nsw i32 %.024.lcssa.i.i.i to i8
   %52 = or disjoint i8 %51, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i
 
@@ -6886,7 +6886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 92:                                               ; preds = %._crit_edge.i.i
-  %93 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %93 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %94 = or disjoint i8 %93, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -7761,7 +7761,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intIjNS0
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %62 = trunc nuw i32 %.024.lcssa.i.i.i.i.i to i8
+  %62 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i to i8
   %63 = or disjoint i8 %62, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -7905,12 +7905,12 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE9write_intIyNS0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.024.tr.i.i.i.i.i = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i32
+  %.024.tr.i.i.i.i.i = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i32
   %66 = shl nuw nsw i32 %.024.tr.i.i.i.i.i, 1
   %67 = or disjoint i32 %66, 1
   %68 = zext nneg i32 %67 to i64
@@ -9649,7 +9649,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %._crit_edge
-  %84 = trunc nuw i32 %.013.lcssa to i8
+  %84 = trunc nuw nsw i32 %.013.lcssa to i8
   %85 = or disjoint i8 %84, 48
   br label %128
 
@@ -9838,7 +9838,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i32 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -9975,7 +9975,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i32 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i54
 
@@ -10094,7 +10094,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i73:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i75
-  %188 = trunc nuw i32 %.024.lcssa.i.i.i.i.i76 to i8
+  %188 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i76 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i78
 
@@ -10206,7 +10206,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i98:          ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i100
-  %242 = trunc nuw i32 %.024.lcssa.i.i.i.i.i101 to i8
+  %242 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i101 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i103
 
@@ -12592,7 +12592,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %._crit_edge
-  %84 = trunc nuw i32 %.013.lcssa to i8
+  %84 = trunc nuw nsw i32 %.013.lcssa to i8
   %85 = or disjoint i8 %84, 48
   br label %128
 
@@ -12778,7 +12778,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i32 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -12915,7 +12915,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i32 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i54
 
@@ -13034,7 +13034,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i73:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i75
-  %188 = trunc nuw i32 %.024.lcssa.i.i.i.i.i76 to i8
+  %188 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i76 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i78
 
@@ -13146,7 +13146,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i98:          ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i100
-  %242 = trunc nuw i32 %.024.lcssa.i.i.i.i.i101 to i8
+  %242 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i101 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i103
 
@@ -15534,12 +15534,12 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %._crit_edge
-  %84 = trunc nuw i64 %.013.lcssa to i8
+  %84 = trunc nuw nsw i64 %.013.lcssa to i8
   %85 = or disjoint i8 %84, 48
   br label %128
 
 86:                                               ; preds = %._crit_edge
-  %.013.tr = trunc nuw i64 %.013.lcssa to i32
+  %.013.tr = trunc nuw nsw i64 %.013.lcssa to i32
   %87 = shl nuw nsw i32 %.013.tr, 1
   %88 = or disjoint i32 %87, 1
   %89 = zext nneg i32 %88 to i64
@@ -15722,12 +15722,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.024.tr.i.i.i.i.i = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i32
+  %.024.tr.i.i.i.i.i = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i32
   %66 = shl nuw nsw i32 %.024.tr.i.i.i.i.i, 1
   %67 = or disjoint i32 %66, 1
   %68 = zext nneg i32 %67 to i64
@@ -15861,12 +15861,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i64 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i55
 
 133:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %.024.tr.i.i.i.i.i54 = trunc nuw i64 %.024.lcssa.i.i.i.i.i52 to i32
+  %.024.tr.i.i.i.i.i54 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i52 to i32
   %134 = shl nuw nsw i32 %.024.tr.i.i.i.i.i54, 1
   %135 = or disjoint i32 %134, 1
   %136 = zext nneg i32 %135 to i64
@@ -15982,12 +15982,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i75:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %188 = trunc nuw i64 %.024.lcssa.i.i.i.i.i78 to i8
+  %188 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i78 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i81
 
 190:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %.024.tr.i.i.i.i.i80 = trunc nuw i64 %.024.lcssa.i.i.i.i.i78 to i32
+  %.024.tr.i.i.i.i.i80 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i78 to i32
   %191 = shl nuw nsw i32 %.024.tr.i.i.i.i.i80, 1
   %192 = or disjoint i32 %191, 1
   %193 = zext nneg i32 %192 to i64
@@ -16096,12 +16096,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i102:         ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %242 = trunc nuw i64 %.024.lcssa.i.i.i.i.i105 to i8
+  %242 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i105 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i108
 
 244:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %.024.tr.i.i.i.i.i107 = trunc nuw i64 %.024.lcssa.i.i.i.i.i105 to i32
+  %.024.tr.i.i.i.i.i107 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i105 to i32
   %245 = shl nuw nsw i32 %.024.tr.i.i.i.i.i107, 1
   %246 = or disjoint i32 %245, 1
   %247 = zext nneg i32 %246 to i64
@@ -17191,12 +17191,12 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge.i.i.i
-  %51 = trunc nuw i64 %.024.lcssa.i.i.i to i8
+  %51 = trunc nuw nsw i64 %.024.lcssa.i.i.i to i8
   %52 = or disjoint i8 %51, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i
 
 53:                                               ; preds = %._crit_edge.i.i.i
-  %.024.tr.i.i.i = trunc nuw i64 %.024.lcssa.i.i.i to i32
+  %.024.tr.i.i.i = trunc nuw nsw i64 %.024.lcssa.i.i.i to i32
   %54 = shl nuw nsw i32 %.024.tr.i.i.i, 1
   %55 = or disjoint i32 %54, 1
   %56 = zext nneg i32 %55 to i64
@@ -18596,12 +18596,12 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %._crit_edge
-  %84 = trunc nuw i64 %.013.lcssa to i8
+  %84 = trunc nuw nsw i64 %.013.lcssa to i8
   %85 = or disjoint i8 %84, 48
   br label %128
 
 86:                                               ; preds = %._crit_edge
-  %.013.tr = trunc nuw i64 %.013.lcssa to i32
+  %.013.tr = trunc nuw nsw i64 %.013.lcssa to i32
   %87 = shl nuw nsw i32 %.013.tr, 1
   %88 = or disjoint i32 %87, 1
   %89 = zext nneg i32 %88 to i64
@@ -18784,12 +18784,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.024.tr.i.i.i.i.i = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i32
+  %.024.tr.i.i.i.i.i = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i32
   %66 = shl nuw nsw i32 %.024.tr.i.i.i.i.i, 1
   %67 = or disjoint i32 %66, 1
   %68 = zext nneg i32 %67 to i64
@@ -18923,12 +18923,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i64 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i55
 
 133:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %.024.tr.i.i.i.i.i54 = trunc nuw i64 %.024.lcssa.i.i.i.i.i52 to i32
+  %.024.tr.i.i.i.i.i54 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i52 to i32
   %134 = shl nuw nsw i32 %.024.tr.i.i.i.i.i54, 1
   %135 = or disjoint i32 %134, 1
   %136 = zext nneg i32 %135 to i64
@@ -19044,12 +19044,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i75:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %188 = trunc nuw i64 %.024.lcssa.i.i.i.i.i78 to i8
+  %188 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i78 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i81
 
 190:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %.024.tr.i.i.i.i.i80 = trunc nuw i64 %.024.lcssa.i.i.i.i.i78 to i32
+  %.024.tr.i.i.i.i.i80 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i78 to i32
   %191 = shl nuw nsw i32 %.024.tr.i.i.i.i.i80, 1
   %192 = or disjoint i32 %191, 1
   %193 = zext nneg i32 %192 to i64
@@ -19158,12 +19158,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i102:         ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %242 = trunc nuw i64 %.024.lcssa.i.i.i.i.i105 to i8
+  %242 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i105 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalImcZNS1_14format_decimalIcPcmEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i108
 
 244:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %.024.tr.i.i.i.i.i107 = trunc nuw i64 %.024.lcssa.i.i.i.i.i105 to i32
+  %.024.tr.i.i.i.i.i107 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i105 to i32
   %245 = shl nuw nsw i32 %.024.tr.i.i.i.i.i107, 1
   %246 = or disjoint i32 %245, 1
   %247 = zext nneg i32 %246 to i64
@@ -21535,12 +21535,12 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %._crit_edge
-  %85 = trunc nuw i128 %.013.lcssa to i8
+  %85 = trunc nuw nsw i128 %.013.lcssa to i8
   %86 = or disjoint i8 %85, 48
   br label %129
 
 87:                                               ; preds = %._crit_edge
-  %.013.tr = trunc nuw i128 %.013.lcssa to i32
+  %.013.tr = trunc nuw nsw i128 %.013.lcssa to i32
   %88 = shl nuw nsw i32 %.013.tr, 1
   %89 = or disjoint i32 %88, 1
   %90 = zext nneg i32 %89 to i64
@@ -21725,12 +21725,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i128 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.024.tr.i.i.i.i.i = trunc nuw i128 %.024.lcssa.i.i.i.i.i to i32
+  %.024.tr.i.i.i.i.i = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i to i32
   %66 = shl nuw nsw i32 %.024.tr.i.i.i.i.i, 1
   %67 = or disjoint i32 %66, 1
   %68 = zext nneg i32 %67 to i64
@@ -21866,12 +21866,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i128 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i55
 
 133:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %.024.tr.i.i.i.i.i54 = trunc nuw i128 %.024.lcssa.i.i.i.i.i52 to i32
+  %.024.tr.i.i.i.i.i54 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i52 to i32
   %134 = shl nuw nsw i32 %.024.tr.i.i.i.i.i54, 1
   %135 = or disjoint i32 %134, 1
   %136 = zext nneg i32 %135 to i64
@@ -21989,12 +21989,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i75:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %188 = trunc nuw i128 %.024.lcssa.i.i.i.i.i78 to i8
+  %188 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i78 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i81
 
 190:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %.024.tr.i.i.i.i.i80 = trunc nuw i128 %.024.lcssa.i.i.i.i.i78 to i32
+  %.024.tr.i.i.i.i.i80 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i78 to i32
   %191 = shl nuw nsw i32 %.024.tr.i.i.i.i.i80, 1
   %192 = or disjoint i32 %191, 1
   %193 = zext nneg i32 %192 to i64
@@ -22105,12 +22105,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i102:         ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %242 = trunc nuw i128 %.024.lcssa.i.i.i.i.i105 to i8
+  %242 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i105 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i108
 
 244:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %.024.tr.i.i.i.i.i107 = trunc nuw i128 %.024.lcssa.i.i.i.i.i105 to i32
+  %.024.tr.i.i.i.i.i107 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i105 to i32
   %245 = shl nuw nsw i32 %.024.tr.i.i.i.i.i107, 1
   %246 = or disjoint i32 %245, 1
   %247 = zext nneg i32 %246 to i64
@@ -23249,12 +23249,12 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE7reserveEm.exit
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %._crit_edge.i.i.i
-  %58 = trunc nuw i128 %.024.lcssa.i.i.i to i8
+  %58 = trunc nuw nsw i128 %.024.lcssa.i.i.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIcPcoEET0_S4_T1_i.exit
 
 60:                                               ; preds = %._crit_edge.i.i.i
-  %.024.tr.i.i.i = trunc nuw i128 %.024.lcssa.i.i.i to i32
+  %.024.tr.i.i.i = trunc nuw nsw i128 %.024.lcssa.i.i.i to i32
   %61 = shl nuw nsw i32 %.024.tr.i.i.i, 1
   %62 = or disjoint i32 %61, 1
   %63 = zext nneg i32 %62 to i64
@@ -24642,12 +24642,12 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %._crit_edge
-  %85 = trunc nuw i128 %.013.lcssa to i8
+  %85 = trunc nuw nsw i128 %.013.lcssa to i8
   %86 = or disjoint i8 %85, 48
   br label %129
 
 87:                                               ; preds = %._crit_edge
-  %.013.tr = trunc nuw i128 %.013.lcssa to i32
+  %.013.tr = trunc nuw nsw i128 %.013.lcssa to i32
   %88 = shl nuw nsw i32 %.013.tr, 1
   %89 = or disjoint i32 %88, 1
   %90 = zext nneg i32 %89 to i64
@@ -24832,12 +24832,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i128 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %.024.tr.i.i.i.i.i = trunc nuw i128 %.024.lcssa.i.i.i.i.i to i32
+  %.024.tr.i.i.i.i.i = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i to i32
   %66 = shl nuw nsw i32 %.024.tr.i.i.i.i.i, 1
   %67 = or disjoint i32 %66, 1
   %68 = zext nneg i32 %67 to i64
@@ -24973,12 +24973,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i128 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i55
 
 133:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %.024.tr.i.i.i.i.i54 = trunc nuw i128 %.024.lcssa.i.i.i.i.i52 to i32
+  %.024.tr.i.i.i.i.i54 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i52 to i32
   %134 = shl nuw nsw i32 %.024.tr.i.i.i.i.i54, 1
   %135 = or disjoint i32 %134, 1
   %136 = zext nneg i32 %135 to i64
@@ -25096,12 +25096,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i75:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %188 = trunc nuw i128 %.024.lcssa.i.i.i.i.i78 to i8
+  %188 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i78 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i81
 
 190:                                              ; preds = %._crit_edge.i.i.i.i.i77
-  %.024.tr.i.i.i.i.i80 = trunc nuw i128 %.024.lcssa.i.i.i.i.i78 to i32
+  %.024.tr.i.i.i.i.i80 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i78 to i32
   %191 = shl nuw nsw i32 %.024.tr.i.i.i.i.i80, 1
   %192 = or disjoint i32 %191, 1
   %193 = zext nneg i32 %192 to i64
@@ -25212,12 +25212,12 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i102:         ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %242 = trunc nuw i128 %.024.lcssa.i.i.i.i.i105 to i8
+  %242 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i105 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIocZNS1_14format_decimalIcPcoEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i108
 
 244:                                              ; preds = %._crit_edge.i.i.i.i.i104
-  %.024.tr.i.i.i.i.i107 = trunc nuw i128 %.024.lcssa.i.i.i.i.i105 to i32
+  %.024.tr.i.i.i.i.i107 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i105 to i32
   %245 = shl nuw nsw i32 %.024.tr.i.i.i.i.i107, 1
   %246 = or disjoint i32 %245, 1
   %247 = zext nneg i32 %246 to i64
@@ -26327,12 +26327,12 @@ _ZN10duckdb_fmt2v68internal12count_digitsEo.exit: ; preds = %17, %3, %7, %11, %1
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %._crit_edge.i.i.i
-  %51 = trunc nuw i128 %.024.lcssa.i.i.i to i8
+  %51 = trunc nuw nsw i128 %.024.lcssa.i.i.i to i8
   %52 = or disjoint i8 %51, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIcPcoEET0_S4_T1_i.exit
 
 53:                                               ; preds = %._crit_edge.i.i.i
-  %.024.tr.i.i.i = trunc nuw i128 %.024.lcssa.i.i.i to i32
+  %.024.tr.i.i.i = trunc nuw nsw i128 %.024.lcssa.i.i.i to i32
   %54 = shl nuw nsw i32 %.024.tr.i.i.i, 1
   %55 = or disjoint i32 %54, 1
   %56 = zext nneg i32 %55 to i64
@@ -28188,7 +28188,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIcEEE10int_writerI
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %._crit_edge
-  %84 = trunc nuw i32 %.013.lcssa to i8
+  %84 = trunc nuw nsw i32 %.013.lcssa to i8
   %85 = or disjoint i8 %84, 48
   br label %128
 
@@ -28374,7 +28374,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i:            ; preds = %37, %_ZN10duckdb_fm
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i32 %.024.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i
 
@@ -28511,7 +28511,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i49:          ; preds = %105, %_ZN10duckdb_f
   br i1 %129, label %130, label %133
 
 130:                                              ; preds = %._crit_edge.i.i.i.i.i51
-  %131 = trunc nuw i32 %.024.lcssa.i.i.i.i.i52 to i8
+  %131 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i52 to i8
   %132 = or disjoint i8 %131, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i54
 
@@ -28630,7 +28630,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i73:          ; preds = %162, %_ZN10duckdb_f
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %._crit_edge.i.i.i.i.i75
-  %188 = trunc nuw i32 %.024.lcssa.i.i.i.i.i76 to i8
+  %188 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i76 to i8
   %189 = or disjoint i8 %188, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i78
 
@@ -28742,7 +28742,7 @@ _ZSt6fill_nIPcmcET_S1_T0_RKT1_.exit.i98:          ; preds = %216, %_ZN10duckdb_f
   br i1 %240, label %241, label %244
 
 241:                                              ; preds = %._crit_edge.i.i.i.i.i100
-  %242 = trunc nuw i32 %.024.lcssa.i.i.i.i.i101 to i8
+  %242 = trunc nuw nsw i32 %.024.lcssa.i.i.i.i.i101 to i8
   %243 = or disjoint i8 %242, 48
   br label %_ZN10duckdb_fmt2v68internal14format_decimalIjcZNS1_14format_decimalIcPcjEET0_S5_T1_iEUlS4_E_EEPS5_S8_T_iS6_.exit.i.i.i.i103
 
@@ -35157,7 +35157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEv.exit: ; preds = %34
-  %53 = trunc nuw i64 %41 to i32
+  %53 = trunc nuw nsw i64 %41 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
@@ -35371,7 +35371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i52: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEi.exit: ; preds = %107
-  %125 = trunc nuw i64 %113 to i32
+  %125 = trunc nuw nsw i64 %113 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
@@ -35605,7 +35605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i79: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclENS0_17basic_string_viewIcEE.exit: ; preds = %.critedge
-  %202 = trunc nuw i64 %190 to i32
+  %202 = trunc nuw nsw i64 %190 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -36498,7 +36498,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEv.exit: ; preds = %34
-  %53 = trunc nuw i64 %41 to i32
+  %53 = trunc nuw nsw i64 %41 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
@@ -36713,7 +36713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i52: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclEi.exit: ; preds = %108
-  %126 = trunc nuw i64 %114 to i32
+  %126 = trunc nuw nsw i64 %114 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
@@ -36948,7 +36948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i79: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIcEEEcEEEEEEcEclENS0_17basic_string_viewIcEE.exit: ; preds = %.critedge
-  %204 = trunc nuw i64 %192 to i32
+  %204 = trunc nuw nsw i64 %192 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
@@ -39897,7 +39897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 92:                                               ; preds = %._crit_edge.i.i
-  %93 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %93 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %94 = or disjoint i8 %93, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -40885,7 +40885,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE9write_intIyNS0
   %.024.lcssa.i.i.i.i.i = phi i64 [ %1, %42 ], [ %50, %.lr.ph.i.i.i.i.i ]
   %.023.lcssa.i.i.i.i.i = phi ptr [ %46, %42 ], [ %61, %.lr.ph.i.i.i.i.i ]
   %63 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i, 10
-  %64 = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i32
+  %64 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i32
   br i1 %63, label %65, label %67
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -49260,7 +49260,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerI
   %.0.lcssa = phi ptr [ %6, %4 ], [ %.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIxNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %.013.lcssa = phi i64 [ %1, %4 ], [ %16, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIxNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %86 = icmp samesign ult i64 %.013.lcssa, 10
-  %87 = trunc nuw i64 %.013.lcssa to i32
+  %87 = trunc nuw nsw i64 %.013.lcssa to i32
   br i1 %86, label %88, label %90
 
 88:                                               ; preds = %._crit_edge
@@ -49460,7 +49460,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i:            ; preds = %.lr.ph.i.i.i.i.i, %
   %.024.lcssa.i.i.i.i.i = phi i64 [ %45, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %53, %.lr.ph.i.i.i.i6.i ]
   %.023.lcssa.i.i.i.i.i = phi ptr [ %49, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %64, %.lr.ph.i.i.i.i6.i ]
   %66 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i, 10
-  %67 = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i32
+  %67 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i32
   br i1 %66, label %68, label %70
 
 68:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -49620,7 +49620,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49:          ; preds = %.lr.ph.i.i.i.i.i46,
   %.024.lcssa.i.i.i.i.i52 = phi i64 [ %123, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %131, %.lr.ph.i.i.i.i6.i59 ]
   %.023.lcssa.i.i.i.i.i53 = phi ptr [ %127, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %142, %.lr.ph.i.i.i.i6.i59 ]
   %144 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i52, 10
-  %145 = trunc nuw i64 %.024.lcssa.i.i.i.i.i52 to i32
+  %145 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i52 to i32
   br i1 %144, label %146, label %148
 
 146:                                              ; preds = %._crit_edge.i.i.i.i.i51
@@ -49759,7 +49759,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80:          ; preds = %.lr.ph.i.i.i.i.i77,
   %.024.lcssa.i.i.i.i.i83 = phi i64 [ %189, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %197, %.lr.ph.i.i.i.i6.i90 ]
   %.023.lcssa.i.i.i.i.i84 = phi ptr [ %193, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %208, %.lr.ph.i.i.i.i6.i90 ]
   %210 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i83, 10
-  %211 = trunc nuw i64 %.024.lcssa.i.i.i.i.i83 to i32
+  %211 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i83 to i32
   br i1 %210, label %212, label %214
 
 212:                                              ; preds = %._crit_edge.i.i.i.i.i82
@@ -49891,7 +49891,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112:         ; preds = %.lr.ph.i.i.i.i.i109
   %.024.lcssa.i.i.i.i.i115 = phi i64 [ %254, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %262, %.lr.ph.i.i.i.i6.i122 ]
   %.023.lcssa.i.i.i.i.i116 = phi ptr [ %258, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %273, %.lr.ph.i.i.i.i6.i122 ]
   %275 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i115, 10
-  %276 = trunc nuw i64 %.024.lcssa.i.i.i.i.i115 to i32
+  %276 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i115 to i32
   br i1 %275, label %277, label %279
 
 277:                                              ; preds = %._crit_edge.i.i.i.i.i114
@@ -51183,7 +51183,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE7reserveEm.exit
   %.024.lcssa.i.i.i = phi i64 [ %spec.select, %33 ], [ %38, %.lr.ph.i.i.i ]
   %.023.lcssa.i.i.i = phi ptr [ %34, %33 ], [ %49, %.lr.ph.i.i.i ]
   %51 = icmp samesign ult i64 %.024.lcssa.i.i.i, 10
-  %52 = trunc nuw i64 %.024.lcssa.i.i.i to i32
+  %52 = trunc nuw nsw i64 %.024.lcssa.i.i.i to i32
   br i1 %51, label %53, label %55
 
 53:                                               ; preds = %._crit_edge.i.i.i
@@ -52661,7 +52661,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerI
   %.0.lcssa = phi ptr [ %6, %4 ], [ %.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIyNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %.013.lcssa = phi i64 [ %1, %4 ], [ %16, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIyNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %86 = icmp samesign ult i64 %.013.lcssa, 10
-  %87 = trunc nuw i64 %.013.lcssa to i32
+  %87 = trunc nuw nsw i64 %.013.lcssa to i32
   br i1 %86, label %88, label %90
 
 88:                                               ; preds = %._crit_edge
@@ -52861,7 +52861,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i:            ; preds = %.lr.ph.i.i.i.i.i, %
   %.024.lcssa.i.i.i.i.i = phi i64 [ %45, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %53, %.lr.ph.i.i.i.i6.i ]
   %.023.lcssa.i.i.i.i.i = phi ptr [ %49, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %64, %.lr.ph.i.i.i.i6.i ]
   %66 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i, 10
-  %67 = trunc nuw i64 %.024.lcssa.i.i.i.i.i to i32
+  %67 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i to i32
   br i1 %66, label %68, label %70
 
 68:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -53021,7 +53021,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49:          ; preds = %.lr.ph.i.i.i.i.i46,
   %.024.lcssa.i.i.i.i.i52 = phi i64 [ %123, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %131, %.lr.ph.i.i.i.i6.i59 ]
   %.023.lcssa.i.i.i.i.i53 = phi ptr [ %127, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %142, %.lr.ph.i.i.i.i6.i59 ]
   %144 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i52, 10
-  %145 = trunc nuw i64 %.024.lcssa.i.i.i.i.i52 to i32
+  %145 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i52 to i32
   br i1 %144, label %146, label %148
 
 146:                                              ; preds = %._crit_edge.i.i.i.i.i51
@@ -53160,7 +53160,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80:          ; preds = %.lr.ph.i.i.i.i.i77,
   %.024.lcssa.i.i.i.i.i83 = phi i64 [ %189, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %197, %.lr.ph.i.i.i.i6.i90 ]
   %.023.lcssa.i.i.i.i.i84 = phi ptr [ %193, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %208, %.lr.ph.i.i.i.i6.i90 ]
   %210 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i83, 10
-  %211 = trunc nuw i64 %.024.lcssa.i.i.i.i.i83 to i32
+  %211 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i83 to i32
   br i1 %210, label %212, label %214
 
 212:                                              ; preds = %._crit_edge.i.i.i.i.i82
@@ -53292,7 +53292,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112:         ; preds = %.lr.ph.i.i.i.i.i109
   %.024.lcssa.i.i.i.i.i115 = phi i64 [ %254, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %262, %.lr.ph.i.i.i.i6.i122 ]
   %.023.lcssa.i.i.i.i.i116 = phi ptr [ %258, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %273, %.lr.ph.i.i.i.i6.i122 ]
   %275 = icmp samesign ult i64 %.024.lcssa.i.i.i.i.i115, 10
-  %276 = trunc nuw i64 %.024.lcssa.i.i.i.i.i115 to i32
+  %276 = trunc nuw nsw i64 %.024.lcssa.i.i.i.i.i115 to i32
   br i1 %275, label %277, label %279
 
 277:                                              ; preds = %._crit_edge.i.i.i.i.i114
@@ -55935,7 +55935,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerI
   %.0.lcssa = phi ptr [ %7, %5 ], [ %.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %.013.lcssa = phi i128 [ %.sroa.0.0.insert.insert, %5 ], [ %15, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerInNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %87 = icmp samesign ult i128 %.013.lcssa, 10
-  %88 = trunc nuw i128 %.013.lcssa to i32
+  %88 = trunc nuw nsw i128 %.013.lcssa to i32
   br i1 %87, label %89, label %91
 
 89:                                               ; preds = %._crit_edge
@@ -56137,7 +56137,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i:            ; preds = %.lr.ph.i.i.i.i.i, %
   %.024.lcssa.i.i.i.i.i = phi i128 [ %45, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %51, %.lr.ph.i.i.i.i6.i ]
   %.023.lcssa.i.i.i.i.i = phi ptr [ %49, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %64, %.lr.ph.i.i.i.i6.i ]
   %66 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i, 10
-  %67 = trunc nuw i128 %.024.lcssa.i.i.i.i.i to i32
+  %67 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i to i32
   br i1 %66, label %68, label %70
 
 68:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -56299,7 +56299,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49:          ; preds = %.lr.ph.i.i.i.i.i46,
   %.024.lcssa.i.i.i.i.i52 = phi i128 [ %123, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %129, %.lr.ph.i.i.i.i6.i59 ]
   %.023.lcssa.i.i.i.i.i53 = phi ptr [ %127, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %142, %.lr.ph.i.i.i.i6.i59 ]
   %144 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i52, 10
-  %145 = trunc nuw i128 %.024.lcssa.i.i.i.i.i52 to i32
+  %145 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i52 to i32
   br i1 %144, label %146, label %148
 
 146:                                              ; preds = %._crit_edge.i.i.i.i.i51
@@ -56440,7 +56440,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80:          ; preds = %.lr.ph.i.i.i.i.i77,
   %.024.lcssa.i.i.i.i.i83 = phi i128 [ %189, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %195, %.lr.ph.i.i.i.i6.i90 ]
   %.023.lcssa.i.i.i.i.i84 = phi ptr [ %193, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %208, %.lr.ph.i.i.i.i6.i90 ]
   %210 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i83, 10
-  %211 = trunc nuw i128 %.024.lcssa.i.i.i.i.i83 to i32
+  %211 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i83 to i32
   br i1 %210, label %212, label %214
 
 212:                                              ; preds = %._crit_edge.i.i.i.i.i82
@@ -56574,7 +56574,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112:         ; preds = %.lr.ph.i.i.i.i.i109
   %.024.lcssa.i.i.i.i.i115 = phi i128 [ %254, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %260, %.lr.ph.i.i.i.i6.i122 ]
   %.023.lcssa.i.i.i.i.i116 = phi ptr [ %258, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %273, %.lr.ph.i.i.i.i6.i122 ]
   %275 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i115, 10
-  %276 = trunc nuw i128 %.024.lcssa.i.i.i.i.i115 to i32
+  %276 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i115 to i32
   br i1 %275, label %277, label %279
 
 277:                                              ; preds = %._crit_edge.i.i.i.i.i114
@@ -57915,7 +57915,7 @@ _ZN10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE7reserveEm.exit
   %.024.lcssa.i.i.i = phi i128 [ %.sroa.0.0.insert.insert.i, %40 ], [ %43, %.lr.ph.i.i.i ]
   %.023.lcssa.i.i.i = phi ptr [ %41, %40 ], [ %56, %.lr.ph.i.i.i ]
   %58 = icmp samesign ult i128 %.024.lcssa.i.i.i, 10
-  %59 = trunc nuw i128 %.024.lcssa.i.i.i to i32
+  %59 = trunc nuw nsw i128 %.024.lcssa.i.i.i to i32
   br i1 %58, label %60, label %62
 
 60:                                               ; preds = %._crit_edge.i.i.i
@@ -59381,7 +59381,7 @@ _ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerI
   %.0.lcssa = phi ptr [ %7, %5 ], [ %.2, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %.013.lcssa = phi i128 [ %.sroa.0.0.insert.insert, %5 ], [ %15, %_ZZNK10duckdb_fmt2v68internal12basic_writerINS0_12buffer_rangeIwEEE10int_writerIoNS0_18basic_format_specsIwEEE10num_writerclIRPwEEvOT_ENKUlSD_E_clESD_.exit19 ]
   %87 = icmp samesign ult i128 %.013.lcssa, 10
-  %88 = trunc nuw i128 %.013.lcssa to i32
+  %88 = trunc nuw nsw i128 %.013.lcssa to i32
   br i1 %87, label %89, label %91
 
 89:                                               ; preds = %._crit_edge
@@ -59583,7 +59583,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i:            ; preds = %.lr.ph.i.i.i.i.i, %
   %.024.lcssa.i.i.i.i.i = phi i128 [ %45, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %51, %.lr.ph.i.i.i.i6.i ]
   %.023.lcssa.i.i.i.i.i = phi ptr [ %49, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i ], [ %64, %.lr.ph.i.i.i.i6.i ]
   %66 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i, 10
-  %67 = trunc nuw i128 %.024.lcssa.i.i.i.i.i to i32
+  %67 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i to i32
   br i1 %66, label %68, label %70
 
 68:                                               ; preds = %._crit_edge.i.i.i.i.i
@@ -59745,7 +59745,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49:          ; preds = %.lr.ph.i.i.i.i.i46,
   %.024.lcssa.i.i.i.i.i52 = phi i128 [ %123, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %129, %.lr.ph.i.i.i.i6.i59 ]
   %.023.lcssa.i.i.i.i.i53 = phi ptr [ %127, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i49 ], [ %142, %.lr.ph.i.i.i.i6.i59 ]
   %144 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i52, 10
-  %145 = trunc nuw i128 %.024.lcssa.i.i.i.i.i52 to i32
+  %145 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i52 to i32
   br i1 %144, label %146, label %148
 
 146:                                              ; preds = %._crit_edge.i.i.i.i.i51
@@ -59886,7 +59886,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80:          ; preds = %.lr.ph.i.i.i.i.i77,
   %.024.lcssa.i.i.i.i.i83 = phi i128 [ %189, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %195, %.lr.ph.i.i.i.i6.i90 ]
   %.023.lcssa.i.i.i.i.i84 = phi ptr [ %193, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i80 ], [ %208, %.lr.ph.i.i.i.i6.i90 ]
   %210 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i83, 10
-  %211 = trunc nuw i128 %.024.lcssa.i.i.i.i.i83 to i32
+  %211 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i83 to i32
   br i1 %210, label %212, label %214
 
 212:                                              ; preds = %._crit_edge.i.i.i.i.i82
@@ -60020,7 +60020,7 @@ _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112:         ; preds = %.lr.ph.i.i.i.i.i109
   %.024.lcssa.i.i.i.i.i115 = phi i128 [ %254, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %260, %.lr.ph.i.i.i.i6.i122 ]
   %.023.lcssa.i.i.i.i.i116 = phi ptr [ %258, %_ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.i112 ], [ %273, %.lr.ph.i.i.i.i6.i122 ]
   %275 = icmp samesign ult i128 %.024.lcssa.i.i.i.i.i115, 10
-  %276 = trunc nuw i128 %.024.lcssa.i.i.i.i.i115 to i32
+  %276 = trunc nuw nsw i128 %.024.lcssa.i.i.i.i.i115 to i32
   br i1 %275, label %277, label %279
 
 277:                                              ; preds = %._crit_edge.i.i.i.i.i114
@@ -61332,7 +61332,7 @@ _ZN10duckdb_fmt2v68internal12count_digitsEo.exit: ; preds = %17, %3, %7, %11, %1
   %.024.lcssa.i.i.i = phi i128 [ %.sroa.0.0.insert.insert.i, %31 ], [ %36, %.lr.ph.i.i.i ]
   %.023.lcssa.i.i.i = phi ptr [ %34, %31 ], [ %49, %.lr.ph.i.i.i ]
   %51 = icmp samesign ult i128 %.024.lcssa.i.i.i, 10
-  %52 = trunc nuw i128 %.024.lcssa.i.i.i to i32
+  %52 = trunc nuw nsw i128 %.024.lcssa.i.i.i to i32
   br i1 %51, label %53, label %55
 
 53:                                               ; preds = %._crit_edge.i.i.i
@@ -70761,7 +70761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEwEclEv.exit: ; preds = %32
-  %51 = trunc nuw i64 %39 to i32
+  %51 = trunc nuw nsw i64 %39 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
@@ -70975,7 +70975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i50: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEwEclEi.exit: ; preds = %105
-  %123 = trunc nuw i64 %111 to i32
+  %123 = trunc nuw nsw i64 %111 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
@@ -71205,7 +71205,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i77: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal13width_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEwEclENS0_17basic_string_viewIwEE.exit: ; preds = %.critedge
-  %201 = trunc nuw i64 %189 to i32
+  %201 = trunc nuw nsw i64 %189 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -72099,7 +72099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEwEclEv.exit: ; preds = %32
-  %51 = trunc nuw i64 %39 to i32
+  %51 = trunc nuw nsw i64 %39 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %24)
@@ -72314,7 +72314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i50: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEwEclEi.exit: ; preds = %106
-  %124 = trunc nuw i64 %112 to i32
+  %124 = trunc nuw nsw i64 %112 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
@@ -72545,7 +72545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i77: ; preds 
   br label %common.resume
 
 _ZN10duckdb_fmt2v68internal17precision_adapterIRNS1_13specs_checkerINS1_13specs_handlerINS0_26basic_format_parse_contextIwNS1_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINS1_6bufferIwEEEwEEEEEEwEclENS0_17basic_string_viewIwEE.exit: ; preds = %.critedge
-  %203 = trunc nuw i64 %191 to i32
+  %203 = trunc nuw nsw i64 %191 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)

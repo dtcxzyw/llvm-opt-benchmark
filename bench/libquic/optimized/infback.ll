@@ -649,7 +649,7 @@ default.unreachable1283:                          ; preds = %71
 
 ._crit_edge886.loopexit:                          ; preds = %222
   %238 = zext i8 %.sroa.18.0.copyload to i32
-  %239 = trunc nuw i64 %indvars.iv.next1225 to i32
+  %239 = trunc nuw nsw i64 %indvars.iv.next1225 to i32
   br label %._crit_edge886
 
 ._crit_edge886:                                   ; preds = %._crit_edge886.loopexit, %.preheader681
@@ -1077,7 +1077,7 @@ default.unreachable1283:                          ; preds = %71
 
 ._crit_edge937.loopexit:                          ; preds = %405
   %421 = zext i8 %.sroa.18.0.copyload36 to i32
-  %422 = trunc nuw i64 %indvars.iv.next1237 to i32
+  %422 = trunc nuw nsw i64 %indvars.iv.next1237 to i32
   br label %._crit_edge937
 
 ._crit_edge937:                                   ; preds = %._crit_edge937.loopexit, %.preheader691
@@ -1386,7 +1386,7 @@ default.unreachable1283:                          ; preds = %71
 
 ._crit_edge978.loopexit:                          ; preds = %537
   %553 = zext i8 %.sroa.18.0.copyload40 to i32
-  %554 = trunc nuw i64 %indvars.iv.next1243 to i32
+  %554 = trunc nuw nsw i64 %indvars.iv.next1243 to i32
   br label %._crit_edge978
 
 ._crit_edge978:                                   ; preds = %._crit_edge978.loopexit, %520

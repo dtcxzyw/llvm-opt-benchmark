@@ -2220,7 +2220,7 @@ define internal fastcc i32 @xhci_enter_test_mode(ptr noundef %0, i16 noundef zer
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %13
-  %19 = trunc i64 %14 to i32
+  %19 = trunc nuw nsw i64 %14 to i32
   %20 = tail call i32 @xhci_disable_slot(ptr noundef %0, i32 noundef %19) #13
   tail call void @xhci_free_virt_device(ptr noundef %0, i32 noundef %19) #13
   %21 = icmp eq i32 %20, 0

@@ -528,7 +528,7 @@ _ZN7rocksdbneERKNS_5SliceES2_.exit:               ; preds = %95
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %114
-  %121 = trunc nuw i32 %43 to i8
+  %121 = trunc nuw nsw i32 %43 to i8
   store i8 %121, ptr %14, align 1, !tbaa !17
   br label %_ZN7rocksdb12_GLOBAL__N_110EncodeSizeENS_19PlainTableEntryTypeEjPc.exit
 
@@ -644,7 +644,7 @@ _ZN7rocksdb6StatusD2Ev.exit113:                   ; preds = %.critedge92, %_ZNKS
   br i1 %165, label %166, label %169
 
 166:                                              ; preds = %161
-  %167 = trunc nuw i32 %163 to i8
+  %167 = trunc nuw nsw i32 %163 to i8
   %168 = or disjoint i8 %167, -128
   store i8 %168, ptr %164, align 1, !tbaa !17
   br label %_ZN7rocksdb12_GLOBAL__N_110EncodeSizeENS_19PlainTableEntryTypeEjPc.exit129
@@ -956,7 +956,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %4
   store ptr %16, ptr %8, align 8, !tbaa !93, !alias.scope !94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i8 noundef signext 0)
   %17 = load ptr, ptr %8, align 8, !tbaa !11, !alias.scope !94
-  %18 = trunc nuw i64 %14 to i8
+  %18 = trunc nuw nsw i64 %14 to i8
   %19 = or disjoint i8 %18, 48
   store i8 %19, ptr %17, align 1, !tbaa !17
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.44, i64 noundef 44)

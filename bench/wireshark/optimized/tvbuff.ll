@@ -7719,7 +7719,7 @@ tvb_captured_length_remaining.exit.thread:        ; preds = %20, %17, %tvb_captu
   br label %35
 
 29:                                               ; preds = %tvb_captured_length_remaining.exit
-  %30 = trunc nuw i64 %3 to i32
+  %30 = trunc nuw nsw i64 %3 to i32
   %.not25 = icmp samesign ult i32 %27, %30
   %31 = add nsw i32 %30, -1
   %spec.select = select i1 %.not25, i32 %27, i32 %31

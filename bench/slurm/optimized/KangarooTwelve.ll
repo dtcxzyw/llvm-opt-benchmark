@@ -269,7 +269,7 @@ define dso_local i32 @KangarooTwelve_Final(ptr noundef %0, ptr noundef %1, ptr n
 
 right_encode.exit:                                ; preds = %.lr.ph22.i
   %.pre-phi.i = zext nneg i32 %13 to i64
-  %24 = trunc i32 %13 to i8
+  %24 = trunc nuw nsw i32 %13 to i8
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i
   store i8 %24, ptr %25, align 1
   br label %26
@@ -357,7 +357,7 @@ right_encode.exit64:                              ; preds = %.lr.ph22.i56, %43
   %.017.lcssa29.i61 = phi i32 [ 0, %43 ], [ %47, %.lr.ph22.i56 ]
   %.pre-phi26.i62 = phi i32 [ 1, %43 ], [ %46, %.lr.ph22.i56 ]
   %.pre-phi.i63 = zext nneg i32 %.017.lcssa29.i61 to i64
-  %58 = trunc i32 %.017.lcssa29.i61 to i8
+  %58 = trunc nuw nsw i32 %.017.lcssa29.i61 to i8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i63
   store i8 %58, ptr %59, align 1
   %60 = add nuw nsw i32 %.pre-phi26.i62, 1

@@ -3239,7 +3239,7 @@ thread-pre-split:                                 ; preds = %1319, %1317, %1311,
 
 1358:                                             ; preds = %1347
   %1359 = getelementptr inbounds nuw i8, ptr %4, i64 %1351
-  %1360 = trunc i64 %1351 to i32
+  %1360 = trunc nuw i64 %1351 to i32
   %1361 = sub i32 %5, %1360
   br label %.thread539
 

@@ -1205,7 +1205,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %376, %378
-  %379 = trunc i64 %360 to i32
+  %379 = trunc nsw i64 %360 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit
 
@@ -3281,7 +3281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
   br label %_ZNSt7__cxx119to_stringEi.exit.i
 
 1199:                                             ; preds = %._crit_edge.i.i97.i
-  %1200 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %1200 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %1201 = or disjoint i8 %1200, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i
 
@@ -3608,7 +3608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i127.i
   br label %_ZNSt7__cxx119to_stringEi.exit135.i
 
 1315:                                             ; preds = %._crit_edge.i.i128.i
-  %1316 = trunc nuw i32 %.0.lcssa.i.i129.i to i8
+  %1316 = trunc nuw nsw i32 %.0.lcssa.i.i129.i to i8
   %1317 = or disjoint i8 %1316, 48
   br label %_ZNSt7__cxx119to_stringEi.exit135.i
 

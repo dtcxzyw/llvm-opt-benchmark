@@ -1447,7 +1447,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %.lr.ph.i, %183
   br i1 %654, label %.thread98.i, label %655
 
 655:                                              ; preds = %.lr.ph.i1097
-  %656 = trunc i32 %653 to i16
+  %656 = trunc nuw i32 %653 to i16
   %657 = sub i16 %.090110.i, %656
   %658 = icmp samesign ult i32 %653, 8
   br i1 %658, label %659, label %662

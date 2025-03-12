@@ -6125,7 +6125,7 @@ define hidden void @_ZN16wasmtime_runtime3sys4unix4mmap4Mmap3new17h766651a67efbc
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %5 to i64
-  %11 = trunc i64 %10 to i16
+  %11 = trunc nsw i64 %10 to i16
   %12 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hd223d9c9dfe6cdc2E"(i16 noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
@@ -6162,7 +6162,7 @@ define hidden void @_ZN16wasmtime_runtime3sys4unix4mmap4Mmap7reserve17h3aef08cf1
 
 9:                                                ; preds = %2
   %10 = ptrtoint ptr %5 to i64
-  %11 = trunc i64 %10 to i16
+  %11 = trunc nsw i64 %10 to i16
   %12 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hd223d9c9dfe6cdc2E"(i16 noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %13, align 8
@@ -6348,7 +6348,7 @@ common.resume:                                    ; preds = %42, %30
 
 64:                                               ; preds = %.noexc
   %65 = ptrtoint ptr %60 to i64
-  %66 = trunc i64 %65 to i16
+  %66 = trunc nsw i64 %65 to i16
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 2
   store i16 %66, ptr %67, align 2, !alias.scope !766, !noalias !769
   br label %68

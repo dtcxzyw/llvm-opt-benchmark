@@ -445,7 +445,7 @@ define void @ossl_curve448_precomputed_scalarmul(ptr noundef %0, ptr noundef rea
   %28 = lshr i64 %26, %27
   %29 = and i64 %28, 1
   %30 = shl nuw nsw i64 %29, %indvars.iv
-  %31 = trunc nuw i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = or i32 %.03338, %31
   br label %33
 

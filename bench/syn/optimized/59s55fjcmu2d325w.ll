@@ -854,7 +854,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit130: ; preds = %68
 
 139:                                              ; preds = %135
   %140 = lshr i32 %.0121, 6
-  %141 = trunc nuw i32 %140 to i8
+  %141 = trunc nuw nsw i32 %140 to i8
   %142 = or disjoint i8 %141, -64
   store i8 %142, ptr %.sroa.0.i, align 4, !alias.scope !65, !noalias !62
   %143 = trunc i32 %.0121 to i8
@@ -865,7 +865,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit130: ; preds = %68
 
 146:                                              ; preds = %137
   %147 = lshr i32 %.0121, 12
-  %148 = trunc nuw i32 %147 to i8
+  %148 = trunc nuw nsw i32 %147 to i8
   %149 = or disjoint i8 %148, -32
   store i8 %149, ptr %.sroa.0.i, align 4, !alias.scope !65, !noalias !62
   %150 = lshr i32 %.0121, 6

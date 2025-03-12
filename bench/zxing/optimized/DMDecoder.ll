@@ -2533,7 +2533,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i: ; preds = %714, %712, %708, %
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i
 
 764:                                              ; preds = %._crit_edge.i.i.i.i
-  %765 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %765 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   %766 = or disjoint i8 %765, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i
 
@@ -3080,7 +3080,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %948, label %949, label %976
 
 949:                                              ; preds = %947
-  %950 = trunc nuw i32 %889 to i8
+  %950 = trunc nuw nsw i32 %889 to i8
   %951 = add nuw nsw i8 %950, 44
   %952 = load ptr, ptr %160, align 8, !tbaa !10, !noalias !89
   %953 = load ptr, ptr %161, align 8, !tbaa !11, !noalias !89
@@ -3147,7 +3147,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %977, label %978, label %1005
 
 978:                                              ; preds = %976
-  %979 = trunc nuw i32 %889 to i8
+  %979 = trunc nuw nsw i32 %889 to i8
   %980 = add nuw nsw i8 %979, 51
   %981 = load ptr, ptr %160, align 8, !tbaa !10, !noalias !89
   %982 = load ptr, ptr %161, align 8, !tbaa !11, !noalias !89

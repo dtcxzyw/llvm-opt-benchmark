@@ -4901,7 +4901,7 @@ define hidden noundef align 8 dereferenceable_or_null(304) ptr @"_ZN106_$LT$core
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.promoted.i.i.i.i = load ptr, ptr %6, align 8, !alias.scope !2281
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %trunc.i.i.i.i.i = trunc i64 %3 to i1
+  %trunc.i.i.i.i.i = trunc nuw i64 %3 to i1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.promoted17.i.i.i.i = load ptr, ptr %7, align 8, !alias.scope !2281
   br i1 %trunc.i.i.i.i.i, label %.split.us.preheader.i.i.i.i, label %.split.i.i.i.i
@@ -7786,7 +7786,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Binders$LT$T$GT$$GT$3fmt17h0190b8efc9090a08E.exit"
 
 26:                                               ; preds = %15
-  %27 = trunc i8 %17 to i1
+  %27 = trunc nuw i8 %17 to i1
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Binders$LT$T$GT$$GT$3fmt17h0190b8efc9090a08E.exit"
 
 "_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Binders$LT$T$GT$$GT$3fmt17h0190b8efc9090a08E.exit": ; preds = %2, %19, %26
@@ -7831,7 +7831,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug68_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Ty$LT$I$GT$$GT$3fmt17hce0fc09eef67d190E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug68_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Ty$LT$I$GT$$GT$3fmt17hce0fc09eef67d190E.exit"
 
 "_ZN8chalk_ir5debug68_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Ty$LT$I$GT$$GT$3fmt17hce0fc09eef67d190E.exit": ; preds = %8, %15
@@ -7903,7 +7903,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..TraitId$LT$I$GT$$GT$3fmt17h4f58c10b33d352adE.exit"
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %7 to i1
+  %17 = trunc nuw i8 %7 to i1
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..TraitId$LT$I$GT$$GT$3fmt17h4f58c10b33d352adE.exit"
 
 "_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..TraitId$LT$I$GT$$GT$3fmt17h4f58c10b33d352adE.exit": ; preds = %9, %16
@@ -8104,7 +8104,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Const$LT$I$GT$$GT$3fmt17h3135d7f5e9554c2fE.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Const$LT$I$GT$$GT$3fmt17h3135d7f5e9554c2fE.exit"
 
 "_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Const$LT$I$GT$$GT$3fmt17h3135d7f5e9554c2fE.exit": ; preds = %8, %15
@@ -8611,7 +8611,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug78_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$3fmt17hd2c5438b79ab051fE.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug78_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$3fmt17hd2c5438b79ab051fE.exit"
 
 "_ZN8chalk_ir5debug78_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$3fmt17hd2c5438b79ab051fE.exit": ; preds = %8, %15
@@ -8699,7 +8699,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..GenericArg$LT$I$GT$$GT$3fmt17h36bfeda81d0a2094E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..GenericArg$LT$I$GT$$GT$3fmt17h36bfeda81d0a2094E.exit"
 
 "_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..GenericArg$LT$I$GT$$GT$3fmt17h36bfeda81d0a2094E.exit": ; preds = %8, %15
@@ -8737,7 +8737,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$3fmt17h48d48f12257cea97E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$3fmt17h48d48f12257cea97E.exit"
 
 "_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$3fmt17h48d48f12257cea97E.exit": ; preds = %8, %15
@@ -8787,7 +8787,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..FnDefId$LT$I$GT$$GT$3fmt17h4aa89e58e557e0d2E.exit"
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %7 to i1
+  %17 = trunc nuw i8 %7 to i1
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..FnDefId$LT$I$GT$$GT$3fmt17h4aa89e58e557e0d2E.exit"
 
 "_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..FnDefId$LT$I$GT$$GT$3fmt17h4aa89e58e557e0d2E.exit": ; preds = %9, %16
@@ -8825,7 +8825,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$3fmt17h0d2ea53206f72eb1E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$3fmt17h0d2ea53206f72eb1E.exit"
 
 "_ZN8chalk_ir5debug79_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$3fmt17h0d2ea53206f72eb1E.exit": ; preds = %8, %15
@@ -8951,7 +8951,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AdtId$LT$I$GT$$GT$3fmt17hd67c130d2b896753E.exit"
 
 18:                                               ; preds = %2
-  %19 = trunc i8 %9 to i1
+  %19 = trunc nuw i8 %9 to i1
   br label %"_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AdtId$LT$I$GT$$GT$3fmt17hd67c130d2b896753E.exit"
 
 "_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AdtId$LT$I$GT$$GT$3fmt17hd67c130d2b896753E.exit": ; preds = %11, %18
@@ -9004,7 +9004,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$3fmt17h167dd4c559be926dE.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$3fmt17h167dd4c559be926dE.exit"
 
 "_ZN8chalk_ir5debug71_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$3fmt17h167dd4c559be926dE.exit": ; preds = %8, %15
@@ -9457,7 +9457,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug74_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Lifetime$LT$I$GT$$GT$3fmt17h6b2e99eb8536e2e7E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug74_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Lifetime$LT$I$GT$$GT$3fmt17h6b2e99eb8536e2e7E.exit"
 
 "_ZN8chalk_ir5debug74_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Lifetime$LT$I$GT$$GT$3fmt17h6b2e99eb8536e2e7E.exit": ; preds = %8, %15
@@ -9497,7 +9497,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug77_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AssocTypeId$LT$I$GT$$GT$3fmt17hd701d30939e7145fE.exit"
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %7 to i1
+  %17 = trunc nuw i8 %7 to i1
   br label %"_ZN8chalk_ir5debug77_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AssocTypeId$LT$I$GT$$GT$3fmt17hd701d30939e7145fE.exit"
 
 "_ZN8chalk_ir5debug77_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AssocTypeId$LT$I$GT$$GT$3fmt17hd701d30939e7145fE.exit": ; preds = %9, %16
@@ -9589,7 +9589,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..OpaqueTyId$LT$I$GT$$GT$3fmt17h59e2eb3a13db344dE.exit"
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %7 to i1
+  %17 = trunc nuw i8 %7 to i1
   br label %"_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..OpaqueTyId$LT$I$GT$$GT$3fmt17h59e2eb3a13db344dE.exit"
 
 "_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..OpaqueTyId$LT$I$GT$$GT$3fmt17h59e2eb3a13db344dE.exit": ; preds = %9, %16
@@ -9627,7 +9627,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug70_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Goal$LT$I$GT$$GT$3fmt17hdb318bf7c5d19f00E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug70_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Goal$LT$I$GT$$GT$3fmt17hdb318bf7c5d19f00E.exit"
 
 "_ZN8chalk_ir5debug70_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..Goal$LT$I$GT$$GT$3fmt17hdb318bf7c5d19f00E.exit": ; preds = %8, %15
@@ -9665,7 +9665,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..CanonicalVarKinds$LT$I$GT$$GT$3fmt17h25ddab34a5dedc69E.exit"
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %"_ZN8chalk_ir5debug83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..CanonicalVarKinds$LT$I$GT$$GT$3fmt17h25ddab34a5dedc69E.exit"
 
 "_ZN8chalk_ir5debug83_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..CanonicalVarKinds$LT$I$GT$$GT$3fmt17h25ddab34a5dedc69E.exit": ; preds = %8, %15
@@ -9730,7 +9730,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN8chalk_ir5debug75_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ClosureId$LT$I$GT$$GT$3fmt17h8713ad2ad19d01abE.exit"
 
 16:                                               ; preds = %2
-  %17 = trunc i8 %7 to i1
+  %17 = trunc nuw i8 %7 to i1
   br label %"_ZN8chalk_ir5debug75_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ClosureId$LT$I$GT$$GT$3fmt17h8713ad2ad19d01abE.exit"
 
 "_ZN8chalk_ir5debug75_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ClosureId$LT$I$GT$$GT$3fmt17h8713ad2ad19d01abE.exit": ; preds = %9, %16
@@ -9834,7 +9834,7 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AliasTy$LT$I$GT$$GT$3fmt17h98eaa2f23c471f7aE.exit"
 
 13:                                               ; preds = %2
-  %14 = trunc i8 %5 to i1
+  %14 = trunc nuw i8 %5 to i1
   br label %"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AliasTy$LT$I$GT$$GT$3fmt17h98eaa2f23c471f7aE.exit"
 
 "_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..AliasTy$LT$I$GT$$GT$3fmt17h98eaa2f23c471f7aE.exit": ; preds = %7, %13
@@ -10579,13 +10579,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hfa46d9796b6
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !4228
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !4228
   %15 = trunc i32 %1 to i8
@@ -10597,7 +10597,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hfa46d9796b6
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !4228
   %23 = lshr i32 %1, 6
@@ -16698,7 +16698,7 @@ define hidden noundef align 8 dereferenceable_or_null(304) ptr @_ZN4core4iter8ad
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted.i.i.i = load ptr, ptr %5, align 8, !alias.scope !5722
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %trunc.i.i.i.i = trunc i64 %2 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %2 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted17.i.i.i = load ptr, ptr %6, align 8, !alias.scope !5722
   br i1 %trunc.i.i.i.i, label %.split.us.preheader.i.i.i, label %.split.i.i.i
@@ -75891,7 +75891,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5debug68_$LT$impl$u20$core..fmt..
   br label %16
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %5 to i1
+  %15 = trunc nuw i8 %5 to i1
   br label %16
 
 16:                                               ; preds = %14, %7
@@ -75928,7 +75928,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug70_$LT$impl$u20$core..fmt
   br label %16
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %5 to i1
+  %15 = trunc nuw i8 %5 to i1
   br label %16
 
 16:                                               ; preds = %14, %7
@@ -76811,7 +76811,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt
   br label %14
 
 12:                                               ; preds = %2
-  %13 = trunc i8 %4 to i1
+  %13 = trunc nuw i8 %4 to i1
   br label %14
 
 14:                                               ; preds = %12, %6
@@ -76869,7 +76869,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug73_$LT$impl$u20$core..fmt
   br label %"_ZN8chalk_ir5debug90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClauseImplication$LT$I$GT$$GT$3fmt17h9e9054a5c06e7da0E.exit"
 
 23:                                               ; preds = %14
-  %24 = trunc i8 %15 to i1
+  %24 = trunc nuw i8 %15 to i1
   br label %"_ZN8chalk_ir5debug90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClauseImplication$LT$I$GT$$GT$3fmt17h9e9054a5c06e7da0E.exit"
 
 "_ZN8chalk_ir5debug90_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..ProgramClauseImplication$LT$I$GT$$GT$3fmt17h9e9054a5c06e7da0E.exit": ; preds = %2, %23, %17
@@ -77158,7 +77158,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug74_$LT$impl$u20$core..fmt
   br label %16
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %5 to i1
+  %15 = trunc nuw i8 %5 to i1
   br label %16
 
 16:                                               ; preds = %14, %7
@@ -77322,7 +77322,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug76_$LT$impl$u20$core..fmt
   br label %16
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %5 to i1
+  %15 = trunc nuw i8 %5 to i1
   br label %16
 
 16:                                               ; preds = %14, %7
@@ -77664,7 +77664,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug78_$LT$impl$u20$core..fmt
   br label %"_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt..Display$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$3fmt17h3e53e5d4d5677c91E.exit"
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %5 to i1
+  %15 = trunc nuw i8 %5 to i1
   br label %"_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt..Display$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$3fmt17h3e53e5d4d5677c91E.exit"
 
 "_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt..Display$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$3fmt17h3e53e5d4d5677c91E.exit": ; preds = %7, %14
@@ -77797,7 +77797,7 @@ define internal noundef zeroext i1 @"_ZN8chalk_ir5debug80_$LT$impl$u20$core..fmt
   br label %16
 
 14:                                               ; preds = %2
-  %15 = trunc i8 %5 to i1
+  %15 = trunc nuw i8 %5 to i1
   br label %16
 
 16:                                               ; preds = %14, %7

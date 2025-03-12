@@ -924,7 +924,7 @@ define noundef i32 @_ZN5faiss4HNSW12random_levelEv(ptr noundef nonnull align 8 d
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %15, %1
-  %17 = trunc i64 %10 to i32
+  %17 = trunc nuw i64 %10 to i32
   %18 = add i32 %17, -1
   br label %.thread
 
@@ -2438,7 +2438,7 @@ define noundef range(i32 0, 2147483647) i32 @_ZN5faiss4HNSW17prepare_level_tabEm
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !59
 
 ._crit_edge.i:                                    ; preds = %56, %44
-  %58 = trunc i64 %51 to i32
+  %58 = trunc nuw i64 %51 to i32
   br label %_ZN5faiss4HNSW12random_levelEv.exit
 
 .thread.loopexit.i:                               ; preds = %.lr.ph.i

@@ -214,7 +214,7 @@ ossl_qrl_enc_level_set_get.exit:
   store i64 0, ptr %50, align 8, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 80
   store i64 %18, ptr %51, align 8, !tbaa !18
-  %52 = trunc nuw i32 %9 to i8
+  %52 = trunc nuw nsw i32 %9 to i8
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 105
   store i8 %52, ptr %53, align 1, !tbaa !25
   %54 = call i32 @tls13_hkdf_expand_ex(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %.097, ptr noundef %6, ptr noundef nonnull @quic_v1_hp_label, i64 noundef 7, ptr noundef null, i64 noundef 0, ptr noundef nonnull %11, i64 noundef %35, i32 noundef 1) #6

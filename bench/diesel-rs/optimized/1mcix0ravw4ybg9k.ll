@@ -390,13 +390,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h0b6d6704e3fed
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !30
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !30
   %16 = trunc i32 %1 to i8
@@ -408,7 +408,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h0b6d6704e3fed
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !30
   %24 = lshr i32 %1, 6
@@ -514,13 +514,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h3e31ad25e85f9
   br i1 %7, label %17, label %28
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   store i8 %9, ptr %.sroa.0, align 4, !alias.scope !50
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %1, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %.sroa.0, align 4, !alias.scope !50
   %14 = trunc i32 %1 to i8
@@ -532,7 +532,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h3e31ad25e85f9
 
 17:                                               ; preds = %6
   %18 = lshr i32 %1, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.sroa.0, align 4, !alias.scope !50
   %21 = lshr i32 %1, 6
@@ -5180,7 +5180,7 @@ define hidden noundef i16 @"_ZN110_$LT$diesel..pg..types..numeric..bigdecimal..T
   %59 = icmp sgt i64 %57, -1
   %or.cond.i = and i1 %58, %59
   %or.cond.i.i.i = icmp samesign ult i64 %57, 32768
-  %60 = trunc nsw i64 %57 to i16
+  %60 = trunc nuw nsw i64 %57 to i16
   %or.cond = select i1 %or.cond.i, i1 %or.cond.i.i.i, i1 false
   br i1 %or.cond, label %.thread28, label %.thread
 

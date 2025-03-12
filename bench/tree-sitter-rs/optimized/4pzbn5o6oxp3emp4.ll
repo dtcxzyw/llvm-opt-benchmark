@@ -1310,13 +1310,13 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %4, align 4, !alias.scope !282
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %4, align 4, !alias.scope !282
   %18 = trunc i32 %1 to i8
@@ -1328,7 +1328,7 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %4, align 4, !alias.scope !282
   %26 = lshr i32 %1, 6

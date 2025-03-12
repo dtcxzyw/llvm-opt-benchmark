@@ -4730,7 +4730,7 @@ _ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit.i.i: ; preds = %967
           to label %.noexc.i.i112 unwind label %998
 
 .noexc.i.i112:                                    ; preds = %_ZN7rocksdb6Status10CorruptionERKNS_5SliceES3_.exit.i.i
-  %969 = trunc nuw i64 %965 to i32
+  %969 = trunc nuw nsw i64 %965 to i32
   %970 = load ptr, ptr %25, align 8, !tbaa !25, !noalias !402
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(16) %647, ptr noundef nonnull @.str.71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.44, i64 93), i64 noundef %968, i32 noundef %969, ptr noundef %970)
           to label %971 unwind label %978
@@ -17843,7 +17843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i.i:
   br label %_ZNSt7__cxx119to_stringEj.exit.i.i
 
 498:                                              ; preds = %._crit_edge.i.i.i.i
-  %499 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %499 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   %500 = or disjoint i8 %499, 48
   br label %_ZNSt7__cxx119to_stringEj.exit.i.i
 
@@ -21935,7 +21935,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %4
   store ptr %16, ptr %8, align 8, !tbaa !305, !alias.scope !1081
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i8 noundef signext 0)
   %17 = load ptr, ptr %8, align 8, !tbaa !25, !alias.scope !1081
-  %18 = trunc nuw i64 %14 to i8
+  %18 = trunc nuw nsw i64 %14 to i8
   %19 = or disjoint i8 %18, 48
   store i8 %19, ptr %17, align 1, !tbaa !29
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.63, i64 noundef 44)

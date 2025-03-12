@@ -4037,7 +4037,7 @@ _ZN7rocksdb23DeadlockInfoBufferTemplINS_17RangeDeadlockPathEE9NormalizeEv.exit: 
           to label %62 unwind label %64
 
 62:                                               ; preds = %61
-  %63 = trunc i64 %51 to i32
+  %63 = trunc nuw i64 %51 to i32
   br label %_ZNSt6vectorIN7rocksdb17RangeDeadlockPathESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit
 
 64:                                               ; preds = %61

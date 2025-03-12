@@ -143,7 +143,7 @@ define i32 @wc_HmacSetKey_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
 17:                                               ; preds = %16, %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 777
   store i8 0, ptr %18, align 1, !tbaa !9
-  %19 = trunc nuw i32 %1 to i8
+  %19 = trunc nuw nsw i32 %1 to i8
   store i8 %19, ptr %14, align 8, !tbaa !8
   %20 = tail call i32 @_InitHmac(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %13)
   %.not235 = icmp eq i32 %20, 0

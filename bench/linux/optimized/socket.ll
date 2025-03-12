@@ -4866,7 +4866,7 @@ define dso_local range(i32 -2147483648, 1) i32 @sendmsg_copy_msghdr(ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = trunc nuw i64 %56 to i32
+  %62 = trunc nuw nsw i64 %56 to i32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %64 = call i64 @import_iovec(i32 noundef 1, ptr noundef %61, i32 noundef %62, i32 noundef 8, ptr noundef %3, ptr noundef nonnull %63) #20
   %65 = call i64 @llvm.smin.i64(i64 %64, i64 0)
@@ -5219,7 +5219,7 @@ define internal fastcc i32 @___sys_sendmsg(ptr noundef nonnull %0, ptr noundef %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = trunc nuw i64 %61 to i32
+  %67 = trunc nuw nsw i64 %61 to i32
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %69 = call i64 @import_iovec(i32 noundef 1, ptr noundef %66, i32 noundef %67, i32 noundef 8, ptr noundef nonnull %10, ptr noundef nonnull %68) #20
   %70 = call i64 @llvm.smin.i64(i64 %69, i64 0)
@@ -5945,7 +5945,7 @@ define internal fastcc i32 @___sys_recvmsg(ptr noundef nonnull %0, ptr noundef %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = trunc nuw i64 %43 to i32
+  %49 = trunc nuw nsw i64 %43 to i32
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %51 = call i64 @import_iovec(i32 noundef 0, ptr noundef %48, i32 noundef %49, i32 noundef 8, ptr noundef nonnull %8, ptr noundef nonnull %50) #20
   %52 = call i64 @llvm.smin.i64(i64 %51, i64 0)

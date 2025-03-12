@@ -1859,7 +1859,7 @@ PyUnicode_READ.exit278:                           ; preds = %263
   ]
 
 280:                                              ; preds = %279
-  %281 = trunc nuw i32 %.us-phi to i8
+  %281 = trunc nuw nsw i32 %.us-phi to i8
   %282 = getelementptr i8, ptr %216, i64 %.us-phi369
   store i8 %281, ptr %282, align 1, !tbaa !15
   br label %PyUnicode_WRITE.exit279
@@ -2119,7 +2119,7 @@ PyUnicode_READ.exit.us:                           ; preds = %.split.us, %PyUnico
 .split.us240:                                     ; preds = %.preheader210
   %49 = load i16, ptr %.0104, align 2
   %50 = icmp ugt i16 %49, 13
-  %51 = trunc i16 %49 to i8
+  %51 = trunc nuw nsw i16 %49 to i8
   br i1 %50, label %PyUnicode_READ.exit.us242, label %.split239.us
 
 PyUnicode_READ.exit.us242:                        ; preds = %.split.us240, %PyUnicode_READ.exit.us242
@@ -2132,7 +2132,7 @@ PyUnicode_READ.exit.us242:                        ; preds = %.split.us240, %PyUn
 .split:                                           ; preds = %.preheader210
   %55 = load i32, ptr %.0104, align 4
   %56 = icmp ugt i32 %55, 13
-  %57 = trunc i32 %55 to i8
+  %57 = trunc nuw nsw i32 %55 to i8
   br i1 %56, label %PyUnicode_READ.exit, label %.split239.us
 
 PyUnicode_READ.exit:                              ; preds = %.split, %PyUnicode_READ.exit
@@ -2143,11 +2143,11 @@ PyUnicode_READ.exit:                              ; preds = %.split, %PyUnicode_
   br i1 %60, label %PyUnicode_READ.exit, label %.split239.us.loopexit, !llvm.loop !38
 
 .split239.us.loopexit:                            ; preds = %PyUnicode_READ.exit
-  %61 = trunc nuw i32 %59 to i8
+  %61 = trunc nuw nsw i32 %59 to i8
   br label %.split239.us
 
 .split239.us.loopexit283:                         ; preds = %PyUnicode_READ.exit.us242
-  %62 = trunc nuw i16 %53 to i8
+  %62 = trunc nuw nsw i16 %53 to i8
   br label %.split239.us
 
 .split239.us:                                     ; preds = %PyUnicode_READ.exit.us, %.split239.us.loopexit283, %.split239.us.loopexit, %.split.us240, %.split, %.split.us

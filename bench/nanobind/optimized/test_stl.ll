@@ -16098,7 +16098,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nano
   store i32 %21, ptr @_ZL17value_constructed, align 4, !tbaa !128, !noalias !494
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #28, !noalias !494
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #28, !noalias !494
-  %22 = trunc nuw i32 %.06.i to i8
+  %22 = trunc nuw nsw i32 %.06.i to i8
   %23 = add nuw nsw i8 %22, 97
   store ptr %14, ptr %7, align 8, !tbaa !186, !noalias !494
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 1, i8 noundef signext %23) #30
@@ -16730,7 +16730,7 @@ _ZNSt15_Rb_tree_headerC2EOS_.exit:                ; preds = %17
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.077.i = phi i32 [ 0, %.preheader.i ], [ %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %36 = trunc nuw i32 %.077.i to i8
+  %36 = trunc nuw nsw i32 %.077.i to i8
   %37 = add nuw nsw i8 %36, 97
   store ptr %33, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %37) #30
@@ -17389,7 +17389,7 @@ _ZNSt15_Rb_tree_headerC2EOS_.exit:                ; preds = %17
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.077.i = phi i32 [ 0, %.preheader.i ], [ %53, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %36 = trunc nuw i32 %.077.i to i8
+  %36 = trunc nuw nsw i32 %.077.i to i8
   %37 = add nuw nsw i8 %36, 97
   store ptr %33, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %37) #30
@@ -18187,7 +18187,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.0117.i = phi i32 [ 0, %.preheader.i ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %21 = trunc nuw i32 %.0117.i to i8
+  %21 = trunc nuw nsw i32 %.0117.i to i8
   %22 = add nuw nsw i8 %21, 97
   store ptr %18, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %22) #30
@@ -18346,7 +18346,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.0117.i = phi i32 [ 0, %.preheader.i ], [ %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %21 = trunc nuw i32 %.0117.i to i8
+  %21 = trunc nuw nsw i32 %.0117.i to i8
   %22 = add nuw nsw i8 %21, 97
   store ptr %18, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %22) #30
@@ -18543,7 +18543,7 @@ _ZNSt15_Rb_tree_headerC2EOS_.exit:                ; preds = %17
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.077.i = phi i32 [ 0, %.preheader.i ], [ %54, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %36 = trunc nuw i32 %.077.i to i8
+  %36 = trunc nuw nsw i32 %.077.i to i8
   %37 = add nuw nsw i8 %36, 97
   store ptr %33, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %37) #30
@@ -19963,7 +19963,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nano
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %5
   %.02.i = phi i32 [ 0, %5 ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !527
-  %16 = trunc nuw i32 %.02.i to i8
+  %16 = trunc nuw nsw i32 %.02.i to i8
   %17 = add nuw nsw i8 %16, 97
   store ptr %13, ptr %6, align 8, !tbaa !186, !noalias !527
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %17) #30
@@ -20408,7 +20408,7 @@ define internal noundef ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nano
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %5
   %.02.i = phi i32 [ 0, %5 ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28, !noalias !533
-  %16 = trunc nuw i32 %.02.i to i8
+  %16 = trunc nuw nsw i32 %.02.i to i8
   %17 = add nuw nsw i8 %16, 97
   store ptr %13, ptr %6, align 8, !tbaa !186, !noalias !533
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %17) #30
@@ -21214,7 +21214,7 @@ _ZNSt15_Rb_tree_headerC2EOS_.exit:                ; preds = %17
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.064.i = phi i32 [ 0, %.preheader.i ], [ %52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %36 = trunc nuw i32 %.064.i to i8
+  %36 = trunc nuw nsw i32 %.064.i to i8
   %37 = add nuw nsw i8 %36, 97
   store ptr %33, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %37) #30
@@ -21631,7 +21631,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.064.i = phi i32 [ 0, %.preheader.i ], [ %57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %41 = trunc nuw i32 %.064.i to i8
+  %41 = trunc nuw nsw i32 %.064.i to i8
   %42 = add nuw nsw i8 %41, 97
   store ptr %38, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %42) #30
@@ -21964,7 +21964,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.094.i = phi i32 [ 0, %.preheader.i ], [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %21 = trunc nuw i32 %.094.i to i8
+  %21 = trunc nuw nsw i32 %.094.i to i8
   %22 = add nuw nsw i8 %21, 97
   store ptr %18, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %22) #30
@@ -22109,7 +22109,7 @@ define internal noundef nonnull ptr @"_ZZN8nanobind6detail11func_createILb0ELb1E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.preheader.i
   %.094.i = phi i32 [ 0, %.preheader.i ], [ %37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28
-  %21 = trunc nuw i32 %.094.i to i8
+  %21 = trunc nuw nsw i32 %.094.i to i8
   %22 = add nuw nsw i8 %21, 97
   store ptr %18, ptr %6, align 8, !tbaa !186
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 1, i8 noundef signext %22) #30

@@ -4439,7 +4439,7 @@ advance_multivolume.exit.i54:                     ; preds = %skip_base_block.exi
   br i1 %298, label %299, label %304
 
 299:                                              ; preds = %296
-  %300 = trunc nuw i16 %297 to i8
+  %300 = trunc nuw nsw i16 %297 to i8
   %301 = sext i32 %.4186.i to i64
   %302 = getelementptr inbounds [430 x i8], ptr %4, i64 0, i64 %301
   store i8 %300, ptr %302, align 1, !tbaa !26

@@ -9613,7 +9613,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
 33:                                               ; preds = %.lr.ph, %.thread
   %34 = phi i32 [ %31, %.lr.ph ], [ %54, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %indvars14 = trunc i64 %indvars.iv to i32
+  %indvars14 = trunc nuw i64 %indvars.iv to i32
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8) #13
   %35 = load i32, ptr %6, align 4
   switch i32 %35, label %.thread [
@@ -9644,7 +9644,7 @@ define internal fastcc i32 @dissect_tds5_capability_token(ptr noundef nonnull %0
   %.037 = load ptr, ptr %.037.in, align 8
   %45 = shl nuw nsw i32 %indvars14, 3
   %46 = or disjoint i32 %45, 7
-  %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %47 = shl nuw nsw i32 %indvars.iv.tr, 3
   %48 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 240, i32 noundef 2, i64 noundef 240, ptr noundef nonnull %.str.1358.sink, i32 noundef %47, i32 noundef %46)
   %.not = icmp eq ptr %.037, null

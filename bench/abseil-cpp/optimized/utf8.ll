@@ -23,7 +23,7 @@ define dso_local noundef range(i64 1, 5) i64 @_ZN4absl16strings_internal14Encode
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %11, ptr %12, align 1, !tbaa !4
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   br label %40
 

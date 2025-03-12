@@ -484,7 +484,7 @@ cipher_init.exit109.i:                            ; preds = %134, %131
   %indvars.iv.next.i111.i = add nuw nsw i64 %indvars.iv.i110.i, 1
   %154 = trunc nuw nsw i64 %indvars.iv.next.i111.i to i32
   %155 = shl nuw nsw i32 %153, %154
-  %156 = trunc i32 %155 to i8
+  %156 = trunc nuw i32 %155 to i8
   %157 = or i8 %storemerge21.i.i, %156
   store i8 %157, ptr %148, align 1, !tbaa !19
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i111.i, 7

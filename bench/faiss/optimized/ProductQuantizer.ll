@@ -171,9 +171,8 @@ define void @_ZN5faiss16ProductQuantizer5trainEmPKf(ptr noundef nonnull align 8 
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %48 = trunc i64 %1 to i32
+  %48 = trunc nuw i64 %1 to i32
   %49 = icmp sgt i32 %48, 0
-  %wide.trip.count93.i = and i64 %1, 2147483647
   %50 = sitofp i32 %48 to float
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -420,7 +419,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPfmfET_
 
 ._crit_edge.us.i:                                 ; preds = %138
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
-  %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
+  %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %1
   br i1 %exitcond94.not.i, label %.preheader65.i, label %.preheader66.us.i, !llvm.loop !34
 
 .preheader65.i:                                   ; preds = %._crit_edge.us.i, %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit.i

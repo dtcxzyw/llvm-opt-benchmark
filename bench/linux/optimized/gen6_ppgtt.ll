@@ -803,7 +803,7 @@ define internal fastcc void @gen6_flush_pd(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %49, label %21, label %50, !llvm.loop !31
 
 50:                                               ; preds = %21
-  %51 = trunc i64 %46 to i32
+  %51 = trunc nuw nsw i64 %46 to i32
   br label %52
 
 52:                                               ; preds = %50, %3

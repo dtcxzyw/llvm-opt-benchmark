@@ -2958,7 +2958,7 @@ _ZL37ucnv_MBCSSingleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorC
   br i1 %.not137.i, label %.thread.i468.loopexit, label %370
 
 370:                                              ; preds = %366
-  %371 = trunc nuw i16 %362 to i8
+  %371 = trunc nuw nsw i16 %362 to i8
   %372 = load ptr, ptr %4, align 8, !tbaa !61
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 1
   store ptr %373, ptr %4, align 8, !tbaa !61
@@ -3371,7 +3371,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit472:        ; preds = %550, %546, %552, %5
   br i1 %.not425, label %588, label %576
 
 576:                                              ; preds = %572
-  %577 = trunc nuw i16 %568 to i8
+  %577 = trunc nuw nsw i16 %568 to i8
   %578 = load ptr, ptr %13, align 8, !tbaa !61
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 1
   store ptr %579, ptr %13, align 8, !tbaa !61
@@ -4161,7 +4161,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit472:        ; preds = %550, %546, %552, %5
   br label %1022
 
 1022:                                             ; preds = %1009, %1020
-  %1023 = trunc nsw i32 %1010 to i8
+  %1023 = trunc nuw nsw i32 %1010 to i8
   %1024 = getelementptr inbounds nuw i8, ptr %16, i64 91
   store i8 %1023, ptr %1024, align 1, !tbaa !111
   %1025 = shl nuw nsw i32 %1010, 3

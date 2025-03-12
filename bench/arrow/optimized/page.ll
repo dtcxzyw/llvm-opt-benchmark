@@ -30,7 +30,7 @@ define hidden zeroext range(i8 1, 74) i8 @_mi_bin(i64 noundef %0) local_unnamed_
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
-  %8 = trunc nuw i64 %3 to i8
+  %8 = trunc nuw nsw i64 %3 to i8
   %9 = add nuw nsw i8 %8, 1
   %10 = and i8 %9, 30
   br label %mi_bin.exit
@@ -221,7 +221,7 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i, %.crit
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %42
-  %45 = trunc nuw i64 %35 to i8
+  %45 = trunc nuw nsw i64 %35 to i8
   %46 = add nuw nsw i8 %45, 1
   %47 = and i8 %46, 30
   br label %mi_bin.exit.i
@@ -234,7 +234,7 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i, %.crit
   %53 = shl i8 %52, 2
   %54 = sub nuw nsw i64 61, %50
   %55 = lshr i64 %49, %54
-  %56 = trunc i64 %55 to i8
+  %56 = trunc nuw nsw i64 %55 to i8
   %57 = and i8 %56, 3
   %58 = add nsw i8 %53, -3
   %59 = add nuw nsw i8 %58, %57
@@ -260,7 +260,7 @@ mi_bin.exit.i:                                    ; preds = %48, %44
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %67
-  %70 = trunc nuw i64 %65 to i8
+  %70 = trunc nuw nsw i64 %65 to i8
   %71 = add nuw nsw i8 %70, 1
   %72 = and i8 %71, 30
   br label %mi_bin.exit34.i
@@ -596,7 +596,7 @@ define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = trunc nuw i64 %23 to i8
+  %33 = trunc nuw nsw i64 %23 to i8
   %34 = add nuw nsw i8 %33, 1
   %35 = and i8 %34, 30
   br label %mi_bin.exit.i
@@ -609,7 +609,7 @@ define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0
   %41 = shl i8 %40, 2
   %42 = sub nuw nsw i64 61, %38
   %43 = lshr i64 %37, %42
-  %44 = trunc i64 %43 to i8
+  %44 = trunc nuw nsw i64 %43 to i8
   %45 = and i8 %44, 3
   %46 = add nsw i8 %41, -3
   %47 = add nuw nsw i8 %46, %45
@@ -635,7 +635,7 @@ mi_bin.exit.i:                                    ; preds = %36, %32
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %55
-  %58 = trunc nuw i64 %53 to i8
+  %58 = trunc nuw nsw i64 %53 to i8
   %59 = add nuw nsw i8 %58, 1
   %60 = and i8 %59, 30
   br label %mi_bin.exit34.i
@@ -877,7 +877,7 @@ define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(add
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %36
-  %39 = trunc nuw i64 %29 to i8
+  %39 = trunc nuw nsw i64 %29 to i8
   %40 = add nuw nsw i8 %39, 1
   %41 = and i8 %40, 30
   br label %mi_bin.exit.i
@@ -890,7 +890,7 @@ define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(add
   %47 = shl i8 %46, 2
   %48 = sub nuw nsw i64 61, %44
   %49 = lshr i64 %43, %48
-  %50 = trunc i64 %49 to i8
+  %50 = trunc nuw nsw i64 %49 to i8
   %51 = and i8 %50, 3
   %52 = add nsw i8 %47, -3
   %53 = add nuw nsw i8 %52, %51
@@ -916,7 +916,7 @@ mi_bin.exit.i:                                    ; preds = %42, %38
   br i1 %62, label %63, label %67
 
 63:                                               ; preds = %61
-  %64 = trunc nuw i64 %59 to i8
+  %64 = trunc nuw nsw i64 %59 to i8
   %65 = add nuw nsw i8 %64, 1
   %66 = and i8 %65, 30
   br label %mi_bin.exit34.i
@@ -1007,7 +1007,7 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %84, %27,
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %105
-  %108 = trunc nuw i64 %98 to i8
+  %108 = trunc nuw nsw i64 %98 to i8
   %109 = add nuw nsw i8 %108, 1
   %110 = and i8 %109, 30
   br label %mi_bin.exit.i38
@@ -1020,7 +1020,7 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %84, %27,
   %116 = shl i8 %115, 2
   %117 = sub nuw nsw i64 61, %113
   %118 = lshr i64 %112, %117
-  %119 = trunc i64 %118 to i8
+  %119 = trunc nuw nsw i64 %118 to i8
   %120 = and i8 %119, 3
   %121 = add nsw i8 %116, -3
   %122 = add nuw nsw i8 %121, %120
@@ -1046,7 +1046,7 @@ mi_bin.exit.i38:                                  ; preds = %111, %107
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %130
-  %133 = trunc nuw i64 %128 to i8
+  %133 = trunc nuw nsw i64 %128 to i8
   %134 = add nuw nsw i8 %133, 1
   %135 = and i8 %134, 30
   br label %mi_bin.exit34.i42
@@ -1188,7 +1188,7 @@ define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) 
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = trunc nuw i64 %27 to i8
+  %37 = trunc nuw nsw i64 %27 to i8
   %38 = add nuw nsw i8 %37, 1
   %39 = and i8 %38, 30
   br label %mi_bin.exit.i
@@ -1201,7 +1201,7 @@ define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) 
   %45 = shl i8 %44, 2
   %46 = sub nuw nsw i64 61, %42
   %47 = lshr i64 %41, %46
-  %48 = trunc i64 %47 to i8
+  %48 = trunc nuw nsw i64 %47 to i8
   %49 = and i8 %48, 3
   %50 = add nsw i8 %45, -3
   %51 = add nuw nsw i8 %50, %49
@@ -1227,7 +1227,7 @@ mi_bin.exit.i:                                    ; preds = %40, %36
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %59
-  %62 = trunc nuw i64 %57 to i8
+  %62 = trunc nuw nsw i64 %57 to i8
   %63 = add nuw nsw i8 %62, 1
   %64 = and i8 %63, 30
   br label %mi_bin.exit34.i
@@ -2004,7 +2004,7 @@ _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_fre
   br i1 %146, label %150, label %147
 
 147:                                              ; preds = %129
-  %.rhs.trunc.i.i.i = trunc nuw i64 %140 to i16
+  %.rhs.trunc.i.i.i = trunc nuw nsw i64 %140 to i16
   %148 = udiv i16 4096, %.rhs.trunc.i.i.i
   %149 = zext nneg i16 %148 to i64
   br label %150
@@ -2391,7 +2391,7 @@ define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %0, ptr noundef capt
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %38
-  %.rhs.trunc.i.i = trunc nuw i64 %44 to i16
+  %.rhs.trunc.i.i = trunc nuw nsw i64 %44 to i16
   %52 = udiv i16 4096, %.rhs.trunc.i.i
   %53 = zext nneg i16 %52 to i64
   br label %54

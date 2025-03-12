@@ -2291,7 +2291,7 @@ if.end24:                                         ; preds = %_ZNK2v820FunctionCa
   %32 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %31, i64 %32
   %retval.0.i = select i1 %cmp.i23, ptr %priv_buffer, ptr %add.ptr.i
-  %conv = trunc nuw i64 %29 to i32
+  %conv = trunc nuw nsw i64 %29 to i32
   %call27 = call ptr @BN_bin2bn(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef null) #22
   store ptr %call27, ptr %priv, align 8
   %cmp.i25.not = icmp eq ptr %call27, null

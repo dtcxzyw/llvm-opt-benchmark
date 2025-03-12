@@ -4203,13 +4203,13 @@ default.unreachable9:                             ; preds = %3
   br i1 %130, label %142, label %154
 
 132:                                              ; preds = %123
-  %133 = trunc nuw i32 %125 to i8
+  %133 = trunc nuw nsw i32 %125 to i8
   store i8 %133, ptr %26, align 4, !alias.scope !726, !noalias !723
   br label %_ZN4core4char7methods15encode_utf8_raw17hb6850a6d17750408E.exit.i
 
 134:                                              ; preds = %127
   %135 = lshr i32 %125, 6
-  %136 = trunc nuw i32 %135 to i8
+  %136 = trunc nuw nsw i32 %135 to i8
   %137 = or disjoint i8 %136, -64
   store i8 %137, ptr %26, align 4, !alias.scope !726, !noalias !723
   %138 = trunc i32 %125 to i8
@@ -4221,7 +4221,7 @@ default.unreachable9:                             ; preds = %3
 
 142:                                              ; preds = %129
   %143 = lshr i32 %125, 12
-  %144 = trunc nuw i32 %143 to i8
+  %144 = trunc nuw nsw i32 %143 to i8
   %145 = or disjoint i8 %144, -32
   store i8 %145, ptr %26, align 4, !alias.scope !726, !noalias !723
   %146 = lshr i32 %125, 6
@@ -23614,7 +23614,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN258_$LT$tokenizers..pre_tokenizers..unicode_scripts..pre_tokenizer.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..pre_tokenizers..unicode_scripts..pre_tokenizer..UnicodeScriptsHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17habc9cc6f5e25b626E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -23734,7 +23734,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN197_$LT$tokenizers..normalizers..utils.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..utils..LowercaseHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h02d0b7f5a29c3354E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -23854,7 +23854,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN196_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..unicode..NFKCHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17hea5f222bce7051dcE.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -24635,7 +24635,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN195_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..unicode..NFCHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h678b4df7d1fe25deE.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -25083,7 +25083,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h2b8d
   br label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hc0a3f56e709c17ffE.exit.i"
 
 31:                                               ; preds = %25
-  %trunc56.i = trunc i8 %26 to i1
+  %trunc56.i = trunc nuw i8 %26 to i1
   br i1 %trunc56.i, label %38, label %35
 
 32:                                               ; preds = %25
@@ -27416,7 +27416,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN214_$LT$tokenizers..pre_tokenizers..whitespace.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..pre_tokenizers..whitespace..WhitespaceHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h3558f14a9422d7f0E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -29870,7 +29870,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN178_$LT$tokenizers..decoders..fuse.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..decoders..fuse..Fuse$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h87fcc35595a955f1E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -30023,7 +30023,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17h7128
   br label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h896d2268a9ce5ed6E.exit.i"
 
 28:                                               ; preds = %22
-  %trunc56.i = trunc i8 %23 to i1
+  %trunc56.i = trunc nuw i8 %23 to i1
   br i1 %trunc56.i, label %35, label %32
 
 29:                                               ; preds = %22
@@ -30297,7 +30297,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN200_$LT$tokenizers..normalizers..strip.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..strip..StripAccentsHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h9a41cb4b3b474241E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -31480,7 +31480,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN196_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..unicode..NFKDHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h3f77b57ce7f32f14E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -31600,7 +31600,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN195_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..unicode..NmtHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17hbdc78c79826e8631E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -33257,7 +33257,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN195_$LT$tokenizers..normalizers..unicode.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..normalizers..unicode..NFDHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h4adc81c92693c4aaE.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -33856,7 +33856,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN219_$LT$tokenizers..pre_tokenizers..whitespace.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..pre_tokenizers..whitespace..WhitespaceSplitHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17he2ff5ab80972a364E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -33976,7 +33976,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN204_$LT$tokenizers..decoders..byte_fallback.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..decoders..byte_fallback..ByteFallback$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h4ea985d88a05bde7E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -34953,7 +34953,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hd7af
   br label %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h896d2268a9ce5ed6E.exit.i"
 
 28:                                               ; preds = %22
-  %trunc56.i = trunc i8 %23 to i1
+  %trunc56.i = trunc nuw i8 %23 to i1
   br i1 %trunc56.i, label %35, label %32
 
 29:                                               ; preds = %22
@@ -35597,7 +35597,7 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   br label %"_ZN208_$LT$tokenizers..pre_tokenizers..bert.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$tokenizers..pre_tokenizers..bert..BertPreTokenizerHelper$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h796a683025b8ab13E.exit.thread"
 
 17:                                               ; preds = %12
-  %trunc30.i = trunc i8 %13 to i1
+  %trunc30.i = trunc nuw i8 %13 to i1
   br i1 %trunc30.i, label %20, label %19
 
 18:                                               ; preds = %12
@@ -35750,7 +35750,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17hfa46
   br label %64
 
 29:                                               ; preds = %23
-  %trunc13.i = trunc i8 %24 to i1
+  %trunc13.i = trunc nuw i8 %24 to i1
   br i1 %trunc13.i, label %36, label %33
 
 30:                                               ; preds = %23

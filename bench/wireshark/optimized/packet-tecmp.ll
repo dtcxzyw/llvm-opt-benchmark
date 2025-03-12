@@ -1598,7 +1598,7 @@ dissect_tecmp_control_msg.exit:                   ; preds = %78, %82, %._crit_ed
   call fastcc void @add_device_id_text(ptr noundef %193, i16 noundef zeroext %195)
   %196 = load i32, ptr @hf_tecmp_payload_status_sn, align 4
   %197 = call ptr @proto_tree_add_item(ptr noundef %180, i32 noundef %196, ptr noundef %0, i32 noundef 36, i32 noundef 4, i32 noundef 0)
-  %trunc.i = trunc nuw i32 %77 to i8
+  %trunc.i = trunc nuw nsw i32 %77 to i8
   switch i8 %trunc.i, label %441 [
     i8 1, label %198
     i8 2, label %305
@@ -1788,7 +1788,7 @@ dissect_tecmp_status_device_vendor_data.exit.i:   ; preds = %303, %300, %298, %2
 
 .lr.ph.i79:                                       ; preds = %305
   %.not141.i = icmp eq i32 %313, 0
-  %315 = trunc i32 %314 to i16
+  %315 = trunc nuw i32 %314 to i16
   br label %316
 
 316:                                              ; preds = %403, %.lr.ph.i79
@@ -2023,7 +2023,7 @@ dissect_tecmp_status_device.exit:                 ; preds = %403, %198, %dissect
 445:                                              ; preds = %50, %50
   %446 = load i32, ptr %34, align 4
   %447 = trunc i32 %446 to i16
-  %448 = trunc i32 %77 to i8
+  %448 = trunc nuw nsw i32 %77 to i8
   %449 = load i32, ptr %35, align 4
   %450 = trunc i32 %449 to i16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #7

@@ -44469,7 +44469,7 @@ _ZN4core5slice4sort12choose_pivot17h8852cafa4f961436E.exit: ; preds = %"_ZN4core
   br i1 %.not30.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 118:                                              ; preds = %111
-  %.lhs.trunc.i.i = trunc nuw i64 %114 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %114 to i16
   %119 = udiv i16 %.lhs.trunc.i.i, 96
   %.zext.i.i = zext nneg i16 %119 to i64
   %120 = icmp ult ptr %.0140.i.i, %.0143.i.i
@@ -45876,7 +45876,7 @@ _ZN4core5slice4sort12choose_pivot17h7507817330e3dc72E.exit: ; preds = %"_ZN4core
   br i1 %.not30.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 118:                                              ; preds = %111
-  %.lhs.trunc.i.i = trunc nuw i64 %114 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %114 to i16
   %119 = udiv i16 %.lhs.trunc.i.i, 96
   %.zext.i.i = zext nneg i16 %119 to i64
   %120 = icmp ult ptr %.0140.i.i, %.0143.i.i
@@ -89943,7 +89943,7 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   %13 = icmp slt i64 %12, 0
   %14 = select i1 %13, i64 1000, i64 0
   %spec.select.i = add nsw i64 %14, %12
-  %15 = trunc nsw i64 %spec.select.i to i32
+  %15 = trunc nuw nsw i64 %spec.select.i to i32
   %16 = mul nuw nsw i32 %15, 1000000
   %17 = sdiv i64 %.0.i, 86400
   %18 = srem i64 %.0.i, 86400
@@ -89964,7 +89964,7 @@ define void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..T
   br i1 %26, label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit", label %27
 
 27:                                               ; preds = %22
-  %28 = trunc nsw i64 %spec.select.i.i to i32
+  %28 = trunc nuw nsw i64 %spec.select.i.i to i32
   br label %"_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit"
 
 "_ZN126_$LT$deltalake_core..errors..DeltaTableError$u20$as$u20$core..convert..From$LT$deltalake_core..protocol..ProtocolError$GT$$GT$4from17h734b83826ebe1ebeE.exit": ; preds = %27, %2, %22

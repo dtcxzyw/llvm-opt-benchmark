@@ -1928,7 +1928,7 @@ define internal noundef ptr @i32_set(ptr noundef captures(none) %0, ptr noundef 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %1, i64 24
   %.val21 = load i32, ptr %12, align 8, !tbaa !102
-  %13 = trunc nuw i64 %.val19 to i32
+  %13 = trunc nuw nsw i64 %.val19 to i32
   %14 = and i32 %13, 3
   %15 = sub nsw i32 1, %14
   %16 = mul i32 %.val21, %15
@@ -2024,7 +2024,7 @@ define internal noundef ptr @i32_set_sw(ptr noundef captures(none) %0, ptr nound
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %1, i64 24
   %.val21.i = load i32, ptr %12, align 8, !tbaa !102
-  %13 = trunc nuw i64 %.val19.i to i32
+  %13 = trunc nuw nsw i64 %.val19.i to i32
   %14 = and i32 %13, 3
   %15 = sub nsw i32 1, %14
   %16 = mul i32 %.val21.i, %15
@@ -2141,7 +2141,7 @@ define internal noundef ptr @u32_set(ptr noundef captures(none) %0, ptr noundef 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %1, i64 24
   %.val21 = load i32, ptr %12, align 8, !tbaa !102
-  %13 = trunc nuw i64 %.val19 to i32
+  %13 = trunc nuw nsw i64 %.val19 to i32
   %14 = and i32 %13, 3
   %15 = sub nsw i32 1, %14
   %16 = mul i32 %.val21, %15
@@ -2237,7 +2237,7 @@ define internal noundef ptr @u32_set_sw(ptr noundef captures(none) %0, ptr nound
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %1, i64 24
   %.val21.i = load i32, ptr %12, align 8, !tbaa !102
-  %13 = trunc nuw i64 %.val19.i to i32
+  %13 = trunc nuw nsw i64 %.val19.i to i32
   %14 = and i32 %13, 3
   %15 = sub nsw i32 1, %14
   %16 = mul i32 %.val21.i, %15

@@ -28095,7 +28095,7 @@ _ZL26SuggestInitializationFixitRN5clang4SemaEPKNS_7VarDeclE.exit.thread163: ; pr
 
 541:                                              ; preds = %535
   %.sroa.3.0.extract.shift.i.i = lshr i64 %539, 32
-  %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
+  %.sroa.3.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i.i to i32
   %542 = call i32 @_ZN5clang4Sema19getLocForEndOfTokenENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(17504) %0, i32 %.sroa.3.0.extract.trunc.i.i, i32 noundef 0) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #24
   call void @_ZNK5clang4Sema30getFixItZeroInitializerForTypeB5cxx11ENS_8QualTypeENS_14SourceLocationE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %387, i32 %542) #24

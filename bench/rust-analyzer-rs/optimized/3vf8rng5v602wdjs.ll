@@ -1678,7 +1678,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %88
 
 64:                                               ; preds = %58
-  %trunc.i15 = trunc i8 %60 to i1
+  %trunc.i15 = trunc nuw i8 %60 to i1
   br i1 %trunc.i15, label %73, label %65
 
 65:                                               ; preds = %64
@@ -2328,7 +2328,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %61, label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h944e3827a7ab1544E.exit.thread", label %64
 
 64:                                               ; preds = %58
-  %trunc.i15 = trunc i8 %60 to i1
+  %trunc.i15 = trunc nuw i8 %60 to i1
   br i1 %trunc.i15, label %_ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533286553222.exit.i, label %65
 
 65:                                               ; preds = %64
@@ -2674,7 +2674,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %60, label %"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$..deserialize..ResultVisitor$LT$T$C$E$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_enum17h351a85b679849699E.exit.thread", label %63
 
 63:                                               ; preds = %57
-  %trunc.i15 = trunc i8 %59 to i1
+  %trunc.i15 = trunc nuw i8 %59 to i1
   br i1 %trunc.i15, label %_ZN5serde2de13VariantAccess15newtype_variant17h1f2226d9a17cf469E.llvm.6093752533286553222.exit.i, label %64
 
 64:                                               ; preds = %63

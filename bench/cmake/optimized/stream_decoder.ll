@@ -66,7 +66,7 @@ define dso_local range(i32 0, 9) i32 @lzma_stream_decoder_init(ptr noundef %0, p
   %26 = getelementptr inbounds nuw i8, ptr %.034, i64 368
   store i64 32768, ptr %26, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %.034, i64 376
-  %28 = trunc nuw i32 %3 to i8
+  %28 = trunc nuw nsw i32 %3 to i8
   %29 = and i8 %28, 1
   store i8 %29, ptr %27, align 8, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %.034, i64 377

@@ -2155,7 +2155,7 @@ if.then86:                                        ; preds = %if.end82
   br label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm18arrayPrototypeJoinEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit"
 
 if.end89:                                         ; preds = %if.end82
-  %conv90 = trunc nuw i64 %19 to i32
+  %conv90 = trunc nuw nsw i64 %19 to i32
   %call91 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv90, i32 noundef 0) #8
   %cmp.i.i83.not = icmp eq ptr %call91, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i83.not, label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm18arrayPrototypeJoinEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit", label %if.end98
@@ -4308,7 +4308,7 @@ if.then95:                                        ; preds = %if.end90
   br label %cleanup
 
 if.end98:                                         ; preds = %if.end90
-  %conv99 = trunc nuw i64 %actualDeleteCount.0 to i32
+  %conv99 = trunc nuw nsw i64 %actualDeleteCount.0 to i32
   %call101 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv99, i32 noundef %conv99) #8
   %cmp.i.i120.not = icmp eq ptr %call101, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i120.not, label %cleanup, label %if.end108
@@ -6491,7 +6491,7 @@ if.then46:                                        ; preds = %if.end43
   br label %cleanup
 
 if.end49:                                         ; preds = %if.end43
-  %conv50 = trunc nuw i64 %14 to i32
+  %conv50 = trunc nuw nsw i64 %14 to i32
   %call52 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv50, i32 noundef %conv50) #8
   %cmp.i.i42.not = icmp eq ptr %call52, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i42.not, label %cleanup, label %if.end59
@@ -6813,7 +6813,7 @@ if.then46:                                        ; preds = %if.end43
   br label %cleanup
 
 if.end49:                                         ; preds = %if.end43
-  %conv50 = trunc nuw i64 %14 to i32
+  %conv50 = trunc nuw nsw i64 %14 to i32
   %call51 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv50, i32 noundef 0) #8
   %cmp.i.i44.not = icmp eq ptr %call51, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i44.not, label %cleanup, label %if.end58
@@ -8605,7 +8605,7 @@ if.then329:                                       ; preds = %if.else325
   br label %cleanup465
 
 if.end332:                                        ; preds = %if.else325
-  %conv334 = trunc nuw i64 %conv.i to i32
+  %conv334 = trunc nuw nsw i64 %conv.i to i32
   %call336 = call ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv334, i32 noundef %conv334) #8
   %cmp.i.i284.not = icmp eq ptr %call336, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i284.not, label %cleanup465, label %if.end343

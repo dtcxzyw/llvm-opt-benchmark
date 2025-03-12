@@ -38,7 +38,7 @@ define hidden void @_ZN16CorpusPropertiesC2Ev(ptr noundef nonnull align 8 captur
   %14 = lshr i32 %13, 30
   %15 = xor i32 %14, %13
   %16 = mul i32 %15, 1812433253
-  %17 = trunc nuw i64 %storemerge3.i.i.i to i32
+  %17 = trunc nuw nsw i64 %storemerge3.i.i.i to i32
   %18 = add i32 %16, %17
   %19 = getelementptr inbounds nuw [624 x i32], ptr %8, i64 0, i64 %storemerge3.i.i.i
   store i32 %18, ptr %19, align 4
@@ -124,7 +124,7 @@ define hidden void @_ZN16CorpusProperties4seedEj(ptr noundef nonnull align 8 cap
   %10 = lshr i32 %9, 30
   %11 = xor i32 %10, %9
   %12 = mul i32 %11, 1812433253
-  %13 = trunc nuw i64 %storemerge3.i to i32
+  %13 = trunc nuw nsw i64 %storemerge3.i to i32
   %14 = add i32 %12, %13
   %15 = getelementptr inbounds nuw [624 x i32], ptr %4, i64 0, i64 %storemerge3.i
   store i32 %14, ptr %15, align 4

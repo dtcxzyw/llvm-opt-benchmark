@@ -2541,11 +2541,11 @@ define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %0) unnam
   br label %63
 
 22:                                               ; preds = %1
-  %23 = trunc i64 %.val42 to i32
+  %23 = trunc nsw i64 %.val42 to i32
   %24 = sub nsw i32 0, %23
-  %25 = trunc i64 %.val43 to i32
+  %25 = trunc nsw i64 %.val43 to i32
   %26 = sub nsw i32 0, %25
-  %27 = icmp slt i32 %25, %23
+  %27 = icmp slt i64 %.val43, %.val42
   br i1 %27, label %28, label %43
 
 28:                                               ; preds = %22
@@ -2561,7 +2561,7 @@ define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %0) unnam
   br i1 %35, label %63, label %36
 
 36:                                               ; preds = %32
-  %37 = icmp ne i32 %25, %23
+  %37 = icmp ne i64 %.val43, %.val42
   %38 = zext i1 %37 to i64
   %39 = call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %38) #11
   %40 = icmp slt i32 %39, 0
@@ -2584,7 +2584,7 @@ define internal fastcc range(i32 -1, 1) i32 @init_timezone(ptr noundef %0) unnam
   br i1 %50, label %63, label %51
 
 51:                                               ; preds = %47
-  %52 = icmp ne i32 %25, %23
+  %52 = icmp ne i64 %.val43, %.val42
   %53 = zext i1 %52 to i64
   %54 = call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull @.str.58, i64 noundef %53) #11
   %55 = icmp slt i32 %54, 0

@@ -968,7 +968,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %319 = sub nuw nsw i32 64, %.0.i33
   %320 = zext nneg i32 %319 to i64
   %321 = lshr i64 %317, %320
-  %322 = trunc i64 %321 to i32
+  %322 = trunc nuw i64 %321 to i32
   %323 = sub nsw i32 %318, %.0.i33
   %324 = zext nneg i32 %.0.i33 to i64
   %325 = shl i64 %317, %324
@@ -1058,7 +1058,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %358 = sub nuw nsw i32 64, %.0.i
   %359 = zext nneg i32 %358 to i64
   %360 = lshr i64 %356, %359
-  %361 = trunc i64 %360 to i32
+  %361 = trunc nuw i64 %360 to i32
   %362 = sub nsw i32 %357, %.0.i
   %363 = zext nneg i32 %.0.i to i64
   %364 = shl i64 %356, %363

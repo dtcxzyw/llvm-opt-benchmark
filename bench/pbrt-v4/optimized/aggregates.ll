@@ -7008,7 +7008,7 @@ tailrecurse.us:                                   ; preds = %27
 
 "_ZN4pbrt12FindIntervalIZNS_12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS6_EEPNS_15MortonPrimitiveEiPiRS5_INS_9PrimitiveESaISE_EEPSt6atomicIiEiE3$_0EEmmRKT_.exit": ; preds = %.split91.us, %._crit_edge.i
   %92 = phi i64 [ 0, %.split91.us ], [ %spec.select.i, %._crit_edge.i ]
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw nsw i64 %92 to i32
   %94 = add nuw nsw i32 %93, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #31
   store i32 %94, ptr %12, align 4, !tbaa !48

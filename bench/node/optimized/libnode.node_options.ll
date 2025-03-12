@@ -13704,7 +13704,7 @@ if.then7.i:                                       ; preds = %_ZNSt10shared_ptrIN
 
 if.end8.i:                                        ; preds = %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEEC2ERKS6_.exit320
   %129 = extractvalue { i64, ptr } %call122, 1
-  %conv.i = trunc nuw i64 %128 to i32
+  %conv.i = trunc nuw nsw i64 %128 to i32
   %call11.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %129, i32 noundef 0, i32 noundef %conv.i) #22
   br label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit
 
@@ -13991,7 +13991,7 @@ _ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsE
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit455: ; preds = %_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE15BaseOptionFieldEED2Ev.exit446
   %170 = extractvalue { i64, ptr } %call162, 1
-  %conv.i451 = trunc nuw i64 %169 to i32
+  %conv.i451 = trunc nuw nsw i64 %169 to i32
   %call11.i452 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i448, ptr noundef %170, i32 noundef 0, i32 noundef %conv.i451) #22
   %cmp.i.i1043.not = icmp eq ptr %call11.i452, null
   br i1 %cmp.i.i1043.not, label %cleanup, label %lor.lhs.false
@@ -14045,7 +14045,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit465: ; preds = %do.end250
   %177 = extractvalue { i64, ptr } %call255, 1
-  %conv.i461 = trunc nuw i64 %176 to i32
+  %conv.i461 = trunc nuw nsw i64 %176 to i32
   %call11.i462 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i458, ptr noundef %177, i32 noundef 0, i32 noundef %conv.i461) #22
   %cmp.i.i1028 = icmp eq ptr %call11.i462, null
   br i1 %cmp.i.i1028, label %if.then.i, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
@@ -14066,7 +14066,7 @@ _ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit: ; preds = %if.then.i, %_Z
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit474: ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %179 = extractvalue { i64, ptr } %call276, 1
-  %conv.i470 = trunc nuw i64 %178 to i32
+  %conv.i470 = trunc nuw nsw i64 %178 to i32
   %call11.i471 = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i467, ptr noundef %179, i32 noundef 0, i32 noundef %conv.i470) #22
   %cmp.i.i1048.not = icmp eq ptr %call11.i471, null
   br i1 %cmp.i.i1048.not, label %cleanup, label %lor.lhs.false286
@@ -14788,7 +14788,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us: ; preds = %for.body.us
   %8 = extractvalue { i64, ptr } %call10.us, 1
-  %conv.i.us = trunc nuw i64 %7 to i32
+  %conv.i.us = trunc nuw nsw i64 %7 to i32
   %call11.i.us = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.us, ptr noundef %8, i32 noundef 0, i32 noundef %conv.i.us) #22
   %9 = load i64, ptr %arr, align 8
   %cmp.not.i22.us = icmp ult i64 %i.044.us, %9
@@ -14823,7 +14823,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %for.body
   %15 = extractvalue { i64, ptr } %call10, 1
-  %conv.i = trunc nuw i64 %14 to i32
+  %conv.i = trunc nuw nsw i64 %14 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %isolate.addr.0, ptr noundef %15, i32 noundef 0, i32 noundef %conv.i) #22
   %16 = load i64, ptr %arr, align 8
   %cmp.not.i22 = icmp ult i64 %i.044, %16
@@ -14938,7 +14938,7 @@ for.body.us:                                      ; preds = %for.cond.us
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us: ; preds = %for.body.us
   %1 = extractvalue { i64, ptr } %call18.us, 1
-  %conv.i.us = trunc nuw i64 %0 to i32
+  %conv.i.us = trunc nuw nsw i64 %0 to i32
   %call11.i.us = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.us, ptr noundef %1, i32 noundef 0, i32 noundef %conv.i.us) #22
   %cmp.i.i117.not.us = icmp eq ptr %call11.i.us, null
   br i1 %cmp.i.i117.not.us, label %cleanup, label %lor.lhs.false.us
@@ -14974,7 +14974,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %for.body
   %3 = extractvalue { i64, ptr } %call18, 1
-  %conv.i = trunc nuw i64 %2 to i32
+  %conv.i = trunc nuw nsw i64 %2 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %isolate.addr.0, ptr noundef %3, i32 noundef 0, i32 noundef %conv.i) #22
   %cmp.i.i117.not = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i117.not, label %cleanup, label %lor.lhs.false

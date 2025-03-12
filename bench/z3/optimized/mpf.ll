@@ -10384,7 +10384,7 @@ _ZN11mpz_managerILb0EE3setER3mpzRKS1_.exit123:    ; preds = %211, %215
 
 242:                                              ; preds = %240
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %244 = trunc i64 %177 to i32
+  %244 = trunc nuw nsw i64 %177 to i32
   %245 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN11mpf_manager7powers2clEjb(ptr noundef nonnull align 8 dereferenceable(104) %243, i32 noundef %244, i1 noundef zeroext false)
           to label %246 unwind label %238
 

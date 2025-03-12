@@ -202,7 +202,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
   %.06887 = phi i1 [ false, %4 ], [ %.371, %65 ]
   %.07286 = phi i1 [ false, %4 ], [ %.274, %65 ]
   %13 = getelementptr i8, ptr %8, i64 %.05990
-  %14 = trunc i64 %.05990 to i32
+  %14 = trunc nsw i64 %.05990 to i32
   %15 = sub nsw i32 262144, %14
   %16 = call ptr @file_gets(ptr noundef %13, i32 noundef %15, ptr noundef %0)
   %.not = icmp eq ptr %16, null
@@ -291,7 +291,7 @@ define internal fastcc noundef zeroext i1 @systemd_journal_read_export_entry(ptr
 
 58:                                               ; preds = %53
   %59 = getelementptr i8, ptr %49, i64 8
-  %60 = trunc i64 %51 to i32
+  %60 = trunc nuw nsw i64 %51 to i32
   %61 = add nuw nsw i32 %60, 1
   %62 = call zeroext i1 @wtap_read_bytes(ptr noundef %0, ptr noundef %59, i32 noundef %61, ptr noundef %2, ptr noundef %3)
   br i1 %62, label %63, label %.thread

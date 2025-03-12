@@ -9364,7 +9364,7 @@ Abc_Clock.exit:                                   ; preds = %219, %222
   br i1 %exitcond.not.i209, label %sat_solver_clean_polarity.exit, label %230, !llvm.loop !129
 
 sat_solver_clean_polarity.exit:                   ; preds = %230, %228
-  %236 = trunc i64 %indvars.iv318 to i32
+  %236 = trunc nuw nsw i64 %indvars.iv318 to i32
   %237 = or i32 %236, 4
   store i32 %237, ptr %13, align 4, !tbaa !30
   %238 = getelementptr inbounds nuw [2 x i32], ptr @__const.Bmc_CollapseOne_int.iOOVars, i64 0, i64 %indvars.iv318

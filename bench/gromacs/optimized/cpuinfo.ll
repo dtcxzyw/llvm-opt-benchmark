@@ -4380,7 +4380,7 @@ _ZN3gmx12_GLOBAL__N_115detectX86VendorEv.exit.i:  ; preds = %1582, %1566
 
 _ZN3gmx12_GLOBAL__N_121detectAmdApicIdLayoutEj.exit.i: ; preds = %1618, %1610
   %.sroa.5.0.i.i = phi i32 [ %1614, %1610 ], [ %.sroa.5.1.i.i, %1618 ]
-  %.sroa.014.0.extract.trunc.i = trunc nuw i64 %.sroa.0.0.i.i to i32
+  %.sroa.014.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.0.0.i.i to i32
   %1621 = icmp samesign ugt i64 %.sroa.0.0.i.i, 1
   br i1 %1621, label %_ZN3gmx12_GLOBAL__N_126detectX86LogicalProcessorsEv.exit, label %1622
 

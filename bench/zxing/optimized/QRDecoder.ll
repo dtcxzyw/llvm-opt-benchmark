@@ -4759,7 +4759,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   br label %37
 
 34:                                               ; preds = %._crit_edge
-  %35 = trunc nuw i32 %.0.lcssa to i8
+  %35 = trunc nuw nsw i32 %.0.lcssa to i8
   %36 = or disjoint i8 %35, 48
   br label %37
 

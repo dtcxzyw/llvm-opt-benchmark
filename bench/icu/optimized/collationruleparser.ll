@@ -1390,7 +1390,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_i.exit:      ; preds = %_ZNK6icu_7713Unicod
 
 236:                                              ; preds = %234
   %237 = and i16 %222, 31
-  %.tr.i.i.i = trunc nuw i32 %204 to i16
+  %.tr.i.i.i = trunc nuw nsw i32 %204 to i16
   %238 = shl nuw nsw i16 %.tr.i.i.i, 5
   %239 = or disjoint i16 %237, %238
   store i16 %239, ptr %61, align 8, !tbaa !35

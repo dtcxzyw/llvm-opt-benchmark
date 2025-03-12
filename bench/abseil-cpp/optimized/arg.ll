@@ -306,7 +306,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 
 11:                                               ; preds = %9
   %12 = lshr i32 %0, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %14, ptr %5, align 1, !tbaa !4
@@ -325,7 +325,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 
 23:                                               ; preds = %19
   %24 = lshr i32 %0, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %26, ptr %5, align 1, !tbaa !4
@@ -348,7 +348,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBA
 
 39:                                               ; preds = %36
   %40 = lshr i32 %0, 18
-  %41 = trunc nuw i32 %40 to i8
+  %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -16
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %42, ptr %5, align 1, !tbaa !4
@@ -5021,7 +5021,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 
 24:                                               ; preds = %22
   %25 = lshr i32 %16, 6
-  %26 = trunc nuw i32 %25 to i8
+  %26 = trunc nuw nsw i32 %25 to i8
   %27 = or disjoint i8 %26, -64
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %27, ptr %18, align 1, !tbaa !4
@@ -5040,7 +5040,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 
 36:                                               ; preds = %32
   %37 = lshr i32 %16, 12
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -32
   %40 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %39, ptr %18, align 1, !tbaa !4
@@ -5063,7 +5063,7 @@ _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i.i.i: ; preds = %10
 
 52:                                               ; preds = %49
   %53 = lshr i32 %16, 18
-  %54 = trunc nuw i32 %53 to i8
+  %54 = trunc nuw nsw i32 %53 to i8
   %55 = or disjoint i8 %54, -16
   %56 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 %55, ptr %18, align 1, !tbaa !4

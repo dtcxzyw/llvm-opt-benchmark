@@ -13,7 +13,7 @@ define noundef range(i32 0, 2) i32 @_ZN11duckdb_zstd13ZBUFF_isErrorEm(i64 nounde
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN11duckdb_zstd18ZBUFF_getErrorNameEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call noundef ptr @_ZN11duckdb_zstd18ERR_getErrorStringENS_14ZSTD_ErrorCodeE(i32 noundef %.0.i.i)

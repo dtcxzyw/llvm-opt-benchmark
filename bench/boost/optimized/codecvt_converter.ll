@@ -2034,7 +2034,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %7
 
 21:                                               ; preds = %20
   %22 = lshr i32 %1, 6
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, -64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %24, ptr %2, align 1, !tbaa !18
@@ -2051,7 +2051,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %7
 
 32:                                               ; preds = %29
   %33 = lshr i32 %1, 12
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -32
   store i8 %35, ptr %2, align 1, !tbaa !18
   %36 = lshr i32 %1, 6
@@ -2067,7 +2067,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %7
 
 43:                                               ; preds = %29
   %44 = lshr i32 %1, 18
-  %45 = trunc nuw i32 %44 to i8
+  %45 = trunc nuw nsw i32 %44 to i8
   %46 = or disjoint i8 %45, -16
   store i8 %46, ptr %2, align 1, !tbaa !18
   %47 = lshr i32 %1, 12
@@ -3295,7 +3295,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i: ; preds = %17
 
 29:                                               ; preds = %28
   %30 = lshr i32 %14, 6
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
   %33 = getelementptr inbounds nuw i8, ptr %.02550, i64 1
   store i8 %32, ptr %.02550, align 1, !tbaa !18
@@ -3312,7 +3312,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i: ; preds = %17
 
 40:                                               ; preds = %37
   %41 = lshr i32 %14, 12
-  %42 = trunc nuw i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = or disjoint i8 %42, -32
   store i8 %43, ptr %.02550, align 1, !tbaa !18
   %44 = lshr i32 %14, 6
@@ -3328,7 +3328,7 @@ _ZN5boost6locale3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i: ; preds = %17
 
 51:                                               ; preds = %37
   %52 = lshr i32 %14, 18
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -16
   store i8 %54, ptr %.02550, align 1, !tbaa !18
   %55 = lshr i32 %14, 12

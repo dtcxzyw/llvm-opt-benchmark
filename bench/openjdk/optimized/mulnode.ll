@@ -3705,7 +3705,7 @@ _ZN4NodenwEm.exit53:                              ; preds = %105, %107
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = trunc nuw i64 %75 to i32
+  %115 = trunc nuw nsw i64 %75 to i32
   %116 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %1, i32 noundef %115) #10
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i52, ptr noundef null, ptr noundef %114, ptr noundef %116) #10
   %117 = getelementptr inbounds nuw i8, ptr %.0.i.i.i52, i64 44

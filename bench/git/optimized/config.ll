@@ -4606,7 +4606,7 @@ strbuf_avail.exit.thread.i61.i.i.i:               ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit65.i.i.i:                        ; preds = %strbuf_avail.exit.thread.i61.i.i.i, %strbuf_avail.exit.i57.i.i.i
   %.pre-phi.i60.i.i.i = phi i64 [ %.pre7.i64.i.i.i, %strbuf_avail.exit.thread.i61.i.i.i ], [ %.neg.i58.i.i.i, %strbuf_avail.exit.i57.i.i.i ]
   %511 = phi i64 [ %.pre.i63.i.i.i, %strbuf_avail.exit.thread.i61.i.i.i ], [ %510, %strbuf_avail.exit.i57.i.i.i ]
-  %512 = trunc i32 %.034.i.i.i to i8
+  %512 = trunc nuw nsw i32 %.034.i.i.i to i8
   %513 = load ptr, ptr %35, align 8, !tbaa !13
   store i64 %.pre-phi.i60.i.i.i, ptr %34, align 8, !tbaa !12
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 %511

@@ -44568,7 +44568,7 @@ _ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.
 
 .critedge.loopexit:                               ; preds = %36, %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %36 ], [ %indvars.iv, %_ZNK15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
-  %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
+  %.0.lcssa.ph = trunc nuw i64 %.0.lcssa.ph.in to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN4smt26parser4nextEv.exit

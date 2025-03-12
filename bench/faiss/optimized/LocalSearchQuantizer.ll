@@ -2313,7 +2313,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit159
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.thread: ; preds = %.preheader298.lr.ph, %.preheader296
-  %117 = trunc i64 %49 to i32
+  %117 = trunc nuw nsw i64 %49 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %117, ptr %9, align 4, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
@@ -2881,7 +2881,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit178:         ; preds = %.noexc177, %_ZNSt6v
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit226
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i179.thread: ; preds = %.preheader294.lr.ph, %.preheader293
-  %323 = trunc i64 %49 to i32
+  %323 = trunc nuw nsw i64 %49 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %323, ptr %4, align 4, !tbaa !81
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16

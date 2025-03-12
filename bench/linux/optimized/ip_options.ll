@@ -354,7 +354,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__ip_options_echo(ptr noundef %0
   br i1 %161, label %154, label %162, !llvm.loop !5
 
 162:                                              ; preds = %154
-  %163 = trunc i64 %159 to i32
+  %163 = trunc nuw nsw i64 %159 to i32
   %164 = trunc i64 %160 to i32
   br label %165
 

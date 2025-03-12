@@ -13792,7 +13792,7 @@ define internal fastcc i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captur
   %62 = add nuw nsw i64 %23, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %62, i1 false)
   store ptr %60, ptr %58, align 8
-  %63 = trunc i64 %23 to i8
+  %63 = trunc nuw i64 %23 to i8
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i8 %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %62
@@ -17536,7 +17536,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
   %65 = load ptr, ptr %37, align 8
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %65, ptr %66, align 8
-  %67 = trunc i64 %25 to i8
+  %67 = trunc nuw i64 %25 to i8
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store i8 %67, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -23365,7 +23365,7 @@ float_to_half.exit:                               ; preds = %83, %86, %96, %98, 
   %164 = add nsw i32 %160, -94
   %165 = shl i32 %163, %164
   %166 = lshr i32 %163, %161
-  %167 = trunc nuw i32 %166 to i16
+  %167 = trunc nuw nsw i32 %166 to i16
   %168 = icmp ugt i32 %165, -2147483648
   br i1 %168, label %172, label %169
 
@@ -36264,7 +36264,7 @@ hufBuildEncTable.exit:                            ; preds = %304
   br i1 %.wide195.i, label %.lr.ph.i.i, label %.loopexit.thread.i, !llvm.loop !256
 
 .loopexit.thread.i:                               ; preds = %328
-  %333 = trunc nuw i64 %329 to i32
+  %333 = trunc nuw nsw i64 %329 to i32
   %334 = add nsw i64 %.0.lcssa.ph209.i, -6
   %335 = shl i64 %325, 8
   %336 = or disjoint i32 %333, 8
@@ -36356,15 +36356,15 @@ hufBuildEncTable.exit:                            ; preds = %304
   br i1 %.wide.i, label %.lr.ph.i65.i, label %outputBits.exit54.thread.loopexit175.i, !llvm.loop !256
 
 outputBits.exit54.thread.loopexit.i:              ; preds = %346
-  %373 = trunc nuw i64 %347 to i32
+  %373 = trunc nuw nsw i64 %347 to i32
   br label %outputBits.exit54.thread.i
 
 outputBits.exit54.thread.loopexit173.i:           ; preds = %358
-  %374 = trunc nuw i64 %359 to i32
+  %374 = trunc nuw nsw i64 %359 to i32
   br label %outputBits.exit54.thread.i
 
 outputBits.exit54.thread.loopexit175.i:           ; preds = %368
-  %375 = trunc nuw i64 %369 to i32
+  %375 = trunc nuw nsw i64 %369 to i32
   br label %outputBits.exit54.thread.i
 
 outputBits.exit54.thread.i:                       ; preds = %outputBits.exit54.thread.loopexit175.i, %outputBits.exit54.thread.loopexit173.i, %outputBits.exit54.thread.loopexit.i, %._crit_edge.thread.i, %351, %.loopexit.i54
@@ -56578,7 +56578,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep_pointers(ptr noundef re
   %78 = add nsw i32 %74, -94
   %79 = shl i32 %77, %78
   %80 = lshr i32 %77, %75
-  %81 = trunc nuw i32 %80 to i16
+  %81 = trunc nuw nsw i32 %80 to i16
   %82 = icmp ugt i32 %79, -2147483648
   br i1 %82, label %86, label %83
 
@@ -57154,7 +57154,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   %72 = add nsw i32 %68, -94
   %73 = shl i32 %71, %72
   %74 = lshr i32 %71, %69
-  %75 = trunc nuw i32 %74 to i16
+  %75 = trunc nuw nsw i32 %74 to i16
   %76 = icmp ugt i32 %73, -2147483648
   br i1 %76, label %80, label %77
 
@@ -58997,7 +58997,7 @@ float_to_uint_int.exit:                           ; preds = %195, %197
   %248 = add nsw i32 %244, -94
   %249 = shl i32 %247, %248
   %250 = lshr i32 %247, %245
-  %251 = trunc nuw i32 %250 to i16
+  %251 = trunc nuw nsw i32 %250 to i16
   %252 = icmp ugt i32 %249, -2147483648
   br i1 %252, label %256, label %253
 

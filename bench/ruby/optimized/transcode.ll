@@ -5435,8 +5435,8 @@ rb_array_len.exit.i.i:                            ; preds = %80, %77
   unreachable
 
 RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i.i
-  %85 = trunc i64 %.0.i.i.i to i32
-  %.not.i = icmp eq i32 %85, 0
+  %85 = trunc nsw i64 %.0.i.i.i to i32
+  %.not.i = icmp eq i64 %.0.i.i.i, 0
   br i1 %.not.i, label %.thread76.i, label %86
 
 86:                                               ; preds = %RARRAY_LENINT.exit.i
@@ -5734,7 +5734,7 @@ rb_array_len.exit.i.i:                            ; preds = %41, %38
   unreachable
 
 RARRAY_LENINT.exit.i:                             ; preds = %rb_array_len.exit.i.i
-  %46 = trunc i64 %.0.i.i.i to i32
+  %46 = trunc nsw i64 %.0.i.i.i to i32
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %46, i32 1)
   %47 = tail call noalias nonnull dereferenceable(184) ptr @ruby_xmalloc(i64 noundef 184) #24
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88

@@ -1142,7 +1142,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %166 = call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %163) #14
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 344
   store ptr @sel_class_ops, ptr %167, align 8
-  %168 = trunc i64 %142 to i32
+  %168 = trunc nuw i64 %142 to i32
   %169 = add nuw i32 %168, 1
   %170 = and i32 %169, 65535
   %171 = mul nuw nsw i32 %170, 33
@@ -1212,7 +1212,7 @@ define internal fastcc i32 @sel_make_policy_nodes(ptr noundef captures(none) %0,
   %204 = call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %200) #14
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 344
   store ptr @sel_perm_ops, ptr %205, align 8
-  %206 = trunc i64 %192 to i32
+  %206 = trunc nuw i64 %192 to i32
   %207 = add i32 %190, %206
   %208 = or i32 %207, 67108864
   %209 = zext i32 %208 to i64

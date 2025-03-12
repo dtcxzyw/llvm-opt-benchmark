@@ -2283,7 +2283,7 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
   unreachable
 
 46:                                               ; preds = %41
-  %47 = trunc nuw i64 %31 to i32
+  %47 = trunc nuw nsw i64 %31 to i32
   %.not108122 = icmp eq i64 %31, 0
   br i1 %.not108122, label %._crit_edge, label %.lr.ph
 

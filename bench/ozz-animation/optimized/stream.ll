@@ -321,7 +321,7 @@ define dso_local noundef range(i64 0, 2147483648) i64 @_ZN3ozz2io12MemoryStream5
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !18
-  %8 = trunc nuw i64 %2 to i32
+  %8 = trunc nuw nsw i64 %2 to i32
   %9 = sub nuw nsw i32 2147483647, %8
   %10 = icmp sgt i32 %7, %9
   br i1 %10, label %87, label %11

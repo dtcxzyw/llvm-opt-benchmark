@@ -2471,7 +2471,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.lr.ph.i:          ; preds = %.preheader.i
   br i1 %spec.select.i.i99, label %436, label %441
 
 436:                                              ; preds = %426
-  %.rhs.trunc.i = trunc nuw i64 %.val17.i to i32
+  %.rhs.trunc.i = trunc nuw nsw i64 %.val17.i to i32
   %437 = urem i32 %.02529.i, %.rhs.trunc.i
   %438 = load ptr, ptr %118, align 8, !tbaa !109
   %439 = getelementptr inbounds nuw i32, ptr %438, i64 %indvars.iv.i97
@@ -4774,7 +4774,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i24:        ; preds = %42
   br label %152
 
 72:                                               ; preds = %55
-  %73 = trunc nuw i64 %.val22 to i32
+  %73 = trunc nuw nsw i64 %.val22 to i32
   %74 = add i32 %56, %73
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %76 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5507,7 +5507,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI4expr11
   br i1 %108, label %109, label %.thread
 
 109:                                              ; preds = %107
-  %.rhs.trunc = trunc nuw i64 %48 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %48 to i32
   %110 = urem i32 %3, %.rhs.trunc
   %111 = udiv i32 %3, %.rhs.trunc
   br label %123
@@ -6329,7 +6329,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit139:      ; preds = %437, %440, %446
   %458 = add nsw i64 %.val65, -1
   %459 = urem i64 %457, %458
   %460 = trunc nuw i64 %459 to i32
-  %461 = trunc nuw i64 %.val65 to i32
+  %461 = trunc nuw nsw i64 %.val65 to i32
   %462 = udiv i32 %.4.lcssa, %461
   br label %475
 

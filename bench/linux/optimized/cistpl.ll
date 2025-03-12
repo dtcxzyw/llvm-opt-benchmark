@@ -1704,7 +1704,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   br i1 %258, label %259, label %246, !llvm.loop !29
 
 259:                                              ; preds = %246
-  %260 = trunc i64 %255 to i8
+  %260 = trunc nuw nsw i64 %255 to i8
   br label %261
 
 261:                                              ; preds = %259, %237
@@ -2594,7 +2594,7 @@ default.unreachable225:                           ; preds = %649
   br i1 %851, label %852, label %812, !llvm.loop !41
 
 852:                                              ; preds = %812
-  %853 = trunc i64 %848 to i8
+  %853 = trunc nuw nsw i64 %848 to i8
   br label %854
 
 854:                                              ; preds = %852, %803

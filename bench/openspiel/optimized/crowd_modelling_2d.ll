@@ -7273,7 +7273,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   br label %140
 
 69:                                               ; preds = %62
-  %70 = trunc i64 %1 to i32
+  %70 = trunc nuw i64 %1 to i32
   %71 = srem i32 %70, %54
   %72 = sdiv i32 %70, %54
   store i8 0, ptr %43, align 8
@@ -7360,7 +7360,7 @@ _ZNKSt5arrayIiLm5EE2atEm.exit22:                  ; preds = %104
   %120 = add i32 %117, %113
   %121 = add i32 %120, %119
   %122 = srem i32 %121, %113
-  %123 = trunc nuw i64 %1 to i32
+  %123 = trunc nuw nsw i64 %1 to i32
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %123, ptr %124, align 8
   br label %125

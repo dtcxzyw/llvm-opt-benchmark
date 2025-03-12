@@ -290,7 +290,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1
   br i1 %20, label %21, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit
 
 21:                                               ; preds = %19
-  %.lhs.trunc.i = trunc nuw i32 %.fr47.i to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %.fr47.i to i16
   %22 = urem i16 %.lhs.trunc.i, 400
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread.i, label %24

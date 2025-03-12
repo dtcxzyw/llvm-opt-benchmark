@@ -1260,7 +1260,7 @@ if.then.i.i.i74:                                  ; preds = %while.end.i.i.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
@@ -1408,7 +1408,7 @@ if.then.i.i.i118:                                 ; preds = %while.end.i.i.i106
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111
 
 if.else.i.i.i109:                                 ; preds = %while.end.i.i.i106
-  %13 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i107 to i8
+  %13 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i107 to i8
   %conv.i.i.i110 = or disjoint i8 %13, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i111
 
@@ -1543,7 +1543,7 @@ if.then.i.i.i199:                                 ; preds = %while.end.i.i.i187
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i192
 
 if.else.i.i.i190:                                 ; preds = %while.end.i.i.i187
-  %19 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i188 to i8
+  %19 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i188 to i8
   %conv.i.i.i191 = or disjoint i8 %19, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i192
 
@@ -1721,7 +1721,7 @@ if.then.i.i.i59:                                  ; preds = %while.end.i.i.i
   br label %return.sink.split.i
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %6 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
   br label %return.sink.split.i
 
@@ -1840,7 +1840,7 @@ if.then.i.i.i98:                                  ; preds = %while.end.i.i.i85
   br label %return.sink.split.i90
 
 if.else.i.i.i88:                                  ; preds = %while.end.i.i.i85
-  %13 = trunc nuw i32 %__val.addr.0.lcssa.i.i.i86 to i8
+  %13 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i.i86 to i8
   %conv.i.i.i89 = or disjoint i8 %13, 48
   br label %return.sink.split.i90
 
@@ -2084,7 +2084,7 @@ if.then.i.i.i74:                                  ; preds = %while.end.i.i.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %while.end.i.i.i
-  %5 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i to i8
+  %5 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
@@ -2227,7 +2227,7 @@ if.then.i.i.i119:                                 ; preds = %while.end.i.i.i107
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112
 
 if.else.i.i.i110:                                 ; preds = %while.end.i.i.i107
-  %11 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i108 to i8
+  %11 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i.i108 to i8
   %conv.i.i.i111 = or disjoint i8 %11, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i112
 
@@ -2357,7 +2357,7 @@ if.then.i.i.i197:                                 ; preds = %while.end.i.i.i185
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i190
 
 if.else.i.i.i188:                                 ; preds = %while.end.i.i.i185
-  %16 = trunc nuw i64 %__val.addr.0.lcssa.i.i.i186 to i8
+  %16 = trunc nuw nsw i64 %__val.addr.0.lcssa.i.i.i186 to i8
   %conv.i.i.i189 = or disjoint i8 %16, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i190
 
@@ -2395,7 +2395,7 @@ if.then:                                          ; preds = %entry
   store i8 48, ptr %vla, align 16
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %vla, i64 1
   store i8 48, ptr %arrayidx2, align 1
-  %1 = trunc nuw i16 %subseconds to i8
+  %1 = trunc nuw nsw i16 %subseconds to i8
   %conv5 = or disjoint i8 %1, 48
   %arrayidx6 = getelementptr inbounds nuw i8, ptr %vla, i64 2
   store i8 %conv5, ptr %arrayidx6, align 2
@@ -2407,7 +2407,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp8, label %if.then9, label %if.else20
 
 if.then9:                                         ; preds = %if.else
-  %rem.lhs.trunc = trunc nuw i16 %subseconds to i8
+  %rem.lhs.trunc = trunc nuw nsw i16 %subseconds to i8
   %rem13 = urem i8 %rem.lhs.trunc, 10
   %conv12 = or disjoint i8 %rem13, 48
   store i8 %conv12, ptr %arrayidx13, align 2
@@ -3909,7 +3909,7 @@ if.then193:                                       ; preds = %sw.bb
 if.end194:                                        ; preds = %sw.bb
   %centuryFormat = getelementptr inbounds nuw i8, ptr %date, i64 33
   store i8 1, ptr %centuryFormat, align 1
-  %111 = trunc nuw i64 %spec.select247.frozen5 to i32
+  %111 = trunc nuw nsw i64 %spec.select247.frozen5 to i32
   %conv196 = mul nuw nsw i32 %111, 100
   store i32 %conv196, ptr %date, align 8
   %hasYear198 = getelementptr inbounds nuw i8, ptr %date, i64 35
@@ -3959,7 +3959,7 @@ if.then227:                                       ; preds = %sw.bb223
   unreachable
 
 if.end228:                                        ; preds = %sw.bb223
-  %conv229 = trunc nuw i64 %spec.select247.frozen5 to i32
+  %conv229 = trunc nuw nsw i64 %spec.select247.frozen5 to i32
   %month = getelementptr inbounds nuw i8, ptr %date, i64 4
   store i32 %conv229, ptr %month, align 4
   %weekDateFormat230 = getelementptr inbounds nuw i8, ptr %date, i64 24
@@ -4165,7 +4165,7 @@ if.then332:                                       ; preds = %sw.bb328
   unreachable
 
 if.end333:                                        ; preds = %sw.bb328
-  %conv334 = trunc nuw i64 %spec.select247.frozen5 to i32
+  %conv334 = trunc nuw nsw i64 %spec.select247.frozen5 to i32
   %week = getelementptr inbounds nuw i8, ptr %date, i64 16
   store i32 %conv334, ptr %week, align 8
   %weekDateFormat335 = getelementptr inbounds nuw i8, ptr %date, i64 24
@@ -4192,7 +4192,7 @@ if.then347:                                       ; preds = %sw.bb343
   unreachable
 
 if.end348:                                        ; preds = %sw.bb343
-  %conv349 = trunc nuw i64 %spec.select247.frozen5 to i32
+  %conv349 = trunc nuw nsw i64 %spec.select247.frozen5 to i32
   %dayOfWeek = getelementptr inbounds nuw i8, ptr %date, i64 20
   store i32 %conv349, ptr %dayOfWeek, align 4
   %weekDateFormat350 = getelementptr inbounds nuw i8, ptr %date, i64 24

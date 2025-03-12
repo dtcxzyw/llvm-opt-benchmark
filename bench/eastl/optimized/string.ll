@@ -376,7 +376,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %c, 6
-  %0 = trunc nuw i32 %shr to i8
+  %0 = trunc nuw nsw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   %1 = load ptr, ptr %pResult, align 8
   %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -393,7 +393,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %shr11 = lshr i32 %c, 12
-  %4 = trunc nuw i32 %shr11 to i8
+  %4 = trunc nuw nsw i32 %shr11 to i8
   %conv13 = or disjoint i8 %4, -32
   %5 = load ptr, ptr %pResult, align 8
   %incdec.ptr14 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -418,7 +418,7 @@ if.else24:                                        ; preds = %if.else8
 
 if.then26:                                        ; preds = %if.else24
   %shr27 = lshr i32 %c, 18
-  %11 = trunc nuw i32 %shr27 to i8
+  %11 = trunc nuw nsw i32 %shr27 to i8
   %conv29 = or disjoint i8 %11, -16
   %12 = load ptr, ptr %pResult, align 8
   %incdec.ptr30 = getelementptr inbounds nuw i8, ptr %12, i64 1
@@ -451,7 +451,7 @@ if.else45:                                        ; preds = %if.else24
 
 if.then47:                                        ; preds = %if.else45
   %shr48 = lshr i32 %c, 24
-  %21 = trunc nuw i32 %shr48 to i8
+  %21 = trunc nuw nsw i32 %shr48 to i8
   %conv50 = or disjoint i8 %21, -8
   %22 = load ptr, ptr %pResult, align 8
   %incdec.ptr51 = getelementptr inbounds nuw i8, ptr %22, i64 1
@@ -498,7 +498,7 @@ if.then72:                                        ; preds = %if.else70
   store ptr %incdec.ptr76, ptr %pResult, align 8
   store i8 %conv75, ptr %34, align 1
   %shr77 = lshr i32 %c, 24
-  %35 = trunc nuw i32 %shr77 to i8
+  %35 = trunc nuw nsw i32 %shr77 to i8
   %36 = and i8 %35, 63
   %conv80 = or disjoint i8 %36, -128
   %37 = load ptr, ptr %pResult, align 8

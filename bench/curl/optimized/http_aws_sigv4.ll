@@ -217,7 +217,7 @@ define hidden i32 @Curl_output_aws_sigv4(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %73, %70
-  %78 = trunc nuw i64 %63 to i32
+  %78 = trunc nuw nsw i64 %63 to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %78, ptr noundef nonnull %28) #10
   br label %79
 
@@ -269,7 +269,7 @@ define hidden i32 @Curl_output_aws_sigv4(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %101, label %102, label %.thread213
 
 102:                                              ; preds = %98, %95
-  %103 = trunc nuw i64 %89 to i32
+  %103 = trunc nuw nsw i64 %89 to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %103, ptr noundef nonnull %83) #10
   br label %.thread213
 

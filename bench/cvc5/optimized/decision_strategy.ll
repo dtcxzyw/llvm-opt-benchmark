@@ -566,7 +566,7 @@ define hidden void @_ZN4cvc58internal6theory19DecisionStrategyFmf10getLiteralEj(
 
 18:                                               ; preds = %.lr.ph, %.critedge
   %19 = phi i64 [ %16, %.lr.ph ], [ %122, %.critedge ]
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw i64 %19 to i32
   %21 = load ptr, ptr %1, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8

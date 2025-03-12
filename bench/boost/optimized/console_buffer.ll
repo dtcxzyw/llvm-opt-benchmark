@@ -557,7 +557,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %11,
 
 26:                                               ; preds = %24
   %27 = lshr i32 %spec.store.select, 6
-  %28 = trunc nuw i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = or disjoint i8 %28, -64
   %30 = getelementptr inbounds nuw i8, ptr %.020.ptr53, i64 1
   store i8 %29, ptr %.020.ptr53, align 1, !tbaa !21
@@ -576,7 +576,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %11,
 
 38:                                               ; preds = %34
   %39 = lshr i32 %spec.store.select, 12
-  %40 = trunc nuw i32 %39 to i8
+  %40 = trunc nuw nsw i32 %39 to i8
   %41 = or disjoint i8 %40, -32
   store i8 %41, ptr %.020.ptr53, align 1, !tbaa !21
   %42 = lshr i32 %spec.store.select, 6

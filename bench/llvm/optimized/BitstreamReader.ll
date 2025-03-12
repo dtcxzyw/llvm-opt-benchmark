@@ -4080,7 +4080,7 @@ _ZN4llvm17createStringErrorIJEEENS_5ErrorESt4errcPKcDpRKT_.exit: ; preds = %_ZNK
   br label %172
 
 103:                                              ; preds = %88
-  %104 = trunc nuw i64 %89 to i32
+  %104 = trunc nuw nsw i64 %89 to i32
   %.off = add nsw i32 %104, -1
   %switch = icmp samesign ult i32 %.off, 2
   br i1 %switch, label %105, label %_ZN4llvm15BitCodeAbbrevOp15hasEncodingDataENS0_8EncodingE.exit

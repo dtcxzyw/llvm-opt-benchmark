@@ -387,13 +387,13 @@ hc2b.exit.thread.i:                               ; preds = %hc2b.exit.i, %85
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
-  %.tr.i = trunc i32 %.0.i.i to i8
+  %.tr.i = trunc nuw i32 %.0.i.i to i8
   %96 = shl i8 %.tr.i, 4
   br label %.outer.i
 
 97:                                               ; preds = %93
   %98 = load i8, ptr %.017.ph29.i, align 1
-  %99 = trunc i32 %.0.i.i to i8
+  %99 = trunc nuw i32 %.0.i.i to i8
   %100 = and i8 %99, 15
   %101 = or i8 %98, %100
   %102 = getelementptr i8, ptr %.017.ph29.i, i64 1
@@ -509,13 +509,13 @@ hc2b.exit.thread.i111:                            ; preds = %hc2b.exit.i116, %13
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %142
-  %.tr.i123 = trunc i32 %.0.i.i117 to i8
+  %.tr.i123 = trunc nuw i32 %.0.i.i117 to i8
   %145 = shl i8 %.tr.i123, 4
   br label %.outer.i118
 
 146:                                              ; preds = %142
   %147 = load i8, ptr %.017.ph29.i106, align 1
-  %148 = trunc i32 %.0.i.i117 to i8
+  %148 = trunc nuw i32 %.0.i.i117 to i8
   %149 = and i8 %148, 15
   %150 = or i8 %147, %149
   %151 = getelementptr i8, ptr %.017.ph29.i106, i64 1

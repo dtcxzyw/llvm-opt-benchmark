@@ -800,7 +800,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 105:                                              ; preds = %104, %102
   %106 = phi i32 [ %86, %104 ], [ %97, %102 ]
-  %107 = trunc i64 %87 to i32
+  %107 = trunc nsw i64 %87 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %108 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)

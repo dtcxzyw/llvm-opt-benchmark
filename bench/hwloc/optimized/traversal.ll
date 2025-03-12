@@ -2232,7 +2232,7 @@ define internal fastcc void @hwloc_memory_size_snprintf(ptr noundef nonnull writ
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %16
-  %.lhs.trunc = trunc nuw i64 %1 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %1 to i32
   %19 = udiv i32 %.lhs.trunc, 500
   %narrow = add nuw nsw i32 %19, 1
   %20 = lshr i32 %narrow, 1

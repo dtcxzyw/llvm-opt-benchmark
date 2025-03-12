@@ -212,7 +212,7 @@ define hidden void @_ZN10NativeCall23set_destination_mt_safeEPh(ptr noundef nonn
   unreachable
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
-  %18 = trunc i64 %13 to i32
+  %18 = trunc nsw i64 %13 to i32
   store i32 %18, ptr %3, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %3) #7
   ret void

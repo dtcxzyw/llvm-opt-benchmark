@@ -6044,11 +6044,11 @@ if.then20.i:                                      ; preds = %if.else18.i
   %conv.i32.i = zext i8 %678 to i32
   %conv3.i33.i = zext i8 %679 to i32
   %mul.i34.i = shl nuw nsw i64 %div6.i.i, 3
-  %sh_prom.i.i = trunc nuw i64 %mul.i34.i to i32
+  %sh_prom.i.i = trunc nuw nsw i64 %mul.i34.i to i32
   %shl.i35.i = shl nuw nsw i32 %conv3.i33.i, %sh_prom.i.i
   %or.i36.i = or i32 %shl.i35.i, %conv.i32.i
   %conv5.i.i = zext i8 %680 to i32
-  %sub.tr.i.i = trunc i64 %sub.i31.i to i32
+  %sub.tr.i.i = trunc nuw nsw i64 %sub.i31.i to i32
   %sh_prom8.i.i = shl nuw nsw i32 %sub.tr.i.i, 3
   %shl9.i.i = shl nuw nsw i32 %conv5.i.i, %sh_prom8.i.i
   %or10.i.i = or i32 %or.i36.i, %shl9.i.i
@@ -7959,11 +7959,11 @@ if.then20.i877.i:                                 ; preds = %if.else18.i875.i
   %conv.i32.i882.i = zext i8 %149 to i32
   %conv3.i33.i883.i = zext i8 %150 to i32
   %mul.i34.i884.i = shl nuw nsw i64 %div6.i.i878.i, 3
-  %sh_prom.i.i885.i = trunc nuw i64 %mul.i34.i884.i to i32
+  %sh_prom.i.i885.i = trunc nuw nsw i64 %mul.i34.i884.i to i32
   %shl.i35.i886.i = shl nuw nsw i32 %conv3.i33.i883.i, %sh_prom.i.i885.i
   %or.i36.i887.i = or i32 %shl.i35.i886.i, %conv.i32.i882.i
   %conv5.i.i888.i = zext i8 %151 to i32
-  %sub.tr.i.i889.i = trunc i64 %sub.i31.i880.i to i32
+  %sub.tr.i.i889.i = trunc nuw nsw i64 %sub.i31.i880.i to i32
   %sh_prom8.i.i890.i = shl nuw nsw i32 %sub.tr.i.i889.i, 3
   %shl9.i.i891.i = shl nuw nsw i32 %conv5.i.i888.i, %sh_prom8.i.i890.i
   %or10.i.i892.i = or i32 %or.i36.i887.i, %shl9.i.i891.i
@@ -16036,11 +16036,11 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw nsw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
-  %sub.tr.i = trunc i64 %sub.i31 to i32
+  %sub.tr.i = trunc nuw nsw i64 %sub.i31 to i32
   %sh_prom8.i = shl nuw nsw i32 %sub.tr.i, 3
   %shl9.i = shl nuw nsw i32 %conv5.i, %sh_prom8.i
   %or10.i = or i32 %or.i36, %shl9.i
@@ -29147,7 +29147,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -31129,7 +31129,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

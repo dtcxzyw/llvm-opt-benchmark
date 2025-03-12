@@ -394,7 +394,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %143, label %144, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit242"
 
 144:                                              ; preds = %.lr.ph398
-  %145 = trunc nuw i32 %.4397 to i8
+  %145 = trunc nuw nsw i32 %.4397 to i8
   %146 = add nsw i32 %.2325395, 1
   %147 = sext i32 %.2325395 to i64
   %148 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %147
@@ -471,7 +471,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %176, label %177, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit243"
 
 177:                                              ; preds = %175
-  %178 = trunc nuw i32 %.0139 to i8
+  %178 = trunc nuw nsw i32 %.0139 to i8
   %179 = add nsw i32 %.0323, 1
   %180 = sext i32 %.0323 to i64
   %181 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %180
@@ -499,7 +499,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %192, label %193, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit244"
 
 193:                                              ; preds = %190
-  %194 = trunc i32 %189 to i8
+  %194 = trunc nuw nsw i32 %189 to i8
   %195 = add nsw i32 %.14, 1
   %196 = sext i32 %.14 to i64
   %197 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %196
@@ -538,7 +538,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %211, label %212, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit245"
 
 212:                                              ; preds = %.lr.ph409
-  %213 = trunc nuw i32 %.7408 to i8
+  %213 = trunc nuw nsw i32 %.7408 to i8
   %214 = add nsw i32 %.5328406, 1
   %215 = sext i32 %.5328406 to i64
   %216 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %215
@@ -716,7 +716,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %299, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246": ; preds = %298
-  %300 = trunc i32 %.5345 to i8
+  %300 = trunc nuw nsw i32 %.5345 to i8
   %301 = sext i32 %.3326339 to i64
   %302 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %301
   store i8 %300, ptr %302, align 1
@@ -725,7 +725,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 303:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit246"
   %304 = add nsw i32 %.3326339, 1
-  %305 = trunc nuw i32 %283 to i8
+  %305 = trunc nuw nsw i32 %283 to i8
   %306 = add nsw i32 %.3326339, 2
   %307 = sext i32 %304 to i64
   %308 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %307
@@ -737,7 +737,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %310, label %311, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 311:                                              ; preds = %309
-  %312 = trunc i32 %.5345 to i8
+  %312 = trunc nuw nsw i32 %.5345 to i8
   %313 = add nsw i32 %.3326339, 1
   %314 = sext i32 %.3326339 to i64
   %315 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %314
@@ -829,7 +829,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %369, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249", label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 "_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249": ; preds = %368
-  %370 = trunc i32 %.5345 to i8
+  %370 = trunc nuw nsw i32 %.5345 to i8
   %371 = sext i32 %.3326339 to i64
   %372 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %371
   store i8 %370, ptr %372, align 1
@@ -838,7 +838,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
 
 373:                                              ; preds = %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit249"
   %374 = add nsw i32 %.3326339, 1
-  %375 = trunc nuw i32 %353 to i8
+  %375 = trunc nuw nsw i32 %353 to i8
   %376 = add nsw i32 %.3326339, 2
   %377 = sext i32 %374 to i64
   %378 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %377
@@ -850,7 +850,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %380, label %381, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 381:                                              ; preds = %379
-  %382 = trunc i32 %.5345 to i8
+  %382 = trunc nuw nsw i32 %.5345 to i8
   %383 = add nsw i32 %.3326339, 1
   %384 = sext i32 %.3326339 to i64
   %385 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %384
@@ -903,7 +903,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   br i1 %407, label %408, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit247.thread"
 
 408:                                              ; preds = %.thread358
-  %409 = trunc i32 %.5345 to i8
+  %409 = trunc nuw nsw i32 %.5345 to i8
   %410 = add nsw i32 %.3326339, 1
   %411 = sext i32 %.3326339 to i64
   %412 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %411
@@ -1493,7 +1493,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %27, %29
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %.critedge
-  %46 = trunc i32 %.3551 to i8
+  %46 = trunc nuw nsw i32 %.3551 to i8
   %47 = add nsw i32 %.0531, 1
   %48 = sext i32 %.0531 to i64
   %49 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %48
@@ -1558,7 +1558,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %27, %29
   ]
 
 81:                                               ; preds = %75
-  %82 = trunc nuw i32 %79 to i8
+  %82 = trunc nuw nsw i32 %79 to i8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 %82, ptr %83, align 1
   %84 = load ptr, ptr %0, align 8
@@ -1600,7 +1600,7 @@ switch.early.test640:                             ; preds = %81
   br i1 %or.cond15, label %91, label %116
 
 91:                                               ; preds = %.critedge27
-  %92 = trunc i32 %.5553 to i8
+  %92 = trunc nuw nsw i32 %.5553 to i8
   %93 = add nsw i32 %.2533, 1
   %94 = sext i32 %.2533 to i64
   %95 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %94
@@ -1727,7 +1727,7 @@ switch.early.test643:                             ; preds = %126
   %.6554653674 = phi i32 [ %130, %141 ], [ %87, %.thread ]
   %.4535655673 = phi i32 [ %.3534, %141 ], [ 2, %.thread ]
   %.7659672 = phi i32 [ %.5, %141 ], [ %.0530.ph, %.thread ]
-  %143 = trunc nuw i32 %.6554653674 to i8
+  %143 = trunc nuw nsw i32 %.6554653674 to i8
   %144 = add nsw i32 %.4535655673, 1
   %145 = sext i32 %.4535655673 to i64
   %146 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %145
@@ -1751,7 +1751,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %154, label %155, label %164
 
 155:                                              ; preds = %153
-  %156 = trunc nuw i32 %151 to i8
+  %156 = trunc nuw nsw i32 %151 to i8
   %157 = add nsw i32 %.5536, 1
   %158 = sext i32 %.5536 to i64
   %159 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %158
@@ -1791,7 +1791,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %180, label %181, label %223
 
 181:                                              ; preds = %179
-  %182 = trunc nuw i32 %168 to i8
+  %182 = trunc nuw nsw i32 %168 to i8
   %183 = add nsw i32 %.7538, 1
   %184 = sext i32 %.7538 to i64
   %185 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %184
@@ -1814,7 +1814,7 @@ switch.early.test643:                             ; preds = %126
   %.4535656688702 = phi i32 [ %.3534, %190 ], [ 2, %.thread ]
   %.6554654690701 = phi i32 [ %130, %190 ], [ %87, %.thread ]
   %.2575651693700 = phi i64 [ %.1574, %190 ], [ 0, %.thread ]
-  %192 = trunc nuw i32 %.6554654690701 to i8
+  %192 = trunc nuw nsw i32 %.6554654690701 to i8
   %193 = add nsw i32 %.4535656688702, 1
   %194 = sext i32 %.4535656688702 to i64
   %195 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %194
@@ -1998,7 +1998,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %287, label %288, label %461
 
 288:                                              ; preds = %279
-  %289 = trunc nuw i32 %79 to i8
+  %289 = trunc nuw nsw i32 %79 to i8
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 %289, ptr %290, align 1
   %291 = load ptr, ptr %0, align 8
@@ -2020,7 +2020,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %or.cond45, label %298, label %307
 
 298:                                              ; preds = %.preheader813
-  %299 = trunc i32 %.7555 to i8
+  %299 = trunc nuw nsw i32 %.7555 to i8
   %300 = add nsw i32 %.12543, 1
   %301 = sext i32 %.12543 to i64
   %302 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %301
@@ -2093,7 +2093,7 @@ switch.early.test643:                             ; preds = %126
   %.5578741759 = phi i64 [ %.4577, %333 ], [ 0, %.thread734 ]
   %.8556742757 = phi i32 [ %321, %333 ], [ %294, %.thread734 ]
   %.14545744756 = phi i32 [ %.13544, %333 ], [ 2, %.thread734 ]
-  %335 = trunc nuw i32 %.8556742757 to i8
+  %335 = trunc nuw nsw i32 %.8556742757 to i8
   %336 = add nsw i32 %.14545744756, 1
   %337 = sext i32 %.14545744756 to i64
   %338 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %337
@@ -2116,7 +2116,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %346, label %347, label %356
 
 347:                                              ; preds = %345
-  %348 = trunc nuw i32 %343 to i8
+  %348 = trunc nuw nsw i32 %343 to i8
   %349 = add nsw i32 %.15546, 1
   %350 = sext i32 %.15546 to i64
   %351 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %350
@@ -2156,7 +2156,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %372, label %373, label %416
 
 373:                                              ; preds = %371
-  %374 = trunc nuw i32 %360 to i8
+  %374 = trunc nuw nsw i32 %360 to i8
   %375 = add nsw i32 %.17, 1
   %376 = sext i32 %.17 to i64
   %377 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %376
@@ -2178,7 +2178,7 @@ switch.early.test643:                             ; preds = %126
   %.14545745768781 = phi i32 [ %.13544, %382 ], [ 2, %.thread734 ]
   %.8556743770780 = phi i32 [ %321, %382 ], [ %294, %.thread734 ]
   %.5578740773779 = phi i64 [ %.4577, %382 ], [ 0, %.thread734 ]
-  %384 = trunc nuw i32 %.8556743770780 to i8
+  %384 = trunc nuw nsw i32 %.8556743770780 to i8
   %385 = add nsw i32 %.14545745768781, 1
   %386 = sext i32 %.14545745768781 to i64
   %387 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %386
@@ -2344,7 +2344,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %464, label %465, label %470
 
 465:                                              ; preds = %.lr.ph905
-  %466 = trunc nuw i32 %.9557902 to i8
+  %466 = trunc nuw nsw i32 %.9557902 to i8
   %467 = add nsw i32 %.22903, 1
   %468 = sext i32 %.22903 to i64
   %469 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %468
@@ -2401,7 +2401,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %491, label %492, label %497
 
 492:                                              ; preds = %.preheader
-  %493 = trunc i32 %.11559 to i8
+  %493 = trunc nuw nsw i32 %.11559 to i8
   %494 = add nsw i32 %.25, 1
   %495 = sext i32 %.25 to i64
   %496 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %495
@@ -2474,7 +2474,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %525, label %526, label %531
 
 526:                                              ; preds = %524
-  %527 = trunc nuw i32 %.10558 to i8
+  %527 = trunc nuw nsw i32 %.10558 to i8
   %528 = add nsw i32 %.24, 1
   %529 = sext i32 %.24 to i64
   %530 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %529
@@ -2496,7 +2496,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %538, label %539, label %548
 
 539:                                              ; preds = %537
-  %540 = trunc nuw i32 %535 to i8
+  %540 = trunc nuw nsw i32 %535 to i8
   %541 = add nsw i32 %.27, 1
   %542 = sext i32 %.27 to i64
   %543 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %542
@@ -2536,7 +2536,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %564, label %565, label %602
 
 565:                                              ; preds = %563
-  %566 = trunc nuw i32 %552 to i8
+  %566 = trunc nuw nsw i32 %552 to i8
   %567 = add nsw i32 %.29, 1
   %568 = sext i32 %.29 to i64
   %569 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %568
@@ -2561,7 +2561,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %576, label %577, label %602
 
 577:                                              ; preds = %575
-  %578 = trunc nuw i32 %.10558 to i8
+  %578 = trunc nuw nsw i32 %.10558 to i8
   %579 = add nsw i32 %.24, 1
   %580 = sext i32 %.24 to i64
   %581 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %580
@@ -2584,7 +2584,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %592, label %593, label %602
 
 593:                                              ; preds = %591
-  %594 = trunc nuw i32 %.10558 to i8
+  %594 = trunc nuw nsw i32 %.10558 to i8
   %595 = add nsw i32 %.24, 1
   %596 = sext i32 %.24 to i64
   %597 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %596
@@ -2702,7 +2702,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %659, label %660, label %665
 
 660:                                              ; preds = %658
-  %661 = trunc i32 %.12560 to i8
+  %661 = trunc nuw nsw i32 %.12560 to i8
   %662 = add nsw i32 %.34, 1
   %663 = sext i32 %.34 to i64
   %664 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %663
@@ -2760,7 +2760,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %686, label %687, label %692
 
 687:                                              ; preds = %685
-  %688 = trunc nuw i32 %677 to i8
+  %688 = trunc nuw nsw i32 %677 to i8
   %689 = add nsw i32 %.35, 1
   %690 = sext i32 %.35 to i64
   %691 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %690
@@ -2782,7 +2782,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %699, label %700, label %709
 
 700:                                              ; preds = %698
-  %701 = trunc nuw i32 %696 to i8
+  %701 = trunc nuw nsw i32 %696 to i8
   %702 = add nsw i32 %.36, 1
   %703 = sext i32 %.36 to i64
   %704 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %703
@@ -2823,7 +2823,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %725, label %726, label %765
 
 726:                                              ; preds = %724
-  %727 = trunc nuw i32 %713 to i8
+  %727 = trunc nuw nsw i32 %713 to i8
   %728 = add nsw i32 %.38, 1
   %729 = sext i32 %.38 to i64
   %730 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %729
@@ -2848,7 +2848,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %737, label %738, label %.thread985
 
 738:                                              ; preds = %736
-  %739 = trunc nuw i32 %677 to i8
+  %739 = trunc nuw nsw i32 %677 to i8
   %740 = add nsw i32 %.35, 1
   %741 = sext i32 %.35 to i64
   %742 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %741
@@ -2871,7 +2871,7 @@ switch.early.test643:                             ; preds = %126
   br i1 %753, label %754, label %.thread985
 
 754:                                              ; preds = %752
-  %755 = trunc nuw i32 %677 to i8
+  %755 = trunc nuw nsw i32 %677 to i8
   %756 = add nsw i32 %.35, 1
   %757 = sext i32 %.35 to i64
   %758 = getelementptr inbounds [1025 x i8], ptr %5, i64 0, i64 %757

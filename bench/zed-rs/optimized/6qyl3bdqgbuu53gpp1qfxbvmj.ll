@@ -11883,7 +11883,7 @@ define hidden noundef i64 @"_ZN59_$LT$proto..Envelope$u20$as$u20$prost..message.
 52:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25c9f8938c2346f8E.exit"
   %53 = add nsw i64 %50, -2
   %54 = icmp ult i64 %53, 227
-  %55 = trunc i64 %53 to i8
+  %55 = trunc nuw i64 %53 to i8
   %trunc.i.i.i = select i1 %54, i8 %55, i8 97
   switch i8 %trunc.i.i.i, label %56 [
     i8 0, label %57

@@ -3260,7 +3260,7 @@ define noalias noundef ptr @Fra_SmlSimulateReadFile(ptr noundef %0) local_unname
   br i1 %or.cond, label %14, label %43
 
 14:                                               ; preds = %.lr.ph
-  %15 = trunc nuw i32 %12 to i8
+  %15 = trunc nuw nsw i32 %12 to i8
   %16 = add nsw i8 %15, -48
   %17 = load i32, ptr %8, align 4, !tbaa !136
   %18 = load i32, ptr %7, align 8, !tbaa !138

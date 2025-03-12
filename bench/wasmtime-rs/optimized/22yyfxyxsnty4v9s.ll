@@ -15821,7 +15821,7 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
   br i1 %.014.i.i.i.i, label %16, label %101
 
 16:                                               ; preds = %4
-  %17 = trunc i64 %14 to i16
+  %17 = trunc nsw i64 %14 to i16
   switch i16 %17, label %103 [
     i16 -38, label %18
     i16 -95, label %18
@@ -15932,7 +15932,7 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
 
 84:                                               ; preds = %77
   %85 = ptrtoint ptr %82 to i64
-  %86 = trunc i64 %85 to i16
+  %86 = trunc nsw i64 %85 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5), !noalias !2166
   store i16 %86, ptr %5, align 2, !noalias !2166
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.c550d0d00141f1dac4ce36b385392e56.42.llvm.15947207822535676624, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c550d0d00141f1dac4ce36b385392e56.43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c550d0d00141f1dac4ce36b385392e56.63) #36, !noalias !2166

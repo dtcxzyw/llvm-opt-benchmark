@@ -2815,7 +2815,7 @@ _ZN4Luau7CodeGen3X6418AssemblyBuilderX648placeRexENS1_11RegisterX64ENS1_10Operan
 50:                                               ; preds = %_ZN4Luau7CodeGen3X6418AssemblyBuilderX648placeRexENS1_11RegisterX64ENS1_10OperandX64E.exit
   store i8 107, ptr %46, align 1, !tbaa !13
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6414placeModRegMemENS1_10OperandX64Ehi(ptr noundef nonnull align 8 dereferenceable(252) %0, i64 %2, i8 noundef zeroext %49, i32 noundef 1)
-  %51 = trunc i32 %3 to i8
+  %51 = trunc nsw i32 %3 to i8
   %52 = load ptr, ptr %45, align 8, !tbaa !51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   store ptr %53, ptr %45, align 8, !tbaa !51
@@ -7092,7 +7092,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX6413placeImm8Or32Ei
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
-  %6 = trunc i32 %1 to i8
+  %6 = trunc nsw i32 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %8 = load ptr, ptr %7, align 8, !tbaa !51
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1

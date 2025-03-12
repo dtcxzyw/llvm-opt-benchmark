@@ -45,7 +45,7 @@ define hidden noundef ptr @MD4(ptr noundef readonly captures(none) %0, i64 nound
 .thread:                                          ; preds = %10, %17
   %.152.i7 = phi ptr [ %20, %17 ], [ %0, %10 ]
   %.154.i6 = phi i64 [ %21, %17 ], [ %1, %10 ]
-  %22 = trunc nuw i64 %.154.i6 to i32
+  %22 = trunc nuw nsw i64 %.154.i6 to i32
   store i32 %22, ptr %16, align 4, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 1 %.152.i7, i64 %.154.i6, i1 false)
@@ -148,7 +148,7 @@ define hidden noundef i32 @MD4_Update(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not58, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = trunc nuw i64 %.154 to i32
+  %43 = trunc nuw nsw i64 %.154 to i32
   store i32 %43, ptr %19, align 4, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.152, i64 %.154, i1 false)

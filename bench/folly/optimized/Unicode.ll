@@ -66,7 +66,7 @@ define void @_ZN5folly15codePointToUtf8B5cxx11EDi(ptr dead_on_unwind noalias wri
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
   %16 = lshr i32 %1, 6
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   store i8 %18, ptr %4, align 1, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -88,7 +88,7 @@ define void @_ZN5folly15codePointToUtf8B5cxx11EDi(ptr dead_on_unwind noalias wri
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #10
   %27 = lshr i32 %1, 12
-  %28 = trunc nuw i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = or disjoint i8 %28, -32
   store i8 %29, ptr %5, align 1, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -116,7 +116,7 @@ define void @_ZN5folly15codePointToUtf8B5cxx11EDi(ptr dead_on_unwind noalias wri
 42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   %43 = lshr i32 %1, 18
-  %44 = trunc nuw i32 %43 to i8
+  %44 = trunc nuw nsw i32 %43 to i8
   %45 = or disjoint i8 %44, -16
   store i8 %45, ptr %6, align 1, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -208,7 +208,7 @@ define void @_ZN5folly21appendCodePointToUtf8EDiRNSt7__cxx1112basic_stringIcSt11
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #10
   %16 = lshr i32 %0, 6
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   store i8 %18, ptr %4, align 1, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -229,7 +229,7 @@ define void @_ZN5folly21appendCodePointToUtf8EDiRNSt7__cxx1112basic_stringIcSt11
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #10
   %29 = lshr i32 %0, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   store i8 %31, ptr %5, align 1, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -256,7 +256,7 @@ define void @_ZN5folly21appendCodePointToUtf8EDiRNSt7__cxx1112basic_stringIcSt11
 46:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   %47 = lshr i32 %0, 18
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -16
   store i8 %49, ptr %6, align 1, !tbaa !16
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 1

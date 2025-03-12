@@ -186,7 +186,7 @@ _ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i: ; preds = %.preheader58.i
 
 .critedge.i.loopexit18:                           ; preds = %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i, %23, %._crit_edge.us.i
   %.03464.i.ph19.in = phi i64 [ %indvars.iv, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.us.i ], [ %indvars.iv.next, %23 ], [ %indvars.iv, %._crit_edge.us.i ]
-  %.03464.i.ph19 = trunc i64 %.03464.i.ph19.in to i32
+  %.03464.i.ph19 = trunc nsw i64 %.03464.i.ph19.in to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %44, %_ZN3ue2L17state_has_reportsERKNS_7raw_dfaEt.exit.i, %.preheader58.i, %.critedge.i.loopexit18, %.critedge.i.loopexit17, %1

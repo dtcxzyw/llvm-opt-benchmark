@@ -3000,7 +3000,7 @@ find_sys_file.exit:                               ; preds = %11, %18
   br label %read_sys_file.exit.thread
 
 43:                                               ; preds = %38
-  %44 = trunc nuw i64 %32 to i32
+  %44 = trunc nuw nsw i64 %32 to i32
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !3
   %47 = call ptr %46(ptr noundef %35, i64 noundef %32) #12

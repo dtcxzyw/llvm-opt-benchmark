@@ -131,7 +131,7 @@ define range(i32 0, 2) i32 @ZBUFFv04_isError(i64 noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define ptr @ZBUFFv04_getErrorName(i64 noundef %0) local_unnamed_addr #3 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #22
@@ -1627,7 +1627,7 @@ ZSTD_decodeSeqHeaders.exit.i:                     ; preds = %226, %FSE_buildDTab
 BIT_initDStream.exit.thread149.i:                 ; preds = %300
   %304 = zext i8 %302 to i32
   %305 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %304, i1 true)
-  %306 = trunc nuw i64 %gepdiff.i to i32
+  %306 = trunc nuw nsw i64 %gepdiff.i to i32
   %307 = shl nuw nsw i32 %306, 3
   %reass.sub = sub nsw i32 %305, %307
   %308 = add nsw i32 %reass.sub, 41
@@ -2314,7 +2314,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %19, label %HUF_readDTableX2.exit.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = trunc nuw i32 %18 to i16
+  %21 = trunc nuw nsw i32 %18 to i16
   store i16 %21, ptr %13, align 16, !tbaa !58
   %.not3738.i = icmp eq i32 %18, 0
   br i1 %.not3738.i, label %.preheader.i, label %.lr.ph.preheader.i
@@ -2330,7 +2330,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not.i, label %HUF_readDTableX2.exit.thread23, label %.lr.ph44.i
 
 .lr.ph44.i:                                       ; preds = %.preheader.i
-  %24 = trunc nuw i32 %18 to i8
+  %24 = trunc nuw nsw i32 %18 to i8
   %25 = add nuw nsw i8 %24, 1
   %wide.trip.count54.i = zext i32 %23 to i64
   br label %32
@@ -5920,7 +5920,7 @@ FSE_decompress.exit:                              ; preds = %BIT_reloadDStream.e
   br i1 %or.cond, label %616, label %.critedge
 
 616:                                              ; preds = %604
-  %617 = trunc i64 %.074 to i32
+  %617 = trunc nuw i64 %.074 to i32
   %618 = add i32 %617, 1
   store i32 %618, ptr %2, align 4, !tbaa !44
   store i32 %596, ptr %3, align 4, !tbaa !44
@@ -6446,7 +6446,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   %71 = zext i8 %69 to i32
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = trunc nuw i64 %2 to i32
+  %74 = trunc nuw nsw i64 %2 to i32
   %75 = shl nuw nsw i32 %74, 3
   %76 = sub nsw i32 %72, %75
   %77 = add nsw i32 %76, 41

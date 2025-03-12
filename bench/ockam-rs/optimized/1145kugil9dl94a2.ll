@@ -51021,7 +51021,7 @@ define hidden noundef ptr @"_ZN177_$LT$kafka_protocol..protocol..types..Array$LT
   br label %.loopexit
 
 15:                                               ; preds = %10
-  %16 = trunc nuw i64 %12 to i32
+  %16 = trunc nuw nsw i64 %12 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !12517
   %17 = tail call i32 @llvm.bswap.i32(i32 %16)
   store i32 %17, ptr %5, align 4, !noalias !12517
@@ -51101,7 +51101,7 @@ define hidden noundef ptr @"_ZN177_$LT$kafka_protocol..protocol..types..Array$LT
   br label %.loopexit
 
 15:                                               ; preds = %10
-  %16 = trunc nuw i64 %12 to i32
+  %16 = trunc nuw nsw i64 %12 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !12547
   %17 = tail call i32 @llvm.bswap.i32(i32 %16)
   store i32 %17, ptr %5, align 4, !noalias !12547
@@ -51181,7 +51181,7 @@ define hidden noundef ptr @"_ZN177_$LT$kafka_protocol..protocol..types..Array$LT
   br label %.loopexit
 
 15:                                               ; preds = %10
-  %16 = trunc nuw i64 %12 to i32
+  %16 = trunc nuw nsw i64 %12 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !12577
   %17 = tail call i32 @llvm.bswap.i32(i32 %16)
   store i32 %17, ptr %5, align 4, !noalias !12577
@@ -53920,13 +53920,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h05ce325ed4e
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !13352
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.9060417697508566391.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !13352
   %16 = trunc i32 %1 to i8
@@ -53938,7 +53938,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h05ce325ed4e
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !13352
   %24 = lshr i32 %1, 6
@@ -62393,7 +62393,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h94e10a971cc665feE.exit"
 
@@ -62406,7 +62406,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -62418,7 +62418,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -66136,7 +66136,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17ha6fc246523e8e
   %.02544.i = phi i16 [ %21, %.thread.i ], [ %.025.in.i, %31 ]
   %.12743.i = phi i64 [ 1, %.thread.i ], [ %.127.i, %31 ]
   %41 = add nsw i64 %.12743.i, -1
-  %42 = trunc nuw i16 %.02544.i to i8
+  %42 = trunc nuw nsw i16 %.02544.i to i8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   %44 = or disjoint i8 %42, 48
   store i8 %44, ptr %43, align 1, !alias.scope !16154
@@ -75981,7 +75981,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !18610
   %12 = trunc i32 %1 to i8
@@ -75993,7 +75993,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !18610
   %19 = lshr i32 %1, 6
@@ -76061,7 +76061,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.9060417697508566
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !18623, !noundef !7
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -102727,7 +102727,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.9060417697508566391.exit: ; preds 
 
 378:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf11b588bdd2f7b37E.exit46.i.i.i.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf11b588bdd2f7b37E.exit.i.i.i.i"
   %storemerge.in.i.i.i.i = phi i64 [ %377, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf11b588bdd2f7b37E.exit46.i.i.i.i" ], [ %358, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hf11b588bdd2f7b37E.exit.i.i.i.i" ]
-  %storemerge.i.i.i.i = trunc nuw i64 %storemerge.in.i.i.i.i to i8
+  %storemerge.i.i.i.i = trunc nuw nsw i64 %storemerge.in.i.i.i.i to i8
   store i8 %storemerge.i.i.i.i, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !25348, !noalias !25349
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !25290
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25), !noalias !25290

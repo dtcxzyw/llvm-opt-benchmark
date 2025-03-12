@@ -1261,7 +1261,7 @@ define hidden noundef ptr @lj_strfmt_putfnum_int(ptr noundef returned %0, i32 no
   br i1 %or.cond, label %8, label %21
 
 8:                                                ; preds = %3
-  %9 = trunc i64 %4 to i32
+  %9 = trunc nsw i64 %4 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = load ptr, ptr %0, align 8, !tbaa !34
@@ -1579,7 +1579,7 @@ lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_st
   br i1 %or.cond.i, label %137, label %149
 
 137:                                              ; preds = %.thread
-  %138 = trunc i64 %133 to i32
+  %138 = trunc nsw i64 %133 to i32
   %139 = load ptr, ptr %22, align 8, !tbaa !35
   %140 = load ptr, ptr %1, align 8, !tbaa !34
   %141 = ptrtoint ptr %139 to i64

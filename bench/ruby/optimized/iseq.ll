@@ -12226,7 +12226,7 @@ rb_array_len.exit.i:                              ; preds = %686, %683
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
-  %691 = trunc i64 %.0.i.i580 to i32
+  %691 = trunc nsw i64 %.0.i.i580 to i32
   %692 = add i32 %.0341, %691
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   %693 = add nuw nsw i64 %.0338, 1

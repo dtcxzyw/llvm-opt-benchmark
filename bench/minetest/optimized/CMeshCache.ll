@@ -1423,7 +1423,7 @@ for.inc:                                          ; preds = %land.lhs.true.for.i
   br i1 %cmp.not, label %for.body, label %cleanup, !llvm.loop !48
 
 cleanup.loopexit.split.loop.exit:                 ; preds = %for.body
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   br label %cleanup
 
 cleanup.loopexit.split.loop.exit35:               ; preds = %land.lhs.true

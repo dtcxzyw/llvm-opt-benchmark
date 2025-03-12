@@ -2606,7 +2606,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
   br label %.thread372
 
 25:                                               ; preds = %18
-  %26 = trunc i32 %17 to i8
+  %26 = trunc nuw nsw i32 %17 to i8
   %27 = add nsw i8 %26, -48
   %28 = add nsw i32 %.1278, 1
   %29 = sext i32 %.1278 to i64
@@ -3245,7 +3245,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 .sink.split:                                      ; preds = %205, %198, %191
   %.sink820 = phi i8 [ -87, %191 ], [ -55, %198 ], [ -48, %205 ]
   %.1260.ph = phi i32 [ 1, %191 ], [ 1, %198 ], [ %.0259, %205 ]
-  %377 = trunc i32 %190 to i8
+  %377 = trunc nuw nsw i32 %190 to i8
   %378 = add nsw i8 %.sink820, %377
   %379 = sext i32 %.3280 to i64
   %380 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %379

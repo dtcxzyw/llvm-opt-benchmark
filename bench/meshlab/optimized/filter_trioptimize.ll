@@ -18493,7 +18493,7 @@ _ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread: ; preds = %._ZN3vcg4face8IsBo
 _ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit:          ; preds = %43, %84
   %.sroa.032.0 = phi ptr [ %72, %84 ], [ %0, %43 ]
   %.sroa.6.0 = phi i32 [ %85, %84 ], [ %44, %43 ]
-  %53 = trunc i32 %.sroa.6.0 to i16
+  %53 = trunc nsw i32 %.sroa.6.0 to i16
   %.lhs.trunc47 = add nsw i16 %53, 1
   %54 = srem i16 %.lhs.trunc47, 3
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 8
@@ -18781,7 +18781,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw i64 %.0.lcssa.i to i8
+  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

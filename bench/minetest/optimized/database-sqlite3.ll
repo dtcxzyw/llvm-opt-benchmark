@@ -11607,7 +11607,7 @@ unreachable.i587:                                 ; preds = %invoke.cont6.i585
 invoke.cont153:                                   ; preds = %call.i433.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %m.i567)
   %108 = load ptr, ptr %m_stmt_player_add_inventory_items, align 8, !tbaa !100
-  %109 = trunc i64 %indvars.iv to i32
+  %109 = trunc nuw i64 %indvars.iv to i32
   %call.i437438 = invoke i32 @sqlite3_bind_int(ptr noundef %108, i32 noundef 3, i32 noundef %109)
           to label %call.i437.noexc unwind label %lpad147.loopexit.loopexit
 

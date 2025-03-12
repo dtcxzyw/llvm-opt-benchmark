@@ -7199,9 +7199,9 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %52
 
 52:                                               ; preds = %51, %49
-  %53 = trunc i64 %31 to i32
+  %53 = trunc nsw i64 %31 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #33
-  %54 = icmp slt i32 %53, 1
+  %54 = icmp slt i64 %31, 1
   br i1 %54, label %.thread, label %73
 
 .thread:                                          ; preds = %_ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD2Ev.exit.i.i, %52
@@ -7259,6 +7259,7 @@ _ZN5arrow4util12ArrowLogBaselsIA87_cEERS1_RKT_.exit: ; preds = %.noexc24, %.noex
 
 73:                                               ; preds = %52, %_ZN5arrow4util12ArrowLogBaselsIA87_cEERS1_RKT_.exit, %22
   %.113 = phi i32 [ 0, %22 ], [ %.2142, %_ZN5arrow4util12ArrowLogBaselsIA87_cEERS1_RKT_.exit ], [ %53, %52 ]
+  %.113.fr = freeze i32 %.113
   %74 = load ptr, ptr %3, align 8, !tbaa !115
   %75 = icmp eq ptr %74, %12
   br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -7300,8 +7301,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 87:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #33
-  %88 = icmp sgt i32 %.113, 0
-  %spec.select = select i1 %88, i32 %.113, i32 8
+  %88 = icmp sgt i32 %.113.fr, 0
+  %spec.select = select i1 %88, i32 %.113.fr, i32 8
   br label %89
 
 89:                                               ; preds = %87, %.thread3

@@ -9102,7 +9102,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   br i1 %108, label %109, label %.critedge
 
 109:                                              ; preds = %102
-  %110 = trunc i64 %4 to i32
+  %110 = trunc nuw i64 %4 to i32
   %111 = call noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst14isIdentityMaskENS_8ArrayRefIiEEi(ptr %3, i64 %4, i32 noundef %110) #19
   br i1 %111, label %112, label %.critedge
 
@@ -9119,7 +9119,7 @@ _ZNK4llvm16BasicTTIImplBaseINS_10X86TTIImplEE23getTypeLegalizationCostEPNS_4Type
   %.sroa.0.0.insert.insert.i.i494 = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i493
   %120 = call noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr noundef %118, i64 %.sroa.0.0.insert.insert.i.i494) #19
   %121 = lshr i64 %4, 1
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nuw nsw i64 %121 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %123 = call { i64, i32 } @_ZN4llvm10X86TTIImpl14getShuffleCostENS_19TargetTransformInfo11ShuffleKindEPNS_10VectorTypeENS_8ArrayRefIiEENS1_14TargetCostKindEiS4_NS5_IPKNS_5ValueEEEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef 4, ptr noundef %120, ptr %3, i64 %4, i32 noundef %5, i32 noundef %122, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.llvm::ArrayRef.58") align 8 %17, ptr poison)
   %.fca.0.extract271 = extractvalue { i64, i32 } %123, 0
@@ -9257,7 +9257,7 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit498:     ; preds = %162, %166
   %182 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %20) #19
   %183 = lshr i64 %182, 7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19
-  %.lhs.trunc = trunc i64 %4 to i32
+  %.lhs.trunc = trunc nuw i64 %4 to i32
   %.rhs.trunc = trunc i64 %183 to i32
   %184 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %185 = urem i32 %.lhs.trunc, %.rhs.trunc
@@ -25437,7 +25437,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %134, %139
   %.0.i74 = phi ptr [ %142, %139 ], [ %3, %134 ]
   %143 = zext i32 %12 to i64
   %144 = udiv i64 %143, %spec.select1.i
-  %145 = trunc nuw i64 %144 to i32
+  %145 = trunc nuw nsw i64 %144 to i32
   %146 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %.0.i74, i32 noundef %145) #19
   %147 = call { i64, i32 } @_ZN4llvm10X86TTIImpl15getGSVectorCostEjNS_19TargetTransformInfo14TargetCostKindEPNS_4TypeEPKNS_5ValueENS_5AlignEj(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i32 noundef %2, ptr noundef %146, ptr noundef %4, i8 %5, i32 noundef %6)
   %.fca.0.extract17 = extractvalue { i64, i32 } %147, 0

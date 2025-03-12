@@ -174,7 +174,7 @@ define hidden double @_Py_dg_strtod(ptr noundef %0, ptr noundef writeonly captur
   br label %Bfree.exit653
 
 64:                                               ; preds = %59
-  %65 = trunc nuw i64 %.0383 to i32
+  %65 = trunc nuw nsw i64 %.0383 to i32
   %66 = trunc nuw nsw i64 %.0382 to i32
   %67 = sub nsw i32 %65, %66
   %68 = and i32 %.3478, -33

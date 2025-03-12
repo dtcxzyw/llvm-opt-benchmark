@@ -643,7 +643,7 @@ switch.early.test:                                ; preds = %238
 
 .thread596:                                       ; preds = %240, %233, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %238
   %.1345592 = phi i32 [ %.1345, %240 ], [ %spec.store.select16, %233 ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %switch.early.test ], [ 2, %238 ]
-  %241 = trunc i32 %.12583688 to i8
+  %241 = trunc nuw nsw i32 %.12583688 to i8
   %242 = add nuw nsw i32 %.5383689, 1
   %243 = zext nneg i32 %.5383689 to i64
   %244 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %243
@@ -783,7 +783,7 @@ switch.early.test:                                ; preds = %238
 .thread610:                                       ; preds = %286, %270, %284, %281, %278, %276
   %.3347606 = phi i32 [ %.3347, %286 ], [ %spec.select505, %270 ], [ 2, %284 ], [ 2, %281 ], [ 2, %278 ], [ 2, %276 ]
   %.2377604 = phi i32 [ %.2377, %286 ], [ %spec.select504, %270 ], [ 16, %284 ], [ 16, %281 ], [ %.1376698, %278 ], [ %.1376698, %276 ]
-  %287 = trunc i32 %.18696 to i8
+  %287 = trunc nuw nsw i32 %.18696 to i8
   %288 = add nuw nsw i32 %.11697, 1
   %289 = zext nneg i32 %.11697 to i64
   %290 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %289

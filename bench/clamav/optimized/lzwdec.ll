@@ -644,7 +644,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef captures(address_is_null) %0
 269:                                              ; preds = %264
   %270 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %216, ptr %270, align 8, !tbaa !35
-  %271 = trunc i32 %.7364 to i16
+  %271 = trunc nuw i32 %.7364 to i16
   br label %272
 
 272:                                              ; preds = %272, %269

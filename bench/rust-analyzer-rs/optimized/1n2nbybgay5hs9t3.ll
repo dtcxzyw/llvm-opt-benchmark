@@ -8433,7 +8433,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !1405, !noalias !1402
   %12 = trunc i32 %1 to i8
@@ -8445,7 +8445,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !1405, !noalias !1402
   %19 = lshr i32 %1, 6
@@ -8516,7 +8516,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !1418, !noundef !20
   %61 = load i64, ptr %0, align 8, !alias.scope !1418, !noundef !20
@@ -13012,7 +13012,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %192, label %195, label %193
 
 193:                                              ; preds = %.noexc110.i
-  %194 = trunc i8 %191 to i1
+  %194 = trunc nuw i8 %191 to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !2354
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !2354
   %.old.i = icmp ne i64 %51, 0
@@ -15443,7 +15443,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit169
   br i1 %223, label %226, label %224
 
 224:                                              ; preds = %.noexc56
-  %225 = trunc i8 %222 to i1
+  %225 = trunc nuw i8 %222 to i1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33), !noalias !2804
   %.not88 = xor i1 %225, true

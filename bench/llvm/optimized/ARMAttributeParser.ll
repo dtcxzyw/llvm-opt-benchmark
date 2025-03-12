@@ -2240,7 +2240,7 @@ _ZN4llvm5ErrorD2Ev.exit110:                       ; preds = %_ZNKSt7__cxx1112bas
   %207 = call { ptr, i64 } @_ZNK4llvm13DataExtractor10getCStrRefEPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %31, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull %32) #16
   %208 = extractvalue { ptr, i64 } %207, 0
   %209 = extractvalue { ptr, i64 } %207, 1
-  %210 = trunc i64 %37 to i32
+  %210 = trunc nuw nsw i64 %37 to i32
   %.sroa.016.0.copyload = load ptr, ptr %38, align 8, !tbaa !3
   %.sroa.217.0.copyload = load i64, ptr %39, align 8, !tbaa !8
   %211 = call { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRefINS_11TagNameItemEEEb(i32 noundef %210, ptr %.sroa.016.0.copyload, i64 %.sroa.217.0.copyload, i1 noundef zeroext true) #16
@@ -2327,7 +2327,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit117:              ; preds = %235, %237
 
 255:                                              ; preds = %92
   %256 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %31, ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull %32) #16
-  %257 = trunc i64 %37 to i32
+  %257 = trunc nuw i64 %37 to i32
   %.sroa.010.0.copyload = load ptr, ptr %38, align 8, !tbaa !3
   %.sroa.211.0.copyload = load i64, ptr %39, align 8, !tbaa !8
   %258 = call { ptr, i64 } @_ZN4llvm8ELFAttrs16attrTypeAsStringEjNS_8ArrayRefINS_11TagNameItemEEEb(i32 noundef %257, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload, i1 noundef zeroext true) #16

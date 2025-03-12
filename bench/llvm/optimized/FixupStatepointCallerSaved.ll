@@ -3331,7 +3331,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEiNS_12DenseMapInfoIS2_vEENS_6de
   br i1 %or.cond10.i.i.i, label %1198, label %_ZNK4llvm12MachineInstr21isRegTiedToDefOperandEjPj.exit.i.i
 
 1198:                                             ; preds = %1189
-  %1199 = trunc nuw i64 %indvars.iv126.i.i to i32
+  %1199 = trunc nuw nsw i64 %indvars.iv126.i.i to i32
   %1200 = call noundef i32 @_ZNK4llvm12MachineInstr18findTiedOperandIdxEj(ptr noundef nonnull align 8 dereferenceable(70) %1190, i32 noundef %1199) #21
   %1201 = zext i32 %1200 to i64
   %1202 = load ptr, ptr %15, align 8, !tbaa !25

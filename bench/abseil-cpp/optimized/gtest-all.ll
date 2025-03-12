@@ -13744,7 +13744,7 @@ _ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit.thread
 
 37:                                               ; preds = %32
-  %38 = trunc i64 %28 to i32
+  %38 = trunc nsw i64 %28 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #57
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %40 = load i64, ptr %39, align 8, !tbaa !26
@@ -13781,7 +13781,7 @@ _ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZN7testing8internal18ParseNaturalNumberIiEEbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPT_.exit.thread
 
 57:                                               ; preds = %52
-  %58 = trunc i64 %48 to i32
+  %58 = trunc nsw i64 %48 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #57
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %60 = load i64, ptr %59, align 8, !tbaa !26
@@ -13871,7 +13871,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %133
 
 95:                                               ; preds = %72
-  %96 = trunc i64 %68 to i32
+  %96 = trunc nsw i64 %68 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #57
   %97 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #56
           to label %98 unwind label %81
@@ -23602,7 +23602,7 @@ _ZN7testing7MessageD2Ev.exit61:                   ; preds = %_ZNKSt7__cxx1112bas
   br label %_ZN7testing7MessageD2Ev.exit32
 
 134:                                              ; preds = %72
-  %135 = trunc i64 %9 to i32
+  %135 = trunc nsw i64 %9 to i32
   store i32 %135, ptr %2, align 4, !tbaa !55
   br label %136
 
@@ -24791,7 +24791,7 @@ _ZN7testing8internalL20PrintAsCharLiteralToIwEENS0_10CharFormatET_PSo.exit.threa
   br i1 %29, label %30, label %_ZN7testing8internalL20PrintAsCharLiteralToIwEENS0_10CharFormatET_PSo.exit
 
 30:                                               ; preds = %27
-  %31 = trunc nuw i32 %0 to i8
+  %31 = trunc nuw nsw i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 %31, ptr %3, align 1, !tbaa !28
   %32 = load ptr, ptr %1, align 8, !tbaa !33
@@ -47556,7 +47556,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 0, ptr %78, align 1, !tbaa !28
-  %79 = trunc nuw i32 %1 to i8
+  %79 = trunc nuw nsw i32 %1 to i8
   br label %118
 
 80:                                               ; preds = %75
@@ -47572,7 +47572,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %87 = or disjoint i8 %86, -128
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %87, ptr %88, align 1, !tbaa !28
-  %89 = trunc nuw i32 %84 to i8
+  %89 = trunc nuw nsw i32 %84 to i8
   %90 = or disjoint i8 %89, -64
   br label %118
 
@@ -47595,7 +47595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   store i8 %96, ptr %103, align 1, !tbaa !28
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %100, ptr %104, align 1, !tbaa !28
-  %105 = trunc nuw i32 %97 to i8
+  %105 = trunc nuw nsw i32 %97 to i8
   %106 = or disjoint i8 %105, -32
   br label %118
 
@@ -47612,7 +47612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit20: ; preds = %_ZN
   %114 = or disjoint i8 %113, -128
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %114, ptr %115, align 1, !tbaa !28
-  %116 = trunc nuw i32 %111 to i8
+  %116 = trunc nuw nsw i32 %111 to i8
   %117 = or disjoint i8 %116, -16
   br label %118
 
@@ -107713,7 +107713,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZN7testing8internalL22Print
   br i1 %28, label %29, label %41
 
 29:                                               ; preds = %26
-  %30 = trunc nuw i32 %0 to i8
+  %30 = trunc nuw nsw i32 %0 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   store i8 %30, ptr %3, align 1, !tbaa !28
   %31 = load ptr, ptr %1, align 8, !tbaa !33

@@ -616,7 +616,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %94
 
 94:                                               ; preds = %93, %91
-  %95 = trunc i64 %72 to i32
+  %95 = trunc nsw i64 %72 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   %96 = load ptr, ptr %13, align 8, !tbaa !36
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 16

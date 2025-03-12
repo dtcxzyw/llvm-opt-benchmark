@@ -1248,11 +1248,11 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
   %176 = zext i8 %169 to i32
   %177 = zext i8 %172 to i32
   %178 = shl nuw nsw i64 %170, 3
-  %179 = trunc nuw i64 %178 to i32
+  %179 = trunc nuw nsw i64 %178 to i32
   %180 = shl nuw nsw i32 %177, %179
   %181 = or i32 %180, %176
   %182 = zext i8 %175 to i32
-  %.tr.i.i = trunc i64 %173 to i32
+  %.tr.i.i = trunc nuw nsw i64 %173 to i32
   %183 = shl nuw nsw i32 %.tr.i.i, 3
   %184 = shl nuw nsw i32 %182, %183
   %185 = or i32 %181, %184
@@ -5567,11 +5567,11 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc nuw i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32
-  %.tr.i = trunc i64 %42 to i32
+  %.tr.i = trunc nuw nsw i64 %42 to i32
   %52 = shl nuw nsw i32 %.tr.i, 3
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %50, %53
@@ -10844,7 +10844,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv30
   store ptr %79, ptr %80, align 8
-  %81 = trunc i64 %indvars.iv30 to i8
+  %81 = trunc nuw i64 %indvars.iv30 to i8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i8 %81, ptr %82, align 1
   store ptr %2, ptr %79, align 8

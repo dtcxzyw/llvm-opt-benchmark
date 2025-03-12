@@ -17454,7 +17454,7 @@ if.then42.i:                                      ; preds = %if.then39.i
   %idxprom45.i = zext i8 %prev_code_size.0258.i to i64
   %arrayidx46.i = getelementptr inbounds nuw [288 x i16], ptr %arrayidx28.i, i64 0, i64 %idxprom45.i
   %25 = load i16, ptr %arrayidx46.i, align 2
-  %26 = trunc nuw i32 %rle_repeat_count.0259.i to i16
+  %26 = trunc nuw nsw i32 %rle_repeat_count.0259.i to i16
   %conv49.i = add i16 %25, %26
   store i16 %conv49.i, ptr %arrayidx46.i, align 2
   br label %while.body.i14
@@ -17516,7 +17516,7 @@ if.then148.i:                                     ; preds = %if.else146.i
 
 if.then151.i:                                     ; preds = %if.then148.i
   %30 = load i16, ptr %arrayidx28.i, align 2
-  %31 = trunc nuw i32 %rle_z_count.0260.i to i16
+  %31 = trunc nuw nsw i32 %rle_z_count.0260.i to i16
   %conv157.i = add i16 %30, %31
   store i16 %conv157.i, ptr %arrayidx28.i, align 2
   br label %while.body164.i
@@ -17580,7 +17580,7 @@ if.then220.i:                                     ; preds = %if.then217.i
   %idxprom223.i = zext i8 %prev_code_size.0258.i to i64
   %arrayidx224.i = getelementptr inbounds nuw [288 x i16], ptr %arrayidx28.i, i64 0, i64 %idxprom223.i
   %35 = load i16, ptr %arrayidx224.i, align 2
-  %36 = trunc nuw i32 %rle_repeat_count.0259.i to i16
+  %36 = trunc nuw nsw i32 %rle_repeat_count.0259.i to i16
   %conv227.i = add i16 %35, %36
   store i16 %conv227.i, ptr %arrayidx224.i, align 2
   br label %while.body235.i
@@ -17664,7 +17664,7 @@ if.then335.i:                                     ; preds = %if.then332.i
   %idxprom338.i = zext i8 %24 to i64
   %arrayidx339.i = getelementptr inbounds nuw [288 x i16], ptr %arrayidx28.i, i64 0, i64 %idxprom338.i
   %41 = load i16, ptr %arrayidx339.i, align 2
-  %42 = trunc nuw i32 %rle_repeat_count.3.i to i16
+  %42 = trunc nuw nsw i32 %rle_repeat_count.3.i to i16
   %conv342.i = add i16 %41, %42
   store i16 %conv342.i, ptr %arrayidx339.i, align 2
   br label %while.body350.i
@@ -17706,7 +17706,7 @@ if.then377.i:                                     ; preds = %if.else375.i
 
 if.then380.i:                                     ; preds = %if.then377.i
   %45 = load i16, ptr %arrayidx28.i, align 2
-  %46 = trunc nuw i32 %rle_z_count.2.i to i16
+  %46 = trunc nuw nsw i32 %rle_z_count.2.i to i16
   %conv386.i = add i16 %45, %46
   store i16 %conv386.i, ptr %arrayidx28.i, align 2
   br label %while.body393.i

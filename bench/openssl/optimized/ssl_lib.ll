@@ -10895,7 +10895,7 @@ ssl_has_cert.exit235.thread:                      ; preds = %SSL_version.exit242
   %289 = or i32 %288, 128
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store i32 %289, ptr %290, align 8, !tbaa !454
-  %291 = trunc i64 %.12 to i32
+  %291 = trunc nuw nsw i64 %.12 to i32
   %292 = or i32 %291, 16
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   store i32 %292, ptr %293, align 4, !tbaa !455

@@ -160,7 +160,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_f32(ptr noundef readonly capt
   br i1 %72, label %.lr.ph28.i.us.us.us, label %._crit_edge.loopexit.i.us.us.us, !llvm.loop !8
 
 ._crit_edge.loopexit.i.us.us.us:                  ; preds = %.lr.ph28.i.us.us.us
-  %73 = trunc nsw i64 %indvars.iv.next38.i.us.us.us to i32
+  %73 = trunc nuw nsw i64 %indvars.iv.next38.i.us.us.us to i32
   br label %._crit_edge.i.us.us.us
 
 ._crit_edge.i.us.us.us:                           ; preds = %.preheader.i.us.us.us, %._crit_edge.loopexit.i.us.us.us
@@ -549,7 +549,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_d64(ptr noundef readonly capt
   br i1 %72, label %.lr.ph28.i.us.us.us, label %._crit_edge.loopexit.i.us.us.us, !llvm.loop !19
 
 ._crit_edge.loopexit.i.us.us.us:                  ; preds = %.lr.ph28.i.us.us.us
-  %73 = trunc nsw i64 %indvars.iv.next38.i.us.us.us to i32
+  %73 = trunc nuw nsw i64 %indvars.iv.next38.i.us.us.us to i32
   br label %._crit_edge.i.us.us.us
 
 ._crit_edge.i.us.us.us:                           ; preds = %.preheader.i.us.us.us, %._crit_edge.loopexit.i.us.us.us

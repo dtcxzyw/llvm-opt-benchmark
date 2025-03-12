@@ -3035,7 +3035,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %12, %18, %PyObject_
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %25
-  %.lhs.trunc = trunc nuw i32 %24 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %24 to i16
   %28 = urem i16 %.lhs.trunc, 28
   %29 = urem i16 %.lhs.trunc, 588
   %30 = udiv i16 %29, 28
@@ -4376,7 +4376,7 @@ PyUnicode_READ.exit:                              ; preds = %30, %34, %38
   br i1 %or.cond, label %54, label %71
 
 54:                                               ; preds = %52
-  %.lhs.trunc = trunc nuw i32 %53 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %53 to i16
   %55 = udiv i16 %.lhs.trunc, 588
   %56 = or disjoint i16 %55, 4352
   %57 = zext nneg i16 %56 to i32

@@ -6398,7 +6398,7 @@ cf_read_record.exit:                              ; preds = %4
 
 .lr.ph105:                                        ; preds = %41
   %43 = ptrtoint ptr %27 to i64
-  %44 = trunc i64 %9 to i32
+  %44 = trunc nuw i64 %9 to i32
   %45 = shl i32 %44, 1
   br label %46
 
@@ -6887,7 +6887,7 @@ cf_read_record.exit:                              ; preds = %4
 
 .lr.ph75:                                         ; preds = %41
   %43 = ptrtoint ptr %27 to i64
-  %44 = trunc i64 %9 to i32
+  %44 = trunc nuw i64 %9 to i32
   %45 = shl i32 %44, 1
   br label %46
 

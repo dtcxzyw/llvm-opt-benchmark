@@ -53,7 +53,7 @@ define dso_local void @PHP_GOSTUpdate(ptr noundef %0, ptr noundef readonly captu
   br label %21
 
 18:                                               ; preds = %3
-  %19 = trunc i64 %10 to i32
+  %19 = trunc nuw i64 %10 to i32
   %20 = add i32 %7, %19
   br label %21
 

@@ -786,7 +786,7 @@ define void @dtgsja_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 433:                                              ; preds = %427, %404, %396
   %indvars.iv.next627 = add nuw nsw i64 %indvars.iv626, 1
   %.not523.not = icmp samesign ult i64 %indvars.iv626, %348
-  %434 = trunc i64 %indvars.iv626 to i32
+  %434 = trunc nuw i64 %indvars.iv626 to i32
   %435 = xor i32 %434, -1
   br i1 %.not523.not, label %.lr.ph606, label %._crit_edge607.loopexit, !llvm.loop !15
 

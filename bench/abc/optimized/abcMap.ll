@@ -2138,7 +2138,7 @@ define noalias noundef ptr @Abc_NtkWriteMiniMapping(ptr noundef %0) local_unname
   br i1 %5, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %1

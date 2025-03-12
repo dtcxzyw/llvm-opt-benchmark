@@ -1356,7 +1356,7 @@ define linkonce_odr void @_ZN5folly12format_value12formatStringINS_6detail27Base
   %24 = load i8, ptr %23, align 8, !tbaa !72
   %25 = icmp eq i8 %24, 0
   %spec.select = select i1 %25, i8 32, i8 %24
-  %26 = trunc i64 %.pre62 to i32
+  %26 = trunc nuw nsw i64 %.pre62 to i32
   %27 = sub nsw i32 %7, %26
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %27, i32 128)
   %28 = sext i32 %.sroa.speculated to i64
@@ -12946,7 +12946,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolic
 _ZNK5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detail13DynamicHasherENS5_15DynamicKeyEqualEvEEE25computeChunkCountAndScaleEmbb.exit.thread.i: ; preds = %10
   %12 = shl nuw nsw i64 %1, 3
   %13 = add nuw nsw i64 %12, 16
-  %14 = trunc nuw i64 %1 to i8
+  %14 = trunc nuw nsw i64 %1 to i8
   br label %31
 
 15:                                               ; preds = %10

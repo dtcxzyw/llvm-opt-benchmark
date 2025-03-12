@@ -820,7 +820,7 @@ define internal fastcc noundef zeroext i1 @_ZN9benchmark12_GLOBAL__N_110ParseInt
   br label %33
 
 31:                                               ; preds = %18
-  %32 = trunc i64 %5 to i32
+  %32 = trunc nsw i64 %5 to i32
   store i32 %32, ptr %2, align 4, !tbaa !18
   br label %33
 

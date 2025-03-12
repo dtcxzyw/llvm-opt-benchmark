@@ -3404,7 +3404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %107
 
 33:                                               ; preds = %12
-  %34 = trunc i64 %13 to i32
+  %34 = trunc nsw i64 %13 to i32
   br label %106
 
 35:                                               ; preds = %1
@@ -3473,7 +3473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   br label %107
 
 56:                                               ; preds = %35
-  %57 = trunc nuw i64 %36 to i32
+  %57 = trunc nuw nsw i64 %36 to i32
   br label %106
 
 58:                                               ; preds = %1

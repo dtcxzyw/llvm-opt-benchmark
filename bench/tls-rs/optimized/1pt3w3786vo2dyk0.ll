@@ -17167,7 +17167,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.1.in = lshr i64 %.sroa.24.sroa.23.sroa.0.1.in.in, 8
   %.sroa.24.sroa.22.1 = trunc i64 %.sroa.24.sroa.22.1.in to i8
   %.sroa.24.sroa.23.sroa.0.1.in = lshr i64 %.sroa.24.sroa.23.sroa.0.1.in.in, 16
-  %.sroa.24.sroa.23.sroa.0.1 = trunc nuw i64 %.sroa.24.sroa.23.sroa.0.1.in to i48
+  %.sroa.24.sroa.23.sroa.0.1 = trunc nuw nsw i64 %.sroa.24.sroa.23.sroa.0.1.in to i48
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   br label %116
 
@@ -17227,7 +17227,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.0.extract.shift581 = lshr i64 %157, 8
   %.sroa.24.sroa.22.0.extract.trunc582 = trunc i64 %.sroa.24.sroa.22.0.extract.shift581 to i8
   %.sroa.24.sroa.23.0.extract.shift609 = lshr i64 %157, 16
-  %.sroa.24.sroa.23.0.extract.trunc610 = trunc nuw i64 %.sroa.24.sroa.23.0.extract.shift609 to i48
+  %.sroa.24.sroa.23.0.extract.trunc610 = trunc nuw nsw i64 %.sroa.24.sroa.23.0.extract.shift609 to i48
   br label %116
 
 165:                                              ; preds = %156
@@ -17256,7 +17256,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.0.extract.shift583 = lshr i64 %161, 8
   %.sroa.24.sroa.22.0.extract.trunc584 = trunc i64 %.sroa.24.sroa.22.0.extract.shift583 to i8
   %.sroa.24.sroa.23.0.extract.shift611 = lshr i64 %161, 16
-  %.sroa.24.sroa.23.0.extract.trunc612 = trunc nuw i64 %.sroa.24.sroa.23.0.extract.shift611 to i48
+  %.sroa.24.sroa.23.0.extract.trunc612 = trunc nuw nsw i64 %.sroa.24.sroa.23.0.extract.shift611 to i48
   br label %116
 
 168:                                              ; preds = %160
@@ -17352,7 +17352,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.0.extract.shift579 = lshr i64 %179, 8
   %.sroa.24.sroa.22.0.extract.trunc580 = trunc i64 %.sroa.24.sroa.22.0.extract.shift579 to i8
   %.sroa.24.sroa.23.0.extract.shift607 = lshr i64 %179, 16
-  %.sroa.24.sroa.23.0.extract.trunc608 = trunc nuw i64 %.sroa.24.sroa.23.0.extract.shift607 to i48
+  %.sroa.24.sroa.23.0.extract.trunc608 = trunc nuw nsw i64 %.sroa.24.sroa.23.0.extract.shift607 to i48
   br label %116
 
 186:                                              ; preds = %178
@@ -17444,7 +17444,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.0.extract.shift573 = lshr i64 %192, 8
   %.sroa.24.sroa.22.0.extract.trunc574 = trunc i64 %.sroa.24.sroa.22.0.extract.shift573 to i8
   %.sroa.24.sroa.23.0.extract.shift601 = lshr i64 %192, 16
-  %.sroa.24.sroa.23.0.extract.trunc602 = trunc nuw i64 %.sroa.24.sroa.23.0.extract.shift601 to i48
+  %.sroa.24.sroa.23.0.extract.trunc602 = trunc nuw nsw i64 %.sroa.24.sroa.23.0.extract.shift601 to i48
   br label %116
 
 200:                                              ; preds = %191
@@ -17466,7 +17466,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.0.extract.shift575 = lshr i64 %196, 8
   %.sroa.24.sroa.22.0.extract.trunc576 = trunc i64 %.sroa.24.sroa.22.0.extract.shift575 to i8
   %.sroa.24.sroa.23.0.extract.shift603 = lshr i64 %196, 16
-  %.sroa.24.sroa.23.0.extract.trunc604 = trunc nuw i64 %.sroa.24.sroa.23.0.extract.shift603 to i48
+  %.sroa.24.sroa.23.0.extract.trunc604 = trunc nuw nsw i64 %.sroa.24.sroa.23.0.extract.shift603 to i48
   br label %116
 
 203:                                              ; preds = %195
@@ -17495,7 +17495,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.22.0.extract.shift = lshr i64 %101, 8
   %.sroa.24.sroa.22.0.extract.trunc = trunc i64 %.sroa.24.sroa.22.0.extract.shift to i8
   %.sroa.24.sroa.23.0.extract.shift = lshr i64 %101, 16
-  %.sroa.24.sroa.23.0.extract.trunc = trunc nuw i64 %.sroa.24.sroa.23.0.extract.shift to i48
+  %.sroa.24.sroa.23.0.extract.trunc = trunc nuw nsw i64 %.sroa.24.sroa.23.0.extract.shift to i48
   br label %116
 
 208:                                              ; preds = %100

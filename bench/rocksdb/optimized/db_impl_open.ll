@@ -13313,7 +13313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 1201:                                             ; preds = %._crit_edge.i.i615
-  %1202 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %1202 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %1203 = or disjoint i8 %1202, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -18062,7 +18062,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %262, %260, %256, %2
   br label %301
 
 298:                                              ; preds = %._crit_edge.i.i
-  %299 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %299 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %300 = or disjoint i8 %299, 48
   br label %301
 
@@ -18304,7 +18304,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i95:  ; preds = %367, %365, %361, %3
   br label %406
 
 403:                                              ; preds = %._crit_edge.i.i97
-  %404 = trunc nuw i64 %.0.lcssa.i.i98 to i8
+  %404 = trunc nuw nsw i64 %.0.lcssa.i.i98 to i8
   %405 = or disjoint i8 %404, 48
   br label %406
 
@@ -23696,7 +23696,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %104, %102, %98, %94
   br label %142
 
 139:                                              ; preds = %._crit_edge.i.i
-  %140 = trunc nuw i64 %117 to i8
+  %140 = trunc nuw nsw i64 %117 to i8
   %141 = or disjoint i8 %140, 48
   br label %142
 
@@ -26238,7 +26238,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %439, %437, %433, %4
   br label %478
 
 475:                                              ; preds = %._crit_edge.i.i
-  %476 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %476 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %477 = or disjoint i8 %476, 48
   br label %478
 
@@ -26428,7 +26428,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i189: ; preds = %526, %524, %520, %5
   br label %565
 
 562:                                              ; preds = %._crit_edge.i.i191
-  %563 = trunc nuw i64 %.0.lcssa.i.i192 to i8
+  %563 = trunc nuw nsw i64 %.0.lcssa.i.i192 to i8
   %564 = or disjoint i8 %563, 48
   br label %565
 

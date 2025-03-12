@@ -47543,7 +47543,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !8170
   %12 = trunc i32 %1 to i8
@@ -47555,7 +47555,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !8170
   %19 = lshr i32 %1, 6
@@ -47623,7 +47623,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !8183, !noundef !14
   %58 = load i64, ptr %0, align 8, !alias.scope !8183, !noundef !14
@@ -56743,7 +56743,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$chalk_ir..debug..SeparatorTraitRef$
   br label %14
 
 12:                                               ; preds = %2
-  %13 = trunc i8 %4 to i1
+  %13 = trunc nuw i8 %4 to i1
   br label %14
 
 14:                                               ; preds = %12, %6
@@ -57107,7 +57107,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$chalk_ir..debug..VariableKindsDebug
   br label %17
 
 15:                                               ; preds = %2
-  %16 = trunc i8 %6 to i1
+  %16 = trunc nuw i8 %6 to i1
   br label %17
 
 17:                                               ; preds = %15, %8
@@ -73658,7 +73658,7 @@ define hidden noundef ptr @_ZN13rust_analyzer8handlers7request15handle_run_test1
 
 180:                                              ; preds = %176
   %181 = lshr i32 %.sroa.4.0.i.i.i.i, 6
-  %182 = trunc nuw i32 %181 to i8
+  %182 = trunc nuw nsw i32 %181 to i8
   %183 = or disjoint i8 %182, -64
   store i8 %183, ptr %.sroa.0.i.i.i, align 4, !alias.scope !13003, !noalias !13002
   %184 = trunc i32 %.sroa.4.0.i.i.i.i to i8
@@ -73669,7 +73669,7 @@ define hidden noundef ptr @_ZN13rust_analyzer8handlers7request15handle_run_test1
 
 187:                                              ; preds = %178
   %188 = lshr i32 %.sroa.4.0.i.i.i.i, 12
-  %189 = trunc nuw i32 %188 to i8
+  %189 = trunc nuw nsw i32 %188 to i8
   %190 = or disjoint i8 %189, -32
   store i8 %190, ptr %.sroa.0.i.i.i, align 4, !alias.scope !13003, !noalias !13002
   %191 = lshr i32 %.sroa.4.0.i.i.i.i, 6
@@ -73685,7 +73685,7 @@ define hidden noundef ptr @_ZN13rust_analyzer8handlers7request15handle_run_test1
 
 198:                                              ; preds = %178
   %199 = lshr i32 %.sroa.4.0.i.i.i.i, 18
-  %200 = trunc i32 %199 to i8
+  %200 = trunc nuw nsw i32 %199 to i8
   %201 = or disjoint i8 %200, -16
   store i8 %201, ptr %.sroa.0.i.i.i, align 4, !alias.scope !13003, !noalias !13002
   %202 = lshr i32 %.sroa.4.0.i.i.i.i, 12
@@ -73731,7 +73731,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i: ; preds =
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.i.i
 
 .critedge.i.i.i:                                  ; preds = %174
-  %223 = trunc nuw i32 %.sroa.4.0.i.i.i.i to i8
+  %223 = trunc nuw nsw i32 %.sroa.4.0.i.i.i.i to i8
   %224 = load i64, ptr %9, align 8, !alias.scope !13016, !noalias !12973, !noundef !14
   %225 = icmp eq i64 %90, %224
   br i1 %225, label %226, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h16d76b448189e897E.exit.i.i.i"
@@ -77483,13 +77483,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %166, label %178, label %190
 
 168:                                              ; preds = %159
-  %169 = trunc nuw i32 %127 to i8
+  %169 = trunc nuw nsw i32 %127 to i8
   store i8 %169, ptr %11, align 4, !alias.scope !13508
   br label %208
 
 170:                                              ; preds = %163
   %171 = lshr i32 %127, 6
-  %172 = trunc nuw i32 %171 to i8
+  %172 = trunc nuw nsw i32 %171 to i8
   %173 = or disjoint i8 %172, -64
   store i8 %173, ptr %11, align 4, !alias.scope !13508
   %174 = trunc i32 %127 to i8
@@ -77501,7 +77501,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 178:                                              ; preds = %165
   %179 = lshr i32 %127, 12
-  %180 = trunc nuw i32 %179 to i8
+  %180 = trunc nuw nsw i32 %179 to i8
   %181 = or disjoint i8 %180, -32
   store i8 %181, ptr %11, align 4, !alias.scope !13508
   %182 = lshr i32 %127, 6
@@ -77518,7 +77518,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 190:                                              ; preds = %165
   %191 = lshr i32 %127, 18
-  %192 = trunc i32 %191 to i8
+  %192 = trunc nuw nsw i32 %191 to i8
   %193 = or disjoint i8 %192, -16
   store i8 %193, ptr %11, align 4, !alias.scope !13508
   %194 = lshr i32 %127, 12
@@ -79003,7 +79003,7 @@ define internal fastcc void @_ZN13rust_analyzer8handlers7request22handle_documen
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %4
-  %16 = trunc i8 %14 to i1
+  %16 = trunc nuw i8 %14 to i1
   br i1 %16, label %18, label %17
 
 17:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc2d50017d3f93730E.exit", %15, %4

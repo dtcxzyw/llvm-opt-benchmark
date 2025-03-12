@@ -9592,7 +9592,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %_ZNSt6vectorIiSaIiE
   br label %110
 
 110:                                              ; preds = %109, %107
-  %111 = trunc i64 %91 to i32
+  %111 = trunc nsw i64 %91 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %112 = getelementptr inbounds nuw i8, ptr %60, i64 92
   store i32 %111, ptr %112, align 4
@@ -9687,7 +9687,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE5clearEv.exit:     ; preds = %_ZNSt6vectorIiSaIiE
   br label %149
 
 149:                                              ; preds = %148, %146
-  %150 = trunc i64 %130 to i32
+  %150 = trunc nsw i64 %130 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %151 = load ptr, ptr %72, align 8
   %152 = load ptr, ptr %126, align 8
@@ -9979,7 +9979,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   br label %255
 
 255:                                              ; preds = %254, %252
-  %256 = trunc i64 %236 to i32
+  %256 = trunc nsw i64 %236 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %257 = getelementptr inbounds nuw i8, ptr %233, i64 8
   %258 = load ptr, ptr %257, align 8

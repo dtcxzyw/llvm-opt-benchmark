@@ -2051,7 +2051,7 @@ define noundef i32 @_ZN3url9ParsePortEPKtRKNS_9ComponentE(ptr noundef readonly c
   br i1 %19, label %20, label %.critedge.i
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = trunc nuw i16 %17 to i8
+  %21 = trunc nuw nsw i16 %17 to i8
   %22 = getelementptr inbounds nuw [6 x i8], ptr %3, i64 0, i64 %indvars.iv12.i
   store i8 %21, ptr %22, align 1, !tbaa !21
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1

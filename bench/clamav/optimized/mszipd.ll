@@ -1217,7 +1217,7 @@ default.unreachable:                              ; preds = %._crit_edge673
   br i1 %380, label %381, label %386
 
 381:                                              ; preds = %._crit_edge464.i
-  %382 = trunc nuw i16 %373 to i8
+  %382 = trunc nuw nsw i16 %373 to i8
   %383 = zext i32 %.2506.i to i64
   %384 = getelementptr inbounds nuw [320 x i8], ptr %4, i64 0, i64 %383
   store i8 %382, ptr %384, align 1, !tbaa !32

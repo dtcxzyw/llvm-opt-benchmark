@@ -1837,7 +1837,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %226, %224, %220, %2
   br label %_ZN7testing8internal16DefaultParamNameISt5tupleIJiiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
 262:                                              ; preds = %._crit_edge.i.i.i
-  %263 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %263 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %264 = or disjoint i8 %263, 48
   br label %_ZN7testing8internal16DefaultParamNameISt5tupleIJiiEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
@@ -2360,7 +2360,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %69, %67, %63, %59, 
   br label %_ZN7testing8internal16DefaultParamNameIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
 105:                                              ; preds = %._crit_edge.i.i.i
-  %106 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %106 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %107 = or disjoint i8 %106, 48
   br label %_ZN7testing8internal16DefaultParamNameIiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 

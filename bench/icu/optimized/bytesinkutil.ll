@@ -527,7 +527,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %31
-  %34 = trunc nuw i16 %27 to i8
+  %34 = trunc nuw nsw i16 %27 to i8
   %35 = add nsw i32 %.061107, 1
   %36 = sext i32 %.061107 to i64
   %37 = getelementptr inbounds i8, ptr %20, i64 %36
@@ -540,7 +540,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
 
 40:                                               ; preds = %38
   %41 = lshr i16 %27, 6
-  %42 = trunc nuw i16 %41 to i8
+  %42 = trunc nuw nsw i16 %41 to i8
   %43 = or disjoint i8 %42, -64
   br label %77
 
@@ -570,7 +570,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
 
 60:                                               ; preds = %44
   %61 = lshr i32 %52, 18
-  %62 = trunc nuw i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   %63 = or i8 %62, -16
   %64 = sext i32 %.061107 to i64
   %65 = getelementptr inbounds i8, ptr %20, i64 %64
@@ -707,7 +707,7 @@ define void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5Edit
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 1, !tbaa !19
   br label %38
@@ -718,7 +718,7 @@ define void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5Edit
 
 17:                                               ; preds = %15
   %18 = lshr i32 %1, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   br label %30
 

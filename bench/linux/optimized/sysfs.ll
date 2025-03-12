@@ -832,7 +832,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr noundef readonly captur
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %92, %89
-  %98 = trunc i64 %90 to i32
+  %98 = trunc nuw nsw i64 %90 to i32
   %99 = getelementptr i8, ptr %0, i64 -252
   store i32 %98, ptr %99, align 4
   br label %100

@@ -111,7 +111,7 @@ define hidden void @timelib_unixtime2gmt(ptr noundef writeonly captures(none) in
   %isneg = icmp slt i64 %7, 0
   %39 = select i1 %isneg, i64 86400, i64 0
   %40 = add nsw i64 %39, %7
-  %.lhs.trunc = trunc nsw i64 %40 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %40 to i32
   %41 = udiv i32 %.lhs.trunc, 3600
   %.zext = zext nneg i32 %41 to i64
   %.neg = mul nuw nsw i64 %.zext, 4294963696
@@ -213,7 +213,7 @@ define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializ
   %isneg.i = icmp slt i64 %21, 0
   %53 = select i1 %isneg.i, i64 86400, i64 0
   %54 = add nsw i64 %53, %21
-  %.lhs.trunc.i = trunc nsw i64 %54 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %54 to i32
   %55 = udiv i32 %.lhs.trunc.i, 3600
   %.zext.i = zext nneg i32 %55 to i64
   %.neg.i = mul nuw nsw i64 %.zext.i, 4294963696
@@ -293,7 +293,7 @@ define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializ
   %isneg.i27 = icmp slt i64 %76, 0
   %108 = select i1 %isneg.i27, i64 86400, i64 0
   %109 = add nsw i64 %108, %76
-  %.lhs.trunc.i28 = trunc nsw i64 %109 to i32
+  %.lhs.trunc.i28 = trunc nuw nsw i64 %109 to i32
   %110 = udiv i32 %.lhs.trunc.i28, 3600
   %.zext.i29 = zext nneg i32 %110 to i64
   %.neg.i30 = mul nuw nsw i64 %.zext.i29, 4294963696
@@ -366,7 +366,7 @@ define hidden void @timelib_update_from_sse(ptr noundef captures(none) initializ
   %isneg.i40 = icmp slt i64 %124, 0
   %156 = select i1 %isneg.i40, i64 86400, i64 0
   %157 = add nsw i64 %156, %124
-  %.lhs.trunc.i41 = trunc nsw i64 %157 to i32
+  %.lhs.trunc.i41 = trunc nuw nsw i64 %157 to i32
   %158 = udiv i32 %.lhs.trunc.i41, 3600
   %.zext.i42 = zext nneg i32 %158 to i64
   %.neg.i43 = mul nuw nsw i64 %.zext.i42, 4294963696
@@ -469,7 +469,7 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   %isneg.i = icmp slt i64 %19, 0
   %51 = select i1 %isneg.i, i64 86400, i64 0
   %52 = add nsw i64 %51, %19
-  %.lhs.trunc.i = trunc nsw i64 %52 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %52 to i32
   %53 = udiv i32 %.lhs.trunc.i, 3600
   %.zext.i = zext nneg i32 %53 to i64
   %.neg.i = mul nuw nsw i64 %.zext.i, 4294963696
@@ -548,7 +548,7 @@ define hidden void @timelib_unixtime2local(ptr noundef initializes((228, 232)) %
   %isneg.i39 = icmp slt i64 %74, 0
   %106 = select i1 %isneg.i39, i64 86400, i64 0
   %107 = add nsw i64 %106, %74
-  %.lhs.trunc.i40 = trunc nsw i64 %107 to i32
+  %.lhs.trunc.i40 = trunc nuw nsw i64 %107 to i32
   %108 = udiv i32 %.lhs.trunc.i40, 3600
   %.zext.i41 = zext nneg i32 %108 to i64
   %.neg.i42 = mul nuw nsw i64 %.zext.i41, 4294963696
@@ -768,7 +768,7 @@ define hidden range(i32 -1, 1) i32 @timelib_apply_localtime(ptr noundef %0, i32 
   %isneg.i = icmp slt i64 %16, 0
   %48 = select i1 %isneg.i, i64 86400, i64 0
   %49 = add nsw i64 %48, %16
-  %.lhs.trunc.i = trunc nsw i64 %49 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %49 to i32
   %50 = udiv i32 %.lhs.trunc.i, 3600
   %.zext.i = zext nneg i32 %50 to i64
   %.neg.i = mul nuw nsw i64 %.zext.i, 4294963696

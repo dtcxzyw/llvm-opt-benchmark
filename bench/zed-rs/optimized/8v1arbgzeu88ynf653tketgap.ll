@@ -44624,7 +44624,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3240
   br label %48
 
 41:                                               ; preds = %32
-  %42 = trunc nuw i64 %indvars.iv to i8
+  %42 = trunc nuw nsw i64 %indvars.iv to i8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %42, ptr %43, align 8
   store i64 -9223372036854775805, ptr %0, align 8
@@ -71893,7 +71893,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !21498
   %12 = trunc i32 %1 to i8
@@ -71905,7 +71905,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !21498
   %19 = lshr i32 %1, 6
@@ -84271,7 +84271,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN90_$LT$futures_lite..stream..NextFu
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  %trunc.i.i = trunc i8 %4 to i1
+  %trunc.i.i = trunc nuw i8 %4 to i1
   br i1 %trunc.i.i, label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit, label %10
 
 7:                                                ; preds = %2
@@ -84317,7 +84317,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN90_$LT$futures_lite..stream..NextFu
   br label %_ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit
 
 _ZN12futures_lite6stream9StreamExt9poll_next17hda393f7b65656f63E.exit: ; preds = %6, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i", %20
-  %.sroa.0.0.i.i = phi i8 [ %23, %20 ], [ 1, %6 ], [ %4, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" ]
+  %.sroa.0.0.i.i = phi i8 [ %23, %20 ], [ 1, %6 ], [ 0, %"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..BoundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hfbdef2a4110821deE.llvm.14019313651612263248.exit.i.i" ]
   ret i8 %.sroa.0.0.i.i
 }
 

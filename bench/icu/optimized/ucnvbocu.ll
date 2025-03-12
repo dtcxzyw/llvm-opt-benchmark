@@ -1024,7 +1024,7 @@ define internal void @_ZL17_Bocu1FromUnicodeP25UConverterFromUnicodeArgsP10UErro
 36:                                               ; preds = %34
   %.not198 = icmp eq i16 %31, 32
   %spec.select199 = select i1 %.not198, i32 %.2160227, i32 64
-  %37 = trunc nuw i16 %31 to i8
+  %37 = trunc nuw nsw i16 %31 to i8
   br label %46
 
 38:                                               ; preds = %34
@@ -1036,7 +1036,7 @@ define internal void @_ZL17_Bocu1FromUnicodeP25UConverterFromUnicodeArgsP10UErro
 41:                                               ; preds = %38
   %42 = and i32 %32, 16256
   %43 = or disjoint i32 %42, 64
-  %44 = trunc i32 %39 to i8
+  %44 = trunc nsw i32 %39 to i8
   %45 = add i8 %44, -112
   br label %46
 
@@ -1093,7 +1093,7 @@ define internal void @_ZL17_Bocu1FromUnicodeP25UConverterFromUnicodeArgsP10UErro
 62:                                               ; preds = %.lr.ph301
   %.not197 = icmp eq i16 %60, 32
   %spec.select200 = select i1 %.not197, i32 %.5163244298, i32 64
-  %63 = trunc nuw i16 %60 to i8
+  %63 = trunc nuw nsw i16 %60 to i8
   %64 = getelementptr inbounds nuw i8, ptr %.4178242300, i64 1
   store i8 %63, ptr %.4178242300, align 1, !tbaa !24
   %65 = icmp ult ptr %59, %8
@@ -1172,7 +1172,7 @@ _ZL9bocu1Previ.exit:                              ; preds = %94, %92, %90, %88, 
   br i1 %or.cond7, label %99, label %105
 
 99:                                               ; preds = %_ZL9bocu1Previ.exit
-  %100 = trunc i32 %83 to i8
+  %100 = trunc nsw i32 %83 to i8
   %101 = add i8 %100, -112
   %102 = getelementptr inbounds nuw i8, ptr %.6180, i64 1
   store i8 %101, ptr %.6180, align 1, !tbaa !24
@@ -1192,7 +1192,7 @@ _ZL9bocu1Previ.exit:                              ; preds = %94, %92, %90, %88, 
   br i1 %109, label %110, label %115
 
 110:                                              ; preds = %108
-  %111 = trunc i32 %83 to i16
+  %111 = trunc nuw nsw i32 %83 to i16
   %.lhs.trunc = add nsw i16 %111, -64
   %112 = srem i16 %.lhs.trunc, 243
   %.sext = sext i16 %112 to i32
@@ -1229,7 +1229,7 @@ select.unfold:                                    ; preds = %115, %110
   br i1 %125, label %126, label %129
 
 126:                                              ; preds = %select.unfold
-  %127 = trunc i32 %.0145 to i8
+  %127 = trunc nuw i32 %.0145 to i8
   %128 = add nuw i8 %127, 13
   br label %134
 
@@ -1320,7 +1320,7 @@ select.unfold:                                    ; preds = %115, %110
   br label %171
 
 171:                                              ; preds = %158, %169
-  %172 = trunc i32 %159 to i8
+  %172 = trunc nsw i32 %159 to i8
   %173 = getelementptr inbounds nuw i8, ptr %4, i64 91
   store i8 %172, ptr %173, align 1, !tbaa !49
   %174 = shl nsw i32 %159, 3
@@ -1455,7 +1455,7 @@ define internal void @_ZL28_Bocu1FromUnicodeWithOffsetsP25UConverterFromUnicodeA
 39:                                               ; preds = %37
   %.not266 = icmp eq i16 %34, 32
   %spec.select267 = select i1 %.not266, i32 %.2212303, i32 64
-  %40 = trunc nuw i16 %34 to i8
+  %40 = trunc nuw nsw i16 %34 to i8
   br label %49
 
 41:                                               ; preds = %37
@@ -1467,7 +1467,7 @@ define internal void @_ZL28_Bocu1FromUnicodeWithOffsetsP25UConverterFromUnicodeA
 44:                                               ; preds = %41
   %45 = and i32 %35, 16256
   %46 = or disjoint i32 %45, 64
-  %47 = trunc i32 %42 to i8
+  %47 = trunc nsw i32 %42 to i8
   %48 = add i8 %47, -112
   br label %49
 
@@ -1534,7 +1534,7 @@ define internal void @_ZL28_Bocu1FromUnicodeWithOffsetsP25UConverterFromUnicodeA
 64:                                               ; preds = %.lr.ph410
   %.not265 = icmp eq i16 %61, 32
   %spec.select268 = select i1 %.not265, i32 %.5215328406, i32 64
-  %65 = trunc nuw i16 %61 to i8
+  %65 = trunc nuw nsw i16 %61 to i8
   %66 = getelementptr inbounds nuw i8, ptr %.4240325409, i64 1
   store i8 %65, ptr %.4240325409, align 1, !tbaa !24
   %67 = getelementptr inbounds nuw i8, ptr %.4222327407, i64 4
@@ -1623,7 +1623,7 @@ _ZL9bocu1Previ.exit:                              ; preds = %98, %96, %94, %92, 
   br i1 %or.cond7, label %103, label %110
 
 103:                                              ; preds = %_ZL9bocu1Previ.exit
-  %104 = trunc i32 %87 to i8
+  %104 = trunc nsw i32 %87 to i8
   %105 = add i8 %104, -112
   %106 = getelementptr inbounds nuw i8, ptr %.6242, i64 1
   store i8 %105, ptr %.6242, align 1, !tbaa !24
@@ -1645,7 +1645,7 @@ _ZL9bocu1Previ.exit:                              ; preds = %98, %96, %94, %92, 
   br i1 %114, label %115, label %120
 
 115:                                              ; preds = %113
-  %116 = trunc i32 %87 to i16
+  %116 = trunc nuw nsw i32 %87 to i16
   %.lhs.trunc = add nsw i16 %116, -64
   %117 = srem i16 %.lhs.trunc, 243
   %.sext = sext i16 %117 to i32
@@ -1682,7 +1682,7 @@ select.unfold:                                    ; preds = %120, %115
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %select.unfold
-  %132 = trunc i32 %.0184 to i8
+  %132 = trunc nuw i32 %.0184 to i8
   %133 = add nuw i8 %132, 13
   br label %139
 
@@ -1886,7 +1886,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
   br i1 %4, label %5, label %23
 
 5:                                                ; preds = %3
-  %6 = trunc i32 %0 to i16
+  %6 = trunc nsw i32 %0 to i16
   %.lhs.trunc = add nsw i16 %6, -64
   %7 = srem i16 %.lhs.trunc, 243
   %8 = sdiv i16 %.lhs.trunc, 243
@@ -1938,7 +1938,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 37:                                               ; preds = %32, %30
   %38 = phi i32 [ %31, %30 ], [ %36, %32 ]
-  %.lhs.trunc137 = trunc i32 %28 to i16
+  %.lhs.trunc137 = trunc nuw nsw i32 %28 to i16
   %39 = urem i16 %.lhs.trunc137, 243
   %40 = udiv i32 %26, 59049
   %41 = icmp samesign ugt i16 %39, 19
@@ -2032,7 +2032,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
   br i1 %99, label %100, label %119
 
 100:                                              ; preds = %98
-  %101 = trunc i32 %0 to i16
+  %101 = trunc nsw i32 %0 to i16
   %.lhs.trunc138 = sub nuw nsw i16 -64, %101
   %102 = urem i16 %.lhs.trunc138, 243
   %103 = udiv i16 %.lhs.trunc138, 243
@@ -2095,7 +2095,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 
 133:                                              ; preds = %128, %126
   %134 = phi i32 [ %127, %126 ], [ %132, %128 ]
-  %.neg174 = trunc nuw i32 %.1106.neg to i16
+  %.neg174 = trunc nuw nsw i32 %.1106.neg to i16
   %135 = urem i16 %.neg174, 243
   %136 = udiv i16 %.neg174, 243
   %.zext154 = zext nneg i16 %136 to i32

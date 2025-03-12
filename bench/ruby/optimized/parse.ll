@@ -18393,7 +18393,7 @@ define internal void @parser_compile_error(ptr noundef captures(none) %0, ptr no
 
 rb_long2int_inline.exit:                          ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  %20 = trunc i64 %16 to i32
+  %20 = trunc nsw i64 %16 to i32
   br label %21
 
 21:                                               ; preds = %rb_long2int_inline.exit, %5
@@ -33757,7 +33757,7 @@ rb_parser_enc_associate.exit:                     ; preds = %.thread, %75
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %rb_parser_enc_associate.exit
-  %86 = trunc i64 %83 to i32
+  %86 = trunc nsw i64 %83 to i32
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 %86, ptr %87, align 4, !tbaa !495
   br label %88
@@ -33822,7 +33822,7 @@ rb_parser_str_buf_cat.exit:                       ; preds = %95, %ruby_nonempty_
   unreachable
 
 rb_long2int_inline.exit57:                        ; preds = %rb_parser_str_buf_cat.exit
-  %118 = trunc i64 %115 to i32
+  %118 = trunc nsw i64 %115 to i32
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %118, ptr %119, align 4, !tbaa !497
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -43185,7 +43185,7 @@ newtok.exit:                                      ; preds = %18, %23
   ]
 
 26:                                               ; preds = %newtok.exit, %newtok.exit
-  %27 = trunc i32 %1 to i8
+  %27 = trunc nuw nsw i32 %1 to i8
   %28 = load i32, ptr %12, align 8, !tbaa !574
   %29 = add i32 %28, 1
   store i32 %29, ptr %12, align 8, !tbaa !574
@@ -43440,7 +43440,7 @@ switch.early.test588:                             ; preds = %123
   ]
 
 126:                                              ; preds = %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %switch.early.test588, %123
-  %127 = trunc nuw i32 %.3.fr to i8
+  %127 = trunc nuw nsw i32 %.3.fr to i8
   %128 = load ptr, ptr %13, align 8, !tbaa !506
   %129 = load i32, ptr %12, align 8, !tbaa !574
   %130 = add i32 %129, 1
@@ -43653,7 +43653,7 @@ nextc0.exit374:                                   ; preds = %nextc0.exit374.back
   br i1 %or.cond9, label %.thread485, label %223
 
 223:                                              ; preds = %221
-  %224 = trunc nuw i32 %.6 to i8
+  %224 = trunc nuw nsw i32 %.6 to i8
   %225 = load ptr, ptr %13, align 8, !tbaa !506
   %226 = load i32, ptr %12, align 8, !tbaa !574
   %227 = add i32 %226, 1
@@ -44066,7 +44066,7 @@ nextc0.exit407:                                   ; preds = %nextc0.exit407.back
   br i1 %412, label %.loopexit, label %413
 
 413:                                              ; preds = %411
-  %414 = trunc nuw i32 %.12 to i8
+  %414 = trunc nuw nsw i32 %.12 to i8
   %415 = load ptr, ptr %13, align 8, !tbaa !506
   %416 = load i32, ptr %12, align 8, !tbaa !574
   %417 = add i32 %416, 1
@@ -44240,7 +44240,7 @@ nextc0.exit447:                                   ; preds = %nextc0.exit447.back
   ]
 
 475:                                              ; preds = %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447, %nextc0.exit447
-  %476 = trunc i32 %.16 to i8
+  %476 = trunc nuw nsw i32 %.16 to i8
   %477 = load ptr, ptr %13, align 8, !tbaa !506
   %478 = load i32, ptr %12, align 8, !tbaa !574
   %479 = add i32 %478, 1
@@ -44518,7 +44518,7 @@ nextc0.exit433.thread:                            ; preds = %584
   br label %pushback.exit424.thread
 
 613:                                              ; preds = %584, %584, %nextc0.exit433.thread
-  %614 = trunc i32 %.16 to i8
+  %614 = trunc nuw nsw i32 %.16 to i8
   %615 = load ptr, ptr %13, align 8, !tbaa !506
   %616 = load i32, ptr %12, align 8, !tbaa !574
   %617 = add i32 %616, 1
@@ -46923,7 +46923,7 @@ parser_is_identchar.exit.thread..thread232_crit_edge: ; preds = %parser_is_ident
   br i1 %59, label %77, label %60
 
 60:                                               ; preds = %57, %54
-  %61 = trunc i32 %.011.i to i8
+  %61 = trunc nuw nsw i32 %.011.i to i8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %63 = load ptr, ptr %62, align 8, !tbaa !506
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -48965,7 +48965,7 @@ define internal fastcc void @flush_string_content(ptr noundef captures(none) %0,
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %17
-  %30 = trunc i64 %27 to i32
+  %30 = trunc nsw i64 %27 to i32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %30, ptr %31, align 4, !tbaa !497
   br label %32

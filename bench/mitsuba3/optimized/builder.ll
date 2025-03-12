@@ -2606,7 +2606,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder10embedLabelERKNS
   br i1 %22, label %33, label %23, !prof !15
 
 23:                                               ; preds = %17
-  %24 = trunc i64 %2 to i32
+  %24 = trunc nuw nsw i64 %2 to i32
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   store i8 6, ptr %25, align 8, !tbaa !16
@@ -2726,7 +2726,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder15embedLabelDelta
   br i1 %25, label %37, label %26, !prof !15
 
 26:                                               ; preds = %18
-  %27 = trunc i64 %3 to i32
+  %27 = trunc nuw nsw i64 %3 to i32
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   store i8 7, ptr %28, align 8, !tbaa !16

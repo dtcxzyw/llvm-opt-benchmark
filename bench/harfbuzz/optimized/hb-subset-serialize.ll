@@ -22172,7 +22172,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5graph14PairPosFormat16shri
   br i1 %.not, label %17, label %_ZN5graph7graph_t16as_mutable_tableINS_8CoverageEJEEENS0_18vertex_and_table_tIT_EEjPKvDpT0_.exit.thread
 
 17:                                               ; preds = %4
-  %18 = trunc i32 %3 to i16
+  %18 = trunc nuw i32 %3 to i16
   %19 = tail call i16 @llvm.bswap.i16(i16 %18)
   store i16 %19, ptr %13, align 1, !tbaa !214
   %20 = sub nuw nsw i32 %16, %3
@@ -34720,7 +34720,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5graph14PairPosFormat26shri
   %44 = load ptr, ptr %1, align 8, !tbaa !930
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !128
-  %47 = trunc i32 %2 to i16
+  %47 = trunc nuw i32 %2 to i16
   %48 = tail call i16 @llvm.bswap.i16(i16 %47)
   store i16 %48, ptr %39, align 1, !tbaa !214
   %49 = sub nuw nsw i32 %42, %2
@@ -45055,7 +45055,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN5graph18MarkBasePosFormat16
   br i1 %.not, label %14, label %_ZN5graph7graph_t16as_mutable_tableINS_8CoverageEJEEENS0_18vertex_and_table_tIT_EEjPKvDpT0_.exit.thread
 
 14:                                               ; preds = %4
-  %15 = trunc i32 %3 to i16
+  %15 = trunc nuw i32 %3 to i16
   %16 = tail call i16 @llvm.bswap.i16(i16 %15)
   store i16 %16, ptr %10, align 1, !tbaa !214
   %17 = load ptr, ptr %1, align 8, !tbaa !1268

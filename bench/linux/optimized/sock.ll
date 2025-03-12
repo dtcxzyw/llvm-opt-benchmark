@@ -3546,7 +3546,7 @@ define internal fastcc range(i32 -33, 1) i32 @sock_set_timeout(ptr noundef %0, p
 
 36:                                               ; preds = %31
   %37 = mul nuw nsw i64 %14, 1000
-  %38 = trunc nuw i64 %11 to i32
+  %38 = trunc nuw nsw i64 %11 to i32
   %.lhs.trunc = add nuw nsw i32 %38, 999
   %39 = udiv i32 %.lhs.trunc, 1000
   %.zext = zext nneg i32 %39 to i64

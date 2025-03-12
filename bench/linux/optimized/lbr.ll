@@ -279,7 +279,7 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
 
 .split4.us:                                       ; preds = %105, %44
   %.us-phi = phi i64 [ %45, %44 ], [ %106, %105 ]
-  %49 = trunc i64 %.us-phi to i32
+  %49 = trunc nsw i64 %.us-phi to i32
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
   br label %50
 

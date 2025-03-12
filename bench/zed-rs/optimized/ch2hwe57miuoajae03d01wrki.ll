@@ -603,7 +603,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !22, !noalias !19
   %12 = trunc i32 %1 to i8
@@ -615,7 +615,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !22, !noalias !19
   %19 = lshr i32 %1, 6
@@ -1742,7 +1742,7 @@ define void @_ZN4rope4Rope4push17h9a5e42e2dddba055E(ptr noalias noundef align 8 
   %61 = phi i64 [ %.sroa.5.056.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hb284732c351e4800E.exit.thread37.thread.i" ], [ %54, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hb284732c351e4800E.exit.thread37.i" ]
   %.sroa.09.04668.i = phi i64 [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hb284732c351e4800E.exit.thread37.thread.i" ], [ %.sroa.09.055.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17hb284732c351e4800E.exit.thread37.i" ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.6.i, ptr nonnull readonly align 1 %.sroa.0.057.i, i64 %.sroa.09.04668.i, i1 false), !alias.scope !290, !noalias !284
-  %62 = trunc nuw i64 %.sroa.09.04668.i to i32
+  %62 = trunc nuw nsw i64 %.sroa.09.04668.i to i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %.sroa.427.i, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.6.i, i64 128, i1 false), !noalias !267
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.6.i)
   %63 = load i64, ptr %8, align 8, !alias.scope !294, !noalias !297, !noundef !7
@@ -1857,7 +1857,7 @@ _ZN4rope4Rope10push_large17h34a655280c8fd029E.exit: ; preds = %38, %40
   %104 = sub nuw i64 %75, %.sroa.01.061
   %105 = getelementptr inbounds i8, ptr %74, i64 %.sroa.01.061
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.424, ptr nonnull readonly align 1 %74, i64 %.sroa.01.061, i1 false)
-  %106 = trunc nuw i64 %.sroa.01.061 to i32
+  %106 = trunc nuw nsw i64 %.sroa.01.061 to i32
   %107 = load i64, ptr %17, align 8, !alias.scope !315, !noalias !320, !noundef !7
   %108 = icmp ugt i64 %107, 16
   %109 = load ptr, ptr %12, align 8, !alias.scope !315, !noalias !320, !nonnull !7

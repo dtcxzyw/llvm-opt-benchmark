@@ -747,7 +747,7 @@ _ZL13RestartSamplev.exit33.i:                     ; preds = %296, %293
   br i1 %347, label %.lr.ph39.i, label %.critedge.loopexit.split.loop.exit.i, !llvm.loop !80
 
 .critedge.loopexit.split.loop.exit.i:             ; preds = %344
-  %indvars.le.i = trunc i64 %indvars.iv.next49.i to i32
+  %indvars.le.i = trunc nsw i64 %indvars.iv.next49.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph39.i, %.critedge.loopexit.split.loop.exit.i, %.preheader.i

@@ -599,7 +599,7 @@ ZSTD_compressSubBlock_literal.exit.i.i:           ; preds = %282, %255, %246, %2
 
 299:                                              ; preds = %297
   %300 = lshr i64 %.1184339.i, 8
-  %301 = trunc nuw i64 %300 to i8
+  %301 = trunc nuw nsw i64 %300 to i8
   %302 = or disjoint i8 %301, -128
   store i8 %302, ptr %289, align 1, !tbaa !61
   %303 = trunc i64 %.1184339.i to i8

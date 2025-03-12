@@ -389,7 +389,7 @@ define noundef i32 @_ZNK10BigInteger13toUnsignedIntEv(ptr noundef nonnull readon
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = load i64, ptr %11, align 8, !tbaa !19
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = icmp ugt i64 %12, 4294967295
   br i1 %14, label %15, label %_ZNK10BigInteger26convertToUnsignedPrimitiveIjEET_v.exit
 
@@ -428,7 +428,7 @@ define noundef zeroext i16 @_ZNK10BigInteger15toUnsignedShortEv(ptr noundef nonn
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = load i64, ptr %11, align 8, !tbaa !19
-  %13 = trunc i64 %12 to i16
+  %13 = trunc nuw i64 %12 to i16
   %14 = icmp ugt i64 %12, 65535
   br i1 %14, label %15, label %_ZNK10BigInteger26convertToUnsignedPrimitiveItEET_v.exit
 

@@ -2070,7 +2070,7 @@ mi_arena_static_zalloc.exit.i:                    ; preds = %46
 
 113:                                              ; preds = %108
   call void @_mi_stat_counter_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 624), i64 noundef 1) #20
-  %114 = trunc nuw i64 %109 to i32
+  %114 = trunc nuw nsw i64 %109 to i32
   %115 = add nuw nsw i32 %114, 1
   store i32 %115, ptr %.0.i.ph, align 8, !tbaa !53
   %116 = getelementptr inbounds nuw [132 x ptr], ptr @mi_arenas, i64 0, i64 %109

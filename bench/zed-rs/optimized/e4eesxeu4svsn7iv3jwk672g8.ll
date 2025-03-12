@@ -29434,7 +29434,7 @@ define hidden void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$G
   br label %18
 
 15:                                               ; preds = %9
-  %16 = trunc nsw i64 %.sroa.0.0.i12 to i32
+  %16 = trunc nuw nsw i64 %.sroa.0.0.i12 to i32
   %17 = icmp ugt i32 %2, 1999999999
   br i1 %17, label %19, label %20
 
@@ -43951,7 +43951,7 @@ define hidden void @_ZN6client4user9UserStore32set_current_user_accepted_tos_at1
   %12 = add i32 %11, 719163
   %13 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hd47f360da452322cE(i32 noundef %12), !noalias !8296
   %14 = icmp eq i32 %13, 0
-  %15 = trunc nsw i64 %.sroa.0.0.i12.i to i32
+  %15 = trunc nuw nsw i64 %.sroa.0.0.i12.i to i32
   %spec.select = select i1 %14, i32 undef, i32 %15
   br label %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit"
 

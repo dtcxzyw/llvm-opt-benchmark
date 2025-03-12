@@ -15882,7 +15882,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !4499, !noalias !4496
   %12 = trunc i32 %1 to i8
@@ -15894,7 +15894,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !4499, !noalias !4496
   %19 = lshr i32 %1, 6
@@ -20275,7 +20275,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.5114091958698501191.exit.
   br i1 %148, label %.loopexit, label %149
 
 149:                                              ; preds = %146
-  %trunc122.i = trunc i8 %147 to i1
+  %trunc122.i = trunc nuw i8 %147 to i1
   br i1 %trunc122.i, label %152, label %150
 
 150:                                              ; preds = %149
@@ -21426,7 +21426,7 @@ _ZN9async_tar7archive13poll_next_raw17h4bc5574a41ca2249E.exit: ; preds = %"_ZN4c
   br i1 %.not377.not.not.not.not, label %495, label %.loopexit71.i
 
 495:                                              ; preds = %493
-  %trunc44.i = trunc i8 %494 to i1
+  %trunc44.i = trunc nuw i8 %494 to i1
   br i1 %trunc44.i, label %498, label %496
 
 496:                                              ; preds = %495

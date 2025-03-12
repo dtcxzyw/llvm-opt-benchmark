@@ -124,7 +124,7 @@ define noundef ptr @If_ManStart(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv314 = phi i64 [ 6, %.preheader275 ], [ %indvars.iv.next315, %Vec_MemAllocForTT.exit ]
   %46 = load i32, ptr %35, align 8, !tbaa !44
   %47 = icmp samesign ult i64 %indvars.iv314, 7
-  %48 = trunc i64 %indvars.iv314 to i32
+  %48 = trunc nuw nsw i64 %indvars.iv314 to i32
   %49 = add nsw i32 %48, -6
   %50 = shl nuw i32 1, %49
   %51 = select i1 %47, i32 1, i32 %50

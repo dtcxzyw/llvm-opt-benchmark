@@ -1898,7 +1898,7 @@ _ZN17double_conversionL7AdvanceIPKtEEbPT_tiRS3_.exit258.thread: ; preds = %_ZN17
   br i1 %267, label %268, label %274
 
 268:                                              ; preds = %264
-  %269 = trunc nuw i16 %265 to i8
+  %269 = trunc nuw nsw i16 %265 to i8
   %270 = add nsw i32 %.0169402, 1
   %271 = sext i32 %.0169402 to i64
   %272 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %271
@@ -2071,7 +2071,7 @@ _ZN17double_conversionL7isDigitEii.exit.thread.i263: ; preds = %293
   br i1 %347, label %348, label %355
 
 348:                                              ; preds = %344
-  %349 = trunc nuw i16 %345 to i8
+  %349 = trunc nuw nsw i16 %345 to i8
   %350 = add nsw i32 %.4173421, 1
   %351 = sext i32 %.4173421 to i64
   %352 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %351

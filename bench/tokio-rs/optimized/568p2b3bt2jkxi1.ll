@@ -32385,7 +32385,7 @@ define void @"_ZN102_$LT$tokio..runtime..context..blocking..DisallowBlockInPlace
   br i1 %.not.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit", label %10
 
 10:                                               ; preds = %8
-  %11 = trunc i8 %9 to i1
+  %11 = trunc nuw i8 %9 to i1
   br i1 %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9b9c2a1a8749026bE.llvm.700930863383756518.exit", label %12
 
 12:                                               ; preds = %10

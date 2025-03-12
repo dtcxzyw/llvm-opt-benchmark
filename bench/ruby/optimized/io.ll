@@ -30773,8 +30773,8 @@ rb_array_len.exit.i:                              ; preds = %38, %35
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
-  %43 = trunc i64 %.0.i.i to i32
-  %or.cond.i14 = icmp ugt i32 %43, 3
+  %43 = trunc nsw i64 %.0.i.i to i32
+  %or.cond.i14 = icmp ugt i64 %.0.i.i, 3
   br i1 %or.cond.i14, label %44, label %rb_check_arity.exit
 
 44:                                               ; preds = %RARRAY_LENINT.exit
@@ -30800,121 +30800,120 @@ rb_scan_args_n_opt.exit:                          ; preds = %45, %47
   store ptr %14, ptr %50, align 8, !tbaa !128
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %11, ptr %51, align 8, !tbaa !128
-  %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %68, label %52
+  %.not = icmp eq i64 %.0.i.i, 0
+  br i1 %.not, label %67, label %52
 
 52:                                               ; preds = %rb_scan_args_n_opt.exit
-  %53 = and i64 %.0.i.i, 3
-  %54 = getelementptr i64, ptr %.0.i16, i64 %53
-  %55 = getelementptr i8, ptr %54, i64 -8
-  %56 = load i64, ptr %55, align 8, !tbaa !23
-  %57 = icmp eq i64 %56, 0
-  %58 = and i64 %56, 7
-  %59 = icmp ne i64 %58, 0
-  %60 = or i1 %57, %59
-  br i1 %60, label %68, label %rb_scan_args_keyword_p.exit
+  %53 = getelementptr i64, ptr %.0.i16, i64 %.0.i.i
+  %54 = getelementptr i8, ptr %53, i64 -8
+  %55 = load i64, ptr %54, align 8, !tbaa !23
+  %56 = icmp eq i64 %55, 0
+  %57 = and i64 %55, 7
+  %58 = icmp ne i64 %57, 0
+  %59 = or i1 %56, %58
+  br i1 %59, label %67, label %rb_scan_args_keyword_p.exit
 
 rb_scan_args_keyword_p.exit:                      ; preds = %52
-  %61 = inttoptr i64 %56 to ptr
-  %62 = load i64, ptr %61, align 8, !tbaa !25
-  %63 = and i64 %62, 31
-  %64 = icmp eq i64 %63, 8
-  br i1 %64, label %65, label %68
+  %60 = inttoptr i64 %55 to ptr
+  %61 = load i64, ptr %60, align 8, !tbaa !25
+  %62 = and i64 %61, 31
+  %63 = icmp eq i64 %62, 8
+  br i1 %63, label %64, label %67
 
-65:                                               ; preds = %rb_scan_args_keyword_p.exit
-  %66 = call i64 @rb_hash_dup(i64 noundef %56) #28
-  %67 = add nsw i32 %43, -1
+64:                                               ; preds = %rb_scan_args_keyword_p.exit
+  %65 = call i64 @rb_hash_dup(i64 noundef %55) #28
+  %66 = add nsw i32 %43, -1
+  br label %67
+
+67:                                               ; preds = %rb_scan_args_n_opt.exit, %rb_scan_args_keyword_p.exit, %64, %52
+  %.087.i = phi i64 [ 4, %rb_scan_args_n_opt.exit ], [ %65, %64 ], [ 4, %rb_scan_args_keyword_p.exit ], [ 4, %52 ]
+  %.0.i = phi i32 [ 0, %rb_scan_args_n_opt.exit ], [ %66, %64 ], [ %43, %rb_scan_args_keyword_p.exit ], [ %43, %52 ]
   br label %68
 
-68:                                               ; preds = %rb_scan_args_n_opt.exit, %rb_scan_args_keyword_p.exit, %65, %52
-  %.087.i = phi i64 [ 4, %rb_scan_args_n_opt.exit ], [ %66, %65 ], [ 4, %rb_scan_args_keyword_p.exit ], [ 4, %52 ]
-  %.0.i = phi i32 [ 0, %rb_scan_args_n_opt.exit ], [ %67, %65 ], [ %43, %rb_scan_args_keyword_p.exit ], [ %43, %52 ]
-  br label %69
-
-69:                                               ; preds = %68, %82
-  %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %82 ]
-  %.185.i20 = phi i32 [ 0, %68 ], [ %.286.i, %82 ]
+68:                                               ; preds = %67, %81
+  %indvars.iv = phi i64 [ 0, %67 ], [ %indvars.iv.next, %81 ]
+  %.185.i20 = phi i32 [ 0, %67 ], [ %.286.i, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = getelementptr ptr, ptr %16, i64 %indvars.iv
-  %71 = load ptr, ptr %70, align 8, !tbaa !128
-  %72 = icmp slt i32 %.185.i20, %.0.i
-  %.not108.i = icmp eq ptr %71, null
-  br i1 %72, label %73, label %80
+  %69 = getelementptr ptr, ptr %16, i64 %indvars.iv
+  %70 = load ptr, ptr %69, align 8, !tbaa !128
+  %71 = icmp slt i32 %.185.i20, %.0.i
+  %.not108.i = icmp eq ptr %70, null
+  br i1 %71, label %72, label %79
 
-73:                                               ; preds = %69
-  br i1 %.not108.i, label %78, label %74
+72:                                               ; preds = %68
+  br i1 %.not108.i, label %77, label %73
 
-74:                                               ; preds = %73
-  %75 = sext i32 %.185.i20 to i64
-  %76 = getelementptr i64, ptr %.0.i16, i64 %75
-  %77 = load i64, ptr %76, align 8, !tbaa !23
-  store i64 %77, ptr %71, align 8, !tbaa !23
-  br label %78
+73:                                               ; preds = %72
+  %74 = sext i32 %.185.i20 to i64
+  %75 = getelementptr i64, ptr %.0.i16, i64 %74
+  %76 = load i64, ptr %75, align 8, !tbaa !23
+  store i64 %76, ptr %70, align 8, !tbaa !23
+  br label %77
 
-78:                                               ; preds = %74, %73
-  %79 = add nsw i32 %.185.i20, 1
-  br label %82
+77:                                               ; preds = %73, %72
+  %78 = add nsw i32 %.185.i20, 1
+  br label %81
 
-80:                                               ; preds = %69
-  br i1 %.not108.i, label %82, label %81
+79:                                               ; preds = %68
+  br i1 %.not108.i, label %81, label %80
 
-81:                                               ; preds = %80
-  store i64 4, ptr %71, align 8, !tbaa !23
-  br label %82
+80:                                               ; preds = %79
+  store i64 4, ptr %70, align 8, !tbaa !23
+  br label %81
 
-82:                                               ; preds = %81, %80, %78
-  %.286.i = phi i32 [ %79, %78 ], [ %.185.i20, %81 ], [ %.185.i20, %80 ]
+81:                                               ; preds = %80, %79, %77
+  %.286.i = phi i32 [ %78, %77 ], [ %.185.i20, %80 ], [ %.185.i20, %79 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %83, label %69, !llvm.loop !200
+  br i1 %exitcond.not, label %82, label %68, !llvm.loop !200
 
-83:                                               ; preds = %82
+82:                                               ; preds = %81
   store i64 %.087.i, ptr %11, align 8, !tbaa !23
-  %84 = icmp eq i32 %.286.i, %.0.i
-  br i1 %84, label %.rb_scan_args_set.exit_crit_edge, label %85
+  %83 = icmp eq i32 %.286.i, %.0.i
+  br i1 %83, label %.rb_scan_args_set.exit_crit_edge, label %84
 
-.rb_scan_args_set.exit_crit_edge:                 ; preds = %83
+.rb_scan_args_set.exit_crit_edge:                 ; preds = %82
   %.pre = load i64, ptr %13, align 8, !tbaa !23
   %.pre25 = load i64, ptr %14, align 8, !tbaa !23
   %.pre26 = load i64, ptr %11, align 8, !tbaa !23
   br label %rb_scan_args_set.exit
 
-85:                                               ; preds = %83
+84:                                               ; preds = %82
   call void @rb_error_arity(i32 noundef %.0.i, i32 noundef 0, i32 noundef 2) #30
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %.rb_scan_args_set.exit_crit_edge, %26, %25
-  %86 = phi i64 [ %.pre26, %.rb_scan_args_set.exit_crit_edge ], [ %3, %26 ], [ 4, %25 ]
-  %87 = phi i64 [ %.pre25, %.rb_scan_args_set.exit_crit_edge ], [ 4, %26 ], [ 877, %25 ]
-  %88 = phi i64 [ %.pre, %.rb_scan_args_set.exit_crit_edge ], [ 4, %26 ], [ 1, %25 ]
-  %89 = load i64, ptr %12, align 8, !tbaa !23
+  %85 = phi i64 [ %.pre26, %.rb_scan_args_set.exit_crit_edge ], [ %3, %26 ], [ 4, %25 ]
+  %86 = phi i64 [ %.pre25, %.rb_scan_args_set.exit_crit_edge ], [ 4, %26 ], [ 877, %25 ]
+  %87 = phi i64 [ %.pre, %.rb_scan_args_set.exit_crit_edge ], [ 4, %26 ], [ 1, %25 ]
+  %88 = load i64, ptr %12, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store i64 %88, ptr %6, align 8, !tbaa !23
-  store i64 %87, ptr %7, align 8, !tbaa !23
+  store i64 %87, ptr %6, align 8, !tbaa !23
+  store i64 %86, ptr %7, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #28
-  call void @rb_io_extract_modeenc(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %86, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %90 = load i64, ptr %7, align 8, !tbaa !23
-  %91 = icmp eq i64 %90, 4
-  br i1 %91, label %rb_io_open.exit, label %92
+  call void @rb_io_extract_modeenc(ptr noundef nonnull %6, ptr noundef nonnull %7, i64 noundef %85, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %89 = load i64, ptr %7, align 8, !tbaa !23
+  %90 = icmp eq i64 %89, 4
+  br i1 %90, label %rb_io_open.exit, label %91
 
-92:                                               ; preds = %rb_scan_args_set.exit
-  %93 = call i64 @rb_num2uint(i64 noundef %90) #28
-  %94 = trunc i64 %93 to i32
+91:                                               ; preds = %rb_scan_args_set.exit
+  %92 = call i64 @rb_num2uint(i64 noundef %89) #28
+  %93 = trunc i64 %92 to i32
   br label %rb_io_open.exit
 
-rb_io_open.exit:                                  ; preds = %rb_scan_args_set.exit, %92
-  %95 = phi i32 [ %94, %92 ], [ 438, %rb_scan_args_set.exit ]
-  %96 = load i32, ptr %8, align 4, !tbaa !20
-  %97 = load i32, ptr %9, align 4, !tbaa !20
-  %98 = call fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %89, i32 noundef %96, i32 noundef %97, ptr noundef %10, i32 noundef %95)
+rb_io_open.exit:                                  ; preds = %rb_scan_args_set.exit, %91
+  %94 = phi i32 [ %93, %91 ], [ 438, %rb_scan_args_set.exit ]
+  %95 = load i32, ptr %8, align 4, !tbaa !20
+  %96 = load i32, ptr %9, align 4, !tbaa !20
+  %97 = call fastcc noundef i64 @rb_io_open_generic(i64 noundef %0, i64 noundef %88, i32 noundef %95, i32 noundef %96, ptr noundef %10, i32 noundef %94)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  store i64 %98, ptr %22, align 8, !tbaa !216
+  store i64 %97, ptr %22, align 8, !tbaa !216
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #28

@@ -4842,7 +4842,7 @@ _ZN3ue2L14is_cyclic_nearERKNS_7raw_dfaEt.exit:    ; preds = %.loopexit.i56, %106
   br i1 %1112, label %1116, label %1113
 
 1113:                                             ; preds = %1110
-  %1114 = trunc nuw i16 %1111 to i8
+  %1114 = trunc nuw nsw i16 %1111 to i8
   %.lhs.trunc.i = add nsw i8 %1114, -2
   %1115 = sdiv i8 %.lhs.trunc.i, 3
   %.sext.i = zext nneg i8 %1115 to i32
@@ -7477,7 +7477,7 @@ _ZNSt6vectorImSaImEED2Ev.exit.i:                  ; preds = %.loopexit684.i, %19
   br label %.body377.i
 
 _ZN3ue210verify_u16ImEEtT_.exit.i.i:              ; preds = %2216
-  %2236 = trunc nuw i64 %2230 to i32
+  %2236 = trunc nuw nsw i64 %2230 to i32
   %2237 = add nuw nsw i32 %2236, %2218
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %2222, i64 4
   %.not164.i.i = icmp eq ptr %2225, %2226

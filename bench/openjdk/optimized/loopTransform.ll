@@ -1085,7 +1085,7 @@ _ZNK19BaseCountedLoopNode5limitEv.exit:           ; preds = %176
   br i1 %.not46, label %230, label %225
 
 225:                                              ; preds = %221
-  %226 = trunc i64 %215 to i32
+  %226 = trunc nuw i64 %215 to i32
   %227 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 %226, ptr %227, align 4
   %228 = load i32, ptr %7, align 4
@@ -1100,7 +1100,7 @@ _ZNK19BaseCountedLoopNode5limitEv.exit:           ; preds = %176
   br i1 %233, label %234, label %_ZNK19BaseCountedLoopNode5limitEv.exit.thread
 
 234:                                              ; preds = %230
-  %235 = trunc i64 %215 to i32
+  %235 = trunc nuw i64 %215 to i32
   %236 = getelementptr inbounds nuw i8, ptr %6, i64 76
   store i32 %235, ptr %236, align 4
   br label %_ZNK19BaseCountedLoopNode5limitEv.exit.thread

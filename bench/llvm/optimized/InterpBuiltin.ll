@@ -15964,7 +15964,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit53: ; preds = %158, %169
   br i1 %186, label %187, label %190
 
 187:                                              ; preds = %_ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit53
-  %188 = trunc i64 %184 to i32
+  %188 = trunc nuw i64 %184 to i32
   %189 = sub i32 %183, %188
   call void @_ZN4llvm5APInt13clearHighBitsEj(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %189)
   br label %190

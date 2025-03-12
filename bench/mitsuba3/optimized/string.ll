@@ -3232,7 +3232,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %216 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.5493, i1 true)
   %217 = trunc nuw nsw i64 %216 to i32
   %218 = shl i64 %.5493, %216
-  %219 = trunc i64 %.2502 to i32
+  %219 = trunc nsw i64 %.2502 to i32
   %220 = shl nsw i32 %219, 1
   %221 = add nsw i32 %220, 684
   %222 = zext nneg i32 %221 to i64
@@ -3353,7 +3353,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %297 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %292, i1 true)
   %298 = trunc nuw nsw i64 %297 to i32
   %299 = shl i64 %292, %297
-  %300 = trunc i64 %.2502 to i32
+  %300 = trunc nsw i64 %.2502 to i32
   %301 = shl nsw i32 %300, 1
   %302 = add nsw i32 %301, 684
   %303 = zext nneg i32 %302 to i64
@@ -5476,7 +5476,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   br label %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 _ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %69
-  %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
+  %storemerge.i.i.i.us = trunc nuw nsw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8
   br label %74
 
@@ -6135,7 +6135,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %216 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.5501, i1 true)
   %217 = trunc nuw nsw i64 %216 to i32
   %218 = shl i64 %.5501, %216
-  %219 = trunc i64 %.2510 to i32
+  %219 = trunc nsw i64 %.2510 to i32
   %220 = shl nsw i32 %219, 1
   %221 = add nsw i32 %220, 684
   %222 = zext nneg i32 %221 to i64
@@ -6256,7 +6256,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %297 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %292, i1 true)
   %298 = trunc nuw nsw i64 %297 to i32
   %299 = shl i64 %292, %297
-  %300 = trunc i64 %.2510 to i32
+  %300 = trunc nsw i64 %.2510 to i32
   %301 = shl nsw i32 %300, 1
   %302 = add nsw i32 %301, 684
   %303 = zext nneg i32 %302 to i64

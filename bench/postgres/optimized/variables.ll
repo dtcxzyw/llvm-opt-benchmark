@@ -198,7 +198,7 @@ define dso_local noundef zeroext i1 @ParseVariableNum(ptr noundef %0, ptr nounde
   br i1 %or.cond13, label %16, label %18
 
 16:                                               ; preds = %10
-  %17 = trunc i64 %7 to i32
+  %17 = trunc nsw i64 %7 to i32
   store i32 %17, ptr %2, align 4
   br label %20
 

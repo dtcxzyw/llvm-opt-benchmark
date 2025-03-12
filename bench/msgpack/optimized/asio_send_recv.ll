@@ -16096,7 +16096,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit27: ; preds = %._cr
   br label %178
 
 56:                                               ; preds = %30
-  %.sroa.0.0.extract.trunc.i = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i = trunc nsw i32 %1 to i8
   %57 = load ptr, ptr %0, align 8, !tbaa !517
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !395
@@ -16161,7 +16161,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE13append_bufferEPKcm.exit39: ; preds = %._cr
   br i1 %80, label %81, label %103
 
 81:                                               ; preds = %79
-  %.sroa.0.0.extract.trunc.i40 = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i40 = trunc nsw i32 %1 to i8
   %82 = load ptr, ptr %0, align 8, !tbaa !517
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i64, ptr %83, align 8, !tbaa !395
@@ -16632,7 +16632,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   br i1 %3, label %4, label %28
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = or disjoint i8 %5, -96
   %7 = load ptr, ptr %0, align 8, !tbaa !517
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16

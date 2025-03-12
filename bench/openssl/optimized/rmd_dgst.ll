@@ -78,7 +78,7 @@ define noundef i32 @RIPEMD160_Update(ptr noundef captures(none) %0, ptr noundef 
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %44 = trunc nuw i64 %.155 to i32
+  %44 = trunc nuw nsw i64 %.155 to i32
   store i32 %44, ptr %19, align 4, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1, i64 %.155, i1 false)
   br label %45

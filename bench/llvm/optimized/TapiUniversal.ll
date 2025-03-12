@@ -207,7 +207,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE12emplace_backIJS3_EEE
   br i1 %.not.i.i.i, label %62, label %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i, !llvm.loop !27
 
 _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i: ; preds = %64
-  %67 = trunc nuw i64 %indvars.iv.next.i.i to i32
+  %67 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %33
 
 "_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10unique_ptrINS_5MachO13InterfaceFileESt14default_deleteIS9_EEEEDaRKT_.exit": ; preds = %.preheader.i.i.i.i, %62
@@ -359,7 +359,7 @@ _ZNSt6vectorIN4llvm6object13TapiUniversal7LibraryESaIS3_EE12emplace_backIJS3_EEE
   br i1 %.not.i.i.i21, label %121, label %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i22, !llvm.loop !27
 
 _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit.i22: ; preds = %123
-  %126 = trunc nuw i64 %indvars.iv.next.i.i20 to i32
+  %126 = trunc nuw nsw i64 %indvars.iv.next.i.i20 to i32
   br label %92
 
 "_ZZN4llvm6object13TapiUniversalC1ENS_15MemoryBufferRefERNS_5ErrorEENK3$_0clISt10shared_ptrINS_5MachO13InterfaceFileEEEEDaRKT_.exit": ; preds = %.preheader.i.i.i.i37, %121

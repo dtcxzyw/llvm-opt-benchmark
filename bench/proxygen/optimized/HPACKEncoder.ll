@@ -1208,7 +1208,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add13.i.i = add i64 %conv, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i = icmp ult i64 %add13.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %add13.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %add13.i.i to i32
   %1 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, 32
   %add15.i = select i1 %cmp.i.i.i.i.i.i, i32 %1, i32 31
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1317,7 +1317,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add13.i.i.i = add i64 %conv.i, %sub.ptr.sub.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %1 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add15.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %1, i32 31
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1532,7 +1532,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %8 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %8 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %8
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -1674,7 +1674,7 @@ entry:
   %conv.i = and i64 %call.i.i, 4294967295
   %add13.i.i.i = add i64 %conv.i, %cond.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %4 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add15.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %4, i32 31
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1814,7 +1814,7 @@ entry:
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %add13.i.i.i = add i64 %conv.i, %sub.ptr.sub.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %1 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add15.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %1, i32 31
   %capacity_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1993,7 +1993,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %4 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %4 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %4
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -2129,7 +2129,7 @@ if.else:                                          ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add13.i.i = add i64 %conv, %sub.ptr.sub.i
   %cmp.i.i.i.i.i.i = icmp ult i64 %add13.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc i64 %add13.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i = trunc nuw i64 %add13.i.i to i32
   %1 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i, 32
   %add15.i = select i1 %cmp.i.i.i.i.i.i, i32 %1, i32 31
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 160

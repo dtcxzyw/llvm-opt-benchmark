@@ -8354,7 +8354,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %61 = load ptr, ptr %3, align 8
-  %62 = trunc i64 %.0.i.i.i.i to i32
+  %62 = trunc nuw i64 %.0.i.i.i.i to i32
   %63 = getelementptr inbounds nuw i32, ptr %60, i64 %.0.i.i.i.i
   %64 = getelementptr inbounds nuw i32, ptr %61, i64 %.0.i.i.i.i
   br label %65

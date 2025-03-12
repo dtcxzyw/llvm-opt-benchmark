@@ -1131,7 +1131,7 @@ define internal fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %2
-  %15 = trunc nuw i32 %spec.store.select to i8
+  %15 = trunc nuw nsw i32 %spec.store.select to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   store i8 %15, ptr %12, align 1, !tbaa !12
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %12, i64 noundef 1)
@@ -1144,7 +1144,7 @@ define internal fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15
 
 18:                                               ; preds = %16
   %19 = lshr i32 %spec.store.select, 6
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
   store i8 %21, ptr %11, align 1, !tbaa !12
@@ -1165,7 +1165,7 @@ define internal fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15
 
 27:                                               ; preds = %25
   %28 = lshr i32 %spec.store.select, 12
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   store i8 %30, ptr %9, align 1, !tbaa !12

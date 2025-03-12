@@ -3067,7 +3067,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance37with
   br i1 %.not, label %31, label %20
 
 20:                                               ; preds = %2
-  %21 = trunc i64 %19 to i32
+  %21 = trunc nuw i64 %19 to i32
   %22 = sub i32 %1, %21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !279)
   %23 = zext i32 %22 to i64
@@ -3228,7 +3228,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance37with
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %4
-  %23 = trunc i64 %21 to i32
+  %23 = trunc nuw i64 %21 to i32
   %24 = sub i32 %1, %23
   %25 = tail call fastcc noundef ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17hbc21fb156fdc10afE"(i32 noundef %2, i32 %3, i32 noundef %24, ptr noundef nonnull align 16 %0)
   br label %99
@@ -3372,7 +3372,7 @@ define hidden noundef nonnull ptr @_ZN16wasmtime_runtime8instance8Instance37with
   br i1 %.not, label %26, label %22
 
 22:                                               ; preds = %4
-  %23 = trunc i64 %21 to i32
+  %23 = trunc nuw i64 %21 to i32
   %24 = sub i32 %1, %23
   %25 = tail call fastcc noundef ptr @"_ZN16wasmtime_runtime8instance8Instance24get_table_with_lazy_init28_$u7b$$u7b$closure$u7d$$u7d$17he9e4a8718c03f083E"(i32 noundef %2, i32 noundef %3, i32 noundef %24, ptr noundef nonnull align 16 %0)
   br label %99
@@ -3517,7 +3517,7 @@ define hidden void @_ZN16wasmtime_runtime8instance8Instance37with_defined_table_
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %4
-  %24 = trunc i64 %22 to i32
+  %24 = trunc nuw i64 %22 to i32
   %25 = sub i32 %2, %24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4

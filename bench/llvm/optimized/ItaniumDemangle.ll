@@ -36605,7 +36605,7 @@ _ZN4llvm16itanium_demangle12OutputBufferpLEc.exit195: ; preds = %.thread246, %._
   br label %284
 
 269:                                              ; preds = %200
-  %270 = trunc i32 %.084.fr.lcssa270 to i8
+  %270 = trunc nuw i32 %.084.fr.lcssa270 to i8
   %271 = load i64, ptr %3, align 8, !tbaa !57
   %272 = add i64 %271, 1
   %273 = load i64, ptr %6, align 8, !tbaa !58

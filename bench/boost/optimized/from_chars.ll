@@ -1951,7 +1951,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %206 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.4130.i292, i1 true)
   %207 = trunc nuw nsw i64 %206 to i32
   %208 = shl i64 %.4130.i292, %206
-  %209 = trunc i64 %.4144.i290 to i32
+  %209 = trunc nsw i64 %.4144.i290 to i32
   %210 = shl nsw i32 %209, 1
   %211 = add nsw i32 %210, 684
   %212 = zext nneg i32 %211 to i64
@@ -2057,7 +2057,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
   %275 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %271, i1 true)
   %276 = trunc nuw nsw i64 %275 to i32
   %277 = shl i64 %271, %275
-  %278 = trunc i64 %.4144.i290 to i32
+  %278 = trunc nsw i64 %.4144.i290 to i32
   %279 = shl nsw i32 %278, 1
   %280 = add nsw i32 %279, 684
   %281 = zext nneg i32 %280 to i64
@@ -4106,7 +4106,7 @@ _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread
   br label %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 _ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %_ZN5boost8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, %69
-  %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
+  %storemerge.i.i.i.us = trunc nuw nsw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !61
   br label %74
 
@@ -5953,7 +5953,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail10fast_float19
   %207 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.4130.i283, i1 true)
   %208 = trunc nuw nsw i64 %207 to i32
   %209 = shl i64 %.4130.i283, %207
-  %210 = trunc i64 %.4144.i281 to i32
+  %210 = trunc nsw i64 %.4144.i281 to i32
   %211 = shl nsw i32 %210, 1
   %212 = add nsw i32 %211, 684
   %213 = zext nneg i32 %212 to i64
@@ -6059,7 +6059,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
   %278 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %273, i1 true)
   %279 = trunc nuw nsw i64 %278 to i32
   %280 = shl i64 %273, %278
-  %281 = trunc i64 %.4144.i281 to i32
+  %281 = trunc nsw i64 %.4144.i281 to i32
   %282 = shl nsw i32 %281, 1
   %283 = add nsw i32 %282, 684
   %284 = zext nneg i32 %283 to i64

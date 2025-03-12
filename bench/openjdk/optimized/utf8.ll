@@ -824,7 +824,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %43
   br i1 %.not21, label %50, label %._crit_edge
 
 50:                                               ; preds = %48
-  %51 = trunc nuw i16 %.025.sink.i to i8
+  %51 = trunc nuw nsw i16 %.025.sink.i to i8
   store i8 %51, ptr %.01822, align 1
   br label %56
 
@@ -1143,7 +1143,7 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr noundef readonly capt
   br i1 %or.cond.i, label %13, label %15
 
 13:                                               ; preds = %12
-  %14 = trunc nuw i16 %7 to i8
+  %14 = trunc nuw nsw i16 %7 to i8
   store i8 %14, ptr %.01316, align 1
   br label %_ZL10utf8_writePht.exit
 
@@ -1152,7 +1152,7 @@ define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr noundef readonly capt
 
 16:                                               ; preds = %15
   %17 = lshr i16 %7, 6
-  %18 = trunc nuw i16 %17 to i8
+  %18 = trunc nuw nsw i16 %17 to i8
   %19 = or disjoint i8 %18, -64
   store i8 %19, ptr %.01316, align 1
   %20 = trunc i16 %7 to i8
@@ -1260,7 +1260,7 @@ define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr noundef readonly cap
   br i1 %or.cond.i, label %8, label %10
 
 8:                                                ; preds = %.lr.ph
-  %9 = trunc nuw i16 %6 to i8
+  %9 = trunc nuw nsw i16 %6 to i8
   store i8 %9, ptr %.067, align 1
   br label %_ZL10utf8_writePht.exit
 
@@ -1270,7 +1270,7 @@ define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr noundef readonly cap
 
 12:                                               ; preds = %10
   %13 = lshr i16 %6, 6
-  %14 = trunc nuw i16 %13 to i8
+  %14 = trunc nuw nsw i16 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %.067, align 1
   %16 = trunc i16 %6 to i8
@@ -1500,7 +1500,7 @@ _ZN7UNICODE11utf8_lengthItEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
   br i1 %or.cond.i.i13, label %22, label %24
 
 22:                                               ; preds = %21
-  %23 = trunc nuw i16 %16 to i8
+  %23 = trunc nuw nsw i16 %16 to i8
   store i8 %23, ptr %.01316.i, align 1
   br label %_ZL10utf8_writePht.exit.i
 
@@ -1509,7 +1509,7 @@ _ZN7UNICODE11utf8_lengthItEEiPKT_i.exit:          ; preds = %.lr.ph.i, %2
 
 25:                                               ; preds = %24
   %26 = lshr i16 %16, 6
-  %27 = trunc nuw i16 %26 to i8
+  %27 = trunc nuw nsw i16 %26 to i8
   %28 = or disjoint i8 %27, -64
   store i8 %28, ptr %.01316.i, align 1
   %29 = trunc i16 %16 to i8
@@ -1683,7 +1683,7 @@ define weak_odr hidden void @_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci(ptr nound
   br i1 %.not24, label %14, label %._crit_edge
 
 14:                                               ; preds = %12
-  %15 = trunc nuw i16 %9 to i8
+  %15 = trunc nuw nsw i16 %9 to i8
   store i8 %15, ptr %.026, align 1
   br label %20
 

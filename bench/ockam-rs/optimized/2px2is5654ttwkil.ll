@@ -19976,8 +19976,8 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.7022646624147239703.exit.th
 20:                                               ; preds = %1, %"_ZN5flume17Hook$LT$T$C$S$GT$8is_empty28_$u7b$$u7b$closure$u7d$$u7d$17hd9196c95cb63f535E.llvm.7022646624147239703.exit"
   %.06 = phi i8 [ %19, %"_ZN5flume17Hook$LT$T$C$S$GT$8is_empty28_$u7b$$u7b$closure$u7d$$u7d$17hd9196c95cb63f535E.llvm.7022646624147239703.exit" ], [ 2, %1 ]
   %21 = icmp eq i8 %.06, 2
-  %22 = trunc i8 %.06 to i1
-  %.0 = or i1 %21, %22
+  %22 = trunc nuw i8 %.06 to i1
+  %.0 = select i1 %21, i1 true, i1 %22
   ret i1 %.0
 }
 

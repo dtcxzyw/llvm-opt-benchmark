@@ -770,7 +770,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
 
 179:                                              ; preds = %170
   %180 = lshr i32 %152, 8
-  %181 = trunc nuw i32 %180 to i8
+  %181 = trunc nuw nsw i32 %180 to i8
   %182 = or disjoint i8 %181, -32
   store i8 %182, ptr %.2193, align 1
   %183 = add i32 %167, -7

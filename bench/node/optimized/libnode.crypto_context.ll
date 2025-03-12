@@ -644,7 +644,7 @@ if.end:                                           ; preds = %if.then
 
 if.end15:                                         ; preds = %if.end
   %6 = load ptr, ptr %bsrc, align 8
-  %conv = trunc nuw i64 %5 to i32
+  %conv = trunc nuw nsw i64 %5 to i32
   %call19 = call i32 @BIO_write(ptr noundef nonnull %call7, ptr noundef %6, i32 noundef %conv) #20
   %cmp20 = icmp sgt i32 %call19, -1
   %conv23 = zext nneg i32 %call19 to i64

@@ -1238,7 +1238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit150.i: ; preds = %
   %430 = select i1 %428, ptr @.str.12, ptr @.str.13
   %431 = add nuw nsw i64 %indvars.iv913.i, 1
   %432 = icmp samesign ugt i64 %indvars.iv913.i, 8
-  %433 = trunc i64 %431 to i8
+  %433 = trunc nuw nsw i64 %431 to i8
   %434 = or disjoint i8 %433, 48
   %435 = shl nuw nsw i64 %431, 1
   %436 = or disjoint i64 %435, 1
@@ -1766,7 +1766,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i193.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit201.i
 
 643:                                              ; preds = %._crit_edge.i.i194.i
-  %644 = trunc nuw i32 %.0.lcssa.i.i195.i to i8
+  %644 = trunc nuw nsw i32 %.0.lcssa.i.i195.i to i8
   %645 = or disjoint i8 %644, 48
   br label %_ZNSt7__cxx119to_stringEi.exit201.i
 
@@ -1953,7 +1953,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i226.i: ; preds = %_ZNKSt7__cxx1112b
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i229.i: ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i226.i
   %710 = load ptr, ptr %35, align 8, !tbaa !40, !alias.scope !127, !noalias !51
-  %711 = trunc nuw i32 %.061890.i to i8
+  %711 = trunc nuw nsw i32 %.061890.i to i8
   %712 = or disjoint i8 %711, 48
   store i8 %712, ptr %710, align 1, !tbaa !36
   call void @llvm.experimental.noalias.scope.decl(metadata !130)

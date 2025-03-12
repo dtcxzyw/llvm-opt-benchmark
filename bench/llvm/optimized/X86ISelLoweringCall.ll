@@ -10316,7 +10316,7 @@ _ZN4llvm11SmallVectorImLj4EED2Ev.exit:            ; preds = %_ZN4llvm22X86Machin
 .lr.ph:                                           ; preds = %301, %357
   %.08451507 = phi i64 [ %358, %357 ], [ 0, %301 ]
   %336 = load ptr, ptr %93, align 8, !tbaa !844
-  %337 = trunc i64 %.08451507 to i32
+  %337 = trunc nuw i64 %.08451507 to i32
   %338 = call noundef zeroext i1 @_ZNK4llvm8CallBase12paramHasAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %336, i32 noundef %337, i32 noundef 84) #24
   br i1 %338, label %339, label %357
 

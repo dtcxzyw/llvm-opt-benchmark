@@ -1857,7 +1857,7 @@ lj_buf_more.exit626:                              ; preds = %853, %842, %818
 
 991:                                              ; preds = %986
   %992 = xor i32 %.4460, -1
-  %993 = trunc nsw i32 %.4460 to i16
+  %993 = trunc nuw nsw i32 %.4460 to i16
   %.lhs.trunc881 = add nuw nsw i16 %993, 9
   %994 = udiv i16 %.lhs.trunc881, 9
   %.zext882 = zext nneg i16 %994 to i32

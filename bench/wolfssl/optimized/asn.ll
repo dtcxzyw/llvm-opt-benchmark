@@ -3242,7 +3242,7 @@ BytePrecision.exit:                               ; preds = %10, %.preheader, %4
   %20 = zext i32 %5 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
   store i8 2, ptr %21, align 1, !tbaa !3
-  %22 = trunc i32 %.024 to i8
+  %22 = trunc nsw i32 %.024 to i8
   %23 = zext i32 %19 to i64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 %23
   store i8 %22, ptr %24, align 1, !tbaa !3
@@ -6190,7 +6190,7 @@ BytePrecision.exit.i346:                          ; preds = %245, %.preheader.i3
   %255 = zext i32 %239 to i64
   %256 = getelementptr inbounds nuw i8, ptr %2, i64 %255
   store i8 2, ptr %256, align 1, !tbaa !3
-  %257 = trunc i32 %.024.i to i8
+  %257 = trunc nsw i32 %.024.i to i8
   %258 = zext i32 %254 to i64
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 %258
   store i8 %257, ptr %259, align 1, !tbaa !3

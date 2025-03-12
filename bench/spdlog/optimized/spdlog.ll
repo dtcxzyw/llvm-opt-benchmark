@@ -24768,7 +24768,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %28, %32
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 62:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %63 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %63 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   %65 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %66 = zext i32 %65 to i64
@@ -24882,7 +24882,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit54: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i, label %112, label %137
 
 112:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit54
-  %.lhs.trunc.i = trunc nuw i32 %111 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %111 to i8
   %113 = udiv i8 %.lhs.trunc.i, 10
   %114 = urem i8 %.lhs.trunc.i, 10
   %115 = or disjoint i8 %113, 48
@@ -24986,7 +24986,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit59: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i60, label %156, label %181
 
 156:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit59
-  %.lhs.trunc.i63 = trunc nuw i32 %155 to i8
+  %.lhs.trunc.i63 = trunc nuw nsw i32 %155 to i8
   %157 = udiv i8 %.lhs.trunc.i63, 10
   %158 = urem i8 %.lhs.trunc.i63, 10
   %159 = or disjoint i8 %157, 48
@@ -25090,7 +25090,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit76: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i77, label %200, label %225
 
 200:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit76
-  %.lhs.trunc.i80 = trunc nuw i32 %199 to i8
+  %.lhs.trunc.i80 = trunc nuw nsw i32 %199 to i8
   %201 = udiv i8 %.lhs.trunc.i80, 10
   %202 = urem i8 %.lhs.trunc.i80, 10
   %203 = or disjoint i8 %201, 48
@@ -25194,7 +25194,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit93: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i94, label %244, label %269
 
 244:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit93
-  %.lhs.trunc.i97 = trunc nuw i32 %243 to i8
+  %.lhs.trunc.i97 = trunc nuw nsw i32 %243 to i8
   %245 = udiv i8 %.lhs.trunc.i97, 10
   %246 = urem i8 %.lhs.trunc.i97, 10
   %247 = or disjoint i8 %245, 48
@@ -25297,7 +25297,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit110: ; preds = %_ZN6spdlog7detail
   br i1 %or.cond.i111, label %287, label %312
 
 287:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit110
-  %.lhs.trunc.i114 = trunc nuw i32 %286 to i8
+  %.lhs.trunc.i114 = trunc nuw nsw i32 %286 to i8
   %288 = udiv i8 %.lhs.trunc.i114, 10
   %289 = urem i8 %.lhs.trunc.i114, 10
   %290 = or disjoint i8 %288, 48
@@ -25938,7 +25938,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit229: ; preds = %_ZN6spdlog7detail
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i234
 
 581:                                              ; preds = %._crit_edge.i.i.i.i.i231
-  %582 = trunc nuw i32 %.018.lcssa.i.i.i.i.i232 to i8
+  %582 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i232 to i8
   %583 = or disjoint i8 %582, 48
   %584 = add i32 %.0.lcssa.i.i.i.i.i233, -1
   %585 = zext i32 %584 to i64
@@ -26612,10 +26612,10 @@ define linkonce_odr dso_local void @_ZN6spdlog7details10fmt_helper4pad3IjEEvT_RN
   br i1 %4, label %5, label %46
 
 5:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %6 = udiv i16 %.lhs.trunc, 100
   %7 = urem i16 %.lhs.trunc, 100
-  %8 = trunc nuw i16 %6 to i8
+  %8 = trunc nuw nsw i16 %6 to i8
   %9 = or disjoint i8 %8, 48
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !25
@@ -26725,7 +26725,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit16: ; preds = %_ZN3fmt3v116detail
   br label %_ZN3fmt3v1110format_intC2Ej.exit.i
 
 66:                                               ; preds = %._crit_edge.i.i.i.i
-  %67 = trunc nuw i32 %55 to i8
+  %67 = trunc nuw nsw i32 %55 to i8
   %68 = or disjoint i8 %67, 48
   %69 = add i32 %.020.i.i.i.i, -3
   %70 = zext i32 %69 to i64
@@ -28554,7 +28554,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_13scoped
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %41 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %42 = or disjoint i8 %41, 48
   %43 = add i32 %.0.lcssa.i.i.i.i, -1
   %44 = zext i32 %43 to i64
@@ -30126,7 +30126,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 124:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %125 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %125 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %126 = or disjoint i8 %125, 48
   %127 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %128 = zext i32 %127 to i64
@@ -30245,7 +30245,7 @@ _ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i53: ; preds = %.noexc65, %14
   br i1 %or.cond.i, label %174, label %199
 
 174:                                              ; preds = %168
-  %.lhs.trunc.i = trunc nuw i32 %173 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %173 to i8
   %175 = udiv i8 %.lhs.trunc.i, 10
   %176 = urem i8 %.lhs.trunc.i, 10
   %177 = or disjoint i8 %175, 48
@@ -30364,7 +30364,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i81, label %219, label %244
 
 219:                                              ; preds = %213
-  %.lhs.trunc.i84 = trunc nuw i32 %218 to i8
+  %.lhs.trunc.i84 = trunc nuw nsw i32 %218 to i8
   %220 = udiv i8 %.lhs.trunc.i84, 10
   %221 = urem i8 %.lhs.trunc.i84, 10
   %222 = or disjoint i8 %220, 48
@@ -30482,7 +30482,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i103, label %263, label %288
 
 263:                                              ; preds = %258
-  %.lhs.trunc.i106 = trunc nuw i32 %262 to i8
+  %.lhs.trunc.i106 = trunc nuw nsw i32 %262 to i8
   %264 = udiv i8 %.lhs.trunc.i106, 10
   %265 = urem i8 %.lhs.trunc.i106, 10
   %266 = or disjoint i8 %264, 48
@@ -30638,7 +30638,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i129
 
 330:                                              ; preds = %._crit_edge.i.i.i.i.i126
-  %331 = trunc nuw i32 %.018.lcssa.i.i.i.i.i127 to i8
+  %331 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i127 to i8
   %332 = or disjoint i8 %331, 48
   %333 = add i32 %.0.lcssa.i.i.i.i.i128, -1
   %334 = zext i32 %333 to i64
@@ -31221,7 +31221,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11Y_formatterINS0_13scoped
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 32:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %33 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %33 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %34 = or disjoint i8 %33, 48
   %35 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %36 = zext i32 %35 to i64
@@ -31473,7 +31473,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11D_formatterINS0_13scoped
   br i1 %or.cond.i, label %16, label %43
 
 16:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %15 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %15 to i8
   %17 = udiv i8 %.lhs.trunc.i, 10
   %18 = urem i8 %.lhs.trunc.i, 10
   %19 = or disjoint i8 %17, 48
@@ -31596,7 +31596,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i17, label %65, label %90
 
 65:                                               ; preds = %59
-  %.lhs.trunc.i20 = trunc nuw i32 %64 to i8
+  %.lhs.trunc.i20 = trunc nuw nsw i32 %64 to i8
   %66 = udiv i8 %.lhs.trunc.i20, 10
   %67 = urem i8 %.lhs.trunc.i20, 10
   %68 = or disjoint i8 %66, 48
@@ -31976,7 +31976,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11m_formatterINS0_13scoped
   br i1 %or.cond.i, label %12, label %39
 
 12:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %11 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %11 to i8
   %13 = udiv i8 %.lhs.trunc.i, 10
   %14 = urem i8 %.lhs.trunc.i, 10
   %15 = or disjoint i8 %13, 48
@@ -32223,7 +32223,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11d_formatterINS0_13scoped
   br i1 %or.cond.i, label %11, label %38
 
 11:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %10 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %10 to i8
   %12 = udiv i8 %.lhs.trunc.i, 10
   %13 = urem i8 %.lhs.trunc.i, 10
   %14 = or disjoint i8 %12, 48
@@ -32470,7 +32470,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11H_formatterINS0_13scoped
   br i1 %or.cond.i, label %11, label %38
 
 11:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %10 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %10 to i8
   %12 = udiv i8 %.lhs.trunc.i, 10
   %13 = urem i8 %.lhs.trunc.i, 10
   %14 = or disjoint i8 %12, 48
@@ -32720,7 +32720,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11I_formatterINS0_13scoped
   br i1 %or.cond.i, label %13, label %40
 
 13:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %12 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %12 to i8
   %14 = udiv i8 %.lhs.trunc.i, 10
   %15 = urem i8 %.lhs.trunc.i, 10
   %16 = or disjoint i8 %14, 48
@@ -32967,7 +32967,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11M_formatterINS0_13scoped
   br i1 %or.cond.i, label %11, label %38
 
 11:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %10 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %10 to i8
   %12 = udiv i8 %.lhs.trunc.i, 10
   %13 = urem i8 %.lhs.trunc.i, 10
   %14 = or disjoint i8 %12, 48
@@ -33213,7 +33213,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11S_formatterINS0_13scoped
   br i1 %or.cond.i, label %10, label %37
 
 10:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %9 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %9 to i8
   %11 = udiv i8 %.lhs.trunc.i, 10
   %12 = urem i8 %.lhs.trunc.i, 10
   %13 = or disjoint i8 %11, 48
@@ -33818,7 +33818,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details10fmt_helper8pad_uintImEEv
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 38:                                               ; preds = %._crit_edge.i.i.i.i
-  %39 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %39 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %40 = or disjoint i8 %39, 48
   %41 = add i32 %.0.lcssa.i.i.i.i, -1
   %42 = zext i32 %41 to i64
@@ -34136,7 +34136,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11E_formatterINS0_13scoped
   br label %_ZN3fmt3v1110format_int15format_unsignedImEEPcT_.exit.i.i.i
 
 29:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %30 = trunc nuw i64 %.018.lcssa.i.i.i.i.i to i8
+  %30 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i.i to i8
   %31 = or disjoint i8 %30, 48
   %32 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %33 = zext i32 %32 to i64
@@ -34604,7 +34604,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11r_formatterINS0_13scoped
   br i1 %or.cond.i, label %17, label %44
 
 17:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %16 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %16 to i8
   %18 = udiv i8 %.lhs.trunc.i, 10
   %19 = urem i8 %.lhs.trunc.i, 10
   %20 = or disjoint i8 %18, 48
@@ -34727,7 +34727,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i21, label %66, label %91
 
 66:                                               ; preds = %60
-  %.lhs.trunc.i24 = trunc nuw i32 %65 to i8
+  %.lhs.trunc.i24 = trunc nuw nsw i32 %65 to i8
   %67 = udiv i8 %.lhs.trunc.i24, 10
   %68 = urem i8 %.lhs.trunc.i24, 10
   %69 = or disjoint i8 %67, 48
@@ -34845,7 +34845,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i43, label %110, label %135
 
 110:                                              ; preds = %105
-  %.lhs.trunc.i46 = trunc nuw i32 %109 to i8
+  %.lhs.trunc.i46 = trunc nuw nsw i32 %109 to i8
   %111 = udiv i8 %.lhs.trunc.i46, 10
   %112 = urem i8 %.lhs.trunc.i46, 10
   %113 = or disjoint i8 %111, 48
@@ -35202,7 +35202,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11R_formatterINS0_13scoped
   br i1 %or.cond.i, label %13, label %40
 
 13:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %12 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %12 to i8
   %14 = udiv i8 %.lhs.trunc.i, 10
   %15 = urem i8 %.lhs.trunc.i, 10
   %16 = or disjoint i8 %14, 48
@@ -35325,7 +35325,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i14, label %62, label %87
 
 62:                                               ; preds = %56
-  %.lhs.trunc.i17 = trunc nuw i32 %61 to i8
+  %.lhs.trunc.i17 = trunc nuw nsw i32 %61 to i8
   %63 = udiv i8 %.lhs.trunc.i17, 10
   %64 = urem i8 %.lhs.trunc.i17, 10
   %65 = or disjoint i8 %63, 48
@@ -35583,7 +35583,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11T_formatterINS0_13scoped
   br i1 %or.cond.i, label %15, label %42
 
 15:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %14 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %14 to i8
   %16 = udiv i8 %.lhs.trunc.i, 10
   %17 = urem i8 %.lhs.trunc.i, 10
   %18 = or disjoint i8 %16, 48
@@ -35706,7 +35706,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i17, label %64, label %89
 
 64:                                               ; preds = %58
-  %.lhs.trunc.i20 = trunc nuw i32 %63 to i8
+  %.lhs.trunc.i20 = trunc nuw nsw i32 %63 to i8
   %65 = udiv i8 %.lhs.trunc.i20, 10
   %66 = urem i8 %.lhs.trunc.i20, 10
   %67 = or disjoint i8 %65, 48
@@ -35824,7 +35824,7 @@ _ZN6spdlog7details10fmt_helper4pad2EiRN3fmt3v1119basic_memory_bufferIcLm250ENS3_
   br i1 %or.cond.i39, label %108, label %133
 
 108:                                              ; preds = %103
-  %.lhs.trunc.i42 = trunc nuw i32 %107 to i8
+  %.lhs.trunc.i42 = trunc nuw nsw i32 %107 to i8
   %109 = udiv i8 %.lhs.trunc.i42, 10
   %110 = urem i8 %.lhs.trunc.i42, 10
   %111 = or disjoint i8 %109, 48
@@ -36176,7 +36176,7 @@ _ZN6spdlog7details11z_formatterINS0_13scoped_padderEE17get_cached_offsetERKNS0_7
   br i1 %or.cond.i, label %51, label %78
 
 51:                                               ; preds = %48
-  %.lhs.trunc.i = trunc nuw i32 %49 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %49 to i8
   %52 = udiv i8 %.lhs.trunc.i, 10
   %53 = urem i8 %.lhs.trunc.i, 10
   %54 = or disjoint i8 %52, 48
@@ -36552,7 +36552,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_13scop
   br label %_ZN3fmt3v1110format_intC2Ej.exit.i
 
 38:                                               ; preds = %._crit_edge.i.i.i.i
-  %39 = trunc nuw i32 %.018.lcssa.i.i.i.i to i8
+  %39 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i to i8
   %40 = or disjoint i8 %39, 48
   %41 = add i32 %.0.lcssa.i.i.i.i, -1
   %42 = zext i32 %41 to i64
@@ -37115,7 +37115,7 @@ _ZN6spdlog7details10fmt_helper18append_string_viewEN3fmt3v1117basic_string_viewI
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 152:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %153 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %153 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %154 = or disjoint i8 %153, 48
   %155 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %156 = zext i32 %155 to i64
@@ -38302,7 +38302,7 @@ _ZN6spdlog7details13scoped_padderD2Ev.exit:       ; preds = %._crit_edge.i.i.i.i
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 101:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %102 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %102 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %103 = or disjoint i8 %102, 48
   %104 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %105 = zext i32 %104 to i64
@@ -39007,7 +39007,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %41 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %42 = or disjoint i8 %41, 48
   %43 = add i32 %.0.lcssa.i.i.i.i, -1
   %44 = zext i32 %43 to i64
@@ -39294,7 +39294,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 41:                                               ; preds = %._crit_edge.i.i.i.i
-  %42 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %42 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %43 = or disjoint i8 %42, 48
   %44 = add i32 %.0.lcssa.i.i.i.i, -1
   %45 = zext i32 %44 to i64
@@ -39581,7 +39581,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 41:                                               ; preds = %._crit_edge.i.i.i.i
-  %42 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %42 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %43 = or disjoint i8 %42, 48
   %44 = add i32 %.0.lcssa.i.i.i.i, -1
   %45 = zext i32 %44 to i64
@@ -39868,7 +39868,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_13
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 41:                                               ; preds = %._crit_edge.i.i.i.i
-  %42 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %42 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %43 = or disjoint i8 %42, 48
   %44 = add i32 %.0.lcssa.i.i.i.i, -1
   %45 = zext i32 %44 to i64
@@ -41039,7 +41039,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11t_formatterINS0_18null_s
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 26:                                               ; preds = %._crit_edge.i.i.i.i
-  %27 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %27 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %28 = or disjoint i8 %27, 48
   %29 = add i32 %.0.lcssa.i.i.i.i, -1
   %30 = zext i32 %29 to i64
@@ -41755,7 +41755,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit42: ; preds = %_ZN6spdlog7details
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 120:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %121 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %121 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %122 = or disjoint i8 %121, 48
   %123 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %124 = zext i32 %123 to i64
@@ -41868,7 +41868,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit62: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i, label %169, label %194
 
 169:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit62
-  %.lhs.trunc.i = trunc nuw i32 %168 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %168 to i8
   %170 = udiv i8 %.lhs.trunc.i, 10
   %171 = urem i8 %.lhs.trunc.i, 10
   %172 = or disjoint i8 %170, 48
@@ -41972,7 +41972,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit67: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i68, label %213, label %238
 
 213:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit67
-  %.lhs.trunc.i71 = trunc nuw i32 %212 to i8
+  %.lhs.trunc.i71 = trunc nuw nsw i32 %212 to i8
   %214 = udiv i8 %.lhs.trunc.i71, 10
   %215 = urem i8 %.lhs.trunc.i71, 10
   %216 = or disjoint i8 %214, 48
@@ -42075,7 +42075,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit84: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i85, label %256, label %281
 
 256:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit84
-  %.lhs.trunc.i88 = trunc nuw i32 %255 to i8
+  %.lhs.trunc.i88 = trunc nuw nsw i32 %255 to i8
   %257 = udiv i8 %.lhs.trunc.i88, 10
   %258 = urem i8 %.lhs.trunc.i88, 10
   %259 = or disjoint i8 %257, 48
@@ -42216,7 +42216,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit101: ; preds = %_ZN6spdlog7detail
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i106
 
 322:                                              ; preds = %._crit_edge.i.i.i.i.i103
-  %323 = trunc nuw i32 %.018.lcssa.i.i.i.i.i104 to i8
+  %323 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i104 to i8
   %324 = or disjoint i8 %323, 48
   %325 = add i32 %.0.lcssa.i.i.i.i.i105, -1
   %326 = zext i32 %325 to i64
@@ -42456,7 +42456,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11Y_formatterINS0_18null_s
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 30:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %31 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %31 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %32 = or disjoint i8 %31, 48
   %33 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %34 = zext i32 %33 to i64
@@ -42568,7 +42568,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11D_formatterINS0_18null_s
   br i1 %or.cond.i, label %14, label %41
 
 14:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %13 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %13 to i8
   %15 = udiv i8 %.lhs.trunc.i, 10
   %16 = urem i8 %.lhs.trunc.i, 10
   %17 = or disjoint i8 %15, 48
@@ -42676,7 +42676,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   br i1 %or.cond.i10, label %62, label %87
 
 62:                                               ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit
-  %.lhs.trunc.i13 = trunc nuw i32 %61 to i8
+  %.lhs.trunc.i13 = trunc nuw nsw i32 %61 to i8
   %63 = udiv i8 %.lhs.trunc.i13, 10
   %64 = urem i8 %.lhs.trunc.i13, 10
   %65 = or disjoint i8 %63, 48
@@ -42878,7 +42878,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11m_formatterINS0_18null_s
   br i1 %or.cond.i, label %10, label %37
 
 10:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %9 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %9 to i8
   %11 = udiv i8 %.lhs.trunc.i, 10
   %12 = urem i8 %.lhs.trunc.i, 10
   %13 = or disjoint i8 %11, 48
@@ -42976,7 +42976,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11d_formatterINS0_18null_s
   br i1 %or.cond.i, label %9, label %36
 
 9:                                                ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %8 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %8 to i8
   %10 = udiv i8 %.lhs.trunc.i, 10
   %11 = urem i8 %.lhs.trunc.i, 10
   %12 = or disjoint i8 %10, 48
@@ -43074,7 +43074,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11H_formatterINS0_18null_s
   br i1 %or.cond.i, label %9, label %36
 
 9:                                                ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %8 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %8 to i8
   %10 = udiv i8 %.lhs.trunc.i, 10
   %11 = urem i8 %.lhs.trunc.i, 10
   %12 = or disjoint i8 %10, 48
@@ -43175,7 +43175,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11I_formatterINS0_18null_s
   br i1 %or.cond.i, label %11, label %38
 
 11:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %10 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %10 to i8
   %12 = udiv i8 %.lhs.trunc.i, 10
   %13 = urem i8 %.lhs.trunc.i, 10
   %14 = or disjoint i8 %12, 48
@@ -43273,7 +43273,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11M_formatterINS0_18null_s
   br i1 %or.cond.i, label %9, label %36
 
 9:                                                ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %8 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %8 to i8
   %10 = udiv i8 %.lhs.trunc.i, 10
   %11 = urem i8 %.lhs.trunc.i, 10
   %12 = or disjoint i8 %10, 48
@@ -43370,7 +43370,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11S_formatterINS0_18null_s
   br i1 %or.cond.i, label %8, label %35
 
 8:                                                ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %7 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %7 to i8
   %9 = udiv i8 %.lhs.trunc.i, 10
   %10 = urem i8 %.lhs.trunc.i, 10
   %11 = or disjoint i8 %9, 48
@@ -43555,7 +43555,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11E_formatterINS0_18null_s
   br label %_ZN3fmt3v1110format_int15format_unsignedImEEPcT_.exit.i.i.i
 
 27:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %28 = trunc nuw i64 %.018.lcssa.i.i.i.i.i to i8
+  %28 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i.i to i8
   %29 = or disjoint i8 %28, 48
   %30 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %31 = zext i32 %30 to i64
@@ -43743,7 +43743,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11r_formatterINS0_18null_s
   br i1 %or.cond.i, label %15, label %42
 
 15:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %14 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %14 to i8
   %16 = udiv i8 %.lhs.trunc.i, 10
   %17 = urem i8 %.lhs.trunc.i, 10
   %18 = or disjoint i8 %16, 48
@@ -43851,7 +43851,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   br i1 %or.cond.i14, label %63, label %88
 
 63:                                               ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit
-  %.lhs.trunc.i17 = trunc nuw i32 %62 to i8
+  %.lhs.trunc.i17 = trunc nuw nsw i32 %62 to i8
   %64 = udiv i8 %.lhs.trunc.i17, 10
   %65 = urem i8 %.lhs.trunc.i17, 10
   %66 = or disjoint i8 %64, 48
@@ -43954,7 +43954,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit30: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i31, label %106, label %131
 
 106:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit30
-  %.lhs.trunc.i34 = trunc nuw i32 %105 to i8
+  %.lhs.trunc.i34 = trunc nuw nsw i32 %105 to i8
   %107 = udiv i8 %.lhs.trunc.i34, 10
   %108 = urem i8 %.lhs.trunc.i34, 10
   %109 = or disjoint i8 %107, 48
@@ -44132,7 +44132,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11R_formatterINS0_18null_s
   br i1 %or.cond.i, label %11, label %38
 
 11:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %10 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %10 to i8
   %12 = udiv i8 %.lhs.trunc.i, 10
   %13 = urem i8 %.lhs.trunc.i, 10
   %14 = or disjoint i8 %12, 48
@@ -44240,7 +44240,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   br i1 %or.cond.i7, label %59, label %84
 
 59:                                               ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit
-  %.lhs.trunc.i10 = trunc nuw i32 %58 to i8
+  %.lhs.trunc.i10 = trunc nuw nsw i32 %58 to i8
   %60 = udiv i8 %.lhs.trunc.i10, 10
   %61 = urem i8 %.lhs.trunc.i10, 10
   %62 = or disjoint i8 %60, 48
@@ -44340,7 +44340,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details11T_formatterINS0_18null_s
   br i1 %or.cond.i, label %13, label %40
 
 13:                                               ; preds = %4
-  %.lhs.trunc.i = trunc nuw i32 %12 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %12 to i8
   %14 = udiv i8 %.lhs.trunc.i, 10
   %15 = urem i8 %.lhs.trunc.i, 10
   %16 = or disjoint i8 %14, 48
@@ -44448,7 +44448,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   br i1 %or.cond.i10, label %61, label %86
 
 61:                                               ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit
-  %.lhs.trunc.i13 = trunc nuw i32 %60 to i8
+  %.lhs.trunc.i13 = trunc nuw nsw i32 %60 to i8
   %62 = udiv i8 %.lhs.trunc.i13, 10
   %63 = urem i8 %.lhs.trunc.i13, 10
   %64 = or disjoint i8 %62, 48
@@ -44551,7 +44551,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit26: ; preds = %_ZN6spdlog7details
   br i1 %or.cond.i27, label %104, label %129
 
 104:                                              ; preds = %_ZN3fmt3v116detail6bufferIcE9push_backERKc.exit26
-  %.lhs.trunc.i30 = trunc nuw i32 %103 to i8
+  %.lhs.trunc.i30 = trunc nuw nsw i32 %103 to i8
   %105 = udiv i8 %.lhs.trunc.i30, 10
   %106 = urem i8 %.lhs.trunc.i30, 10
   %107 = or disjoint i8 %105, 48
@@ -44730,7 +44730,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit18: ; preds = %33, %40
   br i1 %or.cond.i, label %49, label %76
 
 49:                                               ; preds = %46
-  %.lhs.trunc.i = trunc nuw i32 %47 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %47 to i8
   %50 = udiv i8 %.lhs.trunc.i, 10
   %51 = urem i8 %.lhs.trunc.i, 10
   %52 = or disjoint i8 %50, 48
@@ -44930,7 +44930,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details13pid_formatterINS0_18null
   br label %_ZN3fmt3v1110format_intC2Ej.exit.i
 
 27:                                               ; preds = %._crit_edge.i.i.i.i
-  %28 = trunc nuw i32 %.018.lcssa.i.i.i.i to i8
+  %28 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i to i8
   %29 = or disjoint i8 %28, 48
   %30 = add i32 %.0.lcssa.i.i.i.i, -1
   %31 = zext i32 %30 to i64
@@ -45161,7 +45161,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit:  ; preds = %_ZN6spdlog7details1
   br label %_ZN3fmt3v1110format_int15format_unsignedIjEEPcT_.exit.i.i.i
 
 73:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %74 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %74 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %75 = or disjoint i8 %74, 48
   %76 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %77 = zext i32 %76 to i64
@@ -45474,7 +45474,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details24source_linenum_formatter
   br label %_ZN3fmt3v1110format_intC2Ei.exit.i
 
 30:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %31 = trunc nuw i32 %.018.lcssa.i.i.i.i.i to i8
+  %31 = trunc nuw nsw i32 %.018.lcssa.i.i.i.i.i to i8
   %32 = or disjoint i8 %31, 48
   %33 = add i32 %.0.lcssa.i.i.i.i.i, -1
   %34 = zext i32 %33 to i64
@@ -45693,7 +45693,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 27:                                               ; preds = %._crit_edge.i.i.i.i
-  %28 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %28 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %29 = or disjoint i8 %28, 48
   %30 = add i32 %.0.lcssa.i.i.i.i, -1
   %31 = zext i32 %30 to i64
@@ -45828,7 +45828,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 28:                                               ; preds = %._crit_edge.i.i.i.i
-  %29 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %29 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %30 = or disjoint i8 %29, 48
   %31 = add i32 %.0.lcssa.i.i.i.i, -1
   %32 = zext i32 %31 to i64
@@ -45963,7 +45963,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 28:                                               ; preds = %._crit_edge.i.i.i.i
-  %29 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %29 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %30 = or disjoint i8 %29, 48
   %31 = add i32 %.0.lcssa.i.i.i.i, -1
   %32 = zext i32 %31 to i64
@@ -46103,7 +46103,7 @@ define linkonce_odr dso_local void @_ZN6spdlog7details17elapsed_formatterINS0_18
   br label %_ZN3fmt3v1110format_intC2Em.exit.i
 
 28:                                               ; preds = %._crit_edge.i.i.i.i
-  %29 = trunc nuw i64 %.018.lcssa.i.i.i.i to i8
+  %29 = trunc nuw nsw i64 %.018.lcssa.i.i.i.i to i8
   %30 = or disjoint i8 %29, 48
   %31 = add i32 %.0.lcssa.i.i.i.i, -1
   %32 = zext i32 %31 to i64

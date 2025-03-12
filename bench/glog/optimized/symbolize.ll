@@ -2098,7 +2098,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread: ; preds
   br label %.loopexit24
 
 .loopexit:                                        ; preds = %69, %.preheader
-  %72 = trunc i64 %24 to i32
+  %72 = trunc nuw i64 %24 to i32
   %73 = add i32 %.05133, %72
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %7) #20
   %74 = zext i32 %73 to i64

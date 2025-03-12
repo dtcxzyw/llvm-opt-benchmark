@@ -2338,7 +2338,7 @@ fw_cfg_bootsplash.exit:                           ; preds = %39, %46, %63, %.cri
 
 fw_cfg_reboot.exit:                               ; preds = %fw_cfg_bootsplash.exit, %70
   %.0.i = phi i64 [ %72, %70 ], [ -1, %fw_cfg_bootsplash.exit ]
-  %75 = trunc i64 %.0.i to i32
+  %75 = trunc nsw i64 %.0.i to i32
   store i32 %75, ptr %3, align 4
   %76 = call dereferenceable_or_null(4) ptr @g_memdup(ptr noundef nonnull %3, i32 noundef 4) #21
   call void @fw_cfg_add_file_callback(ptr noundef %8, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %76, i64 noundef 4, i1 noundef zeroext true)

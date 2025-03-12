@@ -1266,7 +1266,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %or.cond88.i, label %420, label %423
 
 420:                                              ; preds = %417
-  %421 = trunc i64 %415 to i32
+  %421 = trunc nuw nsw i64 %415 to i32
   %422 = add nuw nsw i32 %421, 1
   store i32 %422, ptr %411, align 4
   %.pre.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 64), align 8
@@ -1281,7 +1281,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .sink.split.i:                                    ; preds = %423
   %427 = sext i32 %424 to i64
   %428 = icmp slt i64 %425, %427
-  %429 = trunc i64 %425 to i32
+  %429 = trunc nuw nsw i64 %425 to i32
   %430 = sub i32 %424, %429
   %.sink.i = select i1 %428, i32 %430, i32 0
   store i32 %.sink.i, ptr %411, align 4

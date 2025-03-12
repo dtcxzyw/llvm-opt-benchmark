@@ -129,7 +129,7 @@ define hidden noundef range(i32 0, 64) i32 @_Z11uint64_log2m(i64 noundef %0) loc
   %11 = or i32 %.3, 2
   %.423 = select i1 %.not27, i64 %.322, i64 %10
   %.4 = select i1 %.not27, i32 %.3, i32 %11
-  %12 = trunc i64 %.423 to i32
+  %12 = trunc nuw nsw i64 %.423 to i32
   %13 = lshr i32 %12, 1
   %14 = and i32 %13, 1
   %.5 = or i32 %14, %.4

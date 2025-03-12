@@ -45982,7 +45982,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i: ; preds = %35, %31
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %.lr.ph.preheader.i.i.i, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i.i
-  %40 = trunc i64 %32 to i32
+  %40 = trunc nuw i64 %32 to i32
   store i32 %40, ptr %14, align 8, !tbaa !246
   br label %_ZN4llvm4yaml15IsResizableBaseINS_11SmallVectorIiLj2EEELb1EE7elementERNS0_2IOERS3_m.exit
 

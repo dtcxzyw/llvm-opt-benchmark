@@ -2734,7 +2734,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %4, %11
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 6
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -64
   %24 = trunc i32 %0 to i8
   %25 = and i8 %24, 63
@@ -2788,7 +2788,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit37: ; preds = %_ZN4llvm
 
 50:                                               ; preds = %48
   %51 = lshr i32 %0, 12
-  %52 = trunc nuw i32 %51 to i8
+  %52 = trunc nuw nsw i32 %51 to i8
   %53 = or disjoint i8 %52, -32
   %54 = lshr i32 %0, 6
   %55 = trunc i32 %54 to i8
@@ -2865,7 +2865,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit46: ; preds = %_ZN4llvm
 
 93:                                               ; preds = %91
   %94 = lshr i32 %0, 18
-  %95 = trunc nuw i32 %94 to i8
+  %95 = trunc nuw nsw i32 %94 to i8
   %96 = or disjoint i8 %95, -16
   %97 = lshr i32 %0, 12
   %98 = trunc i32 %97 to i8

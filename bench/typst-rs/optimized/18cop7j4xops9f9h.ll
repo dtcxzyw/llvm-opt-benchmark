@@ -154,14 +154,14 @@ define internal fastcc void @_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE(
 
 12:                                               ; preds = %7
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %5, align 4, !alias.scope !17
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 16:                                               ; preds = %9
   %17 = lshr i32 %1, 12
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -32
   store i8 %19, ptr %5, align 4, !alias.scope !17
   %20 = lshr i32 %1, 6
@@ -201,7 +201,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %12, 
   br label %_ZN4ecow7dynamic10DynamicVec4push17h5dfa790286aa0757E.exit
 
 .critedge:                                        ; preds = %2
-  %41 = trunc nuw i32 %1 to i8
+  %41 = trunc nuw nsw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %43 = load i8, ptr %42, align 1, !alias.scope !20, !noundef !15

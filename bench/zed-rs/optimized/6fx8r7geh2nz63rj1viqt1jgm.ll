@@ -1405,7 +1405,7 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
 
 205:                                              ; preds = %198
   %206 = ptrtoint ptr %.sroa.5365.0.copyload.i to i64
-  %.sroa.68.sroa.0.0.extract.trunc154 = trunc nuw i64 %.sroa.6.0.copyload.i to i8
+  %.sroa.68.sroa.0.0.extract.trunc154 = trunc nuw nsw i64 %.sroa.6.0.copyload.i to i8
   br label %254
 
 207:                                              ; preds = %199
@@ -1492,7 +1492,7 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
 
 214:                                              ; preds = %202
   %215 = ptrtoint ptr %.sroa.5365.0.copyload.i to i64
-  %.sroa.68.sroa.0.0.extract.trunc152 = trunc nuw i64 %.sroa.6.0.copyload.i to i8
+  %.sroa.68.sroa.0.0.extract.trunc152 = trunc nuw nsw i64 %.sroa.6.0.copyload.i to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !129
   br label %254
 
@@ -2680,7 +2680,7 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
 
 205:                                              ; preds = %198
   %206 = ptrtoint ptr %.sroa.5365.0.copyload.i to i64
-  %.sroa.68.sroa.0.0.extract.trunc154 = trunc nuw i64 %.sroa.6.0.copyload.i to i8
+  %.sroa.68.sroa.0.0.extract.trunc154 = trunc nuw nsw i64 %.sroa.6.0.copyload.i to i8
   br label %254
 
 207:                                              ; preds = %199
@@ -2767,7 +2767,7 @@ _ZN11tungstenite8protocol5frame4mask17apply_mask_fast3217h83b992668826d4d4E.exit
 
 214:                                              ; preds = %202
   %215 = ptrtoint ptr %.sroa.5365.0.copyload.i to i64
-  %.sroa.68.sroa.0.0.extract.trunc152 = trunc nuw i64 %.sroa.6.0.copyload.i to i8
+  %.sroa.68.sroa.0.0.extract.trunc152 = trunc nuw nsw i64 %.sroa.6.0.copyload.i to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !217
   br label %254
 
@@ -14021,7 +14021,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   %5 = add nsw i64 %2, -2
   %6 = icmp ult i64 %5, 227
-  %7 = trunc i64 %5 to i8
+  %7 = trunc nuw i64 %5 to i8
   %trunc.i = select i1 %6, i8 %7, i8 97
   switch i8 %trunc.i, label %8 [
     i8 0, label %"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17hb3e3d794af50a0ffE.exit"
@@ -39015,7 +39015,7 @@ define hidden void @_ZN5proto8envelope7Payload6encode17he414bb8134baf28dE(ptr no
   %3 = load i64, ptr %0, align 8, !range !8184, !noundef !9
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 227
-  %6 = trunc i64 %4 to i8
+  %6 = trunc nuw i64 %4 to i8
   %trunc = select i1 %5, i8 %6, i8 97
   switch i8 %trunc, label %7 [
     i8 0, label %8

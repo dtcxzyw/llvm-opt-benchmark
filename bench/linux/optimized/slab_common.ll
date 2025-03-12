@@ -3041,7 +3041,7 @@ define dso_local i64 @kmalloc_size_roundup(i64 noundef %0) #13 align 16 {
   br label %18
 
 13:                                               ; preds = %4
-  %14 = trunc nuw i64 %0 to i32
+  %14 = trunc nuw nsw i64 %0 to i32
   %15 = add nsw i32 %14, -1
   %16 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %15, i32 -1) #23, !srcloc !43
   %17 = add i32 %16, 1

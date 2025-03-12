@@ -916,13 +916,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h53b14fc05b9a4
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !111
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !111
   %16 = trunc i32 %1 to i8
@@ -934,7 +934,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h53b14fc05b9a4
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !111
   %24 = lshr i32 %1, 6
@@ -3312,7 +3312,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !555, !noalias !552
   %12 = trunc i32 %1 to i8
@@ -3324,7 +3324,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !555, !noalias !552
   %19 = lshr i32 %1, 6
@@ -3392,7 +3392,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !568, !noundef !47
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5474,7 +5474,7 @@ define hidden void @"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.l
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %7
-  %5 = trunc i64 %2 to i8
+  %5 = trunc nuw nsw i64 %2 to i8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
@@ -8672,7 +8672,7 @@ define hidden void @_ZN10ockam_abac6policy7storage30resource_policy_repository_s
 .lr.ph.i.i.preheader.i.preheader:                 ; preds = %10
   %11 = load ptr, ptr %5, align 8, !alias.scope !1133, !noalias !1130, !nonnull !47, !noundef !47
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %11, i64 %7, i1 false), !noalias !1135
-  %12 = trunc nuw i64 %7 to i8
+  %12 = trunc nuw nsw i64 %7 to i8
   br label %13
 
 13:                                               ; preds = %.lr.ph.i.i.preheader.i.preheader, %10
@@ -8826,7 +8826,7 @@ define void @"_ZN10ockam_abac6policy7storage23resource_repository_sql156_$LT$imp
 .lr.ph.i.i.preheader.i.preheader:                 ; preds = %16
   %17 = load ptr, ptr %6, align 8, !alias.scope !1158, !noalias !1155, !nonnull !47, !noundef !47
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %17, i64 %13, i1 false), !noalias !1160
-  %18 = trunc nuw i64 %13 to i8
+  %18 = trunc nuw nsw i64 %13 to i8
   br label %19
 
 19:                                               ; preds = %.lr.ph.i.i.preheader.i.preheader, %16
@@ -12332,7 +12332,7 @@ define void @_ZN10ockam_abac5types7Subject6inline17hfedabfe0b4cd742fE(ptr noalia
   br i1 %.not.i, label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit", label %.lr.ph.i.preheader
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i.preheader
-  %7 = trunc nuw i64 %2 to i8
+  %7 = trunc nuw nsw i64 %2 to i8
   br label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit"
 
 .lr.ph.i.preheader:                               ; preds = %6, %.lr.ph.i.preheader
@@ -12373,7 +12373,7 @@ define void @_ZN10ockam_abac5types7Subject13assert_inline17he0fa0ee7318fcd60E(pt
   br i1 %.not.i, label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit", label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %6
-  %5 = trunc i64 %2 to i8
+  %5 = trunc nuw nsw i64 %2 to i8
   br label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit"
 
 .lr.ph.i:                                         ; preds = %3, %6
@@ -12436,7 +12436,7 @@ define void @_ZN10ockam_abac5types7Subject3new17h27567482ae2719dfE(ptr noalias n
   br i1 %.not.i.i, label %_ZN10ockam_abac5types7Subject13assert_inline17he0fa0ee7318fcd60E.exit, label %.lr.ph.i.i.preheader
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i.preheader
-  %12 = trunc nuw i64 %2 to i8
+  %12 = trunc nuw nsw i64 %2 to i8
   br label %_ZN10ockam_abac5types7Subject13assert_inline17he0fa0ee7318fcd60E.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %11, %.lr.ph.i.i.preheader
@@ -12511,7 +12511,7 @@ define void @"_ZN81_$LT$ockam_abac..types..Subject$u20$as$u20$core..convert..Fro
 
 .lr.ph.i.i.preheader.i.preheader:                 ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !1641
-  %12 = trunc nuw i64 %2 to i8
+  %12 = trunc nuw nsw i64 %2 to i8
   br label %_ZN10ockam_abac5types7Subject13assert_inline17he0fa0ee7318fcd60E.exit.i
 
 _ZN10ockam_abac5types7Subject13assert_inline17he0fa0ee7318fcd60E.exit.i: ; preds = %.lr.ph.i.i.preheader.i.preheader, %11
@@ -12556,7 +12556,7 @@ define void @"_ZN95_$LT$ockam_abac..types..Subject$u20$as$u20$core..convert..Fro
   br i1 %.not.i.i, label %17, label %.lr.ph.i.i.preheader
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i.preheader
-  %11 = trunc nuw i64 %6 to i8
+  %11 = trunc nuw nsw i64 %6 to i8
   br label %17
 
 .lr.ph.i.i.preheader:                             ; preds = %9, %.lr.ph.i.i.preheader
@@ -12641,7 +12641,7 @@ define void @_ZN10ockam_abac5types12ResourceName6inline17h8ecf2a23f628050dE(ptr 
   br i1 %.not.i, label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit", label %.lr.ph.i.preheader
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i.preheader
-  %7 = trunc nuw i64 %2 to i8
+  %7 = trunc nuw nsw i64 %2 to i8
   br label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit"
 
 .lr.ph.i.preheader:                               ; preds = %6, %.lr.ph.i.preheader
@@ -12682,7 +12682,7 @@ define void @_ZN10ockam_abac5types12ResourceName13assert_inline17h52bf30d9570830
   br i1 %.not.i, label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit", label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %6
-  %5 = trunc i64 %2 to i8
+  %5 = trunc nuw nsw i64 %2 to i8
   br label %"_ZN7str_buf15StrBuf$LT$_$GT$8from_str17h827aae0ec74980c9E.llvm.5773138781079186978.exit"
 
 .lr.ph.i:                                         ; preds = %3, %6
@@ -12745,7 +12745,7 @@ define void @_ZN10ockam_abac5types12ResourceName3new17hcbb472757f1308dfE(ptr noa
   br i1 %.not.i.i, label %_ZN10ockam_abac5types12ResourceName13assert_inline17h52bf30d9570830e1E.exit, label %.lr.ph.i.i.preheader
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i.preheader
-  %12 = trunc nuw i64 %2 to i8
+  %12 = trunc nuw nsw i64 %2 to i8
   br label %_ZN10ockam_abac5types12ResourceName13assert_inline17h52bf30d9570830e1E.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %11, %.lr.ph.i.i.preheader
@@ -12820,7 +12820,7 @@ define void @"_ZN86_$LT$ockam_abac..types..ResourceName$u20$as$u20$core..convert
 
 .lr.ph.i.i.preheader.i.preheader:                 ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr nonnull align 1 %1, i64 %2, i1 false), !noalias !1707
-  %12 = trunc nuw i64 %2 to i8
+  %12 = trunc nuw nsw i64 %2 to i8
   br label %_ZN10ockam_abac5types12ResourceName13assert_inline17h52bf30d9570830e1E.exit.i
 
 _ZN10ockam_abac5types12ResourceName13assert_inline17h52bf30d9570830e1E.exit.i: ; preds = %.lr.ph.i.i.preheader.i.preheader, %11
@@ -12865,7 +12865,7 @@ define void @"_ZN100_$LT$ockam_abac..types..ResourceName$u20$as$u20$core..conver
   br i1 %.not.i.i, label %17, label %.lr.ph.i.i.preheader
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i.preheader
-  %11 = trunc nuw i64 %6 to i8
+  %11 = trunc nuw nsw i64 %6 to i8
   br label %17
 
 .lr.ph.i.i.preheader:                             ; preds = %9, %.lr.ph.i.i.preheader

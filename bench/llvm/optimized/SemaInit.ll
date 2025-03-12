@@ -12480,7 +12480,7 @@ _ZN5clang22InitializationSequence28AddParenthesizedListInitStepENS_8QualTypeE.ex
   %1003 = load ptr, ptr %38, align 8, !tbaa !1008
   %1004 = load i32, ptr %63, align 8, !tbaa !1009
   %1005 = zext i32 %1004 to i64
-  %1006 = trunc i64 %4 to i32
+  %1006 = trunc nuw i64 %4 to i32
   %1007 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.sroa.0.0.copyload.i396 = load i32, ptr %1007, align 4, !tbaa !1014
   %1008 = call noundef ptr @_ZN5clang20CXXParenListInitExpr6CreateERNS_10ASTContextEN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEjNS_14SourceLocationES9_S9_(ptr noundef nonnull align 8 dereferenceable(23216) %1002, ptr %1003, i64 %1005, i64 %.sroa.0598.2.ph, i32 noundef %1006, i32 %.sroa.0.0.copyload.i396, i32 %.sroa.0526.0.extract.trunc, i32 %.sroa.6.0.extract.trunc) #23
@@ -59169,7 +59169,7 @@ _ZNK5clang17InitializedEntity7getDeclEv.exit:     ; preds = %3
 
 16:                                               ; preds = %10
   %.sroa.3.0.extract.shift.i = lshr i64 %14, 32
-  %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
+  %.sroa.3.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.3.0.extract.shift.i to i32
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %17, align 8, !tbaa !676
   %18 = and i64 %.sroa.0.0.copyload.i, -16

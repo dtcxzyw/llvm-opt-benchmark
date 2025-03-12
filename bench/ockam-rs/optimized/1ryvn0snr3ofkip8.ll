@@ -8063,7 +8063,7 @@ common.ret:                                       ; preds = %313, %267, %201, %8
   br i1 %219, label %"_ZN4core6option15Option$LT$T$GT$3map17hd48c8c341ecdfcc2E.exit.thread", label %220
 
 220:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hd48c8c341ecdfcc2E.exit"
-  %trunc.i153 = trunc i8 %.sroa.0228.0.copyload to i1
+  %trunc.i153 = trunc nuw i8 %.sroa.0228.0.copyload to i1
   br i1 %trunc.i153, label %243, label %221
 
 221:                                              ; preds = %220
@@ -9355,7 +9355,7 @@ common.ret:                                       ; preds = %134, %22
   br i1 %152, label %"_ZN4core6option15Option$LT$T$GT$3map17hc79ed20513407e8dE.exit.thread", label %153
 
 153:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17hc79ed20513407e8dE.exit"
-  %trunc.i40 = trunc i8 %.sroa.067.0.copyload to i1
+  %trunc.i40 = trunc nuw i8 %.sroa.067.0.copyload to i1
   br i1 %trunc.i40, label %155, label %154
 
 154:                                              ; preds = %153

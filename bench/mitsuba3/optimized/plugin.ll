@@ -864,7 +864,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !4
-  %31 = trunc nuw i64 %18 to i8
+  %31 = trunc nuw nsw i64 %18 to i8
   %32 = shl nuw nsw i8 %31, 1
   store i8 %32, ptr %5, align 8, !alias.scope !4
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -1173,7 +1173,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false), !alias.scope !13
-  %28 = trunc nuw i64 %15 to i8
+  %28 = trunc nuw nsw i64 %15 to i8
   %29 = shl nuw nsw i8 %28, 1
   store i8 %29, ptr %5, align 8, !alias.scope !13
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 1

@@ -405,8 +405,8 @@ define dso_local void @lolwut6Command(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %.sink.split20, %28
   %31 = phi i64 [ %26, %28 ], [ %.sink22, %.sink.split20 ]
-  %32 = trunc nuw i64 %25 to i32
-  %33 = trunc nuw i64 %31 to i32
+  %32 = trunc nuw nsw i64 %25 to i32
+  %33 = trunc nuw nsw i64 %31 to i32
   %34 = call ptr @lwCreateCanvas(i32 noundef %32, i32 noundef %33, i32 noundef 3) #4
   call void @generateSkyline(ptr noundef %34)
   %35 = call ptr @sdsempty() #4

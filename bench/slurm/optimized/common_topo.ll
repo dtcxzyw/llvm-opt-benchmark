@@ -339,7 +339,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_split_hostlist_treewidth
   br i1 %.not62.i, label %13, label %_set_span.exit.thread.thread
 
 _set_span.exit.thread.thread:                     ; preds = %10
-  %12 = trunc i32 %7 to i16
+  %12 = trunc nuw i32 %7 to i16
   br label %_set_span.exit.thread.thread49
 
 13:                                               ; preds = %10

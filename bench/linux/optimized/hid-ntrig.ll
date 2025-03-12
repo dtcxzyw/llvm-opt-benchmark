@@ -1076,7 +1076,7 @@ define internal noundef i64 @set_min_height(ptr noundef readonly captures(none) 
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i64
   %20 = mul nuw nsw i64 %11, %19
-  %.lhs.trunc = trunc i64 %20 to i32
+  %.lhs.trunc = trunc nuw i64 %20 to i32
   %.rhs.trunc = zext i16 %13 to i32
   %21 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %22 = trunc i32 %21 to i16
@@ -1137,7 +1137,7 @@ define internal noundef i64 @set_min_width(ptr noundef readonly captures(none) %
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i64
   %20 = mul nuw nsw i64 %11, %19
-  %.lhs.trunc = trunc i64 %20 to i32
+  %.lhs.trunc = trunc nuw i64 %20 to i32
   %.rhs.trunc = zext i16 %13 to i32
   %21 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %22 = trunc i32 %21 to i16
@@ -1235,7 +1235,7 @@ define internal noundef i64 @set_activation_width(ptr noundef readonly captures(
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i64
   %20 = mul nuw nsw i64 %11, %19
-  %.lhs.trunc = trunc i64 %20 to i32
+  %.lhs.trunc = trunc nuw i64 %20 to i32
   %.rhs.trunc = zext i16 %13 to i32
   %21 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %22 = trunc i32 %21 to i16
@@ -1293,7 +1293,7 @@ define internal noundef i64 @set_activation_height(ptr noundef readonly captures
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i64
   %20 = mul nuw nsw i64 %11, %19
-  %.lhs.trunc = trunc i64 %20 to i32
+  %.lhs.trunc = trunc nuw i64 %20 to i32
   %.rhs.trunc = zext i16 %13 to i32
   %21 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %22 = trunc i32 %21 to i16

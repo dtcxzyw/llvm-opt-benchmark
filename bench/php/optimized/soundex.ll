@@ -90,7 +90,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   br i1 %30, label %31, label %37
 
 31:                                               ; preds = %29
-  %32 = trunc nuw i32 %.070 to i8
+  %32 = trunc nuw nsw i32 %.070 to i8
   %33 = add nsw i64 %27, -65
   %34 = getelementptr inbounds nuw [26 x i8], ptr @zif_soundex.soundex_table, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !4

@@ -8970,7 +8970,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_c
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %80
-  %83 = trunc nuw i16 %77 to i8
+  %83 = trunc nuw nsw i16 %77 to i8
   store i8 %83, ptr %.02937.i20.i.i, align 1, !tbaa !28
   br label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i.i
 
@@ -8980,7 +8980,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_9opt_falseEE7processINS1_12utf8_c
 
 86:                                               ; preds = %84
   %87 = lshr i16 %77, 6
-  %88 = trunc nuw i16 %87 to i8
+  %88 = trunc nuw nsw i16 %87 to i8
   %89 = or disjoint i8 %88, -64
   store i8 %89, ptr %.02937.i20.i.i, align 1, !tbaa !28
   %90 = trunc i16 %77 to i8
@@ -9193,7 +9193,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_co
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %201
-  %204 = trunc nuw i16 %rev.i.i21.i.i to i8
+  %204 = trunc nuw nsw i16 %rev.i.i21.i.i to i8
   store i8 %204, ptr %.02938.i20.i.i, align 1, !tbaa !28
   br label %_ZN4pugi4impl12_GLOBAL__N_111utf8_writer3lowEPhj.exit.i.i50.i
 
@@ -9203,7 +9203,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf16_decoderINS1_8opt_trueEE7processINS1_12utf8_co
 
 207:                                              ; preds = %205
   %208 = lshr i16 %rev.i.i21.i.i, 6
-  %209 = trunc nuw i16 %208 to i8
+  %209 = trunc nuw nsw i16 %208 to i8
   %210 = or disjoint i8 %209, -64
   store i8 %210, ptr %.02938.i20.i.i, align 1, !tbaa !28
   %211 = trunc i16 %rev.i.i21.i.i to i8
@@ -9397,7 +9397,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_c
 
 308:                                              ; preds = %306
   %309 = lshr i32 %300, 6
-  %310 = trunc nuw i32 %309 to i8
+  %310 = trunc nuw nsw i32 %309 to i8
   %311 = or disjoint i8 %310, -64
   store i8 %311, ptr %.01119.i19.i.i, align 1, !tbaa !28
   %312 = trunc i32 %300 to i8
@@ -9409,7 +9409,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_9opt_falseEE7processINS1_12utf8_c
 
 316:                                              ; preds = %306
   %317 = lshr i32 %300, 12
-  %318 = trunc nuw i32 %317 to i8
+  %318 = trunc nuw nsw i32 %317 to i8
   %319 = or disjoint i8 %318, -32
   store i8 %319, ptr %.01119.i19.i.i, align 1, !tbaa !28
   %320 = lshr i32 %300, 6
@@ -9528,7 +9528,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_co
 
 369:                                              ; preds = %367
   %370 = lshr i32 %361, 6
-  %371 = trunc nuw i32 %370 to i8
+  %371 = trunc nuw nsw i32 %370 to i8
   %372 = or disjoint i8 %371, -64
   store i8 %372, ptr %.01119.i19.i77.i, align 1, !tbaa !28
   %373 = trunc i32 %361 to i8
@@ -9540,7 +9540,7 @@ _ZN4pugi4impl12_GLOBAL__N_113utf32_decoderINS1_8opt_trueEE7processINS1_12utf8_co
 
 377:                                              ; preds = %367
   %378 = lshr i32 %361, 12
-  %379 = trunc nuw i32 %378 to i8
+  %379 = trunc nuw nsw i32 %378 to i8
   %380 = or disjoint i8 %379, -32
   store i8 %380, ptr %.01119.i19.i77.i, align 1, !tbaa !28
   %381 = lshr i32 %361, 6
@@ -18118,7 +18118,7 @@ _ZN4pugi4impl12_GLOBAL__N_113as_utf8_beginEPKwm.exit.i: ; preds = %.lr.ph.i.i.i.
 
 27:                                               ; preds = %25
   %28 = lshr i32 %19, 6
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
   store i8 %30, ptr %.01119.i.i.i16.i, align 1, !tbaa !28
   %31 = trunc i32 %19 to i8
@@ -18130,7 +18130,7 @@ _ZN4pugi4impl12_GLOBAL__N_113as_utf8_beginEPKwm.exit.i: ; preds = %.lr.ph.i.i.i.
 
 35:                                               ; preds = %25
   %36 = lshr i32 %19, 12
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -32
   store i8 %38, ptr %.01119.i.i.i16.i, align 1, !tbaa !28
   %39 = lshr i32 %19, 6
@@ -18885,7 +18885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 19:                                               ; preds = %17
   %20 = lshr i32 %11, 6
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -64
   store i8 %22, ptr %.01119.i.i.i12, align 1, !tbaa !28
   %23 = trunc i32 %11 to i8
@@ -18897,7 +18897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
 
 27:                                               ; preds = %17
   %28 = lshr i32 %11, 12
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -32
   store i8 %30, ptr %.01119.i.i.i12, align 1, !tbaa !28
   %31 = lshr i32 %11, 6
@@ -31994,7 +31994,7 @@ define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv
 
 51:                                               ; preds = %49
   %52 = lshr i32 %.3, 6
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -64
   store i8 %54, ptr %0, align 1, !tbaa !28
   %55 = trunc i32 %.3 to i8
@@ -32005,7 +32005,7 @@ define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv
 
 58:                                               ; preds = %49
   %59 = lshr i32 %.3, 12
-  %60 = trunc nuw i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = or disjoint i8 %60, -32
   store i8 %61, ptr %0, align 1, !tbaa !28
   %62 = lshr i32 %.3, 6

@@ -36340,7 +36340,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %60 = select i1 %59, i64 86400, i64 0
   %.sroa.0.0.i12.i.i.i = add nsw i64 %60, %53
   %61 = icmp eq i32 %58, 0
-  %62 = trunc nsw i64 %.sroa.0.0.i12.i.i.i to i32
+  %62 = trunc nuw nsw i64 %.sroa.0.0.i12.i.i.i to i32
   %spec.select.i.i = select i1 %61, i32 undef, i32 %62
   br label %72
 
@@ -36556,7 +36556,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %62 = select i1 %61, i64 86400, i64 0
   %.sroa.0.0.i12.i.i.i = add nsw i64 %62, %55
   %63 = icmp eq i32 %60, 0
-  %64 = trunc nsw i64 %.sroa.0.0.i12.i.i.i to i32
+  %64 = trunc nuw nsw i64 %.sroa.0.0.i12.i.i.i to i32
   %spec.select.i.i = select i1 %63, i32 undef, i32 %64
   br label %74
 

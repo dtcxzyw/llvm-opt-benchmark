@@ -1335,7 +1335,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11
   br i1 %114, label %.lr.ph52.split, label %.loopexit, !llvm.loop !12
 
 .loopexit.loopexit64:                             ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us
-  %indvars84 = trunc i64 %indvars.iv.next82 to i32
+  %indvars84 = trunc nsw i64 %indvars.iv.next82 to i32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm512EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit
@@ -1696,7 +1696,7 @@ _ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11
   br i1 %114, label %.lr.ph52.split, label %.loopexit, !llvm.loop !15
 
 .loopexit.loopexit64:                             ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit.us
-  %indvars84 = trunc i64 %indvars.iv.next82 to i32
+  %indvars84 = trunc nsw i64 %indvars.iv.next82 to i32
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %_ZN12EventLogBaseI22FormatStringLogMessageILm256EEE5printEP12outputStreamRNS2_11EventRecordIS1_EE.exit

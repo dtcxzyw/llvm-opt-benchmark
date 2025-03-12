@@ -389,7 +389,7 @@ _ZN6icu_77L15isGregorianLeapEi.exit41.thread48:   ; preds = %32, %_ZN6icu_77L15i
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %39
-  %.lhs.trunc = trunc i32 %40 to i16
+  %.lhs.trunc = trunc nsw i32 %40 to i16
   %43 = sdiv i16 %.lhs.trunc, 31
   %44 = uitofp i16 %43 to double
   %45 = tail call double @uprv_floor_77(double noundef %44)

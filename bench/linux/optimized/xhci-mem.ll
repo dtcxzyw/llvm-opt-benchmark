@@ -4167,7 +4167,7 @@ define internal fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %46 = trunc i64 %37 to i32
+  %46 = trunc nuw nsw i64 %37 to i32
   tail call fastcc void @xhci_free_virt_devices_depth_first(ptr noundef %0, i32 noundef %46)
   %.pre = load i32, ptr %14, align 8
   br label %47

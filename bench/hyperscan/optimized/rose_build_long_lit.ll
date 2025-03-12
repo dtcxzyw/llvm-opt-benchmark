@@ -881,7 +881,7 @@ _ZL3lg2j.exit88:                                  ; preds = %_ZL3lg2j.exit85
   %344 = select i1 %.not.i89, i8 0, i8 %343
   %345 = getelementptr inbounds nuw i8, ptr %282, i64 25
   store i8 %344, ptr %345, align 1
-  %346 = trunc nuw i32 %279 to i8
+  %346 = trunc nuw nsw i32 %279 to i8
   %347 = getelementptr inbounds nuw i8, ptr %282, i64 28
   store i8 %346, ptr %347, align 4
   %348 = load ptr, ptr %15, align 8

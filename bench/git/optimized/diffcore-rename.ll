@@ -1530,7 +1530,7 @@ sub_0.i.i:                                        ; preds = %648, %666
 664:                                              ; preds = %.tail.thread.i.i
   %665 = sext i32 %.01827.i.i to i64
   %spec.select25.i.i = call i64 @llvm.smax.i64(i64 %654, i64 %665)
-  %spec.select.i.i = trunc i64 %spec.select25.i.i to i32
+  %spec.select.i.i = trunc nsw i64 %spec.select25.i.i to i32
   br label %666
 
 666:                                              ; preds = %664, %662, %659

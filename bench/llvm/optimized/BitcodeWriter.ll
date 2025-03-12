@@ -15125,7 +15125,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i.i:       ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i621.i, label %._crit_edge.i622.i, label %.lr.ph.i617.i, !llvm.loop !937
 
 ._crit_edge.i622.i:                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i.i
-  %2047 = trunc nuw i64 %2046 to i32
+  %2047 = trunc nuw nsw i64 %2046 to i32
   %2048 = shl i32 %2047, %storemerge6.i.i.i
   %2049 = or i32 %2048, %2045
   store i32 %2049, ptr %1861, align 4, !tbaa !133
@@ -19124,7 +19124,7 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %37 = and i8 %.sroa.0.0.copyload.i, %36
   %38 = sub nuw nsw i32 8, %34
   %notmask29.i = shl nsw i32 -1, %38
-  %39 = trunc i32 %notmask29.i to i8
+  %39 = trunc nsw i32 %notmask29.i to i8
   %40 = xor i8 %39, -1
   %41 = and i8 %2, %40
   %42 = zext nneg i8 %41 to i32
@@ -19211,7 +19211,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %83 = and i8 %.sroa.0.0.copyload.i51, %82
   %84 = sub nuw nsw i32 8, %80
   %notmask29.i55 = shl nsw i32 -1, %84
-  %85 = trunc i32 %notmask29.i55 to i8
+  %85 = trunc nsw i32 %notmask29.i55 to i8
   %86 = xor i8 %85, -1
   %87 = and i8 %2, %86
   %88 = zext nneg i8 %87 to i32
@@ -28843,7 +28843,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i.i:       ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i29.i, label %._crit_edge.i.i352, label %.lr.ph.i27.i, !llvm.loop !937
 
 ._crit_edge.i.i352:                               ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i.i
-  %2385 = trunc nuw i64 %2384 to i32
+  %2385 = trunc nuw nsw i64 %2384 to i32
   %2386 = shl i32 %2385, %storemerge6.i.i.i351
   %2387 = or i32 %2386, %2383
   store i32 %2387, ptr %2199, align 4, !tbaa !133

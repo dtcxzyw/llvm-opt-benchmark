@@ -828,7 +828,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZN7Imf_3_428getTiledChunkOffsetTa
   br label %81
 
 81:                                               ; preds = %80, %77
-  %82 = trunc nuw i64 %.02871 to i32
+  %82 = trunc nuw nsw i64 %.02871 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13

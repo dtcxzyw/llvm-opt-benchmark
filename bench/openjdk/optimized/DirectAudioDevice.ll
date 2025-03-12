@@ -1313,7 +1313,7 @@ MAP_ClipAndConvertToByte.exit862:                 ; preds = %.lr.ph1173, %616, %
   br i1 %676, label %MAP_ClipAndConvertToShort_Swapped.exit, label %677
 
 677:                                              ; preds = %675
-  %trunc.i.i = trunc i32 %673 to i16
+  %trunc.i.i = trunc nsw i32 %673 to i16
   %rev.i.i = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i)
   br label %MAP_ClipAndConvertToShort_Swapped.exit
 
@@ -1415,7 +1415,7 @@ MAP_ClipAndConvertToShort_Swapped.exit:           ; preds = %.lr.ph1157, %675, %
   br i1 %719, label %MAP_ClipAndConvertToShort_Swapped.exit876, label %720
 
 720:                                              ; preds = %718
-  %trunc.i.i873 = trunc i32 %716 to i16
+  %trunc.i.i873 = trunc nsw i32 %716 to i16
   %rev.i.i874 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i873)
   br label %MAP_ClipAndConvertToShort_Swapped.exit876
 
@@ -1593,7 +1593,7 @@ MAP_ClipAndConvertToShort_Swapped.exit876:        ; preds = %.lr.ph1141, %718, %
   br i1 %810, label %MAP_ClipAndConvertToShort_Swapped.exit892, label %811
 
 811:                                              ; preds = %809
-  %trunc.i.i889 = trunc i32 %807 to i16
+  %trunc.i.i889 = trunc nsw i32 %807 to i16
   %rev.i.i890 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i889)
   br label %MAP_ClipAndConvertToShort_Swapped.exit892
 
@@ -1614,7 +1614,7 @@ MAP_ClipAndConvertToShort_Swapped.exit892:        ; preds = %.lr.ph1117, %809, %
   br i1 %820, label %MAP_ClipAndConvertToShort_Swapped.exit896, label %821
 
 821:                                              ; preds = %819
-  %trunc.i.i893 = trunc i32 %817 to i16
+  %trunc.i.i893 = trunc nsw i32 %817 to i16
   %rev.i.i894 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i893)
   br label %MAP_ClipAndConvertToShort_Swapped.exit896
 
@@ -1643,7 +1643,7 @@ MAP_ClipAndConvertToShort_Swapped.exit896:        ; preds = %MAP_ClipAndConvertT
   br i1 %832, label %MAP_ClipAndConvertToShort_Swapped.exit900, label %833
 
 833:                                              ; preds = %831
-  %trunc.i.i897 = trunc i32 %829 to i16
+  %trunc.i.i897 = trunc nsw i32 %829 to i16
   %rev.i.i898 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i897)
   br label %MAP_ClipAndConvertToShort_Swapped.exit900
 
@@ -1699,7 +1699,7 @@ MAP_ClipAndConvertToShort_Swapped.exit900:        ; preds = %.lr.ph1113, %831, %
   br i1 %857, label %MAP_ClipAndConvertToShort_Swapped.exit908, label %858
 
 858:                                              ; preds = %856
-  %trunc.i.i905 = trunc i32 %854 to i16
+  %trunc.i.i905 = trunc nsw i32 %854 to i16
   %rev.i.i906 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i905)
   br label %MAP_ClipAndConvertToShort_Swapped.exit908
 
@@ -1894,7 +1894,7 @@ MAP_ClipAndConvertToShort_Swapped.exit908:        ; preds = %.lr.ph1109, %856, %
   br i1 %954, label %MAP_ClipAndConvertToShort_Swapped.exit942, label %955
 
 955:                                              ; preds = %953
-  %trunc.i.i939 = trunc i32 %951 to i16
+  %trunc.i.i939 = trunc nsw i32 %951 to i16
   %rev.i.i940 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i939)
   br label %MAP_ClipAndConvertToShort_Swapped.exit942
 
@@ -1916,7 +1916,7 @@ MAP_ClipAndConvertToShort_Swapped.exit942:        ; preds = %.lr.ph1085, %953, %
   br i1 %964, label %MAP_ClipAndConvertToShort_Swapped.exit948, label %965
 
 965:                                              ; preds = %963
-  %trunc.i.i945 = trunc i32 %961 to i16
+  %trunc.i.i945 = trunc nsw i32 %961 to i16
   %rev.i.i946 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i945)
   br label %MAP_ClipAndConvertToShort_Swapped.exit948
 
@@ -1946,7 +1946,7 @@ MAP_ClipAndConvertToShort_Swapped.exit948:        ; preds = %MAP_ClipAndConvertT
   br i1 %976, label %MAP_ClipAndConvertToShort_Swapped.exit954, label %977
 
 977:                                              ; preds = %975
-  %trunc.i.i951 = trunc i32 %973 to i16
+  %trunc.i.i951 = trunc nsw i32 %973 to i16
   %rev.i.i952 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i951)
   br label %MAP_ClipAndConvertToShort_Swapped.exit954
 
@@ -2005,7 +2005,7 @@ MAP_ClipAndConvertToShort_Swapped.exit954:        ; preds = %.lr.ph1081, %975, %
   br i1 %1001, label %MAP_ClipAndConvertToShort_Swapped.exit968, label %1002
 
 1002:                                             ; preds = %1000
-  %trunc.i.i965 = trunc i32 %998 to i16
+  %trunc.i.i965 = trunc nsw i32 %998 to i16
   %rev.i.i966 = tail call i16 @llvm.bswap.i16(i16 %trunc.i.i965)
   br label %MAP_ClipAndConvertToShort_Swapped.exit968
 

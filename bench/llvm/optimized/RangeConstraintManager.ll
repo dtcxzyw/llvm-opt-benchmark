@@ -22735,7 +22735,7 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer25getRangeCommutativeSymSymEPKN5clang4en
   %.03376.i.i = phi i32 [ %183, %185 ], [ %.134.ph.i.i, %281 ]
   %.03775.i.i = phi i64 [ 0, %185 ], [ %282, %281 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #25
-  %204 = trunc nuw i64 %.03775.i.i to i32
+  %204 = trunc nuw nsw i64 %.03775.i.i to i32
   %205 = add nuw nsw i32 %204, 10
   store i32 %205, ptr %14, align 4, !tbaa !939
   %206 = call noundef ptr @_ZN5clang4ento13SymbolManager7acquireINS0_17BinarySymExprImplIPKNS0_7SymExprES6_LNS4_4KindE3EEEJRS6_RNS_18BinaryOperatorKindES9_RNS_8QualTypeEEEEPKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(72) %199, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)

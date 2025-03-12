@@ -67,9 +67,9 @@ define ptr @LZ4F_getErrorName(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @LZ4F_getErrorCode(i64 noundef %0) local_unnamed_addr #0 {
+define i32 @LZ4F_getErrorCode(i64 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i64 %0, -23
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0 = select i1 %2, i32 0, i32 %4
   ret i32 %.0

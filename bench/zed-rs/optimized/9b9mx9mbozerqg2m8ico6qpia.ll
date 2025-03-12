@@ -931,9 +931,9 @@ define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$
   %.sroa.8.0..sroa_idx176.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   %.sroa.10.0..sroa_idx177.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 32
   %.sroa.11178.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %.lhs.trunc.i126.i.i = trunc nuw i32 %146 to i16
+  %.lhs.trunc.i126.i.i = trunc nuw nsw i32 %146 to i16
   %148 = udiv i16 %.lhs.trunc.i126.i.i, 100
-  %149 = trunc nuw i16 %148 to i8
+  %149 = trunc nuw nsw i16 %148 to i8
   %150 = udiv i8 %149, 10
   %151 = or disjoint i8 %150, 48
   %152 = zext nneg i8 %151 to i32
@@ -1473,10 +1473,10 @@ _ZN4core3ops5range11RangeBounds8contains17h56356d923267023dE.exit.thread.i83.i.i
   br i1 %spec.select.i.i84.i.i.i, label %606, label %604
 
 392:                                              ; preds = %.noexc17.i.i
-  %.lhs.trunc.i86.i.i.i = trunc nuw i32 %389 to i16
+  %.lhs.trunc.i86.i.i.i = trunc nuw nsw i32 %389 to i16
   %393 = udiv i16 %.lhs.trunc.i86.i.i.i, 100
   %394 = urem i16 %.lhs.trunc.i86.i.i.i, 100
-  %395 = trunc nuw i16 %393 to i8
+  %395 = trunc nuw nsw i16 %393 to i8
   %396 = udiv i8 %395, 10
   %397 = urem i8 %395, 10
   %398 = or disjoint i8 %396, 48
@@ -3832,13 +3832,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h57c4e9b960314
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !749
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !749
   %16 = trunc i32 %1 to i8
@@ -3850,7 +3850,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h57c4e9b960314
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !749
   %24 = lshr i32 %1, 6
@@ -3956,13 +3956,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h64524c2a836
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !768
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !768
   %15 = trunc i32 %1 to i8
@@ -3974,7 +3974,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h64524c2a836
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !768
   %23 = lshr i32 %1, 6
@@ -5051,7 +5051,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !1091, !noalias !1088
   %12 = trunc i32 %1 to i8
@@ -5063,7 +5063,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !1091, !noalias !1088
   %19 = lshr i32 %1, 6

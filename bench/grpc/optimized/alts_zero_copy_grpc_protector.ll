@@ -782,7 +782,7 @@ common.resume:                                    ; preds = %69, %13
   br label %common.resume
 
 _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51: ; preds = %52
-  %71 = trunc nuw i64 %62 to i32
+  %71 = trunc nuw nsw i64 %62 to i32
   %72 = add nuw nsw i32 %71, 4
   store i32 %72, ptr %18, align 4, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
@@ -831,7 +831,7 @@ _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %68
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %84
-  %88 = trunc i64 %26 to i32
+  %88 = trunc nuw i64 %26 to i32
   %89 = sub i32 %85, %88
   store i32 %89, ptr %3, align 4, !tbaa !50
   br label %91

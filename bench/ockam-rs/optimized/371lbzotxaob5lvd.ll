@@ -8028,7 +8028,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 1740:                                             ; preds = %1727, %1723
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %97)
   store i8 1, ptr %1711, align 8, !noalias !954
-  %1741 = trunc i8 %1714 to i1
+  %1741 = trunc nuw i8 %1714 to i1
   br i1 %1741, label %1760, label %1755
 
 .body.i.i.i.i.i:                                  ; preds = %1738, %1691
@@ -18249,7 +18249,7 @@ common.ret:                                       ; preds = %1666, %1608, %1457,
   br i1 %1431, label %1433, label %1432
 
 1432:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
-  %trunc.i558 = trunc i8 %1416 to i1
+  %trunc.i558 = trunc nuw i8 %1416 to i1
   br i1 %trunc.i558, label %1435, label %1437
 
 1433:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
@@ -99222,7 +99222,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !14657
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17ha531132aec1d2709E.exit.thread", label %104
 
 104:                                              ; preds = %102

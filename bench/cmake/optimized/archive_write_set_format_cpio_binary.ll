@@ -534,7 +534,7 @@ synthesize_ino_value.exit.thread:                 ; preds = %63, %synthesize_ino
 
 .thread:                                          ; preds = %27, %78
   %.0.i9199101 = phi i32 [ %.0.i91, %78 ], [ 0, %27 ]
-  %81 = trunc nuw i32 %.0.i9199101 to i16
+  %81 = trunc nuw nsw i32 %.0.i9199101 to i16
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %81, ptr %82, align 2, !tbaa !47
   %83 = call i32 @archive_entry_mode(ptr noundef %1) #10

@@ -735,7 +735,7 @@ float_to_uint_int.exit:                           ; preds = %.lr.ph273, %216
   %262 = add nsw i32 %258, -94
   %263 = shl i32 %261, %262
   %264 = lshr i32 %261, %259
-  %265 = trunc nuw i32 %264 to i16
+  %265 = trunc nuw nsw i32 %264 to i16
   %266 = icmp ugt i32 %263, -2147483648
   br i1 %266, label %270, label %267
 
@@ -989,7 +989,7 @@ define internal range(i32 0, 4) i32 @generic_unpack_deep(ptr noundef readonly ca
   %76 = add nsw i32 %72, -94
   %77 = shl i32 %75, %76
   %78 = lshr i32 %75, %73
-  %79 = trunc nuw i32 %78 to i16
+  %79 = trunc nuw nsw i32 %78 to i16
   %80 = icmp ugt i32 %77, -2147483648
   br i1 %80, label %84, label %81
 
@@ -2900,7 +2900,7 @@ float_to_uint_int.exit:                           ; preds = %206, %208
   %259 = add nsw i32 %255, -94
   %260 = shl i32 %258, %259
   %261 = lshr i32 %258, %256
-  %262 = trunc nuw i32 %261 to i16
+  %262 = trunc nuw nsw i32 %261 to i16
   %263 = icmp ugt i32 %260, -2147483648
   br i1 %263, label %267, label %264
 

@@ -4632,7 +4632,7 @@ default.unreachable120:                           ; preds = %"_ZN5alloc3vec16Vec
 
 .loopexit:                                        ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h905db8f993a1e265E.exit"
   %107 = lshr i16 %.049, 2
-  %108 = trunc nuw i64 %90 to i16
+  %108 = trunc nuw nsw i64 %90 to i16
   %reass.sub = sub nsw i16 %108, %107
   %109 = add nsw i16 %reass.sub, -2
   %110 = icmp eq i64 %90, 0

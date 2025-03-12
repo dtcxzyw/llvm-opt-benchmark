@@ -1035,7 +1035,7 @@ define void @wtap_add_generated_idb(ptr noundef readonly captures(none) %0) loca
   br i1 %exitcond.not.i, label %13, label %.lr.ph.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %13, %1
-  %17 = trunc nuw i32 %spec.store.select.i to i8
+  %17 = trunc nuw nsw i32 %spec.store.select.i to i8
   %18 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %9, i32 noundef 9, i8 noundef zeroext %17)
   br label %wtap_generate_idb.exit
 
@@ -1731,7 +1731,7 @@ define hidden noundef ptr @wtap_dump_params_generate_idb(ptr noundef readonly ca
   br i1 %exitcond.not.i, label %11, label %.lr.ph.i, !llvm.loop !8
 
 .thread.i:                                        ; preds = %11, %1
-  %15 = trunc nuw i32 %spec.store.select.i to i8
+  %15 = trunc nuw nsw i32 %spec.store.select.i to i8
   %16 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %7, i32 noundef 9, i8 noundef zeroext %15)
   br label %wtap_generate_idb.exit
 
@@ -2541,7 +2541,7 @@ define hidden noundef ptr @wtap_rec_generate_idb(ptr noundef readonly captures(n
 
 .thread.i:                                        ; preds = %18, %16
   %22 = phi i32 [ %17, %18 ], [ 0, %16 ]
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = tail call i32 @wtap_block_add_uint8_option(ptr noundef %12, i32 noundef 9, i8 noundef zeroext %23)
   br label %wtap_generate_idb.exit
 

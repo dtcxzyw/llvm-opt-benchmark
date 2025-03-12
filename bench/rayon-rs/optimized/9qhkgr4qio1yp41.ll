@@ -533,7 +533,7 @@ define i32 @"_ZN88_$LT$rayon..range..IterProducer$LT$u8$GT$$u20$as$u20$rayon..it
   unreachable
 
 5:                                                ; preds = %3
-  %6 = trunc i64 %2 to i8
+  %6 = trunc nuw i64 %2 to i8
   %7 = add i8 %0, %6
   %.sroa.4.0.insert.ext = zext i8 %1 to i32
   %.sroa.4.0.insert.shift = shl nuw i32 %.sroa.4.0.insert.ext, 24
@@ -601,7 +601,7 @@ define i64 @"_ZN89_$LT$rayon..range..IterProducer$LT$u16$GT$$u20$as$u20$rayon..i
   unreachable
 
 5:                                                ; preds = %3
-  %6 = trunc i64 %2 to i16
+  %6 = trunc nuw i64 %2 to i16
   %7 = add i16 %0, %6
   %.sroa.4.0.insert.ext = zext i16 %1 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 48
@@ -669,7 +669,7 @@ define void @"_ZN89_$LT$rayon..range..IterProducer$LT$u32$GT$$u20$as$u20$rayon..
   unreachable
 
 6:                                                ; preds = %4
-  %7 = trunc i64 %3 to i32
+  %7 = trunc nuw i64 %3 to i32
   %8 = add i32 %1, %7
   store i32 %1, ptr %0, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4

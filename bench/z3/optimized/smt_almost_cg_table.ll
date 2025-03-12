@@ -421,7 +421,7 @@ _ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit333: ; preds = %_ZNK
   br i1 %.wide, label %205, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZNK3smt15almost_cg_table7cg_hash8arg_hashEPNS_5enodeEj.exit333
-  %285 = trunc nuw i64 %235 to i32
+  %285 = trunc nuw nsw i64 %235 to i32
   switch i32 %285, label %._crit_edge.thread [
     i32 2, label %286
     i32 1, label %._crit_edge._crit_edge

@@ -10191,7 +10191,7 @@ if.end.i.i26:                                     ; preds = %for.body
   %30 = add i8 %outCalDate.i.sroa.5.0.extract.trunc.i, -13
   %spec.select.i.i.i = icmp ult i8 %30, -12
   %or.cond.not59.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
-  %or.cond54.i = or i1 %cmp.i.i.not.i.i, %or.cond.not59.i
+  %or.cond54.i = select i1 %or.cond.not59.i, i1 true, i1 %cmp.i.i.not.i.i
   %.pre.i = and i32 %.fr.i, 255
   br i1 %or.cond54.i, label %if.then31.i.i, label %land.rhs.i.i
 
@@ -21441,7 +21441,7 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit.i:  ; preds = %for.body
   %30 = add i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, -13
   %spec.select.i.i.i = icmp ult i8 %30, -12
   %or.cond.not86.i = or i1 %cmp.i.not.i.i, %spec.select.i.i.i
-  %or.cond81.i = or i1 %cmp.i.i.not.i.i, %or.cond.not86.i
+  %or.cond81.i = select i1 %or.cond.not86.i, i1 true, i1 %cmp.i.i.not.i.i
   %.pre.i = and i32 %.fr.i, 255
   br i1 %or.cond81.i, label %if.then31.i.i.i, label %land.rhs.i.i
 

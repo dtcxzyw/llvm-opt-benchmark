@@ -54725,24 +54725,24 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EE3setEi
   %.idx1322 = shl nuw nsw i64 %58, 3
   %invariant.gep = getelementptr i8, ptr %37, i64 %.idx1322
   %59 = trunc nsw i64 %52 to i32
-  %60 = trunc nsw i64 %57 to i32
-  %61 = trunc nsw i64 %57 to i32
-  %62 = trunc nsw i64 %57 to i32
-  %63 = trunc nsw i64 %57 to i32
+  %60 = trunc nuw nsw i64 %57 to i32
+  %61 = trunc nuw nsw i64 %57 to i32
+  %62 = trunc nuw nsw i64 %57 to i32
+  %63 = trunc nuw nsw i64 %57 to i32
   %64 = trunc nsw i64 %indvars.iv1443 to i32
-  %65 = trunc nsw i64 %57 to i32
-  %66 = trunc nsw i64 %57 to i32
+  %65 = trunc nuw nsw i64 %57 to i32
+  %66 = trunc nuw nsw i64 %57 to i32
   %67 = trunc nsw i64 %indvars.iv1443 to i32
-  %68 = trunc nsw i64 %57 to i32
-  %69 = trunc nsw i64 %57 to i32
+  %68 = trunc nuw nsw i64 %57 to i32
+  %69 = trunc nuw nsw i64 %57 to i32
   %70 = trunc nsw i64 %indvars.iv1443 to i32
-  %71 = trunc nsw i64 %57 to i32
-  %72 = trunc nsw i64 %57 to i32
-  %73 = trunc nsw i64 %57 to i32
-  %74 = trunc nsw i64 %57 to i32
+  %71 = trunc nuw nsw i64 %57 to i32
+  %72 = trunc nuw nsw i64 %57 to i32
+  %73 = trunc nuw nsw i64 %57 to i32
+  %74 = trunc nuw nsw i64 %57 to i32
   %75 = trunc nsw i64 %indvars.iv1443 to i32
-  %76 = trunc nsw i64 %57 to i32
-  %77 = trunc nsw i64 %57 to i32
+  %76 = trunc nuw nsw i64 %57 to i32
+  %77 = trunc nuw nsw i64 %57 to i32
   br label %.preheader1349
 
 .preheader1345:                                   ; preds = %951
@@ -54774,24 +54774,24 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EE3setEi
   %.idx1324 = shl nuw nsw i64 %98, 3
   %invariant.gep1357 = getelementptr i8, ptr %37, i64 %.idx1324
   %99 = trunc nsw i64 %92 to i32
-  %100 = trunc nsw i64 %97 to i32
-  %101 = trunc nsw i64 %97 to i32
+  %100 = trunc nuw nsw i64 %97 to i32
+  %101 = trunc nuw nsw i64 %97 to i32
   %102 = trunc nsw i64 %indvars.iv1424 to i32
-  %103 = trunc nsw i64 %97 to i32
-  %104 = trunc nsw i64 %97 to i32
-  %105 = trunc nsw i64 %97 to i32
-  %106 = trunc nsw i64 %97 to i32
+  %103 = trunc nuw nsw i64 %97 to i32
+  %104 = trunc nuw nsw i64 %97 to i32
+  %105 = trunc nuw nsw i64 %97 to i32
+  %106 = trunc nuw nsw i64 %97 to i32
   %107 = trunc nsw i64 %indvars.iv1424 to i32
-  %108 = trunc nsw i64 %97 to i32
-  %109 = trunc nsw i64 %97 to i32
-  %110 = trunc nsw i64 %97 to i32
-  %111 = trunc nsw i64 %97 to i32
+  %108 = trunc nuw nsw i64 %97 to i32
+  %109 = trunc nuw nsw i64 %97 to i32
+  %110 = trunc nuw nsw i64 %97 to i32
+  %111 = trunc nuw nsw i64 %97 to i32
   %112 = trunc nsw i64 %indvars.iv1424 to i32
-  %113 = trunc nsw i64 %97 to i32
-  %114 = trunc nsw i64 %97 to i32
+  %113 = trunc nuw nsw i64 %97 to i32
+  %114 = trunc nuw nsw i64 %97 to i32
   %115 = trunc nsw i64 %indvars.iv1424 to i32
-  %116 = trunc nsw i64 %97 to i32
-  %117 = trunc nsw i64 %97 to i32
+  %116 = trunc nuw nsw i64 %97 to i32
+  %117 = trunc nuw nsw i64 %97 to i32
   br label %118
 
 .loopexit1347:                                    ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit782
@@ -54931,23 +54931,23 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
   %.idx1332 = shl nuw nsw i64 %178, 3
   %invariant.gep1361 = getelementptr i8, ptr %37, i64 %.idx1332
   %179 = trunc nsw i64 %indvars.iv1405 to i32
-  %180 = trunc nsw i64 %177 to i32
-  %181 = trunc nsw i64 %177 to i32
-  %182 = trunc nsw i64 %177 to i32
-  %183 = trunc nsw i64 %177 to i32
-  %184 = trunc nsw i64 %177 to i32
-  %185 = trunc nsw i64 %177 to i32
+  %180 = trunc nuw nsw i64 %177 to i32
+  %181 = trunc nuw nsw i64 %177 to i32
+  %182 = trunc nuw nsw i64 %177 to i32
+  %183 = trunc nuw nsw i64 %177 to i32
+  %184 = trunc nuw nsw i64 %177 to i32
+  %185 = trunc nuw nsw i64 %177 to i32
   br label %194
 
 .preheader1348:                                   ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
-  %186 = trunc nsw i64 %177 to i32
-  %187 = trunc nsw i64 %177 to i32
+  %186 = trunc nuw nsw i64 %177 to i32
+  %187 = trunc nuw nsw i64 %177 to i32
   %188 = trunc nsw i64 %indvars.iv1405 to i32
-  %189 = trunc nsw i64 %177 to i32
-  %190 = trunc nsw i64 %177 to i32
+  %189 = trunc nuw nsw i64 %177 to i32
+  %190 = trunc nuw nsw i64 %177 to i32
   %191 = trunc nsw i64 %indvars.iv1405 to i32
-  %192 = trunc nsw i64 %177 to i32
-  %193 = trunc nsw i64 %177 to i32
+  %192 = trunc nuw nsw i64 %177 to i32
+  %193 = trunc nuw nsw i64 %177 to i32
   br label %494
 
 194:                                              ; preds = %.split1355.us, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.exit422
@@ -55608,8 +55608,8 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11centerValueEiib.ex
 
 .preheader1346:                                   ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602
   %491 = trunc nsw i64 %indvars.iv1405 to i32
-  %492 = trunc nsw i64 %177 to i32
-  %493 = trunc nsw i64 %177 to i32
+  %492 = trunc nuw nsw i64 %177 to i32
+  %493 = trunc nuw nsw i64 %177 to i32
   br label %822
 
 494:                                              ; preds = %.preheader1348, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.exit602
@@ -56615,22 +56615,22 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %961 = add nuw nsw i64 %956, 3
   %.tr = trunc i64 %956 to i32
   %962 = shl i32 %.tr, 1
-  %963 = trunc nsw i64 %961 to i32
-  %964 = trunc nsw i64 %961 to i32
-  %965 = trunc nsw i64 %961 to i32
-  %966 = trunc nsw i64 %961 to i32
-  %967 = trunc nsw i64 %961 to i32
-  %968 = trunc nsw i64 %961 to i32
-  %969 = trunc nsw i64 %961 to i32
-  %970 = trunc nsw i64 %961 to i32
-  %971 = trunc nsw i64 %961 to i32
-  %972 = trunc nsw i64 %961 to i32
-  %973 = trunc nsw i64 %961 to i32
-  %974 = trunc nsw i64 %961 to i32
-  %975 = trunc nsw i64 %961 to i32
-  %976 = trunc nsw i64 %961 to i32
-  %977 = trunc nsw i64 %961 to i32
-  %978 = trunc nsw i64 %961 to i32
+  %963 = trunc nuw nsw i64 %961 to i32
+  %964 = trunc nuw nsw i64 %961 to i32
+  %965 = trunc nuw nsw i64 %961 to i32
+  %966 = trunc nuw nsw i64 %961 to i32
+  %967 = trunc nuw nsw i64 %961 to i32
+  %968 = trunc nuw nsw i64 %961 to i32
+  %969 = trunc nuw nsw i64 %961 to i32
+  %970 = trunc nuw nsw i64 %961 to i32
+  %971 = trunc nuw nsw i64 %961 to i32
+  %972 = trunc nuw nsw i64 %961 to i32
+  %973 = trunc nuw nsw i64 %961 to i32
+  %974 = trunc nuw nsw i64 %961 to i32
+  %975 = trunc nuw nsw i64 %961 to i32
+  %976 = trunc nuw nsw i64 %961 to i32
+  %977 = trunc nuw nsw i64 %961 to i32
+  %978 = trunc nuw nsw i64 %961 to i32
   br label %.preheader1343
 
 .preheader1343:                                   ; preds = %.preheader1344, %2307
@@ -56644,22 +56644,22 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE9Evaluator11cornerValueEiib.ex
   %984 = add nuw nsw i64 %979, 3
   %.tr1549 = trunc i64 %979 to i32
   %985 = shl i32 %.tr1549, 1
-  %986 = trunc nsw i64 %984 to i32
-  %987 = trunc nsw i64 %984 to i32
-  %988 = trunc nsw i64 %984 to i32
-  %989 = trunc nsw i64 %984 to i32
-  %990 = trunc nsw i64 %984 to i32
-  %991 = trunc nsw i64 %984 to i32
-  %992 = trunc nsw i64 %984 to i32
-  %993 = trunc nsw i64 %984 to i32
-  %994 = trunc nsw i64 %984 to i32
-  %995 = trunc nsw i64 %984 to i32
-  %996 = trunc nsw i64 %984 to i32
-  %997 = trunc nsw i64 %984 to i32
-  %998 = trunc nsw i64 %984 to i32
-  %999 = trunc nsw i64 %984 to i32
-  %1000 = trunc nsw i64 %984 to i32
-  %1001 = trunc nsw i64 %984 to i32
+  %986 = trunc nuw nsw i64 %984 to i32
+  %987 = trunc nuw nsw i64 %984 to i32
+  %988 = trunc nuw nsw i64 %984 to i32
+  %989 = trunc nuw nsw i64 %984 to i32
+  %990 = trunc nuw nsw i64 %984 to i32
+  %991 = trunc nuw nsw i64 %984 to i32
+  %992 = trunc nuw nsw i64 %984 to i32
+  %993 = trunc nuw nsw i64 %984 to i32
+  %994 = trunc nuw nsw i64 %984 to i32
+  %995 = trunc nuw nsw i64 %984 to i32
+  %996 = trunc nuw nsw i64 %984 to i32
+  %997 = trunc nuw nsw i64 %984 to i32
+  %998 = trunc nuw nsw i64 %984 to i32
+  %999 = trunc nuw nsw i64 %984 to i32
+  %1000 = trunc nuw nsw i64 %984 to i32
+  %1001 = trunc nuw nsw i64 %984 to i32
   br label %1002
 
 .loopexit:                                        ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1212
@@ -56982,21 +56982,21 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   %1171 = icmp slt i64 %1004, 0
   %1172 = icmp eq i64 %1004, 0
   %1173 = add nuw nsw i64 %1004, 3
-  %1174 = trunc nsw i64 %1173 to i32
-  %1175 = trunc nsw i64 %1173 to i32
-  %1176 = trunc nsw i64 %1173 to i32
-  %1177 = trunc nsw i64 %1173 to i32
-  %1178 = trunc nsw i64 %1173 to i32
-  %1179 = trunc nsw i64 %1173 to i32
+  %1174 = trunc nuw nsw i64 %1173 to i32
+  %1175 = trunc nuw nsw i64 %1173 to i32
+  %1176 = trunc nuw nsw i64 %1173 to i32
+  %1177 = trunc nuw nsw i64 %1173 to i32
+  %1178 = trunc nuw nsw i64 %1173 to i32
+  %1179 = trunc nuw nsw i64 %1173 to i32
   br label %1186
 
 .preheader1342:                                   ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888
-  %1180 = trunc nsw i64 %1173 to i32
-  %1181 = trunc nsw i64 %1173 to i32
-  %1182 = trunc nsw i64 %1173 to i32
-  %1183 = trunc nsw i64 %1173 to i32
-  %1184 = trunc nsw i64 %1173 to i32
-  %1185 = trunc nsw i64 %1173 to i32
+  %1180 = trunc nuw nsw i64 %1173 to i32
+  %1181 = trunc nuw nsw i64 %1173 to i32
+  %1182 = trunc nuw nsw i64 %1173 to i32
+  %1183 = trunc nuw nsw i64 %1173 to i32
+  %1184 = trunc nuw nsw i64 %1173 to i32
+  %1185 = trunc nuw nsw i64 %1173 to i32
   br label %1660
 
 1186:                                             ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit835, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueEiib.exit888
@@ -57896,8 +57896,8 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11centerValueE
   br i1 %exitcond1465.not, label %.preheader1342, label %1186, !llvm.loop !829
 
 .preheader:                                       ; preds = %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050
-  %1658 = trunc nsw i64 %1173 to i32
-  %1659 = trunc nsw i64 %1173 to i32
+  %1658 = trunc nuw nsw i64 %1173 to i32
+  %1659 = trunc nuw nsw i64 %1173 to i32
   br label %2138
 
 1660:                                             ; preds = %.preheader1342, %_ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE14ChildEvaluator11cornerValueEiib.exit1050

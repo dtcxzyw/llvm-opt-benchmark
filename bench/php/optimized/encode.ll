@@ -97,7 +97,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_8(ptr noundef captur
 
 30:                                               ; preds = %25
   %31 = lshr i32 %12, 6
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, -64
   %34 = load ptr, ptr %10, align 8, !tbaa !17
   %35 = add i64 %26, 1
@@ -128,7 +128,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_8(ptr noundef captur
 
 51:                                               ; preds = %46
   %52 = lshr i32 %12, 12
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -32
   %55 = load ptr, ptr %10, align 8, !tbaa !17
   %56 = add i64 %47, 1
@@ -169,7 +169,7 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_8(ptr noundef captur
 
 80:                                               ; preds = %75
   %81 = lshr i32 %12, 18
-  %82 = trunc nuw i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   %83 = or disjoint i8 %82, -16
   %84 = load ptr, ptr %10, align 8, !tbaa !17
   %85 = add i64 %76, 1
@@ -5074,7 +5074,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_default_single(ptr
 
 14:                                               ; preds = %10
   %15 = lshr i32 %3, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %18, ptr %1, align 8, !tbaa !31
@@ -5096,7 +5096,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_default_single(ptr
 
 28:                                               ; preds = %24
   %29 = lshr i32 %3, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %32, ptr %1, align 8, !tbaa !31
@@ -5126,7 +5126,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_default_single(ptr
 
 48:                                               ; preds = %44
   %49 = lshr i32 %3, 18
-  %50 = trunc nuw i32 %49 to i8
+  %50 = trunc nuw nsw i32 %49 to i8
   %51 = or disjoint i8 %50, -16
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %52, ptr %1, align 8, !tbaa !31
@@ -5187,7 +5187,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_8_single(ptr n
 
 14:                                               ; preds = %10
   %15 = lshr i32 %3, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %18, ptr %1, align 8, !tbaa !31
@@ -5209,7 +5209,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_8_single(ptr n
 
 28:                                               ; preds = %24
   %29 = lshr i32 %3, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %32, ptr %1, align 8, !tbaa !31
@@ -5239,7 +5239,7 @@ define hidden signext range(i8 -2, 5) i8 @lxb_encoding_encode_utf_8_single(ptr n
 
 48:                                               ; preds = %44
   %49 = lshr i32 %3, 18
-  %50 = trunc nuw i32 %49 to i8
+  %50 = trunc nuw nsw i32 %49 to i8
   %51 = or disjoint i8 %50, -16
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %52, ptr %1, align 8, !tbaa !31
@@ -6860,7 +6860,7 @@ lxb_encoding_encode_utf_16_write_single.exit.i:   ; preds = %8
 .sink.split.i:                                    ; preds = %14, %lxb_encoding_encode_utf_16_write_single.exit.i
   %.sink11.i19.sink.i = phi i32 [ %10, %lxb_encoding_encode_utf_16_write_single.exit.i ], [ %29, %14 ]
   %.0.ph.i = phi i8 [ 2, %lxb_encoding_encode_utf_16_write_single.exit.i ], [ 4, %14 ]
-  %30 = trunc i32 %.sink11.i19.sink.i to i8
+  %30 = trunc nuw i32 %.sink11.i19.sink.i to i8
   %31 = load ptr, ptr %1, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %32, ptr %1, align 8, !tbaa !31

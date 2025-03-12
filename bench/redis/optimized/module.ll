@@ -3560,7 +3560,7 @@ moduleValidateCommandInfo.exit.thread:            ; preds = %72, %69, %65, %62, 
   unreachable
 
 210:                                              ; preds = %207
-  %211 = trunc nuw i64 %.0146 to i32
+  %211 = trunc nuw nsw i64 %.0146 to i32
   %212 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %213 = load ptr, ptr %212, align 8, !tbaa !164
   call void @zfree(ptr noundef %213) #35

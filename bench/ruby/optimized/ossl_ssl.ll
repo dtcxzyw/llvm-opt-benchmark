@@ -1892,7 +1892,7 @@ RSTRING_PTR.exit:                                 ; preds = %188, %196
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %201 = trunc i64 %198 to i32
+  %201 = trunc nsw i64 %198 to i32
   %202 = call i32 @SSL_CTX_set_alpn_protos(ptr noundef %13, ptr noundef %.sroa.2.0.i, i32 noundef %201) #9
   %.not87 = icmp eq i32 %202, 0
   br i1 %.not87, label %205, label %203
@@ -1973,7 +1973,7 @@ RSTRING_PTR.exit106:                              ; preds = %234, %241
   unreachable
 
 RSTRING_LENINT.exit108:                           ; preds = %RSTRING_PTR.exit106
-  %246 = trunc i64 %243 to i32
+  %246 = trunc nsw i64 %243 to i32
   %247 = call i32 @SSL_CTX_set_session_id_context(ptr noundef %13, ptr noundef %.sroa.2.0.i105, i32 noundef %246) #9
   %.not88 = icmp eq i32 %247, 0
   br i1 %.not88, label %248, label %250
@@ -4368,7 +4368,7 @@ RSTRING_PTR.exit:                                 ; preds = %4, %12
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %17 = trunc i64 %14 to i32
+  %17 = trunc nsw i64 %14 to i32
   store i32 %17, ptr %2, align 4, !tbaa !6
   ret i32 0
 }
@@ -4925,7 +4925,7 @@ define internal noundef i64 @ssl_npn_encode_protocol_i(i64 noundef %0, i64 nound
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %5
-  %12 = trunc i64 %9 to i32
+  %12 = trunc nsw i64 %9 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #9
   %13 = add i32 %12, -256
   %or.cond = icmp ult i32 %13, -255
@@ -6190,8 +6190,8 @@ define internal i64 @ossl_ssl_write_internal_safe(i64 noundef %0) #0 {
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %15
-  %27 = trunc i64 %24 to i32
-  %28 = icmp eq i32 %27, 0
+  %27 = trunc nsw i64 %24 to i32
+  %28 = icmp eq i64 %24, 0
   br i1 %28, label %io_wait_writable.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %RSTRING_LENINT.exit

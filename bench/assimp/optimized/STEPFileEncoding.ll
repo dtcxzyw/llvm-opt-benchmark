@@ -914,7 +914,7 @@ define linkonce_odr hidden noundef ptr @_ZN4utf86appendIPhEET_jS2_(i32 noundef %
 
 17:                                               ; preds = %15
   %18 = lshr i32 %0, 6
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %20, ptr %1, align 1
@@ -933,7 +933,7 @@ define linkonce_odr hidden noundef ptr @_ZN4utf86appendIPhEET_jS2_(i32 noundef %
 
 30:                                               ; preds = %26
   %31 = lshr i32 %0, 12
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, -32
   store i8 %33, ptr %1, align 1
   %34 = lshr i32 %0, 6
@@ -950,7 +950,7 @@ define linkonce_odr hidden noundef ptr @_ZN4utf86appendIPhEET_jS2_(i32 noundef %
 
 42:                                               ; preds = %26
   %43 = lshr i32 %0, 18
-  %44 = trunc nuw i32 %43 to i8
+  %44 = trunc nuw nsw i32 %43 to i8
   %45 = or disjoint i8 %44, -16
   store i8 %45, ptr %1, align 1
   %46 = lshr i32 %0, 12

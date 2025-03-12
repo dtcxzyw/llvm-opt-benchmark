@@ -559,7 +559,7 @@ FastLog2.exit112:                                 ; preds = %83, %86
   br i1 %93, label %.lr.ph127.preheader, label %.critedge.thread
 
 .lr.ph127.preheader:                              ; preds = %.preheader
-  %94 = trunc nuw i64 %.3100135 to i32
+  %94 = trunc nuw nsw i64 %.3100135 to i32
   %95 = sub nuw nsw i32 704, %94
   br label %.lr.ph127
 
@@ -935,7 +935,7 @@ FastLog2.exit112:                                 ; preds = %83, %86
   br i1 %93, label %.lr.ph127.preheader, label %.critedge.thread
 
 .lr.ph127.preheader:                              ; preds = %.preheader
-  %94 = trunc nuw i64 %.3100135 to i32
+  %94 = trunc nuw nsw i64 %.3100135 to i32
   %95 = sub nuw nsw i32 544, %94
   br label %.lr.ph127
 

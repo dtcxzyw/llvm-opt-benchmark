@@ -1468,7 +1468,7 @@ define hidden void @_ZN14MacroAssembler6movptrE7Addressl8Register(ptr noundef no
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %11) #18
-  %16 = trunc i64 %2 to i32
+  %16 = trunc nsw i64 %2 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 21, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -9699,7 +9699,7 @@ define hidden void @_ZN14MacroAssembler6movptrE8Registerl(ptr noundef nonnull al
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = trunc i64 %2 to i32
+  %11 = trunc nsw i64 %2 to i32
   tail call void @_ZN9Assembler4movqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef %11) #18
   br label %13
 

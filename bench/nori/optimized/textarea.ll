@@ -625,7 +625,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit47:         ; preds = %30
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
   %38 = icmp eq i32 %.sroa.069.0.extract.trunc, %.sroa.0.0.extract.trunc
   %39 = icmp sgt i32 %.sroa.9.0.extract.trunc, %.sroa.8.0.extract.trunc
-  %or.cond89 = and i1 %38, %39
+  %or.cond89 = select i1 %38, i1 %39, i1 false
   br i1 %or.cond89, label %40, label %41
 
 40:                                               ; preds = %37

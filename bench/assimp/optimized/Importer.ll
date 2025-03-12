@@ -6814,7 +6814,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8

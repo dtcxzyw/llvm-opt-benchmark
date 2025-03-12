@@ -2893,7 +2893,7 @@ _ZNSt10unique_ptrIN4base12SampleVectorESt14default_deleteIS1_EED2Ev.exit: ; pred
   %71 = load ptr, ptr %0, align 8, !tbaa !17
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 144
   %73 = load ptr, ptr %72, align 8
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nuw i64 %indvars.iv to i32
   %75 = add nuw i32 %74, 1
   %76 = invoke noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(81) %0, i32 noundef %75)
           to label %77 unwind label %_ZNKSt14default_deleteIN4base15DictionaryValueEEclEPS1_.exit.i

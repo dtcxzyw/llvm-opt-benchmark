@@ -1329,7 +1329,7 @@ define hidden void @_ZN6Assimp17Q3BSPFileImporter20CreateDataFromImportEPKNS_5Q3
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %16 = trunc nuw i64 %12 to i32
+  %16 = trunc nuw nsw i64 %12 to i32
   store i32 %16, ptr %8, align 4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %18 = load ptr, ptr %15, align 8
@@ -2433,7 +2433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %85, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %86
 
 86:                                               ; preds = %84
-  %87 = trunc nuw i64 %82 to i32
+  %87 = trunc nuw nsw i64 %82 to i32
   store i32 %87, ptr %13, align 4
   %88 = load ptr, ptr %14, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr align 1 %88, i64 %82, i1 false)

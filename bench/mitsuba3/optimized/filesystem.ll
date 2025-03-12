@@ -1581,7 +1581,7 @@ _ZNK7mitsuba10filesystem4pathcvNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9
 
 126:                                              ; preds = %124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !alias.scope !30
-  %127 = trunc nuw i64 %121 to i8
+  %127 = trunc nuw nsw i64 %121 to i8
   %128 = shl nuw nsw i8 %127, 1
   store i8 %128, ptr %9, align 8, !alias.scope !30
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i

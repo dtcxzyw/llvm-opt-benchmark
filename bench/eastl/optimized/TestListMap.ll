@@ -2404,7 +2404,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZN5eastl9make_pairIRKNS_12basic_stringIcNS_9allocatorEEERKjEENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS9_INSA_IT0_E4typeEE4typeEEEOSB_OSG_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %entry
-  %3 = trunc nuw i64 %sub.ptr.sub.i.i.i.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i to i8
   %conv.i.i.i5.i.i.i = sub nuw nsw i8 23, %3
   store i8 %conv.i.i.i5.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1, !alias.scope !134
   br label %_ZN5eastl9make_pairIRKNS_12basic_stringIcNS_9allocatorEEERKjEENS_4pairINS_24remove_reference_wrapperINS_5decayIT_E4typeEE4typeENS9_INSA_IT0_E4typeEE4typeEEEOSB_OSG_.exit
@@ -2866,7 +2866,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
   br label %_ZN5eastl13list_map_dataINS_4pairIKNS_12basic_stringIcNS_9allocatorEEEjEEEC2ERKS6_.exit
 
 if.else.i.i.i.i.i:                                ; preds = %entry
-  %3 = trunc nuw i64 %sub.ptr.sub.i.i.i.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i to i8
   %conv.i.i.i5.i.i.i = sub nuw nsw i8 23, %3
   store i8 %conv.i.i.i5.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl13list_map_dataINS_4pairIKNS_12basic_stringIcNS_9allocatorEEEjEEEC2ERKS6_.exit
@@ -2992,7 +2992,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %entry
   br label %_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE12DoCreateNodeIJRS8_EEEPNS_11rbtree_nodeIS8_EEDpOT_.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %entry
-  %3 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i to i8
   %conv.i.i.i5.i.i.i.i = sub nuw nsw i8 23, %3
   store i8 %conv.i.i.i5.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl6rbtreeINS_12basic_stringIcNS_9allocatorEEENS_13list_map_dataINS_4pairIKS3_jEEEENS_4lessIS3_EES2_NS_15use_value_firstIS8_EELb1ELb1EE12DoCreateNodeIJRS8_EEEPNS_11rbtree_nodeIS8_EEDpOT_.exit

@@ -9258,7 +9258,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 22:                                               ; preds = %20
   %23 = lshr i32 %0, 6
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -64
   %26 = trunc i32 %0 to i8
   %27 = and i8 %26, 63
@@ -9330,7 +9330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit37: ; pred
 
 59:                                               ; preds = %57
   %60 = lshr i32 %0, 12
-  %61 = trunc nuw i32 %60 to i8
+  %61 = trunc nuw nsw i32 %60 to i8
   %62 = or disjoint i8 %61, -32
   %63 = lshr i32 %0, 6
   %64 = trunc i32 %63 to i8

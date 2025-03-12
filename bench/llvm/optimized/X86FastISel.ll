@@ -11924,7 +11924,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %222, %229
   br i1 %234, label %235, label %_ZNK4llvm3EVTeqES0_.exit.thread272
 
 235:                                              ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
-  %236 = trunc i64 %232 to i32
+  %236 = trunc nsw i64 %232 to i32
   store i32 %236, ptr %12, align 8, !tbaa !230
   %237 = load i32, ptr %200, align 4
   %238 = and i32 %237, 1073741824
@@ -12187,7 +12187,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit226:   ; preds = %344, %351
   ]
 
 368:                                              ; preds = %367, %367, %367, %367
-  %369 = trunc nuw i64 %316 to i32
+  %369 = trunc nuw nsw i64 %316 to i32
   %370 = call i32 @_ZN4llvm8FastISel17getRegForGEPIndexENS_3MVTEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(176) %0, i16 %261, ptr noundef nonnull %.0169406) #19
   %371 = icmp eq i32 %370, 0
   br i1 %371, label %.thread343, label %372
@@ -12275,7 +12275,7 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit: ; preds = %386, %394, 
 405:                                              ; preds = %._crit_edge419
   store i32 %.0158.lcssa, ptr %13, align 4, !tbaa !229
   store i32 %.0163.lcssa, ptr %14, align 8, !tbaa !228
-  %406 = trunc i64 %.0152.lcssa to i32
+  %406 = trunc nsw i64 %.0152.lcssa to i32
   store i32 %406, ptr %12, align 8, !tbaa !230
   %407 = load i32, ptr %9, align 8, !tbaa !241
   %408 = load i32, ptr %10, align 4, !tbaa !242

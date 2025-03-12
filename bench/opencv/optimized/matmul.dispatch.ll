@@ -21990,7 +21990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit72: ; preds = %_ZN
   br i1 %90, label %.thread, label %91
 
 91:                                               ; preds = %86
-  %92 = trunc i64 %88 to i32
+  %92 = trunc nsw i64 %88 to i32
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !136
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -27715,7 +27715,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %914, label %915, label %917
 
 915:                                              ; preds = %910
-  %.rhs.trunc = trunc i32 %.sroa.speculated to i16
+  %.rhs.trunc = trunc nsw i32 %.sroa.speculated to i16
   %916 = sdiv i16 16384, %.rhs.trunc
   %.sext = sext i16 %916 to i32
   br label %917
@@ -27724,7 +27724,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0922 = phi i32 [ %.sext, %915 ], [ %.sroa.speculated1200, %910 ]
   %918 = mul nsw i32 %.sroa.speculated, %.sroa.speculated1203
   %919 = icmp sgt i32 %918, 16384
-  %.rhs.trunc1244 = trunc i32 %.sroa.speculated to i16
+  %.rhs.trunc1244 = trunc nsw i32 %.sroa.speculated to i16
   br i1 %919, label %920, label %._crit_edge
 
 920:                                              ; preds = %917

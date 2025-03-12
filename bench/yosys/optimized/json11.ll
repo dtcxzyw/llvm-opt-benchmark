@@ -9761,7 +9761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 
 24:                                               ; preds = %22
   %25 = lshr i64 %0, 6
-  %26 = trunc nuw i64 %25 to i8
+  %26 = trunc nuw nsw i64 %25 to i8
   %27 = or disjoint i8 %26, -64
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !45
@@ -9839,7 +9839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit28: ; preds = %_ZN
 
 67:                                               ; preds = %59
   %68 = lshr i64 %0, 12
-  %69 = trunc nuw i64 %68 to i8
+  %69 = trunc nuw nsw i64 %68 to i8
   %70 = or disjoint i8 %69, -32
   br i1 %66, label %71, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i29
 

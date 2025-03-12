@@ -4390,7 +4390,7 @@ define internal fastcc range(i64 -6, 256) i64 @intel_sdvo_read_infoframe(ptr nou
   %56 = getelementptr i8, ptr %2, i64 %53
   %57 = load i8, ptr %6, align 1
   %58 = zext i8 %57 to i32
-  %59 = trunc i64 %53 to i32
+  %59 = trunc nuw nsw i64 %53 to i32
   %60 = sub nsw i32 %58, %59
   %61 = call i32 @llvm.umin.i32(i32 %60, i32 8)
   %62 = call fastcc zeroext i1 @intel_sdvo_read_response(ptr noundef %0, ptr noundef %56, i32 noundef %61)

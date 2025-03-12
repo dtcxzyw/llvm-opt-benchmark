@@ -1607,7 +1607,7 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
   br i1 %658, label %659, label %.loopexit235.i
 
 659:                                              ; preds = %._crit_edge.i
-  %660 = trunc i64 %.0120.i to i32
+  %660 = trunc nsw i64 %.0120.i to i32
   store i32 %660, ptr %646, align 4, !tbaa !175
   %661 = lshr i64 %.0120.i, 32
   %662 = trunc nuw i64 %661 to i32

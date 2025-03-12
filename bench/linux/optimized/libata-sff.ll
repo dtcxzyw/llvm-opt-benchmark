@@ -3716,13 +3716,13 @@ __ata_sff_port_intr.exit:                         ; preds = %66, %70, %.thread5.
   br label %118
 
 110:                                              ; preds = %30
-  %111 = trunc i64 %11 to i32
+  %111 = trunc nuw i64 %11 to i32
   %112 = shl nuw i32 1, %111
   %113 = or i32 %112, %12
   br label %118
 
 114:                                              ; preds = %.preheader7, %25
-  %115 = trunc i64 %11 to i32
+  %115 = trunc nuw i64 %11 to i32
   %116 = shl nuw i32 1, %115
   %117 = or i32 %13, %116
   br label %118
@@ -3749,7 +3749,7 @@ __ata_sff_port_intr.exit:                         ; preds = %66, %70, %.thread5.
   %130 = phi i8 [ %162, %161 ], [ 0, %.loopexit ]
   %131 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %129
   %132 = load ptr, ptr %131, align 8
-  %133 = trunc i64 %129 to i32
+  %133 = trunc nuw i64 %129 to i32
   %134 = shl nuw i32 1, %133
   %135 = and i32 %134, %122
   %136 = icmp eq i32 %135, 0
@@ -5735,13 +5735,13 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
   br label %46
 
 38:                                               ; preds = %30
-  %39 = trunc i64 %11 to i32
+  %39 = trunc nuw i64 %11 to i32
   %40 = shl nuw i32 1, %39
   %41 = or i32 %40, %12
   br label %46
 
 42:                                               ; preds = %.preheader7, %25
-  %43 = trunc i64 %11 to i32
+  %43 = trunc nuw i64 %11 to i32
   %44 = shl nuw i32 1, %43
   %45 = or i32 %13, %44
   br label %46
@@ -5768,7 +5768,7 @@ define dso_local range(i32 0, 2) i32 @ata_bmdma_interrupt(i32 %0, ptr noundef %1
   %58 = phi i8 [ %90, %89 ], [ 0, %.loopexit ]
   %59 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %57
   %60 = load ptr, ptr %59, align 8
-  %61 = trunc i64 %57 to i32
+  %61 = trunc nuw i64 %57 to i32
   %62 = shl nuw i32 1, %61
   %63 = and i32 %62, %50
   %64 = icmp eq i32 %63, 0

@@ -167,7 +167,7 @@ define void @_ZN3zmq12ws_encoder_t13message_readyEv(ptr noundef nonnull align 8 
   br i1 %37, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = trunc nuw i64 %.136 to i8
+  %40 = trunc nuw nsw i64 %.136 to i8
   %41 = or i8 %38, %40
   store i8 %41, ptr %25, align 1, !tbaa !26
   br label %76

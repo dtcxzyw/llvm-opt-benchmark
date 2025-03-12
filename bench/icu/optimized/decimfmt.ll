@@ -8658,7 +8658,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit47:       ; preds = %_ZNK6icu_7713Unicod
   %129 = getelementptr inbounds nuw i8, ptr %45, i64 4534
   store i16 %.0.i.i45, ptr %129, align 2, !tbaa !201
   %130 = tail call i32 @llvm.smax.i32(i32 %68, i32 0)
-  %131 = trunc i32 %130 to i8
+  %131 = trunc nuw nsw i32 %130 to i8
   %132 = getelementptr inbounds nuw i8, ptr %45, i64 4536
   store i8 %131, ptr %132, align 2, !tbaa !202
   %133 = tail call i32 @llvm.umin.i32(i32 %70, i32 127)

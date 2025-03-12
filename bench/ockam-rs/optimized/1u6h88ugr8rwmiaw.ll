@@ -3344,7 +3344,7 @@ common.ret:                                       ; preds = %1246, %191
 546:                                              ; preds = %533, %529
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %30)
   store i8 1, ptr %517, align 8, !noalias !470
-  %547 = trunc i8 %520 to i1
+  %547 = trunc nuw i8 %520 to i1
   br i1 %547, label %572, label %556
 
 .body.i.i.i.i:                                    ; preds = %544, %507
@@ -5031,7 +5031,7 @@ common.ret:                                       ; preds = %1246, %191
 1099:                                             ; preds = %1086, %1082
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   store i8 1, ptr %1070, align 8, !noalias !666
-  %1100 = trunc i8 %1073 to i1
+  %1100 = trunc nuw i8 %1073 to i1
   br i1 %1100, label %1114, label %1109
 
 .body.i.i366.i.i:                                 ; preds = %1097, %1060

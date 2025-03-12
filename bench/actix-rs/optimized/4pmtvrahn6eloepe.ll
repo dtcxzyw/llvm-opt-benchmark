@@ -4120,7 +4120,7 @@ define hidden void @_ZN6brotli3enc17compress_fragment30BrotliCompressFragmentFas
   %128 = sub i64 %61, %.0358990
   %129 = call noundef i64 @_ZN6brotli3enc11static_dict24FindMatchLengthWithLimit17h2a0f0e9668e30f8bE(ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %125, ptr noalias noundef nonnull readonly align 1 %127, i64 noundef %126, i64 noundef %128)
   %130 = add i64 %129, 5
-  %131 = trunc nuw i64 %110 to i32
+  %131 = trunc nuw nsw i64 %110 to i32
   %132 = sub i64 %.0358990, %.33401009
   %133 = add i64 %130, %.0358990
   %134 = icmp ult i64 %132, 6210
@@ -4596,7 +4596,7 @@ default.unreachable:                              ; preds = %.outer
   unreachable
 
 362:                                              ; preds = %357
-  %363 = trunc nuw i64 %351 to i32
+  %363 = trunc nuw nsw i64 %351 to i32
   %364 = add nsw i32 %363, -1
   call void @_ZN6brotli3enc17compress_fragment10UpdateBits17h08cd2c88411aaa7fE(i64 noundef 20, i32 noundef %364, i64 noundef %.0363.ph, ptr noalias noundef nonnull align 1 %16, i64 noundef %17)
   br label %.outer.backedge
@@ -5510,10 +5510,10 @@ _ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit: ; preds = 
   %122 = zext nneg i32 %119 to i64
   %123 = lshr i64 %115, %122
   %124 = add nuw nsw i64 %123, %121
-  %125 = trunc i64 %124 to i16
+  %125 = trunc nuw nsw i64 %124 to i16
   %126 = add nuw nsw i16 %125, 2
   %127 = zext nneg i16 %126 to i64
-  %128 = icmp samesign ult i16 %125, 22
+  %128 = icmp samesign ult i64 %124, 22
   br i1 %128, label %_ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142, label %146, !prof !604
 
 _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae77380cc67f69E.exit142: ; preds = %_ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit.thread, %_ZN6brotli3enc7command19GetInsertLengthCode17ha9109facbbd32153E.exit
@@ -5654,7 +5654,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
   %.091284 = add nuw i64 %.088294, 1
   %199 = icmp eq i64 %.095292, 0
   %or.cond.i = and i1 %142, %199
-  %.095.tr = trunc nuw i64 %.095292 to i32
+  %.095.tr = trunc nuw nsw i64 %.095292 to i32
   %200 = shl nuw nsw i32 %.095.tr, 27
   %201 = add nuw i32 %200, 134217728
   %202 = or i32 %201, %144
@@ -5676,7 +5676,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
   br i1 %207, label %213, label %211
 
 208:                                              ; preds = %204
-  %209 = trunc nuw i64 %.091288 to i16
+  %209 = trunc nuw nsw i64 %.091288 to i16
   %210 = add nsw i16 %209, -2
   br label %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
 
@@ -5695,7 +5695,7 @@ _ZN6brotli3enc19backward_references2hq30ZopfliCostModelGetLiteralCosts17h82ae773
   %221 = zext nneg i32 %218 to i64
   %222 = lshr i64 %214, %221
   %223 = add nuw nsw i64 %222, %220
-  %224 = trunc i64 %223 to i16
+  %224 = trunc nuw nsw i64 %223 to i16
   %225 = add nuw nsw i16 %224, 4
   br label %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
 
@@ -5940,7 +5940,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit145.thread: ; 
 _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit145: ; preds = %324, %330
   %.092.sink = phi i64 [ %340, %330 ], [ %.092, %324 ]
   %.sink436 = phi i16 [ 4, %330 ], [ -2, %324 ]
-  %348 = trunc i64 %.092.sink to i16
+  %348 = trunc nuw nsw i64 %.092.sink to i16
   %349 = add nsw i16 %.sink436, %348
   %350 = zext i16 %349 to i64
   %351 = icmp ult i16 %349, 24

@@ -178,7 +178,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h174e2c69d9c944
   unreachable
 
 74:                                               ; preds = %52
-  %.lhs.trunc.i.i = trunc nuw i32 %53 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %53 to i16
   %75 = urem i16 %.lhs.trunc.i.i, 28
   %.not.i.i = icmp eq i16 %75, 0
   %..i.i = select i1 %.not.i.i, i64 2, i64 3
@@ -272,7 +272,7 @@ _ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42
 
 102:                                              ; preds = %92
   %103 = lshr i32 %.0.i1014.i, 12
-  %104 = trunc nuw i32 %103 to i8
+  %104 = trunc nuw nsw i32 %103 to i8
   %105 = or disjoint i8 %104, -32
   store i8 %105, ptr %.sroa.0.i.i.i, align 4, !alias.scope !39, !noalias !36
   %106 = lshr i32 %.0.i1014.i, 6
@@ -288,7 +288,7 @@ _ZN21unicode_normalization11stream_safe20classify_nonstarters17hdc3d352c4dbebd42
 
 113:                                              ; preds = %92
   %114 = lshr i32 %.0.i1014.i, 18
-  %115 = trunc i32 %114 to i8
+  %115 = trunc nuw nsw i32 %114 to i8
   %116 = or disjoint i8 %115, -16
   store i8 %116, ptr %.sroa.0.i.i.i, align 4, !alias.scope !39, !noalias !36
   %117 = lshr i32 %.0.i1014.i, 12
@@ -339,7 +339,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i.i: ; preds =
   br label %"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17ha6cebfed4dedef8bE.exit"
 
 .critedge.i.i.i:                                  ; preds = %88
-  %140 = trunc nuw i32 %.0.i1014.i to i8
+  %140 = trunc nuw nsw i32 %.0.i1014.i to i8
   %141 = load i64, ptr %7, align 8, !alias.scope !52, !noundef !7
   %142 = load i64, ptr %1, align 8, !alias.scope !52, !noundef !7
   %143 = icmp eq i64 %141, %142

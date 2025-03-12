@@ -1226,7 +1226,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %59
-  %65 = trunc nuw i64 %39 to i32
+  %65 = trunc nuw nsw i64 %39 to i32
   %66 = trunc i64 %40 to i32
   br label %74
 

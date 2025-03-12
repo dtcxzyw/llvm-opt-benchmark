@@ -24044,7 +24044,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !5841
   %12 = trunc i32 %1 to i8
@@ -24056,7 +24056,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !5841
   %19 = lshr i32 %1, 6
@@ -24125,7 +24125,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %8, %
   br label %79
 
 .critedge:                                        ; preds = %2
-  %54 = trunc nuw i32 %1 to i8
+  %54 = trunc nuw nsw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5856)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load i64, ptr %55, align 8, !alias.scope !5856, !noundef !4
@@ -51640,14 +51640,14 @@ define internal noundef zeroext i1 @"_ZN60_$LT$ecow..string..EcoString$u20$as$u2
 
 11:                                               ; preds = %7
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 4, !alias.scope !8634, !noalias !8631
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %5, align 4, !alias.scope !8634, !noalias !8631
   %19 = lshr i32 %1, 6
@@ -51687,7 +51687,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %23
   br label %_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE.exit
 
 .critedge.i:                                      ; preds = %2
-  %40 = trunc nuw i32 %1 to i8
+  %40 = trunc nuw nsw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8637)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %42 = load i8, ptr %41, align 1, !alias.scope !8640, !noundef !4
@@ -64104,7 +64104,7 @@ _ZN5alloc7raw_vec11finish_grow17h9b8b8a0ec08387c9E.exit.i.i.i.i230: ; preds = %3
   br i1 %.not136, label %396, label %344
 
 344:                                              ; preds = %342
-  %345 = trunc i8 %343 to i1
+  %345 = trunc nuw i8 %343 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51)
   %346 = load ptr, ptr %.0116, align 8, !nonnull !4, !noundef !4
   %347 = getelementptr inbounds nuw i8, ptr %.0116, i64 8
@@ -68605,7 +68605,7 @@ define hidden void @_ZN5typst6layout6inline9linebreak17h081493bc55008af7E(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 165
   %9 = load i8, ptr %8, align 1, !range !565, !alias.scope !12035
   %.0.in.i = select i1 %7, i8 %9, i8 %6
-  %.0.i = trunc i8 %.0.in.i to i1
+  %.0.i = trunc nuw i8 %.0.in.i to i1
   br i1 %.0.i, label %11, label %10
 
 10:                                               ; preds = %4
@@ -79190,22 +79190,9 @@ define void @"_ZN5typst4text9linebreak1_100_$LT$impl$u20$typst..foundations..ele
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN5typst4text9linebreak1_88_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$typst..text..linebreak..LinebreakElem$GT$2eq17hbe94666d23ff395fE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #16 {
   %3 = load i8, ptr %0, align 1, !range !1931, !noundef !4
-  %4 = icmp eq i8 %3, 2
-  %5 = load i8, ptr %1, align 1, !range !1931, !noundef !4
-  %6 = icmp eq i8 %5, 2
-  %brmerge = or i1 %4, %6
-  %.mux = and i1 %4, %6
-  br i1 %brmerge, label %7, label %8
-
-7:                                                ; preds = %2, %8
-  %.0 = phi i1 [ %11, %8 ], [ %.mux, %2 ]
+  %4 = load i8, ptr %1, align 1, !range !1931, !noundef !4
+  %.0 = icmp eq i8 %4, %3
   ret i1 %.0
-
-8:                                                ; preds = %2
-  %9 = xor i8 %5, %3
-  %10 = trunc i8 %9 to i1
-  %11 = xor i1 %10, true
-  br label %7
 }
 
 ; Function Attrs: nonlazybind uwtable

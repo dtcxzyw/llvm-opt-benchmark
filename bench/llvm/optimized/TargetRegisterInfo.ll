@@ -3241,7 +3241,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit: ; preds =
   br i1 %.not33, label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.thread, label %119
 
 119:                                              ; preds = %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit
-  %120 = trunc i32 %66 to i16
+  %120 = trunc nuw i32 %66 to i16
   %121 = load i64, ptr %46, align 8, !tbaa !324
   %122 = add i64 %121, 1
   %123 = load i64, ptr %47, align 8, !tbaa !326

@@ -354,7 +354,7 @@ regcache_hw_init.exit.thread13:                   ; preds = %135
   %160 = phi i64 [ 0, %155 ], [ %208, %206 ]
   %161 = phi i32 [ 0, %155 ], [ %207, %206 ]
   %162 = load i32, ptr %100, align 4
-  %163 = trunc i64 %160 to i32
+  %163 = trunc nuw i64 %160 to i32
   %164 = mul i32 %162, %163
   %165 = call zeroext i1 @regmap_readable(ptr noundef %0, i32 noundef %164) #12
   br i1 %165, label %166, label %206

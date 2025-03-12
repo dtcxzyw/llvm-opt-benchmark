@@ -2816,7 +2816,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_
   br label %.body95
 
 984:                                              ; preds = %.lr.ph
-  %985 = trunc i32 %977 to i8
+  %985 = trunc nsw i32 %977 to i8
   %986 = getelementptr inbounds nuw i8, ptr %.sroa.0119.0202, i64 40
   %987 = load ptr, ptr %29, align 8
   %988 = load ptr, ptr %957, align 8
@@ -5090,7 +5090,7 @@ _ZSt8_DestroyIPSt6vectorIN3ue29LookEntryESaIS2_EES4_EvT_S6_RSaIT0_E.exit.i.i.i: 
   br label %.critedge28.i
 
 539:                                              ; preds = %.lr.ph.i44
-  %540 = trunc i32 %532 to i8
+  %540 = trunc nsw i32 %532 to i8
   %541 = getelementptr inbounds nuw i8, ptr %.sroa.02.016.i, i64 40
   %542 = load ptr, ptr %514, align 8
   %.not.i.i46 = icmp eq ptr %530, %542
@@ -5899,7 +5899,7 @@ _ZNSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE11lower_boundERS5_.exit.
   br label %.body
 
 210:                                              ; preds = %203
-  %211 = trunc i32 %193 to i8
+  %211 = trunc nsw i32 %193 to i8
   %212 = load ptr, ptr %11, align 8
   %213 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %212, %213

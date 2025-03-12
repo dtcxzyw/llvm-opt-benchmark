@@ -1574,7 +1574,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail20to_chars_pri
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %16 = trunc nuw i32 %4 to i8
+  %16 = trunc nuw nsw i32 %4 to i8
   %17 = or disjoint i8 %16, 48
   store i8 %17, ptr %15, align 1, !tbaa !23
   br label %67
@@ -3680,7 +3680,7 @@ _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %31
   %41 = sub nuw nsw i64 10, %28
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %42, i64 %28, i1 false)
-  br label %172
+  br label %171
 
 43:                                               ; preds = %6
   %44 = icmp ugt i64 %2, 9999999999
@@ -3753,196 +3753,195 @@ _ZN5boost8charconv6detail10num_digitsImEEiT_.exit83: ; preds = %64
 _ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread: ; preds = %64, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread
   %.0.i72110112117 = phi i32 [ %.0.i72, %64 ], [ 10, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
   %72 = udiv i64 %2, 1000000000
-  %73 = trunc i64 %72 to i32
-  %74 = urem i64 %2, 1000000000
-  %75 = icmp samesign ugt i32 %73, 9999
-  br i1 %75, label %76, label %84
+  %73 = urem i64 %2, 1000000000
+  %74 = icmp ugt i64 %2, 9999999999999
+  br i1 %74, label %75, label %83
 
-76:                                               ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread
-  %77 = icmp samesign ugt i32 %73, 9999999
-  br i1 %77, label %78, label %80
+75:                                               ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread
+  %76 = icmp ugt i64 %2, 9999999999999999
+  br i1 %76, label %77, label %79
 
-78:                                               ; preds = %76
-  %79 = icmp samesign ugt i32 %73, 99999999
-  %spec.select = select i1 %79, i64 9, i64 8
+77:                                               ; preds = %75
+  %78 = icmp ugt i64 %2, 99999999999999999
+  %spec.select = select i1 %78, i64 9, i64 8
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
-80:                                               ; preds = %76
-  %81 = icmp samesign ugt i32 %73, 99999
-  br i1 %81, label %82, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
+79:                                               ; preds = %75
+  %80 = icmp ugt i64 %2, 99999999999999
+  br i1 %80, label %81, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
-82:                                               ; preds = %80
-  %83 = icmp samesign ugt i32 %73, 999999
-  %.11.i87 = select i1 %83, i64 7, i64 6
+81:                                               ; preds = %79
+  %82 = icmp ugt i64 %2, 999999999999999
+  %.11.i87 = select i1 %82, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
-84:                                               ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread
-  %85 = icmp samesign ugt i32 %73, 99
-  br i1 %85, label %86, label %88
+83:                                               ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83.thread
+  %84 = icmp ugt i64 %2, 99999999999
+  br i1 %84, label %85, label %87
 
-86:                                               ; preds = %84
-  %87 = icmp samesign ugt i32 %73, 999
-  %.12.i86 = select i1 %87, i64 4, i64 3
+85:                                               ; preds = %83
+  %86 = icmp ugt i64 %2, 999999999999
+  %.12.i86 = select i1 %86, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
-88:                                               ; preds = %84
-  %89 = icmp samesign ugt i32 %73, 9
-  %.13.i84 = select i1 %89, i64 2, i64 1
+87:                                               ; preds = %83
+  %88 = icmp ugt i64 %2, 9999999999
+  %.13.i84 = select i1 %88, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
 
-_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89: ; preds = %78, %80, %82, %86, %88
-  %.0.i85 = phi i64 [ %.11.i87, %82 ], [ 5, %80 ], [ %.12.i86, %86 ], [ %.13.i84, %88 ], [ %spec.select, %78 ]
-  %90 = mul nuw nsw i64 %72, 1441151881
-  br label %91
+_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89: ; preds = %77, %79, %81, %85, %87
+  %.0.i85 = phi i64 [ %.11.i87, %81 ], [ 5, %79 ], [ %.12.i86, %85 ], [ %.13.i84, %87 ], [ %spec.select, %77 ]
+  %89 = mul nuw nsw i64 %72, 1441151881
+  br label %90
 
-91:                                               ; preds = %91, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
-  %.010.i90 = phi i64 [ 0, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89 ], [ %99, %91 ]
-  %.089.i91 = phi i64 [ %90, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89 ], [ %98, %91 ]
-  %92 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i90
-  %93 = lshr i64 %.089.i91, 56
-  %94 = and i64 %93, 254
-  %95 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %94
-  %96 = load i16, ptr %95, align 2
-  store i16 %96, ptr %92, align 1
-  %97 = and i64 %.089.i91, 144115188075855871
-  %98 = mul nuw i64 %97, 100
-  %99 = add nuw nsw i64 %.010.i90, 2
-  %100 = icmp samesign ult i64 %.010.i90, 8
-  br i1 %100, label %91, label %_ZN5boost8charconv6detail11decompose32EjPc.exit92, !llvm.loop !31
+90:                                               ; preds = %90, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89
+  %.010.i90 = phi i64 [ 0, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89 ], [ %98, %90 ]
+  %.089.i91 = phi i64 [ %89, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit89 ], [ %97, %90 ]
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i90
+  %92 = lshr i64 %.089.i91, 56
+  %93 = and i64 %92, 254
+  %94 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %93
+  %95 = load i16, ptr %94, align 2
+  store i16 %95, ptr %91, align 1
+  %96 = and i64 %.089.i91, 144115188075855871
+  %97 = mul nuw i64 %96, 100
+  %98 = add nuw nsw i64 %.010.i90, 2
+  %99 = icmp samesign ult i64 %.010.i90, 8
+  br i1 %99, label %90, label %_ZN5boost8charconv6detail11decompose32EjPc.exit92, !llvm.loop !31
 
-_ZN5boost8charconv6detail11decompose32EjPc.exit92: ; preds = %91
-  %101 = sub nuw nsw i64 10, %.0.i85
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 %101
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %102, i64 %.0.i85, i1 false)
-  %103 = mul nuw nsw i64 %74, 1441151881
-  br label %104
+_ZN5boost8charconv6detail11decompose32EjPc.exit92: ; preds = %90
+  %100 = sub nuw nsw i64 10, %.0.i85
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 %100
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %101, i64 %.0.i85, i1 false)
+  %102 = mul nuw nsw i64 %73, 1441151881
+  br label %103
 
-104:                                              ; preds = %104, %_ZN5boost8charconv6detail11decompose32EjPc.exit92
-  %.010.i93 = phi i64 [ 0, %_ZN5boost8charconv6detail11decompose32EjPc.exit92 ], [ %112, %104 ]
-  %.089.i94 = phi i64 [ %103, %_ZN5boost8charconv6detail11decompose32EjPc.exit92 ], [ %111, %104 ]
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i93
-  %106 = lshr i64 %.089.i94, 56
-  %107 = and i64 %106, 254
-  %108 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %107
-  %109 = load i16, ptr %108, align 2
-  store i16 %109, ptr %105, align 1
-  %110 = and i64 %.089.i94, 144115188075855871
-  %111 = mul nuw i64 %110, 100
-  %112 = add nuw nsw i64 %.010.i93, 2
-  %113 = icmp samesign ult i64 %.010.i93, 8
-  br i1 %113, label %104, label %_ZN5boost8charconv6detail11decompose32EjPc.exit95, !llvm.loop !31
+103:                                              ; preds = %103, %_ZN5boost8charconv6detail11decompose32EjPc.exit92
+  %.010.i93 = phi i64 [ 0, %_ZN5boost8charconv6detail11decompose32EjPc.exit92 ], [ %111, %103 ]
+  %.089.i94 = phi i64 [ %102, %_ZN5boost8charconv6detail11decompose32EjPc.exit92 ], [ %110, %103 ]
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i93
+  %105 = lshr i64 %.089.i94, 56
+  %106 = and i64 %105, 254
+  %107 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %106
+  %108 = load i16, ptr %107, align 2
+  store i16 %108, ptr %104, align 1
+  %109 = and i64 %.089.i94, 144115188075855871
+  %110 = mul nuw i64 %109, 100
+  %111 = add nuw nsw i64 %.010.i93, 2
+  %112 = icmp samesign ult i64 %.010.i93, 8
+  br i1 %112, label %103, label %_ZN5boost8charconv6detail11decompose32EjPc.exit95, !llvm.loop !31
 
-_ZN5boost8charconv6detail11decompose32EjPc.exit95: ; preds = %104
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i85
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %114, ptr noundef nonnull align 1 dereferenceable(9) %115, i64 9, i1 false)
-  br label %172
+_ZN5boost8charconv6detail11decompose32EjPc.exit95: ; preds = %103
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i85
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %113, ptr noundef nonnull align 1 dereferenceable(9) %114, i64 9, i1 false)
+  br label %171
 
 .preheader:                                       ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83, %.preheader
-  %.010.i96 = phi i64 [ %123, %.preheader ], [ 0, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
-  %.089.i97 = phi i64 [ %122, %.preheader ], [ %71, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
-  %116 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i96
-  %117 = lshr i64 %.089.i97, 56
-  %118 = and i64 %117, 254
-  %119 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %118
-  %120 = load i16, ptr %119, align 2
-  store i16 %120, ptr %116, align 1
-  %121 = and i64 %.089.i97, 144115188075855871
-  %122 = mul nuw i64 %121, 100
-  %123 = add nuw nsw i64 %.010.i96, 2
-  %124 = icmp samesign ult i64 %.010.i96, 8
-  br i1 %124, label %.preheader, label %_ZN5boost8charconv6detail11decompose32EjPc.exit98, !llvm.loop !31
+  %.010.i96 = phi i64 [ %122, %.preheader ], [ 0, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
+  %.089.i97 = phi i64 [ %121, %.preheader ], [ %71, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i96
+  %116 = lshr i64 %.089.i97, 56
+  %117 = and i64 %116, 254
+  %118 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %117
+  %119 = load i16, ptr %118, align 2
+  store i16 %119, ptr %115, align 1
+  %120 = and i64 %.089.i97, 144115188075855871
+  %121 = mul nuw i64 %120, 100
+  %122 = add nuw nsw i64 %.010.i96, 2
+  %123 = icmp samesign ult i64 %.010.i96, 8
+  br i1 %123, label %.preheader, label %_ZN5boost8charconv6detail11decompose32EjPc.exit98, !llvm.loop !31
 
 _ZN5boost8charconv6detail11decompose32EjPc.exit98: ; preds = %.preheader
-  %125 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %126 = load i64, ptr %125, align 1
-  store i64 %126, ptr %0, align 1
-  %127 = and i64 %68, 4294967295
-  %128 = mul nuw nsw i64 %127, 1441151881
-  br label %129
+  %124 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %125 = load i64, ptr %124, align 1
+  store i64 %125, ptr %0, align 1
+  %126 = and i64 %68, 4294967295
+  %127 = mul nuw nsw i64 %126, 1441151881
+  br label %128
 
-129:                                              ; preds = %129, %_ZN5boost8charconv6detail11decompose32EjPc.exit98
-  %.010.i99 = phi i64 [ 0, %_ZN5boost8charconv6detail11decompose32EjPc.exit98 ], [ %137, %129 ]
-  %.089.i100 = phi i64 [ %128, %_ZN5boost8charconv6detail11decompose32EjPc.exit98 ], [ %136, %129 ]
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i99
-  %131 = lshr i64 %.089.i100, 56
-  %132 = and i64 %131, 254
-  %133 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %132
-  %134 = load i16, ptr %133, align 2
-  store i16 %134, ptr %130, align 1
-  %135 = and i64 %.089.i100, 144115188075855871
-  %136 = mul nuw i64 %135, 100
-  %137 = add nuw nsw i64 %.010.i99, 2
-  %138 = icmp samesign ult i64 %.010.i99, 8
-  br i1 %138, label %129, label %_ZN5boost8charconv6detail11decompose32EjPc.exit101, !llvm.loop !31
+128:                                              ; preds = %128, %_ZN5boost8charconv6detail11decompose32EjPc.exit98
+  %.010.i99 = phi i64 [ 0, %_ZN5boost8charconv6detail11decompose32EjPc.exit98 ], [ %136, %128 ]
+  %.089.i100 = phi i64 [ %127, %_ZN5boost8charconv6detail11decompose32EjPc.exit98 ], [ %135, %128 ]
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i99
+  %130 = lshr i64 %.089.i100, 56
+  %131 = and i64 %130, 254
+  %132 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %131
+  %133 = load i16, ptr %132, align 2
+  store i16 %133, ptr %129, align 1
+  %134 = and i64 %.089.i100, 144115188075855871
+  %135 = mul nuw i64 %134, 100
+  %136 = add nuw nsw i64 %.010.i99, 2
+  %137 = icmp samesign ult i64 %.010.i99, 8
+  br i1 %137, label %128, label %_ZN5boost8charconv6detail11decompose32EjPc.exit101, !llvm.loop !31
 
-_ZN5boost8charconv6detail11decompose32EjPc.exit101: ; preds = %129
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %139, ptr noundef nonnull align 1 dereferenceable(9) %140, i64 9, i1 false)
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %142 = shl nuw nsw i64 %69, 1
-  %143 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %142
-  %144 = load i16, ptr %143, align 2
-  store i16 %144, ptr %141, align 1
-  br label %172
+_ZN5boost8charconv6detail11decompose32EjPc.exit101: ; preds = %128
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %138, ptr noundef nonnull align 1 dereferenceable(9) %139, i64 9, i1 false)
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %141 = shl nuw nsw i64 %69, 1
+  %142 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %141
+  %143 = load i16, ptr %142, align 2
+  store i16 %143, ptr %140, align 1
+  br label %171
 
 .preheader120:                                    ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83, %.preheader120
-  %.010.i102 = phi i64 [ %152, %.preheader120 ], [ 0, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
-  %.089.i103 = phi i64 [ %151, %.preheader120 ], [ %71, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
-  %145 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i102
-  %146 = lshr i64 %.089.i103, 56
-  %147 = and i64 %146, 254
-  %148 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %147
-  %149 = load i16, ptr %148, align 2
-  store i16 %149, ptr %145, align 1
-  %150 = and i64 %.089.i103, 144115188075855871
-  %151 = mul nuw i64 %150, 100
-  %152 = add nuw nsw i64 %.010.i102, 2
-  %153 = icmp samesign ult i64 %.010.i102, 8
-  br i1 %153, label %.preheader120, label %_ZN5boost8charconv6detail11decompose32EjPc.exit104, !llvm.loop !31
+  %.010.i102 = phi i64 [ %151, %.preheader120 ], [ 0, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
+  %.089.i103 = phi i64 [ %150, %.preheader120 ], [ %71, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit83 ]
+  %144 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i102
+  %145 = lshr i64 %.089.i103, 56
+  %146 = and i64 %145, 254
+  %147 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %146
+  %148 = load i16, ptr %147, align 2
+  store i16 %148, ptr %144, align 1
+  %149 = and i64 %.089.i103, 144115188075855871
+  %150 = mul nuw i64 %149, 100
+  %151 = add nuw nsw i64 %.010.i102, 2
+  %152 = icmp samesign ult i64 %.010.i102, 8
+  br i1 %152, label %.preheader120, label %_ZN5boost8charconv6detail11decompose32EjPc.exit104, !llvm.loop !31
 
 _ZN5boost8charconv6detail11decompose32EjPc.exit104: ; preds = %.preheader120
-  %154 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) %154, i64 9, i1 false)
-  %155 = and i64 %68, 4294967295
-  %156 = mul nuw nsw i64 %155, 1441151881
-  br label %157
+  %153 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) %153, i64 9, i1 false)
+  %154 = and i64 %68, 4294967295
+  %155 = mul nuw nsw i64 %154, 1441151881
+  br label %156
 
-157:                                              ; preds = %157, %_ZN5boost8charconv6detail11decompose32EjPc.exit104
-  %.010.i105 = phi i64 [ 0, %_ZN5boost8charconv6detail11decompose32EjPc.exit104 ], [ %165, %157 ]
-  %.089.i106 = phi i64 [ %156, %_ZN5boost8charconv6detail11decompose32EjPc.exit104 ], [ %164, %157 ]
-  %158 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i105
-  %159 = lshr i64 %.089.i106, 56
-  %160 = and i64 %159, 254
-  %161 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %160
-  %162 = load i16, ptr %161, align 2
-  store i16 %162, ptr %158, align 1
-  %163 = and i64 %.089.i106, 144115188075855871
-  %164 = mul nuw i64 %163, 100
-  %165 = add nuw nsw i64 %.010.i105, 2
-  %166 = icmp samesign ult i64 %.010.i105, 8
-  br i1 %166, label %157, label %_ZN5boost8charconv6detail11decompose32EjPc.exit107, !llvm.loop !31
+156:                                              ; preds = %156, %_ZN5boost8charconv6detail11decompose32EjPc.exit104
+  %.010.i105 = phi i64 [ 0, %_ZN5boost8charconv6detail11decompose32EjPc.exit104 ], [ %164, %156 ]
+  %.089.i106 = phi i64 [ %155, %_ZN5boost8charconv6detail11decompose32EjPc.exit104 ], [ %163, %156 ]
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 %.010.i105
+  %158 = lshr i64 %.089.i106, 56
+  %159 = and i64 %158, 254
+  %160 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %159
+  %161 = load i16, ptr %160, align 2
+  store i16 %161, ptr %157, align 1
+  %162 = and i64 %.089.i106, 144115188075855871
+  %163 = mul nuw i64 %162, 100
+  %164 = add nuw nsw i64 %.010.i105, 2
+  %165 = icmp samesign ult i64 %.010.i105, 8
+  br i1 %165, label %156, label %_ZN5boost8charconv6detail11decompose32EjPc.exit107, !llvm.loop !31
 
-_ZN5boost8charconv6detail11decompose32EjPc.exit107: ; preds = %157
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %167, ptr noundef nonnull align 1 dereferenceable(9) %154, i64 9, i1 false)
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %169 = shl nuw nsw i64 %69, 1
-  %170 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %169
-  %171 = load i16, ptr %170, align 2
-  store i16 %171, ptr %168, align 1
-  br label %172
+_ZN5boost8charconv6detail11decompose32EjPc.exit107: ; preds = %156
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %166, ptr noundef nonnull align 1 dereferenceable(9) %153, i64 9, i1 false)
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %168 = shl nuw nsw i64 %69, 1
+  %169 = getelementptr inbounds nuw i8, ptr @_ZN5boost8charconv6detailL11radix_tableE, i64 %168
+  %170 = load i16, ptr %169, align 2
+  store i16 %170, ptr %167, align 1
+  br label %171
 
-172:                                              ; preds = %_ZN5boost8charconv6detail11decompose32EjPc.exit101, %_ZN5boost8charconv6detail11decompose32EjPc.exit107, %_ZN5boost8charconv6detail11decompose32EjPc.exit95, %_ZN5boost8charconv6detail11decompose32EjPc.exit
+171:                                              ; preds = %_ZN5boost8charconv6detail11decompose32EjPc.exit101, %_ZN5boost8charconv6detail11decompose32EjPc.exit107, %_ZN5boost8charconv6detail11decompose32EjPc.exit95, %_ZN5boost8charconv6detail11decompose32EjPc.exit
   %.059 = phi i32 [ %.0.i, %_ZN5boost8charconv6detail11decompose32EjPc.exit ], [ %.0.i72110112117, %_ZN5boost8charconv6detail11decompose32EjPc.exit95 ], [ %.0.i72, %_ZN5boost8charconv6detail11decompose32EjPc.exit107 ], [ 19, %_ZN5boost8charconv6detail11decompose32EjPc.exit101 ]
-  %173 = zext nneg i32 %.059 to i64
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 %173
+  %172 = zext nneg i32 %.059 to i64
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 %172
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread, %172, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit, %3
-  %.sroa.0.0 = phi ptr [ %1, %3 ], [ %174, %172 ], [ %1, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %1, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %1, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
-  %.sroa.5.0 = phi i32 [ 22, %3 ], [ 0, %172 ], [ 75, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ 75, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ 75, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
+.critedge:                                        ; preds = %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread, %171, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit, %3
+  %.sroa.0.0 = phi ptr [ %1, %3 ], [ %173, %171 ], [ %1, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ %1, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ %1, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
+  %.sroa.5.0 = phi i32 [ 22, %3 ], [ 0, %171 ], [ 75, %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit ], [ 75, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit ], [ 75, %_ZN5boost8charconv6detail10num_digitsImEEiT_.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #15
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1

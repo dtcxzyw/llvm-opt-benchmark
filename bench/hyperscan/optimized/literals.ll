@@ -7222,7 +7222,7 @@ define linkonce_odr hidden void @_ZN20HyperscanLiteralTest5SetUpEv(ptr noundef n
   %27 = lshr i32 %26, 30
   %28 = xor i32 %27, %26
   %29 = mul i32 %28, 1812433253
-  %30 = trunc nuw i64 %storemerge3.i to i32
+  %30 = trunc nuw nsw i64 %storemerge3.i to i32
   %31 = add i32 %29, %30
   %32 = getelementptr inbounds nuw [624 x i32], ptr %21, i64 0, i64 %storemerge3.i
   store i32 %31, ptr %32, align 4
@@ -7930,7 +7930,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
   %11 = lshr i32 %10, 30
   %12 = xor i32 %11, %10
   %13 = mul i32 %12, 1812433253
-  %14 = trunc nuw i64 %storemerge3.i.i.i.i.i to i32
+  %14 = trunc nuw nsw i64 %storemerge3.i.i.i.i.i to i32
   %15 = add i32 %13, %14
   %16 = getelementptr inbounds nuw [624 x i32], ptr %5, i64 0, i64 %storemerge3.i.i.i.i.i
   store i32 %15, ptr %16, align 4
@@ -9328,7 +9328,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
   %11 = lshr i32 %10, 30
   %12 = xor i32 %11, %10
   %13 = mul i32 %12, 1812433253
-  %14 = trunc nuw i64 %storemerge3.i.i.i.i.i to i32
+  %14 = trunc nuw nsw i64 %storemerge3.i.i.i.i.i to i32
   %15 = add i32 %13, %14
   %16 = getelementptr inbounds nuw [624 x i32], ptr %5, i64 0, i64 %storemerge3.i.i.i.i.i
   store i32 %15, ptr %16, align 4
@@ -9443,7 +9443,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing8internal24ParameterizedTestF
   %11 = lshr i32 %10, 30
   %12 = xor i32 %11, %10
   %13 = mul i32 %12, 1812433253
-  %14 = trunc nuw i64 %storemerge3.i.i.i.i.i to i32
+  %14 = trunc nuw nsw i64 %storemerge3.i.i.i.i.i to i32
   %15 = add i32 %13, %14
   %16 = getelementptr inbounds nuw [624 x i32], ptr %5, i64 0, i64 %storemerge3.i.i.i.i.i
   store i32 %15, ptr %16, align 4

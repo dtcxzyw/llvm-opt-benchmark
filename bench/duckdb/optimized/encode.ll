@@ -509,7 +509,7 @@ _ZN13duckdb_brotli23BrotliEncoderIsFinishedEPNS_24BrotliEncoderStateStructE.exit
 
 96:                                               ; preds = %74
   %97 = lshr i32 %86, 24
-  %98 = trunc nuw i32 %97 to i8
+  %98 = trunc nuw nsw i32 %97 to i8
   %99 = add i64 %.04548.i, 4
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 %94
   store i8 %98, ptr %100, align 1, !tbaa !72
@@ -4441,7 +4441,7 @@ _ZL17ChooseContextModePK19BrotliEncoderParamsPKhmmm.exit: ; preds = %1303, %1308
 
 1391:                                             ; preds = %1389
   %1392 = add nsw i64 %1374, -2
-  %1393 = trunc nuw i64 %1392 to i32
+  %1393 = trunc nuw nsw i64 %1392 to i32
   %1394 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1393, i1 true)
   %1395 = sub nuw nsw i32 30, %1394
   %1396 = shl nuw nsw i32 %1395, 1
@@ -4449,7 +4449,7 @@ _ZL17ChooseContextModePK19BrotliEncoderParamsPKhmmm.exit: ; preds = %1303, %1308
   %1398 = zext nneg i32 %1395 to i64
   %1399 = lshr i64 %1392, %1398
   %1400 = add nuw nsw i64 %1399, %1397
-  %1401 = trunc i64 %1400 to i16
+  %1401 = trunc nuw nsw i64 %1400 to i16
   %1402 = add nuw nsw i16 %1401, 2
   br label %_ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit
 
@@ -4486,7 +4486,7 @@ _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %1387, %1391, %1405,
   %1421 = lshr i32 5377344, %1418
   %1422 = and i32 %1421, 192
   %1423 = add nuw nsw i32 %1420, %1422
-  %1424 = trunc i32 %1423 to i16
+  %1424 = trunc nuw nsw i32 %1423 to i16
   %1425 = or disjoint i16 %1415, %1424
   %1426 = or disjoint i16 %1425, 2
   store i16 %1426, ptr %1385, align 2, !tbaa !82
@@ -6019,7 +6019,7 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %.critedge
-  %152 = trunc nuw i32 %140 to i16
+  %152 = trunc nuw nsw i32 %140 to i16
   br label %_ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit
 
 153:                                              ; preds = %.critedge
@@ -6028,7 +6028,7 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
 
 155:                                              ; preds = %153
   %156 = add nsw i64 %141, -2
-  %157 = trunc nuw i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
   %159 = sub nsw i32 30, %158
   %160 = shl nuw nsw i32 %159, 1
@@ -6036,7 +6036,7 @@ _ZN13duckdb_brotliL26CommandRestoreDistanceCodeEPKNS_7CommandEPK20BrotliDistance
   %162 = zext nneg i32 %159 to i64
   %163 = lshr i64 %156, %162
   %164 = add nuw nsw i64 %163, %161
-  %165 = trunc i64 %164 to i16
+  %165 = trunc nuw nsw i64 %164 to i16
   %166 = add nuw nsw i16 %165, 2
   br label %_ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit
 
@@ -6066,7 +6066,7 @@ _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %151, %155, %169, %1
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %_ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit
-  %180 = trunc nuw i32 %145 to i16
+  %180 = trunc nuw nsw i32 %145 to i16
   %181 = add nsw i16 %180, -2
   br label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit
 
@@ -6084,7 +6084,7 @@ _ZN13duckdb_brotliL19GetInsertLengthCodeEm.exit:  ; preds = %151, %155, %169, %1
   %191 = zext nneg i32 %188 to i64
   %192 = lshr i64 %185, %191
   %193 = add nuw nsw i64 %192, %190
-  %194 = trunc i64 %193 to i16
+  %194 = trunc nuw nsw i64 %193 to i16
   %195 = add nuw nsw i16 %194, 4
   br label %_ZN13duckdb_brotliL17GetCopyLengthCodeEm.exit
 

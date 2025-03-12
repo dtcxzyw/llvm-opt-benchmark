@@ -1199,7 +1199,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
   br i1 %or.cond.not, label %21, label %16, !prof !29
 
 16:                                               ; preds = %11
-  %17 = trunc nuw i64 %14 to i8
+  %17 = trunc nuw nsw i64 %14 to i8
   %18 = sub nuw nsw i8 23, %17
   store i8 %18, ptr %7, align 1, !tbaa !16
   %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
@@ -3429,7 +3429,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
 
 36:                                               ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %.0.i22 = phi i64 [ %9, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %37 = trunc nuw i64 %.0.i22 to i32
+  %37 = trunc nuw nsw i64 %.0.i22 to i32
   ret i32 %37
 }
 
@@ -3655,7 +3655,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
 
 36:                                               ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %.0.i22 = phi i64 [ %9, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %37 = trunc nuw i64 %.0.i22 to i32
+  %37 = trunc nuw nsw i64 %.0.i22 to i32
   ret i32 %37
 }
 
@@ -18468,7 +18468,7 @@ _ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i27.invoke: ; pred
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %._crit_edge.i29.i.i
-  %133 = trunc nuw i64 %.0.lcssa.i31.i.i to i8
+  %133 = trunc nuw nsw i64 %.0.lcssa.i31.i.i to i8
   %134 = or disjoint i8 %133, 48
   %135 = getelementptr inbounds i8, ptr %.019.lcssa.i30.i.i, i64 -1
   store i8 %134, ptr %135, align 1, !tbaa !16
@@ -20484,7 +20484,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
 
 36:                                               ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %.0.i22 = phi i64 [ %9, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %37 = trunc nuw i64 %.0.i22 to i32
+  %37 = trunc nuw nsw i64 %.0.i22 to i32
   ret i32 %37
 }
 
@@ -20707,7 +20707,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
 
 36:                                               ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %.0.i22 = phi i64 [ %9, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextINS0_8appenderEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %37 = trunc nuw i64 %.0.i22 to i32
+  %37 = trunc nuw nsw i64 %.0.i22 to i32
   ret i32 %37
 }
 
@@ -20981,7 +20981,7 @@ _ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEE
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %._crit_edge.i29.i.i
-  %58 = trunc nuw i64 %.0.lcssa.i31.i.i to i8
+  %58 = trunc nuw nsw i64 %.0.lcssa.i31.i.i to i8
   %59 = or disjoint i8 %58, 48
   %60 = getelementptr inbounds i8, ptr %.019.lcssa.i30.i.i, i64 -1
   store i8 %59, ptr %60, align 1, !tbaa !16
@@ -21121,7 +21121,7 @@ _ZN3fmt2v86detail16chrono_formatterINS0_20basic_format_contextINS0_8appenderEcEE
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %._crit_edge.i.i
-  %66 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %66 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %67 = or disjoint i8 %66, 48
   %68 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %67, ptr %68, align 1, !tbaa !16
@@ -21755,7 +21755,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEEEaSEOc.e
 
 57:                                               ; preds = %55
   %58 = lshr i32 %42, 6
-  %59 = trunc nuw i32 %58 to i8
+  %59 = trunc nuw nsw i32 %58 to i8
   %60 = or disjoint i8 %59, -64
   %61 = load i64, ptr %21, align 8, !tbaa !681
   %62 = add i64 %61, 1
@@ -21820,7 +21820,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEEEaSEOc.e
 
 89:                                               ; preds = %86
   %90 = lshr i32 %42, 12
-  %91 = trunc nuw i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or disjoint i8 %91, -32
   %93 = load i64, ptr %21, align 8, !tbaa !681
   %94 = add i64 %93, 1
@@ -21916,7 +21916,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEEEaSEOc.e
 
 137:                                              ; preds = %135
   %138 = lshr i32 %42, 18
-  %139 = trunc nuw i32 %138 to i8
+  %139 = trunc nuw nsw i32 %138 to i8
   %140 = or disjoint i8 %139, -16
   %141 = load i64, ptr %21, align 8, !tbaa !681
   %142 = add i64 %141, 1
@@ -22831,7 +22831,7 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt2v819basic_memory_bufferIcLm500ESaIcEE
   br i1 %58, label %59, label %63
 
 59:                                               ; preds = %._crit_edge.i.i
-  %60 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %60 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %61 = or disjoint i8 %60, 48
   %62 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %61, ptr %62, align 1, !tbaa !16

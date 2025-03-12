@@ -1310,7 +1310,7 @@ ZSTD_searchMax.exit:                              ; preds = %262, %264, %266
   br i1 %283, label %.preheader, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre232 = trunc nuw i64 %.2451.i to i32
+  %.pre232 = trunc nuw nsw i64 %.2451.i to i32
   br label %303
 
 .preheader:                                       ; preds = %.loopexit
@@ -2316,7 +2316,7 @@ ZSTD_searchMax.exit:                              ; preds = %262, %264, %266
   br i1 %283, label %.preheader, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre232 = trunc nuw i64 %.2451.i to i32
+  %.pre232 = trunc nuw nsw i64 %.2451.i to i32
   br label %303
 
 .preheader:                                       ; preds = %.loopexit
@@ -3131,7 +3131,7 @@ ZSTD_searchMax.exit:                              ; preds = %181, %183, %185
   br i1 %204, label %.preheader, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre189 = trunc nuw i64 %.2451.i to i32
+  %.pre189 = trunc nuw nsw i64 %.2451.i to i32
   br label %224
 
 .preheader:                                       ; preds = %.loopexit
@@ -4714,7 +4714,7 @@ ZSTD_searchMax.exit:                              ; preds = %280, %282, %284
   br i1 %301, label %302, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre215 = trunc nuw i64 %.2451.i to i32
+  %.pre215 = trunc nuw nsw i64 %.2451.i to i32
   br label %324
 
 302:                                              ; preds = %.loopexit
@@ -5808,7 +5808,7 @@ ZSTD_searchMax.exit:                              ; preds = %280, %282, %284
   br i1 %301, label %302, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre215 = trunc nuw i64 %.2451.i to i32
+  %.pre215 = trunc nuw nsw i64 %.2451.i to i32
   br label %324
 
 302:                                              ; preds = %.loopexit
@@ -6793,7 +6793,7 @@ ZSTD_searchMax.exit:                              ; preds = %221, %223, %225
   br i1 %244, label %245, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre209 = trunc nuw i64 %.2451.i to i32
+  %.pre209 = trunc nuw nsw i64 %.2451.i to i32
   br label %267
 
 245:                                              ; preds = %.loopexit
@@ -8539,7 +8539,7 @@ ZSTD_searchMax.exit:                              ; preds = %280, %282, %284
   br i1 %301, label %302, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre215 = trunc nuw i64 %.2451.i to i32
+  %.pre215 = trunc nuw nsw i64 %.2451.i to i32
   br label %324
 
 302:                                              ; preds = %.loopexit
@@ -9524,7 +9524,7 @@ ZSTD_searchMax.exit:                              ; preds = %221, %223, %225
   br i1 %244, label %245, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre209 = trunc nuw i64 %.2451.i to i32
+  %.pre209 = trunc nuw nsw i64 %.2451.i to i32
   br label %267
 
 245:                                              ; preds = %.loopexit
@@ -11660,7 +11660,7 @@ ZSTD_searchMax.exit:                              ; preds = %402, %404, %406, %4
   br i1 %437, label %.preheader, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre345 = trunc nuw i64 %.2451.i to i32
+  %.pre345 = trunc nuw nsw i64 %.2451.i to i32
   br label %457
 
 .preheader:                                       ; preds = %.loopexit
@@ -12881,7 +12881,7 @@ ZSTD_searchMax.exit:                              ; preds = %306, %308, %310, %3
   br i1 %343, label %.preheader, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre305 = trunc nuw i64 %.2451.i to i32
+  %.pre305 = trunc nuw nsw i64 %.2451.i to i32
   br label %363
 
 .preheader:                                       ; preds = %.loopexit
@@ -15267,7 +15267,7 @@ ZSTD_searchMax.exit:                              ; preds = %420, %422, %424, %4
   br i1 %455, label %456, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre327 = trunc nuw i64 %.2451.i to i32
+  %.pre327 = trunc nuw nsw i64 %.2451.i to i32
   br label %478
 
 456:                                              ; preds = %.loopexit
@@ -16658,7 +16658,7 @@ ZSTD_searchMax.exit:                              ; preds = %346, %348, %350, %3
   br i1 %383, label %384, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre324 = trunc nuw i64 %.2451.i to i32
+  %.pre324 = trunc nuw nsw i64 %.2451.i to i32
   br label %406
 
 384:                                              ; preds = %.loopexit
@@ -19207,7 +19207,7 @@ ZSTD_searchMax.exit:                              ; preds = %420, %422, %424, %4
   br i1 %455, label %456, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre327 = trunc nuw i64 %.2451.i to i32
+  %.pre327 = trunc nuw nsw i64 %.2451.i to i32
   br label %478
 
 456:                                              ; preds = %.loopexit
@@ -20598,7 +20598,7 @@ ZSTD_searchMax.exit:                              ; preds = %346, %348, %350, %3
   br i1 %383, label %384, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre324 = trunc nuw i64 %.2451.i to i32
+  %.pre324 = trunc nuw nsw i64 %.2451.i to i32
   br label %406
 
 384:                                              ; preds = %.loopexit
@@ -23134,7 +23134,7 @@ ZSTD_searchMax.exit:                              ; preds = %135, %137, %139
   br i1 %158, label %159, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre149 = trunc nuw i64 %.2319.i to i32
+  %.pre149 = trunc nuw nsw i64 %.2319.i to i32
   br label %181
 
 159:                                              ; preds = %.loopexit
@@ -24043,7 +24043,7 @@ ZSTD_searchMax.exit:                              ; preds = %198, %200, %202
   br i1 %219, label %220, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre158 = trunc nuw i64 %.2319.i to i32
+  %.pre158 = trunc nuw nsw i64 %.2319.i to i32
   br label %242
 
 220:                                              ; preds = %.loopexit
@@ -24952,7 +24952,7 @@ ZSTD_searchMax.exit:                              ; preds = %198, %200, %202
   br i1 %219, label %220, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre158 = trunc nuw i64 %.2319.i to i32
+  %.pre158 = trunc nuw nsw i64 %.2319.i to i32
   br label %242
 
 220:                                              ; preds = %.loopexit
@@ -27060,7 +27060,7 @@ ZSTD_searchMax.exit:                              ; preds = %260, %262, %264, %2
   br i1 %297, label %298, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre264 = trunc nuw i64 %.2319.i to i32
+  %.pre264 = trunc nuw nsw i64 %.2319.i to i32
   br label %320
 
 298:                                              ; preds = %.loopexit
@@ -28420,7 +28420,7 @@ ZSTD_searchMax.exit:                              ; preds = %338, %340, %342, %3
   br i1 %373, label %374, label %.loopexit._crit_edge
 
 .loopexit._crit_edge:                             ; preds = %.loopexit
-  %.pre270 = trunc nuw i64 %.2319.i to i32
+  %.pre270 = trunc nuw nsw i64 %.2319.i to i32
   br label %396
 
 374:                                              ; preds = %.loopexit

@@ -1990,7 +1990,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit: ; preds 
 155:                                              ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   store ptr %156, ptr %0, align 8, !tbaa !15
-  %157 = trunc nuw i64 %.039 to i32
+  %157 = trunc nuw nsw i64 %.039 to i32
   br label %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit.thread
 
 158:                                              ; preds = %12, %10

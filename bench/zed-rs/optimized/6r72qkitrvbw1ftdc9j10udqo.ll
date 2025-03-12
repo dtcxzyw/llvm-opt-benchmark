@@ -84993,7 +84993,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr73drop
   %.sroa.10181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.sroa.3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10181.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19)
-  %308 = trunc i8 %303 to i1
+  %308 = trunc nuw i8 %303 to i1
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 544
   store ptr %306, ptr %309, align 8
   %.sroa.2.sroa.3.7..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 552

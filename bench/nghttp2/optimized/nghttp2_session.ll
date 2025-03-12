@@ -8586,7 +8586,7 @@ inbound_frame_handle_pad.exit940:                 ; preds = %195
   %246 = load i8, ptr %48, align 1, !tbaa !113
   %247 = and i8 %246, 1
   store i8 %247, ptr %48, align 1, !tbaa !113
-  %.lhs.trunc = trunc i64 %149 to i32
+  %.lhs.trunc = trunc nuw i64 %149 to i32
   %248 = urem i32 %.lhs.trunc, 6
   %249 = udiv i32 %.lhs.trunc, 6
   %.not879 = icmp eq i32 %248, 0
@@ -11939,7 +11939,7 @@ define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_pack_data(ptr nound
   ]
 
 83:                                               ; preds = %72, %72, %72
-  %84 = trunc i64 %82 to i32
+  %84 = trunc nsw i64 %82 to i32
   br label %173
 
 85:                                               ; preds = %72

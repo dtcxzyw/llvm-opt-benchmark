@@ -299,7 +299,7 @@ invoke.cont25:                                    ; preds = %for.body.i.i67
 for.body:                                         ; preds = %invoke.cont25, %_ZN10TestObjectD2Ev.exit
   %inc.i = phi i64 [ %18, %invoke.cont25 ], [ %24, %_ZN10TestObjectD2Ev.exit ]
   %i.01035 = phi i64 [ 0, %invoke.cont25 ], [ %inc, %_ZN10TestObjectD2Ev.exit ]
-  %conv28 = trunc nuw i64 %i.01035 to i32
+  %conv28 = trunc nuw nsw i64 %i.01035 to i32
   store i64 %inc.i, ptr @_ZN10TestObject8sTOCountE, align 8
   %19 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
   %inc3.i = add nsw i64 %19, 1

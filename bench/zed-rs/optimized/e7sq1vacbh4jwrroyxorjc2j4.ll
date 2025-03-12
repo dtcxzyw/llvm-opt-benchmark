@@ -332,7 +332,7 @@ define hidden void @"_ZN109_$LT$futures_util..stream..stream..collect..Collect$L
 
 .lr.ph:                                           ; preds = %3, %9
   %7 = phi i8 [ %10, %9 ], [ %5, %3 ]
-  %trunc = trunc i8 %7 to i1
+  %trunc = trunc nuw i8 %7 to i1
   br i1 %trunc, label %9, label %8
 
 ._crit_edge:                                      ; preds = %9, %3

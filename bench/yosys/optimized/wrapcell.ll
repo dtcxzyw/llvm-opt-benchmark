@@ -3330,7 +3330,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %843
 
 843:                                              ; preds = %842, %840
-  %844 = trunc i64 %824 to i32
+  %844 = trunc nsw i64 %824 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
   store ptr %784, ptr %39, align 8, !tbaa !74
   store i32 %844, ptr %548, align 8, !tbaa !15

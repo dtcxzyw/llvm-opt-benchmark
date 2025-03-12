@@ -6504,7 +6504,7 @@ define internal fastcc void @uhci_check_ports(ptr noundef %0) unnamed_addr #2 al
   %70 = load volatile i64, ptr @jiffies, align 64
   %71 = add i64 %70, 40
   store i64 %71, ptr %6, align 8
-  %72 = trunc i64 %12 to i32
+  %72 = trunc nuw i64 %12 to i32
   tail call void @usb_hcd_start_port_resume(ptr noundef %9, i32 noundef %72) #12
   %73 = load i64, ptr %6, align 8
   %74 = tail call i32 @mod_timer(ptr noundef %10, i64 noundef %73) #12
@@ -6518,7 +6518,7 @@ define internal fastcc void @uhci_check_ports(ptr noundef %0) unnamed_addr #2 al
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %75
-  %81 = trunc i64 %12 to i32
+  %81 = trunc nuw i64 %12 to i32
   tail call fastcc void @uhci_finish_suspend(ptr noundef %0, i32 noundef %81, i64 noundef %15)
   br label %82
 

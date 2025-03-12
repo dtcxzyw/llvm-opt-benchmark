@@ -151,8 +151,8 @@ define i16 @softfloat_subMagsF16(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %76 = zext nneg i8 %.088 to i64
   %77 = shl nuw nsw i64 %.090, %76
   %78 = sub nsw i64 %77, %.089
-  %79 = trunc i64 %78 to i32
-  %80 = icmp ult i32 %79, 65536
+  %79 = trunc nsw i64 %78 to i32
+  %80 = icmp ult i64 %78, 65536
   %81 = shl nuw i32 %79, 16
   %spec.select.i124 = select i1 %80, i32 %81, i32 %79
   %spec.select12.i = select i1 %80, i8 16, i8 0

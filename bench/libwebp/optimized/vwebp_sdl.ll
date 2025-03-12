@@ -91,7 +91,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread
 
 34:                                               ; preds = %27
-  %35 = trunc i64 %28 to i32
+  %35 = trunc nsw i64 %28 to i32
   %36 = load ptr, ptr %4, align 8, !tbaa !9
   %37 = call i32 @WebPToSDL(ptr noundef %36, i32 noundef %35) #7
   %38 = load ptr, ptr %4, align 8, !tbaa !9

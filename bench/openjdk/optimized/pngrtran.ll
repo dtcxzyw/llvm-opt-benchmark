@@ -1392,7 +1392,7 @@ define hidden void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32
   br i1 %443, label %444, label %448
 
 444:                                              ; preds = %430
-  %445 = trunc i32 %439 to i8
+  %445 = trunc nuw i32 %439 to i8
   store i8 %445, ptr %440, align 1
   %446 = load ptr, ptr %394, align 8
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 %431

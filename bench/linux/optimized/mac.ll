@@ -184,7 +184,7 @@ define dso_local i32 @e1000_check_alt_mac_addr_generic(ptr noundef %0) local_unn
   %28 = phi i64 [ %44, %36 ], [ 0, %.preheader ]
   %29 = load i16, ptr %2, align 2
   %30 = lshr exact i64 %28, 1
-  %31 = trunc i64 %30 to i16
+  %31 = trunc nuw nsw i64 %30 to i16
   %32 = add i16 %29, %31
   %33 = load ptr, ptr %5, align 8
   %34 = call i32 %33(ptr noundef %0, i16 noundef zeroext %32, i16 noundef zeroext 1, ptr noundef nonnull %3) #6

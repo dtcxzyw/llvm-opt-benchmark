@@ -336,7 +336,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %_ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERi.exit
-  %33 = trunc nsw i64 %21 to i32
+  %33 = trunc nuw nsw i64 %21 to i32
   %34 = add nsw i32 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !7

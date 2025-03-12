@@ -2935,7 +2935,7 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZNSt24uniform_int_distributio
 
 24:                                               ; preds = %19
   store i64 %22, ptr %1, align 8, !tbaa !97
-  %.lhs.trunc = trunc nsw i64 %23 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %23 to i32
   %25 = udiv i32 %.lhs.trunc, %17
   %.zext28 = zext nneg i32 %25 to i64
   br label %.loopexit

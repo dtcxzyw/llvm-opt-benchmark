@@ -543,7 +543,7 @@ define void @_ZN10open_spiel17morpion_solitaire4Line4InitENS0_5PointES2_(ptr nou
 5:                                                ; preds = %3
   %6 = icmp eq i32 %.sroa.018.0.extract.trunc, %.sroa.0.0.extract.trunc
   %7 = icmp slt i32 %.pre37, %.pre33
-  %or.cond = and i1 %6, %7
+  %or.cond = select i1 %6, i1 %7, i1 false
   br i1 %or.cond, label %._crit_edge, label %_ZNK10open_spiel17morpion_solitaire5PointltERKS1_.exit
 
 _ZNK10open_spiel17morpion_solitaire5PointltERKS1_.exit: ; preds = %5
@@ -719,9 +719,9 @@ define void @_ZN10open_spiel17morpion_solitaire4LineC2El(ptr noundef nonnull ali
   br i1 %or.cond3, label %13, label %19
 
 13:                                               ; preds = %11
-  %14 = trunc nuw i64 %1 to i32
+  %14 = trunc nuw nsw i64 %1 to i32
   %15 = add nsw i32 %14, -130
-  %.lhs.trunc93 = trunc i32 %15 to i8
+  %.lhs.trunc93 = trunc nuw i32 %15 to i8
   %16 = udiv i8 %.lhs.trunc93, 13
   %.zext94 = zext nneg i8 %16 to i32
   %.neg54 = mul nsw i32 %.zext94, -13
@@ -735,9 +735,9 @@ define void @_ZN10open_spiel17morpion_solitaire4LineC2El(ptr noundef nonnull ali
   br i1 %or.cond5, label %21, label %28
 
 21:                                               ; preds = %19
-  %22 = trunc nuw i64 %1 to i32
+  %22 = trunc nuw nsw i64 %1 to i32
   %23 = add nsw i32 %22, -260
-  %.lhs.trunc95 = trunc i32 %23 to i8
+  %.lhs.trunc95 = trunc nuw nsw i32 %23 to i8
   %24 = udiv i8 %.lhs.trunc95, 10
   %.zext96 = zext nneg i8 %24 to i32
   %.neg53 = mul nsw i32 %.zext96, -10
@@ -752,9 +752,9 @@ define void @_ZN10open_spiel17morpion_solitaire4LineC2El(ptr noundef nonnull ali
   br i1 %or.cond7, label %30, label %37
 
 30:                                               ; preds = %28
-  %31 = trunc nuw i64 %1 to i32
+  %31 = trunc nuw nsw i64 %1 to i32
   %32 = add nsw i32 %31, -360
-  %.lhs.trunc97 = trunc i32 %32 to i8
+  %.lhs.trunc97 = trunc nuw nsw i32 %32 to i8
   %33 = udiv i8 %.lhs.trunc97, 10
   %.zext98 = zext nneg i8 %33 to i32
   %34 = add nuw nsw i32 %.zext98, 3

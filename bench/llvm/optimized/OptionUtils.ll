@@ -57,7 +57,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %14, %10
   br i1 %.not.i12.i, label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i, label %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i
 
 _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i: ; preds = %18
-  %21 = trunc i64 %19 to i32
+  %21 = trunc nsw i64 %19 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #10
   br label %_ZN12_GLOBAL__N_122getLastArgIntValueImplIiEET_RKN4llvm3opt7ArgListENS3_12OptSpecifierES1_PN5clang17DiagnosticsEngineEj.exit
 

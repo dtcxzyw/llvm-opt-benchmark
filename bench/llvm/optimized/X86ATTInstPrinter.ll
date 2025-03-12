@@ -1721,7 +1721,7 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %35, %36
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %46
-  %50 = trunc i64 %21 to i16
+  %50 = trunc nsw i64 %21 to i16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.26, ptr %51, align 8, !tbaa !56, !alias.scope !58
@@ -1738,7 +1738,7 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %35, %36
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %54
-  %58 = trunc i64 %21 to i32
+  %58 = trunc nsw i64 %21 to i32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #14
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @.str.26, ptr %59, align 8, !tbaa !56, !alias.scope !65

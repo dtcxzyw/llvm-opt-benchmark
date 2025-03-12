@@ -51,7 +51,7 @@ define void @ossl_gf_mul(ptr noalias noundef captures(none) %0, ptr noundef read
 .lr.ph:                                           ; preds = %.preheader
   %24 = or disjoint i64 %indvars.iv161, 8
   %25 = getelementptr i64, ptr %2, i64 %24
-  %26 = trunc nuw i64 %indvars.iv161 to i32
+  %26 = trunc nuw nsw i64 %indvars.iv161 to i32
   %27 = or disjoint i32 %26, 4
   br label %55
 

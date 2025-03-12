@@ -43441,7 +43441,7 @@ define internal fastcc void @"_ZN28ra_ap_rustc_pattern_analysis10usefulness19Pla
 
 71:                                               ; preds = %65
   %72 = add nsw i128 %63, -3
-  %73 = trunc nsw i128 %72 to i64
+  %73 = trunc nuw nsw i128 %72 to i64
   %74 = icmp ult i128 %72, 9
   %75 = icmp eq i64 %73, 8
   %76 = select i1 %74, i1 %75, i1 false
@@ -43684,7 +43684,7 @@ default.unreachable:                              ; preds = %121, %"_ZN9hashbrow
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.11.i.i)
   %152 = load i128, ptr %58, align 16, !range !13701, !alias.scope !13659, !noalias !13686, !noundef !4
   %153 = add nsw i128 %152, -3
-  %154 = trunc nsw i128 %153 to i64
+  %154 = trunc nuw nsw i128 %153 to i64
   %155 = icmp ult i128 %153, 9
   %156 = select i1 %155, i64 %154, i64 5
   switch i64 %156, label %151 [
@@ -46508,7 +46508,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit60.
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %56)
   %1100 = load i128, ptr %58, align 16, !range !13701, !alias.scope !14357, !noundef !4
   %1101 = add nsw i128 %1100, -3
-  %1102 = trunc nsw i128 %1101 to i64
+  %1102 = trunc nuw nsw i128 %1101 to i64
   %1103 = icmp ugt i128 %1101, 8
   %cond1.i = icmp ne i64 %1102, 1
   %cond.not4.i = select i1 %1103, i1 true, i1 %cond1.i
@@ -60239,7 +60239,7 @@ define internal void @"_ZN4core3ptr144drop_in_place$LT$ra_ap_rustc_pattern_analy
 define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$ra_ap_rustc_pattern_analysis..constructor..ConstructorSet$LT$hir_ty..diagnostics..match_check..pat_analysis..MatchCheckCtx$GT$$GT$17h6e85a190d2bb2f95E"(ptr noalias noundef nonnull align 16 dereferenceable(128) %0) unnamed_addr #3 {
   %2 = load i128, ptr %0, align 16, !range !13701, !noundef !4
   %3 = add nsw i128 %2, -3
-  %4 = trunc nsw i128 %3 to i64
+  %4 = trunc nuw nsw i128 %3 to i64
   %5 = icmp ugt i128 %3, 8
   %cond1 = icmp ne i64 %4, 1
   %cond.not4 = select i1 %5, i1 true, i1 %cond1
@@ -63967,7 +63967,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2669f95943edea52E.exit.thread: ; preds 
 31:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h96f3eb75b4d9517dE.llvm.14675025554980555382.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18153)
   %.promoted.i.i.i.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !18156, !noalias !18161
-  %trunc.i.i.i.i.i.i.i.i = trunc i64 %29 to i1
+  %trunc.i.i.i.i.i.i.i.i = trunc nuw i64 %29 to i1
   %32 = load ptr, ptr %15, align 8, !alias.scope !18156, !noalias !18161
   %.fr9.i.i.i.i.i.i.i.i.i.i.i.i = freeze ptr %32
   %33 = getelementptr inbounds nuw i8, ptr %.fr9.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
@@ -64331,7 +64331,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17h0d35e5dd2416f9b5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %trunc.i1.i.i.i = trunc i64 %10 to i1
+  %trunc.i1.i.i.i = trunc nuw i64 %10 to i1
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 80

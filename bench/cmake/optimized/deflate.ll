@@ -140,7 +140,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   %69 = add nsw i32 %67, -1
   %70 = getelementptr inbounds nuw i8, ptr %53, i64 140
   store i32 %69, ptr %70, align 4, !tbaa !35
-  %71 = trunc nuw i32 %4 to i8
+  %71 = trunc nuw nsw i32 %4 to i8
   %.lhs.trunc = add nuw nsw i8 %71, 9
   %72 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %72 to i32

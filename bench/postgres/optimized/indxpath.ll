@@ -1264,7 +1264,7 @@ list_length.exit46.i:                             ; preds = %37, %list_length.ex
   br i1 %66, label %.lr.ph43.i.i, label %._crit_edge.loopexit.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %63
-  %indvars47.i.i = trunc i64 %indvars.iv.next.i.i to i32
+  %indvars47.i.i = trunc nsw i64 %indvars.iv.next.i.i to i32
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.i.i, %.lr.ph77.i
@@ -1319,7 +1319,7 @@ find_list_position.exit.i:                        ; preds = %.loopexit.loopexit.
   br i1 %86, label %.lr.ph43.i53.i, label %._crit_edge.loopexit.i56.i
 
 ._crit_edge.loopexit.i56.i:                       ; preds = %83
-  %indvars47.i57.i = trunc i64 %indvars.iv.next.i55.i to i32
+  %indvars47.i57.i = trunc nsw i64 %indvars.iv.next.i55.i to i32
   br label %._crit_edge.i50.i
 
 ._crit_edge.i50.i:                                ; preds = %._crit_edge.loopexit.i56.i, %.lr.ph.i49.i, %.lr.ph91.i
@@ -4842,7 +4842,7 @@ list_length.exit.i.i.i:                           ; preds = %291, %290
   br i1 %341, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.split.loop.exit256.i.i.i, !llvm.loop !29
 
 ._crit_edge.loopexit.split.loop.exit256.i.i.i:    ; preds = %338
-  %indvars.le.i.i.i = trunc i64 %indvars.iv.next.i.i.i to i32
+  %indvars.le.i.i.i = trunc nsw i64 %indvars.iv.next.i.i.i to i32
   br label %._crit_edge.i.i.i
 
 ._crit_edge.loopexit.i.loopexit.i.i:              ; preds = %332, %327

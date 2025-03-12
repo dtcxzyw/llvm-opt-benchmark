@@ -2372,7 +2372,7 @@ _ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit:  ; preds = %do.body.i.i, %if.en
   br i1 %tobool.i.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit
-  %num.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.023.i.i to i32
+  %num.sroa.0.0.extract.trunc = trunc nuw i64 %retval.sroa.0.023.i.i to i32
   %conv = uitofp i32 %num.sroa.0.0.extract.trunc to double
   %call9 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv) #13
   tail call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %Inst, ptr noundef %call9, i32 noundef %operandIdx) #13
@@ -2493,7 +2493,7 @@ _ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i: ; preds = %if.end12.i.i.i, %d
   br i1 %tobool.i.not.i, label %_ZN6hermes22LowerNumericProperties23stringToNumericPropertyERNS_9IRBuilderERNS_11InstructionEj.exit, label %if.then7.i
 
 if.then7.i:                                       ; preds = %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i
-  %num.sroa.0.0.extract.trunc.i = trunc i64 %retval.sroa.0.023.i.i.i to i32
+  %num.sroa.0.0.extract.trunc.i = trunc nuw i64 %retval.sroa.0.023.i.i.i to i32
   %conv.i = uitofp i32 %num.sroa.0.0.extract.trunc.i to double
   %call9.i = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i) #13
   call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0194, ptr noundef %call9.i, i32 noundef 1) #13
@@ -2573,7 +2573,7 @@ _ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i44: ; preds = %if.end12.i.i.i38
   br i1 %tobool.i.not.i47, label %_ZN6hermes22LowerNumericProperties23stringToNumericPropertyERNS_9IRBuilderERNS_11InstructionEj.exit60, label %if.then7.i48
 
 if.then7.i48:                                     ; preds = %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i44
-  %num.sroa.0.0.extract.trunc.i49 = trunc i64 %retval.sroa.0.023.i.i.i45 to i32
+  %num.sroa.0.0.extract.trunc.i49 = trunc nuw i64 %retval.sroa.0.023.i.i.i45 to i32
   %conv.i50 = uitofp i32 %num.sroa.0.0.extract.trunc.i49 to double
   %call9.i51 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i50) #13
   call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0194, ptr noundef %call9.i51, i32 noundef 2) #13
@@ -2653,7 +2653,7 @@ _ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i85: ; preds = %if.end12.i.i.i79
   br i1 %tobool.i.not.i88, label %_ZN6hermes22LowerNumericProperties23stringToNumericPropertyERNS_9IRBuilderERNS_11InstructionEj.exit101, label %if.then7.i89
 
 if.then7.i89:                                     ; preds = %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i85
-  %num.sroa.0.0.extract.trunc.i90 = trunc i64 %retval.sroa.0.023.i.i.i86 to i32
+  %num.sroa.0.0.extract.trunc.i90 = trunc nuw i64 %retval.sroa.0.023.i.i.i86 to i32
   %conv.i91 = uitofp i32 %num.sroa.0.0.extract.trunc.i90 to double
   %call9.i92 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i91) #13
   call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0194, ptr noundef %call9.i92, i32 noundef 2) #13
@@ -2734,7 +2734,7 @@ _ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i126: ; preds = %if.end12.i.i.i1
   br i1 %tobool.i.not.i129, label %_ZN6hermes22LowerNumericProperties23stringToNumericPropertyERNS_9IRBuilderERNS_11InstructionEj.exit142, label %if.then7.i130
 
 if.then7.i130:                                    ; preds = %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i126
-  %num.sroa.0.0.extract.trunc.i131 = trunc i64 %retval.sroa.0.023.i.i.i127 to i32
+  %num.sroa.0.0.extract.trunc.i131 = trunc nuw i64 %retval.sroa.0.023.i.i.i127 to i32
   %conv.i132 = uitofp i32 %num.sroa.0.0.extract.trunc.i131 to double
   %call9.i133 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i132) #13
   call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0194, ptr noundef %call9.i133, i32 noundef 1) #13
@@ -2809,7 +2809,7 @@ _ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i168: ; preds = %if.end12.i.i.i1
   br i1 %tobool.i.not.i171, label %_ZN6hermes22LowerNumericProperties23stringToNumericPropertyERNS_9IRBuilderERNS_11InstructionEj.exit184, label %if.then7.i172
 
 if.then7.i172:                                    ; preds = %_ZN6hermes12toArrayIndexEN4llvh9StringRefE.exit.i168
-  %num.sroa.0.0.extract.trunc.i173 = trunc i64 %retval.sroa.0.023.i.i.i169 to i32
+  %num.sroa.0.0.extract.trunc.i173 = trunc nuw i64 %retval.sroa.0.023.i.i.i169 to i32
   %conv.i174 = uitofp i32 %num.sroa.0.0.extract.trunc.i173 to double
   %call9.i175 = call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv.i174) #13
   call void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.0194, ptr noundef %call9.i175, i32 noundef 3) #13

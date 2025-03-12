@@ -3330,7 +3330,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  %231 = trunc i64 %207 to i32
+  %231 = trunc nsw i64 %207 to i32
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store i32 %203, ptr %232, align 4, !tbaa !53
   %.sroa.5348.0..sroa_idx = getelementptr inbounds nuw i8, ptr %228, i64 20

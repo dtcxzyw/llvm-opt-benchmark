@@ -7341,7 +7341,7 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
 157:                                              ; preds = %153
   %158 = zext nneg i8 %155 to i32
   %159 = shl nuw nsw i32 1, %158
-  %160 = trunc nuw i32 %159 to i16
+  %160 = trunc nuw nsw i32 %159 to i16
   %161 = or i16 %149, %160
   store i16 %161, ptr %147, align 2, !tbaa !198
   %.pr.pre.i.i = load i8, ptr %150, align 1, !tbaa !51
@@ -7362,7 +7362,7 @@ TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
 166:                                              ; preds = %.thread29.i.i
   %167 = zext nneg i8 %163 to i32
   %168 = shl nuw nsw i32 1, %167
-  %169 = trunc nuw i32 %168 to i16
+  %169 = trunc nuw nsw i32 %168 to i16
   %170 = or i16 %164, %169
   store i16 %170, ptr %147, align 2, !tbaa !198
   br label %.thread.i.i
@@ -9057,7 +9057,7 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(pt
 37:                                               ; preds = %33
   %38 = zext nneg i8 %35 to i32
   %39 = shl nuw nsw i32 1, %38
-  %40 = trunc nuw i32 %39 to i16
+  %40 = trunc nuw nsw i32 %39 to i16
   %41 = or i16 %29, %40
   store i16 %41, ptr %27, align 2, !tbaa !198
   %.pr.pre.i = load i8, ptr %30, align 1, !tbaa !51
@@ -9078,7 +9078,7 @@ define internal fastcc range(i32 -328, 1) i32 @TLSX_SignatureAlgorithms_Parse(pt
 46:                                               ; preds = %.thread29.i
   %47 = zext nneg i8 %43 to i32
   %48 = shl nuw nsw i32 1, %47
-  %49 = trunc nuw i32 %48 to i16
+  %49 = trunc nuw nsw i32 %48 to i16
   %50 = or i16 %44, %49
   store i16 %50, ptr %27, align 2, !tbaa !198
   br label %.thread.i

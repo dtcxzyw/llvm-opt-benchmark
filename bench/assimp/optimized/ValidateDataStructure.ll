@@ -920,7 +920,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiNode(ptr noundef
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %15
-  %11 = trunc i64 %.0.add.i to i32
+  %11 = trunc nuw nsw i64 %.0.add.i to i32
   %12 = add nsw i32 %11, -4
   br label %._crit_edge.i
 
@@ -1631,7 +1631,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMesh(ptr noundef
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %39
-  %20 = trunc i64 %.0.add.i to i32
+  %20 = trunc nuw nsw i64 %.0.add.i to i32
   %21 = add nsw i32 %20, -4
   br label %._crit_edge.i
 
@@ -2300,7 +2300,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK8aiString(ptr nound
   unreachable
 
 ._crit_edge.loopexit:                             ; preds = %12
-  %8 = trunc i64 %.0.add to i32
+  %8 = trunc nuw nsw i64 %.0.add to i32
   %9 = add nsw i32 %8, -4
   br label %._crit_edge
 
@@ -2353,7 +2353,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK6aiMeshPK6aiBonePf(
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %14
-  %10 = trunc i64 %.0.add.i to i32
+  %10 = trunc nuw nsw i64 %.0.add.i to i32
   %11 = add nsw i32 %10, -4
   br label %._crit_edge.i
 
@@ -2467,7 +2467,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimation(ptr n
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %12
-  %8 = trunc i64 %.0.add.i to i32
+  %8 = trunc nuw nsw i64 %.0.add.i to i32
   %9 = add nsw i32 %8, -4
   br label %._crit_edge.i
 
@@ -2639,7 +2639,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK10ai
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %13
-  %9 = trunc i64 %.0.add.i to i32
+  %9 = trunc nuw nsw i64 %.0.add.i to i32
   %10 = add nsw i32 %9, -4
   br label %._crit_edge.i
 
@@ -2959,7 +2959,7 @@ define hidden void @_ZN6Assimp17ValidateDSProcess8ValidateEPK11aiAnimationPK15ai
   unreachable
 
 ._crit_edge.loopexit.i:                           ; preds = %13
-  %9 = trunc i64 %.0.add.i to i32
+  %9 = trunc nuw nsw i64 %.0.add.i to i32
   %10 = add nsw i32 %9, -4
   br label %._crit_edge.i
 

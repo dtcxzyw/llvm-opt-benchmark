@@ -4065,7 +4065,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br i1 %5, label %6, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123nonLockingLinux__execveEPKcPKPcS5_.exit
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %4 to i32
+  %7 = trunc nsw i64 %4 to i32
   %8 = sub nsw i32 0, %7
   %9 = tail call ptr @__errno_location() #35
   store i32 %8, ptr %9, align 4

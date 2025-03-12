@@ -9782,7 +9782,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rt6_fill_node(ptr noundef 
   %59 = load i32, ptr %58, align 8
   %.fr = freeze i32 %59
   %60 = icmp ult i32 %.fr, 256
-  %61 = trunc i32 %.fr to i8
+  %61 = trunc nuw i32 %.fr to i8
   %spec.select = select i1 %60, i8 %61, i8 -4
   br label %.thread12
 

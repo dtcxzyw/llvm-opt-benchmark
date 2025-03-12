@@ -2921,8 +2921,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd71e52520ee16649E.llvm.16258991448737509891.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.010 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.010 = select i1 %13, i1 true, i1 %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
   %15 = load ptr, ptr %6, align 8, !alias.scope !450, !noalias !453, !nonnull !4, !align !456, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3078,8 +3078,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hd71e52520ee16649E.llvm.16258991448737509891.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.010 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.010 = select i1 %13, i1 true, i1 %14
   call void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h5f72e3d9d14b2dc2E.llvm.16258991448737509891"(ptr noalias noundef nonnull sret({ i32, [17 x i32] }) align 8 captures(none) dereferenceable(72) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i32, ptr %5, align 8, !range !292, !noundef !4
   %.not = icmp eq i32 %15, 4

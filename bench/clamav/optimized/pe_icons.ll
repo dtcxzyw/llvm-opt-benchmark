@@ -577,7 +577,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
 105:                                              ; preds = %102
   %106 = and i32 %.4..4..4..4..4..i, 31
   %.not594.i = icmp eq i32 %106, 0
-  %.lhs.trunc638.i = trunc nuw i32 %.4..4..4..4..4..i to i16
+  %.lhs.trunc638.i = trunc nuw nsw i32 %.4..4..4..4..4..i to i16
   %107 = urem i16 %.lhs.trunc638.i, 24
   %.not595.i = icmp eq i16 %107, 0
   %or.cond.i = or i1 %.not594.i, %.not595.i
@@ -611,7 +611,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, 
   br i1 %.not596.i, label %parseicon.exit, label %117
 
 117:                                              ; preds = %110
-  %118 = trunc i64 %114 to i32
+  %118 = trunc nuw nsw i64 %114 to i32
   %119 = add i32 %77, %118
   br label %120
 

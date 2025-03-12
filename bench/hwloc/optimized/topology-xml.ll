@@ -4756,7 +4756,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %79 = sext i32 %78 to i64
   %80 = add i64 %.07897, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nuw nsw i64 %indvars.iv.next to i32
   %81 = add i32 %.07999, %indvars
   %82 = icmp ult i32 %81, %16
   %83 = icmp samesign ult i64 %indvars.iv, 9
@@ -4799,7 +4799,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %100 = sext i32 %99 to i64
   %101 = add i64 %.075100, %100
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
-  %indvars120 = trunc i64 %indvars.iv.next119 to i32
+  %indvars120 = trunc nuw nsw i64 %indvars.iv.next119 to i32
   %102 = add i32 %.076102, %indvars120
   %103 = icmp ult i32 %102, %16
   %104 = icmp samesign ult i64 %indvars.iv118, 9
@@ -4855,7 +4855,7 @@ define internal fastcc void @hwloc___xml_v2export_distances(ptr noundef %0, ptr 
   %128 = sext i32 %127 to i64
   %129 = add i64 %.072104, %128
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %indvars124 = trunc i64 %indvars.iv.next123 to i32
+  %indvars124 = trunc nuw nsw i64 %indvars.iv.next123 to i32
   %130 = add i32 %.073106, %indvars124
   %131 = icmp ult i32 %130, %111
   %132 = icmp samesign ult i64 %indvars.iv122, 9
@@ -7448,7 +7448,7 @@ hwloc__xml_verbose.exit295.i:                     ; preds = %162, %.tail296.thre
   br i1 %or.cond6.i, label %300, label %304
 
 300:                                              ; preds = %299
-  %301 = trunc nuw i64 %294 to i32
+  %301 = trunc nuw nsw i64 %294 to i32
   %302 = load ptr, ptr %41, align 8, !tbaa !161
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 20
   store i32 %301, ptr %303, align 4, !tbaa !27

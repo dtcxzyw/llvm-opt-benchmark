@@ -7642,11 +7642,11 @@ define linkonce_odr i64 @_ZN4absl12lts_2024072213hash_internal15MixingHashState1
   %46 = zext i8 %39 to i32
   %47 = zext i8 %42 to i32
   %48 = shl nuw nsw i64 %40, 3
-  %49 = trunc nuw i64 %48 to i32
+  %49 = trunc nuw nsw i64 %48 to i32
   %50 = shl nuw nsw i32 %47, %49
   %51 = or i32 %50, %46
   %52 = zext i8 %45 to i32
-  %.tr.i.i = trunc i64 %43 to i32
+  %.tr.i.i = trunc nuw nsw i64 %43 to i32
   %53 = shl nuw nsw i32 %.tr.i.i, 3
   %54 = shl nuw nsw i32 %52, %53
   %55 = or i32 %51, %54

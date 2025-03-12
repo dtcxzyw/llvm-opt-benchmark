@@ -10099,7 +10099,7 @@ define linkonce_odr dso_local void @_ZN3CFF13str_encoder_t10encode_intEi(ptr nou
   br i1 %or.cond3, label %14, label %30
 
 14:                                               ; preds = %12
-  %15 = trunc i32 %1 to i8
+  %15 = trunc nsw i32 %1 to i8
   %16 = add i8 %15, -117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %16, ptr %10, align 1, !tbaa !61

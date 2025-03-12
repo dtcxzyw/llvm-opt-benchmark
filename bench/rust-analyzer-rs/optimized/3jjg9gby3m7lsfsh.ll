@@ -15579,7 +15579,7 @@ _ZN15chalk_recursive7fulfill26is_trivial_canonical_subst17h20f363aea5ad03ffE.exi
   br i1 %391, label %.loopexit406.i, label %392
 
 392:                                              ; preds = %390
-  %393 = trunc i8 %.1.i.i to i1
+  %393 = trunc nuw i8 %.1.i.i to i1
   br i1 %393, label %394, label %.critedge185.i
 
 394:                                              ; preds = %392, %.thread381.i, %338

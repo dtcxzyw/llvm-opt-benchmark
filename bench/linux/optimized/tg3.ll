@@ -5740,7 +5740,7 @@ thread-pre-split80.thread:                        ; preds = %.thread79, %1980, %
 
 2314:                                             ; preds = %2321, %2306
   %2315 = phi i64 [ 0, %2306 ], [ %2324, %2321 ]
-  %2316 = trunc i64 %2315 to i32
+  %2316 = trunc nuw nsw i64 %2315 to i32
   %2317 = add i32 %2310, %2316
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   store i32 0, ptr %4, align 4, !annotation !5
@@ -33173,7 +33173,7 @@ define internal fastcc i32 @tg3_start(ptr noundef %0, i1 noundef zeroext %1, i1 
   %207 = phi i64 [ %212, %.preheader58 ], [ 0, %204 ]
   %208 = trunc i64 %207 to i32
   %209 = urem i32 %208, %192
-  %210 = trunc i32 %209 to i8
+  %210 = trunc nuw i32 %209 to i8
   %211 = getelementptr [128 x i8], ptr %194, i64 0, i64 %207
   store i8 %210, ptr %211, align 1
   %212 = add nuw nsw i64 %207, 1
@@ -36153,7 +36153,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
 20:                                               ; preds = %20, %18
   %21 = phi i64 [ 0, %18 ], [ %26, %20 ]
   %22 = load ptr, ptr %19, align 16
-  %23 = trunc i64 %21 to i32
+  %23 = trunc nuw nsw i64 %21 to i32
   %24 = tail call i32 %22(ptr noundef %0, i32 noundef %23) #27
   %25 = getelementptr i8, ptr %11, i64 %21
   store i32 %24, ptr %25, align 4
@@ -36207,7 +36207,7 @@ define internal fastcc void @tg3_dump_state(ptr noundef %0) unnamed_addr #2 alig
   %56 = or disjoint i64 %31, 3
   %57 = getelementptr i32, ptr %11, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = trunc i64 %31 to i32
+  %59 = trunc nuw nsw i64 %31 to i32
   %60 = shl nuw nsw i32 %59, 2
   tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %50, ptr noundef nonnull @.str.62, i32 noundef %60, i32 noundef %33, i32 noundef %52, i32 noundef %55, i32 noundef %58) #28
   br label %61

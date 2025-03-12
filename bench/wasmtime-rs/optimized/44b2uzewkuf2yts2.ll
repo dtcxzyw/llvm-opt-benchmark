@@ -427,7 +427,7 @@ _ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i.i: ; preds = %37, %29
   br i1 %.014.i.i.i.i.i, label %44, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h771696c4e6f1bf8bE.exit.i.i"
 
 44:                                               ; preds = %_ZN16wasmtime_runtime9page_size17h3abd4efd92499e2aE.exit.i.i
-  %45 = trunc i64 %43 to i16
+  %45 = trunc nsw i64 %43 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4), !noalias !31
   store i16 %45, ptr %4, align 2, !noalias !31
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.5370cc5e4c9bad4a34a3533d54186f9f.125, i64 noundef 41, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5370cc5e4c9bad4a34a3533d54186f9f.26, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5370cc5e4c9bad4a34a3533d54186f9f.126) #26, !noalias !31
@@ -2975,7 +2975,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN16wasmtime_run
   br i1 %.not, label %30, label %19
 
 19:                                               ; preds = %2
-  %20 = trunc i64 %18 to i32
+  %20 = trunc nuw i64 %18 to i32
   %21 = sub i32 %1, %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !413)
   %22 = zext i32 %21 to i64
@@ -4139,7 +4139,7 @@ _ZN16wasmtime_runtime8instance8Instance10from_vmctx17h15130f8c9f639b05E.llvm.362
   br label %60
 
 57:                                               ; preds = %4
-  %58 = trunc i64 %20 to i32
+  %58 = trunc nuw i64 %20 to i32
   %59 = sub i32 %2, %58
   tail call void @_ZN16wasmtime_runtime8instance8Instance19defined_memory_grow17h4c9528454d5e781bE.llvm.3622975676230304285(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 16 %1, i32 noundef %59, i64 noundef %3)
   br label %60

@@ -5771,7 +5771,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.then
-  %conv4 = trunc nuw i16 %ch to i8
+  %conv4 = trunc nuw nsw i16 %ch to i8
   %cmp.i.i = icmp ugt i32 %bf.load.i.i.i, 150994943
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 

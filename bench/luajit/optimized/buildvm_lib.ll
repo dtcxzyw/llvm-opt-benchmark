@@ -1115,7 +1115,7 @@ define internal void @libdef_push(ptr noundef readonly captures(none) %0, ptr no
   unreachable
 
 libdef_name.exit:                                 ; preds = %28
-  %37 = trunc nuw i64 %23 to i8
+  %37 = trunc nuw nsw i64 %23 to i8
   %38 = or disjoint i8 %37, -64
   store i8 %38, ptr %29, align 1, !tbaa !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %22, i64 %23, i1 false)
@@ -1273,7 +1273,7 @@ define internal void @libdef_set(ptr noundef readonly captures(none) %0, ptr nou
   unreachable
 
 libdef_name.exit:                                 ; preds = %21
-  %30 = trunc nuw i64 %16 to i8
+  %30 = trunc nuw nsw i64 %16 to i8
   %31 = or disjoint i8 %30, -64
   store i8 %31, ptr %22, align 1, !tbaa !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull align 1 %1, i64 %16, i1 false)

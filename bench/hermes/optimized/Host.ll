@@ -2251,7 +2251,7 @@ if.then30:                                        ; preds = %if.end.i.i
   %39 = load i64, ptr %LLVal.i, align 8
   %40 = add i64 %39, 2147483648
   %cmp.not.i = icmp ult i64 %40, 4294967296
-  %conv.i110 = trunc i64 %39 to i32
+  %conv.i110 = trunc nsw i64 %39 to i32
   %spec.select = select i1 %cmp.not.i, i32 %conv.i110, i32 %CurPhysicalId.0143
   %CurPhysicalId.5 = select i1 %call.i108, i32 %CurPhysicalId.0143, i32 %spec.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i)
@@ -2268,7 +2268,7 @@ if.then36:                                        ; preds = %if.end.i.i175
   %42 = load i64, ptr %LLVal.i111, align 8
   %43 = add i64 %42, 2147483648
   %cmp.not.i117 = icmp ult i64 %43, 4294967296
-  %conv.i120 = trunc i64 %42 to i32
+  %conv.i120 = trunc nsw i64 %42 to i32
   %spec.select140 = select i1 %cmp.not.i117, i32 %conv.i120, i32 %CurCoreId.0142
   %CurCoreId.3 = select i1 %call.i115, i32 %CurCoreId.0142, i32 %spec.select140
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i111)

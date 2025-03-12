@@ -798,7 +798,7 @@ dsdKernelCheckContainment.exit.thread:            ; preds = %224
   br i1 %283, label %260, label %._crit_edge.loopexitsplit, !llvm.loop !59
 
 ._crit_edge.loopexitsplit:                        ; preds = %278
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge.loopexit_crit_edge, %._crit_edge.loopexitsplit, %254

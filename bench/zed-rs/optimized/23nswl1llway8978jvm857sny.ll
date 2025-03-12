@@ -9366,14 +9366,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !1682, !noalias !1679
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
   store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !1682, !noalias !1679
   %16 = lshr i32 %1, 6
@@ -13884,7 +13884,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr138dro
   br label %common.ret
 
 "_ZN4core3ptr157drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$GT$$GT$$GT$17h27b4b8bcfbdd07c7E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3838115190227029238.exit.i.i.i", %291
-  %307 = trunc i8 %283 to i1
+  %307 = trunc nuw i8 %283 to i1
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val64 = load ptr, ptr %308, align 8, !nonnull !4, !noundef !4
   %309 = getelementptr i8, ptr %0, i64 40

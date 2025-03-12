@@ -635,7 +635,7 @@ define hidden noundef range(i32 0, 65) i32 @_Z14trailing_zerosm(i64 noundef %0) 
   br i1 %9, label %.lr.ph.i, label %_ZL17_trailing_zeros64m.exit.loopexit, !llvm.loop !3
 
 _ZL17_trailing_zeros64m.exit.loopexit:            ; preds = %.lr.ph.i
-  %10 = trunc i64 %4 to i32
+  %10 = trunc nuw nsw i64 %4 to i32
   br label %_ZL17_trailing_zeros64m.exit
 
 _ZL17_trailing_zeros64m.exit:                     ; preds = %_ZL17_trailing_zeros64m.exit.loopexit, %1
@@ -4869,7 +4869,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb1EE3decER3mpz(ptr noundef nonnul
   store i8 %32, ptr %6, align 4
   %.0.i.i.i3 = sub nsw i64 1, %12
   store i32 -1, ptr %1, align 8, !tbaa !23
-  %33 = trunc i64 %.0.i.i.i3 to i32
+  %33 = trunc nuw i64 %.0.i.i.i3 to i32
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %33, ptr %34, align 4, !tbaa !26
   %35 = lshr i64 %.0.i.i.i3, 32
@@ -6426,7 +6426,7 @@ _ZN11mpz_managerILb1EE3addERK3mpzS3_RS1_.exit:    ; preds = %49, %.thread25.i.i.
   store i8 %103, ptr %37, align 4
   %.0.i.i.i2225 = sub nsw i64 1, %83
   store i32 -1, ptr %3, align 8, !tbaa !23
-  %104 = trunc i64 %.0.i.i.i2225 to i32
+  %104 = trunc nuw i64 %.0.i.i.i2225 to i32
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 %104, ptr %105, align 4, !tbaa !26
   %106 = lshr i64 %.0.i.i.i2225, 32
@@ -21853,7 +21853,7 @@ define weak_odr hidden void @_ZN11mpz_managerILb0EE3decER3mpz(ptr noundef nonnul
   store i8 %32, ptr %6, align 4
   %.0.i.i.i3 = sub nsw i64 1, %12
   store i32 -1, ptr %1, align 8, !tbaa !23
-  %33 = trunc i64 %.0.i.i.i3 to i32
+  %33 = trunc nuw i64 %.0.i.i.i3 to i32
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %33, ptr %34, align 4, !tbaa !26
   %35 = lshr i64 %.0.i.i.i3, 32
@@ -23339,7 +23339,7 @@ _ZN11mpz_managerILb0EE3addERK3mpzS3_RS1_.exit:    ; preds = %49, %.thread25.i.i.
   store i8 %103, ptr %37, align 4
   %.0.i.i.i2225 = sub nsw i64 1, %83
   store i32 -1, ptr %3, align 8, !tbaa !23
-  %104 = trunc i64 %.0.i.i.i2225 to i32
+  %104 = trunc nuw i64 %.0.i.i.i2225 to i32
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 %104, ptr %105, align 4, !tbaa !26
   %106 = lshr i64 %.0.i.i.i2225, 32

@@ -2111,7 +2111,7 @@ define noundef ptr @_ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE(i6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, i64 noundef %10, i64 noundef 8)
-  %15 = trunc nuw i64 %0 to i32
+  %15 = trunc nuw nsw i64 %0 to i32
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %15, ptr %16, align 4, !tbaa !21
   ret ptr %14
@@ -2351,7 +2351,7 @@ _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit: ; preds = %_ZNK5
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %53, i64 noundef 8)
-  %58 = trunc nuw i64 %.0.i to i32
+  %58 = trunc nuw nsw i64 %.0.i to i32
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %58, ptr %59, align 4, !tbaa !21
   %60 = load ptr, ptr %0, align 8, !tbaa !33
@@ -2612,7 +2612,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %2, %7
           to label %31 unwind label %42
 
 31:                                               ; preds = %21
-  %32 = trunc nuw i64 %14 to i32
+  %32 = trunc nuw nsw i64 %14 to i32
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store i32 %32, ptr %33, align 4, !tbaa !21
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2801,7 +2801,7 @@ define void @_ZN5boost4json5arrayC2EmRKNS0_5valueENS0_11storage_ptrE(ptr noundef
           to label %24 unwind label %59
 
 24:                                               ; preds = %15
-  %25 = trunc nuw i64 %1 to i32
+  %25 = trunc nuw nsw i64 %1 to i32
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %25, ptr %26, align 4, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3047,7 +3047,7 @@ define void @_ZN5boost4json5arrayC2EmNS0_11storage_ptrE(ptr noundef nonnull alig
           to label %21 unwind label %37
 
 21:                                               ; preds = %12
-  %22 = trunc nuw i64 %1 to i32
+  %22 = trunc nuw nsw i64 %1 to i32
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 %22, ptr %23, align 4, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3622,7 +3622,7 @@ define void @_ZN5boost4json5arrayC2ESt16initializer_listINS0_9value_refEENS0_11s
           to label %24 unwind label %70
 
 24:                                               ; preds = %15
-  %25 = trunc nuw i64 %2 to i32
+  %25 = trunc nuw nsw i64 %2 to i32
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %25, ptr %26, align 4, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5541,7 +5541,7 @@ _ZN5boost4json5array7destroyEPNS0_5valueES3_.exit.loopexit: ; preds = %.lr.ph.i
 
 _ZN5boost4json5array7destroyEPNS0_5valueES3_.exit: ; preds = %_ZN5boost4json5array7destroyEPNS0_5valueES3_.exit.loopexit, %10
   %18 = phi ptr [ %.pre, %_ZN5boost4json5array7destroyEPNS0_5valueES3_.exit.loopexit ], [ %7, %10 ]
-  %19 = trunc i64 %1 to i32
+  %19 = trunc nuw i64 %1 to i32
   store i32 %19, ptr %18, align 8, !tbaa !40
   br label %65
 
@@ -5686,7 +5686,7 @@ _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit: ; preds = %_ZNK5
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %20, i64 noundef 8)
-  %25 = trunc nuw i64 %.0.i to i32
+  %25 = trunc nuw nsw i64 %.0.i to i32
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %25, ptr %26, align 4, !tbaa !21
   %27 = load ptr, ptr %5, align 8, !tbaa !35
@@ -5794,7 +5794,7 @@ _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit: ; preds = %_ZNK5
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %33, i64 noundef 8)
-  %38 = trunc nuw i64 %.0.i to i32
+  %38 = trunc nuw nsw i64 %.0.i to i32
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %38, ptr %39, align 4, !tbaa !21
   %40 = load ptr, ptr %3, align 8, !tbaa !42
@@ -5920,7 +5920,7 @@ _ZN5boost4json5array5table8allocateEmRKNS0_11storage_ptrE.exit: ; preds = %_ZNK5
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i, i64 noundef %42, i64 noundef 8)
-  %47 = trunc nuw i64 %.0.i to i32
+  %47 = trunc nuw nsw i64 %.0.i to i32
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %47, ptr %48, align 4, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
@@ -8805,7 +8805,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit:         ; preds = %58, %67
   store i8 0, ptr %90, align 1, !tbaa !15
   %91 = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr %86, ptr %91, align 8, !tbaa !111
-  %92 = trunc nuw i64 %.sroa.226.0.copyload to i32
+  %92 = trunc nuw nsw i64 %.sroa.226.0.copyload to i32
   %93 = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i32 %92, ptr %93, align 8, !tbaa !107
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #48
@@ -9039,7 +9039,7 @@ _ZN5boost4json11storage_ptrC2ERKS1_.exit72:       ; preds = %._crit_edge, %177
   store i8 0, ptr %200, align 1, !tbaa !15
   %201 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store ptr %196, ptr %201, align 8, !tbaa !111
-  %202 = trunc nuw i64 %.sroa.29.0.copyload to i32
+  %202 = trunc nuw nsw i64 %.sroa.29.0.copyload to i32
   %203 = getelementptr inbounds nuw i8, ptr %173, i64 32
   store i32 %202, ptr %203, align 8, !tbaa !107
   call void @_ZN5boost4json5valueD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #48
@@ -18472,7 +18472,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4json6detail12write_buff
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = trunc nuw i64 %2 to i8
+  %14 = trunc nuw nsw i64 %2 to i8
   %15 = or disjoint i8 %14, 48
   store i8 %15, ptr %.sroa.0.0.copyload, align 1, !tbaa !15
   br label %_ZNK5boost4json6detail16uint64_formatterclEPc.exit
@@ -22812,7 +22812,7 @@ _ZN5boost4json6detail11string_impl4termEm.exit.thread: ; preds = %thread-pre-spl
   br label %74
 
 _ZN5boost4json6detail11string_impl4termEm.exit:   ; preds = %_ZNK5boost4json6detail11string_impl8capacityEv.exit, %thread-pre-split
-  %60 = trunc i64 %1 to i32
+  %60 = trunc nuw i64 %1 to i32
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !15
   store i32 %60, ptr %62, align 4, !tbaa !315
@@ -23814,7 +23814,7 @@ _ZN5boost4json6detail11string_impl6growthEmm.exit: ; preds = %_ZNK5boost4json6de
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %_ZN5boost4json6detail11string_impl6growthEmm.exit
-  %93 = trunc nuw i64 %77 to i32
+  %93 = trunc nuw nsw i64 %77 to i32
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !15
   store i32 %93, ptr %95, align 4, !tbaa !315
@@ -24052,7 +24052,7 @@ _ZN5boost4json6detail11string_impl6growthEmm.exit: ; preds = %_ZNK5boost4json6de
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %_ZN5boost4json6detail11string_impl6growthEmm.exit
-  %76 = trunc nuw i64 %60 to i32
+  %76 = trunc nuw nsw i64 %60 to i32
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !15
   store i32 %76, ptr %78, align 4, !tbaa !315
@@ -24346,7 +24346,7 @@ _ZN5boost4json6detail11string_impl6growthEmm.exit: ; preds = %_ZNK5boost4json6de
   br i1 %110, label %111, label %115
 
 111:                                              ; preds = %_ZN5boost4json6detail11string_impl6growthEmm.exit
-  %112 = trunc nuw i64 %96 to i32
+  %112 = trunc nuw nsw i64 %96 to i32
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !15
   store i32 %112, ptr %114, align 4, !tbaa !315
@@ -24595,7 +24595,7 @@ _ZN5boost4json6detail11string_impl6growthEmm.exit: ; preds = %_ZNK5boost4json6de
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %_ZN5boost4json6detail11string_impl6growthEmm.exit
-  %78 = trunc nuw i64 %62 to i32
+  %78 = trunc nuw nsw i64 %62 to i32
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !15
   store i32 %78, ptr %80, align 4, !tbaa !315
@@ -33710,7 +33710,7 @@ define noundef i32 @_ZN5boost4json6detail13format_uint64EPcm(ptr noundef writeon
   br i1 %4, label %5, label %8
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i64 %1 to i8
+  %6 = trunc nuw nsw i64 %1 to i8
   %7 = or disjoint i8 %6, 48
   store i8 %7, ptr %0, align 1, !tbaa !15
   br label %45
@@ -33804,7 +33804,7 @@ define noundef i32 @_ZN5boost4json6detail12format_int64EPcl(ptr noundef writeonl
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = trunc nuw i64 %1 to i8
+  %9 = trunc nuw nsw i64 %1 to i8
   %10 = or disjoint i8 %9, 48
   store i8 %10, ptr %0, align 1, !tbaa !15
   br label %_ZN5boost4json6detail13format_uint64EPcm.exit
@@ -33889,7 +33889,7 @@ define noundef i32 @_ZN5boost4json6detail12format_int64EPcl(ptr noundef writeonl
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
-  %53 = trunc nuw i64 %50 to i8
+  %53 = trunc nuw nsw i64 %50 to i8
   %54 = or disjoint i8 %53, 48
   store i8 %54, ptr %49, align 1, !tbaa !15
   br label %_ZN5boost4json6detail13format_uint64EPcm.exit
@@ -34351,7 +34351,7 @@ define void @_ZN5boost4json6detail11string_implC2EmRKNS0_11storage_ptrE(ptr noun
 
 5:                                                ; preds = %3
   store i8 -123, ptr %0, align 8, !tbaa !15
-  %6 = trunc nuw i64 %1 to i8
+  %6 = trunc nuw nsw i64 %1 to i8
   %7 = sub nuw nsw i8 14, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 15
@@ -34371,7 +34371,7 @@ define void @_ZN5boost4json6detail11string_implC2EmRKNS0_11storage_ptrE(ptr noun
 
 _ZN5boost4json6detail11string_impl6growthEmm.exit: ; preds = %11
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %1, i64 30)
-  %14 = trunc nuw i64 %.sroa.speculated.i to i32
+  %14 = trunc nuw nsw i64 %.sroa.speculated.i to i32
   %15 = load i64, ptr %2, align 8, !tbaa !17
   %.not.i.i = icmp eq i64 %15, 0
   %16 = and i64 %15, -4
@@ -34382,7 +34382,7 @@ _ZN5boost4json6detail11string_impl6growthEmm.exit: ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, i64 noundef %18, i64 noundef 4)
-  %23 = trunc nuw i64 %1 to i32
+  %23 = trunc nuw nsw i64 %1 to i32
   store i32 %23, ptr %22, align 4, !tbaa !315
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %14, ptr %24, align 4, !tbaa !145
@@ -35069,7 +35069,7 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   br label %134
 
 131:                                              ; preds = %116
-  %132 = trunc nuw i32 %.1113 to i8
+  %132 = trunc nuw nsw i32 %.1113 to i8
   %133 = or disjoint i8 %132, 48
   br label %134
 
@@ -35148,7 +35148,7 @@ _ZN5boost4json6detail3ryu6detail15decimalLength17Em.exit.thread: ; preds = %36, 
   br label %186
 
 180:                                              ; preds = %170
-  %181 = trunc nuw i32 %.0107 to i8
+  %181 = trunc nuw nsw i32 %.0107 to i8
   %182 = or disjoint i8 %181, 48
   %183 = add nuw nsw i32 %.2, 1
   %184 = zext nneg i32 %.2 to i64
@@ -37685,7 +37685,7 @@ _ZN5boost4json14key_value_pairC2IJDnRNS0_11storage_ptrEEEENS_4core17basic_string
   store i8 0, ptr %40, align 1, !tbaa !15
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %36, ptr %41, align 8, !tbaa !111
-  %42 = trunc nuw i64 %.sroa.2.0.copyload to i32
+  %42 = trunc nuw nsw i64 %.sroa.2.0.copyload to i32
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %42, ptr %43, align 8, !tbaa !107
   %44 = load ptr, ptr %7, align 8, !tbaa !102
@@ -47006,7 +47006,7 @@ _ZN5boost4json6detail9hex_digitEh.exit159:        ; preds = %132, %_ZN5boost4jso
 
 172:                                              ; preds = %169
   %173 = lshr i32 %149, 12
-  %174 = trunc nuw i32 %173 to i8
+  %174 = trunc nuw nsw i32 %173 to i8
   %175 = or disjoint i8 %174, -32
   store i8 %175, ptr %155, align 1, !tbaa !15
   %176 = lshr i32 %148, 6
@@ -47725,7 +47725,7 @@ _ZN5boost4json6detail9hex_digitEh.exit219:        ; preds = %492
 
 527:                                              ; preds = %525
   %528 = lshr i32 %520, 6
-  %529 = trunc nuw i32 %528 to i8
+  %529 = trunc nuw nsw i32 %528 to i8
   %530 = or disjoint i8 %529, -64
   store i8 %530, ptr %521, align 1, !tbaa !15
   %531 = trunc i32 %500 to i8
@@ -47742,7 +47742,7 @@ _ZN5boost4json6detail9hex_digitEh.exit219:        ; preds = %492
 
 538:                                              ; preds = %535
   %539 = lshr i32 %520, 12
-  %540 = trunc nuw i32 %539 to i8
+  %540 = trunc nuw nsw i32 %539 to i8
   %541 = or disjoint i8 %540, -32
   store i8 %541, ptr %521, align 1, !tbaa !15
   %542 = lshr i32 %520, 6
@@ -47914,7 +47914,7 @@ define linkonce_odr hidden void @_ZN5boost4json6detail6bufferILm4096EE11append_u
 
 11:                                               ; preds = %9
   %12 = lshr i64 %1, 6
-  %13 = trunc nuw i64 %12 to i8
+  %13 = trunc nuw nsw i64 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 1, !tbaa !15
   %15 = trunc i64 %1 to i8
@@ -47931,7 +47931,7 @@ define linkonce_odr hidden void @_ZN5boost4json6detail6bufferILm4096EE11append_u
 
 22:                                               ; preds = %19
   %23 = lshr i64 %1, 12
-  %24 = trunc nuw i64 %23 to i8
+  %24 = trunc nuw nsw i64 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 1, !tbaa !15
   %26 = lshr i64 %1, 6
@@ -50605,7 +50605,7 @@ _ZN5boost4json6detail13utf8_sequence6appendEPKcm.exit: ; preds = %184
   %185 = zext i8 %172 to i64
   %186 = getelementptr inbounds nuw i8, ptr %167, i64 %185
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %186, ptr align 1 %1, i64 %176, i1 false)
-  %187 = trunc i64 %176 to i8
+  %187 = trunc nuw i64 %176 to i8
   %188 = load i8, ptr %171, align 2, !tbaa !679
   %189 = add i8 %188, %187
   store i8 %189, ptr %171, align 2, !tbaa !679
@@ -52067,7 +52067,7 @@ _ZN5boost4json6detail9hex_digitEh.exit161:        ; preds = %140, %_ZN5boost4jso
 
 180:                                              ; preds = %177
   %181 = lshr i32 %157, 12
-  %182 = trunc nuw i32 %181 to i8
+  %182 = trunc nuw nsw i32 %181 to i8
   %183 = or disjoint i8 %182, -32
   store i8 %183, ptr %163, align 1, !tbaa !15
   %184 = lshr i32 %156, 6
@@ -52542,7 +52542,7 @@ _ZN5boost4json6detail9hex_digitEh.exit202:        ; preds = %407
   br i1 %420, label %421, label %423
 
 421:                                              ; preds = %419
-  %422 = trunc nuw i32 %417 to i8
+  %422 = trunc nuw nsw i32 %417 to i8
   store i8 %422, ptr %6, align 8, !tbaa !15
   br label %_ZN5boost4json6detail6bufferILm4096EE11append_utf8Em.exit204
 
@@ -52552,7 +52552,7 @@ _ZN5boost4json6detail9hex_digitEh.exit202:        ; preds = %407
 
 425:                                              ; preds = %423
   %426 = lshr i32 %417, 6
-  %427 = trunc nuw i32 %426 to i8
+  %427 = trunc nuw nsw i32 %426 to i8
   %428 = or disjoint i8 %427, -64
   store i8 %428, ptr %6, align 8, !tbaa !15
   %429 = trunc i32 %417 to i8
@@ -52569,7 +52569,7 @@ _ZN5boost4json6detail9hex_digitEh.exit202:        ; preds = %407
 
 436:                                              ; preds = %433
   %437 = lshr i32 %417, 12
-  %438 = trunc nuw i32 %437 to i8
+  %438 = trunc nuw nsw i32 %437 to i8
   %439 = or disjoint i8 %438, -32
   store i8 %439, ptr %6, align 8, !tbaa !15
   %440 = lshr i32 %417, 6
@@ -52929,7 +52929,7 @@ _ZN5boost4json6detail9hex_digitEh.exit223:        ; preds = %573
 
 611:                                              ; preds = %609
   %612 = lshr i32 %604, 6
-  %613 = trunc nuw i32 %612 to i8
+  %613 = trunc nuw nsw i32 %612 to i8
   %614 = or disjoint i8 %613, -64
   store i8 %614, ptr %605, align 1, !tbaa !15
   %615 = trunc i32 %583 to i8
@@ -52946,7 +52946,7 @@ _ZN5boost4json6detail9hex_digitEh.exit223:        ; preds = %573
 
 622:                                              ; preds = %619
   %623 = lshr i32 %604, 12
-  %624 = trunc nuw i32 %623 to i8
+  %624 = trunc nuw nsw i32 %623 to i8
   %625 = or disjoint i8 %624, -32
   store i8 %625, ptr %605, align 1, !tbaa !15
   %626 = lshr i32 %604, 6
@@ -53447,7 +53447,7 @@ _ZN5boost4json6detail13utf8_sequence6appendEPKcm.exit: ; preds = %202
   %203 = zext i8 %190 to i64
   %204 = getelementptr inbounds nuw i8, ptr %185, i64 %203
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %204, ptr align 1 %1, i64 %194, i1 false)
-  %205 = trunc i64 %194 to i8
+  %205 = trunc nuw i64 %194 to i8
   %206 = load i8, ptr %189, align 2, !tbaa !679
   %207 = add i8 %206, %205
   store i8 %207, ptr %189, align 2, !tbaa !679
@@ -57583,7 +57583,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4json6detail16uint64_formatter
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %4 to i8
+  %7 = trunc nuw nsw i64 %4 to i8
   %8 = or disjoint i8 %7, 48
   store i8 %8, ptr %1, align 1, !tbaa !15
   br label %_ZN5boost4json6detail13format_uint64EPcm.exit
@@ -58419,7 +58419,7 @@ _ZN5boost9container3pmr15memory_resource8allocateEmm.exit: ; preds = %48
   store i8 0, ptr %57, align 1, !tbaa !15
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %56, ptr %58, align 8, !tbaa !111
-  %59 = trunc nuw i64 %2 to i32
+  %59 = trunc nuw nsw i64 %2 to i32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %59, ptr %60, align 8, !tbaa !107
   ret void
@@ -59277,7 +59277,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost4json6detail8charconv6detail10
   %207 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.4130.i292, i1 true)
   %208 = trunc nuw nsw i64 %207 to i32
   %209 = shl i64 %.4130.i292, %207
-  %210 = trunc i64 %.4144.i290 to i32
+  %210 = trunc nsw i64 %.4144.i290 to i32
   %211 = shl nsw i32 %210, 1
   %212 = add nsw i32 %211, 684
   %213 = zext nneg i32 %212 to i64
@@ -59383,7 +59383,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
   %276 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %272, i1 true)
   %277 = trunc nuw nsw i64 %276 to i32
   %278 = shl i64 %272, %276
-  %279 = trunc i64 %.4144.i290 to i32
+  %279 = trunc nsw i64 %.4144.i290 to i32
   %280 = shl nsw i32 %279, 1
   %281 = add nsw i32 %280, 684
   %282 = zext nneg i32 %281 to i64
@@ -61428,7 +61428,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm
   br label %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 _ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %_ZN5boost4json6detail8charconv6detail10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, %69
-  %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
+  %storemerge.i.i.i.us = trunc nuw nsw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !745
   br label %74
 

@@ -13651,7 +13651,7 @@ _ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h86b7d28672f91d98E.exit.i.i
 
 431:                                              ; preds = %427
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.65.i.i.i.i, ptr nonnull readonly align 1 %.sroa.3.0.copyload.i.i.i, i64 %.sroa.4265.0.copyload.i.i.i, i1 false), !noalias !4668
-  %432 = trunc i64 %.sroa.4265.0.copyload.i.i.i to i32
+  %432 = trunc nsw i64 %.sroa.4265.0.copyload.i.i.i to i32
   %433 = add nsw i32 %432, 3
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %185), !noalias !4664
   store i16 1, ptr %185, align 2, !noalias !4664

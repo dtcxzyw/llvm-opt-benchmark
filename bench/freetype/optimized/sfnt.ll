@@ -3036,7 +3036,7 @@ tt_cmap13_next.exit.thread:                       ; preds = %85, %13
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %80, ptr %88, align 8, !tbaa !83
   store i64 %.03843.i, ptr %14, align 8, !tbaa !81
-  %89 = trunc i64 %spec.select.i to i32
+  %89 = trunc nuw i64 %spec.select.i to i32
   store i32 %89, ptr %1, align 4, !tbaa !16
   br label %92
 
@@ -19121,7 +19121,7 @@ define internal fastcc range(i32 0, 9) i32 @store_points(i64 noundef range(i64 0
 
 100:                                              ; preds = %98
   %101 = tail call i32 @llvm.abs.i32(i32 %93, i1 true)
-  %102 = trunc i32 %101 to i8
+  %102 = trunc nuw i32 %101 to i8
   %103 = add i32 %.0148200, 1
   %104 = zext i32 %.0148200 to i64
   %105 = getelementptr inbounds nuw i8, ptr %5, i64 %104
@@ -19152,7 +19152,7 @@ define internal fastcc range(i32 0, 9) i32 @store_points(i64 noundef range(i64 0
 
 118:                                              ; preds = %116
   %119 = tail call i32 @llvm.abs.i32(i32 %96, i1 true)
-  %120 = trunc i32 %119 to i8
+  %120 = trunc nuw i32 %119 to i8
   %121 = add i32 %.0146201, 1
   %122 = zext i32 %.0146201 to i64
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 %122
@@ -21400,7 +21400,7 @@ define internal fastcc i32 @Load_SBit_Png(ptr noundef %0, i32 noundef %1, i32 no
   %78 = trunc nuw nsw i32 %74 to i16
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %78, ptr %79, align 2, !tbaa !446
-  %80 = trunc nuw i32 %72 to i16
+  %80 = trunc nuw nsw i32 %72 to i16
   store i16 %80, ptr %4, align 2, !tbaa !448
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %74, ptr %81, align 4, !tbaa !451
@@ -22925,7 +22925,7 @@ sfnt_get_name_id.exit235.i:                       ; preds = %._crit_edge.i230.i
 176:                                              ; preds = %164
   %177 = getelementptr inbounds nuw i8, ptr %166, i64 344
   %178 = load ptr, ptr %177, align 8, !tbaa !742
-  %179 = trunc nuw i32 %173 to i16
+  %179 = trunc nuw nsw i32 %173 to i16
   %180 = call i32 %178(ptr noundef nonnull %0, i16 noundef zeroext %179, ptr noundef nonnull %9) #27
   %.pr.i = load ptr, ptr %9, align 8, !tbaa !198
   %.not179.i = icmp eq ptr %.pr.i, null
@@ -26280,7 +26280,7 @@ tt_cmap13_next.exit.thread:                       ; preds = %173, %110
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %170, ptr %176, align 8, !tbaa !83
   store i64 %.03843.i, ptr %106, align 8, !tbaa !81
-  %177 = trunc i64 %spec.select.i to i32
+  %177 = trunc nuw i64 %spec.select.i to i32
   br label %180
 
 178:                                              ; preds = %101

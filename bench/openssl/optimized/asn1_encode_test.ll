@@ -644,7 +644,7 @@ der_encode_length.exit52:                         ; preds = %35
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 2
   store i8 2, ptr %49, align 1, !tbaa !36
   %52 = lshr i64 %37, 8
-  %53 = trunc nuw i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = or disjoint i8 %53, -128
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 3
   store i8 %54, ptr %51, align 1, !tbaa !36
@@ -652,7 +652,7 @@ der_encode_length.exit52:                         ; preds = %35
   br label %der_encode_length.exit56
 
 57:                                               ; preds = %50
-  %58 = trunc nuw i64 %37 to i8
+  %58 = trunc nuw nsw i64 %37 to i8
   br label %der_encode_length.exit56
 
 59:                                               ; preds = %50
@@ -691,7 +691,7 @@ der_encode_length.exit56:                         ; preds = %.thread.i55, %57, %
   %73 = getelementptr inbounds nuw i8, ptr %.1, i64 6
   store i8 2, ptr %65, align 1, !tbaa !36
   %74 = lshr i64 %66, 8
-  %75 = trunc nuw i64 %74 to i8
+  %75 = trunc nuw nsw i64 %74 to i8
   %76 = or disjoint i8 %75, -128
   %77 = getelementptr inbounds nuw i8, ptr %.1, i64 7
   store i8 %76, ptr %73, align 1, !tbaa !36
@@ -699,7 +699,7 @@ der_encode_length.exit56:                         ; preds = %.thread.i55, %57, %
   br label %der_encode_length.exit62
 
 79:                                               ; preds = %71
-  %80 = trunc nuw i64 %66 to i8
+  %80 = trunc nuw nsw i64 %66 to i8
   br label %der_encode_length.exit62
 
 81:                                               ; preds = %71
@@ -735,7 +735,7 @@ der_encode_length.exit62:                         ; preds = %.thread.i61, %79, %
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 2
   store i8 2, ptr %90, align 1, !tbaa !36
   %95 = lshr i64 %.037, 8
-  %96 = trunc nuw i64 %95 to i8
+  %96 = trunc nuw nsw i64 %95 to i8
   %97 = or disjoint i8 %96, -128
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 3
   store i8 %97, ptr %94, align 1, !tbaa !36
@@ -743,7 +743,7 @@ der_encode_length.exit62:                         ; preds = %.thread.i61, %79, %
   br label %der_encode_length.exit68
 
 100:                                              ; preds = %92
-  %101 = trunc nuw i64 %.037 to i8
+  %101 = trunc nuw nsw i64 %.037 to i8
   br label %der_encode_length.exit68
 
 102:                                              ; preds = %92
@@ -780,7 +780,7 @@ der_encode_length.exit68:                         ; preds = %.thread.i67, %100, 
   %115 = getelementptr inbounds nuw i8, ptr %.3, i64 3
   store i8 2, ptr %107, align 1, !tbaa !36
   %116 = lshr i64 %108, 8
-  %117 = trunc nuw i64 %116 to i8
+  %117 = trunc nuw nsw i64 %116 to i8
   %118 = or disjoint i8 %117, -128
   %119 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   store i8 %118, ptr %115, align 1, !tbaa !36
@@ -788,7 +788,7 @@ der_encode_length.exit68:                         ; preds = %.thread.i67, %100, 
   br label %der_encode_length.exit74
 
 121:                                              ; preds = %113
-  %122 = trunc nuw i64 %108 to i8
+  %122 = trunc nuw nsw i64 %108 to i8
   br label %der_encode_length.exit74
 
 123:                                              ; preds = %113

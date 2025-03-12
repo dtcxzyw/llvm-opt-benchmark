@@ -39911,7 +39911,7 @@ _ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i: ; preds = %_ZNKSt7__cxx1112ba
 .loopexit33.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i
   %.026.lcssa.i.i.i.i.i = phi i64 [ %68, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %435, %.lr.ph.i.i.i.i.i ]
   %.025.lcssa.i.i.i.i.i = phi ptr [ %428, %_ZN12_GLOBAL__N_18CheckHexIjEEvT_PKcS3_S3_.exit.i ], [ %434, %.lr.ph.i.i.i.i.i ]
-  %437 = trunc nuw i64 %.026.lcssa.i.i.i.i.i to i8
+  %437 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i.i to i8
   %438 = or disjoint i8 %437, 48
   %439 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i.i, i64 -1
   store i8 %438, ptr %439, align 1, !tbaa !25
@@ -40242,7 +40242,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i21.i:      ; preds = %_ZNKSt14default_del
 .loopexit27.i.i:                                  ; preds = %.lr.ph.i.i.i81.i.i, %550
   %.026.lcssa.i.i.i72.i.i = phi i64 [ %68, %550 ], [ %557, %.lr.ph.i.i.i81.i.i ]
   %.025.lcssa.i.i.i73.i.i = phi ptr [ %537, %550 ], [ %556, %.lr.ph.i.i.i81.i.i ]
-  %559 = trunc nuw i64 %.026.lcssa.i.i.i72.i.i to i8
+  %559 = trunc nuw nsw i64 %.026.lcssa.i.i.i72.i.i to i8
   %560 = or disjoint i8 %559, 48
   %561 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i73.i.i, i64 -1
   store i8 %560, ptr %561, align 1, !tbaa !25
@@ -40648,7 +40648,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 .loopexit.i30.i:                                  ; preds = %.lr.ph.i.i.i147.i.i, %686
   %.026.lcssa.i.i.i138.i.i = phi i64 [ %68, %686 ], [ %695, %.lr.ph.i.i.i147.i.i ]
   %.025.lcssa.i.i.i139.i.i = phi ptr [ %544, %686 ], [ %694, %.lr.ph.i.i.i147.i.i ]
-  %697 = trunc nuw i64 %.026.lcssa.i.i.i138.i.i to i8
+  %697 = trunc nuw nsw i64 %.026.lcssa.i.i.i138.i.i to i8
   %698 = or disjoint i8 %697, 48
   %699 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i139.i.i, i64 -1
   store i8 %698, ptr %699, align 1, !tbaa !25
@@ -41069,7 +41069,7 @@ _ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i: ; preds = %_ZNKSt7__cxx1112ba
 ._crit_edge.i.i.i.i42.i:                          ; preds = %.lr.ph.i.i.i.i121.i, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i
   %.026.lcssa.i.i.i.i43.i = phi i64 [ %826, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %838, %.lr.ph.i.i.i.i121.i ]
   %.025.lcssa.i.i.i.i44.i = phi ptr [ %831, %_ZN12_GLOBAL__N_18CheckDecIjEEvT_PKcS3_S3_.exit.i ], [ %837, %.lr.ph.i.i.i.i121.i ]
-  %840 = trunc nuw i64 %.026.lcssa.i.i.i.i43.i to i8
+  %840 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i43.i to i8
   %841 = or disjoint i8 %840, 48
   %842 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i44.i, i64 -1
   store i8 %841, ptr %842, align 1, !tbaa !25
@@ -41430,7 +41430,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i74.i:      ; preds = %_ZNKSt14default_del
 ._crit_edge.i.i.i72.i.i:                          ; preds = %.lr.ph.i.i.i82.i.i, %965
   %.026.lcssa.i.i.i73.i.i = phi i64 [ %826, %965 ], [ %973, %.lr.ph.i.i.i82.i.i ]
   %.025.lcssa.i.i.i74.i.i = phi ptr [ %951, %965 ], [ %972, %.lr.ph.i.i.i82.i.i ]
-  %975 = trunc nuw i64 %.026.lcssa.i.i.i73.i.i to i8
+  %975 = trunc nuw nsw i64 %.026.lcssa.i.i.i73.i.i to i8
   %976 = or disjoint i8 %975, 48
   %977 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i74.i.i, i64 -1
   store i8 %976, ptr %977, align 1, !tbaa !25
@@ -41853,7 +41853,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 ._crit_edge.i.i.i140.i.i:                         ; preds = %.lr.ph.i.i.i150.i.i, %1109
   %.026.lcssa.i.i.i141.i.i = phi i64 [ %826, %1109 ], [ %1118, %.lr.ph.i.i.i150.i.i ]
   %.025.lcssa.i.i.i142.i.i = phi ptr [ %959, %1109 ], [ %1117, %.lr.ph.i.i.i150.i.i ]
-  %1120 = trunc nuw i64 %.026.lcssa.i.i.i141.i.i to i8
+  %1120 = trunc nuw nsw i64 %.026.lcssa.i.i.i141.i.i to i8
   %1121 = or disjoint i8 %1120, 48
   %1122 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i142.i.i, i64 -1
   store i8 %1121, ptr %1122, align 1, !tbaa !25
@@ -43446,7 +43446,7 @@ _ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit:  ; preds = %_ZNKSt7__cxx1112bas
 .loopexit33.i:                                    ; preds = %.lr.ph.i.i.i.i, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit
   %.026.lcssa.i.i.i.i = phi i64 [ %0, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %456, %.lr.ph.i.i.i.i ]
   %.025.lcssa.i.i.i.i = phi ptr [ %449, %_ZN12_GLOBAL__N_18CheckHexIyEEvT_PKcS3_S3_.exit ], [ %455, %.lr.ph.i.i.i.i ]
-  %458 = trunc nuw i64 %.026.lcssa.i.i.i.i to i8
+  %458 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i to i8
   %459 = or disjoint i8 %458, 48
   %460 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i, i64 -1
   store i8 %459, ptr %460, align 1, !tbaa !25
@@ -43777,7 +43777,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i25:        ; preds = %_ZNKSt14default_del
 .loopexit27.i:                                    ; preds = %.lr.ph.i.i.i81.i, %571
   %.026.lcssa.i.i.i72.i = phi i64 [ %0, %571 ], [ %578, %.lr.ph.i.i.i81.i ]
   %.025.lcssa.i.i.i73.i = phi ptr [ %558, %571 ], [ %577, %.lr.ph.i.i.i81.i ]
-  %580 = trunc nuw i64 %.026.lcssa.i.i.i72.i to i8
+  %580 = trunc nuw nsw i64 %.026.lcssa.i.i.i72.i to i8
   %581 = or disjoint i8 %580, 48
   %582 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i73.i, i64 -1
   store i8 %581, ptr %582, align 1, !tbaa !25
@@ -44183,7 +44183,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 .loopexit.i35:                                    ; preds = %.lr.ph.i.i.i147.i, %707
   %.026.lcssa.i.i.i138.i = phi i64 [ %0, %707 ], [ %716, %.lr.ph.i.i.i147.i ]
   %.025.lcssa.i.i.i139.i = phi ptr [ %565, %707 ], [ %715, %.lr.ph.i.i.i147.i ]
-  %718 = trunc nuw i64 %.026.lcssa.i.i.i138.i to i8
+  %718 = trunc nuw nsw i64 %.026.lcssa.i.i.i138.i to i8
   %719 = or disjoint i8 %718, 48
   %720 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i139.i, i64 -1
   store i8 %719, ptr %720, align 1, !tbaa !25
@@ -44603,7 +44603,7 @@ _ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit:  ; preds = %_ZNKSt7__cxx1112bas
 ._crit_edge.i.i.i.i47:                            ; preds = %.lr.ph.i.i.i.i116, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit
   %.026.lcssa.i.i.i.i48 = phi i64 [ %846, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %857, %.lr.ph.i.i.i.i116 ]
   %.025.lcssa.i.i.i.i49 = phi ptr [ %850, %_ZN12_GLOBAL__N_18CheckDecIyEEvT_PKcS3_S3_.exit ], [ %856, %.lr.ph.i.i.i.i116 ]
-  %859 = trunc nuw i64 %.026.lcssa.i.i.i.i48 to i8
+  %859 = trunc nuw nsw i64 %.026.lcssa.i.i.i.i48 to i8
   %860 = or disjoint i8 %859, 48
   %861 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i.i49, i64 -1
   store i8 %860, ptr %861, align 1, !tbaa !25
@@ -44962,7 +44962,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i78:        ; preds = %_ZNKSt14default_del
 ._crit_edge.i.i.i72.i:                            ; preds = %.lr.ph.i.i.i82.i, %984
   %.026.lcssa.i.i.i73.i = phi i64 [ %846, %984 ], [ %992, %.lr.ph.i.i.i82.i ]
   %.025.lcssa.i.i.i74.i = phi ptr [ %970, %984 ], [ %991, %.lr.ph.i.i.i82.i ]
-  %994 = trunc nuw i64 %.026.lcssa.i.i.i73.i to i8
+  %994 = trunc nuw nsw i64 %.026.lcssa.i.i.i73.i to i8
   %995 = or disjoint i8 %994, 48
   %996 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i74.i, i64 -1
   store i8 %995, ptr %996, align 1, !tbaa !25
@@ -45385,7 +45385,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 ._crit_edge.i.i.i139.i:                           ; preds = %.lr.ph.i.i.i149.i, %1128
   %.026.lcssa.i.i.i140.i = phi i64 [ %846, %1128 ], [ %1137, %.lr.ph.i.i.i149.i ]
   %.025.lcssa.i.i.i141.i = phi ptr [ %978, %1128 ], [ %1136, %.lr.ph.i.i.i149.i ]
-  %1139 = trunc nuw i64 %.026.lcssa.i.i.i140.i to i8
+  %1139 = trunc nuw nsw i64 %.026.lcssa.i.i.i140.i to i8
   %1140 = or disjoint i8 %1139, 48
   %1141 = getelementptr inbounds i8, ptr %.025.lcssa.i.i.i141.i, i64 -1
   store i8 %1140, ptr %1141, align 1, !tbaa !25

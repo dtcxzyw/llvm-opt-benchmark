@@ -1685,7 +1685,7 @@ _ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112b
   br i1 %331, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %332
 
 332:                                              ; preds = %_ZNK6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEEcvNSt7__cxx1112basic_stringIcS3_S4_EEEv.exit
-  %333 = trunc nuw i64 %330 to i32
+  %333 = trunc nuw nsw i64 %330 to i32
   store i32 %333, ptr %301, align 4
   %334 = getelementptr inbounds nuw i8, ptr %157, i64 240
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %334, ptr align 1 %.pre1080, i64 %330, i1 false)

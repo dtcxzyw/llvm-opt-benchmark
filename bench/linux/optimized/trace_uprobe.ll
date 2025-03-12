@@ -1750,7 +1750,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   store i32 %152, ptr %150, align 8
-  %162 = trunc i64 %161 to i32
+  %162 = trunc nuw nsw i64 %161 to i32
   %163 = add nuw nsw i32 %162, 2
   call void @trace_probe_log_set_index(i32 noundef %163) #16
   %164 = getelementptr ptr, ptr %132, i64 %161

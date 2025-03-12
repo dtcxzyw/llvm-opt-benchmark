@@ -15074,7 +15074,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %15, label %17, label %16
 
 16:                                               ; preds = %13
-  %trunc.i.i.i.i.i.i = trunc i8 %.val5.i.i.i to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %.val5.i.i.i to i1
   br i1 %trunc.i.i.i.i.i.i, label %17, label %21
 
 17:                                               ; preds = %16, %13
@@ -15147,7 +15147,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %41, label %43, label %42
 
 42:                                               ; preds = %39
-  %trunc.i.i.i.i.i.i.i.i = trunc i8 %.val5.i.i.i.i.i to i1
+  %trunc.i.i.i.i.i.i.i.i = trunc nuw i8 %.val5.i.i.i.i.i to i1
   br i1 %trunc.i.i.i.i.i.i.i.i, label %43, label %45
 
 43:                                               ; preds = %42, %39
@@ -35537,7 +35537,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h305c194e632fb699E.exit.threa
   br i1 %45, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %43
-  %46 = trunc i8 %41 to i1
+  %46 = trunc nuw i8 %41 to i1
   br i1 %46, label %.lr.ph.split.us.i.i.i.i.i.i.i.i, label %.lr.ph.split.i.i.i.i.i.i.i.i
 
 .lr.ph.split.us.i.i.i.i.i.i.i.i:                  ; preds = %.lr.ph.i.i.i.i.i.i.i.i
@@ -114814,7 +114814,7 @@ define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle
   %.sroa.0151.1 = phi i8 [ %.sroa.0200.3, %876 ], [ %.sroa.0151.0, %398 ]
   %.sroa.0200.1 = phi i8 [ %.sroa.0200.3, %876 ], [ %.sroa.0200.0, %398 ]
   %.pn347 = phi { ptr, i32 } [ %.pn318, %876 ], [ %399, %398 ]
-  %397 = trunc i8 %.sroa.0151.1 to i1
+  %397 = trunc nuw i8 %.sroa.0151.1 to i1
   br i1 %397, label %.thread, label %.thread633
 
 398:                                              ; preds = %.invoke1129, %1408, %2471, %1410, %2346, %.invoke1120, %.invoke1119, %.invoke1118, %.invoke1117, %.invoke1116, %.invoke1115, %.invoke, %2548, %2535, %2522, %2509, %709, %374, %369, %1325, %2787, %2783, %2777, %2776, %2757, %2752, %2739, %2733, %2725, %2724, %2708, %2704, %2702, %2698, %2690, %2686, %2683, %2681, %2680, %2673, %2671, %2669, %2667, %2665, %2664, %2641, %2636, %2634, %2627, %2618, %2610, %2576, %2574, %2564, %2562, %2561, %2560, %2482, %2470, %2469, %2463, %2437, %2435, %2434, %2433, %2421, %2410, %2398, %2395, %2393, %2392, %2389, %2386, %2384, %2383, %2380, %2378, %2376, %2371, %2364, %2362, %2360, %2352, %2350, %2345, %2285, %2284, %2277, %2273, %2270, %2264, %2239, %2216, %2213, %2205, %2175, %2170, %2169, %2165, %2160, %2157, %2156, %2155, %2152, %2139, %2129, %2127, %2126, %2118, %2097, %2093, %2092, %2091, %2081, %2080, %2071, %2057, %2050, %2047, %2045, %2044, %2041, %2039, %2037, %2035, %2034, %2029, %2020, %1926, %1906, %1903, %1901, %1900, %1897, %.critedge430, %1860, %1858, %1854, %1853, %1850, %1846, %1834, %1830, %1808, %1807, %1806, %1805, %1799, %1798, %1797, %1787, %1779, %1737, %1732, %1727, %1722, %1721, %1719, %1716, %1709, %1708, %1693, %1648, %1634, %1613, %1599, %1574, %1530, %1529, %1527, %1523, %1520, %1517, %1513, %1510, %1508, %1505, %1501, %1478, %1463, %1461, %1449, %1427, %1424, %1418, %1415, %1406, %1404, %1402, %1306, %1304, %1124, %1046, %1031, %993, %971, %942, %922, %891, %886, %884, %862, %859, %855, %853, %851, %849, %848, %833, %810, %803, %801, %798, %797, %790, %778, %749, %729, %719, %715, %699, %698, %658, %656, %653, %647, %633, %589, %588, %575
@@ -122989,15 +122989,15 @@ default.unreachable1100:                          ; preds = %2768, %2747, %2716,
   ]
 
 2816:                                             ; preds = %.thread
-  %2817 = trunc i8 %.sroa.0154.1627 to i1
+  %2817 = trunc nuw i8 %.sroa.0154.1627 to i1
   br i1 %2817, label %2822, label %.thread633
 
 2818:                                             ; preds = %.thread
-  %2819 = trunc i8 %.sroa.0200.1628 to i1
+  %2819 = trunc nuw i8 %.sroa.0200.1628 to i1
   br i1 %2819, label %.thread633.sink.split, label %.thread633
 
 2820:                                             ; preds = %.thread
-  %2821 = trunc i8 %.sroa.0157.1626 to i1
+  %2821 = trunc nuw i8 %.sroa.0157.1626 to i1
   br i1 %2821, label %.thread633.sink.split, label %.thread633
 
 2822:                                             ; preds = %2816

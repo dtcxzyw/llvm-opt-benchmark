@@ -5117,7 +5117,7 @@ _ZN5faiss12_GLOBAL__N_114accumulate_IPsERKNS_17AdditiveQuantizerERNS_15Bitstring
 _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %61, %._crit_edge.i
   %.012.lcssa.i19 = phi float [ %.012.lcssa.i20, %61 ], [ %51, %._crit_edge.i ]
   %.0.i = phi i16 [ %64, %61 ], [ %76, %._crit_edge.i ]
-  %77 = trunc i16 %.0.i to i8
+  %77 = trunc nuw i16 %.0.i to i8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %79 = load float, ptr %78, align 4, !tbaa !69
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 352

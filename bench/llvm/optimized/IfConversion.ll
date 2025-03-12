@@ -11330,7 +11330,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6ve
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %122
-  %125 = trunc nuw i64 %.0.i.i.i.i to i32
+  %125 = trunc nuw nsw i64 %.0.i.i.i.i to i32
   %.lhs.trunc.i.i = sub nuw i32 -2147483648, %125
   %126 = udiv i32 %.lhs.trunc.i.i, %.1.i.i
   br label %127
@@ -11697,7 +11697,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6ve
   br i1 %285, label %286, label %289
 
 286:                                              ; preds = %284
-  %287 = trunc nuw i64 %.0.i.i.i.i134 to i32
+  %287 = trunc nuw nsw i64 %.0.i.i.i.i134 to i32
   %.lhs.trunc.i.i147 = sub nuw i32 -2147483648, %287
   %288 = udiv i32 %.lhs.trunc.i.i147, %.1.i.i132
   br label %289

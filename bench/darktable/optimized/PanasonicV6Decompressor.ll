@@ -202,7 +202,7 @@ define hidden void @_ZN8rawspeed23PanasonicV6DecompressorC2ENS_8RawImageENS_10By
   br label %90
 
 70:                                               ; preds = %47
-  %71 = trunc i64 %52 to i32
+  %71 = trunc nuw i64 %52 to i32
   %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %62, i32 %71)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
   br i1 %mul.ov.i, label %.invoke, label %72

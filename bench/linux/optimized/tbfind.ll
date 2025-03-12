@@ -109,7 +109,7 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr noundef readonly ca
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %58, %55
-  %63 = trunc i64 %26 to i32
+  %63 = trunc nuw i64 %26 to i32
   store i32 %63, ptr %3, align 4
   br label %.loopexit
 

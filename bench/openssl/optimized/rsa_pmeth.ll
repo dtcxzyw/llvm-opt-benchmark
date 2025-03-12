@@ -419,7 +419,7 @@ define internal range(i32 -2147483648, 2) i32 @pkey_rsa_sign(ptr noundef readonl
   %52 = load ptr, ptr %46, align 8, !tbaa !37
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %4
   store i8 %51, ptr %53, align 1, !tbaa !53
-  %54 = trunc i64 %4 to i32
+  %54 = trunc nuw nsw i64 %4 to i32
   %55 = add nuw i32 %54, 1
   %56 = load ptr, ptr %46, align 8, !tbaa !37
   %57 = tail call i32 @RSA_private_encrypt(i32 noundef %55, ptr noundef %56, ptr noundef %1, ptr noundef %12, i32 noundef 5) #9

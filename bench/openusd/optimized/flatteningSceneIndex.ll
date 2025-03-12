@@ -1294,7 +1294,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_SaIS1_ENSt8__de
   br label %_ZNSt13unordered_setIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_6TfHashESt8equal_toIS1_ESaIS1_EED2Ev.exit
 
 109:                                              ; preds = %2
-  %110 = trunc nuw i64 %13 to i32
+  %110 = trunc nuw nsw i64 %13 to i32
   %notmask = shl nsw i32 -1, %110
   %111 = xor i32 %notmask, -1
   %112 = load ptr, ptr %1, align 8
@@ -4599,7 +4599,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_16HdDataS
   br label %.lr.ph.preheader.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorISt10shared_ptrINS_16HdDataSourceBaseEELj8EE12_InitStorageEm.exit.i.i: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEC2ERKS2_.exit.i
-  %.pre.i.i.i = trunc nuw i64 %45 to i32
+  %.pre.i.i.i = trunc nuw nsw i64 %45 to i32
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i32 %.pre.i.i.i, ptr %54, align 8
   %.not.i.i = icmp eq ptr %40, %41
@@ -6917,7 +6917,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_22HdDataSourceLocatorSet
   br label %.lr.ph.preheader.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_22HdDataSourceLocatorSetELj8EE12_InitStorageEm.exit.i: ; preds = %3
-  %.pre.i.i = trunc nuw i64 %19 to i32
+  %.pre.i.i = trunc nuw nsw i64 %19 to i32
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 3648
   store i32 %.pre.i.i, ptr %28, align 8
   %.not.i = icmp eq ptr %14, %15

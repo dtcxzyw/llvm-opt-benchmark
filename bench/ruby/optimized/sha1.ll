@@ -1142,7 +1142,7 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   %7 = zext i1 %6 to i64
   %8 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
-  %.0.tr = trunc nuw i64 %.033 to i32
+  %.0.tr = trunc nuw nsw i64 %.033 to i32
   %10 = shl nuw nsw i32 %.0.tr, 3
   %11 = and i32 %10, 24
   %12 = xor i32 %11, 24
@@ -1264,7 +1264,7 @@ rb_Digest_SHA1_Update.exit32:                     ; preds = %._crit_edge, %61
   %67 = lshr i64 %.135, 2
   %68 = getelementptr inbounds nuw [5 x i32], ptr %0, i64 0, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !6
-  %.1.tr = trunc nuw i64 %.135 to i32
+  %.1.tr = trunc nuw nsw i64 %.135 to i32
   %70 = shl nuw nsw i32 %.1.tr, 3
   %71 = and i32 %70, 24
   %72 = xor i32 %71, 24

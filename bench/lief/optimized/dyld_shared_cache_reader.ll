@@ -609,7 +609,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %156, %154, %150, %1
   br label %193
 
 190:                                              ; preds = %._crit_edge.i.i99
-  %191 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %191 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %192 = or disjoint i8 %191, 48
   br label %193
 

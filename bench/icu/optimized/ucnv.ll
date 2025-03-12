@@ -2997,7 +2997,7 @@ define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_77(ptr noundef %0, ptr n
   br i1 %106, label %110, label %163
 
 .thread:                                          ; preds = %60
-  %107 = trunc i32 %.0101 to i16
+  %107 = trunc nuw i32 %.0101 to i16
   store i16 %107, ptr %6, align 2, !tbaa !88
   store ptr %67, ptr %66, align 8, !tbaa !94
   %108 = load i32, ptr %3, align 4, !tbaa !3

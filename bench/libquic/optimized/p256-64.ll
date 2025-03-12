@@ -2774,7 +2774,7 @@ flip_endian.exit171.thread:                       ; preds = %732, %729, %.thread
   br i1 %or.cond.i, label %get_bit.exit.i, label %892
 
 get_bit.exit.i:                                   ; preds = %768
-  %770 = trunc nuw i64 %.067.i to i32
+  %770 = trunc nuw nsw i64 %.067.i to i32
   %771 = lshr i64 %.067.i, 3
   %772 = or disjoint i64 %771, 28
   %773 = getelementptr inbounds nuw i8, ptr %738, i64 %772

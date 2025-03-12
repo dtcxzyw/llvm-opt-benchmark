@@ -4399,7 +4399,7 @@ if.end69:                                         ; preds = %if.then67, %if.end6
   %spec.select197 = select i1 %cmp70, i8 43, i8 45
   %12 = getelementptr inbounds i8, ptr %pCurrent.2, i64 -1
   store i8 %spec.select197, ptr %12, align 1
-  %conv76 = trunc i32 %nType.0164189 to i8
+  %conv76 = trunc nuw nsw i32 %nType.0164189 to i8
   %incdec.ptr77 = getelementptr inbounds i8, ptr %pCurrent.2, i64 -2
   store i8 %conv76, ptr %incdec.ptr77, align 1
   %sext110 = shl i64 %call56168181, 32
@@ -6429,7 +6429,7 @@ if.end74:                                         ; preds = %if.then72, %if.end6
   %spec.select198 = select i1 %cmp75, i16 43, i16 45
   %12 = getelementptr inbounds i8, ptr %pCurrent.2, i64 -2
   store i16 %spec.select198, ptr %12, align 2
-  %conv81 = trunc i32 %nType.0165190 to i16
+  %conv81 = trunc nuw nsw i32 %nType.0165190 to i16
   %incdec.ptr82 = getelementptr inbounds i8, ptr %pCurrent.2, i64 -4
   store i16 %conv81, ptr %incdec.ptr82, align 2
   %sext113 = shl i64 %call61169182, 32

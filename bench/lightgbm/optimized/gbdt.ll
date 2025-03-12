@@ -4114,7 +4114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i.us: ; pre
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %._crit_edge.i.i22.us
-  %95 = trunc nuw i32 %.0.lcssa.i.i.us to i8
+  %95 = trunc nuw nsw i32 %.0.lcssa.i.i.us to i8
   %96 = or disjoint i8 %95, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.us
 

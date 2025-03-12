@@ -111,7 +111,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !9, !noalias !6
   %12 = trunc i32 %1 to i8
@@ -123,7 +123,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !9, !noalias !6
   %19 = lshr i32 %1, 6
@@ -191,7 +191,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !22, !noundef !5
   %58 = load i64, ptr %0, align 8, !alias.scope !22, !noundef !5
@@ -1326,13 +1326,13 @@ _ZN12regex_syntax3hir7literal9Extractor19enforce_literal_len17h8ce3f1916989c194E
   br i1 %395, label %405, label %416
 
 396:                                              ; preds = %"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as$u20$core..iter..range..RangeInclusiveIteratorImpl$GT$9spec_next17h00109731763b3ec3E.exit.i"
-  %397 = trunc nuw i32 %.sroa.01.019.i to i8
+  %397 = trunc nuw nsw i32 %.sroa.01.019.i to i8
   store i8 %397, ptr %14, align 4, !alias.scope !290, !noalias !289
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i.i
 
 398:                                              ; preds = %392
   %399 = lshr i32 %.sroa.01.019.i, 6
-  %400 = trunc nuw i32 %399 to i8
+  %400 = trunc nuw nsw i32 %399 to i8
   %401 = or disjoint i8 %400, -64
   store i8 %401, ptr %14, align 4, !alias.scope !290, !noalias !289
   %402 = trunc i32 %.sroa.01.019.i to i8
@@ -1343,7 +1343,7 @@ _ZN12regex_syntax3hir7literal9Extractor19enforce_literal_len17h8ce3f1916989c194E
 
 405:                                              ; preds = %394
   %406 = lshr i32 %.sroa.01.019.i, 12
-  %407 = trunc nuw i32 %406 to i8
+  %407 = trunc nuw nsw i32 %406 to i8
   %408 = or disjoint i8 %407, -32
   store i8 %408, ptr %14, align 4, !alias.scope !290, !noalias !289
   %409 = lshr i32 %.sroa.01.019.i, 6
@@ -4564,13 +4564,13 @@ define void @"_ZN87_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..con
   br i1 %12, label %23, label %36
 
 13:                                               ; preds = %2
-  %14 = trunc nuw i32 %1 to i8
+  %14 = trunc nuw nsw i32 %1 to i8
   store i8 %14, ptr %7, align 4, !alias.scope !931
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 6
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   store i8 %18, ptr %7, align 4, !alias.scope !931
   %19 = trunc i32 %1 to i8
@@ -4582,7 +4582,7 @@ define void @"_ZN87_$LT$regex_syntax..hir..literal..Literal$u20$as$u20$core..con
 
 23:                                               ; preds = %11
   %24 = lshr i32 %1, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %7, align 4, !alias.scope !931
   %27 = lshr i32 %1, 6

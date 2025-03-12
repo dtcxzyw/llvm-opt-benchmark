@@ -1490,7 +1490,7 @@ define internal range(i32 0, 2) i32 @aead_aes_key_wrap_init(ptr noundef writeonl
 
 14:                                               ; preds = %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 1 %1, i64 %2, i1 false)
-  %15 = trunc nuw i64 %5 to i32
+  %15 = trunc nuw nsw i64 %5 to i32
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %15, ptr %16, align 4, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1856,7 +1856,7 @@ define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_init(ptr noundef w
   br i1 %.not.i, label %26, label %23
 
 23:                                               ; preds = %19
-  %.tr56.i = trunc i64 %9 to i32
+  %.tr56.i = trunc nuw nsw i64 %9 to i32
   %24 = shl nuw nsw i32 %.tr56.i, 3
   %25 = tail call i32 @aesni_set_encrypt_key(ptr noundef %1, i32 noundef %24, ptr noundef nonnull %16) #10
   br label %aes_ctr_set_key.exit
@@ -1864,7 +1864,7 @@ define internal range(i32 0, 2) i32 @aead_aes_ctr_hmac_sha256_init(ptr noundef w
 26:                                               ; preds = %19
   %27 = and i32 %21, 512
   %.not46.i = icmp eq i32 %27, 0
-  %.tr.i = trunc i64 %9 to i32
+  %.tr.i = trunc nuw nsw i64 %9 to i32
   %28 = shl nuw nsw i32 %.tr.i, 3
   %29 = tail call i32 @AES_set_encrypt_key(ptr noundef %1, i32 noundef %28, ptr noundef nonnull %16) #10
   %spec.select = select i1 %.not46.i, ptr null, ptr @bsaes_ctr32_encrypt_blocks

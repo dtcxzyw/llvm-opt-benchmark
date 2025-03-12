@@ -1331,7 +1331,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   br i1 %or.cond3, label %174, label %188
 
 174:                                              ; preds = %160
-  %175 = trunc nuw i64 %.0263 to i32
+  %175 = trunc nuw nsw i64 %.0263 to i32
   %176 = add nsw i32 %175, -23
   store i32 %176, ptr %38, align 4, !tbaa !143
   %177 = zext nneg i32 %176 to i64
@@ -1369,7 +1369,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   br i1 %.not306, label %198, label %.loopexit492
 
 198:                                              ; preds = %192
-  %199 = trunc nuw i64 %.0263 to i32
+  %199 = trunc nuw nsw i64 %.0263 to i32
   %200 = add nsw i32 %199, -56
   store i32 %200, ptr %29, align 8, !tbaa !108
   %201 = load ptr, ptr %23, align 8, !tbaa !131

@@ -6769,7 +6769,7 @@ define void @_ZN6LibRaw15rollei_load_rawEv(ptr noundef nonnull align 8 dereferen
   %54 = add i32 %.12735, 1
   %55 = getelementptr inbounds nuw [16 x i32], ptr %3, i64 0, i64 %indvars.iv46
   store i32 %.12735, ptr %55, align 8, !tbaa !101
-  %56 = trunc i64 %indvars.iv46 to i32
+  %56 = trunc nuw nsw i64 %indvars.iv46 to i32
   %57 = sub nsw i32 14, %56
   %58 = mul nsw i32 %57, 5
   %59 = lshr i32 %53, %58
@@ -7684,7 +7684,7 @@ _ZN6LibRaw9pana_dataEiPj.exit:                    ; preds = %82, %91
 .lr.ph:                                           ; preds = %262, %544
   %.172143 = phi i32 [ %545, %544 ], [ 0, %262 ]
   %.174142 = phi i32 [ %.2, %544 ], [ %.073144, %262 ]
-  %.lhs.trunc = trunc i32 %.172143 to i16
+  %.lhs.trunc = trunc nuw i32 %.172143 to i16
   %264 = urem i16 %.lhs.trunc, 14
   %265 = icmp eq i16 %264, 0
   br i1 %265, label %.thread, label %266

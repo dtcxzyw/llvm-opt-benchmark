@@ -15038,7 +15038,7 @@ define linkonce_odr dso_local void @_ZN3CFF13str_encoder_t10encode_intEi(ptr nou
   br i1 %or.cond3, label %14, label %30
 
 14:                                               ; preds = %12
-  %15 = trunc i32 %1 to i8
+  %15 = trunc nsw i32 %1 to i8
   %16 = add i8 %15, -117
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   store i8 %16, ptr %10, align 1, !tbaa !74
@@ -24051,7 +24051,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i7
 222:                                              ; preds = %219, %218
   %.013.i.i = phi i32 [ %220, %219 ], [ %7, %218 ]
   %.0.i.i73 = phi ptr [ %221, %219 ], [ %211, %218 ]
-  %223 = trunc i32 %.013.i.i to i8
+  %223 = trunc nuw i32 %.013.i.i to i8
   store i8 %223, ptr %.0.i.i73, align 1, !tbaa !74
   br label %_ZN3CFF4Dict18serialize_link4_opEP22hb_serialize_context_tjjNS1_8whence_tE.exit
 

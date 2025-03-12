@@ -360,7 +360,7 @@ right_encode.exit.thread:                         ; preds = %get_encode_size.exi
   br i1 %29, label %.preheader.i, label %30, !llvm.loop !23
 
 30:                                               ; preds = %.preheader.i
-  %31 = trunc nuw i32 %spec.store.select.i23.i to i8
+  %31 = trunc nuw nsw i32 %spec.store.select.i23.i to i8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 %24
   store i8 %31, ptr %32, align 1, !tbaa !20
   %33 = add nuw nsw i32 %spec.store.select.i23.i, 1
@@ -553,7 +553,7 @@ get_encode_size.exit.i:                           ; preds = %.lr.ph.i.i, %43
   br i1 %53, label %encode_string.exit, label %54
 
 54:                                               ; preds = %get_encode_size.exit.i
-  %55 = trunc i32 %spec.store.select.i.i to i8
+  %55 = trunc nuw nsw i32 %spec.store.select.i.i to i8
   store i8 %55, ptr %37, align 1, !tbaa !20
   br label %56
 
@@ -791,7 +791,7 @@ get_encode_size.exit.i.i:                         ; preds = %.lr.ph.i.i.i
   br i1 %28, label %encode_string.exit.i, label %29
 
 29:                                               ; preds = %get_encode_size.exit.i.i
-  %30 = trunc i32 %20 to i8
+  %30 = trunc nuw nsw i32 %20 to i8
   store i8 %30, ptr %4, align 16, !tbaa !20
   br label %31
 
@@ -822,7 +822,7 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   %.013.ph.i = phi i64 [ 0, %13 ], [ %27, %36 ]
   %40 = add nuw nsw i64 %16, 1
   %41 = add nuw nsw i64 %40, %.013.ph.i
-  %.lhs.trunc.i = trunc i64 %41 to i32
+  %.lhs.trunc.i = trunc nuw i64 %41 to i32
   %42 = urem i32 %.lhs.trunc.i, %7
   %.zext.i = zext nneg i32 %42 to i64
   %43 = sub nsw i64 %41, %.zext.i

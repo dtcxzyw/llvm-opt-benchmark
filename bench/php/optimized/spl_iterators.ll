@@ -2191,7 +2191,7 @@ define hidden void @zim_RecursiveIteratorIterator_setMaxDepth(ptr noundef readon
 
 19:                                               ; preds = %13
   %spec.select = call i64 @llvm.smin.i64(i64 %14, i64 2147483647)
-  %20 = trunc i64 %spec.select to i32
+  %20 = trunc nsw i64 %spec.select to i32
   %21 = getelementptr inbounds i8, ptr %5, i64 -132
   store i32 %20, ptr %21, align 4, !tbaa !71
   br label %22
@@ -5608,7 +5608,7 @@ define hidden void @zim_RegexIterator_setMode(ptr noundef readonly captures(none
   br label %26
 
 .critedge:                                        ; preds = %17
-  %24 = trunc nuw i64 %13 to i32
+  %24 = trunc nuw nsw i64 %13 to i32
   %25 = getelementptr inbounds i8, ptr %18, i64 -16
   store i32 %24, ptr %25, align 8, !tbaa !11
   br label %26

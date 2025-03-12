@@ -1531,7 +1531,7 @@ default.unreachable241:                           ; preds = %2
 70:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25c9f8938c2346f8E.exit.i"
   %71 = add nsw i64 %68, -2
   %72 = icmp ult i64 %71, 227
-  %73 = trunc i64 %71 to i8
+  %73 = trunc nuw i64 %71 to i8
   %trunc.i.i.i.i = select i1 %72, i8 %73, i8 97
   switch i8 %trunc.i.i.i.i, label %74 [
     i8 0, label %75

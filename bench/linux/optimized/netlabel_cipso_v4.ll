@@ -1160,7 +1160,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
 
 105:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  %106 = trunc i64 %90 to i32
+  %106 = trunc nuw i64 %90 to i32
   store i32 %106, ptr %6, align 4
   %107 = call i32 @nla_put(ptr noundef nonnull %20, i32 noundef 5, i32 noundef 4, ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
@@ -1252,7 +1252,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
 
 170:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
-  %171 = trunc i64 %155 to i32
+  %171 = trunc nuw i64 %155 to i32
   store i32 %171, ptr %4, align 4
   %172 = call i32 @nla_put(ptr noundef nonnull %20, i32 noundef 9, i32 noundef 4, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8

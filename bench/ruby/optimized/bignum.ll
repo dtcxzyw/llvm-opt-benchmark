@@ -14766,7 +14766,7 @@ BIGNUM_DIGITS.exit.i:                             ; preds = %24, %2
 
 27:                                               ; preds = %27, %BIGNUM_DIGITS.exit.i
   %.018.i = phi i64 [ 0, %BIGNUM_DIGITS.exit.i ], [ %33, %27 ]
-  %.0.tr.i = trunc nuw i64 %.018.i to i32
+  %.0.tr.i = trunc nuw nsw i64 %.018.i to i32
   %28 = shl nuw nsw i32 %.0.tr.i, 5
   %29 = zext nneg i32 %28 to i128
   %30 = lshr i128 %.sroa.0.0.insert.insert.i, %29

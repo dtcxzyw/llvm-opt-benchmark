@@ -1663,7 +1663,7 @@ if.then43:                                        ; preds = %do.end35
 
 do.end59:                                         ; preds = %if.then43
   %8 = load ptr, ptr %isolate.i, align 8
-  %conv = trunc i64 %length to i32
+  %conv = trunc nsw i64 %length to i32
   %call61 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
   %cmp.i.i = icmp eq ptr %call61, null
   br i1 %cmp.i.i, label %cleanup.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
@@ -1940,7 +1940,7 @@ do.end48:                                         ; preds = %if.end38
 
 do.end64:                                         ; preds = %do.end48
   %8 = load ptr, ptr %isolate.i, align 8
-  %conv = trunc i64 %length to i32
+  %conv = trunc nsw i64 %length to i32
   %call66 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %8, ptr noundef nonnull %utf8name, i32 noundef 1, i32 noundef %conv) #24
   %cmp.i.i = icmp eq ptr %call66, null
   br i1 %cmp.i.i, label %cleanup298.sink.split, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit
@@ -5785,7 +5785,7 @@ if.then21.i:                                      ; preds = %do.body18.i
 do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds nuw i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate26.i, align 8
-  %conv.i.i = trunc i64 %length to i32
+  %conv.i.i = trunc nsw i64 %length to i32
   %call.i.i = tail call ptr @_ZN2v86String14NewFromOneByteEPNS_7IsolateEPKhNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -5877,7 +5877,7 @@ if.then21.i:                                      ; preds = %do.body18.i
 do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds nuw i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate26.i, align 8
-  %conv.i.i = trunc i64 %length to i32
+  %conv.i.i = trunc nsw i64 %length to i32
   %call.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -5969,7 +5969,7 @@ if.then21.i:                                      ; preds = %do.body18.i
 do.end25.i:                                       ; preds = %do.body18.i
   %isolate26.i = getelementptr inbounds nuw i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate26.i, align 8
-  %conv.i.i = trunc i64 %length to i32
+  %conv.i.i = trunc nsw i64 %length to i32
   %call.i.i = tail call ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %str, i32 noundef 0, i32 noundef %conv.i.i) #24
   %cmp.i.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i.i, label %if.then33.i, label %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit.i
@@ -6961,7 +6961,7 @@ if.then21.i.i:                                    ; preds = %do.body12.i.i
 do.end25.i.i:                                     ; preds = %do.body12.i.i
   %isolate26.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8
   %3 = load ptr, ptr %isolate26.i.i, align 8
-  %conv.i.i.i = trunc i64 %length to i32
+  %conv.i.i.i = trunc nsw i64 %length to i32
   %call.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %3, ptr noundef %utf8description, i32 noundef 0, i32 noundef %conv.i.i.i) #24
   %cmp.i.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i.i, label %if.then33.i.i, label %do.end13

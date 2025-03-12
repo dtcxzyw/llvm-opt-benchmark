@@ -3217,7 +3217,7 @@ define internal i32 @aes_ocb_cipher(ptr noundef %0, ptr noundef %1, ptr noundef 
 35:                                               ; preds = %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull align 1 %2, i64 %3, i1 false)
   %36 = load i32, ptr %.0114, align 4, !tbaa !3
-  %37 = trunc i64 %3 to i32
+  %37 = trunc nuw i64 %3 to i32
   %38 = add i32 %36, %37
   store i32 %38, ptr %.0114, align 4, !tbaa !3
   br label %.thread

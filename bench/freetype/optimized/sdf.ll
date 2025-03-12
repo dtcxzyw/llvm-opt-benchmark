@@ -3227,7 +3227,7 @@ get_control_box.exit.i:                           ; preds = %.critedge4.i.i, %.l
   br i1 %314, label %315, label %319
 
 315:                                              ; preds = %258
-  %316 = trunc i64 %264 to i32
+  %316 = trunc nuw nsw i64 %264 to i32
   %317 = shl nsw i64 %307, 10
   %318 = shl nsw i64 %288, 10
   br label %319

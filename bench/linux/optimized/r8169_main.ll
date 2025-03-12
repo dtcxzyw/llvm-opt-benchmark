@@ -3921,10 +3921,10 @@ __skb_put.exit:                                   ; preds = %232
   br i1 %294, label %268, label %.loopexit31.loopexit, !llvm.loop !60
 
 295:                                              ; preds = %268
-  %296 = trunc i64 %269 to i32
+  %296 = trunc nuw nsw i64 %269 to i32
   %297 = load i32, ptr %14, align 4
   %298 = add i32 %297, 1
-  %299 = icmp eq i32 %296, 0
+  %299 = icmp eq i64 %269, 0
   br i1 %299, label %.loopexit, label %300
 
 300:                                              ; preds = %295

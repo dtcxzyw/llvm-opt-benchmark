@@ -1531,7 +1531,7 @@ define dso_local range(i32 -1636115694, 1) i32 @base64_test() local_unnamed_addr
 .preheader164:                                    ; preds = %70, %75
   %.1172 = phi i32 [ %76, %75 ], [ 1, %70 ]
   store i32 128, ptr %5, align 4, !tbaa !22
-  %71 = trunc nuw i32 %.1172 to i8
+  %71 = trunc nuw nsw i32 %.1172 to i8
   store i8 %71, ptr %15, align 8, !tbaa !19
   %72 = call i32 @Base64_Decode(ptr noundef nonnull %15, i32 noundef 8, ptr noundef nonnull %4, ptr noundef nonnull %5) #19
   %.not130 = icmp eq i32 %72, -154
@@ -7221,7 +7221,7 @@ define dso_local i32 @poly1305_test() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.preheader99, %79
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %79 ], [ 0, %.preheader99 ]
-  %75 = trunc i64 %indvars.iv123 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv123 to i32
   %76 = sub nuw nsw i32 154, %75
   %spec.select = call i32 @llvm.umin.i32(i32 %76, i32 %indvars126)
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv123

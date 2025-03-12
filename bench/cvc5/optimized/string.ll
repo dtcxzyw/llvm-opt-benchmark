@@ -1948,7 +1948,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br i1 %or.cond, label %75, label %65
 
 65:                                               ; preds = %58
-  %66 = trunc nuw i32 %62 to i8
+  %66 = trunc nuw nsw i32 %62 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %66, ptr %4, align 1, !tbaa !33
   %67 = load ptr, ptr %11, align 8, !tbaa !34

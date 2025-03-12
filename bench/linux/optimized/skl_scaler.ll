@@ -1391,7 +1391,7 @@ define internal fastcc void @skl_scaler_setup_filter(ptr noundef readonly captur
 
 45:                                               ; preds = %79, %36
   %46 = phi i32 [ 0, %36 ], [ %84, %79 ]
-  %.lhs.trunc = trunc i32 %46 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %46 to i8
   %47 = urem i8 %.lhs.trunc, 7
   %48 = icmp eq i8 %47, 3
   %49 = select i1 %48, i32 2048, i32 12288

@@ -323,7 +323,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then:                                          ; preds = %for.body
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %4, ptr %index, align 4
-  %conv8 = trunc i64 %sub to i32
+  %conv8 = trunc nuw nsw i64 %sub to i32
   store i32 %conv8, ptr %offsetInRun, align 4
   ret void
 

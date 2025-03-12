@@ -236,7 +236,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %indvars.iv66.tr.i = trunc i64 %indvars.iv66.i to i32
   %102 = shl i32 %indvars.iv66.tr.i, 12
   %103 = udiv i32 %102, 640
-  %104 = trunc nuw i32 %103 to i16
+  %104 = trunc nuw nsw i32 %103 to i16
   %.idx.i = mul nuw nsw i64 %indvars.iv66.i, 6
   %105 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx.i
   store i16 %104, ptr %105, align 2, !tbaa !50
@@ -270,7 +270,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %117 = shl i32 %indvars.iv.tr.i, 8
   %118 = udiv i32 %117, 640
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw i32 %118 to i8
   %120 = load ptr, ptr %112, align 8, !tbaa !8
   %121 = mul nuw nsw i64 %indvars.iv.i, 3
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 %121

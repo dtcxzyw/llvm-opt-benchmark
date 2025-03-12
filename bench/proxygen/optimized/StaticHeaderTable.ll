@@ -385,7 +385,7 @@ invoke.cont11:                                    ; preds = %delete.notnull.i.i.
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i14, i64 %sub.i.i.i.i, i64 %16
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %18 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %18, i32 31
   %add = add i32 %add.i, %byteCount.053
@@ -631,7 +631,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %3 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %3
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1

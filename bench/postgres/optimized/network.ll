@@ -643,7 +643,7 @@ define dso_local noundef i64 @inet_to_cidr(ptr noundef readonly captures(none) %
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = trunc i32 %46 to i8
+  %55 = trunc nsw i32 %46 to i8
   %56 = and i8 %54, %55
   store i8 %56, ptr %53, align 1
   br label %cidr_set_masklen_internal.exit
@@ -723,7 +723,7 @@ define dso_local noundef ptr @cidr_set_masklen_internal(ptr noundef readonly cap
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = trunc i32 %32 to i8
+  %41 = trunc nsw i32 %32 to i8
   %42 = and i8 %40, %41
   store i8 %42, ptr %39, align 1
   br label %43
@@ -958,7 +958,7 @@ define dso_local noundef i64 @cidr_set_masklen(ptr noundef readonly captures(non
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %40 = select i1 %.not29.i, ptr %39, ptr %38
   store i8 %35, ptr %40, align 1
-  %41 = trunc i32 %.017 to i8
+  %41 = trunc nuw i32 %.017 to i8
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 %41, ptr %42, align 1
   %.not19 = icmp eq i32 %.017, 0
@@ -994,7 +994,7 @@ define dso_local noundef i64 @cidr_set_masklen(ptr noundef readonly captures(non
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1
-  %65 = trunc i32 %56 to i8
+  %65 = trunc nsw i32 %56 to i8
   %66 = and i8 %64, %65
   store i8 %66, ptr %63, align 1
   br label %cidr_set_masklen_internal.exit
@@ -2372,7 +2372,7 @@ define dso_local noundef i64 @network_broadcast(ptr noundef readonly captures(no
 
 30:                                               ; preds = %28
   %31 = lshr i32 255, %.04149
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   br label %33
 
 33:                                               ; preds = %28, %30, %26
@@ -2853,7 +2853,7 @@ bitncommon.exit:                                  ; preds = %46, %._crit_edge.i
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 0, i64 %87
   %89 = load i8, ptr %88, align 1
-  %90 = trunc i32 %81 to i8
+  %90 = trunc nsw i32 %81 to i8
   %91 = and i8 %89, %90
   store i8 %91, ptr %88, align 1
   br label %cidr_set_masklen_internal.exit

@@ -1414,7 +1414,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit32.i:                ; preds = %484, %482, %457
 
 .thread.i.i:                                      ; preds = %527, %..thread_crit_edge.i.i
   %.val61.i.i = phi i64 [ %.val61.pre.i.i, %..thread_crit_edge.i.i ], [ %493, %527 ]
-  %536 = trunc nuw i64 %493 to i32
+  %536 = trunc nuw nsw i64 %493 to i32
   %537 = add nsw i32 %536, -1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #22
   %.val.i.i = load ptr, ptr %15, align 8
@@ -1765,9 +1765,9 @@ _ZN5ZXing10DataMatrix14EdifactEncoderL13EncodeEdifactERNS0_14EncoderContextE.exi
 
 681:                                              ; preds = %679
   %682 = load ptr, ptr %9, align 8, !tbaa !3
-  %.lhs.trunc.i = trunc i32 %649 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %649 to i16
   %683 = udiv i16 %.lhs.trunc.i, 250
-  %684 = trunc i16 %683 to i8
+  %684 = trunc nuw nsw i16 %683 to i8
   %685 = add nuw nsw i8 %684, -7
   store i8 %685, ptr %682, align 1, !tbaa !12
   %686 = urem i16 %.lhs.trunc.i, 250
@@ -3634,7 +3634,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %.lr.ph
-  %6 = trunc nuw i32 %.tr59 to i8
+  %6 = trunc nuw nsw i32 %.tr59 to i8
   %7 = add nsw i8 %6, -44
   br label %tailrecurse._crit_edge
 
@@ -3644,7 +3644,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
   br i1 %or.cond3, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = trunc nuw i32 %.tr59 to i8
+  %11 = trunc nuw nsw i32 %.tr59 to i8
   %12 = add nsw i8 %11, -51
   br label %tailrecurse._crit_edge
 
@@ -3654,7 +3654,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 14:                                               ; preds = %13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 0) #21
-  %15 = trunc nuw i32 %.tr59 to i8
+  %15 = trunc nuw nsw i32 %.tr59 to i8
   br label %tailrecurse._crit_edge
 
 16:                                               ; preds = %13
@@ -3673,7 +3673,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 23:                                               ; preds = %21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 1) #21
-  %24 = trunc nuw i32 %.tr59 to i8
+  %24 = trunc nuw nsw i32 %.tr59 to i8
   %25 = add nsw i8 %24, -43
   br label %tailrecurse._crit_edge
 
@@ -3683,7 +3683,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 28:                                               ; preds = %26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 1) #21
-  %29 = trunc nuw i32 %.tr59 to i8
+  %29 = trunc nuw nsw i32 %.tr59 to i8
   %30 = add nsw i8 %29, -69
   br label %tailrecurse._crit_edge
 
@@ -3693,7 +3693,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 33:                                               ; preds = %31
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 2) #21
-  %34 = trunc nuw i32 %.tr59 to i8
+  %34 = trunc nuw nsw i32 %.tr59 to i8
   %35 = add nsw i8 %34, -96
   br label %tailrecurse._crit_edge
 
@@ -4368,7 +4368,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %.lr.ph
-  %6 = trunc nuw i32 %.tr74 to i8
+  %6 = trunc nuw nsw i32 %.tr74 to i8
   %7 = add nsw i8 %6, -44
   br label %tailrecurse._crit_edge
 
@@ -4378,7 +4378,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
   br i1 %or.cond3, label %10, label %13
 
 10:                                               ; preds = %8
-  %11 = trunc nuw i32 %.tr74 to i8
+  %11 = trunc nuw nsw i32 %.tr74 to i8
   %12 = add nsw i8 %11, -83
   br label %tailrecurse._crit_edge
 
@@ -4388,7 +4388,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 14:                                               ; preds = %13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 0) #21
-  %15 = trunc nuw i32 %.tr74 to i8
+  %15 = trunc nuw nsw i32 %.tr74 to i8
   br label %tailrecurse._crit_edge
 
 16:                                               ; preds = %13
@@ -4407,7 +4407,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 23:                                               ; preds = %21
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 1) #21
-  %24 = trunc nuw i32 %.tr74 to i8
+  %24 = trunc nuw nsw i32 %.tr74 to i8
   %25 = add nsw i8 %24, -43
   br label %tailrecurse._crit_edge
 
@@ -4418,7 +4418,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 28:                                               ; preds = %26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 1) #21
-  %29 = trunc nuw i32 %.tr74 to i8
+  %29 = trunc nuw nsw i32 %.tr74 to i8
   %30 = add nsw i8 %29, -69
   br label %tailrecurse._crit_edge
 
@@ -4436,7 +4436,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 36:                                               ; preds = %34
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 2) #21
-  %37 = trunc nuw i32 %.tr74 to i8
+  %37 = trunc nuw nsw i32 %.tr74 to i8
   %38 = add nsw i8 %37, -64
   br label %tailrecurse._crit_edge
 
@@ -4446,7 +4446,7 @@ define internal noundef range(i32 -2147483646, -2147483648) i32 @_ZN5ZXing10Data
 
 41:                                               ; preds = %39
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 2) #21
-  %42 = trunc nuw i32 %.tr74 to i8
+  %42 = trunc nuw nsw i32 %.tr74 to i8
   %43 = add nsw i8 %42, -96
   br label %tailrecurse._crit_edge
 
@@ -5088,7 +5088,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   br label %37
 
 34:                                               ; preds = %._crit_edge
-  %35 = trunc nuw i32 %.0.lcssa to i8
+  %35 = trunc nuw nsw i32 %.0.lcssa to i8
   %36 = or disjoint i8 %35, 48
   br label %37
 

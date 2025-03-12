@@ -559,7 +559,7 @@ cli_bcomp_freemeta.exit288:                       ; preds = %91, %._crit_edge.i2
   br i1 %242, label %245, label %243
 
 243:                                              ; preds = %241
-  %.rhs.trunc = trunc nuw i64 %224 to i8
+  %.rhs.trunc = trunc nuw nsw i64 %224 to i8
   %244 = urem i8 8, %.rhs.trunc
   %.not234 = icmp eq i8 %244, 0
   br i1 %.not234, label %.thread292, label %245

@@ -4147,7 +4147,7 @@ _ZN6LibRaw5sgetnEiPh.exit104:                     ; preds = %.lr.ph.i100
   br i1 %or.cond5, label %97, label %56
 
 56:                                               ; preds = %_ZN6LibRaw5sgetnEiPh.exit104
-  %.lhs.trunc = trunc nuw i32 %29 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %29 to i16
   %57 = urem i16 %.lhs.trunc, 6
   %58 = udiv i16 %.lhs.trunc, 6
   %59 = icmp ne i16 %57, 0
@@ -4159,7 +4159,7 @@ _ZN6LibRaw5sgetnEiPh.exit104:                     ; preds = %.lr.ph.i100
   br i1 %or.cond11, label %97, label %63
 
 63:                                               ; preds = %56
-  %.lhs.trunc105 = trunc nuw i32 %39 to i16
+  %.lhs.trunc105 = trunc nuw nsw i32 %39 to i16
   %64 = urem i16 %.lhs.trunc105, 24
   %65 = icmp ne i16 %64, 0
   %66 = icmp ugt i32 %34, 16896
@@ -4184,7 +4184,7 @@ _ZN6LibRaw5sgetnEiPh.exit104:                     ; preds = %.lr.ph.i100
   br i1 %or.cond19, label %97, label %76
 
 76:                                               ; preds = %70
-  %.lhs.trunc107 = trunc nuw i32 %31 to i16
+  %.lhs.trunc107 = trunc nuw nsw i32 %31 to i16
   %77 = udiv i16 %.lhs.trunc107, 768
   %78 = zext nneg i8 %45 to i16
   %79 = icmp eq i16 %77, %78

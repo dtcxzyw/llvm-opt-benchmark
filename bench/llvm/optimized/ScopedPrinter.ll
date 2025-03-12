@@ -759,7 +759,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %175, %177
   %.0.i.i38 = phi ptr [ %176, %175 ], [ %166, %177 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !38
-  %180 = trunc nuw i64 %12 to i32
+  %180 = trunc nuw nsw i64 %12 to i32
   store ptr %.sroa.0.0.copyload, ptr %10, align 8, !tbaa !38, !alias.scope !53
   %.sroa.26.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %12, ptr %.sroa.26.0..sroa_idx.i.i40, align 8, !tbaa !24, !alias.scope !53

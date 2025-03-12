@@ -2179,7 +2179,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder22emit_small_memor
   br label %42
 
 34:                                               ; preds = %32
-  %.tr = trunc nuw i64 %25 to i16
+  %.tr = trunc nuw nsw i64 %25 to i16
   %35 = shl nuw nsw i16 %.tr, 3
   %36 = tail call { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type3int17hf2d12c65acab3350E(i16 noundef %35)
   %37 = extractvalue { i16, i16 } %36, 0
@@ -2701,7 +2701,7 @@ define void @_ZN18cranelift_frontend8frontend15FunctionBuilder17emit_small_memse
   br label %38
 
 30:                                               ; preds = %28
-  %.tr = trunc nuw i64 %21 to i16
+  %.tr = trunc nuw nsw i64 %21 to i16
   %31 = shl nuw nsw i16 %.tr, 3
   %32 = tail call { i16, i16 } @_ZN17cranelift_codegen2ir5types4Type3int17hf2d12c65acab3350E(i16 noundef %31)
   %33 = extractvalue { i16, i16 } %32, 0

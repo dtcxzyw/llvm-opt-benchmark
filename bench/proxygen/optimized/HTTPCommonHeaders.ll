@@ -121,7 +121,7 @@ entry:
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
-  %conv.i = trunc nuw i64 %len to i32
+  %conv.i = trunc nuw nsw i64 %len to i32
   switch i32 %conv.i, label %sw.default.i [
     i32 21, label %sw.bb.i
     i32 20, label %sw.bb.i
@@ -240,7 +240,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %cond.end
 
 if.then.i:                                        ; preds = %entry
-  %conv.i.i = trunc nuw i64 %len to i32
+  %conv.i.i = trunc nuw nsw i64 %len to i32
   switch i32 %conv.i.i, label %sw.default.i.i [
     i32 21, label %sw.bb.i.i
     i32 20, label %sw.bb.i.i

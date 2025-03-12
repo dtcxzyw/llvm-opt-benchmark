@@ -581,7 +581,7 @@ define hidden ptr @lj_str_new(ptr noundef %0, ptr noundef captures(address) %1, 
   br i1 %8, label %9, label %106
 
 9:                                                ; preds = %3
-  %10 = trunc nuw i64 %2 to i32
+  %10 = trunc nuw nsw i64 %2 to i32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %13 = load i64, ptr %12, align 8, !tbaa !36

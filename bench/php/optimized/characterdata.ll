@@ -648,7 +648,7 @@ php_dom_follow_spec_doc_ref.exit.i:               ; preds = %46
   br i1 %.not, label %60, label %57
 
 57:                                               ; preds = %56
-  %58 = trunc nuw i64 %32 to i32
+  %58 = trunc nuw nsw i64 %32 to i32
   %59 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %spec.select.i, i32 noundef 0, i32 noundef %58) #8
   %.pre = load i64, ptr %4, align 8, !tbaa !72
   br label %60
@@ -797,7 +797,7 @@ php_dom_follow_spec_doc_ref.exit.i:               ; preds = %48
   br i1 %.not41, label %62, label %59
 
 59:                                               ; preds = %58
-  %60 = trunc nuw i64 %34 to i32
+  %60 = trunc nuw nsw i64 %34 to i32
   %61 = call ptr @xmlUTF8Strsub(ptr noundef nonnull %spec.select.i, i32 noundef 0, i32 noundef %60) #8
   %.pre = load i64, ptr %5, align 8, !tbaa !72
   br label %62

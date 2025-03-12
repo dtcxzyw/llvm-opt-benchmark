@@ -397,7 +397,7 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
 
 67:                                               ; preds = %.preheader
   %68 = getelementptr inbounds nuw i8, ptr %36, i64 584
-  %69 = trunc i64 %35 to i32
+  %69 = trunc nuw nsw i64 %35 to i32
   tail call void %34(i32 noundef %69, ptr noundef %36, ptr noundef nonnull %68) #12
   %.pre4 = load ptr, ptr @serial8250_isa_config, align 8
   %.pre6 = load i32, ptr @nr_uarts, align 4

@@ -2045,12 +2045,12 @@ define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr noundef readonly cap
 ._crit_edge:                                      ; preds = %._crit_edge38, %17
   %.pre39 = phi i32 [ %20, %._crit_edge38 ], [ %.pre39.pre, %17 ]
   %.021.lcssa.ph.in = phi i64 [ %indvars.iv.next, %._crit_edge38 ], [ %indvars.iv, %17 ]
-  %.021.lcssa.ph = trunc i64 %.021.lcssa.ph.in to i32
+  %.021.lcssa.ph = trunc nuw i64 %.021.lcssa.ph.in to i32
   %23 = icmp ugt i32 %.pre39, %.021.lcssa.ph
   br i1 %23, label %.preheader, label %._crit_edge.thread
 
 .preheader:                                       ; preds = %._crit_edge
-  %.not32 = icmp eq i32 %.021.lcssa.ph, 0
+  %.not32 = icmp eq i64 %.021.lcssa.ph.in, 0
   br i1 %.not32, label %._crit_edge30, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %.preheader

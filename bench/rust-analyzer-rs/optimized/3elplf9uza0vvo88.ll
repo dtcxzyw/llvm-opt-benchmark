@@ -829,7 +829,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !121
   %12 = trunc i32 %1 to i8
@@ -841,7 +841,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !121
   %19 = lshr i32 %1, 6
@@ -912,7 +912,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %70
 
 .critedge:                                        ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !134, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !134, !noundef !4
@@ -1249,7 +1249,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 
 40:                                               ; preds = %30
   %41 = lshr i32 %4, 16
-  %42 = trunc nuw i32 %41 to i16
+  %42 = trunc nuw nsw i32 %41 to i16
   %43 = lshr i32 %4, 8
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1264,7 +1264,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 
 48:                                               ; preds = %32
   %49 = lshr i32 %4, 16
-  %50 = trunc nuw i32 %49 to i16
+  %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %50, ptr %51, align 2
   br label %28

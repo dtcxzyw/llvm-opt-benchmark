@@ -2364,7 +2364,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %155, %162
   br i1 %or.cond, label %173, label %178
 
 173:                                              ; preds = %171
-  %174 = trunc nuw i32 %136 to i8
+  %174 = trunc nuw nsw i32 %136 to i8
   %175 = add nuw nsw i8 %174, 1
   store i8 %175, ptr %2, align 1
   br label %178

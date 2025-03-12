@@ -426,7 +426,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %90 = sub nuw nsw i32 64, %.125132
   %91 = zext nneg i32 %90 to i64
   %92 = lshr i64 %.sroa.036.3130, %91
-  %93 = trunc i64 %92 to i32
+  %93 = trunc nuw i64 %92 to i32
   %94 = sub nsw i32 %.sroa.13.3131, %.125132
   %95 = zext nneg i32 %.125132 to i64
   %96 = shl i64 %.sroa.036.3130, %95
@@ -450,7 +450,7 @@ _ZN8rawspeed20SonyArw1Decompressor7getDiffERNS_14BitStreamerMSBEj.exit: ; preds 
   unreachable
 
 102:                                              ; preds = %_ZN8rawspeed20SonyArw1Decompressor7getDiffERNS_14BitStreamerMSBEj.exit
-  %103 = trunc nuw i32 %99 to i16
+  %103 = trunc nuw nsw i32 %99 to i16
   tail call void @llvm.assume(i1 %47)
   %104 = icmp sgt i32 %spec.store.select, -1
   tail call void @llvm.assume(i1 %104)

@@ -1215,7 +1215,7 @@ define void @_ZNK5arrow9Decimal3215ToIntegerStringB5cxx11Ev(ptr dead_on_unwind n
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
 30:                                               ; preds = %._crit_edge.i.i
-  %31 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %31 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %32 = or disjoint i8 %31, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
@@ -2062,7 +2062,7 @@ define void @_ZNK5arrow9Decimal6415ToIntegerStringB5cxx11Ev(ptr dead_on_unwind n
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i
 
 28:                                               ; preds = %._crit_edge.i.i
-  %29 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %29 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %30 = or disjoint i8 %29, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i
 
@@ -3227,7 +3227,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit: ; preds = %52
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 84:                                               ; preds = %._crit_edge.i.i
-  %85 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %85 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %86 = or disjoint i8 %85, 48
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
@@ -3296,7 +3296,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 119:                                              ; preds = %._crit_edge.i.i50
-  %120 = trunc nuw i32 %.0.lcssa.i.i52 to i8
+  %120 = trunc nuw nsw i32 %.0.lcssa.i.i52 to i8
   %121 = or disjoint i8 %120, 48
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
@@ -3583,7 +3583,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit36: ; pred
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
 83:                                               ; preds = %._crit_edge.i.i
-  %84 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %84 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %85 = or disjoint i8 %84, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
@@ -4052,7 +4052,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit51.i: 
   br i1 %.not33.i, label %120, label %113
 
 113:                                              ; preds = %_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit51.i
-  %114 = trunc nuw i64 %.116.i to i32
+  %114 = trunc nuw nsw i64 %.116.i to i32
   store i32 %114, ptr %3, align 4, !noalias !168
   %115 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %116 = load i8, ptr %115, align 4, !tbaa !189, !noalias !168
@@ -6626,7 +6626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE2atEm.exit: ; preds = %55
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 87:                                               ; preds = %._crit_edge.i.i
-  %88 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %88 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %89 = or disjoint i8 %88, 48
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
@@ -6695,7 +6695,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 122:                                              ; preds = %._crit_edge.i.i50
-  %123 = trunc nuw i32 %.0.lcssa.i.i52 to i8
+  %123 = trunc nuw nsw i32 %.0.lcssa.i.i52 to i8
   %124 = or disjoint i8 %123, 48
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 

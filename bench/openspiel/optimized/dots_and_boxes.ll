@@ -1254,7 +1254,7 @@ define void @_ZN10open_spiel14dots_and_boxes4MoveC2Elii(ptr noundef nonnull writ
   %21 = sext i32 %.sink22 to i64
   %22 = sdiv i64 %.sink20, %21
   %23 = srem i64 %.sink20, %21
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nsw i64 %23 to i32
   %.sink17 = trunc i64 %22 to i32
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink18, ptr %25, align 4

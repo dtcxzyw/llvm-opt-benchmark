@@ -233,7 +233,7 @@ define internal i32 @tunpack(ptr noundef %0) #0 {
   br i1 %14, label %.thread, label %15, !prof !10
 
 15:                                               ; preds = %12
-  %16 = trunc nuw i64 %13 to i32
+  %16 = trunc nuw nsw i64 %13 to i32
   %17 = add nuw nsw i32 %16, 1
   %18 = tail call i32 @lua_checkstack(ptr noundef %0, i32 noundef %17) #3
   %.not = icmp eq i32 %18, 0

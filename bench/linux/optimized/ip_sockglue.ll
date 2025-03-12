@@ -1910,7 +1910,7 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   br i1 %209, label %559, label %210
 
 210:                                              ; preds = %204
-  %211 = trunc i32 %205 to i16
+  %211 = trunc nsw i32 %205 to i16
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 764
   store volatile i16 %211, ptr %212, align 4
   br label %559

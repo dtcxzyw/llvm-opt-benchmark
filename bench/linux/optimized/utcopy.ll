@@ -231,7 +231,7 @@ define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nound
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %18
-  %26 = trunc i64 %19 to i32
+  %26 = trunc nuw i64 %19 to i32
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %26, ptr %27, align 4
   store ptr null, ptr %22, align 8

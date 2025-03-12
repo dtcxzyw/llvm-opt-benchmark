@@ -1296,7 +1296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i64 %.0.lcssa.i to i8
+  %56 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -2387,11 +2387,11 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc nuw i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32
-  %.tr.i = trunc i64 %42 to i32
+  %.tr.i = trunc nuw nsw i64 %42 to i32
   %52 = shl nuw nsw i32 %.tr.i, 3
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %50, %53

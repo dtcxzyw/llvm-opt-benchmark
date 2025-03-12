@@ -2978,7 +2978,7 @@ define void @_Z11done_symtabP8t_symtab(ptr noundef captures(none) %0) local_unna
 
 .critedge.loopexit:                               ; preds = %14, %10
   %.022.lcssa.ph.in = phi i64 [ %indvars.iv, %10 ], [ %indvars.iv.next, %14 ]
-  %.022.lcssa.ph = trunc i64 %.022.lcssa.ph.in to i32
+  %.022.lcssa.ph = trunc nsw i64 %.022.lcssa.ph.in to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader

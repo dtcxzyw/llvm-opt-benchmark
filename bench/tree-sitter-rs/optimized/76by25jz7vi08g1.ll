@@ -27407,13 +27407,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h0b7372e040689257
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6725
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6725
   %18 = trunc i32 %1 to i8
@@ -27425,7 +27425,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h0b7372e040689257
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6725
   %26 = lshr i32 %1, 6
@@ -27503,13 +27503,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h168c976c6525644d
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6734
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6734
   %18 = trunc i32 %1 to i8
@@ -27521,7 +27521,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h168c976c6525644d
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6734
   %26 = lshr i32 %1, 6
@@ -27599,13 +27599,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h231160feaade2a1b
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6743
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6743
   %18 = trunc i32 %1 to i8
@@ -27617,7 +27617,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h231160feaade2a1b
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6743
   %26 = lshr i32 %1, 6
@@ -27695,13 +27695,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h3078b7627b395ee4
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6752
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6752
   %18 = trunc i32 %1 to i8
@@ -27713,7 +27713,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h3078b7627b395ee4
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6752
   %26 = lshr i32 %1, 6
@@ -27793,13 +27793,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h333ba51a3e996663
   br i1 %11, label %23, label %35
 
 13:                                               ; preds = %3
-  %14 = trunc nuw i32 %2 to i8
+  %14 = trunc nuw nsw i32 %2 to i8
   store i8 %14, ptr %5, align 4, !alias.scope !6761
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 15:                                               ; preds = %8
   %16 = lshr i32 %2, 6
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   store i8 %18, ptr %5, align 4, !alias.scope !6761
   %19 = trunc i32 %2 to i8
@@ -27811,7 +27811,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h333ba51a3e996663
 
 23:                                               ; preds = %10
   %24 = lshr i32 %2, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %5, align 4, !alias.scope !6761
   %27 = lshr i32 %2, 6
@@ -27888,13 +27888,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h4f32f675d25bdcda
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6771
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6771
   %18 = trunc i32 %1 to i8
@@ -27906,7 +27906,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h4f32f675d25bdcda
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6771
   %26 = lshr i32 %1, 6
@@ -27984,13 +27984,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h4fce31350cc2f9ad
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6780
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6780
   %18 = trunc i32 %1 to i8
@@ -28002,7 +28002,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h4fce31350cc2f9ad
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6780
   %26 = lshr i32 %1, 6
@@ -28080,13 +28080,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h781efeb6b2691cf9
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6789
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6789
   %18 = trunc i32 %1 to i8
@@ -28098,7 +28098,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h781efeb6b2691cf9
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6789
   %26 = lshr i32 %1, 6
@@ -28176,13 +28176,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h860e69289e5c14c0
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6798
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6798
   %18 = trunc i32 %1 to i8
@@ -28194,7 +28194,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h860e69289e5c14c0
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6798
   %26 = lshr i32 %1, 6
@@ -28272,13 +28272,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h87a9863cc74b0332
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6807
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6807
   %18 = trunc i32 %1 to i8
@@ -28290,7 +28290,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h87a9863cc74b0332
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6807
   %26 = lshr i32 %1, 6
@@ -28370,13 +28370,13 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %4, align 4, !alias.scope !6816
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %4, align 4, !alias.scope !6816
   %18 = trunc i32 %1 to i8
@@ -28388,7 +28388,7 @@ define internal fastcc noundef nonnull align 8 ptr @_ZN5serde2de7Visitor10visit_
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %4, align 4, !alias.scope !6816
   %26 = lshr i32 %1, 6
@@ -28461,13 +28461,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17ha681b7797fd3aadf
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6823
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6823
   %18 = trunc i32 %1 to i8
@@ -28479,7 +28479,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17ha681b7797fd3aadf
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6823
   %26 = lshr i32 %1, 6
@@ -28557,13 +28557,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17haead2b20c1098f05
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6832
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6832
   %18 = trunc i32 %1 to i8
@@ -28575,7 +28575,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17haead2b20c1098f05
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6832
   %26 = lshr i32 %1, 6
@@ -28653,13 +28653,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hb70d8bf17c06b1b8
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6841
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6841
   %18 = trunc i32 %1 to i8
@@ -28671,7 +28671,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hb70d8bf17c06b1b8
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6841
   %26 = lshr i32 %1, 6
@@ -28749,13 +28749,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hbc75ca9d36b67155
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6850
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6850
   %18 = trunc i32 %1 to i8
@@ -28767,7 +28767,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hbc75ca9d36b67155
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6850
   %26 = lshr i32 %1, 6
@@ -28845,13 +28845,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hbeb319c139be53db
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6859
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6859
   %18 = trunc i32 %1 to i8
@@ -28863,7 +28863,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hbeb319c139be53db
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6859
   %26 = lshr i32 %1, 6
@@ -28941,13 +28941,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hdca4fe359bbde277
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !6868
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !6868
   %18 = trunc i32 %1 to i8
@@ -28959,7 +28959,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hdca4fe359bbde277
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !6868
   %26 = lshr i32 %1, 6
@@ -56348,97 +56348,95 @@ define internal fastcc noundef zeroext i1 @"_ZN89_$LT$tree_sitter_cli..generate.
   %35 = icmp eq i8 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %37 = load i8, ptr %36, align 8, !range !473, !noundef !4
-  %38 = icmp eq i8 %37, 2
-  br i1 %35, label %39, label %40
+  br i1 %35, label %38, label %40
 
-39:                                               ; preds = %32
-  br i1 %38, label %43, label %.critedge
+38:                                               ; preds = %32
+  %39 = icmp eq i8 %37, 2
+  br i1 %39, label %41, label %.critedge
 
 40:                                               ; preds = %32
-  %41 = xor i8 %37, %34
-  %42 = trunc i8 %41 to i1
-  %or.cond.not = or i1 %38, %42
-  br i1 %or.cond.not, label %.critedge, label %43
+  %.not22 = icmp eq i8 %34, %37
+  br i1 %.not22, label %41, label %.critedge
 
-43:                                               ; preds = %40, %39
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 84
+41:                                               ; preds = %40, %38
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %43 = load i8, ptr %42, align 4, !range !6, !noundef !4
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %45 = load i8, ptr %44, align 4, !range !6, !noundef !4
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %47 = load i8, ptr %46, align 4, !range !6, !noundef !4
-  %.not6 = icmp eq i8 %45, %47
-  br i1 %.not6, label %48, label %.critedge
+  %.not6 = icmp eq i8 %43, %45
+  br i1 %.not6, label %46, label %.critedge
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 85
+46:                                               ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 85
+  %48 = load i8, ptr %47, align 1, !range !6, !noundef !4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 85
   %50 = load i8, ptr %49, align 1, !range !6, !noundef !4
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 85
-  %52 = load i8, ptr %51, align 1, !range !6, !noundef !4
-  %.not7 = icmp eq i8 %50, %52
-  br i1 %.not7, label %53, label %.critedge
+  %.not7 = icmp eq i8 %48, %50
+  br i1 %.not7, label %51, label %.critedge
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 86
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %53 = load i8, ptr %52, align 2, !range !6, !noundef !4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 86
   %55 = load i8, ptr %54, align 2, !range !6, !noundef !4
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 86
-  %57 = load i8, ptr %56, align 2, !range !6, !noundef !4
-  %.not8 = icmp eq i8 %55, %57
-  br i1 %.not8, label %58, label %.critedge
+  %.not8 = icmp eq i8 %53, %55
+  br i1 %.not8, label %56, label %.critedge
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 87
+56:                                               ; preds = %51
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 87
+  %58 = load i8, ptr %57, align 1, !range !6, !noundef !4
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 87
   %60 = load i8, ptr %59, align 1, !range !6, !noundef !4
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 87
-  %62 = load i8, ptr %61, align 1, !range !6, !noundef !4
-  %.not9 = icmp eq i8 %60, %62
-  br i1 %.not9, label %63, label %.critedge
+  %.not9 = icmp eq i8 %58, %60
+  br i1 %.not9, label %61, label %.critedge
 
-63:                                               ; preds = %58
-  %64 = load i64, ptr %0, align 8, !range !179, !noundef !4
+61:                                               ; preds = %56
+  %62 = load i64, ptr %0, align 8, !range !179, !noundef !4
+  %63 = icmp eq i64 %62, -9223372036854775808
+  %64 = load i64, ptr %1, align 8, !range !179, !noundef !4
   %65 = icmp eq i64 %64, -9223372036854775808
-  %66 = load i64, ptr %1, align 8, !range !179, !noundef !4
-  %67 = icmp eq i64 %66, -9223372036854775808
-  br i1 %65, label %68, label %69
+  br i1 %63, label %66, label %67
 
-68:                                               ; preds = %63
-  br i1 %67, label %72, label %.critedge
+66:                                               ; preds = %61
+  br i1 %65, label %70, label %.critedge
 
-69:                                               ; preds = %63
-  br i1 %67, label %.critedge, label %70
+67:                                               ; preds = %61
+  br i1 %65, label %.critedge, label %68
 
-70:                                               ; preds = %69
-  %71 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$tree_sitter_cli..generate..rules..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd00b42e6a1647e7aE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1)
-  br i1 %71, label %72, label %.critedge
+68:                                               ; preds = %67
+  %69 = tail call fastcc noundef zeroext i1 @"_ZN80_$LT$tree_sitter_cli..generate..rules..Alias$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd00b42e6a1647e7aE"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1)
+  br i1 %69, label %70, label %.critedge
 
-72:                                               ; preds = %68, %70
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %74 = load i64, ptr %73, align 8, !range !179, !noundef !4
-  %75 = icmp eq i64 %74, -9223372036854775808
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %77 = load i64, ptr %76, align 8, !range !179, !noundef !4
-  %78 = icmp eq i64 %77, -9223372036854775808
-  %brmerge = or i1 %75, %78
-  %.mux = and i1 %75, %78
-  br i1 %brmerge, label %.critedge, label %79
+70:                                               ; preds = %66, %68
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %72 = load i64, ptr %71, align 8, !range !179, !noundef !4
+  %73 = icmp eq i64 %72, -9223372036854775808
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %75 = load i64, ptr %74, align 8, !range !179, !noundef !4
+  %76 = icmp eq i64 %75, -9223372036854775808
+  %brmerge = or i1 %73, %76
+  %.mux = and i1 %73, %76
+  br i1 %brmerge, label %.critedge, label %77
 
-.critedge:                                        ; preds = %72, %21, %2, %82, %79, %68, %39, %15, %69, %40, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit", %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread", %43, %48, %53, %58, %70
-  %.0.shrunk = phi i1 [ false, %70 ], [ false, %58 ], [ false, %53 ], [ false, %48 ], [ false, %43 ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread" ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit" ], [ false, %40 ], [ false, %69 ], [ false, %15 ], [ false, %39 ], [ false, %68 ], [ %85, %82 ], [ false, %79 ], [ false, %2 ], [ false, %21 ], [ %.mux, %72 ]
+.critedge:                                        ; preds = %70, %21, %2, %80, %77, %66, %38, %15, %67, %40, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit", %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread", %41, %46, %51, %56, %68
+  %.0.shrunk = phi i1 [ false, %68 ], [ false, %56 ], [ false, %51 ], [ false, %46 ], [ false, %41 ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit.thread" ], [ false, %"_ZN85_$LT$tree_sitter_cli..generate..rules..Precedence$u20$as$u20$core..cmp..PartialEq$GT$2eq17he3843bb8f877d2ebE.exit" ], [ false, %40 ], [ false, %67 ], [ false, %15 ], [ false, %38 ], [ false, %66 ], [ %83, %80 ], [ false, %77 ], [ false, %2 ], [ false, %21 ], [ %.mux, %70 ]
   ret i1 %.0.shrunk
 
-79:                                               ; preds = %72
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val15 = load i64, ptr %80, align 8, !noundef !4
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val13 = load i64, ptr %81, align 8, !noundef !4
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.val15 = load i64, ptr %78, align 8, !noundef !4
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val13 = load i64, ptr %79, align 8, !noundef !4
   %.not.i = icmp eq i64 %.val15, %.val13
-  br i1 %.not.i, label %82, label %.critedge
+  br i1 %.not.i, label %80, label %.critedge
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val = load ptr, ptr %83, align 8, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val14 = load ptr, ptr %84, align 8, !nonnull !4, !noundef !4
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.val = load ptr, ptr %81, align 8, !nonnull !4, !noundef !4
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.val14 = load ptr, ptr %82, align 8, !nonnull !4, !noundef !4
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val14, ptr nonnull readonly align 1 %.val, i64 %.val15), !alias.scope !11282
-  %85 = icmp eq i32 %bcmp.i, 0
+  %83 = icmp eq i32 %bcmp.i, 0
   br label %.critedge
 }
 

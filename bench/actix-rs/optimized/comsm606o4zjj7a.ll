@@ -9140,7 +9140,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h4606cdbdfc1e884dE.ex
 
 298:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38)
-  %299 = trunc nuw i32 %170 to i8
+  %299 = trunc nuw nsw i32 %170 to i8
   %300 = trunc i64 %278 to i8
   %301 = trunc i32 %294 to i8
   %302 = trunc i64 %280 to i32
@@ -10083,7 +10083,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h8b0d385c478e828dE.ex
 
 298:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38)
-  %299 = trunc nuw i32 %170 to i8
+  %299 = trunc nuw nsw i32 %170 to i8
   %300 = trunc i64 %278 to i8
   %301 = trunc i32 %294 to i8
   %302 = trunc i64 %280 to i32
@@ -10912,7 +10912,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17hb012893e2557d093E.ex
 
 276:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %42)
-  %277 = trunc nuw i32 %179 to i8
+  %277 = trunc nuw nsw i32 %179 to i8
   %278 = trunc i64 %256 to i8
   %279 = trunc i32 %272 to i8
   %280 = trunc i64 %258 to i32
@@ -12190,7 +12190,7 @@ _ZN6brotli3enc9interface16CommandProcessor13push_literals17h5dd71e12cb07ad68E.ex
 
 298:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h190fa1b5ceadf067E.llvm.3706446735560306221.exit"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %38)
-  %299 = trunc nuw i32 %170 to i8
+  %299 = trunc nuw nsw i32 %170 to i8
   %300 = trunc i64 %278 to i8
   %301 = trunc i32 %294 to i8
   %302 = trunc i64 %280 to i32

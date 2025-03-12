@@ -40,7 +40,7 @@ define range(i32 0, 2) i32 @SipHash_set_hash_size(ptr noundef captures(none) %0,
   %10 = load i64, ptr %9, align 8, !tbaa !9
   %11 = xor i64 %10, 238
   store i64 %11, ptr %9, align 8, !tbaa !9
-  %12 = trunc nuw i64 %spec.store.select.i to i32
+  %12 = trunc nuw nsw i64 %spec.store.select.i to i32
   store i32 %12, ptr %5, align 4, !tbaa !3
   br label %13
 
@@ -165,7 +165,7 @@ define void @SipHash_Update(ptr noundef captures(none) %0, ptr noundef readonly 
 
 .thread:                                          ; preds = %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr align 1 %1, i64 %2, i1 false)
-  %22 = trunc i64 %2 to i32
+  %22 = trunc nuw i64 %2 to i32
   %23 = add i32 %15, %22
   store i32 %23, ptr %14, align 8, !tbaa !13
   br label %146

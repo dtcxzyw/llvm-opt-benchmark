@@ -34579,7 +34579,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread: ; preds = %163, %155
   br label %.critedge3
 
 166:                                              ; preds = %163
-  %167 = trunc i64 %164 to i32
+  %167 = trunc nsw i64 %164 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
   %.not = icmp eq i32 %40, %167
   br i1 %.not, label %168, label %.critedge3

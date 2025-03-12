@@ -2372,7 +2372,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 nound
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = trunc i64 %0 to i8
+  %14 = trunc nsw i64 %0 to i8
   %15 = sub nsw i8 48, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 19
   store i8 %15, ptr %4, align 1, !tbaa !11
@@ -2436,7 +2436,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i32 nound
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = trunc i32 %0 to i8
+  %14 = trunc nsw i32 %0 to i8
   %15 = sub nsw i8 48, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 9
   store i8 %15, ptr %4, align 1, !tbaa !11
@@ -2751,7 +2751,7 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
   br i1 %60, label %48, label %61
 
 61:                                               ; preds = %59
-  %62 = trunc nuw i32 %0 to i8
+  %62 = trunc nuw nsw i32 %0 to i8
   %63 = or disjoint i8 %62, 48
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %63, ptr %1, align 1, !tbaa !11
@@ -2766,10 +2766,10 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
   br i1 %68, label %37, label %69
 
 69:                                               ; preds = %67
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %70 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %70 to i32
-  %71 = trunc nuw i16 %70 to i8
+  %71 = trunc nuw nsw i16 %70 to i8
   %72 = or disjoint i8 %71, 48
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %72, ptr %1, align 1, !tbaa !11
@@ -2785,7 +2785,7 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
 
 78:                                               ; preds = %76
   %79 = udiv i32 %0, 10000
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, 48
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %81, ptr %1, align 1, !tbaa !11
@@ -2801,7 +2801,7 @@ define noundef nonnull ptr @_ZN6google8protobuf22FastUInt32ToBufferLeftEjPc(i32 
 
 87:                                               ; preds = %85
   %88 = udiv i32 %0, 1000000
-  %89 = trunc nuw i32 %88 to i8
+  %89 = trunc nuw nsw i32 %88 to i8
   %90 = add nuw nsw i8 %89, 48
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %90, ptr %1, align 1, !tbaa !11
@@ -2956,7 +2956,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ei(ptr dead_on_unwind noalias
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = trunc i32 %1 to i8
+  %16 = trunc nsw i32 %1 to i8
   %17 = sub nsw i8 48, %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %17, ptr %6, align 2, !tbaa !11
@@ -3115,7 +3115,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11El(ptr dead_on_unwind noalias
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = trunc i64 %1 to i8
+  %16 = trunc nsw i64 %1 to i8
   %17 = sub nsw i8 48, %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 %17, ptr %6, align 4, !tbaa !11
@@ -3274,7 +3274,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ex(ptr dead_on_unwind noalias
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = trunc i64 %1 to i8
+  %16 = trunc nsw i64 %1 to i8
   %17 = sub nsw i8 48, %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 %17, ptr %6, align 4, !tbaa !11

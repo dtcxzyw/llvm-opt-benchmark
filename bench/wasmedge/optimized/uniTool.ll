@@ -8675,7 +8675,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge2PO15stringToIntegerIliEEN5cxx208ex
   br label %43
 
 40:                                               ; preds = %29
-  %41 = trunc i64 %16 to i32
+  %41 = trunc nsw i64 %16 to i32
   store i8 1, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %41, ptr %42, align 8

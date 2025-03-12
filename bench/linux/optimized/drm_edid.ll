@@ -647,7 +647,7 @@ define dso_local noundef zeroext i1 @drm_edid_is_valid(ptr noundef %0) #3 align 
 10:                                               ; preds = %5, %3
   %11 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %12 = getelementptr %struct.edid, ptr %0, i64 %11
-  %13 = trunc i64 %11 to i32
+  %13 = trunc nuw nsw i64 %11 to i32
   %14 = tail call zeroext i1 @drm_edid_block_valid(ptr noundef %12, i32 noundef %13, i1 noundef zeroext true, ptr noundef null)
   br i1 %14, label %5, label %.loopexit
 
@@ -1904,7 +1904,7 @@ select.unfold53:                                  ; preds = %95, %.thread20, %59
   %.fr99 = freeze ptr %178
   %179 = icmp eq ptr %.fr99, null
   %180 = getelementptr inbounds nuw i8, ptr %.fr99, i64 127
-  %181 = trunc i64 %174 to i32
+  %181 = trunc nuw i64 %174 to i32
   br i1 %179, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.preheader72, %select.unfold35.us
@@ -8934,7 +8934,7 @@ define dso_local i32 @drm_add_edid_modes(ptr noundef %0, ptr noundef %1) #3 alig
 12:                                               ; preds = %7, %5
   %13 = phi i64 [ 0, %5 ], [ %8, %7 ]
   %14 = getelementptr %struct.edid, ptr %1, i64 %13
-  %15 = trunc i64 %13 to i32
+  %15 = trunc nuw nsw i64 %13 to i32
   %16 = tail call zeroext i1 @drm_edid_block_valid(ptr noundef %14, i32 noundef %15, i1 noundef zeroext true, ptr noundef null)
   br i1 %16, label %7, label %17
 

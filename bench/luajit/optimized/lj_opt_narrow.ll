@@ -940,7 +940,7 @@ conv_str_tonum.exit38:                            ; preds = %conv_str_tonum.exit
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %44
-  %.tr35 = trunc nuw i32 %5 to i16
+  %.tr35 = trunc nuw nsw i32 %5 to i16
   %52 = shl nuw nsw i16 %.tr35, 8
   %53 = add nuw nsw i16 %52, 3219
   br label %75

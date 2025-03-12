@@ -294,7 +294,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %24, %22, %14
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %100
-  %103 = trunc nuw i16 %46 to i8
+  %103 = trunc nuw nsw i16 %46 to i8
   %104 = sext i32 %.0100127.i.i.i to i64
   %105 = getelementptr inbounds i8, ptr %calloc.i.i, i64 %104
   store i8 %103, ptr %105, align 1, !tbaa !17

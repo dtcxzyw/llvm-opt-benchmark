@@ -2528,7 +2528,7 @@ define range(i32 -1, 1) i32 @H5Pset_chunk_opts(i64 noundef %0, i32 noundef %1) l
 
 65:                                               ; preds = %59
   %.lobit = lshr exact i32 %1, 1
-  %spec.select = trunc nuw i32 %.lobit to i8
+  %spec.select = trunc nuw nsw i32 %.lobit to i8
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i8 %spec.select, ptr %66, align 4, !tbaa !32
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 4

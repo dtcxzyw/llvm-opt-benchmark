@@ -690,7 +690,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %39, %41
-  %42 = trunc i64 %23 to i32
+  %42 = trunc nsw i64 %23 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #32
   store i32 %42, ptr %19, align 4, !tbaa !42
   br label %.thread
@@ -920,7 +920,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %117
 
 117:                                              ; preds = %116, %114
-  %118 = trunc i64 %98 to i32
+  %118 = trunc nsw i64 %98 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
   %119 = load ptr, ptr %69, align 8, !tbaa !46
   %120 = load ptr, ptr %70, align 8, !tbaa !49
@@ -13654,7 +13654,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %3791, %3789, %3785,
   br label %3828
 
 3825:                                             ; preds = %._crit_edge.i.i1455
-  %3826 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %3826 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %3827 = or disjoint i8 %3826, 48
   br label %3828
 

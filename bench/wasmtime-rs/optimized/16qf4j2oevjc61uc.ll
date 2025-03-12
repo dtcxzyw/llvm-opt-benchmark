@@ -29793,7 +29793,7 @@ _ZN17cranelift_codegen5write10FuncWriter14write_preamble17he1dbe29a34e8b0e0E.exi
   br i1 %44, label %.lr.ph, label %_ZN17cranelift_codegen5write14decorate_block17hac7b7a4aa1263124E.exit._crit_edge
 
 .lr.ph:                                           ; preds = %41
-  %45 = trunc i8 %39 to i1
+  %45 = trunc nuw i8 %39 to i1
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 724
   %47 = load i32, ptr %46, align 4, !alias.scope !4500, !noalias !4505
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 640

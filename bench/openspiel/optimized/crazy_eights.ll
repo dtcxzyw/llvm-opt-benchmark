@@ -5167,7 +5167,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_4EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_4EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit76: ; preds = %175
   store i64 %142, ptr %32, align 8
   store i32 52, ptr %33, align 4
-  %187 = trunc i64 %142 to i32
+  %187 = trunc nuw nsw i64 %142 to i32
   invoke fastcc void @_ZN10open_spiel12crazy_eights12_GLOBAL__N_110GetCardStrB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %38, i32 noundef %187)
           to label %188 unwind label %.loopexit.split-lp.loopexit
 
@@ -8580,7 +8580,7 @@ _ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit.i: ; preds = %29
   br i1 %37, label %.sink.split.i, label %38
 
 38:                                               ; preds = %36
-  %39 = trunc nuw i64 %indvars.iv.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %40 = add nuw nsw i32 %39, 2
   br label %.sink.split.i
 
@@ -8789,7 +8789,7 @@ _ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit.i30: ; preds = %130
   br i1 %138, label %.sink.split.i32, label %139
 
 139:                                              ; preds = %137
-  %140 = trunc nuw i64 %indvars.iv.i28 to i32
+  %140 = trunc nuw nsw i64 %indvars.iv.i28 to i32
   %141 = add nuw nsw i32 %140, 2
   br label %.sink.split.i32
 
@@ -10034,7 +10034,7 @@ _ZN10open_spiel12crazy_eights12_GLOBAL__N_17GetRankEi.exit: ; preds = %7
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %14
-  %17 = trunc nuw i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = add nuw nsw i32 %17, 2
   br label %.sink.split
 

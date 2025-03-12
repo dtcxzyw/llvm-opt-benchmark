@@ -610,7 +610,7 @@ define hidden void @luaK_int(ptr noundef captures(none) %0, i32 noundef %1, i64 
   br i1 %6, label %15, label %7
 
 7:                                                ; preds = %3
-  %8 = trunc i64 %2 to i32
+  %8 = trunc nsw i64 %2 to i32
   %9 = shl i32 %1, 7
   %10 = or disjoint i32 %9, 1
   %11 = shl i32 %8, 15
@@ -2309,7 +2309,7 @@ isCint.exit:                                      ; preds = %isKint.exit.i
   br i1 %79, label %isCint.exit.thread, label %80
 
 80:                                               ; preds = %isCint.exit
-  %81 = trunc nuw i64 %78 to i16
+  %81 = trunc nuw nsw i64 %78 to i16
   store i16 %81, ptr %53, align 8, !tbaa !22
   br label %84
 
@@ -3276,7 +3276,7 @@ isSCint.exit.i:                                   ; preds = %isKint.exit.i.i
   br label %codeconcat.exit
 
 177:                                              ; preds = %isSCint.exit.i
-  %178 = trunc i64 %174 to i32
+  %178 = trunc nsw i64 %174 to i32
   %179 = add nsw i32 %178, 127
   tail call fastcc void @finishbinexpval(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull readonly %3, i32 noundef 21, i32 noundef %179, i32 noundef range(i32 0, 2) %.0.i97, i32 noundef %4, i32 noundef 47, i32 noundef 6)
   br label %codeconcat.exit
@@ -3441,7 +3441,7 @@ isSCint.exit105:                                  ; preds = %isKint.exit.i103
   br i1 %255, label %isSCint.exit105.thread, label %256
 
 256:                                              ; preds = %isSCint.exit105
-  %257 = trunc i64 %253 to i32
+  %257 = trunc nsw i64 %253 to i32
   %258 = add nsw i32 %257, 127
   tail call fastcc void @finishbinexpval(ptr noundef %0, ptr noundef %2, ptr noundef nonnull readonly %3, i32 noundef 32, i32 noundef %258, i32 noundef 0, i32 noundef %4, i32 noundef 47, i32 noundef 17)
   br label %codeconcat.exit
@@ -3501,7 +3501,7 @@ isSCint.exit105.thread:                           ; preds = %245, %isKint.exit.i
   br i1 %280, label %284, label %281
 
 281:                                              ; preds = %277
-  %282 = trunc i64 %278 to i32
+  %282 = trunc nsw i64 %278 to i32
   %283 = add nsw i32 %282, 127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
   br label %291
@@ -3659,7 +3659,7 @@ codeeq.exit:                                      ; preds = %freereg.exit.i.i.i,
   br i1 %357, label %362, label %358
 
 358:                                              ; preds = %354
-  %359 = trunc i64 %355 to i32
+  %359 = trunc nsw i64 %355 to i32
   %360 = add nsw i32 %359, 127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   %361 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef %2)
@@ -3704,7 +3704,7 @@ codeeq.exit:                                      ; preds = %freereg.exit.i.i.i,
   br i1 %379, label %384, label %380
 
 380:                                              ; preds = %376
-  %381 = trunc i64 %377 to i32
+  %381 = trunc nsw i64 %377 to i32
   %382 = add nsw i32 %381, 127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   %383 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %3)
@@ -4477,7 +4477,7 @@ previousinstruction.exit.i:                       ; preds = %14, %7
   br i1 %82, label %90, label %83
 
 83:                                               ; preds = %79
-  %84 = trunc i64 %80 to i32
+  %84 = trunc nsw i64 %80 to i32
   %85 = shl i32 %2, 7
   %86 = or disjoint i32 %85, 2
   %87 = shl i32 %84, 15

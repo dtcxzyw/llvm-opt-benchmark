@@ -423,7 +423,7 @@ BIT_initDStream.exit.thread177.i:                 ; preds = %114
   %118 = zext i8 %117 to i32
   %119 = call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %118, i1 true)
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %121 = trunc nuw i64 %26 to i32
+  %121 = trunc nuw nsw i64 %26 to i32
   %122 = shl nuw nsw i32 %121, 3
   %reass.sub = sub nsw i32 %119, %122
   %123 = add nsw i32 %reass.sub, 41
@@ -1259,7 +1259,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   %76 = zext i8 %72 to i32
   %77 = tail call range(i32 16, 32) i32 @llvm.ctlz.i32(i32 range(i32 0, 65536) %76, i1 true)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %79 = trunc nuw i64 %2 to i32
+  %79 = trunc nuw nsw i64 %2 to i32
   %80 = shl nuw nsw i32 %79, 3
   %81 = sub nsw i32 %77, %80
   %82 = add nsw i32 %81, 41

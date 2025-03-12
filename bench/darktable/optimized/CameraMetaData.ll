@@ -842,7 +842,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %151
 
 151:                                              ; preds = %150, %148
-  %152 = trunc i64 %132 to i32
+  %152 = trunc nsw i64 %132 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #29
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %152, ptr %12, align 4, !tbaa !60

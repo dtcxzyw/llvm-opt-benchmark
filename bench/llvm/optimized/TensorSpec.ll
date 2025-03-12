@@ -2267,7 +2267,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i98: 
 
 220:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %._crit_edge.i.i.thread.i.i.i.i.i.i
   %.0.lcssa.i.i10.i.i.i.i.i.i = phi i32 [ 1, %._crit_edge.i.i.thread.i.i.i.i.i.i ], [ %188, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %221 = trunc nuw i32 %.0.lcssa.i.i10.i.i.i.i.i.i to i8
+  %221 = trunc nuw nsw i32 %.0.lcssa.i.i10.i.i.i.i.i.i to i8
   %222 = or disjoint i8 %221, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKaZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -2376,7 +2376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i102: ; preds
 
 273:                                              ; preds = %._crit_edge.i.i.i.i.i18.i.i.i, %._crit_edge.i.i.thread.i.i.i21.i.i.i
   %.0.lcssa.i.i10.i.i.i19.i.i.i = phi i32 [ 1, %._crit_edge.i.i.thread.i.i.i21.i.i.i ], [ %242, %._crit_edge.i.i.i.i.i18.i.i.i ]
-  %274 = trunc nuw i32 %.0.lcssa.i.i10.i.i.i19.i.i.i to i8
+  %274 = trunc nuw nsw i32 %.0.lcssa.i.i10.i.i.i19.i.i.i to i8
   %275 = or disjoint i8 %274, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKaZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit22.i.i.i"
 
@@ -2476,7 +2476,7 @@ _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.e
 
 322:                                              ; preds = %._crit_edge.i.i.i.i.i29.i.i.i, %._crit_edge.i.i.thread.i.i.i32.i.i.i
   %.0.lcssa.i.i10.i.i.i30.i.i.i = phi i32 [ 1, %._crit_edge.i.i.thread.i.i.i32.i.i.i ], [ %291, %._crit_edge.i.i.i.i.i29.i.i.i ]
-  %323 = trunc nuw i32 %.0.lcssa.i.i10.i.i.i30.i.i.i to i8
+  %323 = trunc nuw nsw i32 %.0.lcssa.i.i10.i.i.i30.i.i.i to i8
   %324 = or disjoint i8 %323, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKaZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_2NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit33.i.i.i"
 
@@ -2964,7 +2964,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i: ; preds = %522, %520,
   br label %"_ZNK4llvm15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
 560:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i146
-  %561 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i to i8
+  %561 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i to i8
   %562 = or disjoint i8 %561, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -3099,7 +3099,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i17.i.i.i: ; preds = %587, %58
   br label %"_ZNK4llvm15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit27.i.i.i"
 
 624:                                              ; preds = %._crit_edge.i.i.i.i.i20.i.i.i
-  %625 = trunc nuw i32 %.0.lcssa.i.i.i.i.i21.i.i.i to i8
+  %625 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i21.i.i.i to i8
   %626 = or disjoint i8 %625, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit27.i.i.i"
 
@@ -3225,7 +3225,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i33.i.i.i: ; preds = %647, %64
   br label %"_ZNK4llvm15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit43.i.i.i"
 
 684:                                              ; preds = %._crit_edge.i.i.i.i.i36.i.i.i
-  %685 = trunc nuw i32 %.0.lcssa.i.i.i.i.i37.i.i.i to i8
+  %685 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i37.i.i.i to i8
   %686 = or disjoint i8 %685, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKsZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_4NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit43.i.i.i"
 
@@ -3382,7 +3382,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i172: ; preds = %723, %7
   br label %"_ZNK4llvm15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
 758:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i174
-  %759 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i175 to i8
+  %759 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i175 to i8
   %760 = or disjoint i8 %759, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -3512,7 +3512,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i17.i.i.i166: ; preds = %784, 
   br label %"_ZNK4llvm15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit26.i.i.i"
 
 818:                                              ; preds = %._crit_edge.i.i.i.i.i19.i.i.i
-  %819 = trunc nuw i32 %.0.lcssa.i.i.i.i.i20.i.i.i to i8
+  %819 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i20.i.i.i to i8
   %820 = or disjoint i8 %819, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit26.i.i.i"
 
@@ -3633,7 +3633,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i32.i.i.i: ; preds = %840, %83
   br label %"_ZNK4llvm15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit41.i.i.i"
 
 874:                                              ; preds = %._crit_edge.i.i.i.i.i34.i.i.i
-  %875 = trunc nuw i32 %.0.lcssa.i.i.i.i.i35.i.i.i to i8
+  %875 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i35.i.i.i to i8
   %876 = or disjoint i8 %875, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKtZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_5NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit41.i.i.i"
 
@@ -3813,7 +3813,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i204: ; preds = %921, %9
   br label %"_ZNK4llvm15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
 961:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i207
-  %962 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i208 to i8
+  %962 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i208 to i8
   %963 = or disjoint i8 %962, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -3966,7 +3966,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i18.i.i.i: ; preds = %995, %99
   br label %"_ZNK4llvm15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit28.i.i.i"
 
 1034:                                             ; preds = %._crit_edge.i.i.i.i.i21.i.i.i
-  %1035 = trunc nuw i32 %.0.lcssa.i.i.i.i.i22.i.i.i to i8
+  %1035 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i22.i.i.i to i8
   %1036 = or disjoint i8 %1035, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit28.i.i.i"
 
@@ -4110,7 +4110,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i35.i.i.i: ; preds = %1064, %1
   br label %"_ZNK4llvm15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit45.i.i.i"
 
 1103:                                             ; preds = %._crit_edge.i.i.i.i.i38.i.i.i
-  %1104 = trunc nuw i32 %.0.lcssa.i.i.i.i.i39.i.i.i to i8
+  %1104 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i39.i.i.i to i8
   %1105 = or disjoint i8 %1104, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKiZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_6NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit45.i.i.i"
 
@@ -4288,7 +4288,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i.i.i.i248: ; preds = %1149, %
   br label %"_ZNK4llvm15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
 1189:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i250
-  %1190 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i.i251 to i8
+  %1190 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i.i251 to i8
   %1191 = or disjoint i8 %1190, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -4438,7 +4438,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i18.i.i.i235: ; preds = %1222,
   br label %"_ZNK4llvm15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit27.i.i.i"
 
 1260:                                             ; preds = %._crit_edge.i.i.i.i.i20.i.i.i237
-  %1261 = trunc nuw i32 %.0.lcssa.i.i.i.i.i21.i.i.i238 to i8
+  %1261 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i21.i.i.i238 to i8
   %1262 = or disjoint i8 %1261, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit27.i.i.i"
 
@@ -4579,7 +4579,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i.i34.i.i.i: ; preds = %1289, %1
   br label %"_ZNK4llvm15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit43.i.i.i"
 
 1327:                                             ; preds = %._crit_edge.i.i.i.i.i36.i.i.i261
-  %1328 = trunc nuw i32 %.0.lcssa.i.i.i.i.i37.i.i.i262 to i8
+  %1328 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i37.i.i.i262 to i8
   %1329 = or disjoint i8 %1328, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKjZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_7NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit43.i.i.i"
 
@@ -4755,7 +4755,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i.i.i: ; preds = %1374, %137
   br label %"_ZNK4llvm15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
 1410:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i303
-  %1411 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i.i304 to i8
+  %1411 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i.i304 to i8
   %1412 = or disjoint i8 %1411, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -4904,7 +4904,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i18.i.i.i: ; preds = %1444, %1
   br label %"_ZNK4llvm15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit28.i.i.i"
 
 1479:                                             ; preds = %._crit_edge.i.i.i.i.i21.i.i.i292
-  %1480 = trunc nuw i64 %.0.lcssa.i.i.i.i.i22.i.i.i293 to i8
+  %1480 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i22.i.i.i293 to i8
   %1481 = or disjoint i8 %1480, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit28.i.i.i"
 
@@ -5044,7 +5044,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i35.i.i.i: ; preds = %1509, %1
   br label %"_ZNK4llvm15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit45.i.i.i"
 
 1544:                                             ; preds = %._crit_edge.i.i.i.i.i38.i.i.i316
-  %1545 = trunc nuw i64 %.0.lcssa.i.i.i.i.i39.i.i.i317 to i8
+  %1545 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i39.i.i.i317 to i8
   %1546 = or disjoint i8 %1545, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKlZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_8NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit45.i.i.i"
 
@@ -5218,7 +5218,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i.i.i363: ; preds = %1590, %
   br label %"_ZNK4llvm15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
 1626:                                             ; preds = %._crit_edge.i.i.i.i.i.i.i.i365
-  %1627 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i.i366 to i8
+  %1627 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i.i366 to i8
   %1628 = or disjoint i8 %1627, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit.i.i.i"
 
@@ -5364,7 +5364,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i18.i.i.i350: ; preds = %1659,
   br label %"_ZNK4llvm15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit27.i.i.i"
 
 1693:                                             ; preds = %._crit_edge.i.i.i.i.i20.i.i.i352
-  %1694 = trunc nuw i64 %.0.lcssa.i.i.i.i.i21.i.i.i353 to i8
+  %1694 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i21.i.i.i353 to i8
   %1695 = or disjoint i8 %1694, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit27.i.i.i"
 
@@ -5501,7 +5501,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i34.i.i.i: ; preds = %1722, %1
   br label %"_ZNK4llvm15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit43.i.i.i"
 
 1756:                                             ; preds = %._crit_edge.i.i.i.i.i36.i.i.i377
-  %1757 = trunc nuw i64 %.0.lcssa.i.i.i.i.i37.i.i.i378 to i8
+  %1757 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i37.i.i.i378 to i8
   %1758 = or disjoint i8 %1757, 48
   br label %"_ZNK4llvm15mapped_iteratorIPKmZNS_19tensorValueToStringB5cxx11EPKcRKNS_10TensorSpecEE3$_9NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEdeEv.exit43.i.i.i"
 

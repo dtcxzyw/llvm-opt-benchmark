@@ -2849,7 +2849,7 @@ _ZNSt12__shared_ptrIKN6Assimp3DXF8PolyLineELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 
 296:                                              ; preds = %281
   %297 = getelementptr inbounds nuw i8, ptr %280, i64 236
-  %298 = trunc nuw i64 %294 to i32
+  %298 = trunc nuw nsw i64 %294 to i32
   store i32 %298, ptr %297, align 4
   %299 = getelementptr inbounds nuw i8, ptr %280, i64 240
   %300 = load ptr, ptr %279, align 8

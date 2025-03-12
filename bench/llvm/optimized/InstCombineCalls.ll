@@ -1254,7 +1254,7 @@ _ZL14hasUndefSourcePN4llvm18AnyMemTransferInstE.exit.thread: ; preds = %_ZNK4llv
 
 162:                                              ; preds = %147, %158
   %163 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #28
-  %.tr = trunc nuw i64 %144 to i32
+  %.tr = trunc nuw nsw i64 %144 to i32
   %164 = shl nuw nsw i32 %.tr, 3
   %165 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %163, i32 noundef %164) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #28

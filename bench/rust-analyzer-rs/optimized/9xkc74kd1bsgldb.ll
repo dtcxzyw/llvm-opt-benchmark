@@ -97573,8 +97573,8 @@ define hidden noundef zeroext i1 @"_ZN7hir_def4body4Body26body_with_source_map_q
 
 .noexc3:                                          ; preds = %35
   %36 = icmp eq i8 %32, 2
-  %37 = trunc i8 %32 to i1
-  %38 = or i1 %36, %37
+  %37 = trunc nuw i8 %32 to i1
+  %38 = select i1 %36, i1 true, i1 %37
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !20273
   br label %41
 

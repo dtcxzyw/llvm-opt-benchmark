@@ -4508,7 +4508,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17hc23120565b2cba05E.exit: ; pr
   br i1 %648, label %.lr.ph.i, label %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h0db8834a816abf0cE.exit
 
 649:                                              ; preds = %641
-  %650 = trunc nuw i64 %.02279.i to i32
+  %650 = trunc nuw nsw i64 %.02279.i to i32
   %651 = and i32 %650, 31
   %652 = shl nuw i32 1, %651
   %653 = getelementptr inbounds nuw [8 x i32], ptr %.ptr50.i, i64 0, i64 %642
@@ -11211,7 +11211,7 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$6appen
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h99f75ab566219fbfE.llvm.11440381710838953987.exit": ; preds = %3
-  %8 = trunc i8 %5 to i1
+  %8 = trunc nuw i8 %5 to i1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   ret i1 %8
 }

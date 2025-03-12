@@ -777,7 +777,7 @@ proto_item_set_generated.exit279:                 ; preds = %270, %279, %282
 proto_item_set_generated.exit282:                 ; preds = %250, %.preheader, %301, %298, %289, %160, %311, %proto_item_set_generated.exit279, %307, %287, %305, %264, %262, %240, %247, %234, %228, %222, %212, %206, %204, %198, %190, %173, %180, %186, %178, %184, %167, %165, %318, %313, %258, %236, %230, %224, %217, %200, %192
   %322 = zext i16 %163 to i32
   %323 = add nuw nsw i32 %147, %322
-  %324 = trunc i32 %148 to i16
+  %324 = trunc nuw i32 %148 to i16
   %325 = sub i16 %.0246292, %324
   %.not270 = icmp eq i16 %325, 0
   br i1 %.not270, label %.loopexit, label %141, !llvm.loop !9

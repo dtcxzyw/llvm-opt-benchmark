@@ -4423,7 +4423,7 @@ define hidden noalias noundef ptr @qoi_encode(ptr noundef readonly captures(addr
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 7
   store i8 %45, ptr %46, align 1
   %47 = lshr i32 %13, 24
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i8 %48, ptr %49, align 1
   %50 = lshr i32 %13, 16
@@ -33687,7 +33687,7 @@ stbi__get8.exit321.thread:                        ; preds = %189, %stbi__get8.ex
   br label %.thread409
 
 243:                                              ; preds = %240
-  %.lhs.trunc = trunc nuw i32 %64 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %64 to i16
   %244 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %244 to i32
   %245 = mul nuw nsw i32 %.zext, 3

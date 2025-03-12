@@ -1359,7 +1359,7 @@ _ZN4llvm15SmallVectorImplINS_9StackMaps8LocationEE12emplace_backIJNS2_12Location
   %156 = zext i32 %150 to i64
   %157 = load ptr, ptr %3, align 8, !tbaa !25
   %158 = getelementptr inbounds nuw %"struct.llvm::StackMaps::Location", ptr %157, i64 %156
-  %159 = trunc i64 %145 to i32
+  %159 = trunc nsw i64 %145 to i32
   store i16 4, ptr %158, align 4, !tbaa !343
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 2
   store i16 8, ptr %160, align 2, !tbaa !345

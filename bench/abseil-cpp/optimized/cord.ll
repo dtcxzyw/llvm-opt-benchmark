@@ -138,7 +138,7 @@ define weak_odr dso_local void @_ZN4absl4CordC2INSt7__cxx1112basic_stringIcSt11c
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8, !tbaa !12
-  %.tr.i.i = trunc nuw i64 %4 to i8
+  %.tr.i.i = trunc nuw nsw i64 %4 to i8
   %8 = shl nuw nsw i8 %.tr.i.i, 1
   store i8 %8, ptr %0, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -514,14 +514,14 @@ define dso_local void @_ZN4absl4Cord9InlineRep19AppendTreeToInlinedEPNS_13cord_i
   %.sink5.i.i.i.i.i = select i1 %18, i64 2, i64 58
   %19 = lshr i64 %15, %.sink6.i.i.i.i.i
   %20 = add nuw nsw i64 %19, %.sink5.i.i.i.i.i
-  %21 = trunc i64 %20 to i8
+  %21 = trunc nuw nsw i64 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i8 %21, ptr %22, align 4, !tbaa !23
   store i64 %8, ptr %16, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %23, ptr noundef nonnull align 1 dereferenceable(15) %24, i64 15, i1 false)
-  %or.cond.i.i = icmp samesign ugt i8 %21, 4
+  %or.cond.i.i = icmp samesign ugt i64 %20, 4
   br i1 %or.cond.i.i, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread5.i
 
 _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %6
@@ -810,14 +810,14 @@ define dso_local void @_ZN4absl4Cord9InlineRep20PrependTreeToInlinedEPNS_13cord_
   %.sink5.i.i.i.i.i = select i1 %18, i64 2, i64 58
   %19 = lshr i64 %15, %.sink6.i.i.i.i.i
   %20 = add nuw nsw i64 %19, %.sink5.i.i.i.i.i
-  %21 = trunc i64 %20 to i8
+  %21 = trunc nuw nsw i64 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i8 %21, ptr %22, align 4, !tbaa !23
   store i64 %8, ptr %16, align 8, !tbaa !22
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %23, ptr noundef nonnull align 1 dereferenceable(15) %24, i64 15, i1 false)
-  %or.cond.i.i = icmp samesign ugt i8 %21, 4
+  %or.cond.i.i = icmp samesign ugt i64 %20, 4
   br i1 %or.cond.i.i, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread5.i
 
 _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %6
@@ -1097,7 +1097,7 @@ define dso_local void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcE
   br i1 %5, label %6, label %39
 
 6:                                                ; preds = %4
-  %.tr.i.i = trunc nuw i64 %1 to i8
+  %.tr.i.i = trunc nuw nsw i64 %1 to i8
   %7 = shl nuw nsw i8 %.tr.i.i, 1
   store i8 %7, ptr %0, align 8, !tbaa !13
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1215,7 +1215,7 @@ define internal fastcc noundef ptr @_ZN4abslL7NewTreeEPKcmm(ptr noundef %0, i64 
   %.sink5.i.i.i.i.i.i = select i1 %15, i64 2, i64 58
   %16 = lshr i64 %12, %.sink6.i.i.i.i.i.i
   %17 = add nuw nsw i64 %16, %.sink5.i.i.i.i.i.i
-  %18 = trunc i64 %17 to i8
+  %18 = trunc nuw nsw i64 %17 to i8
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i8 %18, ptr %19, align 4, !tbaa !23
   store i64 %1, ptr %13, align 8, !tbaa !22
@@ -1506,7 +1506,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl4Corda
   br label %_ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit
 
 _ZN4absl13cord_internal9CordzInfo16MaybeUntrackCordEPS1_.exit: ; preds = %11, %14
-  %.tr.i.i = trunc nuw i64 %1 to i8
+  %.tr.i.i = trunc nuw nsw i64 %1 to i8
   %16 = shl nuw nsw i8 %.tr.i.i, 1
   store i8 %16, ptr %0, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1579,7 +1579,7 @@ _ZN4absl4Cord9InlineRep8set_dataEPKcm.exit:       ; preds = %19, %26, %43
   br label %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit
 
 .critedge:                                        ; preds = %10
-  %.tr.i.i35 = trunc nuw i64 %1 to i8
+  %.tr.i.i35 = trunc nuw nsw i64 %1 to i8
   %48 = shl nuw nsw i8 %.tr.i.i35, 1
   store i8 %48, ptr %0, align 8, !tbaa !13
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2024,11 +2024,11 @@ _ZN4abslL19PrepareAppendRegionEPNS_13cord_internal7CordRepEPPcPmm.exit.thread: ;
   %.sink5.i.i.i.i = select i1 %111, i64 2, i64 58
   %112 = lshr i64 %101, %.sink6.i.i.i.i49
   %113 = add nuw nsw i64 %112, %.sink5.i.i.i.i
-  %114 = trunc i64 %113 to i8
+  %114 = trunc nuw nsw i64 %113 to i8
   %115 = getelementptr inbounds nuw i8, ptr %102, i64 12
   store i8 %114, ptr %115, align 4, !tbaa !23
   %116 = trunc nuw nsw i64 %113 to i32
-  %117 = icmp samesign ult i8 %114, 67
+  %117 = icmp samesign ult i64 %113, 67
   %.sink6.i.i.i = select i1 %117, i32 3, i32 6
   %118 = shl nuw nsw i32 %116, %.sink6.i.i.i
   %119 = select i1 %117, i32 -29, i32 -3725
@@ -2387,7 +2387,7 @@ _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit: ; preds = %_ZN4absl10CordBu
   %.sink5.i.i.i.i.i = select i1 %98, i64 2, i64 58
   %99 = lshr i64 %95, %.sink6.i.i.i.i.i
   %100 = add nuw nsw i64 %99, %.sink5.i.i.i.i.i
-  %101 = trunc i64 %100 to i8
+  %101 = trunc nuw nsw i64 %100 to i8
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 12
   store i8 %101, ptr %102, align 4, !tbaa !23, !noalias !73
   store i64 0, ptr %96, align 8, !tbaa !22, !noalias !73
@@ -2521,7 +2521,7 @@ _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i: ; preds = %126, %120, %_Z
   %.sink5.i.i.i.i.i.i30 = select i1 %163, i64 2, i64 58
   %164 = lshr i64 %160, %.sink6.i.i.i.i.i.i29
   %165 = add nuw nsw i64 %164, %.sink5.i.i.i.i.i.i30
-  %166 = trunc i64 %165 to i8
+  %166 = trunc nuw nsw i64 %165 to i8
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i8 %166, ptr %167, align 4, !tbaa !23, !noalias !91
   store i64 0, ptr %161, align 8, !tbaa !22, !noalias !91
@@ -4019,7 +4019,7 @@ _ZN4absl4Cord9InlineRep23MaybeRemoveEmptyCrcNodeEv.exit: ; preds = %4, %12, %_ZN
 31:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %.tr.i.i = trunc nuw i64 %29 to i8
+  %.tr.i.i = trunc nuw nsw i64 %29 to i8
   %32 = shl nuw nsw i8 %.tr.i.i, 1
   store i8 %32, ptr %5, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
@@ -4091,7 +4091,7 @@ define dso_local void @_ZN4absl4Cord13AppendPreciseESt17basic_string_viewIcSt11c
   %.sink5.i.i.i.i.i = select i1 %26, i64 2, i64 58
   %27 = lshr i64 %23, %.sink6.i.i.i.i.i
   %28 = add nuw nsw i64 %27, %.sink5.i.i.i.i.i
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i8 %29, ptr %30, align 4, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 13
@@ -4163,7 +4163,7 @@ define dso_local void @_ZN4absl4Cord14PrependPreciseESt17basic_string_viewIcSt11
   %.sink5.i.i.i.i.i = select i1 %28, i64 2, i64 58
   %29 = lshr i64 %25, %.sink6.i.i.i.i.i
   %30 = add nuw nsw i64 %29, %.sink5.i.i.i.i.i
-  %31 = trunc i64 %30 to i8
+  %31 = trunc nuw nsw i64 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i8 %31, ptr %32, align 4, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 13
@@ -5370,7 +5370,7 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %12, %8
   br i1 %59, label %60, label %287
 
 60:                                               ; preds = %58
-  %.tr.i.i.i = trunc nuw i64 %.043 to i8
+  %.tr.i.i.i = trunc nuw nsw i64 %.043 to i8
   %61 = shl nuw nsw i8 %.tr.i.i.i, 1
   store i8 %61, ptr %0, align 8, !tbaa !13
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -6106,7 +6106,7 @@ _ZN4absl13cord_internal20cordz_should_profileEv.exit.i: ; preds = %25
   %.sink5.i.i.i.i.i = select i1 %46, i64 2, i64 58
   %47 = lshr i64 %43, %.sink6.i.i.i.i.i
   %48 = add nuw nsw i64 %47, %.sink5.i.i.i.i.i
-  %49 = trunc i64 %48 to i8
+  %49 = trunc nuw nsw i64 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i8 %49, ptr %50, align 4, !tbaa !23
   store i64 %36, ptr %44, align 8, !tbaa !22
@@ -8105,7 +8105,7 @@ define dso_local void @_ZN4absl4Cord13ChunkIterator19AdvanceAndReadBytesEm(ptr d
   br i1 %6, label %7, label %184
 
 7:                                                ; preds = %3
-  %.tr.i.i.i.i = trunc nuw i64 %2 to i8
+  %.tr.i.i.i.i = trunc nuw nsw i64 %2 to i8
   %8 = shl nuw nsw i8 %.tr.i.i.i.i, 1
   store i8 %8, ptr %0, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -10053,7 +10053,7 @@ _ZNK4absl4Cord4sizeEv.exit:                       ; preds = %5, %9
   %.sink5.i.i.i.i = select i1 %24, i64 2, i64 58
   %25 = lshr i64 %20, %.sink6.i.i.i.i
   %26 = add nuw nsw i64 %25, %.sink5.i.i.i.i
-  %27 = trunc i64 %26 to i8
+  %27 = trunc nuw nsw i64 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i8 %27, ptr %28, align 4, !tbaa !23
   store i64 %12, ptr %21, align 8, !tbaa !22
@@ -10959,7 +10959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZN
   %.sink5.i.i = select i1 %54, i64 2, i64 58
   %55 = lshr i64 %53, %.sink6.i.i
   %56 = add nuw nsw i64 %55, %.sink5.i.i
-  %57 = trunc i64 %56 to i8
+  %57 = trunc nuw nsw i64 %56 to i8
   ret i8 %57
 }
 

@@ -406,7 +406,7 @@ LZ4_count.exit:                                   ; preds = %153, %155, %.thread
 ._crit_edge761:                                   ; preds = %.lr.ph760.preheader, %166
   %.3458.i260.lcssa = phi i32 [ %169, %166 ], [ %176, %.lr.ph760.preheader ]
   %.9433.i261.lcssa = phi ptr [ %.7431.i250, %166 ], [ %scevgep965, %.lr.ph760.preheader ]
-  %.lhs.trunc620 = trunc nuw i32 %.3458.i260.lcssa to i16
+  %.lhs.trunc620 = trunc nuw nsw i32 %.3458.i260.lcssa to i16
   %177 = udiv i16 %.lhs.trunc620, 255
   %178 = zext nneg i16 %177 to i64
   %179 = getelementptr inbounds nuw i8, ptr %.9433.i261.lcssa, i64 %178
@@ -420,7 +420,7 @@ LZ4_count.exit:                                   ; preds = %153, %155, %.thread
   %184 = phi ptr [ %129, %LZ4_count.exit.thread ], [ %164, %LZ4_count.exit ]
   %.2.i424 = phi i32 [ %126, %LZ4_count.exit.thread ], [ %.2.i, %LZ4_count.exit ]
   %185 = load i8, ptr %.0483.i243, align 1, !tbaa !4
-  %186 = trunc nuw i32 %.2.i424 to i8
+  %186 = trunc nuw nsw i32 %.2.i424 to i8
   %187 = add i8 %185, %186
   store i8 %187, ptr %.0483.i243, align 1, !tbaa !4
   br label %188
@@ -500,7 +500,7 @@ LZ4_count.exit:                                   ; preds = %153, %155, %.thread
   br label %LZ4_compress_generic_validated.exit266
 
 227:                                              ; preds = %.thread431
-  %.0400.tr.i225 = trunc nuw i64 %214 to i8
+  %.0400.tr.i225 = trunc nuw nsw i64 %214 to i8
   %228 = shl nuw i8 %.0400.tr.i225, 4
   store i8 %228, ptr %.0424.i222, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit266
@@ -840,7 +840,7 @@ LZ4_count.exit299:                                ; preds = %366, %368, %.thread
 ._crit_edge723:                                   ; preds = %.lr.ph722.preheader, %379
   %.3458.i184.lcssa = phi i32 [ %382, %379 ], [ %389, %.lr.ph722.preheader ]
   %.9433.i185.lcssa = phi ptr [ %.7431.i174, %379 ], [ %scevgep959, %.lr.ph722.preheader ]
-  %.lhs.trunc624 = trunc nuw i32 %.3458.i184.lcssa to i16
+  %.lhs.trunc624 = trunc nuw nsw i32 %.3458.i184.lcssa to i16
   %390 = udiv i16 %.lhs.trunc624, 255
   %391 = zext nneg i16 %390 to i64
   %392 = getelementptr inbounds nuw i8, ptr %.9433.i185.lcssa, i64 %391
@@ -854,7 +854,7 @@ LZ4_count.exit299:                                ; preds = %366, %368, %.thread
   %397 = phi ptr [ %342, %LZ4_count.exit299.thread ], [ %377, %LZ4_count.exit299 ]
   %.2.i289467 = phi i32 [ %339, %LZ4_count.exit299.thread ], [ %.2.i289, %LZ4_count.exit299 ]
   %398 = load i8, ptr %.0483.i167, align 1, !tbaa !4
-  %399 = trunc nuw i32 %.2.i289467 to i8
+  %399 = trunc nuw nsw i32 %.2.i289467 to i8
   %400 = add i8 %398, %399
   store i8 %400, ptr %.0483.i167, align 1, !tbaa !4
   br label %401
@@ -943,7 +943,7 @@ LZ4_count.exit299:                                ; preds = %366, %368, %.thread
   br label %LZ4_compress_generic_validated.exit190
 
 443:                                              ; preds = %.loopexit638
-  %.0400.tr.i149 = trunc nuw i64 %430 to i8
+  %.0400.tr.i149 = trunc nuw nsw i64 %430 to i8
   %444 = shl nuw i8 %.0400.tr.i149, 4
   store i8 %444, ptr %.2426.i142.ph, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit190
@@ -1320,7 +1320,7 @@ LZ4_count.exit321:                                ; preds = %.thread512, %565, %
 ._crit_edge837:                                   ; preds = %.lr.ph836.preheader, %620
   %.3458.i108.lcssa = phi i32 [ %622, %620 ], [ %629, %.lr.ph836.preheader ]
   %.9433.i109.lcssa = phi ptr [ %.7431.i98, %620 ], [ %scevgep977, %.lr.ph836.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.3458.i108.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.3458.i108.lcssa to i16
   %630 = udiv i16 %.lhs.trunc, 255
   %631 = zext nneg i16 %630 to i64
   %632 = getelementptr inbounds nuw i8, ptr %.9433.i109.lcssa, i64 %631
@@ -1331,7 +1331,7 @@ LZ4_count.exit321:                                ; preds = %.thread512, %565, %
   br label %639
 
 636:                                              ; preds = %617
-  %637 = trunc nuw i32 %.2.i311.fr to i8
+  %637 = trunc nuw nsw i32 %.2.i311.fr to i8
   %638 = add i8 %619, %637
   store i8 %638, ptr %.0483.i91, align 1, !tbaa !4
   br label %639
@@ -1419,7 +1419,7 @@ LZ4_count.exit321:                                ; preds = %.thread512, %565, %
   br label %686
 
 684:                                              ; preds = %671
-  %.0400.tr.i73 = trunc nuw i64 %664 to i8
+  %.0400.tr.i73 = trunc nuw nsw i64 %664 to i8
   %685 = shl nuw i8 %.0400.tr.i73, 4
   store i8 %685, ptr %.0424.i70, align 1, !tbaa !4
   br label %686
@@ -1785,7 +1785,7 @@ LZ4_count.exit343:                                ; preds = %.thread574, %803, %
 ._crit_edge799:                                   ; preds = %.lr.ph798.preheader, %858
   %.3458.i.lcssa = phi i32 [ %860, %858 ], [ %867, %.lr.ph798.preheader ]
   %.9433.i.lcssa = phi ptr [ %.7431.i, %858 ], [ %scevgep971, %.lr.ph798.preheader ]
-  %.lhs.trunc616 = trunc nuw i32 %.3458.i.lcssa to i16
+  %.lhs.trunc616 = trunc nuw nsw i32 %.3458.i.lcssa to i16
   %868 = udiv i16 %.lhs.trunc616, 255
   %869 = zext nneg i16 %868 to i64
   %870 = getelementptr inbounds nuw i8, ptr %.9433.i.lcssa, i64 %869
@@ -1796,7 +1796,7 @@ LZ4_count.exit343:                                ; preds = %.thread574, %803, %
   br label %877
 
 874:                                              ; preds = %855
-  %875 = trunc nuw i32 %.2.i333.fr to i8
+  %875 = trunc nuw nsw i32 %.2.i333.fr to i8
   %876 = add i8 %857, %875
   store i8 %876, ptr %.0483.i, align 1, !tbaa !4
   br label %877
@@ -1894,7 +1894,7 @@ LZ4_count.exit343:                                ; preds = %.thread574, %803, %
   br label %927
 
 925:                                              ; preds = %912
-  %.0400.tr.i = trunc nuw i64 %905 to i8
+  %.0400.tr.i = trunc nuw nsw i64 %905 to i8
   %926 = shl nuw i8 %.0400.tr.i, 4
   store i8 %926, ptr %.2426.i.ph, align 1, !tbaa !4
   br label %927
@@ -2335,7 +2335,7 @@ LZ4_count.exit568:                                ; preds = %165, %167, %.thread
 ._crit_edge1179:                                  ; preds = %.lr.ph1178.preheader, %178
   %.3458.i.lcssa = phi i32 [ %181, %178 ], [ %188, %.lr.ph1178.preheader ]
   %.9433.i.lcssa = phi ptr [ %.7431.i, %178 ], [ %scevgep1531, %.lr.ph1178.preheader ]
-  %.lhs.trunc985 = trunc nuw i32 %.3458.i.lcssa to i16
+  %.lhs.trunc985 = trunc nuw nsw i32 %.3458.i.lcssa to i16
   %189 = udiv i16 %.lhs.trunc985, 255
   %190 = zext nneg i16 %189 to i64
   %191 = getelementptr inbounds nuw i8, ptr %.9433.i.lcssa, i64 %190
@@ -2349,7 +2349,7 @@ LZ4_count.exit568:                                ; preds = %165, %167, %.thread
   %196 = phi ptr [ %141, %LZ4_count.exit568.thread ], [ %176, %LZ4_count.exit568 ]
   %.2.i558673 = phi i32 [ %138, %LZ4_count.exit568.thread ], [ %.2.i558, %LZ4_count.exit568 ]
   %197 = load i8, ptr %.0483.i, align 1, !tbaa !4
-  %198 = trunc nuw i32 %.2.i558673 to i8
+  %198 = trunc nuw nsw i32 %.2.i558673 to i8
   %199 = add i8 %197, %198
   store i8 %199, ptr %.0483.i, align 1, !tbaa !4
   br label %200
@@ -2439,7 +2439,7 @@ LZ4_count.exit568:                                ; preds = %165, %167, %.thread
   br label %LZ4_compress_generic_validated.exit
 
 244:                                              ; preds = %.thread682
-  %.0400.tr.i = trunc nuw i64 %231 to i8
+  %.0400.tr.i = trunc nuw nsw i64 %231 to i8
   %245 = shl nuw i8 %.0400.tr.i, 4
   store i8 %245, ptr %.0424.i, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit
@@ -2774,7 +2774,7 @@ LZ4_count.exit546:                                ; preds = %374, %376, %.thread
 ._crit_edge1217:                                  ; preds = %.lr.ph1216.preheader, %387
   %.3458.i141.lcssa = phi i32 [ %390, %387 ], [ %397, %.lr.ph1216.preheader ]
   %.9433.i142.lcssa = phi ptr [ %.7431.i132, %387 ], [ %scevgep1537, %.lr.ph1216.preheader ]
-  %.lhs.trunc981 = trunc nuw i32 %.3458.i141.lcssa to i16
+  %.lhs.trunc981 = trunc nuw nsw i32 %.3458.i141.lcssa to i16
   %398 = udiv i16 %.lhs.trunc981, 255
   %399 = zext nneg i16 %398 to i64
   %400 = getelementptr inbounds nuw i8, ptr %.9433.i142.lcssa, i64 %399
@@ -2788,7 +2788,7 @@ LZ4_count.exit546:                                ; preds = %374, %376, %.thread
   %405 = phi ptr [ %350, %LZ4_count.exit546.thread ], [ %385, %LZ4_count.exit546 ]
   %.2.i536717 = phi i32 [ %347, %LZ4_count.exit546.thread ], [ %.2.i536, %LZ4_count.exit546 ]
   %406 = load i8, ptr %.0483.i125, align 1, !tbaa !4
-  %407 = trunc nuw i32 %.2.i536717 to i8
+  %407 = trunc nuw nsw i32 %.2.i536717 to i8
   %408 = add i8 %406, %407
   store i8 %408, ptr %.0483.i125, align 1, !tbaa !4
   br label %409
@@ -2868,7 +2868,7 @@ LZ4_count.exit546:                                ; preds = %374, %376, %.thread
   br label %LZ4_compress_generic_validated.exit147
 
 448:                                              ; preds = %.thread725
-  %.0400.tr.i113 = trunc nuw i64 %435 to i8
+  %.0400.tr.i113 = trunc nuw nsw i64 %435 to i8
   %449 = shl nuw i8 %.0400.tr.i113, 4
   store i8 %449, ptr %.0424.i110, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit147
@@ -3232,7 +3232,7 @@ LZ4_count.exit524:                                ; preds = %592, %594, %.thread
 ._crit_edge1133:                                  ; preds = %.lr.ph1132.preheader, %605
   %.3458.i210.lcssa = phi i32 [ %608, %605 ], [ %615, %.lr.ph1132.preheader ]
   %.9433.i211.lcssa = phi ptr [ %.7431.i201, %605 ], [ %scevgep1525, %.lr.ph1132.preheader ]
-  %.lhs.trunc989 = trunc nuw i32 %.3458.i210.lcssa to i16
+  %.lhs.trunc989 = trunc nuw nsw i32 %.3458.i210.lcssa to i16
   %616 = udiv i16 %.lhs.trunc989, 255
   %617 = zext nneg i16 %616 to i64
   %618 = getelementptr inbounds nuw i8, ptr %.9433.i211.lcssa, i64 %617
@@ -3246,7 +3246,7 @@ LZ4_count.exit524:                                ; preds = %592, %594, %.thread
   %623 = phi ptr [ %568, %LZ4_count.exit524.thread ], [ %603, %LZ4_count.exit524 ]
   %.2.i514761 = phi i32 [ %565, %LZ4_count.exit524.thread ], [ %.2.i514, %LZ4_count.exit524 ]
   %624 = load i8, ptr %.0483.i194, align 1, !tbaa !4
-  %625 = trunc nuw i32 %.2.i514761 to i8
+  %625 = trunc nuw nsw i32 %.2.i514761 to i8
   %626 = add i8 %624, %625
   store i8 %626, ptr %.0483.i194, align 1, !tbaa !4
   br label %627
@@ -3335,7 +3335,7 @@ LZ4_count.exit524:                                ; preds = %592, %594, %.thread
   br label %LZ4_compress_generic_validated.exit216
 
 669:                                              ; preds = %.loopexit1015
-  %.0400.tr.i182 = trunc nuw i64 %656 to i8
+  %.0400.tr.i182 = trunc nuw nsw i64 %656 to i8
   %670 = shl nuw i8 %.0400.tr.i182, 4
   store i8 %670, ptr %.2426.i175.ph, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit216
@@ -3753,7 +3753,7 @@ LZ4_count.exit502:                                ; preds = %.thread807, %805, %
 ._crit_edge1301:                                  ; preds = %.lr.ph1300.preheader, %860
   %.3458.i280.lcssa = phi i32 [ %862, %860 ], [ %869, %.lr.ph1300.preheader ]
   %.9433.i281.lcssa = phi ptr [ %.7431.i271, %860 ], [ %scevgep1549, %.lr.ph1300.preheader ]
-  %.lhs.trunc973 = trunc nuw i32 %.3458.i280.lcssa to i16
+  %.lhs.trunc973 = trunc nuw nsw i32 %.3458.i280.lcssa to i16
   %870 = udiv i16 %.lhs.trunc973, 255
   %871 = zext nneg i16 %870 to i64
   %872 = getelementptr inbounds nuw i8, ptr %.9433.i281.lcssa, i64 %871
@@ -3764,7 +3764,7 @@ LZ4_count.exit502:                                ; preds = %.thread807, %805, %
   br label %879
 
 876:                                              ; preds = %857
-  %877 = trunc nuw i32 %.2.i492.fr to i8
+  %877 = trunc nuw nsw i32 %.2.i492.fr to i8
   %878 = add i8 %859, %877
   store i8 %878, ptr %.0483.i264, align 1, !tbaa !4
   br label %879
@@ -3863,7 +3863,7 @@ LZ4_count.exit502:                                ; preds = %.thread807, %805, %
   br label %931
 
 929:                                              ; preds = %916
-  %.0400.tr.i252 = trunc nuw i64 %909 to i8
+  %.0400.tr.i252 = trunc nuw nsw i64 %909 to i8
   %930 = shl nuw i8 %.0400.tr.i252, 4
   store i8 %930, ptr %.0424.i249, align 1, !tbaa !4
   br label %931
@@ -4227,7 +4227,7 @@ LZ4_count.exit480:                                ; preds = %.thread869, %1041, 
 ._crit_edge1339:                                  ; preds = %.lr.ph1338.preheader, %1096
   %.3458.i357.lcssa = phi i32 [ %1098, %1096 ], [ %1105, %.lr.ph1338.preheader ]
   %.9433.i358.lcssa = phi ptr [ %.7431.i347, %1096 ], [ %scevgep1555, %.lr.ph1338.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.3458.i357.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.3458.i357.lcssa to i16
   %1106 = udiv i16 %.lhs.trunc, 255
   %1107 = zext nneg i16 %1106 to i64
   %1108 = getelementptr inbounds nuw i8, ptr %.9433.i358.lcssa, i64 %1107
@@ -4238,7 +4238,7 @@ LZ4_count.exit480:                                ; preds = %.thread869, %1041, 
   br label %1115
 
 1112:                                             ; preds = %1093
-  %1113 = trunc nuw i32 %.2.i470.fr to i8
+  %1113 = trunc nuw nsw i32 %.2.i470.fr to i8
   %1114 = add i8 %1095, %1113
   store i8 %1114, ptr %.0483.i340, align 1, !tbaa !4
   br label %1115
@@ -4326,7 +4326,7 @@ LZ4_count.exit480:                                ; preds = %.thread869, %1041, 
   br label %1162
 
 1160:                                             ; preds = %1147
-  %.0400.tr.i322 = trunc nuw i64 %1140 to i8
+  %.0400.tr.i322 = trunc nuw nsw i64 %1140 to i8
   %1161 = shl nuw i8 %.0400.tr.i322, 4
   store i8 %1161, ptr %.0424.i319, align 1, !tbaa !4
   br label %1162
@@ -4716,7 +4716,7 @@ LZ4_count.exit:                                   ; preds = %.thread931, %1284, 
 ._crit_edge1255:                                  ; preds = %.lr.ph1254.preheader, %1339
   %.3458.i434.lcssa = phi i32 [ %1341, %1339 ], [ %1348, %.lr.ph1254.preheader ]
   %.9433.i435.lcssa = phi ptr [ %.7431.i424, %1339 ], [ %scevgep1543, %.lr.ph1254.preheader ]
-  %.lhs.trunc977 = trunc nuw i32 %.3458.i434.lcssa to i16
+  %.lhs.trunc977 = trunc nuw nsw i32 %.3458.i434.lcssa to i16
   %1349 = udiv i16 %.lhs.trunc977, 255
   %1350 = zext nneg i16 %1349 to i64
   %1351 = getelementptr inbounds nuw i8, ptr %.9433.i435.lcssa, i64 %1350
@@ -4727,7 +4727,7 @@ LZ4_count.exit:                                   ; preds = %.thread931, %1284, 
   br label %1358
 
 1355:                                             ; preds = %1336
-  %1356 = trunc nuw i32 %.2.i.fr to i8
+  %1356 = trunc nuw nsw i32 %.2.i.fr to i8
   %1357 = add i8 %1338, %1356
   store i8 %1357, ptr %.0483.i417, align 1, !tbaa !4
   br label %1358
@@ -4825,7 +4825,7 @@ LZ4_count.exit:                                   ; preds = %.thread931, %1284, 
   br label %1408
 
 1406:                                             ; preds = %1393
-  %.0400.tr.i399 = trunc nuw i64 %1386 to i8
+  %.0400.tr.i399 = trunc nuw nsw i64 %1386 to i8
   %1407 = shl nuw i8 %.0400.tr.i399, 4
   store i8 %1407, ptr %.2426.i392.ph, align 1, !tbaa !4
   br label %1408
@@ -5316,7 +5316,7 @@ LZ4_count.exit134:                                ; preds = %.thread185, %142, %
 ._crit_edge363:                                   ; preds = %.lr.ph362.preheader, %211
   %.3458.i.lcssa = phi i32 [ %213, %211 ], [ %220, %.lr.ph362.preheader ]
   %.9433.i.lcssa = phi ptr [ %.7431.i, %211 ], [ %scevgep441, %.lr.ph362.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.3458.i.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.3458.i.lcssa to i16
   %221 = udiv i16 %.lhs.trunc, 255
   %222 = zext nneg i16 %221 to i64
   %223 = getelementptr inbounds nuw i8, ptr %.9433.i.lcssa, i64 %222
@@ -5327,7 +5327,7 @@ LZ4_count.exit134:                                ; preds = %.thread185, %142, %
   br label %230
 
 227:                                              ; preds = %.loopexit
-  %228 = trunc nuw i32 %.2457.i.fr to i8
+  %228 = trunc nuw nsw i32 %.2457.i.fr to i8
   %229 = add i8 %210, %228
   store i8 %229, ptr %.0483.i366, align 1, !tbaa !4
   br label %230
@@ -5426,7 +5426,7 @@ LZ4_wildCopy8.exit111:                            ; preds = %231
   br label %284
 
 282:                                              ; preds = %271
-  %.0400.tr.i = trunc nuw i64 %.0400.i to i8
+  %.0400.tr.i = trunc nuw nsw i64 %.0400.i to i8
   %283 = shl nuw i8 %.0400.tr.i, 4
   store i8 %283, ptr %.0424.i, align 1, !tbaa !4
   br label %284
@@ -5834,7 +5834,7 @@ LZ4_count.exit:                                   ; preds = %.thread229, %411, %
 ._crit_edge312:                                   ; preds = %.lr.ph311.preheader, %479
   %.3458.i98.lcssa = phi i32 [ %481, %479 ], [ %488, %.lr.ph311.preheader ]
   %.9433.i99.lcssa = phi ptr [ %.7431.i87, %479 ], [ %scevgep435, %.lr.ph311.preheader ]
-  %.lhs.trunc254 = trunc nuw i32 %.3458.i98.lcssa to i16
+  %.lhs.trunc254 = trunc nuw nsw i32 %.3458.i98.lcssa to i16
   %489 = udiv i16 %.lhs.trunc254, 255
   %490 = zext nneg i16 %489 to i64
   %491 = getelementptr inbounds nuw i8, ptr %.9433.i99.lcssa, i64 %490
@@ -5845,7 +5845,7 @@ LZ4_count.exit:                                   ; preds = %.thread229, %411, %
   br label %498
 
 495:                                              ; preds = %.loopexit263
-  %496 = trunc nuw i32 %.2457.i88.fr to i8
+  %496 = trunc nuw nsw i32 %.2457.i88.fr to i8
   %497 = add i8 %478, %496
   store i8 %497, ptr %.0483.i80315, align 1, !tbaa !4
   br label %498
@@ -5953,7 +5953,7 @@ LZ4_wildCopy8.exit.thread:                        ; preds = %.critedge8.i72, %52
   br label %555
 
 553:                                              ; preds = %542
-  %.0400.tr.i65 = trunc nuw i64 %.0400.i64 to i8
+  %.0400.tr.i65 = trunc nuw nsw i64 %.0400.i64 to i8
   %554 = shl nuw i8 %.0400.tr.i65, 4
   store i8 %554, ptr %.2426.i57.ph, align 1, !tbaa !4
   br label %555
@@ -6793,7 +6793,7 @@ LZ4_count.exit829:                                ; preds = %.thread948, %196, %
 ._crit_edge1940:                                  ; preds = %.lr.ph1939.preheader, %251
   %.3458.i.lcssa = phi i32 [ %253, %251 ], [ %260, %.lr.ph1939.preheader ]
   %.9433.i.lcssa = phi ptr [ %.7431.i, %251 ], [ %scevgep2247, %.lr.ph1939.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.3458.i.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.3458.i.lcssa to i16
   %261 = udiv i16 %.lhs.trunc, 255
   %262 = zext nneg i16 %261 to i64
   %263 = getelementptr inbounds nuw i8, ptr %.9433.i.lcssa, i64 %262
@@ -6804,7 +6804,7 @@ LZ4_count.exit829:                                ; preds = %.thread948, %196, %
   br label %270
 
 267:                                              ; preds = %248
-  %268 = trunc nuw i32 %.2.i819.fr to i8
+  %268 = trunc nuw nsw i32 %.2.i819.fr to i8
   %269 = add i8 %250, %268
   store i8 %269, ptr %.0483.i, align 1, !tbaa !4
   br label %270
@@ -6904,7 +6904,7 @@ LZ4_count.exit829:                                ; preds = %.thread948, %196, %
   br label %320
 
 318:                                              ; preds = %305
-  %.0400.tr.i = trunc nuw i64 %298 to i8
+  %.0400.tr.i = trunc nuw nsw i64 %298 to i8
   %319 = shl nuw i8 %.0400.tr.i, 4
   store i8 %319, ptr %.0424.i, align 1, !tbaa !4
   br label %320
@@ -7285,7 +7285,7 @@ LZ4_count.exit807:                                ; preds = %.thread1011, %444, 
 ._crit_edge1894:                                  ; preds = %.lr.ph1893.preheader, %499
   %.3458.i182.lcssa = phi i32 [ %501, %499 ], [ %508, %.lr.ph1893.preheader ]
   %.9433.i183.lcssa = phi ptr [ %.7431.i172, %499 ], [ %scevgep2241, %.lr.ph1893.preheader ]
-  %.lhs.trunc1441 = trunc nuw i32 %.3458.i182.lcssa to i16
+  %.lhs.trunc1441 = trunc nuw nsw i32 %.3458.i182.lcssa to i16
   %509 = udiv i16 %.lhs.trunc1441, 255
   %510 = zext nneg i16 %509 to i64
   %511 = getelementptr inbounds nuw i8, ptr %.9433.i183.lcssa, i64 %510
@@ -7296,7 +7296,7 @@ LZ4_count.exit807:                                ; preds = %.thread1011, %444, 
   br label %518
 
 515:                                              ; preds = %496
-  %516 = trunc nuw i32 %.2.i797.fr to i8
+  %516 = trunc nuw nsw i32 %.2.i797.fr to i8
   %517 = add i8 %498, %516
   store i8 %517, ptr %.0483.i165, align 1, !tbaa !4
   br label %518
@@ -7394,7 +7394,7 @@ LZ4_count.exit807:                                ; preds = %.thread1011, %444, 
   br label %568
 
 566:                                              ; preds = %553
-  %.0400.tr.i147 = trunc nuw i64 %546 to i8
+  %.0400.tr.i147 = trunc nuw nsw i64 %546 to i8
   %567 = shl nuw i8 %.0400.tr.i147, 4
   store i8 %567, ptr %.0424.i144, align 1, !tbaa !4
   br label %568
@@ -8032,7 +8032,7 @@ LZ4_count.exit785:                                ; preds = %.thread1102, %810, 
 ._crit_edge1721:                                  ; preds = %.lr.ph1720.preheader, %866
   %.3458.i258.lcssa = phi i32 [ %868, %866 ], [ %875, %.lr.ph1720.preheader ]
   %.9433.i259.lcssa = phi ptr [ %.7431.i248, %866 ], [ %scevgep2223, %.lr.ph1720.preheader ]
-  %.lhs.trunc1453 = trunc nuw i32 %.3458.i258.lcssa to i16
+  %.lhs.trunc1453 = trunc nuw nsw i32 %.3458.i258.lcssa to i16
   %876 = udiv i16 %.lhs.trunc1453, 255
   %877 = zext nneg i16 %876 to i64
   %878 = getelementptr inbounds nuw i8, ptr %.9433.i259.lcssa, i64 %877
@@ -8043,7 +8043,7 @@ LZ4_count.exit785:                                ; preds = %.thread1102, %810, 
   br label %885
 
 882:                                              ; preds = %863
-  %883 = trunc nuw i32 %.1456.i.fr to i8
+  %883 = trunc nuw nsw i32 %.1456.i.fr to i8
   %884 = add i8 %865, %883
   store i8 %884, ptr %.0483.i241, align 1, !tbaa !4
   br label %885
@@ -8148,7 +8148,7 @@ LZ4_count.exit785:                                ; preds = %.thread1102, %810, 
   br label %939
 
 937:                                              ; preds = %924
-  %.0400.tr.i223 = trunc nuw i64 %917 to i8
+  %.0400.tr.i223 = trunc nuw nsw i64 %917 to i8
   %938 = shl nuw i8 %.0400.tr.i223, 4
   store i8 %938, ptr %.2426.i216.ph, align 1, !tbaa !4
   br label %939
@@ -8811,7 +8811,7 @@ LZ4_count.exit719:                                ; preds = %.thread1203, %1196,
 ._crit_edge1657:                                  ; preds = %.lr.ph1656.preheader, %1252
   %.3458.i343.lcssa = phi i32 [ %1254, %1252 ], [ %1261, %.lr.ph1656.preheader ]
   %.9433.i344.lcssa = phi ptr [ %.7431.i328, %1252 ], [ %scevgep2217, %.lr.ph1656.preheader ]
-  %.lhs.trunc1457 = trunc nuw i32 %.3458.i343.lcssa to i16
+  %.lhs.trunc1457 = trunc nuw nsw i32 %.3458.i343.lcssa to i16
   %1262 = udiv i16 %.lhs.trunc1457, 255
   %1263 = zext nneg i16 %1262 to i64
   %1264 = getelementptr inbounds nuw i8, ptr %.9433.i344.lcssa, i64 %1263
@@ -8822,7 +8822,7 @@ LZ4_count.exit719:                                ; preds = %.thread1203, %1196,
   br label %1271
 
 1268:                                             ; preds = %1249
-  %1269 = trunc nuw i32 %.1456.i329.fr to i8
+  %1269 = trunc nuw nsw i32 %.1456.i329.fr to i8
   %1270 = add i8 %1251, %1269
   store i8 %1270, ptr %.0483.i321, align 1, !tbaa !4
   br label %1271
@@ -8942,7 +8942,7 @@ LZ4_count.exit719:                                ; preds = %.thread1203, %1196,
   br label %1334
 
 1332:                                             ; preds = %1319
-  %.0400.tr.i303 = trunc nuw i64 %1312 to i8
+  %.0400.tr.i303 = trunc nuw nsw i64 %1312 to i8
   %1333 = shl nuw i8 %.0400.tr.i303, 4
   store i8 %1333, ptr %.0424.i300, align 1, !tbaa !4
   br label %1334
@@ -9591,7 +9591,7 @@ LZ4_count.exit653:                                ; preds = %.thread1300, %1580,
 ._crit_edge1847:                                  ; preds = %.lr.ph1846.preheader, %1636
   %.3458.i431.lcssa = phi i32 [ %1638, %1636 ], [ %1645, %.lr.ph1846.preheader ]
   %.9433.i432.lcssa = phi ptr [ %.7431.i415, %1636 ], [ %scevgep2235, %.lr.ph1846.preheader ]
-  %.lhs.trunc1445 = trunc nuw i32 %.3458.i431.lcssa to i16
+  %.lhs.trunc1445 = trunc nuw nsw i32 %.3458.i431.lcssa to i16
   %1646 = udiv i16 %.lhs.trunc1445, 255
   %1647 = zext nneg i16 %1646 to i64
   %1648 = getelementptr inbounds nuw i8, ptr %.9433.i432.lcssa, i64 %1647
@@ -9602,7 +9602,7 @@ LZ4_count.exit653:                                ; preds = %.thread1300, %1580,
   br label %1655
 
 1652:                                             ; preds = %1633
-  %1653 = trunc nuw i32 %.1456.i416.fr to i8
+  %1653 = trunc nuw nsw i32 %.1456.i416.fr to i8
   %1654 = add i8 %1635, %1653
   store i8 %1654, ptr %.0483.i408, align 1, !tbaa !4
   br label %1655
@@ -9709,7 +9709,7 @@ LZ4_count.exit653:                                ; preds = %.thread1300, %1580,
   br label %1709
 
 1707:                                             ; preds = %1694
-  %.0400.tr.i390 = trunc nuw i64 %1687 to i8
+  %.0400.tr.i390 = trunc nuw nsw i64 %1687 to i8
   %1708 = shl nuw i8 %.0400.tr.i390, 4
   store i8 %1708, ptr %.0424.i387, align 1, !tbaa !4
   br label %1709
@@ -10348,7 +10348,7 @@ LZ4_count.exit587:                                ; preds = %.thread1397, %1949,
 ._crit_edge1784:                                  ; preds = %.lr.ph1783.preheader, %2005
   %.3458.i519.lcssa = phi i32 [ %2007, %2005 ], [ %2014, %.lr.ph1783.preheader ]
   %.9433.i520.lcssa = phi ptr [ %.7431.i503, %2005 ], [ %scevgep2229, %.lr.ph1783.preheader ]
-  %.lhs.trunc1449 = trunc nuw i32 %.3458.i519.lcssa to i16
+  %.lhs.trunc1449 = trunc nuw nsw i32 %.3458.i519.lcssa to i16
   %2015 = udiv i16 %.lhs.trunc1449, 255
   %2016 = zext nneg i16 %2015 to i64
   %2017 = getelementptr inbounds nuw i8, ptr %.9433.i520.lcssa, i64 %2016
@@ -10359,7 +10359,7 @@ LZ4_count.exit587:                                ; preds = %.thread1397, %1949,
   br label %2024
 
 2021:                                             ; preds = %2002
-  %2022 = trunc nuw i32 %.1456.i504.fr to i8
+  %2022 = trunc nuw nsw i32 %.1456.i504.fr to i8
   %2023 = add i8 %2004, %2022
   store i8 %2023, ptr %.0483.i496, align 1, !tbaa !4
   br label %2024
@@ -10464,7 +10464,7 @@ LZ4_count.exit587:                                ; preds = %.thread1397, %1949,
   br label %2078
 
 2076:                                             ; preds = %2063
-  %.0400.tr.i478 = trunc nuw i64 %2056 to i8
+  %.0400.tr.i478 = trunc nuw nsw i64 %2056 to i8
   %2077 = shl nuw i8 %.0400.tr.i478, 4
   store i8 %2077, ptr %.0424.i475, align 1, !tbaa !4
   br label %2078
@@ -11150,7 +11150,7 @@ LZ4_count.exit215:                                ; preds = %.thread299, %256, %
 ._crit_edge546:                                   ; preds = %.lr.ph545.preheader, %305
   %.3458.i.lcssa = phi i32 [ %307, %305 ], [ %314, %.lr.ph545.preheader ]
   %.9433.i.lcssa = phi ptr [ %.7431.i, %305 ], [ %scevgep652, %.lr.ph545.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.3458.i.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.3458.i.lcssa to i16
   %315 = udiv i16 %.lhs.trunc, 255
   %316 = zext nneg i16 %315 to i64
   %317 = getelementptr inbounds nuw i8, ptr %.9433.i.lcssa, i64 %316
@@ -11161,7 +11161,7 @@ LZ4_count.exit215:                                ; preds = %.thread299, %256, %
   br label %324
 
 321:                                              ; preds = %302
-  %322 = trunc nuw i32 %.1456.i.fr to i8
+  %322 = trunc nuw nsw i32 %.1456.i.fr to i8
   %323 = add i8 %304, %322
   store i8 %323, ptr %.0483.i, align 1, !tbaa !4
   br label %324
@@ -11259,7 +11259,7 @@ LZ4_count.exit215:                                ; preds = %.thread299, %256, %
   br label %LZ4_compress_generic_validated.exit
 
 369:                                              ; preds = %.thread313
-  %.0400.tr.i = trunc nuw i64 %356 to i8
+  %.0400.tr.i = trunc nuw nsw i64 %356 to i8
   %370 = shl nuw i8 %.0400.tr.i, 4
   store i8 %370, ptr %.0424.i, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit
@@ -11874,7 +11874,7 @@ LZ4_count.exit149:                                ; preds = %.thread374, %598, %
 ._crit_edge483:                                   ; preds = %.lr.ph482.preheader, %647
   %.3458.i93.lcssa = phi i32 [ %649, %647 ], [ %656, %.lr.ph482.preheader ]
   %.9433.i94.lcssa = phi ptr [ %.7431.i79, %647 ], [ %scevgep646, %.lr.ph482.preheader ]
-  %.lhs.trunc399 = trunc nuw i32 %.3458.i93.lcssa to i16
+  %.lhs.trunc399 = trunc nuw nsw i32 %.3458.i93.lcssa to i16
   %657 = udiv i16 %.lhs.trunc399, 255
   %658 = zext nneg i16 %657 to i64
   %659 = getelementptr inbounds nuw i8, ptr %.9433.i94.lcssa, i64 %658
@@ -11885,7 +11885,7 @@ LZ4_count.exit149:                                ; preds = %.thread374, %598, %
   br label %666
 
 663:                                              ; preds = %644
-  %664 = trunc nuw i32 %.1456.i80.fr to i8
+  %664 = trunc nuw nsw i32 %.1456.i80.fr to i8
   %665 = add i8 %646, %664
   store i8 %665, ptr %.0483.i72, align 1, !tbaa !4
   br label %666
@@ -11981,7 +11981,7 @@ LZ4_count.exit149:                                ; preds = %.thread374, %598, %
   br label %LZ4_compress_generic_validated.exit100
 
 711:                                              ; preds = %.thread388
-  %.0400.tr.i60 = trunc nuw i64 %698 to i8
+  %.0400.tr.i60 = trunc nuw nsw i64 %698 to i8
   %712 = shl nuw i8 %.0400.tr.i60, 4
   store i8 %712, ptr %.0424.i57, align 1, !tbaa !4
   br label %LZ4_compress_generic_validated.exit100

@@ -5252,7 +5252,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   br label %106
 
 68:                                               ; preds = %61
-  %69 = trunc i64 %1 to i32
+  %69 = trunc nuw nsw i64 %1 to i32
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %69, ptr %70, align 8
   store i8 0, ptr %43, align 4
@@ -5808,7 +5808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i64 %.0.lcssa.i to i8
+  %56 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

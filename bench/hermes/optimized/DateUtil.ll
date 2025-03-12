@@ -4904,7 +4904,7 @@ _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread: ; preds = %_ZNK6herm
   br i1 %13, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit12, label %for.end
 
 cond.false.i10:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit
-  %14 = trunc nuw i16 %7 to i8
+  %14 = trunc nuw nsw i16 %7 to i8
   br label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit12
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit12: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread, %cond.false.i10
@@ -4959,7 +4959,7 @@ lor.lhs.false.i:                                  ; preds = %for.end
   br i1 %cmp.not.i, label %if.end.i20, label %cleanup
 
 if.end.i20:                                       ; preds = %lor.lhs.false.i
-  %conv.i = trunc i64 %24 to i32
+  %conv.i = trunc nsw i64 %24 to i32
   store i32 %conv.i, ptr %x, align 4
   br label %cleanup
 

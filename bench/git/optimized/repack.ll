@@ -1597,7 +1597,7 @@ geometry_pack_weight.exit78.i:                    ; preds = %639
 
 geometry_pack_weight.exit76._crit_edge.loopexit.i: ; preds = %648, %geometry_pack_weight.exit76.i
   %.153.lcssa.ph.in.i = phi i64 [ %indvars.iv.next138.i, %648 ], [ %indvars.iv137.i, %geometry_pack_weight.exit76.i ]
-  %.153.lcssa.ph.i = trunc i64 %.153.lcssa.ph.in.i to i32
+  %.153.lcssa.ph.i = trunc nuw i64 %.153.lcssa.ph.in.i to i32
   br label %split_pack_geometry.exit
 
 split_pack_geometry.exit:                         ; preds = %init_pack_geometry.exit, %.preheader.i, %geometry_pack_weight.exit76._crit_edge.loopexit.i

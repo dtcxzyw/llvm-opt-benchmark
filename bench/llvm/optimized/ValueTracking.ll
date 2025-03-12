@@ -45725,7 +45725,7 @@ _ZNK4llvm5APInt3ultEm.exit377:                    ; preds = %887, %_ZNK4llvm5API
   br i1 %897, label %898, label %_ZN4llvm5APIntD2Ev.exit199
 
 898:                                              ; preds = %_ZNK4llvm5APInt3ultEm.exit377
-  %899 = trunc i64 %.0.i.i376 to i32
+  %899 = trunc nuw i64 %.0.i.i376 to i32
   call void @_ZN4llvm5APInt14getBitsSetFromEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %32, i32 noundef %53, i32 noundef %899)
   %900 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntpLEm(ptr noundef nonnull align 8 dereferenceable(12) %32, i64 noundef 1) #27, !noalias !1034
   %901 = getelementptr inbounds nuw i8, ptr %32, i64 8

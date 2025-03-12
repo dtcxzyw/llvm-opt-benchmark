@@ -3153,7 +3153,7 @@ define internal noundef ptr @pysqlite_cursor_executescript(ptr noundef captures(
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %45 = call ptr @PyEval_SaveThread() #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  %46 = trunc i64 %21 to i32
+  %46 = trunc nuw i64 %21 to i32
   %47 = add i32 %46, 1
   %48 = call i32 @sqlite3_prepare_v2(ptr noundef %35, ptr noundef nonnull %11, i32 noundef %47, ptr noundef nonnull %4, ptr noundef nonnull %3) #7
   %49 = icmp eq i32 %48, 0

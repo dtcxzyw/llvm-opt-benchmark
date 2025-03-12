@@ -1004,7 +1004,7 @@ define internal fastcc range(i32 -1, 16777216) i32 @ft_lzwstate_get_code(ptr nou
 28:                                               ; preds = %24
   %29 = zext nneg i32 %22 to i64
   %30 = shl nuw nsw i64 1, %29
-  %31 = trunc nuw i64 %30 to i32
+  %31 = trunc nuw nsw i64 %30 to i32
   %32 = add nsw i32 %31, -256
   br label %37
 

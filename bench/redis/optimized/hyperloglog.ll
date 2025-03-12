@@ -2152,7 +2152,7 @@ define dso_local void @hllMergeDenseAVX2(ptr noundef captures(none) %0, ptr noun
   %12 = load i8, ptr %11, align 1, !tbaa !11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !11
-  %15 = trunc nuw i32 %8 to i8
+  %15 = trunc nuw nsw i32 %8 to i8
   %16 = tail call i8 @llvm.fshr.i8(i8 %14, i8 %12, i8 %15)
   %17 = and i8 %16, 63
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv

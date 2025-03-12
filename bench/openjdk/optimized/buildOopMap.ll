@@ -1466,7 +1466,7 @@ _ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_
 _ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit.i: ; preds = %374, %_ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_crit_edge.i
   %.pre294.i = phi i32 [ %.pre294.pre.i, %_ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_crit_edge.i ], [ %375, %374 ]
   %.0.lcssa.ph.in.i = phi i64 [ %indvars.iv283.i, %_ZNK5Block8get_nodeEj.exit188._ZNK5Block8get_nodeEj.exit188._crit_edge.loopexit_crit_edge.i ], [ %indvars.iv.next284.i, %374 ]
-  %.0.lcssa.ph.i = trunc i64 %.0.lcssa.ph.in.i to i32
+  %.0.lcssa.ph.i = trunc nuw i64 %.0.lcssa.ph.in.i to i32
   %.pre295.pre.pre.i = load i32, ptr %41, align 8
   br label %_ZNK5Block8get_nodeEj.exit188._crit_edge.i
 

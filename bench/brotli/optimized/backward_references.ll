@@ -2203,7 +2203,7 @@ LookupCompoundDictionaryMatch.exit243..thread564_crit_edge: ; preds = %LookupCom
   br i1 %1022, label %1023, label %1028
 
 1023:                                             ; preds = %1021
-  %.tr25.i = trunc nuw i64 %1014 to i32
+  %.tr25.i = trunc nuw nsw i64 %1014 to i32
   %1024 = shl nuw nsw i32 %.tr25.i, 2
   %1025 = lshr i32 158663784, %1024
   %1026 = and i32 %1025, 15
@@ -2215,7 +2215,7 @@ LookupCompoundDictionaryMatch.exit243..thread564_crit_edge: ; preds = %LookupCom
   br i1 %1029, label %1030, label %1035
 
 1030:                                             ; preds = %1028
-  %.tr.i = trunc nuw i64 %1017 to i32
+  %.tr.i = trunc nuw nsw i64 %1017 to i32
   %1031 = shl nuw nsw i32 %.tr.i, 2
   %1032 = lshr i32 266017486, %1031
   %1033 = and i32 %1032, 15
@@ -2364,7 +2364,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 1119:                                             ; preds = %1117
   %1120 = add nsw i64 %.3185580, -2
-  %1121 = trunc i64 %1120 to i32
+  %1121 = trunc nuw nsw i64 %1120 to i32
   %1122 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1121, i1 true)
   %1123 = sub nuw nsw i32 30, %1122
   %1124 = shl nuw nsw i32 %1123, 1
@@ -2372,7 +2372,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %1126 = zext nneg i32 %1123 to i64
   %1127 = lshr i64 %1120, %1126
   %1128 = add nuw nsw i64 %1127, %1125
-  %1129 = trunc i64 %1128 to i16
+  %1129 = trunc nuw nsw i64 %1128 to i16
   %1130 = add nuw nsw i16 %1129, 2
   br label %GetInsertLengthCode.exit
 
@@ -2402,7 +2402,7 @@ GetInsertLengthCode.exit:                         ; preds = %1115, %1119, %1133,
   br i1 %1142, label %1143, label %1146
 
 1143:                                             ; preds = %GetInsertLengthCode.exit
-  %1144 = trunc nuw i32 %1110 to i16
+  %1144 = trunc nuw nsw i32 %1110 to i16
   %1145 = add nsw i16 %1144, -2
   br label %GetCopyLengthCode.exit
 
@@ -4703,7 +4703,7 @@ LookupCompoundDictionaryMatch.exit214..thread539_crit_edge: ; preds = %LookupCom
   br i1 %1026, label %1027, label %1032
 
 1027:                                             ; preds = %1025
-  %.tr25.i = trunc nuw i64 %1018 to i32
+  %.tr25.i = trunc nuw nsw i64 %1018 to i32
   %1028 = shl nuw nsw i32 %.tr25.i, 2
   %1029 = lshr i32 158663784, %1028
   %1030 = and i32 %1029, 15
@@ -4715,7 +4715,7 @@ LookupCompoundDictionaryMatch.exit214..thread539_crit_edge: ; preds = %LookupCom
   br i1 %1033, label %1034, label %1039
 
 1034:                                             ; preds = %1032
-  %.tr.i = trunc nuw i64 %1021 to i32
+  %.tr.i = trunc nuw nsw i64 %1021 to i32
   %1035 = shl nuw nsw i32 %.tr.i, 2
   %1036 = lshr i32 266017486, %1035
   %1037 = and i32 %1036, 15
@@ -4865,7 +4865,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 1123:                                             ; preds = %1121
   %1124 = add nsw i64 %.3185555, -2
-  %1125 = trunc i64 %1124 to i32
+  %1125 = trunc nuw nsw i64 %1124 to i32
   %1126 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1125, i1 true)
   %1127 = sub nuw nsw i32 30, %1126
   %1128 = shl nuw nsw i32 %1127, 1
@@ -4873,7 +4873,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %1130 = zext nneg i32 %1127 to i64
   %1131 = lshr i64 %1124, %1130
   %1132 = add nuw nsw i64 %1131, %1129
-  %1133 = trunc i64 %1132 to i16
+  %1133 = trunc nuw nsw i64 %1132 to i16
   %1134 = add nuw nsw i16 %1133, 2
   br label %GetInsertLengthCode.exit
 
@@ -4903,7 +4903,7 @@ GetInsertLengthCode.exit:                         ; preds = %1119, %1123, %1137,
   br i1 %1146, label %1147, label %1150
 
 1147:                                             ; preds = %GetInsertLengthCode.exit
-  %1148 = trunc nuw i32 %1114 to i16
+  %1148 = trunc nuw nsw i32 %1114 to i16
   %1149 = add nsw i16 %1148, -2
   br label %GetCopyLengthCode.exit
 
@@ -7338,7 +7338,7 @@ LookupCompoundDictionaryMatch.exit214..thread550_crit_edge: ; preds = %LookupCom
   br i1 %1113, label %1114, label %1119
 
 1114:                                             ; preds = %1112
-  %.tr25.i = trunc nuw i64 %1105 to i32
+  %.tr25.i = trunc nuw nsw i64 %1105 to i32
   %1115 = shl nuw nsw i32 %.tr25.i, 2
   %1116 = lshr i32 158663784, %1115
   %1117 = and i32 %1116, 15
@@ -7350,7 +7350,7 @@ LookupCompoundDictionaryMatch.exit214..thread550_crit_edge: ; preds = %LookupCom
   br i1 %1120, label %1121, label %1126
 
 1121:                                             ; preds = %1119
-  %.tr.i = trunc nuw i64 %1108 to i32
+  %.tr.i = trunc nuw nsw i64 %1108 to i32
   %1122 = shl nuw nsw i32 %.tr.i, 2
   %1123 = lshr i32 266017486, %1122
   %1124 = and i32 %1123, 15
@@ -7500,7 +7500,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 1210:                                             ; preds = %1208
   %1211 = add nsw i64 %.3185566, -2
-  %1212 = trunc i64 %1211 to i32
+  %1212 = trunc nuw nsw i64 %1211 to i32
   %1213 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1212, i1 true)
   %1214 = sub nuw nsw i32 30, %1213
   %1215 = shl nuw nsw i32 %1214, 1
@@ -7508,7 +7508,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %1217 = zext nneg i32 %1214 to i64
   %1218 = lshr i64 %1211, %1217
   %1219 = add nuw nsw i64 %1218, %1216
-  %1220 = trunc i64 %1219 to i16
+  %1220 = trunc nuw nsw i64 %1219 to i16
   %1221 = add nuw nsw i16 %1220, 2
   br label %GetInsertLengthCode.exit
 
@@ -7538,7 +7538,7 @@ GetInsertLengthCode.exit:                         ; preds = %1206, %1210, %1224,
   br i1 %1233, label %1234, label %1237
 
 1234:                                             ; preds = %GetInsertLengthCode.exit
-  %1235 = trunc nuw i32 %1201 to i16
+  %1235 = trunc nuw nsw i32 %1201 to i16
   %1236 = add nsw i16 %1235, -2
   br label %GetCopyLengthCode.exit
 
@@ -10008,7 +10008,7 @@ LookupCompoundDictionaryMatch.exit214..thread552_crit_edge: ; preds = %LookupCom
   br i1 %1118, label %1119, label %1124
 
 1119:                                             ; preds = %1117
-  %.tr25.i = trunc nuw i64 %1110 to i32
+  %.tr25.i = trunc nuw nsw i64 %1110 to i32
   %1120 = shl nuw nsw i32 %.tr25.i, 2
   %1121 = lshr i32 158663784, %1120
   %1122 = and i32 %1121, 15
@@ -10020,7 +10020,7 @@ LookupCompoundDictionaryMatch.exit214..thread552_crit_edge: ; preds = %LookupCom
   br i1 %1125, label %1126, label %1131
 
 1126:                                             ; preds = %1124
-  %.tr.i = trunc nuw i64 %1113 to i32
+  %.tr.i = trunc nuw nsw i64 %1113 to i32
   %1127 = shl nuw nsw i32 %.tr.i, 2
   %1128 = lshr i32 266017486, %1127
   %1129 = and i32 %1128, 15
@@ -10170,7 +10170,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 1215:                                             ; preds = %1213
   %1216 = add nsw i64 %.3185568, -2
-  %1217 = trunc i64 %1216 to i32
+  %1217 = trunc nuw nsw i64 %1216 to i32
   %1218 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1217, i1 true)
   %1219 = sub nuw nsw i32 30, %1218
   %1220 = shl nuw nsw i32 %1219, 1
@@ -10178,7 +10178,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %1222 = zext nneg i32 %1219 to i64
   %1223 = lshr i64 %1216, %1222
   %1224 = add nuw nsw i64 %1223, %1221
-  %1225 = trunc i64 %1224 to i16
+  %1225 = trunc nuw nsw i64 %1224 to i16
   %1226 = add nuw nsw i16 %1225, 2
   br label %GetInsertLengthCode.exit
 
@@ -10208,7 +10208,7 @@ GetInsertLengthCode.exit:                         ; preds = %1211, %1215, %1229,
   br i1 %1238, label %1239, label %1242
 
 1239:                                             ; preds = %GetInsertLengthCode.exit
-  %1240 = trunc nuw i32 %1206 to i16
+  %1240 = trunc nuw nsw i32 %1206 to i16
   %1241 = add nsw i16 %1240, -2
   br label %GetCopyLengthCode.exit
 
@@ -12416,7 +12416,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br i1 %959, label %960, label %965
 
 960:                                              ; preds = %958
-  %.tr25.i = trunc nuw i64 %951 to i32
+  %.tr25.i = trunc nuw nsw i64 %951 to i32
   %961 = shl nuw nsw i32 %.tr25.i, 2
   %962 = lshr i32 158663784, %961
   %963 = and i32 %962, 15
@@ -12428,7 +12428,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br i1 %966, label %967, label %972
 
 967:                                              ; preds = %965
-  %.tr.i = trunc nuw i64 %954 to i32
+  %.tr.i = trunc nuw nsw i64 %954 to i32
   %968 = shl nuw nsw i32 %.tr.i, 2
   %969 = lshr i32 266017486, %968
   %970 = and i32 %969, 15
@@ -12543,7 +12543,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 1039:                                             ; preds = %1037
   %1040 = add nsw i64 %.3185539, -2
-  %1041 = trunc i64 %1040 to i32
+  %1041 = trunc nuw nsw i64 %1040 to i32
   %1042 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1041, i1 true)
   %1043 = sub nuw nsw i32 30, %1042
   %1044 = shl nuw nsw i32 %1043, 1
@@ -12551,7 +12551,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %1046 = zext nneg i32 %1043 to i64
   %1047 = lshr i64 %1040, %1046
   %1048 = add nuw nsw i64 %1047, %1045
-  %1049 = trunc i64 %1048 to i16
+  %1049 = trunc nuw nsw i64 %1048 to i16
   %1050 = add nuw nsw i16 %1049, 2
   br label %GetInsertLengthCode.exit
 
@@ -12581,7 +12581,7 @@ GetInsertLengthCode.exit:                         ; preds = %1035, %1039, %1053,
   br i1 %1062, label %1063, label %1066
 
 1063:                                             ; preds = %GetInsertLengthCode.exit
-  %1064 = trunc nuw i32 %1030 to i16
+  %1064 = trunc nuw nsw i32 %1030 to i16
   %1065 = add nsw i16 %1064, -2
   br label %GetCopyLengthCode.exit
 
@@ -14832,7 +14832,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br i1 %972, label %973, label %978
 
 973:                                              ; preds = %971
-  %.tr25.i = trunc nuw i64 %964 to i32
+  %.tr25.i = trunc nuw nsw i64 %964 to i32
   %974 = shl nuw nsw i32 %.tr25.i, 2
   %975 = lshr i32 158663784, %974
   %976 = and i32 %975, 15
@@ -14844,7 +14844,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br i1 %979, label %980, label %985
 
 980:                                              ; preds = %978
-  %.tr.i = trunc nuw i64 %967 to i32
+  %.tr.i = trunc nuw nsw i64 %967 to i32
   %981 = shl nuw nsw i32 %.tr.i, 2
   %982 = lshr i32 266017486, %981
   %983 = and i32 %982, 15
@@ -14971,7 +14971,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 1058:                                             ; preds = %1056
   %1059 = add nsw i64 %.3185539, -2
-  %1060 = trunc i64 %1059 to i32
+  %1060 = trunc nuw nsw i64 %1059 to i32
   %1061 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1060, i1 true)
   %1062 = sub nuw nsw i32 30, %1061
   %1063 = shl nuw nsw i32 %1062, 1
@@ -14979,7 +14979,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %1065 = zext nneg i32 %1062 to i64
   %1066 = lshr i64 %1059, %1065
   %1067 = add nuw nsw i64 %1066, %1064
-  %1068 = trunc i64 %1067 to i16
+  %1068 = trunc nuw nsw i64 %1067 to i16
   %1069 = add nuw nsw i16 %1068, 2
   br label %GetInsertLengthCode.exit
 
@@ -15009,7 +15009,7 @@ GetInsertLengthCode.exit:                         ; preds = %1054, %1058, %1072,
   br i1 %1081, label %1082, label %1085
 
 1082:                                             ; preds = %GetInsertLengthCode.exit
-  %1083 = trunc nuw i32 %1049 to i16
+  %1083 = trunc nuw nsw i32 %1049 to i16
   %1084 = add nsw i16 %1083, -2
   br label %GetCopyLengthCode.exit
 
@@ -17288,7 +17288,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br i1 %994, label %995, label %1000
 
 995:                                              ; preds = %993
-  %.tr25.i = trunc nuw i64 %986 to i32
+  %.tr25.i = trunc nuw nsw i64 %986 to i32
   %996 = shl nuw nsw i32 %.tr25.i, 2
   %997 = lshr i32 158663784, %996
   %998 = and i32 %997, 15
@@ -17300,7 +17300,7 @@ LookupCompoundDictionaryMatch.exit214..thread523_crit_edge: ; preds = %LookupCom
   br i1 %1001, label %1002, label %1007
 
 1002:                                             ; preds = %1000
-  %.tr.i = trunc nuw i64 %989 to i32
+  %.tr.i = trunc nuw nsw i64 %989 to i32
   %1003 = shl nuw nsw i32 %.tr.i, 2
   %1004 = lshr i32 266017486, %1003
   %1005 = and i32 %1004, 15
@@ -17439,7 +17439,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 1086:                                             ; preds = %1084
   %1087 = add nsw i64 %.3185539, -2
-  %1088 = trunc i64 %1087 to i32
+  %1088 = trunc nuw nsw i64 %1087 to i32
   %1089 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1088, i1 true)
   %1090 = sub nuw nsw i32 30, %1089
   %1091 = shl nuw nsw i32 %1090, 1
@@ -17447,7 +17447,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %1093 = zext nneg i32 %1090 to i64
   %1094 = lshr i64 %1087, %1093
   %1095 = add nuw nsw i64 %1094, %1092
-  %1096 = trunc i64 %1095 to i16
+  %1096 = trunc nuw nsw i64 %1095 to i16
   %1097 = add nuw nsw i16 %1096, 2
   br label %GetInsertLengthCode.exit
 
@@ -17477,7 +17477,7 @@ GetInsertLengthCode.exit:                         ; preds = %1082, %1086, %1100,
   br i1 %1109, label %1110, label %1113
 
 1110:                                             ; preds = %GetInsertLengthCode.exit
-  %1111 = trunc nuw i32 %1077 to i16
+  %1111 = trunc nuw nsw i32 %1077 to i16
   %1112 = add nsw i16 %1111, -2
   br label %GetCopyLengthCode.exit
 
@@ -19470,7 +19470,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %785
   br i1 %800, label %801, label %806
 
 801:                                              ; preds = %799
-  %.tr25.i = trunc nuw i64 %789 to i32
+  %.tr25.i = trunc nuw nsw i64 %789 to i32
   %802 = shl nuw nsw i32 %.tr25.i, 2
   %803 = lshr i32 158663784, %802
   %804 = and i32 %803, 15
@@ -19482,7 +19482,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %785
   br i1 %807, label %808, label %813
 
 808:                                              ; preds = %806
-  %.tr.i = trunc nuw i64 %792 to i32
+  %.tr.i = trunc nuw nsw i64 %792 to i32
   %809 = shl nuw nsw i32 %.tr.i, 2
   %810 = lshr i32 266017486, %809
   %811 = and i32 %810, 15
@@ -19597,7 +19597,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 880:                                              ; preds = %878
   %881 = add nsw i64 %.3185481, -2
-  %882 = trunc i64 %881 to i32
+  %882 = trunc nuw nsw i64 %881 to i32
   %883 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %882, i1 true)
   %884 = sub nuw nsw i32 30, %883
   %885 = shl nuw nsw i32 %884, 1
@@ -19605,7 +19605,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %887 = zext nneg i32 %884 to i64
   %888 = lshr i64 %881, %887
   %889 = add nuw nsw i64 %888, %886
-  %890 = trunc i64 %889 to i16
+  %890 = trunc nuw nsw i64 %889 to i16
   %891 = add nuw nsw i16 %890, 2
   br label %GetInsertLengthCode.exit
 
@@ -19645,7 +19645,7 @@ GetInsertLengthCode.exit:                         ; preds = %876, %880, %894, %8
 
 909:                                              ; preds = %907
   %910 = add nsw i64 %871, -6
-  %911 = trunc i64 %910 to i32
+  %911 = trunc nsw i64 %910 to i32
   %912 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %911, i1 true)
   %913 = sub nsw i32 30, %912
   %914 = shl nsw i32 %913, 1
@@ -22249,7 +22249,7 @@ LookupCompoundDictionaryMatch.exit214..thread570_crit_edge: ; preds = %LookupCom
   br i1 %1177, label %1178, label %1183
 
 1178:                                             ; preds = %1176
-  %.tr25.i = trunc nuw i64 %1169 to i32
+  %.tr25.i = trunc nuw nsw i64 %1169 to i32
   %1179 = shl nuw nsw i32 %.tr25.i, 2
   %1180 = lshr i32 158663784, %1179
   %1181 = and i32 %1180, 15
@@ -22261,7 +22261,7 @@ LookupCompoundDictionaryMatch.exit214..thread570_crit_edge: ; preds = %LookupCom
   br i1 %1184, label %1185, label %1190
 
 1185:                                             ; preds = %1183
-  %.tr.i = trunc nuw i64 %1172 to i32
+  %.tr.i = trunc nuw nsw i64 %1172 to i32
   %1186 = shl nuw nsw i32 %.tr.i, 2
   %1187 = lshr i32 266017486, %1186
   %1188 = and i32 %1187, 15
@@ -22413,7 +22413,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 1274:                                             ; preds = %1272
   %1275 = add nsw i64 %.3185586, -2
-  %1276 = trunc i64 %1275 to i32
+  %1276 = trunc nuw nsw i64 %1275 to i32
   %1277 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1276, i1 true)
   %1278 = sub nuw nsw i32 30, %1277
   %1279 = shl nuw nsw i32 %1278, 1
@@ -22421,7 +22421,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %1281 = zext nneg i32 %1278 to i64
   %1282 = lshr i64 %1275, %1281
   %1283 = add nuw nsw i64 %1282, %1280
-  %1284 = trunc i64 %1283 to i16
+  %1284 = trunc nuw nsw i64 %1283 to i16
   %1285 = add nuw nsw i16 %1284, 2
   br label %GetInsertLengthCode.exit
 
@@ -22451,7 +22451,7 @@ GetInsertLengthCode.exit:                         ; preds = %1270, %1274, %1288,
   br i1 %1297, label %1298, label %1301
 
 1298:                                             ; preds = %GetInsertLengthCode.exit
-  %1299 = trunc nuw i32 %1265 to i16
+  %1299 = trunc nuw nsw i32 %1265 to i16
   %1300 = add nsw i16 %1299, -2
   br label %GetCopyLengthCode.exit
 
@@ -23630,7 +23630,7 @@ FindLongestMatchH2.exit263..thread333_crit_edge:  ; preds = %FindLongestMatchH2.
   br i1 %512, label %513, label %518
 
 513:                                              ; preds = %511
-  %.tr25.i = trunc nuw i64 %504 to i32
+  %.tr25.i = trunc nuw nsw i64 %504 to i32
   %514 = shl nuw nsw i32 %.tr25.i, 2
   %515 = lshr i32 158663784, %514
   %516 = and i32 %515, 15
@@ -23642,7 +23642,7 @@ FindLongestMatchH2.exit263..thread333_crit_edge:  ; preds = %FindLongestMatchH2.
   br i1 %519, label %520, label %525
 
 520:                                              ; preds = %518
-  %.tr.i = trunc nuw i64 %507 to i32
+  %.tr.i = trunc nuw nsw i64 %507 to i32
   %521 = shl nuw nsw i32 %.tr.i, 2
   %522 = lshr i32 266017486, %521
   %523 = and i32 %522, 15
@@ -23757,7 +23757,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 592:                                              ; preds = %590
   %593 = add nsw i64 %.3169349, -2
-  %594 = trunc i64 %593 to i32
+  %594 = trunc nuw nsw i64 %593 to i32
   %595 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %594, i1 true)
   %596 = sub nuw nsw i32 30, %595
   %597 = shl nuw nsw i32 %596, 1
@@ -23765,7 +23765,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %599 = zext nneg i32 %596 to i64
   %600 = lshr i64 %593, %599
   %601 = add nuw nsw i64 %600, %598
-  %602 = trunc i64 %601 to i16
+  %602 = trunc nuw nsw i64 %601 to i16
   %603 = add nuw nsw i16 %602, 2
   br label %GetInsertLengthCode.exit
 
@@ -23795,7 +23795,7 @@ GetInsertLengthCode.exit:                         ; preds = %588, %592, %606, %6
   br i1 %615, label %616, label %619
 
 616:                                              ; preds = %GetInsertLengthCode.exit
-  %617 = trunc nuw i32 %583 to i16
+  %617 = trunc nuw nsw i32 %583 to i16
   %618 = add nsw i16 %617, -2
   br label %GetCopyLengthCode.exit
 
@@ -24606,7 +24606,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %288
   br i1 %303, label %304, label %309
 
 304:                                              ; preds = %302
-  %.tr25.i = trunc nuw i64 %292 to i32
+  %.tr25.i = trunc nuw nsw i64 %292 to i32
   %305 = shl nuw nsw i32 %.tr25.i, 2
   %306 = lshr i32 158663784, %305
   %307 = and i32 %306, 15
@@ -24618,7 +24618,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %288
   br i1 %310, label %311, label %316
 
 311:                                              ; preds = %309
-  %.tr.i = trunc nuw i64 %295 to i32
+  %.tr.i = trunc nuw nsw i64 %295 to i32
   %312 = shl nuw nsw i32 %.tr.i, 2
   %313 = lshr i32 266017486, %312
   %314 = and i32 %313, 15
@@ -24733,7 +24733,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 383:                                              ; preds = %381
   %384 = add nsw i64 %.3169301, -2
-  %385 = trunc i64 %384 to i32
+  %385 = trunc nuw nsw i64 %384 to i32
   %386 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %385, i1 true)
   %387 = sub nuw nsw i32 30, %386
   %388 = shl nuw nsw i32 %387, 1
@@ -24741,7 +24741,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %390 = zext nneg i32 %387 to i64
   %391 = lshr i64 %384, %390
   %392 = add nuw nsw i64 %391, %389
-  %393 = trunc i64 %392 to i16
+  %393 = trunc nuw nsw i64 %392 to i16
   %394 = add nuw nsw i16 %393, 2
   br label %GetInsertLengthCode.exit
 
@@ -24781,7 +24781,7 @@ GetInsertLengthCode.exit:                         ; preds = %379, %383, %397, %4
 
 412:                                              ; preds = %410
   %413 = add nsw i64 %374, -6
-  %414 = trunc i64 %413 to i32
+  %414 = trunc nsw i64 %413 to i32
   %415 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %414, i1 true)
   %416 = sub nsw i32 30, %415
   %417 = shl nsw i32 %416, 1
@@ -26027,7 +26027,7 @@ FindLongestMatchH4.exit271..thread341_crit_edge:  ; preds = %FindLongestMatchH4.
   br i1 %571, label %572, label %577
 
 572:                                              ; preds = %570
-  %.tr25.i = trunc nuw i64 %563 to i32
+  %.tr25.i = trunc nuw nsw i64 %563 to i32
   %573 = shl nuw nsw i32 %.tr25.i, 2
   %574 = lshr i32 158663784, %573
   %575 = and i32 %574, 15
@@ -26039,7 +26039,7 @@ FindLongestMatchH4.exit271..thread341_crit_edge:  ; preds = %FindLongestMatchH4.
   br i1 %578, label %579, label %584
 
 579:                                              ; preds = %577
-  %.tr.i = trunc nuw i64 %566 to i32
+  %.tr.i = trunc nuw nsw i64 %566 to i32
   %580 = shl nuw nsw i32 %.tr.i, 2
   %581 = lshr i32 266017486, %580
   %582 = and i32 %581, 15
@@ -26154,7 +26154,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 651:                                              ; preds = %649
   %652 = add nsw i64 %.3169357, -2
-  %653 = trunc i64 %652 to i32
+  %653 = trunc nuw nsw i64 %652 to i32
   %654 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %653, i1 true)
   %655 = sub nuw nsw i32 30, %654
   %656 = shl nuw nsw i32 %655, 1
@@ -26162,7 +26162,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %658 = zext nneg i32 %655 to i64
   %659 = lshr i64 %652, %658
   %660 = add nuw nsw i64 %659, %657
-  %661 = trunc i64 %660 to i16
+  %661 = trunc nuw nsw i64 %660 to i16
   %662 = add nuw nsw i16 %661, 2
   br label %GetInsertLengthCode.exit
 
@@ -26192,7 +26192,7 @@ GetInsertLengthCode.exit:                         ; preds = %647, %651, %665, %6
   br i1 %674, label %675, label %678
 
 675:                                              ; preds = %GetInsertLengthCode.exit
-  %676 = trunc nuw i32 %642 to i16
+  %676 = trunc nuw nsw i32 %642 to i16
   %677 = add nsw i16 %676, -2
   br label %GetCopyLengthCode.exit
 
@@ -27726,7 +27726,7 @@ FindLongestMatchH5.exit224..thread442_crit_edge:  ; preds = %FindLongestMatchH5.
   br i1 %694, label %695, label %700
 
 695:                                              ; preds = %693
-  %.tr25.i = trunc nuw i64 %686 to i32
+  %.tr25.i = trunc nuw nsw i64 %686 to i32
   %696 = shl nuw nsw i32 %.tr25.i, 2
   %697 = lshr i32 158663784, %696
   %698 = and i32 %697, 15
@@ -27738,7 +27738,7 @@ FindLongestMatchH5.exit224..thread442_crit_edge:  ; preds = %FindLongestMatchH5.
   br i1 %701, label %702, label %707
 
 702:                                              ; preds = %700
-  %.tr.i = trunc nuw i64 %689 to i32
+  %.tr.i = trunc nuw nsw i64 %689 to i32
   %703 = shl nuw nsw i32 %.tr.i, 2
   %704 = lshr i32 266017486, %703
   %705 = and i32 %704, 15
@@ -27887,7 +27887,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 791:                                              ; preds = %789
   %792 = add nsw i64 %.3169458, -2
-  %793 = trunc i64 %792 to i32
+  %793 = trunc nuw nsw i64 %792 to i32
   %794 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %793, i1 true)
   %795 = sub nuw nsw i32 30, %794
   %796 = shl nuw nsw i32 %795, 1
@@ -27895,7 +27895,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %798 = zext nneg i32 %795 to i64
   %799 = lshr i64 %792, %798
   %800 = add nuw nsw i64 %799, %797
-  %801 = trunc i64 %800 to i16
+  %801 = trunc nuw nsw i64 %800 to i16
   %802 = add nuw nsw i16 %801, 2
   br label %GetInsertLengthCode.exit
 
@@ -27925,7 +27925,7 @@ GetInsertLengthCode.exit:                         ; preds = %787, %791, %805, %8
   br i1 %814, label %815, label %818
 
 815:                                              ; preds = %GetInsertLengthCode.exit
-  %816 = trunc nuw i32 %782 to i16
+  %816 = trunc nuw nsw i32 %782 to i16
   %817 = add nsw i16 %816, -2
   br label %GetCopyLengthCode.exit
 
@@ -29507,7 +29507,7 @@ FindLongestMatchH6.exit296..thread417_crit_edge:  ; preds = %FindLongestMatchH6.
   br i1 %698, label %699, label %704
 
 699:                                              ; preds = %697
-  %.tr25.i = trunc nuw i64 %690 to i32
+  %.tr25.i = trunc nuw nsw i64 %690 to i32
   %700 = shl nuw nsw i32 %.tr25.i, 2
   %701 = lshr i32 158663784, %700
   %702 = and i32 %701, 15
@@ -29519,7 +29519,7 @@ FindLongestMatchH6.exit296..thread417_crit_edge:  ; preds = %FindLongestMatchH6.
   br i1 %705, label %706, label %711
 
 706:                                              ; preds = %704
-  %.tr.i = trunc nuw i64 %693 to i32
+  %.tr.i = trunc nuw nsw i64 %693 to i32
   %707 = shl nuw nsw i32 %.tr.i, 2
   %708 = lshr i32 266017486, %707
   %709 = and i32 %708, 15
@@ -29669,7 +29669,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 795:                                              ; preds = %793
   %796 = add nsw i64 %.3169433, -2
-  %797 = trunc i64 %796 to i32
+  %797 = trunc nuw nsw i64 %796 to i32
   %798 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %797, i1 true)
   %799 = sub nuw nsw i32 30, %798
   %800 = shl nuw nsw i32 %799, 1
@@ -29677,7 +29677,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %802 = zext nneg i32 %799 to i64
   %803 = lshr i64 %796, %802
   %804 = add nuw nsw i64 %803, %801
-  %805 = trunc i64 %804 to i16
+  %805 = trunc nuw nsw i64 %804 to i16
   %806 = add nuw nsw i16 %805, 2
   br label %GetInsertLengthCode.exit
 
@@ -29707,7 +29707,7 @@ GetInsertLengthCode.exit:                         ; preds = %791, %795, %809, %8
   br i1 %818, label %819, label %822
 
 819:                                              ; preds = %GetInsertLengthCode.exit
-  %820 = trunc nuw i32 %786 to i16
+  %820 = trunc nuw nsw i32 %786 to i16
   %821 = add nsw i16 %820, -2
   br label %GetCopyLengthCode.exit
 
@@ -31169,7 +31169,7 @@ FindLongestMatchH40.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH40
   br i1 %628, label %629, label %634
 
 629:                                              ; preds = %627
-  %.tr25.i = trunc nuw i64 %620 to i32
+  %.tr25.i = trunc nuw nsw i64 %620 to i32
   %630 = shl nuw nsw i32 %.tr25.i, 2
   %631 = lshr i32 158663784, %630
   %632 = and i32 %631, 15
@@ -31181,7 +31181,7 @@ FindLongestMatchH40.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH40
   br i1 %635, label %636, label %641
 
 636:                                              ; preds = %634
-  %.tr.i = trunc nuw i64 %623 to i32
+  %.tr.i = trunc nuw nsw i64 %623 to i32
   %637 = shl nuw nsw i32 %.tr.i, 2
   %638 = lshr i32 266017486, %637
   %639 = and i32 %638, 15
@@ -31296,7 +31296,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 708:                                              ; preds = %706
   %709 = add nsw i64 %.3169408, -2
-  %710 = trunc i64 %709 to i32
+  %710 = trunc nuw nsw i64 %709 to i32
   %711 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %710, i1 true)
   %712 = sub nuw nsw i32 30, %711
   %713 = shl nuw nsw i32 %712, 1
@@ -31304,7 +31304,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %715 = zext nneg i32 %712 to i64
   %716 = lshr i64 %709, %715
   %717 = add nuw nsw i64 %716, %714
-  %718 = trunc i64 %717 to i16
+  %718 = trunc nuw nsw i64 %717 to i16
   %719 = add nuw nsw i16 %718, 2
   br label %GetInsertLengthCode.exit
 
@@ -31334,7 +31334,7 @@ GetInsertLengthCode.exit:                         ; preds = %704, %708, %722, %7
   br i1 %731, label %732, label %735
 
 732:                                              ; preds = %GetInsertLengthCode.exit
-  %733 = trunc nuw i32 %699 to i16
+  %733 = trunc nuw nsw i32 %699 to i16
   %734 = add nsw i16 %733, -2
   br label %GetCopyLengthCode.exit
 
@@ -32862,7 +32862,7 @@ FindLongestMatchH41.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH41
   br i1 %641, label %642, label %647
 
 642:                                              ; preds = %640
-  %.tr25.i = trunc nuw i64 %633 to i32
+  %.tr25.i = trunc nuw nsw i64 %633 to i32
   %643 = shl nuw nsw i32 %.tr25.i, 2
   %644 = lshr i32 158663784, %643
   %645 = and i32 %644, 15
@@ -32874,7 +32874,7 @@ FindLongestMatchH41.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH41
   br i1 %648, label %649, label %654
 
 649:                                              ; preds = %647
-  %.tr.i = trunc nuw i64 %636 to i32
+  %.tr.i = trunc nuw nsw i64 %636 to i32
   %650 = shl nuw nsw i32 %.tr.i, 2
   %651 = lshr i32 266017486, %650
   %652 = and i32 %651, 15
@@ -33001,7 +33001,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 727:                                              ; preds = %725
   %728 = add nsw i64 %.3169408, -2
-  %729 = trunc i64 %728 to i32
+  %729 = trunc nuw nsw i64 %728 to i32
   %730 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %729, i1 true)
   %731 = sub nuw nsw i32 30, %730
   %732 = shl nuw nsw i32 %731, 1
@@ -33009,7 +33009,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %734 = zext nneg i32 %731 to i64
   %735 = lshr i64 %728, %734
   %736 = add nuw nsw i64 %735, %733
-  %737 = trunc i64 %736 to i16
+  %737 = trunc nuw nsw i64 %736 to i16
   %738 = add nuw nsw i16 %737, 2
   br label %GetInsertLengthCode.exit
 
@@ -33039,7 +33039,7 @@ GetInsertLengthCode.exit:                         ; preds = %723, %727, %741, %7
   br i1 %750, label %751, label %754
 
 751:                                              ; preds = %GetInsertLengthCode.exit
-  %752 = trunc nuw i32 %718 to i16
+  %752 = trunc nuw nsw i32 %718 to i16
   %753 = add nsw i16 %752, -2
   br label %GetCopyLengthCode.exit
 
@@ -34595,7 +34595,7 @@ FindLongestMatchH42.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH42
   br i1 %663, label %664, label %669
 
 664:                                              ; preds = %662
-  %.tr25.i = trunc nuw i64 %655 to i32
+  %.tr25.i = trunc nuw nsw i64 %655 to i32
   %665 = shl nuw nsw i32 %.tr25.i, 2
   %666 = lshr i32 158663784, %665
   %667 = and i32 %666, 15
@@ -34607,7 +34607,7 @@ FindLongestMatchH42.exit292..thread392_crit_edge: ; preds = %FindLongestMatchH42
   br i1 %670, label %671, label %676
 
 671:                                              ; preds = %669
-  %.tr.i = trunc nuw i64 %658 to i32
+  %.tr.i = trunc nuw nsw i64 %658 to i32
   %672 = shl nuw nsw i32 %.tr.i, 2
   %673 = lshr i32 266017486, %672
   %674 = and i32 %673, 15
@@ -34746,7 +34746,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 755:                                              ; preds = %753
   %756 = add nsw i64 %.3169408, -2
-  %757 = trunc i64 %756 to i32
+  %757 = trunc nuw nsw i64 %756 to i32
   %758 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %757, i1 true)
   %759 = sub nuw nsw i32 30, %758
   %760 = shl nuw nsw i32 %759, 1
@@ -34754,7 +34754,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %762 = zext nneg i32 %759 to i64
   %763 = lshr i64 %756, %762
   %764 = add nuw nsw i64 %763, %761
-  %765 = trunc i64 %764 to i16
+  %765 = trunc nuw nsw i64 %764 to i16
   %766 = add nuw nsw i16 %765, 2
   br label %GetInsertLengthCode.exit
 
@@ -34784,7 +34784,7 @@ GetInsertLengthCode.exit:                         ; preds = %751, %755, %769, %7
   br i1 %778, label %779, label %782
 
 779:                                              ; preds = %GetInsertLengthCode.exit
-  %780 = trunc nuw i32 %746 to i16
+  %780 = trunc nuw nsw i32 %746 to i16
   %781 = add nsw i16 %780, -2
   br label %GetCopyLengthCode.exit
 
@@ -35714,7 +35714,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %300
   br i1 %315, label %316, label %321
 
 316:                                              ; preds = %314
-  %.tr25.i = trunc nuw i64 %304 to i32
+  %.tr25.i = trunc nuw nsw i64 %304 to i32
   %317 = shl nuw nsw i32 %.tr25.i, 2
   %318 = lshr i32 158663784, %317
   %319 = and i32 %318, 15
@@ -35726,7 +35726,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %300
   br i1 %322, label %323, label %328
 
 323:                                              ; preds = %321
-  %.tr.i = trunc nuw i64 %307 to i32
+  %.tr.i = trunc nuw nsw i64 %307 to i32
   %324 = shl nuw nsw i32 %.tr.i, 2
   %325 = lshr i32 266017486, %324
   %326 = and i32 %325, 15
@@ -35841,7 +35841,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 395:                                              ; preds = %393
   %396 = add nsw i64 %.3169301, -2
-  %397 = trunc i64 %396 to i32
+  %397 = trunc nuw nsw i64 %396 to i32
   %398 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %397, i1 true)
   %399 = sub nuw nsw i32 30, %398
   %400 = shl nuw nsw i32 %399, 1
@@ -35849,7 +35849,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %402 = zext nneg i32 %399 to i64
   %403 = lshr i64 %396, %402
   %404 = add nuw nsw i64 %403, %401
-  %405 = trunc i64 %404 to i16
+  %405 = trunc nuw nsw i64 %404 to i16
   %406 = add nuw nsw i16 %405, 2
   br label %GetInsertLengthCode.exit
 
@@ -35889,7 +35889,7 @@ GetInsertLengthCode.exit:                         ; preds = %391, %395, %409, %4
 
 424:                                              ; preds = %422
   %425 = add nsw i64 %386, -6
-  %426 = trunc i64 %425 to i32
+  %426 = trunc nsw i64 %425 to i32
   %427 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %426, i1 true)
   %428 = sub nsw i32 30, %427
   %429 = shl nsw i32 %428, 1
@@ -37554,7 +37554,7 @@ FindLongestMatchH58.exit293..thread429_crit_edge: ; preds = %FindLongestMatchH58
   br i1 %782, label %783, label %788
 
 783:                                              ; preds = %781
-  %.tr25.i = trunc nuw i64 %774 to i32
+  %.tr25.i = trunc nuw nsw i64 %774 to i32
   %784 = shl nuw nsw i32 %.tr25.i, 2
   %785 = lshr i32 158663784, %784
   %786 = and i32 %785, 15
@@ -37566,7 +37566,7 @@ FindLongestMatchH58.exit293..thread429_crit_edge: ; preds = %FindLongestMatchH58
   br i1 %789, label %790, label %795
 
 790:                                              ; preds = %788
-  %.tr.i = trunc nuw i64 %777 to i32
+  %.tr.i = trunc nuw nsw i64 %777 to i32
   %791 = shl nuw nsw i32 %.tr.i, 2
   %792 = lshr i32 266017486, %791
   %793 = and i32 %792, 15
@@ -37716,7 +37716,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 879:                                              ; preds = %877
   %880 = add nsw i64 %.3169445, -2
-  %881 = trunc i64 %880 to i32
+  %881 = trunc nuw nsw i64 %880 to i32
   %882 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %881, i1 true)
   %883 = sub nuw nsw i32 30, %882
   %884 = shl nuw nsw i32 %883, 1
@@ -37724,7 +37724,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %886 = zext nneg i32 %883 to i64
   %887 = lshr i64 %880, %886
   %888 = add nuw nsw i64 %887, %885
-  %889 = trunc i64 %888 to i16
+  %889 = trunc nuw nsw i64 %888 to i16
   %890 = add nuw nsw i16 %889, 2
   br label %GetInsertLengthCode.exit
 
@@ -37754,7 +37754,7 @@ GetInsertLengthCode.exit:                         ; preds = %875, %879, %893, %8
   br i1 %902, label %903, label %906
 
 903:                                              ; preds = %GetInsertLengthCode.exit
-  %904 = trunc nuw i32 %870 to i16
+  %904 = trunc nuw nsw i32 %870 to i16
   %905 = add nsw i16 %904, -2
   br label %GetCopyLengthCode.exit
 
@@ -39501,7 +39501,7 @@ FindLongestMatchH68.exit300..thread431_crit_edge: ; preds = %FindLongestMatchH68
   br i1 %787, label %788, label %793
 
 788:                                              ; preds = %786
-  %.tr25.i = trunc nuw i64 %779 to i32
+  %.tr25.i = trunc nuw nsw i64 %779 to i32
   %789 = shl nuw nsw i32 %.tr25.i, 2
   %790 = lshr i32 158663784, %789
   %791 = and i32 %790, 15
@@ -39513,7 +39513,7 @@ FindLongestMatchH68.exit300..thread431_crit_edge: ; preds = %FindLongestMatchH68
   br i1 %794, label %795, label %800
 
 795:                                              ; preds = %793
-  %.tr.i = trunc nuw i64 %782 to i32
+  %.tr.i = trunc nuw nsw i64 %782 to i32
   %796 = shl nuw nsw i32 %.tr.i, 2
   %797 = lshr i32 266017486, %796
   %798 = and i32 %797, 15
@@ -39663,7 +39663,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 884:                                              ; preds = %882
   %885 = add nsw i64 %.3169447, -2
-  %886 = trunc i64 %885 to i32
+  %886 = trunc nuw nsw i64 %885 to i32
   %887 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %886, i1 true)
   %888 = sub nuw nsw i32 30, %887
   %889 = shl nuw nsw i32 %888, 1
@@ -39671,7 +39671,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %891 = zext nneg i32 %888 to i64
   %892 = lshr i64 %885, %891
   %893 = add nuw nsw i64 %892, %890
-  %894 = trunc i64 %893 to i16
+  %894 = trunc nuw nsw i64 %893 to i16
   %895 = add nuw nsw i16 %894, 2
   br label %GetInsertLengthCode.exit
 
@@ -39701,7 +39701,7 @@ GetInsertLengthCode.exit:                         ; preds = %880, %884, %898, %9
   br i1 %907, label %908, label %911
 
 908:                                              ; preds = %GetInsertLengthCode.exit
-  %909 = trunc nuw i32 %875 to i16
+  %909 = trunc nuw nsw i32 %875 to i16
   %910 = add nsw i16 %909, -2
   br label %GetCopyLengthCode.exit
 
@@ -40938,7 +40938,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %442
   br i1 %457, label %458, label %463
 
 458:                                              ; preds = %456
-  %.tr25.i = trunc nuw i64 %446 to i32
+  %.tr25.i = trunc nuw nsw i64 %446 to i32
   %459 = shl nuw nsw i32 %.tr25.i, 2
   %460 = lshr i32 158663784, %459
   %461 = and i32 %460, 15
@@ -40950,7 +40950,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %442
   br i1 %464, label %465, label %470
 
 465:                                              ; preds = %463
-  %.tr.i = trunc nuw i64 %449 to i32
+  %.tr.i = trunc nuw nsw i64 %449 to i32
   %466 = shl nuw nsw i32 %.tr.i, 2
   %467 = lshr i32 266017486, %466
   %468 = and i32 %467, 15
@@ -41065,7 +41065,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 537:                                              ; preds = %535
   %538 = add nsw i64 %.3169338, -2
-  %539 = trunc i64 %538 to i32
+  %539 = trunc nuw nsw i64 %538 to i32
   %540 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %539, i1 true)
   %541 = sub nuw nsw i32 30, %540
   %542 = shl nuw nsw i32 %541, 1
@@ -41073,7 +41073,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %544 = zext nneg i32 %541 to i64
   %545 = lshr i64 %538, %544
   %546 = add nuw nsw i64 %545, %543
-  %547 = trunc i64 %546 to i16
+  %547 = trunc nuw nsw i64 %546 to i16
   %548 = add nuw nsw i16 %547, 2
   br label %GetInsertLengthCode.exit
 
@@ -41113,7 +41113,7 @@ GetInsertLengthCode.exit:                         ; preds = %533, %537, %551, %5
 
 566:                                              ; preds = %564
   %567 = add nsw i64 %528, -6
-  %568 = trunc i64 %567 to i32
+  %568 = trunc nsw i64 %567 to i32
   %569 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %568, i1 true)
   %570 = sub nsw i32 30, %569
   %571 = shl nsw i32 %570, 1
@@ -42294,7 +42294,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %453
   br i1 %468, label %469, label %474
 
 469:                                              ; preds = %467
-  %.tr25.i = trunc nuw i64 %457 to i32
+  %.tr25.i = trunc nuw nsw i64 %457 to i32
   %470 = shl nuw nsw i32 %.tr25.i, 2
   %471 = lshr i32 158663784, %470
   %472 = and i32 %471, 15
@@ -42306,7 +42306,7 @@ ComputeDistanceCode.exit.thread.thread:           ; preds = %453
   br i1 %475, label %476, label %481
 
 476:                                              ; preds = %474
-  %.tr.i = trunc nuw i64 %460 to i32
+  %.tr.i = trunc nuw nsw i64 %460 to i32
   %477 = shl nuw nsw i32 %.tr.i, 2
   %478 = lshr i32 266017486, %477
   %479 = and i32 %478, 15
@@ -42421,7 +42421,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
 
 548:                                              ; preds = %546
   %549 = add nsw i64 %.3169358, -2
-  %550 = trunc i64 %549 to i32
+  %550 = trunc nuw nsw i64 %549 to i32
   %551 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %550, i1 true)
   %552 = sub nuw nsw i32 30, %551
   %553 = shl nuw nsw i32 %552, 1
@@ -42429,7 +42429,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %ComputeDistanceCode
   %555 = zext nneg i32 %552 to i64
   %556 = lshr i64 %549, %555
   %557 = add nuw nsw i64 %556, %554
-  %558 = trunc i64 %557 to i16
+  %558 = trunc nuw nsw i64 %557 to i16
   %559 = add nuw nsw i16 %558, 2
   br label %GetInsertLengthCode.exit
 
@@ -42469,7 +42469,7 @@ GetInsertLengthCode.exit:                         ; preds = %544, %548, %562, %5
 
 577:                                              ; preds = %575
   %578 = add nsw i64 %539, -6
-  %579 = trunc i64 %578 to i32
+  %579 = trunc nsw i64 %578 to i32
   %580 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %579, i1 true)
   %581 = sub nsw i32 30, %580
   %582 = shl nsw i32 %581, 1
@@ -44354,7 +44354,7 @@ FindLongestMatchHROLLING.exit..thread449_crit_edge: ; preds = %FindLongestMatchH
   br i1 %847, label %848, label %853
 
 848:                                              ; preds = %846
-  %.tr25.i = trunc nuw i64 %839 to i32
+  %.tr25.i = trunc nuw nsw i64 %839 to i32
   %849 = shl nuw nsw i32 %.tr25.i, 2
   %850 = lshr i32 158663784, %849
   %851 = and i32 %850, 15
@@ -44366,7 +44366,7 @@ FindLongestMatchHROLLING.exit..thread449_crit_edge: ; preds = %FindLongestMatchH
   br i1 %854, label %855, label %860
 
 855:                                              ; preds = %853
-  %.tr.i = trunc nuw i64 %842 to i32
+  %.tr.i = trunc nuw nsw i64 %842 to i32
   %856 = shl nuw nsw i32 %.tr.i, 2
   %857 = lshr i32 266017486, %856
   %858 = and i32 %857, 15
@@ -44518,7 +44518,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
 
 944:                                              ; preds = %942
   %945 = add nsw i64 %.3169465, -2
-  %946 = trunc i64 %945 to i32
+  %946 = trunc nuw nsw i64 %945 to i32
   %947 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %946, i1 true)
   %948 = sub nuw nsw i32 30, %947
   %949 = shl nuw nsw i32 %948, 1
@@ -44526,7 +44526,7 @@ PrefixEncodeCopyDistance.exit:                    ; preds = %PrepareDistanceCach
   %951 = zext nneg i32 %948 to i64
   %952 = lshr i64 %945, %951
   %953 = add nuw nsw i64 %952, %950
-  %954 = trunc i64 %953 to i16
+  %954 = trunc nuw nsw i64 %953 to i16
   %955 = add nuw nsw i16 %954, 2
   br label %GetInsertLengthCode.exit
 
@@ -44556,7 +44556,7 @@ GetInsertLengthCode.exit:                         ; preds = %940, %944, %958, %9
   br i1 %967, label %968, label %971
 
 968:                                              ; preds = %GetInsertLengthCode.exit
-  %969 = trunc nuw i32 %935 to i16
+  %969 = trunc nuw nsw i32 %935 to i16
   %970 = add nsw i16 %969, -2
   br label %GetCopyLengthCode.exit
 

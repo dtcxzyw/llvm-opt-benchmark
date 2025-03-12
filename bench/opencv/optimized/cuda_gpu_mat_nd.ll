@@ -877,7 +877,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 49:                                               ; preds = %43
   %50 = icmp sgt i32 %.sroa.055.0.extract.trunc, -1
   %51 = icmp slt i32 %.sroa.055.0.extract.trunc, %.sroa.656.0.extract.trunc
-  %or.cond = and i1 %50, %51
+  %or.cond = select i1 %50, i1 %51, i1 false
   br i1 %or.cond, label %52, label %.critedge34
 
 52:                                               ; preds = %49

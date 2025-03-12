@@ -319,7 +319,7 @@ if.else:                                          ; preds = %if.then, %entry
   %i.0.lcssa = phi i64 [ 0, %entry ], [ %add15, %if.then ]
   %input.addr.0.lcssa = phi i32 [ %input, %entry ], [ %shr, %if.then ]
   %add.lcssa = phi i64 [ 1, %entry ], [ %add, %if.then ]
-  %3 = trunc i32 %input.addr.0.lcssa to i8
+  %3 = trunc nsw i32 %input.addr.0.lcssa to i8
   %conv8 = and i8 %3, 127
   %arrayidx9 = getelementptr inbounds nuw [5 x i8], ptr %buf, i64 0, i64 %i.0.lcssa
   store i8 %conv8, ptr %arrayidx9, align 1

@@ -1192,9 +1192,9 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %40, label %BN_bin2bn.exit.thread, label %41
 
 41:                                               ; preds = %34
-  %42 = trunc i64 %36 to i32
+  %42 = trunc nuw i64 %36 to i32
   %43 = and i32 %42, 7
-  %44 = trunc i64 %38 to i32
+  %44 = trunc nuw nsw i64 %38 to i32
   %45 = getelementptr inbounds nuw i8, ptr %.02227, i64 8
   store i32 %44, ptr %45, align 8, !tbaa !6
   %46 = getelementptr inbounds nuw i8, ptr %.02227, i64 16

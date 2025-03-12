@@ -19,7 +19,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
   br label %_ZN5alloc6string6String4push17hd7c9d13776027da6E.exit
 
 .critedge.i:                                      ; preds = %2
-  %9 = trunc nuw i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf605a0ff206a26c2E"(ptr align 8 %0, i8 %9)
   br label %_ZN5alloc6string6String4push17hd7c9d13776027da6E.exit
 
@@ -49,7 +49,7 @@ define hidden void @_ZN5alloc6string6String4push17hd7c9d13776027da6E(ptr align 8
   br label %10
 
 .critedge:                                        ; preds = %2
-  %9 = trunc nuw i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   tail call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf605a0ff206a26c2E"(ptr align 8 %0, i8 %9)
   br label %10
 

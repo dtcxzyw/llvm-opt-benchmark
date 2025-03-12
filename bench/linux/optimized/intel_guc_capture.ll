@@ -958,7 +958,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br i1 %326, label %.loopexit, label %311, !llvm.loop !21
 
 327:                                              ; preds = %311
-  %328 = trunc i64 %312 to i32
+  %328 = trunc nuw i64 %312 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %314, %327, %305
@@ -1052,7 +1052,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   br i1 %389, label %.thread58, label %370, !llvm.loop !22
 
 390:                                              ; preds = %370
-  %391 = trunc i64 %371 to i32
+  %391 = trunc nuw i64 %371 to i32
   br label %.thread60
 
 .thread60:                                        ; preds = %350, %331, %.loopexit, %390, %359, %357

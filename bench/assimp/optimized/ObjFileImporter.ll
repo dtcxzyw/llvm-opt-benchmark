@@ -1544,7 +1544,7 @@ define hidden void @_ZN6Assimp15ObjFileImporter20CreateDataFromImportEPKNS_7ObjF
   br i1 %or.cond, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %14
 
 14:                                               ; preds = %9
-  %15 = trunc nuw i64 %12 to i32
+  %15 = trunc nuw nsw i64 %12 to i32
   store i32 %15, ptr %8, align 4
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %17 = load ptr, ptr %1, align 8
@@ -2080,7 +2080,7 @@ define hidden noundef ptr @_ZN6Assimp15ObjFileImporter11createNodesEPKNS_7ObjFil
   br i1 %22, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %23
 
 23:                                               ; preds = %19
-  %24 = trunc nuw i64 %21 to i32
+  %24 = trunc nuw nsw i64 %21 to i32
   store i32 %24, ptr %18, align 4
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %26 = load ptr, ptr %2, align 8
@@ -3104,7 +3104,7 @@ define hidden void @_ZN6Assimp15ObjFileImporter14createTopologyEPKNS_7ObjFile5Mo
 
 32:                                               ; preds = %21
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 236
-  %34 = trunc nuw i64 %30 to i32
+  %34 = trunc nuw nsw i64 %30 to i32
   store i32 %34, ptr %33, align 4
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 240
   %36 = load ptr, ptr %13, align 8

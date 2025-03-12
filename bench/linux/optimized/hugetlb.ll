@@ -16749,7 +16749,7 @@ define internal fastcc void @hugetlb_hstate_alloc_pages_onenode(ptr noundef %0, 
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %44, %46
   store i64 %47, ptr %45, align 8
-  %48 = trunc i64 %.ph to i32
+  %48 = trunc nuw i64 %.ph to i32
   store i32 %48, ptr %6, align 4
   br label %.loopexit.thread
 

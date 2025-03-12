@@ -13991,8 +13991,8 @@ _ZNK4llvm5APInt3ugeEm.exit90:                     ; preds = %60, %_ZNK4llvm5APIn
   br i1 %.not130, label %65, label %_ZNK4llvm5APInt3ugeEm.exit.thread
 
 65:                                               ; preds = %_ZNK4llvm5APInt3ugeEm.exit90
-  %66 = trunc i64 %.0.i.i.i to i32
-  %67 = trunc i64 %.0.i.i.i89 to i32
+  %66 = trunc nuw i64 %.0.i.i.i to i32
+  %67 = trunc nuw i64 %.0.i.i.i89 to i32
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %70 = load i32, ptr %69, align 8, !tbaa !69
@@ -14302,13 +14302,13 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %181, %178, %_ZNK4ll
 .critedge83:                                      ; preds = %198, %195, %.critedge84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #20
-  %.not80 = icmp ugt i32 %67, %66
+  %.not80 = icmp ugt i64 %.0.i.i.i89, %.0.i.i.i
   br i1 %.not80, label %216, label %200
 
 .critedge83.thread:                               ; preds = %191, %188, %.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #20
-  %.not80127 = icmp ugt i32 %67, %66
+  %.not80127 = icmp ugt i64 %.0.i.i.i89, %.0.i.i.i
   br i1 %.not80127, label %.thread, label %200
 
 .thread:                                          ; preds = %.critedge83.thread
@@ -14516,7 +14516,7 @@ _ZN4llvm5APIntD2Ev.exit120:                       ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %.0.i116, label %277, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 277:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit120
-  %278 = icmp eq i32 %67, %66
+  %278 = icmp eq i64 %.0.i.i.i89, %.0.i.i.i
   br i1 %278, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread, label %279
 
 279:                                              ; preds = %277
@@ -14532,12 +14532,12 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %279
   br i1 %284, label %285, label %_ZNK4llvm5Value9hasOneUseEv.exit.thread
 
 285:                                              ; preds = %_ZNK4llvm5Value9hasOneUseEv.exit
-  %286 = icmp ult i32 %67, %66
+  %286 = icmp ult i64 %.0.i.i.i89, %.0.i.i.i
   %287 = load ptr, ptr %52, align 8, !tbaa !97
   br i1 %286, label %288, label %296
 
 288:                                              ; preds = %285
-  %289 = sub nsw i64 %.0.i.i.i, %.0.i.i.i89
+  %289 = sub nuw nsw i64 %.0.i.i.i, %.0.i.i.i89
   %290 = and i64 %289, 4294967295
   %291 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %287, i64 noundef %290, i1 noundef zeroext false) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #20
@@ -14552,7 +14552,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %279
   br label %310
 
 296:                                              ; preds = %285
-  %297 = sub nsw i64 %.0.i.i.i89, %.0.i.i.i
+  %297 = sub nuw nsw i64 %.0.i.i.i89, %.0.i.i.i
   %298 = and i64 %297, 4294967295
   %299 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %287, i64 noundef %298, i1 noundef zeroext false) #20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #20

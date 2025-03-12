@@ -295,7 +295,7 @@ create_digit_array_with_checksum.exit:            ; preds = %29, %32, %34, %37, 
 
 .lr.ph.i:                                         ; preds = %69
   %74 = zext i8 %73 to i32
-  %75 = trunc i64 %indvars.iv.i to i16
+  %75 = trunc nuw nsw i64 %indvars.iv.i to i16
   %76 = shl nuw nsw i16 %75, 8
   br label %77
 

@@ -456,7 +456,7 @@ thread-pre-split:                                 ; preds = %202, %135
   store i32 %157, ptr %158, align 4
   %159 = load i8, ptr %146, align 2
   %160 = zext i8 %159 to i32
-  %161 = trunc i64 %147 to i32
+  %161 = trunc nuw nsw i64 %147 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %122, i32 noundef %161, i32 noundef %160, i32 noundef %157) #10
   %162 = add nuw nsw i64 %147, 1
   %exitcond15.not = icmp eq i64 %162, %umax12
@@ -512,7 +512,7 @@ thread-pre-split:                                 ; preds = %202, %135
   %203 = phi ptr [ %201, %200 ], [ null, %163 ]
   %204 = load i8, ptr %142, align 2
   %205 = zext i8 %204 to i32
-  %206 = trunc i64 %164 to i32
+  %206 = trunc nuw nsw i64 %164 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %203, i32 noundef 2, ptr noundef nonnull @.str.5, i32 noundef %122, i32 noundef %206, i32 noundef %205, i32 noundef %193, i32 noundef %198) #10
   %207 = add nuw nsw i64 %164, 1
   %exitcond.not = icmp eq i64 %207, %umax
@@ -539,7 +539,7 @@ thread-pre-split:                                 ; preds = %202, %135
   %220 = load ptr, ptr %108, align 8
   %221 = load i8, ptr %146, align 2
   %222 = zext i8 %221 to i32
-  %223 = trunc i64 %208 to i32
+  %223 = trunc nuw nsw i64 %208 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %220, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %122, i32 noundef %223, i32 noundef %222, i32 noundef %218) #10
   %224 = add nuw nsw i64 %208, 1
   %exitcond13.not = icmp eq i64 %224, %umax12
@@ -727,7 +727,7 @@ define internal fastcc void @icl_get_bw_info(ptr noundef %0) unnamed_addr #0 ali
   store i32 %109, ptr %110, align 4
   %111 = load i8, ptr %76, align 2
   %112 = zext i8 %111 to i32
-  %113 = trunc i64 %83 to i32
+  %113 = trunc nuw nsw i64 %83 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %70, i32 noundef %113, i32 noundef %112, i32 noundef %109) #10
   %114 = add nuw nsw i64 %83, 1
   %exitcond9.not = icmp eq i64 %114, %.pre-phi
@@ -791,7 +791,7 @@ define internal fastcc void @icl_get_bw_info(ptr noundef %0) unnamed_addr #0 ali
   %160 = load ptr, ptr %47, align 8
   %161 = load i8, ptr %125, align 2
   %162 = zext i8 %161 to i32
-  %163 = trunc i64 %132 to i32
+  %163 = trunc nuw nsw i64 %132 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %160, i32 noundef 2, ptr noundef nonnull @.str.15, i32 noundef %119, i32 noundef %163, i32 noundef %162, i32 noundef %158) #10
   %164 = add nuw nsw i64 %132, 1
   %exitcond.not = icmp eq i64 %164, %.pre-phi
@@ -1969,7 +1969,7 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
 
 272:                                              ; preds = %270, %267
   %273 = phi ptr [ %271, %270 ], [ null, %267 ]
-  %274 = trunc i64 %234 to i32
+  %274 = trunc nuw nsw i64 %234 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %273, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %274, i32 noundef %258, i32 noundef %207, i32 noundef %268) #10
   br label %.thread38
 
@@ -2138,7 +2138,7 @@ define dso_local i32 @intel_bw_atomic_check(ptr noundef %0) local_unnamed_addr #
   %370 = getelementptr [8 x i32], ptr %369, i64 0, i64 %332
   %371 = load i32, ptr %370, align 4
   %372 = icmp ugt i32 %371, %334
-  %373 = trunc i64 %332 to i32
+  %373 = trunc nuw nsw i64 %332 to i32
   %374 = select i1 %372, i32 %373, i32 %335
   %375 = tail call i32 @llvm.umax.i32(i32 %371, i32 %334)
   %376 = icmp ult i32 %371, %207
@@ -2519,7 +2519,7 @@ define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr noundef captu
   %95 = zext nneg i16 %221 to i32
   %96 = zext nneg i16 %220 to i32
   %97 = zext i16 %219 to i32
-  %98 = trunc i64 %104 to i32
+  %98 = trunc nuw nsw i64 %104 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %98, i32 noundef %90, i32 noundef %91, i32 noundef %94, i32 noundef %95, i32 noundef %96, i32 noundef %97) #10
   %99 = add nuw nsw i64 %104, 1
   %100 = load i8, ptr %8, align 1
@@ -2536,7 +2536,7 @@ define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr noundef captu
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %84, align 8
-  %.tr = trunc i64 %104 to i32
+  %.tr = trunc nuw nsw i64 %104 to i32
   %110 = shl nuw nsw i32 %.tr, 3
   %111 = add nuw nsw i32 %110, 284432
   %112 = call i32 %109(ptr noundef nonnull %83, i32 %111, i1 noundef zeroext true) #10
@@ -2650,7 +2650,7 @@ thread-pre-split8:                                ; preds = %145, %162
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
   store i32 0, ptr %5, align 4
-  %188 = trunc i64 %104 to i32
+  %188 = trunc nuw nsw i64 %104 to i32
   %189 = shl nuw nsw i32 %188, 16
   %190 = or disjoint i32 %189, 269
   %191 = call i32 @snb_pcode_read(ptr noundef nonnull %83, i32 noundef %190, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
@@ -2770,7 +2770,7 @@ thread-pre-split8:                                ; preds = %145, %162
   %254 = getelementptr [3 x %struct.intel_psf_gv_point], ptr %228, i64 0, i64 %253
   %255 = load i8, ptr %254, align 1
   %256 = zext i8 %255 to i32
-  %257 = trunc i64 %253 to i32
+  %257 = trunc nuw nsw i64 %253 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %257, i32 noundef %256) #10
   %258 = add nuw nsw i64 %253, 1
   %259 = load i8, ptr %11, align 2
@@ -2784,7 +2784,7 @@ thread-pre-split8:                                ; preds = %145, %162
   %264 = getelementptr [3 x %struct.intel_psf_gv_point], ptr %228, i64 0, i64 %262
   %265 = load i8, ptr %264, align 1
   %266 = zext i8 %265 to i32
-  %267 = trunc i64 %262 to i32
+  %267 = trunc nuw nsw i64 %262 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %263, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %267, i32 noundef %266) #10
   %268 = add nuw nsw i64 %262, 1
   %269 = load i8, ptr %11, align 2

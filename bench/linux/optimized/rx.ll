@@ -4532,7 +4532,7 @@ define dso_local void @ieee80211_mark_rx_ba_filtered_frames(ptr noundef %0, i8 n
   %112 = phi i64 [ 0, %102 ], [ %126, %111 ]
   %113 = phi i64 [ %108, %102 ], [ %125, %111 ]
   %114 = add nuw nsw i64 %112, %109
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = urem i32 %115, %98
   %117 = zext nneg i32 %116 to i64
   %118 = shl nuw i64 1, %117

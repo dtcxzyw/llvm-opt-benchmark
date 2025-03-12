@@ -10501,7 +10501,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_14SROA11splitAllocaER
   br i1 %97, label %98, label %226
 
 98:                                               ; preds = %82
-  %99 = trunc nuw i64 %96 to i32
+  %99 = trunc nuw nsw i64 %96 to i32
   %100 = add nuw nsw i32 %99, 1
   %101 = icmp samesign ult i64 %96, 57
   br i1 %101, label %102, label %110

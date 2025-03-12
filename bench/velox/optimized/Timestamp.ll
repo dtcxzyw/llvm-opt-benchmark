@@ -617,7 +617,7 @@ if.end48:                                         ; preds = %while.end39
   %conv49 = add i32 %5, -1900
   %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 %conv49, ptr %tm_year, align 4
-  %conv50 = trunc i64 %days.1 to i32
+  %conv50 = trunc nuw nsw i64 %days.1 to i32
   %tm_yday = getelementptr inbounds nuw i8, ptr %tm, i64 28
   store i32 %conv50, ptr %tm_yday, align 4
   %arrayidx = getelementptr inbounds nuw [2 x [12 x i32]], ptr @_ZN8facebook5velox12_GLOBAL__N_112monthLengthsE, i64 0, i64 %idxprom

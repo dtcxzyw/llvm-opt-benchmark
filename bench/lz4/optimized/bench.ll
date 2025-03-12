@@ -1203,7 +1203,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %93, %92, %89, %88
   br i1 %137, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !41
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %138 = trunc i64 %indvars.iv.next.i to i32
+  %138 = trunc nuw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %111

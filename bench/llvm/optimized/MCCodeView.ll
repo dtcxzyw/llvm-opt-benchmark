@@ -2780,7 +2780,7 @@ define internal fastcc void @_ZL18compressAnnotationjRN4llvm15SmallVectorImplIcE
   br i1 %3, label %4, label %18
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %0 to i8
+  %5 = trunc nuw nsw i32 %0 to i8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !47
   %8 = add i64 %7, 1
@@ -2811,7 +2811,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %4, %11
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 8
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -128
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !47
@@ -2863,7 +2863,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit22: ; preds = %_ZN4llvm
 
 48:                                               ; preds = %46
   %49 = lshr i32 %0, 24
-  %50 = trunc nuw i32 %49 to i8
+  %50 = trunc nuw nsw i32 %49 to i8
   %51 = or disjoint i8 %50, -64
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !47

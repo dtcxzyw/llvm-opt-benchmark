@@ -2157,7 +2157,7 @@ define i32 @If_CutLutBalancePinDelays(ptr noundef readonly captures(none) %0, pt
 
 48:                                               ; preds = %45
   %49 = load i32, ptr %41, align 4, !tbaa !75
-  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %50 = shl nuw nsw i32 %indvars.iv.tr, 1
   %51 = shl nuw i32 1, %50
   %52 = and i32 %49, %51

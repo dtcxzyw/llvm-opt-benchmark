@@ -508,7 +508,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %139, %146, %147
   %190 = load ptr, ptr %.sroa.068.0107, align 8, !tbaa !77
   call void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(296) %189, ptr noundef %190, i32 noundef %29, i1 noundef zeroext false) #19
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %3, i32 noundef %162) #19
-  %191 = trunc nuw i64 %171 to i32
+  %191 = trunc nuw nsw i64 %171 to i32
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %3, i32 noundef %191) #19
   %192 = load ptr, ptr %.sroa.075.0111, align 8, !tbaa !34
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 24

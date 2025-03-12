@@ -4128,9 +4128,9 @@ if.then.i.i115:                                   ; preds = %invoke.cont45
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117, %if.then.i.i115
-  %conv.i.i102 = trunc i64 %call.i.i95 to i32
-  %conv.i.i61 = trunc i64 %call.i.i54 to i32
-  %conv.i.i = trunc i64 %call.i.i32 to i32
+  %conv.i.i102 = trunc nsw i64 %call.i.i95 to i32
+  %conv.i.i61 = trunc nsw i64 %call.i.i54 to i32
+  %conv.i.i = trunc nsw i64 %call.i.i32 to i32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp43) #30
   call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %retval, i32 noundef %conv.i.i102, i32 noundef %conv.i.i61, i32 noundef %conv.i.i)
   %68 = load i64, ptr %retval, align 8

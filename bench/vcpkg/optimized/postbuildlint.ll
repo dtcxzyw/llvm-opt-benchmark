@@ -23786,7 +23786,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit35:        ; preds = %31, %38
   br label %78
 
 44:                                               ; preds = %2, %2, %2
-  %45 = trunc i32 %4 to i8
+  %45 = trunc nuw nsw i32 %4 to i8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !455
   %48 = add i64 %47, 1
@@ -24349,7 +24349,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEE
 
 35:                                               ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit
   %.0.i10 = phi i64 [ %8, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread ], [ %.0.i, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit ]
-  %36 = trunc nuw i64 %.0.i10 to i32
+  %36 = trunc nuw nsw i64 %.0.i10 to i32
   ret i32 %36
 }
 
@@ -24577,7 +24577,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_check
 
 35:                                               ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit
   %.0.i10 = phi i64 [ %8, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread ], [ %.0.i, %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit ]
-  %36 = trunc nuw i64 %.0.i10 to i32
+  %36 = trunc nuw nsw i64 %.0.i10 to i32
   ret i32 %36
 }
 
@@ -30228,7 +30228,7 @@ _ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINS
 
 35:                                               ; preds = %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread, %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit
   %.0.i10 = phi i64 [ %8, %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit.thread ], [ %.0.i, %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail13width_checkerEEEDTclfp_Li0EEEOT_.exit ]
-  %36 = trunc nuw i64 %.0.i10 to i32
+  %36 = trunc nuw nsw i64 %.0.i10 to i32
   ret i32 %36
 }
 
@@ -30450,7 +30450,7 @@ _ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINS
 
 35:                                               ; preds = %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread, %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit
   %.0.i10 = phi i64 [ %8, %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit.thread ], [ %.0.i, %_ZNK3fmt3v1116basic_format_argINS0_15generic_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEE5visitINS0_6detail17precision_checkerEEEDTclfp_Li0EEEOT_.exit ]
-  %36 = trunc nuw i64 %.0.i10 to i32
+  %36 = trunc nuw nsw i64 %.0.i10 to i32
   ret i32 %36
 }
 
@@ -34648,7 +34648,7 @@ define internal fastcc void @_ZN5vcpkgL26get_printable_architectureB5cxx11ERKNS_
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %93 = trunc nuw i32 %.0.lcssa.i.i.i.i.i to i8
+  %93 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i to i8
   %94 = or disjoint i8 %93, 48
   %95 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i.i.i, i64 -1
   store i8 %94, ptr %95, align 1, !tbaa !16

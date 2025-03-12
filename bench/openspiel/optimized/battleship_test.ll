@@ -16297,7 +16297,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   br label %72
 
 72:                                               ; preds = %71, %69
-  %73 = trunc i64 %53 to i32
+  %73 = trunc nsw i64 %53 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   invoke void @_ZN10open_spiel13GameParameterC2Eib(ptr noundef nonnull align 8 dereferenceable(108) %15, i32 noundef %73, i1 noundef zeroext false)
           to label %74 unwind label %44
@@ -16355,7 +16355,7 @@ _ZN4absl7debian216strings_internal23ConvertibleToStringViewC2ERKNSt7__cxx1112bas
   br label %97
 
 97:                                               ; preds = %96, %94
-  %98 = trunc i64 %78 to i32
+  %98 = trunc nsw i64 %78 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   invoke void @_ZN10open_spiel13GameParameterC2Eib(ptr noundef nonnull align 8 dereferenceable(108) %16, i32 noundef %98, i1 noundef zeroext false)
           to label %99 unwind label %228
@@ -17961,11 +17961,11 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl7debian213hash_internal9HashS
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc nuw i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32
-  %.tr.i = trunc i64 %42 to i32
+  %.tr.i = trunc nuw nsw i64 %42 to i32
   %52 = shl nuw nsw i32 %.tr.i, 3
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %50, %53

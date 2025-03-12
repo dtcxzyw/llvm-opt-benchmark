@@ -1493,7 +1493,7 @@ define dso_local range(i16 0, 272) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %3
-  %.rhs.trunc = trunc nuw i32 %9 to i8
+  %.rhs.trunc = trunc nuw nsw i32 %9 to i8
   %12 = udiv i8 8, %.rhs.trunc
   %.zext = zext nneg i8 %12 to i32
   br label %15

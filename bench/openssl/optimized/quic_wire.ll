@@ -2992,7 +2992,7 @@ expect_frame_header_mask.exit:                    ; preds = %13
   %33 = load i64, ptr %3, align 8, !tbaa !52
   %34 = sub i64 %33, %27
   store i64 %34, ptr %3, align 8, !tbaa !52
-  %35 = trunc nuw i64 %14 to i8
+  %35 = trunc nuw nsw i64 %14 to i8
   %36 = and i8 %35, 1
   %37 = load i8, ptr %1, align 8
   %38 = and i8 %37, -2

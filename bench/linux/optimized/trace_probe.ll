@@ -3193,7 +3193,7 @@ sub_1:                                            ; preds = %sub_0
 
 109:                                              ; preds = %105
   store i32 7, ptr %9, align 8
-  %110 = trunc nuw i64 %106 to i32
+  %110 = trunc nuw nsw i64 %106 to i32
   %111 = add nsw i32 %110, -1
   %112 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %111, ptr %112, align 8

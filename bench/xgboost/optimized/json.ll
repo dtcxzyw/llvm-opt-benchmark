@@ -16367,7 +16367,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %36, %34, %30, %26, 
   br label %75
 
 72:                                               ; preds = %._crit_edge.i.i
-  %73 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %73 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %74 = or disjoint i8 %73, 48
   br label %75
 
@@ -17995,7 +17995,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
 
 63:                                               ; preds = %._crit_edge.i.i25.thread, %._crit_edge.i.i25
   %.0.lcssa.i.i65 = phi i32 [ 1, %._crit_edge.i.i25.thread ], [ %27, %._crit_edge.i.i25 ]
-  %64 = trunc nuw i32 %.0.lcssa.i.i65 to i8
+  %64 = trunc nuw nsw i32 %.0.lcssa.i.i65 to i8
   %65 = or disjoint i8 %64, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

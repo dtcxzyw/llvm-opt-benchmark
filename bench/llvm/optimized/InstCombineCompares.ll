@@ -46013,7 +46013,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit489.thread:       ; preds = %850, %_ZNK4llvm5Val
   %867 = trunc i64 %866 to i32
   call void @_ZN4llvm5APInt13getLowBitsSetEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %54, i32 noundef %862, i32 noundef %867)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #18
-  %868 = trunc i64 %.0.i.i.i.i.i.i.i.i to i32
+  %868 = trunc nuw i64 %.0.i.i.i.i.i.i.i.i to i32
   %869 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntlSEj(ptr noundef nonnull align 8 dereferenceable(12) %54, i32 noundef %868)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #18
   %870 = getelementptr inbounds nuw i8, ptr %87, i64 24

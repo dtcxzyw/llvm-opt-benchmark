@@ -11761,7 +11761,7 @@ define noundef i32 @_ZN3gmx20countNonlinearVsitesERK10gmx_mtop_t(ptr noundef non
   br i1 %24, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i, label %25
 
 25:                                               ; preds = %19
-  %26 = trunc nuw i64 %.024.i to i32
+  %26 = trunc nuw nsw i64 %.024.i to i32
   %.not.i.i.i = icmp eq ptr %15, %14
   br i1 %.not.i.i.i, label %29, label %27
 

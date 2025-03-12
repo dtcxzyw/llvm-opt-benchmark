@@ -12712,7 +12712,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit809:           ; preds = %602, %621
 
 630:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit809, %644
   %indvars.iv1102 = phi i64 [ 2, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit809 ], [ %indvars.iv.next1103, %644 ]
-  %631 = trunc i64 %indvars.iv1102 to i16
+  %631 = trunc nuw nsw i64 %indvars.iv1102 to i16
   %.not.i.i.i810 = icmp eq i16 %.sroa.0.0.copyload.i.i798, %631
   br i1 %.not.i.i.i810, label %_ZNK4llvm3EVT6bitsGEES0_.exit.thread, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i
 
@@ -12925,7 +12925,7 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit828:           ; preds = %677, %694
 
 703:                                              ; preds = %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit828, %717
   %indvars.iv = phi i64 [ 2, %_ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit828 ], [ %indvars.iv.next, %717 ]
-  %704 = trunc i64 %indvars.iv to i16
+  %704 = trunc nuw nsw i64 %indvars.iv to i16
   %.not.i.i.i829 = icmp eq i16 %.sroa.0.0.copyload.i822, %704
   br i1 %.not.i.i.i829, label %_ZNK4llvm3EVT6bitsGEES0_.exit855.thread, label %_ZNK4llvm3EVT13getSizeInBitsEv.exit.i.i837
 

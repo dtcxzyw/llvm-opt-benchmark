@@ -2453,8 +2453,8 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm20getStringFnAttrAsIntERK
   br label %14
 
 14:                                               ; preds = %1, %.thread, %12
-  %.sroa.02.2 = phi i64 [ %13, %12 ], [ 0, %1 ], [ 0, %.thread ]
-  %.sroa.2.1 = phi i64 [ 4294967296, %12 ], [ 0, %1 ], [ 0, %.thread ]
+  %.sroa.02.2 = phi i64 [ %13, %12 ], [ 0, %.thread ], [ 0, %1 ]
+  %.sroa.2.1 = phi i64 [ 4294967296, %12 ], [ 0, %.thread ], [ 0, %1 ]
   %.sroa.02.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.02.2
   ret i64 %.sroa.02.0.insert.insert
 }
@@ -2510,8 +2510,8 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit: ; preds = %3
   br label %_ZN4llvm20getStringFnAttrAsIntERKNS_9AttributeE.exit
 
 _ZN4llvm20getStringFnAttrAsIntERKNS_9AttributeE.exit: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit, %.thread.i, %18
-  %.sroa.02.2.i = phi i64 [ %19, %18 ], [ 0, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit ], [ 0, %.thread.i ]
-  %.sroa.2.1.i = phi i64 [ 4294967296, %18 ], [ 0, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit ], [ 0, %.thread.i ]
+  %.sroa.02.2.i = phi i64 [ %19, %18 ], [ 0, %.thread.i ], [ 0, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit ]
+  %.sroa.2.1.i = phi i64 [ 4294967296, %18 ], [ 0, %.thread.i ], [ 0, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit ]
   %.sroa.02.0.insert.insert.i = or disjoint i64 %.sroa.2.1.i, %.sroa.02.2.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   ret i64 %.sroa.02.0.insert.insert.i
@@ -2554,8 +2554,8 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm20getStringFnAttrAsIntEPN
   br label %_ZN4llvm20getStringFnAttrAsIntERKNS_9AttributeE.exit
 
 _ZN4llvm20getStringFnAttrAsIntERKNS_9AttributeE.exit: ; preds = %3, %.thread.i, %15
-  %.sroa.02.2.i = phi i64 [ %16, %15 ], [ 0, %3 ], [ 0, %.thread.i ]
-  %.sroa.2.1.i = phi i64 [ 4294967296, %15 ], [ 0, %3 ], [ 0, %.thread.i ]
+  %.sroa.02.2.i = phi i64 [ %16, %15 ], [ 0, %.thread.i ], [ 0, %3 ]
+  %.sroa.2.1.i = phi i64 [ 4294967296, %15 ], [ 0, %.thread.i ], [ 0, %3 ]
   %.sroa.02.0.insert.insert.i = or disjoint i64 %.sroa.2.1.i, %.sroa.02.2.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   ret i64 %.sroa.02.0.insert.insert.i
@@ -7860,13 +7860,13 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i: ; preds = %187
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #30
   br label %_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit.thread
 
-_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i, %.thread.i.i
+_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit.thread: ; preds = %.thread.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #30
   br label %203
 
 200:                                              ; preds = %197
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #30
-  %201 = trunc i64 %198 to i32
+  %201 = trunc nsw i64 %198 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #30
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 652
   store i32 %201, ptr %202, align 4, !tbaa !191
@@ -7912,13 +7912,13 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i21: ; preds = %203
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #30
   br label %_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit23.thread
 
-_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit23.thread: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i21, %.thread.i.i17
+_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit23.thread: ; preds = %.thread.i.i17, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #30
   br label %221
 
 216:                                              ; preds = %213
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #30
-  %217 = trunc i64 %214 to i32
+  %217 = trunc nsw i64 %214 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #30
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %219 = load i32, ptr %218, align 4, !tbaa !191
@@ -7966,7 +7966,7 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i32: ; preds = %221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #30
   br label %_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit34._crit_edge
 
-_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit34._crit_edge: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i32, %.thread.i.i28
+_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit34._crit_edge: ; preds = %.thread.i.i28, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 640
   %.pre = load i32, ptr %.phi.trans.insert, align 8
@@ -7974,7 +7974,7 @@ _ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit34._crit_edge: ;
 
 234:                                              ; preds = %231
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #30
-  %235 = trunc i64 %232 to i32
+  %235 = trunc nsw i64 %232 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #30
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %235, ptr %236, align 8, !tbaa !192
@@ -8398,7 +8398,7 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i11.i.i: ; preds = %_ZN4llvm5AP
 
 453:                                              ; preds = %450
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
-  %454 = trunc i64 %451 to i32
+  %454 = trunc nsw i64 %451 to i32
   br label %_ZN12_GLOBAL__N_122InlineCostCallAnalyzer37OverrideCycleSavingsAndSizeForTestingERN4llvm5APIntERi.exit.i
 
 _ZN12_GLOBAL__N_122InlineCostCallAnalyzer37OverrideCycleSavingsAndSizeForTestingERN4llvm5APIntERi.exit.i: ; preds = %453, %.thread.i.i7.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i11.i.i
@@ -9282,13 +9282,13 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
   br label %_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit.thread
 
-_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i, %.thread.i.i
+_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit.thread: ; preds = %.thread.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
   br label %25
 
 20:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #30
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nsw i64 %18 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #30
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %23 = load i32, ptr %22, align 8, !tbaa !192
@@ -9334,13 +9334,13 @@ _ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i13: ; preds = %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
   br label %_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit15.thread
 
-_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit15.thread: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i13, %.thread.i.i9
+_ZN4llvm20getStringFnAttrAsIntERNS_8CallBaseENS_9StringRefE.exit15.thread: ; preds = %.thread.i.i9, %_ZNK4llvm8CallBase9getFnAttrENS_9StringRefE.exit.i13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   br label %41
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
-  %37 = trunc i64 %34 to i32
+  %37 = trunc nsw i64 %34 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #30
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %39 = load i32, ptr %38, align 4, !tbaa !191

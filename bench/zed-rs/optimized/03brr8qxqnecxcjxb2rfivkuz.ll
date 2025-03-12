@@ -25712,7 +25712,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12futures_util6stream6stream9StreamE
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  %trunc.i = trunc i8 %3 to i1
+  %trunc.i = trunc nuw i8 %3 to i1
   br i1 %trunc.i, label %"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17ha58a0d7664a03efdE.llvm.21470575066294111.exit", label %9
 
 6:                                                ; preds = %2
@@ -25758,7 +25758,7 @@ define hidden noundef range(i8 0, 3) i8 @_ZN12futures_util6stream6stream9StreamE
   br label %"_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17ha58a0d7664a03efdE.llvm.21470575066294111.exit"
 
 "_ZN98_$LT$futures_channel..mpsc..UnboundedReceiver$LT$T$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17ha58a0d7664a03efdE.llvm.21470575066294111.exit": ; preds = %5, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..UnboundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h10134d570ec81c7aE.llvm.21470575066294111.exit.i", %19
-  %.sroa.0.0.i = phi i8 [ %22, %19 ], [ 1, %5 ], [ %3, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..UnboundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h10134d570ec81c7aE.llvm.21470575066294111.exit.i" ]
+  %.sroa.0.0.i = phi i8 [ %22, %19 ], [ 1, %5 ], [ 0, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..UnboundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h10134d570ec81c7aE.llvm.21470575066294111.exit.i" ]
   ret i8 %.sroa.0.0.i
 }
 
@@ -94504,7 +94504,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !28050, !noalias !28047
   %12 = trunc i32 %1 to i8
@@ -94516,7 +94516,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !28050, !noalias !28047
   %19 = lshr i32 %1, 6
@@ -141633,7 +141633,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN98_$LT$futures_channel..mpsc..Unbou
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %2
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %18, label %9
 
 6:                                                ; preds = %2
@@ -141668,7 +141668,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN98_$LT$futures_channel..mpsc..Unbou
   br label %18
 
 18:                                               ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..UnboundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h10134d570ec81c7aE.llvm.21470575066294111.exit", %5, %20
-  %.sroa.0.0 = phi i8 [ %23, %20 ], [ 1, %5 ], [ %3, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..UnboundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h10134d570ec81c7aE.llvm.21470575066294111.exit" ]
+  %.sroa.0.0 = phi i8 [ %23, %20 ], [ 1, %5 ], [ 0, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_channel..mpsc..UnboundedInner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h10134d570ec81c7aE.llvm.21470575066294111.exit" ]
   ret i8 %.sroa.0.0
 
 19:                                               ; preds = %6

@@ -440,7 +440,7 @@ fread.inline.exit:                                ; preds = %14
   br label %49
 
 21:                                               ; preds = %fread.inline.exit
-  %22 = trunc nuw i64 %3 to i32
+  %22 = trunc nuw nsw i64 %3 to i32
   %23 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %1, ptr noundef nonnull %12, i32 noundef %22, i32 noundef 0) #13
   %.not30 = icmp eq i32 %23, 0
   br i1 %.not30, label %49, label %24

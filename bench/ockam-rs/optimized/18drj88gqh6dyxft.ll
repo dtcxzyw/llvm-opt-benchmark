@@ -1603,7 +1603,7 @@ define hidden { i64, ptr } @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %10, label %16
 
 6:                                                ; preds = %1
@@ -8250,7 +8250,7 @@ define hidden { i64, ptr } @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$
   br i1 %8, label %10, label %9
 
 9:                                                ; preds = %5
-  %trunc.i = trunc i8 %7 to i1
+  %trunc.i = trunc nuw i8 %7 to i1
   br i1 %trunc.i, label %14, label %20
 
 10:                                               ; preds = %5
@@ -10222,7 +10222,7 @@ define hidden { i64, ptr } @"_ZN211_$LT$ockam_transport_websocket..router.._..$L
   br i1 %39, label %41, label %40
 
 40:                                               ; preds = %37
-  %trunc.i.i.i.i.i.i = trunc i8 %38 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %38 to i1
   br i1 %trunc.i.i.i.i.i.i, label %45, label %51
 
 41:                                               ; preds = %37

@@ -50075,7 +50075,7 @@ _ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i:   ; preds = %30, %21
   %.0.lcssa.i.i = phi i32 [ %28, %21 ], [ %35, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %37 = load ptr, ptr %36, align 8, !tbaa !581
-  %38 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %38 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %37, i8 noundef signext %38)
   %40 = sub i32 %spec.select.i, %spec.select15.i
   %.not5.i2.i = icmp ult i32 %40, 128
@@ -50094,7 +50094,7 @@ _ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i:   ; preds = %30, %21
 _ZN12_GLOBAL__N_111AigerWriter9emit_gateEjj.exit: ; preds = %.lr.ph.i3.i, %_ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i
   %.0.lcssa.i6.i = phi i32 [ %40, %_ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i ], [ %45, %.lr.ph.i3.i ]
   %46 = load ptr, ptr %36, align 8, !tbaa !581
-  %47 = trunc nuw i32 %.0.lcssa.i6.i to i8
+  %47 = trunc nuw nsw i32 %.0.lcssa.i6.i to i8
   %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %46, i8 noundef signext %47)
   br label %253
 
@@ -50244,7 +50244,7 @@ _ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i12: ; preds = %143, %_ZNK5Yosys7ha
   %.0.lcssa.i.i13 = phi i32 [ %141, %_ZNK5Yosys7hashlib4dictISt4pairIjjEjNS0_8hash_opsIS3_EEE5countERKS3_.exit.thread ], [ %148, %143 ]
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %150 = load ptr, ptr %149, align 8, !tbaa !581
-  %151 = trunc nuw i32 %.0.lcssa.i.i13 to i8
+  %151 = trunc nuw nsw i32 %.0.lcssa.i.i13 to i8
   %152 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %150, i8 noundef signext %151)
   %153 = sub i32 %spec.select, %spec.select64
   %.not5.i2.i14 = icmp ult i32 %153, 128
@@ -50263,7 +50263,7 @@ _ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i12: ; preds = %143, %_ZNK5Yosys7ha
 _ZN12_GLOBAL__N_111AigerWriter9emit_gateEjj.exit19: ; preds = %.lr.ph.i3.i15, %_ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i12
   %.0.lcssa.i6.i18 = phi i32 [ %153, %_ZN12_GLOBAL__N_111AigerWriter6encodeEi.exit.i12 ], [ %158, %.lr.ph.i3.i15 ]
   %159 = load ptr, ptr %149, align 8, !tbaa !581
-  %160 = trunc nuw i32 %.0.lcssa.i6.i18 to i8
+  %160 = trunc nuw nsw i32 %.0.lcssa.i6.i18 to i8
   %161 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %159, i8 noundef signext %160)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
   %162 = load ptr, ptr %50, align 8, !tbaa !156

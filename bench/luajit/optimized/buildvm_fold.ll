@@ -306,7 +306,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
 
 .preheader49.i:                                   ; preds = %228, %.preheader49.preheader.i
   %indvars.iv.i42 = phi i64 [ %125, %.preheader49.preheader.i ], [ %indvars.iv.next.i44, %228 ]
-  %indvars84.i = trunc i64 %indvars.iv.i42 to i32
+  %indvars84.i = trunc nuw nsw i64 %indvars.iv.i42 to i32
   %126 = shl nuw nsw i64 %indvars.iv.i42, 2
   %127 = add nuw nsw i64 %126, 4
   %128 = add nsw i32 %indvars84.i, -1

@@ -88994,7 +88994,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %37
 
 37:                                               ; preds = %36, %34
-  %38 = trunc i64 %14 to i32
+  %38 = trunc nsw i64 %14 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #38
   store i32 %38, ptr %1, align 4, !tbaa !37
   br label %46
@@ -131048,8 +131048,8 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
   %202 = getelementptr inbounds nuw i8, ptr %162, i64 68
   %203 = load float, ptr %202, align 4, !tbaa !2347
   %204 = fmul float %153, %197
-  %205 = trunc i64 %182 to i32
-  %206 = trunc i64 %139 to i32
+  %205 = trunc nuw nsw i64 %182 to i32
+  %206 = trunc nuw nsw i64 %139 to i32
   %207 = fcmp ogt float %186, %184
   %208 = fsub float %116, %184
   %209 = fsub float %186, %184
@@ -131079,7 +131079,7 @@ _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exi
   %231 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %232 = lshr i64 %182, 32
   %.sroa.4.0.extract.shift.i.i.i.i.i.i = or disjoint i64 %232, %139
-  %.sroa.4.0.extract.trunc.i.i.i.i.i.i = trunc nuw i64 %.sroa.4.0.extract.shift.i.i.i.i.i.i to i32
+  %.sroa.4.0.extract.trunc.i.i.i.i.i.i = trunc nuw nsw i64 %.sroa.4.0.extract.shift.i.i.i.i.i.i to i32
   %233 = load i32, ptr %231, align 8, !tbaa !242
   %234 = sub i32 %205, %233
   %235 = getelementptr inbounds nuw i8, ptr %119, i64 44

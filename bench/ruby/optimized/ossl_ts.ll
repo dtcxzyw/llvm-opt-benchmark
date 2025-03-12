@@ -1526,7 +1526,7 @@ RSTRING_PTR.exit:                                 ; preds = %8, %15
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nsw i64 %17 to i32
   %21 = call i32 @TS_MSG_IMPRINT_set_msg(ptr noundef %9, ptr noundef %.sroa.2.0.i, i32 noundef %20) #7
   %.not3 = icmp eq i32 %21, 0
   br i1 %.not3, label %22, label %24

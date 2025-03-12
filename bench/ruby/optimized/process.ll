@@ -8592,7 +8592,7 @@ rb_array_len.exit.i:                              ; preds = %17, %14
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
-  %22 = trunc i64 %.0.i.i to i32
+  %22 = trunc nsw i64 %.0.i.i to i32
   %23 = load i32, ptr @_maxgroups, align 4, !tbaa !60
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %maxgroups.exit
@@ -8618,7 +8618,7 @@ maxgroups.exit:                                   ; preds = %RARRAY_LENINT.exit,
 
 34:                                               ; preds = %maxgroups.exit
   %sext = shl nsw i64 %.0.i.i, 32
-  %35 = icmp ult i32 %22, 256
+  %35 = icmp ult i64 %.0.i.i, 256
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %34
@@ -8644,13 +8644,14 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %39
 
 46:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %36
   %47 = phi ptr [ %38, %36 ], [ %45, %rb_alloc_tmp_buffer2.exit ]
-  %48 = icmp sgt i32 %22, 0
+  %48 = icmp sgt i64 %.0.i.i, 0
   br i1 %48, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %wide.trip.count = and i64 %.0.i.i, 2147483647
+  %smax = call i32 @llvm.smax.i32(i32 %22, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %51
 
 51:                                               ; preds = %.lr.ph, %RARRAY_AREF.exit

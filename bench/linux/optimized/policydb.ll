@@ -2296,7 +2296,7 @@ define internal fastcc i32 @ocontext_read(ptr noundef %0, ptr noundef nonnull re
 21:                                               ; preds = %15
   %22 = getelementptr [9 x ptr], ptr %10, i64 0, i64 %12
   %23 = icmp eq i64 %12, 1
-  %24 = trunc i64 %12 to i32
+  %24 = trunc nuw i64 %12 to i32
   br label %25
 
 25:                                               ; preds = %224, %21
@@ -3692,7 +3692,7 @@ define internal fastcc i32 @ocontext_write(ptr noundef readonly captures(none) %
   br i1 %41, label %.loopexit, label %42
 
 42:                                               ; preds = %34
-  %43 = trunc i64 %21 to i32
+  %43 = trunc nuw i64 %21 to i32
   br label %44
 
 44:                                               ; preds = %614, %42

@@ -1134,7 +1134,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   %222 = load i8, ptr %12, align 1, !tbaa !11
   %223 = and i8 %222, -33
   %or.cond12 = icmp eq i8 %223, 66
-  %224 = trunc nuw i64 %219 to i32
+  %224 = trunc nuw nsw i64 %219 to i32
   br i1 %or.cond12, label %225, label %226
 
 225:                                              ; preds = %221

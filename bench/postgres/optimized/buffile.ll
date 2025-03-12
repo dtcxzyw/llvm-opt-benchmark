@@ -921,7 +921,7 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   %52 = and i64 %49, -1073741824
   %53 = add i64 %.0, %52
   %54 = add i64 %53, 1073741824
-  %55 = trunc i64 %50 to i32
+  %55 = trunc nuw i64 %50 to i32
   %56 = sub i32 %45, %55
   br label %._crit_edge
 
@@ -990,7 +990,7 @@ BufFileFlush.exit:                                ; preds = %72, %76
 
 .lr.ph72.preheader.split:                         ; preds = %.lr.ph72.preheader
   %90 = and i64 %87, -1073741824
-  %91 = trunc i64 %88 to i32
+  %91 = trunc nuw i64 %88 to i32
   %92 = add i32 %spec.select, %91
   %93 = add nsw i64 %spec.select61, -1073741824
   %94 = sub nsw i64 %93, %90

@@ -1703,7 +1703,7 @@ stbcc__incluster_union.exit344:                   ; preds = %78, %70, %50, %60
   br i1 %223, label %.sink.split451, label %238
 
 .sink.split451:                                   ; preds = %221
-  %224 = trunc i64 %indvars.iv411 to i32
+  %224 = trunc nuw nsw i64 %indvars.iv411 to i32
   %225 = or i32 %5, %224
   %226 = ashr i32 %225, 3
   %227 = sext i32 %226 to i64

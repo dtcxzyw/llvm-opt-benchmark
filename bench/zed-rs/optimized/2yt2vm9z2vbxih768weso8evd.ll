@@ -19896,7 +19896,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %58
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6b0781b9f6ccb576E.exit: ; preds = %._crit_edge33, %43
-  %57 = trunc i64 %22 to i32
+  %57 = trunc nuw i64 %22 to i32
   br label %58
 
 58:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6b0781b9f6ccb576E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h421f8ff6936054f4E.exit15"
@@ -20097,7 +20097,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h0eca5814e3277aa6E.exit: ; preds 
   %74 = phi i64 [ %23, %._crit_edge94 ], [ %50, %48 ]
   %75 = phi i64 [ %24, %._crit_edge94 ], [ %51, %48 ]
   %.val.i1668 = phi i64 [ %.val.i167071, %._crit_edge94 ], [ %.val.i1669, %48 ]
-  %76 = trunc i64 %26 to i32
+  %76 = trunc nuw i64 %26 to i32
   br label %77
 
 77:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h0eca5814e3277aa6E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h58c13f9cc9d2042aE.exit15"
@@ -20453,7 +20453,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h52f85ee759e18f95E.exit: ; preds = %._crit_edge76, %48
   %68 = phi i64 [ %22, %._crit_edge76 ], [ %50, %48 ]
   %69 = phi i64 [ %23, %._crit_edge76 ], [ %51, %48 ]
-  %70 = trunc i64 %25 to i32
+  %70 = trunc nuw i64 %25 to i32
   br label %71
 
 71:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h52f85ee759e18f95E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc1ece8da61bb3b4eE.exit15"
@@ -22467,7 +22467,7 @@ define hidden noundef align 16 dereferenceable_or_null(144) ptr @"_ZN90_$LT$sum_
   br label %39
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6b0781b9f6ccb576E.exit: ; preds = %._crit_edge, %._crit_edge24
-  %38 = trunc i64 %12 to i32
+  %38 = trunc nuw i64 %12 to i32
   br label %39
 
 39:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6b0781b9f6ccb576E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h421f8ff6936054f4E.exit"

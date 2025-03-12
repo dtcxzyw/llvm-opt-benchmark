@@ -1206,7 +1206,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hd061129
   ret void
 
 8:                                                ; preds = %2
-  %9 = trunc i64 %1 to i32
+  %9 = trunc nuw i64 %1 to i32
   store i32 %9, ptr %3, align 4, !alias.scope !190
   br label %7
 }

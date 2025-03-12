@@ -1494,7 +1494,7 @@ _ZNRSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5valueEv.ex
   br i1 %.not.i, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = trunc i64 %61 to i32
+  %64 = trunc nsw i64 %61 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %64, ptr %65, align 4, !tbaa !102
@@ -3426,7 +3426,7 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit.i:    ; preds = %15, %13, %9, %5, %2
   br label %_ZNSt7__cxx119to_stringEy.exit
 
 51:                                               ; preds = %._crit_edge.i.i
-  %52 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %52 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %53 = or disjoint i8 %52, 48
   br label %_ZNSt7__cxx119to_stringEy.exit
 

@@ -3402,7 +3402,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %_ZNK7rocksdb18Prote
 
 134:                                              ; preds = %._crit_edge.i.i46.thread, %._crit_edge.i.i46
   %.0.lcssa.i.i181 = phi i32 [ %.zext183, %._crit_edge.i.i46.thread ], [ %99, %._crit_edge.i.i46 ]
-  %135 = trunc nuw i32 %.0.lcssa.i.i181 to i8
+  %135 = trunc nuw nsw i32 %.0.lcssa.i.i181 to i8
   %136 = or disjoint i8 %135, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -3842,7 +3842,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %274, %272, %268, %2
   br label %313
 
 310:                                              ; preds = %._crit_edge.i.i89
-  %311 = trunc nuw i64 %.0.lcssa.i.i90 to i8
+  %311 = trunc nuw nsw i64 %.0.lcssa.i.i90 to i8
   %312 = or disjoint i8 %311, 48
   br label %313
 
@@ -4532,7 +4532,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc nuw i32 %.0.lcssa.i to i8
+  %58 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -4644,7 +4644,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 51:                                               ; preds = %._crit_edge.i
-  %52 = trunc nuw i64 %.0.lcssa.i to i8
+  %52 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -17632,7 +17632,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %4
   store ptr %16, ptr %8, align 8, !tbaa !25, !alias.scope !799
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i8 noundef signext 0)
   %17 = load ptr, ptr %8, align 8, !tbaa !28, !alias.scope !799
-  %18 = trunc nuw i64 %14 to i8
+  %18 = trunc nuw nsw i64 %14 to i8
   %19 = or disjoint i8 %18, 48
   store i8 %19, ptr %17, align 1, !tbaa !30
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.58, i64 noundef 44)

@@ -721,7 +721,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN5eastl10CharStrl
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit
 
 if.else.i.i.i.i:                                  ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i
-  %1 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
+  %1 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit
@@ -1096,7 +1096,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrl
   br label %_ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i
-  %1 = trunc nuw i64 %sub.ptr.sub.i.i.i.i to i8
+  %1 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i to i8
   %conv.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit
@@ -1400,7 +1400,7 @@ call.i.i.i.i.i.i.i.i.noexc:                       ; preds = %if.then.i.i.i.i.i.i
   br label %invoke.cont
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i
-  %1 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %1 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -2040,7 +2040,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrl
   br label %invoke.cont3
 
 if.else.i.i.i.i.i:                                ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i
-  %1 = trunc nuw i64 %sub.ptr.sub.i.i.i.i to i8
+  %1 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i to i8
   %conv.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %invoke.cont3
@@ -3167,7 +3167,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrl
   br label %_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit
 
 if.else.i.i.i.i.i.i:                              ; preds = %_ZN5eastl10CharStrlenIcEEmPKT_.exit.i.i.i.i
-  %1 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %1 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i to i8
   %conv.i.i.i.i.i.i.i = sub nuw nsw i8 23, %1
   store i8 %conv.i.i.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   br label %_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit

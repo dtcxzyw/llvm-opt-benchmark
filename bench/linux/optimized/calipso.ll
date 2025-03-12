@@ -1586,7 +1586,7 @@ thread-pre-split:                                 ; preds = %16, %16
   %125 = getelementptr i8, ptr %99, i64 %124
   store i8 1, ptr %125, align 1
   %126 = add nsw i32 %30, -2
-  %127 = trunc nsw i32 %126 to i8
+  %127 = trunc nuw nsw i32 %126 to i8
   %128 = add i32 %26, 1
   %129 = zext i32 %128 to i64
   %130 = getelementptr i8, ptr %99, i64 %129
@@ -1727,7 +1727,7 @@ define internal range(i32 -2147483648, 1) i32 @calipso_skbuff_delattr(ptr nounde
   %75 = getelementptr i8, ptr %42, i64 %74
   store i8 1, ptr %75, align 1
   %76 = add nsw i32 %67, -2
-  %77 = trunc nsw i32 %76 to i8
+  %77 = trunc nuw nsw i32 %76 to i8
   %78 = add i32 %51, 1
   %79 = zext i32 %78 to i64
   %80 = getelementptr i8, ptr %42, i64 %79
@@ -2088,7 +2088,7 @@ thread-pre-split:                                 ; preds = %7, %7
   %47 = getelementptr i8, ptr %25, i64 %46
   store i8 1, ptr %47, align 1
   %48 = add nsw i32 %41, -2
-  %49 = trunc nsw i32 %48 to i8
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = add i32 %38, 1
   %51 = zext i32 %50 to i64
   %52 = getelementptr i8, ptr %25, i64 %51
@@ -2624,7 +2624,7 @@ define internal fastcc range(i32 -22, 1) i32 @calipso_opt_del(ptr noundef nonnul
   %37 = getelementptr i8, ptr %24, i64 %27
   store i8 1, ptr %37, align 1
   %38 = add nsw i32 %33, -2
-  %39 = trunc nsw i32 %38 to i8
+  %39 = trunc nuw nsw i32 %38 to i8
   %40 = add i32 %13, 1
   %41 = zext i32 %40 to i64
   %42 = getelementptr i8, ptr %24, i64 %41

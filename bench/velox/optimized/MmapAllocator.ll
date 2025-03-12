@@ -4336,7 +4336,7 @@ if.then7.i:                                       ; preds = %.noexc4
 
 if.end.i:                                         ; preds = %.noexc4
   %5 = load i32, ptr %numMappedFreePages_, align 4
-  %6 = trunc i64 %div.i to i32
+  %6 = trunc nuw nsw i64 %div.i to i32
   %conv11.i = sub i32 %5, %6
   store i32 %conv11.i, ptr %numMappedFreePages_, align 4
   %7 = sext i32 %3 to i64
@@ -5088,7 +5088,7 @@ if.then7:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then
   %5 = load i32, ptr %numMappedFreePages_, align 4
-  %6 = trunc i64 %div to i32
+  %6 = trunc nuw nsw i64 %div to i32
   %conv11 = sub i32 %5, %6
   store i32 %conv11, ptr %numMappedFreePages_, align 4
   %conv14 = sub i32 %numPages, %6

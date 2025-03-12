@@ -10879,7 +10879,7 @@ land.lhs.true26.i1079:                            ; preds = %sw.bb18.i1074
   %sub.i1081 = add nsw i32 %conv24.i1080, -1
   %conv28.i = sext i8 %max_node_level.02398 to i32
   %spec.select47.i108489 = call i32 @llvm.smax.i32(i32 %sub.i1081, i32 %conv28.i)
-  %spec.select47.i1084 = trunc nsw i32 %spec.select47.i108489 to i8
+  %spec.select47.i1084 = trunc nuw nsw i32 %spec.select47.i108489 to i8
   br label %_ZL20get_max_liquid_level12NodeNeighbora.exit1092
 
 _ZL20get_max_liquid_level12NodeNeighbora.exit1092: ; preds = %land.lhs.true26.i1079, %sw.bb18.i1074, %if.else.i1088, %if.then.i1089, %for.body259

@@ -790,7 +790,7 @@ define internal fastcc i32 @ptrace_set_debugreg(ptr noundef %0, i32 noundef rang
   store i32 0, ptr %10, align 4, !annotation !25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
   store i32 0, ptr %11, align 4, !annotation !25
-  %103 = trunc i64 %101 to i32
+  %103 = trunc nuw nsw i64 %101 to i32
   %104 = call i32 @decode_dr7(i64 noundef %99, i32 noundef %103, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   %105 = icmp eq i32 %104, 0
   %106 = getelementptr [4 x ptr], ptr %57, i64 0, i64 %101

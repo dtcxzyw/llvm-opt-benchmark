@@ -12649,7 +12649,7 @@ define dso_local void @_ZN8FileLine11warnLintOffEb(ptr noundef nonnull align 8 d
 6:                                                ; preds = %2, %10
   %.04 = phi i32 [ 0, %2 ], [ %11, %10 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #26
-  %7 = trunc nuw i32 %.04 to i8
+  %7 = trunc nuw nsw i32 %.04 to i8
   store i8 %7, ptr %3, align 1, !tbaa !110
   %8 = call noundef zeroext i1 @_ZNK11V3ErrorCode9lintErrorEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
   br i1 %8, label %9, label %10
@@ -12716,7 +12716,7 @@ define dso_local void @_ZN8FileLine12warnStyleOffEb(ptr noundef nonnull align 8 
 6:                                                ; preds = %2, %10
   %.04 = phi i32 [ 0, %2 ], [ %11, %10 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #26
-  %7 = trunc nuw i32 %.04 to i8
+  %7 = trunc nuw nsw i32 %.04 to i8
   store i8 %7, ptr %3, align 1, !tbaa !110
   %8 = call noundef zeroext i1 @_ZNK11V3ErrorCode10styleErrorEv(ptr noundef nonnull align 1 dereferenceable(1) %3)
   br i1 %8, label %9, label %10

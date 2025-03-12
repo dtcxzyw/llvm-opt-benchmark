@@ -377,7 +377,7 @@ define internal range(i32 0, 2) i32 @fips_health_tests() #0 {
 .preheader26:                                     ; preds = %6, %.preheader26
   %.128 = phi i64 [ %15, %.preheader26 ], [ 0, %6 ]
   %11 = icmp samesign ugt i64 %.128, 10
-  %12 = trunc nuw i64 %.128 to i8
+  %12 = trunc nuw nsw i64 %.128 to i8
   %13 = select i1 %11, i8 -56, i8 %12
   %14 = getelementptr inbounds nuw [1000 x i8], ptr %1, i64 0, i64 %.128
   store i8 %13, ptr %14, align 1, !tbaa !21

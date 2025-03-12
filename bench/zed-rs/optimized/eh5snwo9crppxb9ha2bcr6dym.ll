@@ -6680,13 +6680,13 @@ default.unreachable2.i:                           ; preds = %372
   br i1 %415, label %425, label %436
 
 416:                                              ; preds = %409
-  %417 = trunc nuw i32 %410 to i8
+  %417 = trunc nuw nsw i32 %410 to i8
   store i8 %417, ptr %.sroa.0556, align 4, !alias.scope !1327
   br label %451
 
 418:                                              ; preds = %412
   %419 = lshr i32 %410, 6
-  %420 = trunc nuw i32 %419 to i8
+  %420 = trunc nuw nsw i32 %419 to i8
   %421 = or disjoint i8 %420, -64
   store i8 %421, ptr %.sroa.0556, align 4, !alias.scope !1327
   %422 = trunc i32 %410 to i8
@@ -6697,7 +6697,7 @@ default.unreachable2.i:                           ; preds = %372
 
 425:                                              ; preds = %414
   %426 = lshr i32 %410, 12
-  %427 = trunc nuw i32 %426 to i8
+  %427 = trunc nuw nsw i32 %426 to i8
   %428 = or disjoint i8 %427, -32
   store i8 %428, ptr %.sroa.0556, align 4, !alias.scope !1327
   %429 = lshr i32 %410, 6
@@ -15034,7 +15034,7 @@ _ZN3vte4ansi11PrivateMode3new17h86949433fa76faa0E.exit648.i: ; preds = %1545, %1
 
 .split449.i:                                      ; preds = %1720, %1719, %1717, %1717
   %.sroa.0145.0.ph.i = phi i8 [ 1, %1719 ], [ 2, %1720 ], [ 0, %1717 ], [ 0, %1717 ]
-  %1723 = trunc i16 %1718 to i8
+  %1723 = trunc nuw nsw i16 %1718 to i8
   %1724 = and i8 %1723, 1
   %1725 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1726 = load ptr, ptr %1725, align 8, !alias.scope !2314, !noalias !2321, !nonnull !4, !align !5, !noundef !4
@@ -16602,7 +16602,7 @@ _ZN3vte4ansi11PrivateMode3new17h86949433fa76faa0E.exit648.i: ; preds = %1545, %1
 2304:                                             ; preds = %2300
   call void @llvm.assume(i1 %2247)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !2420
-  %2305 = trunc nuw i64 %indvars.iv.i.i to i8
+  %2305 = trunc nuw nsw i64 %indvars.iv.i.i to i8
   call fastcc void @"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h54db297f7c80af2fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i8 %2305), !noalias !2412
   call fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$u20$as$u20$vte..ansi..Handler$GT$22dynamic_color_sequence17hf91ac3926d0823c4E"(ptr noalias noundef align 8 dereferenceable(1736) %.val3780, ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i64 noundef %2261, ptr noalias noundef nonnull readonly align 1 %anon.1c484348ba8ee3732de274f0fe7cde14.592.anon.1c484348ba8ee3732de274f0fe7cde14.591.i.i, i64 noundef %..i.i67), !noalias !2412
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !2420
@@ -29478,7 +29478,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !4750
   %12 = trunc i32 %1 to i8
@@ -29490,7 +29490,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !4750
   %19 = lshr i32 %1, 6

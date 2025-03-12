@@ -302,7 +302,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_112LeadingZerosENS_7uint128E.exit.i.i.
   %118 = lshr i128 %.sroa.01.0.insert.insert.i55.i.i.i, %117
   %.sroa.0.0.extract.trunc.i56.i.i.i = trunc i128 %118 to i64
   %.sroa.2.0.extract.shift.i57.i.i.i = lshr i128 %118, 64
-  %.sroa.2.0.extract.trunc.i58.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i57.i.i.i to i64
+  %.sroa.2.0.extract.trunc.i58.i.i.i = trunc nuw nsw i128 %.sroa.2.0.extract.shift.i57.i.i.i to i64
   %.not11.i61.i.i.i = icmp eq i64 %.sroa.2.0.extract.trunc.i58.i.i.i, 0
   br i1 %.not11.i61.i.i.i, label %.preheader.i69.i.i.i.preheader, label %.lr.ph.i62.i.i.i
 
@@ -460,7 +460,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatFINS_7uint128EEEvT_iRKNS1_11Fo
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit.i
 
 190:                                              ; preds = %._crit_edge136.i
-  %.lhs.trunc.i.i = trunc nuw i32 %spec.select153.i to i8
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %spec.select153.i to i8
   %191 = udiv i8 %.lhs.trunc.i.i, 10
   %192 = or disjoint i8 %191, 48
   store i8 %192, ptr %176, align 1, !tbaa !12
@@ -620,7 +620,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit.
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit
 
 269:                                              ; preds = %242
-  %.lhs.trunc.i = trunc nuw i32 %spec.select41 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %spec.select41 to i8
   %270 = udiv i8 %.lhs.trunc.i, 10
   %271 = or disjoint i8 %270, 48
   store i8 %271, ptr %255, align 1, !tbaa !12
@@ -1425,7 +1425,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit
 
 201:                                              ; preds = %._crit_edge152
-  %.lhs.trunc.i = trunc nuw i32 %spec.select176 to i8
+  %.lhs.trunc.i = trunc nuw nsw i32 %spec.select176 to i8
   %202 = udiv i8 %.lhs.trunc.i, 10
   %203 = or disjoint i8 %202, 48
   store i8 %203, ptr %187, align 1, !tbaa !12
@@ -2597,7 +2597,7 @@ define internal fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_113PrintE
   br label %33
 
 29:                                               ; preds = %13
-  %.lhs.trunc = trunc nuw i32 %.0 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.0 to i8
   %30 = udiv i8 %.lhs.trunc, 10
   %31 = or disjoint i8 %30, 48
   store i8 %31, ptr %15, align 1, !tbaa !12

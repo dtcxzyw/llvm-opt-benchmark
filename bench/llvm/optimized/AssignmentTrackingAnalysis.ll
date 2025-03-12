@@ -25886,7 +25886,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10VarLocInfoELb0EE28reserveForParamAndGetAd
 
 227:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %25) #30
-  %228 = trunc nuw i64 %200 to i32
+  %228 = trunc nuw nsw i64 %200 to i32
   %229 = add nuw nsw i32 %228, 63
   %230 = lshr i32 %229, 6
   %231 = zext nneg i32 %230 to i64
@@ -26595,7 +26595,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_10VarLocInfoELb0EE28reserveForParamAndGetAd
 
 573:                                              ; preds = %530
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %20) #30
-  %574 = trunc nuw i64 %546 to i32
+  %574 = trunc nuw nsw i64 %546 to i32
   %575 = add nuw nsw i32 %574, 63
   %576 = lshr i32 %575, 6
   %577 = zext nneg i32 %576 to i64

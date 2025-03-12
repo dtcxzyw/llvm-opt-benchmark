@@ -10832,7 +10832,7 @@ fill_print_name.exit.i119:                        ; preds = %506, %489
   %.0225.lcssa.ph.i = phi i64 [ %.0225327.i, %469 ], [ %.1226.i, %526 ]
   %.0220.lcssa.ph.i = phi i64 [ %.0220328.i, %469 ], [ %.1221.i, %526 ]
   %.0.lcssa.ph.in.i = phi i64 [ %indvars.iv.i118, %469 ], [ %indvars.iv.next.i121, %526 ]
-  %.0.lcssa.ph.i = trunc i64 %.0.lcssa.ph.in.i to i32
+  %.0.lcssa.ph.i = trunc nsw i64 %.0.lcssa.ph.in.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %457

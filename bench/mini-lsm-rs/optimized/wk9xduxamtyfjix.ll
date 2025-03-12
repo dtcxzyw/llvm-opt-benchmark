@@ -31069,7 +31069,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br i1 %.not, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit", label %13
 
 13:                                               ; preds = %12
-  %14 = trunc i8 %.0.i to i1
+  %14 = trunc nuw i8 %.0.i to i1
   br i1 %14, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit", label %15
 
 15:                                               ; preds = %13
@@ -31105,7 +31105,7 @@ default.unreachable:                              ; preds = %"_ZN17crossbeam_cha
   br i1 %.not4, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit3", label %26
 
 26:                                               ; preds = %25
-  %27 = trunc i8 %.0.i1 to i1
+  %27 = trunc nuw i8 %.0.i1 to i1
   br i1 %27, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send17hae04c4e10d4a1133E.exit3", label %28
 
 28:                                               ; preds = %26

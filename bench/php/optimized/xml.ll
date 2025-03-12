@@ -9244,9 +9244,9 @@ declare zeroext i1 @_try_convert_to_string(ptr noundef) local_unnamed_addr #3
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext i8 @xml_decode_iso_8859_1(i16 noundef zeroext %0) #13 {
+define internal signext i8 @xml_decode_iso_8859_1(i16 noundef zeroext %0) #13 {
   %2 = icmp ugt i16 %0, 255
-  %3 = trunc i16 %0 to i8
+  %3 = trunc nuw i16 %0 to i8
   %4 = select i1 %2, i8 63, i8 %3
   ret i8 %4
 }
@@ -9258,9 +9258,9 @@ define internal zeroext range(i16 0, 256) i16 @xml_encode_iso_8859_1(i8 noundef 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef signext i8 @xml_decode_us_ascii(i16 noundef zeroext %0) #13 {
+define internal signext i8 @xml_decode_us_ascii(i16 noundef zeroext %0) #13 {
   %2 = icmp ugt i16 %0, 127
-  %3 = trunc i16 %0 to i8
+  %3 = trunc nuw nsw i16 %0 to i8
   %4 = select i1 %2, i8 63, i8 %3
   ret i8 %4
 }

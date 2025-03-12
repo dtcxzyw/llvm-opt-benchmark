@@ -5218,7 +5218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit390: ; preds = %_Z
 
 ._crit_edge754:                                   ; preds = %.lr.ph753, %.preheader
   %873 = load ptr, ptr %58, align 8
-  %874 = trunc i64 %869 to i32
+  %874 = trunc nuw i64 %869 to i32
   %875 = invoke { ptr, i32 } @_Z10ExportDataRN4glTF5AssetERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN10glTFCommon3RefINS_6BufferEEEjPvNS_10AttribType5ValueESG_NS_13ComponentTypeENS_16BufferViewTargetE(ptr noundef nonnull align 8 dereferenceable(1912) %873, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(12) %10, i32 noundef %874, ptr noundef nonnull %872, i32 noundef 6, i32 noundef 6, i32 noundef 5126, i32 noundef 0)
           to label %930 unwind label %946
 
@@ -19211,7 +19211,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(pt
   br label %_ZN9rapidjson8internal13WriteExponentEiPc.exit
 
 118:                                              ; preds = %107
-  %119 = trunc nuw i32 %.0.i to i8
+  %119 = trunc nuw nsw i32 %.0.i to i8
   %120 = or disjoint i8 %119, 48
   %121 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   store i8 %120, ptr %.020.i, align 1
@@ -19281,7 +19281,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(pt
   br label %_ZN9rapidjson8internal13WriteExponentEiPc.exit
 
 162:                                              ; preds = %151
-  %163 = trunc nuw i32 %.0.i110 to i8
+  %163 = trunc nuw nsw i32 %.0.i110 to i8
   %164 = or disjoint i8 %163, 48
   %165 = getelementptr inbounds nuw i8, ptr %.020.i109, i64 1
   store i8 %164, ptr %.020.i109, align 1
@@ -19590,7 +19590,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   br i1 %3, label %4, label %34
 
 4:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %5 = udiv i16 %.lhs.trunc, 100
   %6 = shl nuw nsw i16 %5, 1
   %7 = urem i16 %.lhs.trunc, 100
@@ -19652,7 +19652,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   %38 = urem i32 %0, 10000
   %39 = udiv i32 %0, 1000000
   %40 = shl nuw nsw i32 %39, 1
-  %.lhs.trunc111 = trunc nuw i32 %37 to i16
+  %.lhs.trunc111 = trunc nuw nsw i32 %37 to i16
   %41 = urem i16 %.lhs.trunc111, 100
   %42 = shl nuw nsw i16 %41, 1
   %.lhs.trunc113 = trunc nuw nsw i32 %38 to i16
@@ -19891,7 +19891,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u64toaEmPc(i64 no
   %39 = urem i32 %5, 10000
   %40 = udiv i32 %5, 1000000
   %41 = shl nuw nsw i32 %40, 1
-  %.lhs.trunc = trunc nuw i32 %38 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %38 to i16
   %42 = urem i16 %.lhs.trunc, 100
   %43 = shl nuw nsw i16 %42, 1
   %.lhs.trunc257 = trunc nuw nsw i32 %39 to i16
@@ -19982,7 +19982,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u64toaEmPc(i64 no
   %99 = urem i32 %95, 10000
   %100 = udiv i32 %95, 1000000
   %101 = shl nuw nsw i32 %100, 1
-  %.lhs.trunc261 = trunc nuw i32 %98 to i16
+  %.lhs.trunc261 = trunc nuw nsw i32 %98 to i16
   %102 = urem i16 %.lhs.trunc261, 100
   %103 = shl nuw nsw i16 %102, 1
   %.lhs.trunc263 = trunc nuw nsw i32 %99 to i16
@@ -22715,7 +22715,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i32 %.0.lcssa.i to i8
+  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -88364,7 +88364,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i492:     ; preds = %575, %._crit_edge.i
   br i1 %581, label %582, label %584
 
 582:                                              ; preds = %580
-  %583 = trunc nuw i64 %515 to i32
+  %583 = trunc nuw nsw i64 %515 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %14, i32 noundef %583, ptr noundef nonnull align 8 dereferenceable(52) %17)
           to label %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit411 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -88634,7 +88634,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i519:     ; preds = %669, %._crit_edge.i
   br i1 %675, label %676, label %678
 
 676:                                              ; preds = %674
-  %677 = trunc nuw i64 %615 to i32
+  %677 = trunc nuw nsw i64 %615 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %14, i32 noundef %677, ptr noundef nonnull align 8 dereferenceable(52) %17)
           to label %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit421 unwind label %.loopexit.split-lp586.loopexit.split-lp.loopexit.split-lp
 
@@ -88874,7 +88874,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i:        ; preds = %749, %._crit_edge.i
   br i1 %755, label %756, label %758
 
 756:                                              ; preds = %754
-  %757 = trunc nuw i64 %693 to i32
+  %757 = trunc nuw nsw i64 %693 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %14, i32 noundef %757, ptr noundef nonnull align 8 dereferenceable(52) %17)
           to label %_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit unwind label %.loopexit.split-lp598.loopexit.split-lp.loopexit.split-lp
 
@@ -90455,7 +90455,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i305:     ; preds = %342, %._crit_edge.i
   br i1 %348, label %349, label %351
 
 349:                                              ; preds = %347
-  %350 = trunc nuw i64 %282 to i32
+  %350 = trunc nuw nsw i64 %282 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %9, i32 noundef %350, ptr noundef nonnull align 8 dereferenceable(52) %12)
           to label %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -90725,7 +90725,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i332:     ; preds = %436, %._crit_edge.i
   br i1 %442, label %443, label %445
 
 443:                                              ; preds = %441
-  %444 = trunc nuw i64 %382 to i32
+  %444 = trunc nuw nsw i64 %382 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %9, i32 noundef %444, ptr noundef nonnull align 8 dereferenceable(52) %12)
           to label %_ZN5o3dgc12BinaryStream13WriteIntASCIIEl.exit234 unwind label %.loopexit.split-lp379.loopexit.split-lp.loopexit.split-lp
 
@@ -90963,7 +90963,7 @@ _ZN5o3dgc6VectorIhE8PushBackERKh.exit21.i:        ; preds = %514, %._crit_edge.i
   br i1 %520, label %521, label %523
 
 521:                                              ; preds = %519
-  %522 = trunc nuw i64 %458 to i32
+  %522 = trunc nuw nsw i64 %458 to i32
   invoke void @_ZN5o3dgc16Arithmetic_Codec6encodeEjRNS_19Adaptive_Data_ModelE(ptr noundef nonnull align 8 dereferenceable(44) %9, i32 noundef %522, ptr noundef nonnull align 8 dereferenceable(52) %12)
           to label %_ZN5o3dgc12BinaryStream14WriteUIntASCIIEm.exit unwind label %.loopexit.split-lp391.loopexit.split-lp.loopexit.split-lp
 

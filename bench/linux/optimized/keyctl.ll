@@ -1974,7 +1974,7 @@ define dso_local range(i64 -2147483648, 256) i64 @keyctl_set_reqkey_keyring(i32 
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %18, %15, %14, %14, %14, %14, %14
-  %22 = trunc i32 %0 to i8
+  %22 = trunc nuw nsw i32 %0 to i8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 88
   store i8 %22, ptr %23, align 8
   %24 = tail call i32 @commit_creds(ptr noundef nonnull %12) #11

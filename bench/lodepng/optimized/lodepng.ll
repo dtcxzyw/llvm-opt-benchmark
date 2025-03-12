@@ -18591,7 +18591,7 @@ _ZL18lodepng_chunk_initPPhP8ucvectormPKc.exit:    ; preds = %14, %.thread.i.i.i
   %27 = getelementptr inbounds i8, ptr %25, i64 -11
   store i8 0, ptr %27, align 1, !tbaa !18
   %28 = lshr i64 %7, 8
-  %29 = trunc nuw i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = getelementptr inbounds i8, ptr %25, i64 -10
   store i8 %29, ptr %30, align 1, !tbaa !18
   %31 = trunc i64 %7 to i8

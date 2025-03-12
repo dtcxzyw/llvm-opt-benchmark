@@ -3838,7 +3838,7 @@ define internal fastcc ptr @eb_requests_create(ptr noundef captures(none) %0, pt
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 672
-  %26 = trunc i64 %20 to i32
+  %26 = trunc nuw i64 %20 to i32
   br label %27
 
 27:                                               ; preds = %32, %24

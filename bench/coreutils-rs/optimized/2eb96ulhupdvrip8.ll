@@ -851,7 +851,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd500c69cccc9e940E.exit: ; preds = %125
   br i1 %228, label %347, label %283
 
 229:                                              ; preds = %224
-  %230 = trunc nuw i64 %225 to i16
+  %230 = trunc nuw nsw i64 %225 to i16
   %.lhs.trunc = mul nuw nsw i16 %230, 100
   %231 = udiv i16 %.lhs.trunc, 93
   %.zext = zext nneg i16 %231 to i64

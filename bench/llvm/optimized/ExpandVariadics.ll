@@ -3389,7 +3389,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit250: ; preds = %_
   br i1 %326, label %336, label %327
 
 327:                                              ; preds = %324
-  %328 = trunc i64 %.09.i to i32
+  %328 = trunc nuw i64 %.09.i to i32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #22
   store i16 257, ptr %322, align 8
   %329 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateConstGEP2_32EPNS_4TypeEPNS_5ValueEjjRKNS_5TwineENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %321, ptr noundef nonnull %285, i32 noundef 0, i32 noundef %328, ptr noundef nonnull align 8 dereferenceable(34) %13, i32 7)

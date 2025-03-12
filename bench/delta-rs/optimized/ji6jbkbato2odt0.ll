@@ -24002,8 +24002,8 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
   %.061 = phi i8 [ %127, %126 ], [ 2, %100 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   %123 = icmp eq i8 %.061, 2
-  %124 = trunc i8 %.061 to i1
-  %.062 = or i1 %123, %124
+  %124 = trunc nuw i8 %.061 to i1
+  %.062 = select i1 %123, i1 true, i1 %124
   %125 = invoke fastcc noundef i64 @_ZN13deltalake_aws7storage16S3StorageOptions14u64_or_default17h17cef37821d88f81E(ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.f410321eabdc87041c805a8e601a5aae.187, i64 noundef 24, i64 noundef 100)
           to label %128 unwind label %.body.thread105
 

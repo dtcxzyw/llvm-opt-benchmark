@@ -1385,7 +1385,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   %232 = load ptr, ptr %gep, align 8
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 28
-  %234 = trunc i64 %224 to i32
+  %234 = trunc nuw i64 %224 to i32
   %235 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %229, i64 noundef %231, ptr noundef nonnull @.str.49, i32 noundef %234, ptr noundef nonnull %233) #12
   br label %236
 
@@ -1434,7 +1434,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
 
 267:                                              ; preds = %262, %258, %254, %249, %240
   %268 = phi i32 [ 65, %240 ], [ 70, %249 ], [ 68, %254 ], [ %266, %262 ], [ 83, %258 ]
-  %269 = trunc i64 %224 to i32
+  %269 = trunc nuw i64 %224 to i32
   %270 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %242, i64 noundef %244, ptr noundef nonnull @.str.50, i32 noundef %269, i32 noundef %268) #12
   br label %271
 

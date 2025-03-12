@@ -35,7 +35,7 @@ define dso_local noundef zeroext i8 @_ZN4absl16strings_internal32CappedDamerauLe
   br i1 %17, label %18, label %.lr.ph.i.preheader
 
 18:                                               ; preds = %16
-  %19 = trunc nuw i64 %.sroa.0.0 to i8
+  %19 = trunc nuw nsw i64 %.sroa.0.0 to i8
   br label %115
 
 .lr.ph.i.preheader:                               ; preds = %16

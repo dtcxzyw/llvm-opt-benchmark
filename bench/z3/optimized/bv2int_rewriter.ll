@@ -768,8 +768,8 @@ _ZNK6vectorI8rationalLb1EjE4sizeEv.exit:          ; preds = %187, %190
   br i1 %194, label %199, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
-  %indvars168.le = trunc i64 %indvars.iv164 to i32
-  %.not145 = icmp eq i32 %indvars168.le, 0
+  %indvars168.le = trunc nuw i64 %indvars.iv164 to i32
+  %.not145 = icmp eq i64 %indvars.iv164, 0
   br i1 %.not145, label %.critedge73, label %.critedge
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i

@@ -1689,7 +1689,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %324
 
 324:                                              ; preds = %323, %321
-  %325 = trunc i64 %305 to i32
+  %325 = trunc nsw i64 %305 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
   %326 = icmp samesign ult i64 %indvars.iv223, %299
   call void @llvm.assume(i1 %326)

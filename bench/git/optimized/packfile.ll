@@ -2355,7 +2355,7 @@ report_helper.exit.i.i:                           ; preds = %55, %39
   br i1 %71, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !130
 
 ._crit_edge.i.i:                                  ; preds = %69
-  %72 = trunc i64 %70 to i32
+  %72 = trunc nuw i64 %70 to i32
   %73 = icmp ne i32 %.236.i.i, 3
   %74 = icmp slt i32 %.341.i.i, %72
   %or.cond.i50.i.i = and i1 %73, %74

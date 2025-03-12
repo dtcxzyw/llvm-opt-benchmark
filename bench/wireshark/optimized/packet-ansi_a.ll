@@ -3944,7 +3944,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %83
-  %86 = trunc nuw i32 %4 to i8
+  %86 = trunc nuw nsw i32 %4 to i8
   br label %157
 
 87:                                               ; preds = %83
@@ -3961,7 +3961,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %87
-  %99 = trunc nuw i32 %4 to i8
+  %99 = trunc nuw nsw i32 %4 to i8
   br label %157
 
 100:                                              ; preds = %87

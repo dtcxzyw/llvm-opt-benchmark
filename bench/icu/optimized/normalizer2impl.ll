@@ -1459,7 +1459,7 @@ _ZN6icu_7716ReorderingBuffer12skipPreviousEv.exit.i: ; preds = %_ZN6icu_7716Reor
 
 130:                                              ; preds = %127
   %131 = lshr i32 %.1, 10
-  %132 = trunc i32 %131 to i16
+  %132 = trunc nuw nsw i32 %131 to i16
   %133 = add nsw i16 %132, -10304
   %134 = trunc i32 %.1 to i16
   %135 = and i16 %134, 1023
@@ -3311,7 +3311,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl13decomposeUTF8EjPKhS2_PNS_8Byte
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %7
-  %15 = trunc nuw i16 %12 to i8
+  %15 = trunc nuw nsw i16 %12 to i8
   br label %_ZN6icu_7712_GLOBAL__N_113leadByteForCPEi.exit
 
 16:                                               ; preds = %7
@@ -3320,7 +3320,7 @@ define noundef ptr @_ZNK6icu_7715Normalizer2Impl13decomposeUTF8EjPKhS2_PNS_8Byte
 
 18:                                               ; preds = %16
   %19 = lshr i16 %12, 6
-  %20 = trunc nuw i16 %19 to i8
+  %20 = trunc nuw nsw i16 %19 to i8
   %21 = or disjoint i8 %20, -64
   br label %_ZN6icu_7712_GLOBAL__N_113leadByteForCPEi.exit
 
@@ -4132,7 +4132,7 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit: ; preds = %140
 
 _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.thread: ; preds = %145, %147, %155, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit
   %.0.i185 = phi i32 [ %186, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit ], [ %146, %145 ], [ %154, %147 ], [ %166, %155 ]
-  %188 = trunc i32 %.0.i185 to i16
+  %188 = trunc nuw i32 %.0.i185 to i16
   %189 = call noundef signext i8 @_ZN6icu_7716ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i16 noundef zeroext %188, i8 noundef zeroext %138, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit
 
@@ -4376,7 +4376,7 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174: ; preds = %318,
 
 _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174.thread: ; preds = %296, %298, %306, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174
   %.1125187 = phi i32 [ %.1125, %_ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit174 ], [ %297, %296 ], [ %305, %298 ], [ %317, %306 ]
-  %340 = trunc i32 %.1125187 to i16
+  %340 = trunc nuw i32 %.1125187 to i16
   %341 = call noundef signext i8 @_ZN6icu_7716ReorderingBuffer9appendBMPEDshR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i16 noundef zeroext %340, i8 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(4) %6)
   br label %_ZN6icu_7716ReorderingBuffer6appendEihR10UErrorCode.exit175
 
@@ -6033,7 +6033,7 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
 86:                                               ; preds = %82
   %87 = getelementptr inbounds i8, ptr %.1, i64 -2
   %narrow = mul nuw nsw i16 %84, 21
-  %88 = trunc nuw i32 %.0139 to i16
+  %88 = trunc nuw nsw i32 %.0139 to i16
   %89 = add nsw i16 %88, -4449
   %90 = add nsw i16 %89, %narrow
   %91 = mul i16 %90, 28
@@ -7538,7 +7538,7 @@ _ZNK6icu_7715Normalizer2Impl21hasCompBoundaryBeforeEPKDsS2_.exit436.thread: ; pr
   %478 = zext i16 %398 to i32
   %479 = add nsw i32 %478, -44032
   %or.cond.i437 = icmp ult i32 %479, 11172
-  %.lhs.trunc.i = trunc nuw i32 %479 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %479 to i16
   %480 = urem i16 %.lhs.trunc.i, 28
   %.not612 = icmp eq i16 %480, 0
   %or.cond622 = select i1 %or.cond.i437, i1 %.not612, i1 false
@@ -9495,7 +9495,7 @@ define noundef signext i8 @_ZNK6icu_7715Normalizer2Impl11composeUTF8EjaPKhS2_PNS
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %8
-  %18 = trunc nuw i16 %15 to i8
+  %18 = trunc nuw nsw i16 %15 to i8
   br label %_ZN6icu_7712_GLOBAL__N_113leadByteForCPEi.exit
 
 19:                                               ; preds = %8
@@ -9504,7 +9504,7 @@ define noundef signext i8 @_ZNK6icu_7715Normalizer2Impl11composeUTF8EjaPKhS2_PNS
 
 21:                                               ; preds = %19
   %22 = lshr i16 %15, 6
-  %23 = trunc nuw i16 %22 to i8
+  %23 = trunc nuw nsw i16 %22 to i8
   %24 = or disjoint i8 %23, -64
   br label %_ZN6icu_7712_GLOBAL__N_113leadByteForCPEi.exit
 
@@ -9919,7 +9919,7 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.i: ; preds = %233, 
 
 260:                                              ; preds = %258
   %261 = lshr i32 %254, 6
-  %262 = trunc nuw i32 %261 to i8
+  %262 = trunc nuw nsw i32 %261 to i8
   %263 = or disjoint i8 %262, -64
   store i8 %263, ptr %10, align 1, !tbaa !25
   br label %286
@@ -9930,7 +9930,7 @@ _ZN6icu_7712_GLOBAL__N_122codePointFromValidUTF8EPKhS2_.exit.i: ; preds = %233, 
 
 266:                                              ; preds = %264
   %267 = lshr i32 %254, 12
-  %268 = trunc nuw i32 %267 to i8
+  %268 = trunc nuw nsw i32 %267 to i8
   %269 = or disjoint i8 %268, -32
   br label %278
 
@@ -10307,7 +10307,7 @@ _ZN6icu_7712_GLOBAL__N_117getJamoTMinusBaseEPKhS2_.exit.thread: ; preds = %428, 
 462:                                              ; preds = %_ZN6icu_7712_GLOBAL__N_120previousHangulOrJamoEPKhS2_.exit
   %463 = add nsw i32 %.1.i, -44032
   %or.cond.i496 = icmp ult i32 %463, 11172
-  %.lhs.trunc.i = trunc nuw i32 %463 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %463 to i16
   %464 = urem i16 %.lhs.trunc.i, 28
   %.not656 = icmp eq i16 %464, 0
   %or.cond660 = select i1 %or.cond.i496, i1 %.not656, i1 false

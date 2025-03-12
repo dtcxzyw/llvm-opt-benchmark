@@ -86,7 +86,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
   br label %17
 
 32:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit50", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h6ea85f6222cfa479E.exit"
-  %33 = trunc i64 %.recomposed to i8
+  %33 = trunc nuw i64 %.recomposed to i8
   br label %44
 
 34:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h6ea85f6222cfa479E.exit"
@@ -149,7 +149,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit53": ; preds = %27
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %45, i64 %2, i1 false), !alias.scope !31, !noalias !35
-  %46 = trunc i64 %2 to i8
+  %46 = trunc nuw i64 %2 to i8
   %47 = add i8 %12, %46
   br label %44
 }
@@ -212,7 +212,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
   br label %17
 
 32:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit50", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h6ea85f6222cfa479E.exit"
-  %33 = trunc i64 %.recomposed to i8
+  %33 = trunc nuw i64 %.recomposed to i8
   br label %44
 
 34:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h6ea85f6222cfa479E.exit"
@@ -275,7 +275,7 @@ define hidden void @"_ZN12block_buffer50BlockBuffer$LT$BlockSize$C$block_buffer.
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h6b16613decf46675E.exit53": ; preds = %27
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull readonly align 1 %45, i64 %2, i1 false), !alias.scope !63, !noalias !67
-  %46 = trunc i64 %2 to i8
+  %46 = trunc nuw i64 %2 to i8
   %47 = add i8 %12, %46
   br label %44
 }

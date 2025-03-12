@@ -116,7 +116,7 @@ define void @dorbdb2_(ptr noundef readonly captures(none) %0, ptr noundef readon
 71:                                               ; preds = %.lr.ph, %163
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %163 ]
   %.0.neg341 = phi i32 [ -1, %.lr.ph ], [ %171, %163 ]
-  %indvars349 = trunc i64 %indvars.iv to i32
+  %indvars349 = trunc nuw i64 %indvars.iv to i32
   %72 = icmp samesign ugt i64 %indvars.iv, 1
   %.pre354 = load i32, ptr %2, align 4, !tbaa !3
   %73 = add nsw i32 %.0.neg341, 1
@@ -274,7 +274,7 @@ define void @dorbdb2_(ptr noundef readonly captures(none) %0, ptr noundef readon
   store i32 %169, ptr %18, align 4, !tbaa !3
   call void @dlarf_(ptr noundef nonnull @.str.2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %110, ptr noundef nonnull @c__1, ptr noundef nonnull %145, ptr noundef %136, ptr noundef nonnull %6, ptr noundef nonnull %67) #6
   %.not312.not = icmp samesign ult i64 %indvars.iv, %70
-  %170 = trunc i64 %indvars.iv to i32
+  %170 = trunc nuw i64 %indvars.iv to i32
   %171 = xor i32 %170, -1
   br i1 %.not312.not, label %71, label %._crit_edge.loopexit, !llvm.loop !9
 

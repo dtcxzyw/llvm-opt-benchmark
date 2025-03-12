@@ -1576,7 +1576,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_table_complete(ptr noundef %0
   %221 = load ptr, ptr %210, align 8
   %.idx27 = shl nuw nsw i64 %220, 6
   %222 = getelementptr i8, ptr %221, i64 %.idx27
-  %223 = trunc i64 %220 to i32
+  %223 = trunc nuw i64 %220 to i32
   %224 = mul i32 %223, 9
   br label %225
 
@@ -2193,7 +2193,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
   br i1 %145, label %106, label %.loopexit, !llvm.loop !50
 
 146:                                              ; preds = %125
-  %147 = trunc i64 %107 to i32
+  %147 = trunc nuw i64 %107 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %132, %146

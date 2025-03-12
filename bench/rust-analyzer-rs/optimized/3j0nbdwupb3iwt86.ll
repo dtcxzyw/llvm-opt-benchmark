@@ -20284,10 +20284,10 @@ _ZN10hir_expand5attrs20parse_cfg_attr_input17h31a9b9851116c093E.exit: ; preds = 
           to label %196 unwind label %99
 
 206:                                              ; preds = %199
-  %207 = icmp ne i8 %203, 2
-  %208 = trunc i8 %203 to i1
-  %.0 = xor i1 %207, %208
-  br i1 %.0, label %218, label %209
+  %207 = icmp eq i8 %203, 2
+  %208 = trunc nuw i8 %203 to i1
+  %.0.not = select i1 %207, i1 true, i1 %208
+  br i1 %.0.not, label %209, label %218
 
 209:                                              ; preds = %206
   %210 = load atomic i64, ptr @_ZN8cov_mark4__rt5LEVEL17hb6c01697fd339c13E monotonic, align 8

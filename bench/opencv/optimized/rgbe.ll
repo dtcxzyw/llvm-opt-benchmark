@@ -1567,7 +1567,7 @@ define hidden noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr noundef ca
 .lr.ph59:                                         ; preds = %.preheader53
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %26 = lshr i32 %2, 8
-  %27 = trunc nuw i32 %26 to i8
+  %27 = trunc nuw nsw i32 %26 to i8
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %29 = trunc i32 %2 to i8
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 3

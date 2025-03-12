@@ -773,7 +773,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
 
 179:                                              ; preds = %170
   %180 = lshr i32 %152, 8
-  %181 = trunc nuw i32 %180 to i8
+  %181 = trunc nuw nsw i32 %180 to i8
   %182 = or disjoint i8 %181, -32
   store i8 %182, ptr %.2192, align 1, !tbaa !7
   %183 = add i32 %167, -7

@@ -2120,7 +2120,7 @@ _ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit: ; preds =
   br i1 %713, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %714
 
 714:                                              ; preds = %710
-  %715 = trunc nuw i64 %712 to i32
+  %715 = trunc nuw nsw i64 %712 to i32
   store i32 %715, ptr %.0150, align 4
   %716 = getelementptr inbounds nuw i8, ptr %.0150, i64 4
   %717 = load ptr, ptr %.sroa.0427.0624, align 8
@@ -2384,7 +2384,7 @@ thread-pre-split:                                 ; preds = %.loopexit532, %.loo
   br i1 %829, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit402, label %830
 
 830:                                              ; preds = %827
-  %831 = trunc nuw i64 %828 to i32
+  %831 = trunc nuw nsw i64 %828 to i32
   store i32 %831, ptr %16, align 4
   %832 = load ptr, ptr %.sroa.0417.0615, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %659, ptr align 1 %832, i64 %828, i1 false)

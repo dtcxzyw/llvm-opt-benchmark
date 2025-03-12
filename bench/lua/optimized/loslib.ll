@@ -435,7 +435,7 @@ define internal i32 @os_time(ptr noundef %0) #0 {
   br label %getfield.exit
 
 30:                                               ; preds = %27, %25
-  %31 = trunc i64 %18 to i32
+  %31 = trunc nsw i64 %18 to i32
   br label %32
 
 32:                                               ; preds = %20, %30
@@ -480,7 +480,7 @@ getfield.exit:                                    ; preds = %21, %28, %32
   br label %getfield.exit24
 
 47:                                               ; preds = %44, %42
-  %48 = trunc i64 %35 to i32
+  %48 = trunc nsw i64 %35 to i32
   br label %49
 
 49:                                               ; preds = %37, %47
@@ -525,7 +525,7 @@ getfield.exit24:                                  ; preds = %38, %45, %49
   br label %getfield.exit30
 
 64:                                               ; preds = %61, %59
-  %65 = trunc i64 %52 to i32
+  %65 = trunc nsw i64 %52 to i32
   br label %66
 
 66:                                               ; preds = %54, %64

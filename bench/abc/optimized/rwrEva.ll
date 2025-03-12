@@ -262,7 +262,7 @@ Vec_PtrFill.exit:                                 ; preds = %106, %Vec_PtrGrow.e
   br i1 %149, label %.lr.ph, label %._crit_edge.loopexit.split.loop.exit274, !llvm.loop !56
 
 ._crit_edge.loopexit.split.loop.exit274:          ; preds = %.lr.ph287
-  %indvars.le = trunc i64 %indvars.iv.next to i32
+  %indvars.le = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %._crit_edge.loopexit.split.loop.exit274, %Vec_PtrFill.exit

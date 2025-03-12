@@ -21951,7 +21951,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser34parseDir
   br i1 %.not.i, label %17, label %_ZL15isValidEncodingl.exit
 
 17:                                               ; preds = %16
-  %18 = trunc nuw i64 %14 to i32
+  %18 = trunc nuw nsw i64 %14 to i32
   %19 = and i32 %18, 13
   %or.cond.not.i = icmp eq i32 %19, 0
   br i1 %or.cond.not.i, label %21, label %switch.early.test.i

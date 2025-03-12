@@ -4691,7 +4691,7 @@ _ZN5rayon5slice9quicksort12choose_pivot17hb465886067f243f2E.exit: ; preds = %"_Z
   br i1 %.not30.i.i, label %.thread.i.i79, label %.lr.ph.i.i81
 
 190:                                              ; preds = %183
-  %.lhs.trunc.i.i = trunc nuw i64 %186 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %186 to i16
   %191 = udiv i16 %.lhs.trunc.i.i, 24
   %.zext.i.i = zext nneg i16 %191 to i64
   %192 = icmp ult ptr %.0143.i.i, %.0135.i.i

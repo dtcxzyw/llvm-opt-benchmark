@@ -125,7 +125,7 @@ define range(i16 0, -32768) i16 @_ZN7Imf_3_410uintToHalfEj(i32 noundef %0) local
   %38 = add nsw i32 %34, -94
   %39 = shl i32 %37, %38
   %40 = lshr i32 %37, %35
-  %41 = trunc nuw i32 %40 to i16
+  %41 = trunc nuw nsw i32 %40 to i16
   %42 = icmp ugt i32 %39, -2147483648
   br i1 %42, label %46, label %43
 

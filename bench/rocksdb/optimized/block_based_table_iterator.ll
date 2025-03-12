@@ -9684,7 +9684,7 @@ _ZNSt7__cxx119to_stringEm.exit:                   ; preds = %4
   store ptr %16, ptr %8, align 8, !tbaa !112, !alias.scope !559
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i8 noundef signext 0)
   %17 = load ptr, ptr %8, align 8, !tbaa !115, !alias.scope !559
-  %18 = trunc nuw i64 %14 to i8
+  %18 = trunc nuw nsw i64 %14 to i8
   %19 = or disjoint i8 %18, 48
   store i8 %19, ptr %17, align 1, !tbaa !114
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.4, i64 noundef 44)
@@ -10341,7 +10341,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 68:                                               ; preds = %._crit_edge.i.i16
-  %69 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %69 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %70 = or disjoint i8 %69, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -10620,7 +10620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i37: ;
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 188:                                              ; preds = %._crit_edge.i.i38
-  %189 = trunc nuw i32 %.0.lcssa.i.i39 to i8
+  %189 = trunc nuw nsw i32 %.0.lcssa.i.i39 to i8
   %190 = or disjoint i8 %189, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

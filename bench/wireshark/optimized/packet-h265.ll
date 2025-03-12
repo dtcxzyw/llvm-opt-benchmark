@@ -1768,7 +1768,7 @@ define internal fastcc void @dissect_h265_seq_parameter_set_rbsp(ptr noundef %0,
   br i1 %.not293, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader282
-  %129 = trunc nuw i32 %127 to i8
+  %129 = trunc nuw nsw i32 %127 to i8
   br label %.lr.ph
 
 130:                                              ; preds = %125

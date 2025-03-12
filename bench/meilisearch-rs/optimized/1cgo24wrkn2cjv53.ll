@@ -39558,7 +39558,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$
   br i1 %31, label %34, label %38
 
 32:                                               ; preds = %.noexc
-  %trunc.i = trunc i8 %26 to i1
+  %trunc.i = trunc nuw i8 %26 to i1
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 448
   br i1 %trunc.i, label %45, label %.sink.split.sink.split.i
 
@@ -39569,7 +39569,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$
   br i1 %37, label %40, label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h42988c60d3cdfb97E.exit"
 
 38:                                               ; preds = %.noexc21
-  %trunc12.i = trunc i8 %30 to i1
+  %trunc12.i = trunc nuw i8 %30 to i1
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 448
   br i1 %trunc12.i, label %43, label %.sink.split.sink.split.i
 
@@ -143600,8 +143600,8 @@ define hidden { i64, i64 } @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u2
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit": ; preds = %2, %7
   %.sroa.0.0.i = phi i8 [ %10, %7 ], [ 2, %2 ]
   %11 = icmp eq i8 %.sroa.0.0.i, 2
-  %12 = trunc i8 %.sroa.0.0.i to i1
-  %.sroa.05.0 = or i1 %11, %12
+  %12 = trunc nuw i8 %.sroa.0.0.i to i1
+  %.sroa.05.0 = select i1 %11, i1 true, i1 %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load i8, ptr %13, align 8, !range !2059, !noalias !39150, !noundef !4
   switch i8 %14, label %default.unreachable [

@@ -1203,7 +1203,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   unreachable
 
 26:                                               ; preds = %20
-  %27 = trunc nuw i64 %.05273 to i32
+  %27 = trunc nuw nsw i64 %.05273 to i32
   %28 = mul nsw i32 %27, -6
   %29 = add nsw i32 %28, 24
   %30 = shl i32 %24, %29

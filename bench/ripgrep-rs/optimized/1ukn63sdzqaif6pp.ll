@@ -216,13 +216,13 @@ define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$
   br i1 %6, label %16, label %27
 
 7:                                                ; preds = %1
-  %8 = trunc nuw i32 %.0.val to i8
+  %8 = trunc nuw nsw i32 %.0.val to i8
   store i8 %8, ptr %.sroa.0, align 4, !alias.scope !48
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 9:                                                ; preds = %3
   %10 = lshr i32 %.0.val, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %.sroa.0, align 4, !alias.scope !48
   %13 = trunc i32 %.0.val to i8
@@ -234,7 +234,7 @@ define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$
 
 16:                                               ; preds = %5
   %17 = lshr i32 %.0.val, 12
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -32
   store i8 %19, ptr %.sroa.0, align 4, !alias.scope !48
   %20 = lshr i32 %.0.val, 6

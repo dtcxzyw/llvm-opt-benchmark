@@ -2122,7 +2122,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8022ca935ac634d7E.exit: ; preds = %._crit_edge76, %46
   %.val1662 = phi i64 [ %.val1664, %._crit_edge76 ], [ %.val1663, %46 ]
   %69 = phi i64 [ %22, %._crit_edge76 ], [ %48, %46 ]
-  %70 = trunc i64 %24 to i32
+  %70 = trunc nuw i64 %24 to i32
   br label %71
 
 71:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h8022ca935ac634d7E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h290b57ed3f75cc1fE.exit15"

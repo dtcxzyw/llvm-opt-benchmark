@@ -1853,7 +1853,7 @@ _ZN7mitsuba10Marginal2DIfLm3ELb1EED2Ev.exit:      ; preds = %_ZN5drjit12DynamicA
   br label %.lr.ph.i.i.i.preheader
 
 787:                                              ; preds = %776
-  %788 = trunc nuw i64 %772 to i8
+  %788 = trunc nuw nsw i64 %772 to i8
   %789 = shl nuw nsw i8 %788, 1
   store i8 %789, ptr %46, align 8
   %790 = getelementptr inbounds nuw i8, ptr %46, i64 1

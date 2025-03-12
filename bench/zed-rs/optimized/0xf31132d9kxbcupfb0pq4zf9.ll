@@ -1402,7 +1402,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
 
 134:                                              ; preds = %130
   %135 = lshr i32 %128, 6
-  %136 = trunc nuw i32 %135 to i8
+  %136 = trunc nuw nsw i32 %135 to i8
   %137 = or disjoint i8 %136, -64
   store i8 %137, ptr %.sroa.0.i, align 4, !alias.scope !168, !noalias !165
   %138 = trunc i32 %128 to i8
@@ -1413,7 +1413,7 @@ select.unfold.us.i:                               ; preds = %.split.us.preheader
 
 141:                                              ; preds = %132
   %142 = lshr i32 %128, 12
-  %143 = trunc nuw i32 %142 to i8
+  %143 = trunc nuw nsw i32 %142 to i8
   %144 = or disjoint i8 %143, -32
   store i8 %144, ptr %.sroa.0.i, align 4, !alias.scope !168, !noalias !165
   %145 = lshr i32 %128, 6
@@ -8417,7 +8417,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 13:                                               ; preds = %11
   %14 = lshr i32 %0, 12
-  %15 = trunc nuw i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = or disjoint i8 %15, -32
   %17 = lshr i32 %0, 6
   br label %28
@@ -8458,7 +8458,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 .thread:                                          ; preds = %9
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %7, align 4, !alias.scope !952
   %37 = trunc i32 %0 to i8
@@ -9289,7 +9289,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !1065
   %12 = trunc i32 %1 to i8
@@ -9301,7 +9301,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !1065
   %19 = lshr i32 %1, 6
@@ -11559,7 +11559,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN81_$LT$async_channel..Receiver$LT$T
 
 "_ZN13async_channel17Receiver$LT$T$GT$8try_recv17h64546fee25b0b92eE.exit": ; preds = %6, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17hc2d77685c4fe14d3E.exit28"
   %46 = phi i8 [ %93, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17hc2d77685c4fe14d3E.exit28" ], [ %8, %6 ]
-  %trunc = trunc i8 %46 to i1
+  %trunc = trunc nuw i8 %46 to i1
   %47 = load ptr, ptr %2, align 8, !noundef !20
   %48 = icmp eq ptr %47, null
   br i1 %trunc, label %53, label %52

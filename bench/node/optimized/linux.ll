@@ -3396,7 +3396,7 @@ if.end88:                                         ; preds = %if.then85, %if.end8
 
 if.then91:                                        ; preds = %if.end88
   %sub.ptr.div = lshr exact i64 %model.0.add, 6
-  %conv93 = trunc i64 %sub.ptr.div to i32
+  %conv93 = trunc nuw nsw i64 %sub.ptr.div to i32
   %idxprom94 = zext i32 %6 to i64
   %model96 = getelementptr inbounds nuw [8192 x %struct.cpu], ptr %call4, i64 0, i64 %idxprom94, i32 6
   store i32 %conv93, ptr %model96, align 8

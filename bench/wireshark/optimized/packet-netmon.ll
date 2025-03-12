@@ -1370,7 +1370,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
 
 69:                                               ; preds = %67
   %70 = load i32, ptr @hf_netmon_network_info_link_speed, align 4
-  %.lhs.trunc = trunc nuw i64 %56 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %56 to i32
   %71 = udiv i32 %.lhs.trunc, 1000000
   %.zext = zext nneg i32 %71 to i64
   %72 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %37, i32 noundef %70, ptr noundef %0, i32 noundef %55, i32 noundef 8, i64 noundef %56, ptr noundef nonnull @.str.510, i64 noundef %.zext)
@@ -1382,7 +1382,7 @@ define internal i32 @dissect_netmon_network_info(ptr noundef %0, ptr noundef rea
   br i1 %74, label %76, label %79
 
 76:                                               ; preds = %73
-  %.lhs.trunc182 = trunc nuw i64 %56 to i32
+  %.lhs.trunc182 = trunc nuw nsw i64 %56 to i32
   %77 = udiv i32 %.lhs.trunc182, 1000
   %.zext183 = zext nneg i32 %77 to i64
   %78 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %37, i32 noundef %75, ptr noundef %0, i32 noundef %55, i32 noundef 8, i64 noundef %56, ptr noundef nonnull @.str.511, i64 noundef %.zext183)

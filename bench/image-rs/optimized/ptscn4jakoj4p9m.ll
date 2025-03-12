@@ -22618,7 +22618,7 @@ _ZN3qoi6decode18decode_impl_stream17h6fab5fc8dab9f358E.exit.i.i.i.i.i: ; preds =
   unreachable
 
 464:                                              ; preds = %58
-  %.rhs.trunc = trunc nuw i64 %3 to i16
+  %.rhs.trunc = trunc nuw nsw i64 %3 to i16
   %465 = urem i16 4096, %.rhs.trunc
   %narrow = sub nuw nsw i16 4096, %465
   %466 = zext nneg i16 %narrow to i64
@@ -24383,7 +24383,7 @@ common.resume:                                    ; preds = %563, %.loopexit.spl
   unreachable
 
 549:                                              ; preds = %73
-  %.rhs.trunc = trunc nuw i64 %3 to i16
+  %.rhs.trunc = trunc nuw nsw i64 %3 to i16
   %550 = urem i16 4096, %.rhs.trunc
   %narrow = sub nuw nsw i16 4096, %550
   %551 = zext nneg i16 %narrow to i64

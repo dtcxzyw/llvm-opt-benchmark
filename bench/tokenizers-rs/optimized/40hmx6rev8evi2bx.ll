@@ -6957,7 +6957,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h552cb35310221f05E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !1521
   %12 = trunc i32 %1 to i8
@@ -6969,7 +6969,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h552cb35310221f05E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !1521
   %19 = lshr i32 %1, 6

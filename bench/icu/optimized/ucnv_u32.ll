@@ -123,7 +123,7 @@ define internal void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicode
 
 52:                                               ; preds = %47
   %53 = lshr i32 %.157.lcssa, 10
-  %54 = trunc nuw i32 %53 to i16
+  %54 = trunc nuw nsw i32 %53 to i16
   %55 = add nuw nsw i16 %54, -10304
   %56 = getelementptr inbounds nuw i8, ptr %.060, i64 2
   store i16 %55, ptr %.060, align 2, !tbaa !26
@@ -286,7 +286,7 @@ define internal void @_ZL44T_UConverter_toUnicode_UTF32_BE_OFFSET_LOGICP23UConve
 
 55:                                               ; preds = %49
   %56 = lshr i32 %.170.lcssa, 10
-  %57 = trunc nuw i32 %56 to i16
+  %57 = trunc nuw nsw i32 %56 to i16
   %58 = add nuw nsw i16 %57, -10304
   %59 = getelementptr inbounds nuw i8, ptr %.073, i64 2
   store i16 %58, ptr %.073, align 2, !tbaa !26
@@ -945,7 +945,7 @@ define internal void @_ZL31T_UConverter_toUnicode_UTF32_LEP23UConverterToUnicode
 
 53:                                               ; preds = %48
   %54 = lshr i32 %.158.lcssa, 10
-  %55 = trunc nuw i32 %54 to i16
+  %55 = trunc nuw nsw i32 %54 to i16
   %56 = add nuw nsw i16 %55, -10304
   %57 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   store i16 %56, ptr %.061, align 2, !tbaa !26
@@ -1110,7 +1110,7 @@ define internal void @_ZL44T_UConverter_toUnicode_UTF32_LE_OFFSET_LOGICP23UConve
 
 56:                                               ; preds = %50
   %57 = lshr i32 %.171.lcssa, 10
-  %58 = trunc nuw i32 %57 to i16
+  %58 = trunc nuw nsw i32 %57 to i16
   %59 = add nuw nsw i16 %58, -10304
   %60 = getelementptr inbounds nuw i8, ptr %.074, i64 2
   store i16 %59, ptr %.074, align 2, !tbaa !26

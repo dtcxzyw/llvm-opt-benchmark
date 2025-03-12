@@ -3913,7 +3913,7 @@ _ZN10aiMaterial11AddPropertyEPK9aiColor3DjPKcjj.exit: ; preds = %1287
 
 1304:                                             ; preds = %1300
   %1305 = getelementptr inbounds nuw i8, ptr %.sroa.0639.0892, i64 8
-  %1306 = trunc nuw i64 %1302 to i32
+  %1306 = trunc nuw nsw i64 %1302 to i32
   store i32 %1306, ptr %37, align 4
   %1307 = load ptr, ptr %1305, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1200, ptr align 1 %1307, i64 %1302, i1 false)

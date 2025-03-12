@@ -13676,7 +13676,7 @@ utf8_to_unicode.exit:                             ; preds = %.lr.ph, %100, %.sin
 
 147:                                              ; preds = %145
   %148 = lshr i32 %141, 6
-  %149 = trunc nuw i32 %148 to i8
+  %149 = trunc nuw nsw i32 %148 to i8
   %150 = or disjoint i8 %149, -64
   store i8 %150, ptr %2, align 1
   %151 = trunc i32 %141 to i8
@@ -13691,7 +13691,7 @@ utf8_to_unicode.exit:                             ; preds = %.lr.ph, %100, %.sin
 
 156:                                              ; preds = %154
   %157 = lshr i32 %141, 12
-  %158 = trunc nuw i32 %157 to i8
+  %158 = trunc nuw nsw i32 %157 to i8
   %159 = or disjoint i8 %158, -32
   store i8 %159, ptr %2, align 1
   %160 = lshr i32 %141, 6
@@ -13758,7 +13758,7 @@ unicode_to_utf8.exit:                             ; preds = %143, %147, %156, %1
 
 194:                                              ; preds = %192
   %195 = lshr i32 %188, 6
-  %196 = trunc nuw i32 %195 to i8
+  %196 = trunc nuw nsw i32 %195 to i8
   %197 = or disjoint i8 %196, -64
   store i8 %197, ptr %.170, align 1
   %198 = trunc i32 %188 to i8
@@ -13774,7 +13774,7 @@ unicode_to_utf8.exit:                             ; preds = %143, %147, %156, %1
 
 204:                                              ; preds = %202
   %205 = lshr i32 %188, 12
-  %206 = trunc nuw i32 %205 to i8
+  %206 = trunc nuw nsw i32 %205 to i8
   %207 = or disjoint i8 %206, -32
   store i8 %207, ptr %.170, align 1
   %208 = lshr i32 %188, 6

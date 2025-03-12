@@ -1367,7 +1367,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nounde
   br i1 %40, label %41, label %51
 
 41:                                               ; preds = %._crit_edge.i.i
-  %.lhs.trunc.i.i = trunc nuw i32 %.01115.i to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %.01115.i to i16
   %42 = urem i16 %.lhs.trunc.i.i, 100
   %43 = shl nuw nsw i16 %42, 1
   %44 = zext nneg i32 %22 to i64
@@ -1401,7 +1401,7 @@ define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nounde
 
 62:                                               ; preds = %.thread, %51
   %.1.i.i5 = phi i32 [ %.zext, %.thread ], [ %.1.i.i, %51 ]
-  %63 = trunc nuw i32 %.1.i.i5 to i8
+  %63 = trunc nuw nsw i32 %.1.i.i5 to i8
   %64 = or disjoint i8 %63, 48
   store i8 %64, ptr %11, align 1
   br label %pg_ltoa.exit
@@ -1531,7 +1531,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr noundef write
   br label %pg_ultoa_n.exit
 
 73:                                               ; preds = %60
-  %74 = trunc nuw i32 %.1.i to i8
+  %74 = trunc nuw nsw i32 %.1.i to i8
   %75 = or disjoint i8 %74, 48
   store i8 %75, ptr %10, align 1
   br label %pg_ultoa_n.exit
@@ -1648,7 +1648,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr noundef wr
   br label %71
 
 68:                                               ; preds = %55
-  %69 = trunc nuw i32 %.1 to i8
+  %69 = trunc nuw nsw i32 %.1 to i8
   %70 = or disjoint i8 %69, 48
   store i8 %70, ptr %1, align 1
   br label %71
@@ -1810,7 +1810,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr noundef w
   br label %111
 
 108:                                              ; preds = %95
-  %109 = trunc nuw i32 %.163 to i8
+  %109 = trunc nuw nsw i32 %.163 to i8
   %110 = or disjoint i8 %109, 48
   store i8 %110, ptr %1, align 1
   br label %111
@@ -1960,7 +1960,7 @@ define dso_local ptr @pg_ultostr_zeropad(ptr noundef captures(ret: address, prov
   br label %pg_ultoa_n.exit
 
 78:                                               ; preds = %65
-  %79 = trunc nuw i32 %.1.i to i8
+  %79 = trunc nuw nsw i32 %.1.i to i8
   %80 = or disjoint i8 %79, 48
   store i8 %80, ptr %0, align 1
   br label %pg_ultoa_n.exit
@@ -2100,7 +2100,7 @@ define dso_local ptr @pg_ultostr(ptr noundef writeonly captures(ret: address, pr
   br label %pg_ultoa_n.exit
 
 68:                                               ; preds = %55
-  %69 = trunc nuw i32 %.1.i to i8
+  %69 = trunc nuw nsw i32 %.1.i to i8
   %70 = or disjoint i8 %69, 48
   store i8 %70, ptr %0, align 1
   br label %pg_ultoa_n.exit

@@ -12535,7 +12535,7 @@ common.resume:                                    ; preds = %121, %229, %.thread
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3c001e8f2f0f9896E.exit: ; preds = %.loopexit
   %161 = zext i32 %159 to i64
   %162 = add nsw i64 %161, -1
-  %163 = trunc i64 %162 to i32
+  %163 = trunc nuw i64 %162 to i32
   store i32 %163, ptr %58, align 8, !alias.scope !1750, !noalias !1743
   %164 = getelementptr inbounds { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %77, i64 %162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %164, i64 32, i1 false), !alias.scope !1753
@@ -16980,7 +16980,7 @@ common.resume:                                    ; preds = %113, %246, %.thread
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6d0a7e1e39ff481cE.exit: ; preds = %.loopexit
   %158 = zext i32 %156 to i64
   %159 = add nsw i64 %158, -1
-  %160 = trunc i64 %159 to i32
+  %160 = trunc nuw i64 %159 to i32
   store i32 %160, ptr %53, align 8, !alias.scope !2922, !noalias !2915
   %161 = getelementptr inbounds { ptr, i64, { { ptr, [1 x i64] } } }, ptr %64, i64 %159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %161, i64 32, i1 false), !alias.scope !2925
@@ -18200,7 +18200,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %62
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1e2e16c392ed8e75E.exit: ; preds = %._crit_edge54, %._crit_edge55
-  %61 = trunc i64 %22 to i32
+  %61 = trunc nuw i64 %22 to i32
   br label %62
 
 62:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1e2e16c392ed8e75E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h7ab1b9699f19f4a0E.exit15"
@@ -18456,7 +18456,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h9fb36745cd6731ceE.exit: ; preds 
   %108 = phi i64 [ %29, %._crit_edge120 ], [ %60, %55 ]
   %109 = phi i64 [ %30, %._crit_edge120 ], [ %61, %55 ]
   %110 = phi ptr [ %31, %._crit_edge120 ], [ %62, %55 ]
-  %111 = trunc i64 %33 to i32
+  %111 = trunc nuw i64 %33 to i32
   br label %112
 
 112:                                              ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h9fb36745cd6731ceE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1ae7d374cbc5f52dE.exit15"
@@ -18648,7 +18648,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hacbf2a3d3b5335c1E.exit: ; preds = %._crit_edge78, %47
   %.val1667 = phi i64 [ %.val1669, %._crit_edge78 ], [ %.val1668, %47 ]
   %66 = phi i64 [ %22, %._crit_edge78 ], [ %49, %47 ]
-  %67 = trunc i64 %24 to i32
+  %67 = trunc nuw i64 %24 to i32
   br label %68
 
 68:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hacbf2a3d3b5335c1E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha1a9172a88dc8f3dE.exit15"
@@ -18836,7 +18836,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hc845c582994a7ccaE.exit: ; preds = %._crit_edge81, %47
   %.sroa.5.0.i.i2067 = phi i64 [ %.sroa.5.0.i.i2069, %._crit_edge81 ], [ %.sroa.5.0.i.i2068, %47 ]
   %66 = phi i64 [ %22, %._crit_edge81 ], [ %49, %47 ]
-  %67 = trunc i64 %24 to i32
+  %67 = trunc nuw i64 %24 to i32
   br label %68
 
 68:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hc845c582994a7ccaE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha7c22e0e0ad955ddE.exit15"
@@ -19207,7 +19207,7 @@ common.resume:                                    ; preds = %135, %128, %132, %1
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6d0a7e1e39ff481cE.exit: ; preds = %142
   %145 = zext i32 %143 to i64
   %146 = add nsw i64 %145, -1
-  %147 = trunc i64 %146 to i32
+  %147 = trunc nuw i64 %146 to i32
   store i32 %147, ptr %6, align 8, !alias.scope !3588, !noalias !3581
   %148 = getelementptr inbounds { ptr, i64, { { ptr, [1 x i64] } } }, ptr %20, i64 %146
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %148, i64 32, i1 false), !alias.scope !3591
@@ -19388,7 +19388,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %59
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h388f7de1b9faf84dE.exit: ; preds = %._crit_edge52, %._crit_edge53
-  %58 = trunc i64 %22 to i32
+  %58 = trunc nuw i64 %22 to i32
   br label %59
 
 59:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h388f7de1b9faf84dE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1985d7488b0879dbE.exit15"
@@ -19763,7 +19763,7 @@ common.resume:                                    ; preds = %139, %134, %29, %24
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h3c001e8f2f0f9896E.exit: ; preds = %146
   %149 = zext i32 %147 to i64
   %150 = add nsw i64 %149, -1
-  %151 = trunc i64 %150 to i32
+  %151 = trunc nuw i64 %150 to i32
   store i32 %151, ptr %7, align 8, !alias.scope !3775, !noalias !3768
   %152 = getelementptr inbounds { ptr, { { { { ptr, i64 } }, {}, {} } }, i64 }, ptr %40, i64 %150
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %152, i64 32, i1 false), !alias.scope !3778
@@ -19929,7 +19929,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %58
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h4a9b0b71d6553177E.exit: ; preds = %._crit_edge33, %43
-  %57 = trunc i64 %22 to i32
+  %57 = trunc nuw i64 %22 to i32
   br label %58
 
 58:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h4a9b0b71d6553177E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h98445210c40b9617E.exit15"
@@ -20085,7 +20085,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %63
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h7f4c36224da2d676E.exit: ; preds = %._crit_edge56, %._crit_edge55
-  %62 = trunc i64 %22 to i32
+  %62 = trunc nuw i64 %22 to i32
   br label %63
 
 63:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h7f4c36224da2d676E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h03d1164bbe2eecaaE.exit15"
@@ -24096,7 +24096,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN90_$LT$sum_tr
   br label %38
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h4a9b0b71d6553177E.exit: ; preds = %._crit_edge, %._crit_edge24
-  %37 = trunc i64 %12 to i32
+  %37 = trunc nuw i64 %12 to i32
   br label %38
 
 38:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h4a9b0b71d6553177E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h98445210c40b9617E.exit"
@@ -24208,7 +24208,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN90_$LT$sum_tr
   br label %38
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1aa0510f92f76f46E.exit: ; preds = %._crit_edge, %._crit_edge24
-  %37 = trunc i64 %12 to i32
+  %37 = trunc nuw i64 %12 to i32
   br label %38
 
 38:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h1aa0510f92f76f46E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ed5ece9060d1d52E.exit"
@@ -24320,7 +24320,7 @@ define hidden noundef align 8 dereferenceable_or_null(40) ptr @"_ZN90_$LT$sum_tr
   br label %37
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6565c2ced8e1aa07E.exit: ; preds = %._crit_edge24, %._crit_edge
-  %36 = trunc i64 %12 to i32
+  %36 = trunc nuw i64 %12 to i32
   br label %37
 
 37:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h6565c2ced8e1aa07E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf0cbd5774d8deb9bE.exit"
@@ -24432,7 +24432,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN90_$LT$sum_tr
   br label %37
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h96dd0e34a10bc009E.exit: ; preds = %._crit_edge24, %._crit_edge
-  %36 = trunc i64 %12 to i32
+  %36 = trunc nuw i64 %12 to i32
   br label %37
 
 37:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h96dd0e34a10bc009E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17had39d3143c41a6e7E.exit"

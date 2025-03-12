@@ -1683,7 +1683,7 @@ define internal fastcc void @H5Z__nbit_decompress_one_atomic(ptr noundef nonnull
   br label %136
 
 106:                                              ; preds = %91
-  %107 = trunc nuw i64 %92 to i32
+  %107 = trunc nuw nsw i64 %92 to i32
   %108 = shl nsw i32 -1, %107
   %109 = xor i32 %108, -1
   %110 = and i32 %109, %94
@@ -1883,7 +1883,7 @@ H5Z__nbit_decompress_one_byte.exit:               ; preds = %106, %136
   br label %271
 
 241:                                              ; preds = %226
-  %242 = trunc nuw i64 %227 to i32
+  %242 = trunc nuw nsw i64 %227 to i32
   %243 = shl nsw i32 -1, %242
   %244 = xor i32 %243, -1
   %245 = and i32 %244, %229
@@ -2444,7 +2444,7 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly 
   br i1 %31, label %56, label %35
 
 35:                                               ; preds = %.lr.ph62.split.us.preheader
-  %36 = trunc i64 %.pre77 to i32
+  %36 = trunc nuw i64 %.pre77 to i32
   %37 = sub i32 %29, %36
   %38 = lshr i32 %28, %37
   %39 = shl nsw i32 -1, %36
@@ -2544,7 +2544,7 @@ define internal fastcc void @H5Z__nbit_compress_one_atomic(ptr noundef readonly 
   %105 = sub nuw nsw i64 %.046.i, %88
   %106 = trunc nuw nsw i64 %105 to i32
   %107 = lshr i32 %90, %106
-  %108 = trunc nuw i64 %88 to i32
+  %108 = trunc nuw nsw i64 %88 to i32
   %109 = shl nsw i32 -1, %108
   %110 = xor i32 %109, -1
   %111 = and i32 %107, %110
@@ -2631,7 +2631,7 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %104, %126
   br i1 %156, label %181, label %160
 
 160:                                              ; preds = %.lr.ph.split.us.preheader
-  %161 = trunc i64 %.pre to i32
+  %161 = trunc nuw i64 %.pre to i32
   %162 = sub i32 %154, %161
   %163 = lshr i32 %153, %162
   %164 = shl nsw i32 -1, %161
@@ -2731,7 +2731,7 @@ H5Z__nbit_compress_one_byte.exit:                 ; preds = %104, %126
   %230 = sub nuw nsw i64 %.046.i51, %213
   %231 = trunc nuw nsw i64 %230 to i32
   %232 = lshr i32 %215, %231
-  %233 = trunc nuw i64 %213 to i32
+  %233 = trunc nuw nsw i64 %213 to i32
   %234 = shl nsw i32 -1, %233
   %235 = xor i32 %234, -1
   %236 = and i32 %232, %235

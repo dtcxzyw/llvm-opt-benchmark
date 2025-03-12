@@ -21256,8 +21256,8 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
 
 227:                                              ; preds = %224
   %228 = icmp eq i8 %221, 2
-  %229 = trunc i8 %221 to i1
-  %230 = or i1 %228, %229
+  %229 = trunc nuw i8 %221 to i1
+  %230 = select i1 %228, i1 true, i1 %229
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !5216
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !5216
   br i1 %230, label %231, label %241
@@ -21591,8 +21591,8 @@ define hidden noundef zeroext i1 @_ZN7hir_def4attr5Attrs14is_cfg_enabled17h88cef
 
 13:                                               ; preds = %8
   %14 = icmp eq i8 %9, 2
-  %15 = trunc i8 %9 to i1
-  %16 = or i1 %14, %15
+  %15 = trunc nuw i8 %9 to i1
+  %16 = select i1 %14, i1 true, i1 %15
   call void @"_ZN4core3ptr43drop_in_place$LT$cfg..cfg_expr..CfgExpr$GT$17he7e679631d2cc3a4E.llvm.2681043041644741927"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   br label %10
@@ -47352,8 +47352,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN7hir_def4data3adt12lower_struct17hbf
 
 128:                                              ; preds = %120
   %129 = icmp eq i8 %117, 2
-  %130 = trunc i8 %117 to i1
-  %131 = or i1 %129, %130
+  %130 = trunc nuw i8 %117 to i1
+  %131 = select i1 %129, i1 true, i1 %130
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !11845
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !11845
   br i1 %131, label %136, label %132
@@ -47688,8 +47688,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN7hir_def4data3adt12lower_struct17hbf
 
 246:                                              ; preds = %238
   %247 = icmp eq i8 %235, 2
-  %248 = trunc i8 %235 to i1
-  %249 = or i1 %247, %248
+  %248 = trunc nuw i8 %235 to i1
+  %249 = select i1 %247, i1 true, i1 %248
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !11990
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !11990
   br i1 %249, label %254, label %250
@@ -47976,8 +47976,8 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
 
 78:                                               ; preds = %75
   %79 = icmp eq i8 %72, 2
-  %80 = trunc i8 %72 to i1
-  %81 = or i1 %79, %80
+  %80 = trunc nuw i8 %72 to i1
+  %81 = select i1 %79, i1 true, i1 %80
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !12056
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %19), !noalias !12056
   br i1 %81, label %83, label %82
@@ -48325,8 +48325,8 @@ _ZN7hir_def9item_tree8ItemTree4data17h7e30fd18c89f4472E.llvm.2681043041644741927
 
 174:                                              ; preds = %171
   %175 = icmp eq i8 %168, 2
-  %176 = trunc i8 %168 to i1
-  %177 = or i1 %175, %176
+  %176 = trunc nuw i8 %168 to i1
+  %177 = select i1 %175, i1 true, i1 %176
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !12111
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !12111
   br i1 %177, label %179, label %178

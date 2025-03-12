@@ -1046,7 +1046,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   unreachable
 
 .thread:                                          ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit, %156
-  %159 = trunc nuw i64 %2 to i32
+  %159 = trunc nuw nsw i64 %2 to i32
   %160 = tail call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef nonnull %24, ptr noundef %1, i32 noundef %159, i32 noundef 1, ptr noundef nonnull @_Z8xdr_charP3XDRPc)
   br label %.loopexit
 
@@ -1059,7 +1059,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26
   unreachable
 
 .thread270:                                       ; preds = %_ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit, %161
-  %164 = trunc nuw i64 %2 to i32
+  %164 = trunc nuw nsw i64 %2 to i32
   %165 = tail call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef nonnull %24, ptr noundef %1, i32 noundef %164, i32 noundef 1, ptr noundef nonnull @_Z10xdr_u_charP3XDRPh)
   br label %.loopexit
 

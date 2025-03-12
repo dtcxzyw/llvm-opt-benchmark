@@ -2474,7 +2474,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %606
 
 606:                                              ; preds = %605, %603
-  %607 = trunc i64 %585 to i32
+  %607 = trunc nsw i64 %585 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %93) #29
   %608 = load ptr, ptr %106, align 8, !tbaa !18
   %609 = icmp eq ptr %608, %566
@@ -2795,7 +2795,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
 716:                                              ; preds = %626, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.02407.in = phi i64 [ %536, %626 ], [ %473, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   %.01762405 = phi i32 [ %607, %626 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.02407 = trunc i64 %.02407.in to i32
+  %.02407 = trunc nsw i64 %.02407.in to i32
   %717 = load ptr, ptr %1, align 8, !tbaa !84
   invoke void @_ZN19OpenColorIO_v2_5dev6Config10setVersionEjj(ptr noundef nonnull align 8 dereferenceable(8) %717, i32 noundef %.02407, i32 noundef %.01762405)
           to label %778 unwind label %718

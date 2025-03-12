@@ -322,12 +322,12 @@ define dso_local noundef zeroext i1 @progress_meter(ptr noundef readonly capture
   br i1 %130, label %131, label %137
 
 131:                                              ; preds = %129
-  %.lhs.trunc.i = trunc nuw i64 %126 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %126 to i32
   %132 = udiv i32 %.lhs.trunc.i, 3600
   %.zext.i = zext nneg i32 %132 to i64
   %.neg23.i = mul nsw i64 %.zext.i, -3600
   %133 = add nsw i64 %.neg23.i, %126
-  %.lhs.trunc25.i = trunc i64 %133 to i32
+  %.lhs.trunc25.i = trunc nsw i64 %133 to i32
   %134 = sdiv i32 %.lhs.trunc25.i, 60
   %.sext.i = sext i32 %134 to i64
   %.neg24.i = mul nsw i64 %.sext.i, -60
@@ -364,12 +364,12 @@ time2str.exit:                                    ; preds = %128, %131, %140, %1
   br i1 %149, label %150, label %156
 
 150:                                              ; preds = %148
-  %.lhs.trunc.i101 = trunc nuw i64 %124 to i32
+  %.lhs.trunc.i101 = trunc nuw nsw i64 %124 to i32
   %151 = udiv i32 %.lhs.trunc.i101, 3600
   %.zext.i102 = zext nneg i32 %151 to i64
   %.neg23.i103 = mul nsw i64 %.zext.i102, -3600
   %152 = add nsw i64 %.neg23.i103, %124
-  %.lhs.trunc25.i104 = trunc i64 %152 to i32
+  %.lhs.trunc25.i104 = trunc nsw i64 %152 to i32
   %153 = sdiv i32 %.lhs.trunc25.i104, 60
   %.sext.i105 = sext i32 %153 to i64
   %.neg24.i106 = mul nsw i64 %.sext.i105, -60
@@ -411,12 +411,12 @@ time2str.exit107:                                 ; preds = %163, %159, %150, %1
   br i1 %169, label %170, label %176
 
 170:                                              ; preds = %168
-  %.lhs.trunc.i109 = trunc nuw i64 %34 to i32
+  %.lhs.trunc.i109 = trunc nuw nsw i64 %34 to i32
   %171 = udiv i32 %.lhs.trunc.i109, 3600
   %.zext.i110 = zext nneg i32 %171 to i64
   %.neg23.i111 = mul nsw i64 %.zext.i110, -3600
   %172 = add nsw i64 %.neg23.i111, %34
-  %.lhs.trunc25.i112 = trunc i64 %172 to i32
+  %.lhs.trunc25.i112 = trunc nsw i64 %172 to i32
   %173 = sdiv i32 %.lhs.trunc25.i112, 60
   %.sext.i113 = sext i32 %173 to i64
   %.neg24.i114 = mul nsw i64 %.sext.i113, -60
@@ -498,7 +498,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
 
 13:                                               ; preds = %11
   %14 = lshr i64 %0, 20
-  %15 = trunc nuw i64 %0 to i32
+  %15 = trunc nuw nsw i64 %0 to i32
   %.lhs.trunc = and i32 %15, 1048575
   %16 = udiv i32 %.lhs.trunc, 104857
   %.zext = zext nneg i32 %16 to i64

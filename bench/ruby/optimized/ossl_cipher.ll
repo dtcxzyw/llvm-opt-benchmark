@@ -624,7 +624,7 @@ RSTRING_PTR.exit19:                               ; preds = %74, %81
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit19
-  %86 = trunc i64 %83 to i32
+  %86 = trunc nsw i64 %83 to i32
   %87 = call i32 @EVP_BytesToKey(ptr noundef %75, ptr noundef %70, ptr noundef %.0, ptr noundef %.sroa.2.0.i18, i32 noundef %86, i32 noundef %62, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %88 = call i32 @EVP_CipherInit_ex(ptr noundef nonnull %71, ptr noundef null, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef -1) #11
   %.not13 = icmp eq i32 %88, 1
@@ -1074,7 +1074,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %10
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %15 = trunc i64 %12 to i32
+  %15 = trunc nsw i64 %12 to i32
   %16 = call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_cipher_type) #11
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %17, label %19
@@ -1809,7 +1809,7 @@ RSTRING_PTR.exit31:                               ; preds = %57, %65
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit31
-  %70 = trunc i64 %67 to i32
+  %70 = trunc nsw i64 %67 to i32
   %71 = call i32 @EVP_BytesToKey(ptr noundef %58, ptr noundef %59, ptr noundef nonnull %6, ptr noundef %.sroa.2.0.i30, i32 noundef %70, i32 noundef 1, ptr noundef nonnull %5, ptr noundef null) #11
   br label %76
 

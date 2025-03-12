@@ -2797,7 +2797,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1016, %1014, %1010,
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 1055:                                             ; preds = %._crit_edge.i.i613
-  %1056 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %1056 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %1057 = or disjoint i8 %1056, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -7005,7 +7005,7 @@ _ZN9Imath_3_24halfaSEf.exit46.us:                 ; preds = %257, %254, %252, %2
   %274 = add nsw i32 %270, -94
   %275 = shl i32 %273, %274
   %276 = lshr i32 %273, %271
-  %277 = trunc nuw i32 %276 to i16
+  %277 = trunc nuw nsw i32 %276 to i16
   %278 = icmp ugt i32 %275, -2147483648
   br i1 %278, label %282, label %279
 
@@ -8885,7 +8885,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 12:                                               ; preds = %3
   %13 = add nuw nsw i64 %10, 1
-  %.rhs.trunc = trunc nuw i64 %13 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %13 to i32
   %14 = udiv i32 2147483645, %.rhs.trunc
   %.zext = zext nneg i32 %14 to i64
   %15 = mul nuw nsw i64 %13, %.zext
@@ -8902,7 +8902,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8, !tbaa !57
-  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %20 to i32
   %22 = udiv i32 %.lhs.trunc, %14
   %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit

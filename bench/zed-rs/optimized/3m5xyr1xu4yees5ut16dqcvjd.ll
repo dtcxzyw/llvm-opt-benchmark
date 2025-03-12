@@ -17443,7 +17443,7 @@ _ZN4gpui3app13async_context15AsyncAppContext11read_global17h9c95308458059efeE.ex
   br label %common.ret
 
 "_ZN4core3ptr157drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$bool$u2b$core..marker..Send$GT$$GT$$GT$17h36b3a2801db46deeE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.1265738202809708361.exit.i.i.i", %493
-  %509 = trunc i8 %485 to i1
+  %509 = trunc nuw i8 %485 to i1
   %510 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val62 = load ptr, ptr %510, align 8, !nonnull !7, !noundef !7
   %511 = getelementptr i8, ptr %0, i64 24

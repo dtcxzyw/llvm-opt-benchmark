@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @ws_socket_ptoa(ptr noundef %0, ptr noundef %1, i16 
 51:                                               ; preds = %45
   %52 = trunc nuw i64 %42 to i16
   %53 = lshr i64 %42, 8
-  %54 = trunc nuw i64 %53 to i16
+  %54 = trunc nuw nsw i64 %53 to i16
   %55 = shl i16 %52, 8
   %56 = or disjoint i16 %55, %54
   br label %58

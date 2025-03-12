@@ -6729,7 +6729,7 @@ _ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit: ; preds = %17, %.loopexit.i
   br i1 %.not, label %35, label %_ZNK4llvm15DWARFDebugNames5Entry10getCUIndexEv.exit.thread
 
 35:                                               ; preds = %29
-  %36 = trunc i64 %26 to i32
+  %36 = trunc nuw i64 %26 to i32
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %38 = load i8, ptr %37, align 8, !tbaa !565
   %switch.i.i = icmp eq i8 %38, 0
@@ -6849,7 +6849,7 @@ _ZNK4llvm15DWARFDebugNames5Entry17getRelatedCUIndexEv.exit: ; preds = %15, %.loo
   br i1 %.not, label %33, label %47
 
 33:                                               ; preds = %27
-  %34 = trunc i64 %24 to i32
+  %34 = trunc nuw i64 %24 to i32
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %36 = load i8, ptr %35, align 8, !tbaa !565
   %switch.i.i = icmp eq i8 %36, 0
@@ -6935,7 +6935,7 @@ _ZNK4llvm15DWARFDebugNames5Entry10getTUIndexEv.exit: ; preds = %.lr.ph.i.i
   br i1 %.not, label %26, label %43
 
 26:                                               ; preds = %20
-  %27 = trunc i64 %17 to i32
+  %27 = trunc nuw i64 %17 to i32
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %29 = load i8, ptr %28, align 8, !tbaa !565
   %switch.i.i = icmp eq i8 %29, 0

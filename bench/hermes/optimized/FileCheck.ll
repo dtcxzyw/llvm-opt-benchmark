@@ -1298,7 +1298,7 @@ _ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9
   br label %return
 
 _ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit: ; preds = %lor.lhs.false.i
-  %conv.i = trunc i64 %2 to i32
+  %conv.i = trunc nsw i64 %2 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i)
   br label %if.end20
 

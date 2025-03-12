@@ -1043,7 +1043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -1507,7 +1507,7 @@ define noundef i32 @_ZN4pkpy15CodeEmitContext8emit_intEli(ptr noundef nonnull al
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %.tr = trunc nuw i64 %1 to i16
+  %.tr = trunc nuw nsw i64 %1 to i16
   %7 = shl nuw nsw i16 %.tr, 2
   %8 = or disjoint i16 %7, 2
   %9 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %0, i8 noundef zeroext 10, i16 noundef zeroext %8, i32 noundef %2, i1 noundef zeroext false)
@@ -3403,7 +3403,7 @@ _ZSt3getIlJSt9monostateldN4pkpy3StrEEERT_RSt7variantIJDpT0_EE.exit: ; preds = %1
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %_ZSt3getIlJSt9monostateldN4pkpy3StrEEERT_RSt7variantIJDpT0_EE.exit
-  %.tr.i = trunc nuw i64 %25 to i16
+  %.tr.i = trunc nuw nsw i64 %25 to i16
   %30 = shl nuw nsw i16 %.tr.i, 2
   %31 = or disjoint i16 %30, 2
   %32 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 10, i16 noundef zeroext %31, i32 noundef %27, i1 noundef zeroext false)
@@ -3626,7 +3626,7 @@ _ZSt3getIlJSt9monostateldN4pkpy3StrEEERT_RSt7variantIJDpT0_EE.exit: ; preds = %2
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %_ZSt3getIlJSt9monostateldN4pkpy3StrEEERT_RSt7variantIJDpT0_EE.exit
-  %.tr.i = trunc nuw i64 %33 to i16
+  %.tr.i = trunc nuw nsw i64 %33 to i16
   %38 = shl nuw nsw i16 %.tr.i, 2
   %39 = or disjoint i16 %38, 2
   %40 = tail call noundef i32 @_ZN4pkpy15CodeEmitContext5emit_ENS_6OpcodeEtib(ptr noundef nonnull align 8 dereferenceable(232) %1, i8 noundef zeroext 10, i16 noundef zeroext %39, i32 noundef %35, i1 noundef zeroext false)

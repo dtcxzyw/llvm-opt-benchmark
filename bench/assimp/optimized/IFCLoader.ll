@@ -8917,7 +8917,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
   br i1 %208, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %209
 
 209:                                              ; preds = %203
-  %210 = trunc nuw i64 %207 to i32
+  %210 = trunc nuw nsw i64 %207 to i32
   store i32 %210, ptr %79, align 4
   %211 = getelementptr inbounds nuw i8, ptr %79, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %211, ptr align 1 %.pre1373, i64 %207, i1 false)
@@ -9461,7 +9461,7 @@ _ZN10aiMetadata5AllocEj.exit:                     ; preds = %383, %363
 410:                                              ; preds = %407
   %411 = load ptr, ptr %387, align 8
   %412 = getelementptr inbounds nuw %struct.aiString, ptr %411, i64 %408
-  %413 = trunc nuw i64 %405 to i32
+  %413 = trunc nuw nsw i64 %405 to i32
   store i32 %413, ptr %412, align 4
   %414 = getelementptr inbounds nuw i8, ptr %412, i64 4
   %415 = load ptr, ptr %393, align 8

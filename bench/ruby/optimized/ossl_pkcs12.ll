@@ -902,7 +902,7 @@ RSTRING_PTR.exit:                                 ; preds = %67, %73
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %78 = trunc i64 %75 to i32
+  %78 = trunc nsw i64 %75 to i32
   %79 = load i64, ptr %5, align 8, !tbaa !6
   %80 = icmp eq i64 %79, 4
   br i1 %80, label %RSTRING_PTR.exit19, label %81
@@ -932,7 +932,7 @@ RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
   unreachable
 
 RSTRING_LENINT.exit21:                            ; preds = %87
-  %92 = trunc i64 %89 to i32
+  %92 = trunc nsw i64 %89 to i32
   br label %RSTRING_PTR.exit19
 
 RSTRING_PTR.exit19:                               ; preds = %RSTRING_LENINT.exit, %RSTRING_LENINT.exit21

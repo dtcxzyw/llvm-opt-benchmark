@@ -462,7 +462,7 @@ define void @dstebz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.1631834 = phi i32 [ 0, %.lr.ph837 ], [ %.3633, %423 ]
   %.0635833 = phi i32 [ 0, %.lr.ph837 ], [ %.3638, %423 ]
   %.0685830 = phi i32 [ 0, %.lr.ph837 ], [ %249, %423 ]
-  %indvars926 = trunc i64 %indvars.iv924 to i32
+  %indvars926 = trunc nuw i64 %indvars.iv924 to i32
   %247 = add i32 %.0685830, 1
   %248 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv924
   %249 = load i32, ptr %248, align 4, !tbaa !3

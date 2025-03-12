@@ -400,7 +400,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GFp_simple_point2oct(ptr no
 
 47:                                               ; preds = %44, %43
   %storemerge.in = phi i32 [ %2, %43 ], [ %spec.select, %44 ]
-  %storemerge = trunc i32 %storemerge.in to i8
+  %storemerge = trunc nuw nsw i32 %storemerge.in to i8
   store i8 %storemerge, ptr %3, align 1, !tbaa !25
   %48 = tail call i32 @BN_num_bits(ptr noundef %38) #3
   %49 = add nsw i32 %48, 7

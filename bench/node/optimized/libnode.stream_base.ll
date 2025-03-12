@@ -6439,7 +6439,7 @@ do.body151:                                       ; preds = %do.body144
 
 do.end155:                                        ; preds = %do.body144
   %call158 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
-  %conv159 = trunc i64 %data_size.0 to i32
+  %conv159 = trunc nuw nsw i64 %data_size.0 to i32
   %call160 = call { ptr, i64 } @uv_buf_init(ptr noundef %call158, i32 noundef %conv159) #21
   %65 = extractvalue { ptr, i64 } %call160, 0
   %66 = extractvalue { ptr, i64 } %call160, 1
@@ -6920,7 +6920,7 @@ do.body167:                                       ; preds = %do.body160
 
 do.end171:                                        ; preds = %do.body160
   %call174 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
-  %conv175 = trunc i64 %data_size.0 to i32
+  %conv175 = trunc nuw nsw i64 %data_size.0 to i32
   %call176 = call { ptr, i64 } @uv_buf_init(ptr noundef %call174, i32 noundef %conv175) #21
   %66 = extractvalue { ptr, i64 } %call176, 0
   %67 = extractvalue { ptr, i64 } %call176, 1
@@ -7390,7 +7390,7 @@ do.body151:                                       ; preds = %do.body144
 
 do.end155:                                        ; preds = %do.body144
   %call158 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
-  %conv159 = trunc i64 %data_size.0 to i32
+  %conv159 = trunc nuw nsw i64 %data_size.0 to i32
   %call160 = call { ptr, i64 } @uv_buf_init(ptr noundef %call158, i32 noundef %conv159) #21
   %65 = extractvalue { ptr, i64 } %call160, 0
   %66 = extractvalue { ptr, i64 } %call160, 1
@@ -7860,7 +7860,7 @@ do.body151:                                       ; preds = %do.body144
 
 do.end155:                                        ; preds = %do.body144
   %call158 = call noundef ptr @_ZNK2v812BackingStore4DataEv(ptr noundef nonnull align 1 dereferenceable(1) %bs.sroa.0.0) #21
-  %conv159 = trunc i64 %data_size.0 to i32
+  %conv159 = trunc nuw nsw i64 %data_size.0 to i32
   %call160 = call { ptr, i64 } @uv_buf_init(ptr noundef %call158, i32 noundef %conv159) #21
   %65 = extractvalue { ptr, i64 } %call160, 0
   %66 = extractvalue { ptr, i64 } %call160, 1

@@ -11615,7 +11615,7 @@ default.unreachable2.i10.i.i.i.i.i.i.i.i:         ; preds = %117
 
 145:                                              ; preds = %112, %_ZN10serde_json2de12ParserNumber5visit17h47f41641cec5711dE.exit.i.i.i.i.i.i.i.i
   %.sroa.714.034.in.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i.i.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17h47f41641cec5711dE.exit.i.i.i.i.i.i.i.i ], [ %.sroa.219.0.copyload.i.i.i.i.i.i.i.i, %112 ]
-  %.sroa.714.034.i.i.i.i.i.i.i.i = trunc i64 %.sroa.714.034.in.i.i.i.i.i.i.i.i to i16
+  %.sroa.714.034.i.i.i.i.i.i.i.i = trunc nsw i64 %.sroa.714.034.in.i.i.i.i.i.i.i.i to i16
   %.sroa.9.8.copyload10.i = load ptr, ptr %22, align 8, !noalias !3077
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6147.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx2.i.i.i, i64 16, i1 false), !noalias !2966
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !2976

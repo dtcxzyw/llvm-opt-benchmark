@@ -15642,7 +15642,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -15663,7 +15663,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -15690,7 +15690,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -15737,7 +15737,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -15758,7 +15758,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -15785,7 +15785,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16040,7 +16040,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16061,7 +16061,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16088,7 +16088,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16135,7 +16135,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16156,7 +16156,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16183,7 +16183,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1024EEEvRPcm.exit
 
@@ -16445,7 +16445,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %111 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %110, ptr %111, align 1, !tbaa !20
   %112 = lshr i64 %.056, 6
-  %113 = trunc nuw i64 %112 to i8
+  %113 = trunc nuw nsw i64 %112 to i8
   %114 = or disjoint i8 %113, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3072EEEvRPcm.exit
 
@@ -16466,7 +16466,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %126 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %125, ptr %126, align 1, !tbaa !20
   %127 = lshr i64 %.056, 12
-  %128 = trunc nuw i64 %127 to i8
+  %128 = trunc nuw nsw i64 %127 to i8
   %129 = or disjoint i8 %128, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3072EEEvRPcm.exit
 
@@ -16493,7 +16493,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %146 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %145, ptr %146, align 1, !tbaa !20
   %147 = lshr i64 %.056, 18
-  %148 = trunc nuw i64 %147 to i8
+  %148 = trunc nuw nsw i64 %147 to i8
   %149 = or disjoint i8 %148, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3072EEEvRPcm.exit
 
@@ -16540,7 +16540,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %173 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %172, ptr %173, align 1, !tbaa !20
   %174 = lshr i64 %.052, 6
-  %175 = trunc nuw i64 %174 to i8
+  %175 = trunc nuw nsw i64 %174 to i8
   %176 = or disjoint i8 %175, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3072EEEvRPcm.exit
 
@@ -16561,7 +16561,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %188 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %187, ptr %188, align 1, !tbaa !20
   %189 = lshr i64 %.052, 12
-  %190 = trunc nuw i64 %189 to i8
+  %190 = trunc nuw nsw i64 %189 to i8
   %191 = or disjoint i8 %190, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3072EEEvRPcm.exit
 
@@ -16588,7 +16588,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %208 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %207, ptr %208, align 1, !tbaa !20
   %209 = lshr i64 %.052, 18
-  %210 = trunc nuw i64 %209 to i8
+  %210 = trunc nuw nsw i64 %209 to i8
   %211 = or disjoint i8 %210, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3072EEEvRPcm.exit
 
@@ -18072,7 +18072,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18093,7 +18093,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18120,7 +18120,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18167,7 +18167,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18188,7 +18188,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18215,7 +18215,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18470,7 +18470,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18491,7 +18491,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18518,7 +18518,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18565,7 +18565,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18586,7 +18586,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18613,7 +18613,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18868,7 +18868,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18889,7 +18889,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18916,7 +18916,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18963,7 +18963,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -18984,7 +18984,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -19011,7 +19011,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi0EEEvRPcm.exit
 
@@ -20556,7 +20556,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20577,7 +20577,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20604,7 +20604,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20651,7 +20651,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20672,7 +20672,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20699,7 +20699,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20954,7 +20954,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -20975,7 +20975,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -21002,7 +21002,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -21049,7 +21049,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -21070,7 +21070,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -21097,7 +21097,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi1088EEEvRPcm.exit
 
@@ -21359,7 +21359,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %111 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %110, ptr %111, align 1, !tbaa !20
   %112 = lshr i64 %.056, 6
-  %113 = trunc nuw i64 %112 to i8
+  %113 = trunc nuw nsw i64 %112 to i8
   %114 = or disjoint i8 %113, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3136EEEvRPcm.exit
 
@@ -21380,7 +21380,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %126 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %125, ptr %126, align 1, !tbaa !20
   %127 = lshr i64 %.056, 12
-  %128 = trunc nuw i64 %127 to i8
+  %128 = trunc nuw nsw i64 %127 to i8
   %129 = or disjoint i8 %128, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3136EEEvRPcm.exit
 
@@ -21407,7 +21407,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %146 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %145, ptr %146, align 1, !tbaa !20
   %147 = lshr i64 %.056, 18
-  %148 = trunc nuw i64 %147 to i8
+  %148 = trunc nuw nsw i64 %147 to i8
   %149 = or disjoint i8 %148, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3136EEEvRPcm.exit
 
@@ -21454,7 +21454,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %173 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %172, ptr %173, align 1, !tbaa !20
   %174 = lshr i64 %.052, 6
-  %175 = trunc nuw i64 %174 to i8
+  %175 = trunc nuw nsw i64 %174 to i8
   %176 = or disjoint i8 %175, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3136EEEvRPcm.exit
 
@@ -21475,7 +21475,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %188 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %187, ptr %188, align 1, !tbaa !20
   %189 = lshr i64 %.052, 12
-  %190 = trunc nuw i64 %189 to i8
+  %190 = trunc nuw nsw i64 %189 to i8
   %191 = or disjoint i8 %190, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3136EEEvRPcm.exit
 
@@ -21502,7 +21502,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_22text_pure_w
   %208 = getelementptr inbounds nuw i8, ptr %.098, i64 1
   store i8 %207, ptr %208, align 1, !tbaa !20
   %209 = lshr i64 %.052, 18
-  %210 = trunc nuw i64 %209 to i8
+  %210 = trunc nuw nsw i64 %209 to i8
   %211 = or disjoint i8 %210, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi3136EEEvRPcm.exit
 
@@ -23049,7 +23049,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23070,7 +23070,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23097,7 +23097,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23144,7 +23144,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23165,7 +23165,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23192,7 +23192,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23447,7 +23447,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23468,7 +23468,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23495,7 +23495,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23542,7 +23542,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23563,7 +23563,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23590,7 +23590,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_25attribute_v
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23845,7 +23845,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %109 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %108, ptr %109, align 1, !tbaa !20
   %110 = lshr i64 %.052, 6
-  %111 = trunc nuw i64 %110 to i8
+  %111 = trunc nuw nsw i64 %110 to i8
   %112 = or disjoint i8 %111, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23866,7 +23866,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %124 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %123, ptr %124, align 1, !tbaa !20
   %125 = lshr i64 %.052, 12
-  %126 = trunc nuw i64 %125 to i8
+  %126 = trunc nuw nsw i64 %125 to i8
   %127 = or disjoint i8 %126, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23893,7 +23893,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %144 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %143, ptr %144, align 1, !tbaa !20
   %145 = lshr i64 %.052, 18
-  %146 = trunc nuw i64 %145 to i8
+  %146 = trunc nuw nsw i64 %145 to i8
   %147 = or disjoint i8 %146, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23940,7 +23940,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %171 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %170, ptr %171, align 1, !tbaa !20
   %172 = lshr i64 %.048, 6
-  %173 = trunc nuw i64 %172 to i8
+  %173 = trunc nuw nsw i64 %172 to i8
   %174 = or disjoint i8 %173, -64
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23961,7 +23961,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %186 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %185, ptr %186, align 1, !tbaa !20
   %187 = lshr i64 %.048, 12
-  %188 = trunc nuw i64 %187 to i8
+  %188 = trunc nuw nsw i64 %187 to i8
   %189 = or disjoint i8 %188, -32
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 
@@ -23988,7 +23988,7 @@ _ZN5boost13property_tree6detail8rapidxml12xml_documentIcE4skipINS4_20text_pure_n
   %206 = getelementptr inbounds nuw i8, ptr %.086, i64 1
   store i8 %205, ptr %206, align 1, !tbaa !20
   %207 = lshr i64 %.048, 18
-  %208 = trunc nuw i64 %207 to i8
+  %208 = trunc nuw nsw i64 %207 to i8
   %209 = or disjoint i8 %208, -16
   br label %_ZN5boost13property_tree6detail8rapidxml12xml_documentIcE22insert_coded_characterILi64EEEvRPcm.exit
 

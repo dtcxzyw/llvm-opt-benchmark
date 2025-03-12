@@ -100,13 +100,13 @@ define dso_local void @ossl_quic_vlint_encode(ptr noundef writeonly captures(non
   br i1 %7, label %ossl_quic_vlint_encode_len.exit.thread5, label %ossl_quic_vlint_encode_len.exit
 
 ossl_quic_vlint_encode_len.exit.thread:           ; preds = %2
-  %10 = trunc nuw i64 %1 to i8
+  %10 = trunc nuw nsw i64 %1 to i8
   store i8 %10, ptr %0, align 1, !tbaa !4
   br label %ossl_quic_vlint_encode_n.exit
 
 ossl_quic_vlint_encode_len.exit.thread3:          ; preds = %4
   %11 = lshr i64 %1, 8
-  %12 = trunc nuw i64 %11 to i8
+  %12 = trunc nuw nsw i64 %11 to i8
   %13 = or disjoint i8 %12, 64
   store i8 %13, ptr %0, align 1, !tbaa !4
   %14 = trunc i64 %1 to i8
@@ -116,7 +116,7 @@ ossl_quic_vlint_encode_len.exit.thread3:          ; preds = %4
 
 ossl_quic_vlint_encode_len.exit.thread5:          ; preds = %6
   %16 = lshr i64 %1, 24
-  %17 = trunc nuw i64 %16 to i8
+  %17 = trunc nuw nsw i64 %16 to i8
   %18 = or disjoint i8 %17, -128
   store i8 %18, ptr %0, align 1, !tbaa !4
   %19 = lshr i64 %1, 16

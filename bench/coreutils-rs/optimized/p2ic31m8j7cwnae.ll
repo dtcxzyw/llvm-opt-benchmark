@@ -4420,7 +4420,7 @@ _ZN8uu_shred9wipe_name17h521bc825616f2f61E.exit.i: ; preds = %597, %.noexc303
   br i1 %700, label %702, label %701
 
 701:                                              ; preds = %698
-  %trunc.i38.i = trunc i8 %699 to i1
+  %trunc.i38.i = trunc nuw i8 %699 to i1
   br i1 %trunc.i38.i, label %705, label %703
 
 702:                                              ; preds = %698
@@ -4490,7 +4490,7 @@ _ZN8uu_shred11BytesWriter14from_pass_type17hf621a172995e6c4fE.exit.i: ; preds = 
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i.i": ; preds = %719
   %721 = getelementptr inbounds i8, ptr %343, i64 %716
-  %.lhs.trunc.i.i = trunc nuw i64 %717 to i32
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %717 to i32
   %722 = urem i32 %.lhs.trunc.i.i, 3
   %.zext.i.i = zext nneg i32 %722 to i64
   store i64 %.zext.i.i, ptr %342, align 8, !alias.scope !1161, !noalias !1146
@@ -4547,7 +4547,7 @@ _ZN8uu_shred11BytesWriter14bytes_for_pass17h322a3d0f013a4507E.exit.i: ; preds = 
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h41a3cd97af7d8723E.exit.i44.i": ; preds = %734
   %739 = getelementptr inbounds i8, ptr %343, i64 %731
-  %.lhs.trunc.i45.i = trunc nuw i64 %732 to i32
+  %.lhs.trunc.i45.i = trunc nuw nsw i64 %732 to i32
   %740 = urem i32 %.lhs.trunc.i45.i, 3
   %.zext.i46.i = zext nneg i32 %740 to i64
   store i64 %.zext.i46.i, ptr %342, align 8, !alias.scope !1164, !noalias !1146

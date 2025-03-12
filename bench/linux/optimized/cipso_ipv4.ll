@@ -1852,7 +1852,7 @@ define internal fastcc range(i32 10, 0) i32 @cipso_v4_genopt(ptr noundef initial
 .loopexit62:                                      ; preds = %117, %.thread38, %133
   %136 = phi i32 [ %135, %133 ], [ 4, %.thread38 ], [ 4, %117 ]
   store i8 2, ptr %6, align 1
-  %137 = trunc i32 %136 to i8
+  %137 = trunc nuw nsw i32 %136 to i8
   store i8 %137, ptr %7, align 1
   %138 = trunc i32 %114 to i8
   store i8 %138, ptr %15, align 1

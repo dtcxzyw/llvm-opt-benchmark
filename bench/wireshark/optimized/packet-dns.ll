@@ -9376,7 +9376,7 @@ define internal fastcc void @rfc1867_angle(ptr noundef %0, i32 noundef %1, i1 no
   %18 = udiv i32 %.021, 1000
   %19 = urem i32 %18, 60
   %20 = udiv i32 %.021, 60000
-  %.lhs.trunc = trunc nuw i32 %20 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %20 to i16
   %21 = urem i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %21 to i32
   %22 = udiv i32 %.021, 3600000

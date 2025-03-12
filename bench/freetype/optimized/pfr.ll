@@ -1569,7 +1569,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %289 = load i64, ptr %288, align 8, !tbaa !190
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %289, ptr %290, align 8, !tbaa !191
-  %291 = trunc i64 %252 to i32
+  %291 = trunc nsw i64 %252 to i32
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %291, ptr %292, align 8, !tbaa !192
   %293 = trunc i64 %256 to i32

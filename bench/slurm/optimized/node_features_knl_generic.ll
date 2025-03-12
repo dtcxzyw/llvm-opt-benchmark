@@ -703,7 +703,7 @@ _knl_numa_token.exit.i:                           ; preds = %select.unfold.i, %1
 175:                                              ; preds = %.preheader.i107
   %176 = trunc nuw nsw i64 %indvars.iv.i108 to i32
   %177 = shl nuw nsw i32 1, %176
-  %178 = trunc nuw i32 %177 to i16
+  %178 = trunc nuw nsw i32 %177 to i16
   %179 = call fastcc ptr @_knl_numa_str(i16 noundef zeroext %178)
   store ptr %179, ptr %7, align 8
   %180 = load i32, ptr %172, align 4

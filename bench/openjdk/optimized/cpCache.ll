@@ -592,7 +592,7 @@ switch.lookup95:                                  ; preds = %87
   br i1 %.not, label %.thread81, label %135
 
 .thread81:                                        ; preds = %103, %110
-  %123 = trunc i32 %1 to i8
+  %123 = trunc nuw i32 %1 to i8
   %124 = getelementptr inbounds nuw i8, ptr %12, i64 22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
   store volatile i8 %123, ptr %124, align 1

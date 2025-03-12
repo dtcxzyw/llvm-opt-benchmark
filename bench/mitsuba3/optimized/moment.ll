@@ -438,7 +438,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %89
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !alias.scope !4
-  %98 = trunc nuw i64 %86 to i8
+  %98 = trunc nuw nsw i64 %86 to i8
   %99 = shl nuw nsw i8 %98, 1
   store i8 %99, ptr %8, align 8, !alias.scope !4
   %.not.i.i16.i = icmp eq i64 %85, 0
@@ -690,7 +690,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i40: ; preds = %180
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false), !alias.scope !10
-  %189 = trunc nuw i64 %178 to i8
+  %189 = trunc nuw nsw i64 %178 to i8
   %190 = shl nuw nsw i8 %189, 1
   store i8 %190, ptr %10, align 8, !alias.scope !10
   %.not.i.i16.i42 = icmp eq i64 %177, 0
@@ -763,7 +763,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i52: ; preds = %216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false), !alias.scope !13
-  %225 = trunc nuw i64 %214 to i8
+  %225 = trunc nuw nsw i64 %214 to i8
   %226 = shl nuw nsw i8 %225, 1
   store i8 %226, ptr %11, align 8, !alias.scope !13
   %.not.i.i16.i54 = icmp eq i64 %213, 0
@@ -844,7 +844,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i64: ; preds = %253
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !alias.scope !16
-  %262 = trunc nuw i64 %250 to i8
+  %262 = trunc nuw nsw i64 %250 to i8
   %263 = shl nuw nsw i8 %262, 1
   store i8 %263, ptr %12, align 8, !alias.scope !16
   %.not.i.i16.i66 = icmp eq i64 %249, 0

@@ -1418,7 +1418,7 @@ _dump_job_res.exit:                               ; preds = %31, %34
   br i1 %.not103, label %169, label %166
 
 166:                                              ; preds = %._crit_edge.thread129
-  %167 = trunc i32 %165 to i16
+  %167 = trunc nuw i32 %165 to i16
   %168 = sub i16 %162, %167
   store i16 %168, ptr %161, align 8
   br label %174

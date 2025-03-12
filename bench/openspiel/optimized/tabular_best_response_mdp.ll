@@ -9860,11 +9860,11 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc nuw i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32
-  %.tr.i = trunc i64 %42 to i32
+  %.tr.i = trunc nuw nsw i64 %42 to i32
   %52 = shl nuw nsw i32 %.tr.i, 3
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %50, %53

@@ -522,7 +522,7 @@ define dso_local void @ustr_u32cat(ptr noundef captures(none) %0, i32 noundef %1
 
 8:                                                ; preds = %6
   %9 = lshr i32 %1, 10
-  %10 = trunc i32 %9 to i16
+  %10 = trunc nuw nsw i32 %9 to i16
   %11 = add nuw nsw i16 %10, -10304
   %12 = load i32, ptr %2, align 4, !tbaa !4
   %13 = icmp sgt i32 %12, 0

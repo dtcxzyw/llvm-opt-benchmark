@@ -16017,7 +16017,7 @@ switch.early.test:                                ; preds = %59
   br i1 %or.cond150, label %83, label %86
 
 83:                                               ; preds = %76
-  %84 = trunc nuw i32 %.0.i127.fr to i8
+  %84 = trunc nuw nsw i32 %.0.i127.fr to i8
   %85 = getelementptr i8, ptr %.091143, i64 1
   store i8 %84, ptr %.091143, align 1, !tbaa !195
   br label %.loopexit
@@ -16380,7 +16380,7 @@ define internal fastcc range(i32 0, 5) i32 @ucs4lib_utf8_decode(ptr noundef nonn
   %31 = getelementptr i8, ptr %.0169264, i64 12
   store i32 %30, ptr %31, align 4, !tbaa !200
   %32 = lshr i64 %19, 32
-  %33 = trunc nuw i64 %32 to i32
+  %33 = trunc nuw nsw i64 %32 to i32
   %34 = and i32 %33, 127
   %35 = getelementptr i8, ptr %.0169264, i64 16
   store i32 %34, ptr %35, align 4, !tbaa !200
@@ -16813,7 +16813,7 @@ define hidden range(i32 -3, 1) i32 @_Py_EncodeUTF8Ex(ptr noundef readonly captur
 
 51:                                               ; preds = %30
   %52 = lshr i32 %25, 12
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -32
   store i8 %54, ptr %.07896.us, align 1, !tbaa !195
   %55 = lshr i32 %25, 6
@@ -16830,7 +16830,7 @@ define hidden range(i32 -3, 1) i32 @_Py_EncodeUTF8Ex(ptr noundef readonly captur
 
 63:                                               ; preds = %28
   %64 = lshr i32 %25, 6
-  %65 = trunc nuw i32 %64 to i8
+  %65 = trunc nuw nsw i32 %64 to i8
   %66 = or disjoint i8 %65, -64
   %67 = getelementptr i8, ptr %.07896.us, i64 1
   store i8 %66, ptr %.07896.us, align 1, !tbaa !195
@@ -16873,7 +16873,7 @@ define hidden range(i32 -3, 1) i32 @_Py_EncodeUTF8Ex(ptr noundef readonly captur
 
 85:                                               ; preds = %83
   %86 = lshr i32 %77, 6
-  %87 = trunc nuw i32 %86 to i8
+  %87 = trunc nuw nsw i32 %86 to i8
   %88 = or disjoint i8 %87, -64
   %89 = getelementptr i8, ptr %.07896, i64 1
   store i8 %88, ptr %.07896, align 1, !tbaa !195
@@ -16936,7 +16936,7 @@ define hidden range(i32 -3, 1) i32 @_Py_EncodeUTF8Ex(ptr noundef readonly captur
 
 113:                                              ; preds = %109
   %114 = lshr i32 %77, 12
-  %115 = trunc nuw i32 %114 to i8
+  %115 = trunc nuw nsw i32 %114 to i8
   %116 = or disjoint i8 %115, -32
   store i8 %116, ptr %.07896, align 1, !tbaa !195
   %117 = lshr i32 %77, 6
@@ -18098,7 +18098,7 @@ define dso_local ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %0, i64 noundef 
   %102 = getelementptr i8, ptr %.3129.us.us.i, i64 2
   store i8 %101, ptr %102, align 1, !tbaa !195
   %103 = lshr i64 %92, 56
-  %104 = trunc nuw i64 %103 to i8
+  %104 = trunc nuw nsw i64 %103 to i8
   %105 = getelementptr i8, ptr %.3129.us.us.i, i64 3
   store i8 %104, ptr %105, align 1, !tbaa !195
   %106 = getelementptr i8, ptr %.3129.us.us.i, i64 4
@@ -18140,7 +18140,7 @@ define dso_local ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %0, i64 noundef 
   %121 = getelementptr i8, ptr %.3129.i, i64 2
   store i8 %120, ptr %121, align 1, !tbaa !195
   %122 = lshr i64 %112, 48
-  %123 = trunc nuw i64 %122 to i8
+  %123 = trunc nuw nsw i64 %122 to i8
   %124 = getelementptr i8, ptr %.3129.i, i64 3
   store i8 %123, ptr %124, align 1, !tbaa !195
   %125 = getelementptr i8, ptr %.3129.i, i64 4
@@ -18561,7 +18561,7 @@ ucs1lib_utf16_decode.exit:                        ; preds = %.thread.us.i88, %.s
   %308 = getelementptr i8, ptr %.3126.i, i64 4
   store i16 %307, ptr %308, align 2, !tbaa !199
   %309 = lshr i64 %299, 48
-  %310 = trunc nuw i64 %309 to i16
+  %310 = trunc nuw nsw i64 %309 to i16
   %311 = getelementptr i8, ptr %.3126.i, i64 6
   store i16 %310, ptr %311, align 2, !tbaa !199
   %312 = getelementptr i8, ptr %.3126.i, i64 8
@@ -18795,7 +18795,7 @@ ucs2lib_utf16_decode.exit:                        ; preds = %.thread.us.i117, %.
   %422 = getelementptr i8, ptr %.3114.i, i64 4
   store i32 %421, ptr %422, align 4, !tbaa !200
   %423 = lshr i64 %416, 32
-  %424 = trunc nuw i64 %423 to i32
+  %424 = trunc nuw nsw i64 %423 to i32
   %425 = and i32 %424, 32767
   %426 = getelementptr i8, ptr %.3114.i, i64 8
   store i32 %425, ptr %426, align 4, !tbaa !200
@@ -19689,7 +19689,7 @@ thread-pre-split:                                 ; preds = %197
   br label %PyUnicode_WRITE.exit.thread194, !llvm.loop !333
 
 221:                                              ; preds = %213
-  %222 = trunc nsw i32 %211 to i16
+  %222 = trunc nuw nsw i32 %211 to i16
   %223 = getelementptr i16, ptr %215, i64 %216
   store i16 %222, ptr %223, align 2, !tbaa !199
   br label %PyUnicode_WRITE.exit.thread194, !llvm.loop !333
@@ -19721,7 +19721,7 @@ thread-pre-split:                                 ; preds = %197
   br label %_PyUnicodeWriter_WriteCharInline.exit127
 
 234:                                              ; preds = %.critedge.i123
-  %235 = trunc nsw i32 %211 to i16
+  %235 = trunc nuw nsw i32 %211 to i16
   %236 = getelementptr i16, ptr %230, i64 %.pre.i122
   store i16 %235, ptr %236, align 2, !tbaa !199
   br label %_PyUnicodeWriter_WriteCharInline.exit127
@@ -22679,7 +22679,7 @@ Py_DECREF.exit49.i:                               ; preds = %254, %251, %248
   br label %.thread94.i
 
 276:                                              ; preds = %272
-  %277 = trunc nuw i64 %270 to i32
+  %277 = trunc nuw nsw i64 %270 to i32
   %278 = load i32, ptr %61, align 4, !tbaa !222
   %.not.i56.i = icmp ult i32 %278, %277
   br i1 %.not.i56.i, label %284, label %279
@@ -45128,14 +45128,14 @@ PyUnicode_MAX_CHAR_VALUE.exit.i.i:                ; preds = %687, %685
   ]
 
 712:                                              ; preds = %708
-  %713 = trunc i32 %.0169.i.i to i8
+  %713 = trunc nuw nsw i32 %.0169.i.i to i8
   %714 = getelementptr i8, ptr %710, i64 %711
   store i8 %713, ptr %714, align 1, !tbaa !195
   %.pre227.i.i = load i64, ptr %62, align 8, !tbaa !225
   br label %PyUnicode_WRITE.exit.i42.i
 
 715:                                              ; preds = %708
-  %716 = trunc i32 %.0169.i.i to i16
+  %716 = trunc nuw nsw i32 %.0169.i.i to i16
   %717 = getelementptr i16, ptr %710, i64 %711
   store i16 %716, ptr %717, align 2, !tbaa !199
   br label %PyUnicode_WRITE.exit.i42.i
@@ -45213,14 +45213,14 @@ PyUnicode_WRITE.exit213.i.i:                      ; preds = %739, %737, %735
   ]
 
 745:                                              ; preds = %PyUnicode_WRITE.exit213.i.i
-  %746 = trunc i32 %636 to i8
+  %746 = trunc nuw nsw i32 %636 to i8
   %747 = getelementptr i8, ptr %742, i64 %744
   store i8 %746, ptr %747, align 1, !tbaa !195
   %.pre230.i.i = load i64, ptr %62, align 8, !tbaa !225
   br label %PyUnicode_WRITE.exit214.i.i
 
 748:                                              ; preds = %PyUnicode_WRITE.exit213.i.i
-  %749 = trunc i32 %636 to i16
+  %749 = trunc nuw nsw i32 %636 to i16
   %750 = getelementptr i16, ptr %742, i64 %744
   store i16 %749, ptr %750, align 2, !tbaa !199
   br label %PyUnicode_WRITE.exit214.i.i
@@ -45326,14 +45326,14 @@ unicode_fill.exit.i.i:                            ; preds = %.lr.ph.i.i.i, %.lr.
   ]
 
 793:                                              ; preds = %789
-  %794 = trunc i32 %.0169.i.i to i8
+  %794 = trunc nuw nsw i32 %.0169.i.i to i8
   %795 = getelementptr i8, ptr %791, i64 %792
   store i8 %794, ptr %795, align 1, !tbaa !195
   %.pre232.i.i = load i64, ptr %62, align 8, !tbaa !225
   br label %PyUnicode_WRITE.exit215.i.i
 
 796:                                              ; preds = %789
-  %797 = trunc i32 %.0169.i.i to i16
+  %797 = trunc nuw nsw i32 %.0169.i.i to i16
   %798 = getelementptr i16, ptr %791, i64 %792
   store i16 %797, ptr %798, align 2, !tbaa !199
   br label %PyUnicode_WRITE.exit215.i.i
@@ -45396,14 +45396,14 @@ PyUnicode_WRITE.exit216.i.i:                      ; preds = %813, %811, %809
   ]
 
 819:                                              ; preds = %PyUnicode_WRITE.exit216.i.i
-  %820 = trunc i32 %636 to i8
+  %820 = trunc nuw nsw i32 %636 to i8
   %821 = getelementptr i8, ptr %816, i64 %818
   store i8 %820, ptr %821, align 1, !tbaa !195
   %.pre235.i.i = load i64, ptr %62, align 8, !tbaa !225
   br label %PyUnicode_WRITE.exit217.i.i
 
 822:                                              ; preds = %PyUnicode_WRITE.exit216.i.i
-  %823 = trunc i32 %636 to i16
+  %823 = trunc nuw nsw i32 %636 to i16
   %824 = getelementptr i16, ptr %816, i64 %818
   store i16 %823, ptr %824, align 2, !tbaa !199
   br label %PyUnicode_WRITE.exit217.i.i
@@ -46119,7 +46119,7 @@ PyUnicode_READ.exit.i:                            ; preds = %90, %86, %82
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %127
-  %130 = trunc nuw i32 %.0.i80.i to i8
+  %130 = trunc nuw nsw i32 %.0.i80.i to i8
   %131 = getelementptr i8, ptr %.082.i, i64 1
   store i8 %130, ptr %.082.i, align 1, !tbaa !195
   br label %236
@@ -46398,7 +46398,7 @@ PyUnicode_READ.exit.i118:                         ; preds = %255, %251, %247
   br i1 %294, label %295, label %298
 
 295:                                              ; preds = %293
-  %296 = trunc nuw i32 %.0.i80.i119 to i16
+  %296 = trunc nuw nsw i32 %.0.i80.i119 to i16
   %297 = getelementptr i8, ptr %.082.i116, i64 2
   store i16 %296, ptr %.082.i116, align 2, !tbaa !199
   br label %406
@@ -49175,7 +49175,7 @@ define internal fastcc ptr @ucs2lib_utf8_encoder(ptr noundef nonnull %0, ptr nou
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
-  %26 = trunc nuw i16 %23 to i8
+  %26 = trunc nuw nsw i16 %23 to i8
   %27 = getelementptr i8, ptr %.0142256, i64 1
   store i8 %26, ptr %.0142256, align 1, !tbaa !195
   br label %146
@@ -49186,7 +49186,7 @@ define internal fastcc ptr @ucs2lib_utf8_encoder(ptr noundef nonnull %0, ptr nou
 
 30:                                               ; preds = %28
   %31 = lshr i16 %23, 6
-  %32 = trunc nuw i16 %31 to i8
+  %32 = trunc nuw nsw i16 %31 to i8
   %33 = or disjoint i8 %32, -64
   %34 = getelementptr i8, ptr %.0142256, i64 1
   store i8 %33, ptr %.0142256, align 1, !tbaa !195
@@ -49613,7 +49613,7 @@ define internal fastcc ptr @ucs4lib_utf8_encoder(ptr noundef nonnull %0, ptr nou
 
 30:                                               ; preds = %28
   %31 = lshr i32 %23, 6
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, -64
   %34 = getelementptr i8, ptr %.0151268, i64 1
   store i8 %33, ptr %.0151268, align 1, !tbaa !195
@@ -49860,7 +49860,7 @@ Py_DECREF.exit:                                   ; preds = %122, %124, %127
 
 133:                                              ; preds = %129
   %134 = lshr i32 %23, 12
-  %135 = trunc nuw i32 %134 to i8
+  %135 = trunc nuw nsw i32 %134 to i8
   %136 = or disjoint i8 %135, -32
   store i8 %136, ptr %.0151268, align 1, !tbaa !195
   %137 = lshr i32 %23, 6
@@ -50739,7 +50739,7 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_decode_utf8_impl(ptr nounde
   %62 = getelementptr i8, ptr %.0160241.i, i64 6
   store i8 %61, ptr %62, align 1, !tbaa !195
   %63 = lshr i64 %41, 56
-  %64 = trunc nuw i64 %63 to i8
+  %64 = trunc nuw nsw i64 %63 to i8
   %65 = getelementptr i8, ptr %.0160241.i, i64 7
   store i8 %64, ptr %65, align 1, !tbaa !195
   %66 = getelementptr i8, ptr %.0160241.i, i64 8
@@ -51041,7 +51041,7 @@ asciilib_utf8_decode.exit:                        ; preds = %.thread.i, %73, %80
   %216 = getelementptr i8, ptr %.0166258.i, i64 6
   store i8 %215, ptr %216, align 1, !tbaa !195
   %217 = lshr i64 %195, 56
-  %218 = trunc nuw i64 %217 to i8
+  %218 = trunc nuw nsw i64 %217 to i8
   %219 = getelementptr i8, ptr %.0166258.i, i64 7
   store i8 %218, ptr %219, align 1, !tbaa !195
   %220 = getelementptr i8, ptr %.0166258.i, i64 8
@@ -51350,7 +51350,7 @@ ucs1lib_utf8_decode.exit:                         ; preds = %.thread.i82, %.back
   %372 = getelementptr i8, ptr %.0167254.i, i64 10
   store i16 %371, ptr %372, align 2, !tbaa !199
   %373 = lshr i64 %350, 48
-  %374 = trunc nuw i64 %373 to i16
+  %374 = trunc nuw nsw i64 %373 to i16
   %375 = and i16 %374, 127
   %376 = getelementptr i8, ptr %.0167254.i, i64 12
   store i16 %375, ptr %376, align 2, !tbaa !199
@@ -62592,14 +62592,14 @@ PyUnicode_READ.exit.i:                            ; preds = %38, %34, %30
   ]
 
 PyUnicode_WRITE.exit.thread.i:                    ; preds = %41
-  %42 = trunc i32 %.0.i26.i to i8
+  %42 = trunc nuw nsw i32 %.0.i26.i to i8
   store i8 %42, ptr %.0.i.i, align 1, !tbaa !195
   %43 = getelementptr i8, ptr %.0.i.i, i64 %18
   store i8 48, ptr %43, align 1, !tbaa !195
   br label %unicode_zfill_impl.exit
 
 PyUnicode_WRITE.exit.thread28.i:                  ; preds = %41
-  %44 = trunc i32 %.0.i26.i to i16
+  %44 = trunc nuw nsw i32 %.0.i26.i to i16
   store i16 %44, ptr %.0.i.i, align 2, !tbaa !199
   %45 = getelementptr i16, ptr %.0.i.i, i64 %18
   store i16 48, ptr %45, align 2, !tbaa !199

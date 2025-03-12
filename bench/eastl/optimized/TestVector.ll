@@ -31188,7 +31188,7 @@ call.i.i.i.i.i.i5574.noexc:                       ; preds = %if.then.i.i.i.i5572
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i
 
 if.else.i.i.i.i5563:                              ; preds = %if.then.i5553
-  %2158 = trunc nuw i64 %sub.ptr.sub.i.i.i5561 to i8
+  %2158 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i5561 to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %2158
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i
@@ -34733,7 +34733,7 @@ call.i.i.i.i.i.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %for.body.i.i
-  %3 = trunc nuw i64 %sub.ptr.sub.i.i.i.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i to i8
   %conv.i.i.i5.i.i.i = sub nuw nsw i8 23, %3
   store i8 %conv.i.i.i5.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i
@@ -41716,7 +41716,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i.i to i8
   %conv.i.i.i5.i.i.i.i.i = sub nuw nsw i8 23, %5
   store i8 %conv.i.i.i5.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i.i
@@ -41915,7 +41915,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  %22 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %22 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i to i8
   %conv.i.i.i5.i.i.i.i = sub nuw nsw i8 23, %22
   store i8 %conv.i.i.i5.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
@@ -42232,7 +42232,7 @@ if.then.i.i.i:                                    ; preds = %_ZN5eastl34uninitia
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %_ZN5eastl34uninitialized_move_ptr_if_noexceptIPNS_12basic_stringIcNS_9allocatorEEES4_S4_EET1_T_T0_S5_.exit
-  %7 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %7 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 23, %7
   store i8 %conv.i.i.i5.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
@@ -42356,7 +42356,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i.i to i8
   %conv.i.i.i5.i.i.i.i.i = sub nuw nsw i8 23, %5
   store i8 %conv.i.i.i5.i.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i.i
@@ -42555,7 +42555,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  %22 = trunc nuw i64 %sub.ptr.sub.i.i.i.i.i to i8
+  %22 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i.i.i to i8
   %conv.i.i.i5.i.i.i.i = sub nuw nsw i8 23, %22
   store i8 %conv.i.i.i5.i.i.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit.i.i.i

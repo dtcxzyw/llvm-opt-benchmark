@@ -1947,7 +1947,7 @@ thread-pre-split1194:                             ; preds = %.thread1188, %507
   br i1 %1040, label %1041, label %.thread1637
 
 1041:                                             ; preds = %1035
-  %1042 = trunc i64 %indvars.iv1549 to i32
+  %1042 = trunc nsw i64 %indvars.iv1549 to i32
   %1043 = add i32 %1042, 2
   %1044 = getelementptr inbounds double, ptr %41, i64 %indvars.iv1549
   %1045 = load double, ptr %1044, align 8, !tbaa !7

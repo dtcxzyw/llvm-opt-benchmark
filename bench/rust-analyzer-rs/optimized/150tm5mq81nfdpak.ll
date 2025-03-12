@@ -4950,7 +4950,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !1005, !noalias !1002
   %12 = trunc i32 %1 to i8
@@ -4962,7 +4962,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !1005, !noalias !1002
   %19 = lshr i32 %1, 6
@@ -5033,7 +5033,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !1018, !noundef !7
   %61 = load i64, ptr %0, align 8, !alias.scope !1018, !noundef !7
@@ -11830,7 +11830,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %243
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h75c5a833654ebfbcE.exit"
 
 384:                                              ; preds = %374
-  %385 = trunc i8 %372 to i1
+  %385 = trunc nuw i8 %372 to i1
   %386 = extractvalue { i64, ptr } %375, 0
   %387 = extractvalue { i64, ptr } %375, 1
   %388 = icmp ne ptr %387, null
@@ -34474,7 +34474,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread251, %
   br i1 %.not134, label %378, label %372
 
 372:                                              ; preds = %370
-  %373 = trunc i8 %371 to i1
+  %373 = trunc nuw i8 %371 to i1
   br i1 %373, label %374, label %379
 
 374:                                              ; preds = %372

@@ -2699,7 +2699,7 @@ _ZNK4absl7debian216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyENS0_11
   br label %56
 
 56:                                               ; preds = %55, %53
-  %57 = trunc i64 %37 to i32
+  %57 = trunc nsw i64 %37 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   invoke void @_ZN10open_spiel5tarok9DealCardsEii(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.21") align 8 %10, i32 noundef %33, i32 noundef %57)
           to label %58 unwind label %120
@@ -10023,7 +10023,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i64 %.0.lcssa.i to i8
+  %56 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

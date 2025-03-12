@@ -1241,7 +1241,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZL23u_scanf_sc
 
 33:                                               ; preds = %31
   %34 = lshr i32 %.pre, 10
-  %35 = trunc nuw i32 %34 to i16
+  %35 = trunc nuw nsw i32 %34 to i16
   %36 = add nuw nsw i16 %35, -10304
   store i16 %36, ptr %.14385, align 2, !tbaa !7
   %37 = trunc i32 %.pre to i16

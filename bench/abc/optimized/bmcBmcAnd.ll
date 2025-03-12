@@ -588,7 +588,7 @@ define void @Bmc_MnaCollect_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 Gia_ObjIsRo.exit:                                 ; preds = %41
   %43 = lshr i64 %5, 32
-  %44 = trunc nuw i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = and i32 %44, 536870911
   %46 = getelementptr i8, ptr %0, i64 16
   %.val.i = load i32, ptr %46, align 8, !tbaa !35

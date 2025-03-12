@@ -64051,7 +64051,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %39, %34, 
   br i1 %59, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %50
-  %60 = trunc nsw i64 %56 to i32
+  %60 = trunc nuw nsw i64 %56 to i32
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -66439,7 +66439,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit: ; pre
   br i1 %116, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %109
-  %117 = trunc nsw i64 %115 to i32
+  %117 = trunc nuw nsw i64 %115 to i32
   %118 = getelementptr inbounds nuw i8, ptr %73, i64 24
   br label %.lr.ph
 

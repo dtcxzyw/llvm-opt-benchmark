@@ -99,7 +99,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %53
-  %56 = trunc i32 %51 to i8
+  %56 = trunc nsw i32 %51 to i8
   %57 = add i8 %56, -127
   %58 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
   store i8 %57, ptr %.04052, align 1, !tbaa !11
@@ -110,9 +110,9 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   br i1 %60, label %61, label %70
 
 61:                                               ; preds = %59
-  %.lhs.trunc.i = trunc nuw i32 %51 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %51 to i16
   %62 = udiv i16 %.lhs.trunc.i, 253
-  %63 = trunc nuw i16 %62 to i8
+  %63 = trunc nuw nsw i16 %62 to i8
   %64 = add nuw nsw i8 %63, -46
   %65 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
   store i8 %64, ptr %.04052, align 1, !tbaa !11
@@ -134,14 +134,14 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
 76:                                               ; preds = %70
   %77 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
   store i8 %74, ptr %77, align 1, !tbaa !11
-  %.lhs.trunc101.i = trunc nuw i32 %75 to i16
+  %.lhs.trunc101.i = trunc nuw nsw i32 %75 to i16
   %78 = urem i16 %.lhs.trunc101.i, 253
   %79 = trunc nuw i16 %78 to i8
   %80 = add nuw i8 %79, 3
   %81 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
   store i8 %80, ptr %81, align 1, !tbaa !11
   %82 = udiv i32 %51, 64009
-  %83 = trunc nuw i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   %84 = add nuw nsw i8 %83, -4
   store i8 %84, ptr %.04052, align 1, !tbaa !11
   %85 = getelementptr inbounds nuw i8, ptr %.04052, i64 3
@@ -171,7 +171,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   br i1 %99, label %100, label %109
 
 100:                                              ; preds = %98
-  %101 = trunc i32 %51 to i16
+  %101 = trunc nsw i32 %51 to i16
   %.lhs.trunc105.i = sub nsw i16 0, %101
   %102 = urem i16 %.lhs.trunc105.i, 253
   %.zext106.i = trunc nuw i16 %102 to i8
@@ -182,7 +182,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %104 = xor i16 %103, -1
   %.081.i = select i1 %.not138.i, i16 %.neg108.i, i16 %104
   %.0.i = select i1 %.not138.i, i8 3, i8 %.neg.i
-  %105 = trunc i16 %.081.i to i8
+  %105 = trunc nsw i16 %.081.i to i8
   %106 = add nsw i8 %105, 49
   %107 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
   store i8 %106, ptr %.04052, align 1, !tbaa !11
@@ -206,7 +206,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
 115:                                              ; preds = %109
   %116 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
   store i8 %.1.i, ptr %116, align 1, !tbaa !11
-  %.neg141.i = trunc nuw i32 %.182.neg.i to i16
+  %.neg141.i = trunc nuw nsw i32 %.182.neg.i to i16
   %117 = urem i16 %.neg141.i, 253
   %118 = udiv i16 %.neg141.i, 253
   %.neg119.i = sub nsw i16 0, %118
@@ -218,7 +218,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %122 = select i1 %.not136.i, i8 3, i8 %121
   %123 = getelementptr inbounds nuw i8, ptr %.04052, i64 1
   store i8 %122, ptr %123, align 1, !tbaa !11
-  %124 = trunc i16 %.283.i to i8
+  %124 = trunc nsw i16 %.283.i to i8
   %125 = add nsw i8 %124, 7
   store i8 %125, ptr %.04052, align 1, !tbaa !11
   %126 = getelementptr inbounds nuw i8, ptr %.04052, i64 3
@@ -237,7 +237,7 @@ define i32 @u_writeIdenticalLevelRun_77(i32 noundef %0, ptr noundef readonly cap
   %.4.i = select i1 %.not132.i, i8 %132, i8 3
   %133 = getelementptr inbounds nuw i8, ptr %.04052, i64 2
   store i8 %.4.i, ptr %133, align 1, !tbaa !11
-  %.lhs.trunc130.i = trunc i32 %.485.neg.i to i16
+  %.lhs.trunc130.i = trunc nuw i32 %.485.neg.i to i16
   %134 = urem i16 %.lhs.trunc130.i, 253
   %.zext131.i = trunc nuw i16 %134 to i8
   %.neg129.i = sub i8 0, %.zext131.i

@@ -425,7 +425,7 @@ lor.lhs.false9:                                   ; preds = %while.body
   br i1 %or.cond, label %if.end, label %while.end
 
 if.end:                                           ; preds = %while.body, %while.body, %while.body, %lor.lhs.false9
-  %conv17 = trunc i16 %3 to i8
+  %conv17 = trunc nuw nsw i16 %3 to i8
   %6 = load i32, ptr %Size.i.i.i.i.i, align 8
   %7 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.not.i12 = icmp ult i32 %6, %7

@@ -179,7 +179,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread": ; preds = %13, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit"
   %.sroa.6.0.i95.in.in = phi i32 [ %23, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit" ], [ %19, %13 ]
-  %.sroa.6.0.i95.in = trunc nuw i32 %.sroa.6.0.i95.in.in to i8
+  %.sroa.6.0.i95.in = trunc nuw nsw i32 %.sroa.6.0.i95.in.in to i8
   %.sroa.6.0.i95 = shl nuw i8 %.sroa.6.0.i95.in, 4
   %25 = zext i8 %17 to i32
   %26 = add nsw i32 %25, -48
@@ -195,7 +195,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit33.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread", %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit33"
   %.sroa.65.0.i100.in = phi i32 [ %30, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit33" ], [ %26, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17hfa6209bfb9c39dbcE.exit.thread" ]
-  %.sroa.65.0.i100 = trunc nuw i32 %.sroa.65.0.i100.in to i8
+  %.sroa.65.0.i100 = trunc nuw nsw i32 %.sroa.65.0.i100.in to i8
   %32 = or disjoint i8 %.sroa.6.0.i95, %.sroa.65.0.i100
   %33 = icmp sgt i8 %.sroa.6.0.i95, -1
   br i1 %33, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i", label %41
@@ -333,7 +333,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 
 .noexc24.thread:                                  ; preds = %74, %.noexc24
   %.sroa.6.0.i19117.in.in = phi i32 [ %84, %.noexc24 ], [ %80, %74 ]
-  %.sroa.6.0.i19117.in = trunc nuw i32 %.sroa.6.0.i19117.in.in to i8
+  %.sroa.6.0.i19117.in = trunc nuw nsw i32 %.sroa.6.0.i19117.in.in to i8
   %.sroa.6.0.i19117 = shl nuw i8 %.sroa.6.0.i19117.in, 4
   %86 = zext i8 %78 to i32
   %87 = add nsw i32 %86, -48
@@ -349,7 +349,7 @@ define void @_ZN12actix_router6quoter6Quoter7requote17hc9485ac8cbbf8004E(ptr noa
 
 .noexc25.thread:                                  ; preds = %.noexc24.thread, %.noexc25
   %.sroa.65.0.i21122.in = phi i32 [ %91, %.noexc25 ], [ %87, %.noexc24.thread ]
-  %.sroa.65.0.i21122 = trunc nuw i32 %.sroa.65.0.i21122.in to i8
+  %.sroa.65.0.i21122 = trunc nuw nsw i32 %.sroa.65.0.i21122.in to i8
   %93 = or disjoint i8 %.sroa.6.0.i19117, %.sroa.65.0.i21122
   %94 = icmp sgt i8 %.sroa.6.0.i19117, -1
   br i1 %94, label %"_ZN12actix_router6quoter6Quoter11decode_next28_$u7b$$u7b$closure$u7d$$u7d$17h2693516bc2518279E.exit.i55", label %102

@@ -1108,7 +1108,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i: ; preds = %_ZN5
 
 268:                                              ; preds = %267
   %269 = lshr i32 %spec.store.select.i.i168, 6
-  %270 = trunc nuw i32 %269 to i8
+  %270 = trunc nuw nsw i32 %269 to i8
   %271 = or disjoint i8 %270, -64
   %272 = getelementptr inbounds nuw i8, ptr %.02045.i.i, i64 1
   store i8 %271, ptr %.02045.i.i, align 1, !tbaa !14
@@ -1126,7 +1126,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i: ; preds = %_ZN5
 
 280:                                              ; preds = %277
   %281 = lshr i32 %spec.store.select.i.i168, 12
-  %282 = trunc nuw i32 %281 to i8
+  %282 = trunc nuw nsw i32 %281 to i8
   %283 = or disjoint i8 %282, -32
   store i8 %283, ptr %.02045.i.i, align 1, !tbaa !14
   %284 = lshr i32 %spec.store.select.i.i168, 6
@@ -1303,7 +1303,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i197: ; preds = %_
 
 353:                                              ; preds = %352
   %354 = lshr i32 %spec.store.select.i.i187, 6
-  %355 = trunc nuw i32 %354 to i8
+  %355 = trunc nuw nsw i32 %354 to i8
   %356 = or disjoint i8 %355, -64
   %357 = getelementptr inbounds nuw i8, ptr %.02045.i.i182, i64 1
   store i8 %356, ptr %.02045.i.i182, align 1, !tbaa !14
@@ -1321,7 +1321,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i197: ; preds = %_
 
 365:                                              ; preds = %362
   %366 = lshr i32 %spec.store.select.i.i187, 12
-  %367 = trunc nuw i32 %366 to i8
+  %367 = trunc nuw nsw i32 %366 to i8
   %368 = or disjoint i8 %367, -32
   store i8 %368, ptr %.02045.i.i182, align 1, !tbaa !14
   %369 = lshr i32 %spec.store.select.i.i187, 6
@@ -1436,7 +1436,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i220: ; preds = %_
 
 416:                                              ; preds = %415
   %417 = lshr i32 %spec.store.select.i.i210, 6
-  %418 = trunc nuw i32 %417 to i8
+  %418 = trunc nuw nsw i32 %417 to i8
   %419 = or disjoint i8 %418, -64
   %420 = getelementptr inbounds nuw i8, ptr %.02045.i.i205, i64 1
   store i8 %419, ptr %.02045.i.i205, align 1, !tbaa !14
@@ -1454,7 +1454,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i220: ; preds = %_
 
 428:                                              ; preds = %425
   %429 = lshr i32 %spec.store.select.i.i210, 12
-  %430 = trunc nuw i32 %429 to i8
+  %430 = trunc nuw nsw i32 %429 to i8
   %431 = or disjoint i8 %430, -32
   store i8 %431, ptr %.02045.i.i205, align 1, !tbaa !14
   %432 = lshr i32 %spec.store.select.i.i210, 6
@@ -4478,7 +4478,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i.i: ; preds = %_Z
 
 27:                                               ; preds = %26
   %28 = lshr i32 %spec.store.select.i.i.i, 6
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
   %31 = getelementptr inbounds nuw i8, ptr %.02045.i.i.i, i64 1
   store i8 %30, ptr %.02045.i.i.i, align 1, !tbaa !14
@@ -4496,7 +4496,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i.i: ; preds = %_Z
 
 39:                                               ; preds = %36
   %40 = lshr i32 %spec.store.select.i.i.i, 12
-  %41 = trunc nuw i32 %40 to i8
+  %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -32
   store i8 %42, ptr %.02045.i.i.i, align 1, !tbaa !14
   %43 = lshr i32 %spec.store.select.i.i.i, 6
@@ -4771,7 +4771,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i: ; preds = %_ZN5
 
 27:                                               ; preds = %26
   %28 = lshr i32 %spec.store.select.i.i, 6
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
   %31 = getelementptr inbounds nuw i8, ptr %.02045.i.i, i64 1
   store i8 %30, ptr %.02045.i.i, align 1, !tbaa !14
@@ -4789,7 +4789,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i.i: ; preds = %_ZN5
 
 39:                                               ; preds = %36
   %40 = lshr i32 %spec.store.select.i.i, 12
-  %41 = trunc nuw i32 %40 to i8
+  %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -32
   store i8 %42, ptr %.02045.i.i, align 1, !tbaa !14
   %43 = lshr i32 %spec.store.select.i.i, 6
@@ -5494,7 +5494,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i: ; preds = %_ZN5bo
 
 21:                                               ; preds = %20
   %22 = lshr i32 %spec.store.select.i, 6
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, -64
   %25 = getelementptr inbounds nuw i8, ptr %.02045.i, i64 1
   store i8 %24, ptr %.02045.i, align 1, !tbaa !14
@@ -5512,7 +5512,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread.i: ; preds = %_ZN5bo
 
 33:                                               ; preds = %30
   %34 = lshr i32 %spec.store.select.i, 12
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -32
   store i8 %36, ptr %.02045.i, align 1, !tbaa !14
   %37 = lshr i32 %spec.store.select.i, 6
@@ -6915,7 +6915,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 32:                                               ; preds = %30
   %33 = lshr i32 %0, 6
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !11
@@ -6990,7 +6990,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 71:                                               ; preds = %69
   %72 = lshr i32 %0, 12
-  %73 = trunc nuw i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = or disjoint i8 %73, -32
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !11

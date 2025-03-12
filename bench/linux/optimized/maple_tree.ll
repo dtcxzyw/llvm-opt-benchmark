@@ -3649,7 +3649,7 @@ mtree_range_walk.exit:                            ; preds = %129, %133
   br label %235
 
 231:                                              ; preds = %227
-  %232 = trunc nuw i64 %228 to i32
+  %232 = trunc nuw nsw i64 %228 to i32
   %233 = xor i32 %232, 3
   %234 = getelementptr inbounds nuw i8, ptr %221, i64 12
   store i32 %233, ptr %234, align 4
@@ -10651,7 +10651,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr noundef readonly captures
   br label %73
 
 69:                                               ; preds = %60
-  %70 = trunc i64 %61 to i32
+  %70 = trunc nuw nsw i64 %61 to i32
   %71 = sub nsw i32 %52, %70
   %72 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 %71, ptr %72, align 4
@@ -13084,7 +13084,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   br label %745
 
 741:                                              ; preds = %732
-  %742 = trunc i64 %733 to i32
+  %742 = trunc nuw nsw i64 %733 to i32
   %743 = sub nsw i32 %724, %742
   %744 = getelementptr inbounds nuw i8, ptr %726, i64 12
   store i32 %743, ptr %744, align 4
@@ -13628,7 +13628,7 @@ mas_free.exit:                                    ; preds = %595, %590, %579, %5
   br label %1052
 
 1048:                                             ; preds = %1039
-  %1049 = trunc i64 %1040 to i32
+  %1049 = trunc nuw nsw i64 %1040 to i32
   %1050 = sub nsw i32 %1031, %1049
   %1051 = getelementptr inbounds nuw i8, ptr %1033, i64 12
   store i32 %1050, ptr %1051, align 4

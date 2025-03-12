@@ -996,14 +996,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
 29:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hf5df068ac2d74cc6E.exit.thread11"
   %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
   %30 = lshr i32 %0, 6
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
   store i8 %32, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !268, !noalias !265
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 33:                                               ; preds = %27
   %34 = lshr i32 %0, 12
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -32
   store i8 %36, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !268, !noalias !265
   %37 = lshr i32 %0, 6
@@ -1171,14 +1171,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
 29:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17hb79444b5912e301cE.exit.thread11"
   %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
   %30 = lshr i32 %0, 6
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
   store i8 %32, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !280, !noalias !277
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 33:                                               ; preds = %27
   %34 = lshr i32 %0, 12
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -32
   store i8 %36, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !280, !noalias !277
   %37 = lshr i32 %0, 6
@@ -1346,14 +1346,14 @@ define internal fastcc noundef zeroext i1 @"_ZN115_$LT$core..iter..adapters..tak
 29:                                               ; preds = %"_ZN5sqlez10connection17parse_alter_table28_$u7b$$u7b$closure$u7d$$u7d$17h3d3f3eeb1ca8ecd4E.exit.thread11"
   %.sroa.0.i.i.i.i.1.i.i.i.i.1.i.i.i.i.1.i.i.i.1.i.i.i.1.i.i.1.i.i.1.i.1.i.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i.i, i64 1
   %30 = lshr i32 %0, 6
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
   store i8 %32, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !292, !noalias !289
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i.i.i
 
 33:                                               ; preds = %27
   %34 = lshr i32 %0, 12
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -32
   store i8 %36, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !292, !noalias !289
   %37 = lshr i32 %0, 6

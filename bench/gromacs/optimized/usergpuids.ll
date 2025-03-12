@@ -797,7 +797,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %173
 
 173:                                              ; preds = %172, %170
-  %174 = trunc i64 %154 to i32
+  %174 = trunc nsw i64 %154 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   %.not.i.i58 = icmp eq ptr %122, %.ph232
   br i1 %.not.i.i58, label %177, label %175

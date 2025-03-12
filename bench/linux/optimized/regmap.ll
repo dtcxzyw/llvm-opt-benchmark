@@ -10100,7 +10100,7 @@ define dso_local i32 @regmap_noinc_read(ptr noundef %0, i32 noundef %1, ptr noun
 
 102:                                              ; preds = %100, %100, %100
   %.lhs.trunc = trunc i64 %3 to i32
-  %.rhs.trunc = trunc i64 %101 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %101 to i32
   %103 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %.zext = zext i32 %103 to i64
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 168

@@ -1536,7 +1536,7 @@ define internal fastcc void @_ZN10duckdb_re2L13AppendLiteralEPNSt7__cxx1112basic
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !9
   %20 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %19, i64 noundef 0, i64 noundef 1, i8 noundef signext 91)
-  %21 = trunc nuw i32 %1 to i8
+  %21 = trunc nuw nsw i32 %1 to i8
   %22 = add nsw i8 %21, -32
   %23 = load i64, ptr %18, align 8, !tbaa !9
   %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %23, i64 noundef 0, i64 noundef 1, i8 noundef signext %22)

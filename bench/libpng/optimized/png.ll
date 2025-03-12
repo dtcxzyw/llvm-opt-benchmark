@@ -2609,7 +2609,7 @@ is_ICC_signature.exit:                            ; preds = %25
   %42 = lshr i32 %41, 24
   %43 = add nsw i32 %42, -32
   %or.cond.i.i15 = icmp ult i32 %43, 95
-  %44 = trunc nuw i32 %42 to i8
+  %44 = trunc nuw nsw i32 %42 to i8
   %.0.i.i = select i1 %or.cond.i.i15, i8 %44, i8 63
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 %.0.i.i, ptr %45, align 1, !tbaa !27
@@ -4914,7 +4914,7 @@ png_gamma_8bit_correct.exit.i91:                  ; preds = %102, %95
 png_gamma_16bit_correct.exit.i:                   ; preds = %._crit_edge.i, %.preheader38.i
   %.143.i = phi i32 [ 0, %.preheader38.i ], [ %174, %._crit_edge.i ]
   %.03442.i = phi i32 [ 0, %.preheader38.i ], [ %.135.lcssa.i, %._crit_edge.i ]
-  %152 = trunc nuw i32 %.143.i to i16
+  %152 = trunc nuw nsw i32 %.143.i to i16
   %153 = mul nuw i16 %152, 257
   %154 = zext i16 %153 to i32
   %155 = add nuw nsw i32 %154, 128

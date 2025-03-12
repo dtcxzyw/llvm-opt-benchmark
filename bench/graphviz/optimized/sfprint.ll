@@ -1273,7 +1273,7 @@ thread-pre-split:                                 ; preds = %126, %115, %119, %1
 526:                                              ; preds = %524
   %.51045.add1227 = add nsw i64 %.51045.idx.lcssa1566, -1
   %.ptr1241 = getelementptr inbounds i8, ptr %9, i64 %.51045.add1227
-  %527 = trunc nuw i64 %.21063.lcssa to i8
+  %527 = trunc nuw nsw i64 %.21063.lcssa to i8
   %528 = or disjoint i8 %527, 48
   store i8 %528, ptr %.ptr1241, align 1, !tbaa !8
   br label %916
@@ -1868,7 +1868,7 @@ thread-pre-split:                                 ; preds = %126, %115, %119, %1
 795:                                              ; preds = %793
   %.101050.add1224 = add nsw i64 %.101050.idx.lcssa, -1
   %.ptr1235 = getelementptr inbounds i8, ptr %9, i64 %.101050.add1224
-  %796 = trunc nuw i32 %.8.lcssa to i8
+  %796 = trunc nuw nsw i32 %.8.lcssa to i8
   %797 = or disjoint i8 %796, 48
   store i8 %797, ptr %.ptr1235, align 1, !tbaa !8
   br label %916
@@ -2326,7 +2326,7 @@ thread-pre-split:                                 ; preds = %126, %115, %119, %1
   br i1 %or.cond25, label %979, label %983
 
 979:                                              ; preds = %.loopexit1438
-  %980 = trunc nuw i32 %.710941347 to i8
+  %980 = trunc nuw nsw i32 %.710941347 to i8
   %981 = getelementptr inbounds i8, ptr %.191059, i64 -1
   store i8 %980, ptr %981, align 1, !tbaa !8
   %982 = getelementptr inbounds i8, ptr %.191059, i64 -2

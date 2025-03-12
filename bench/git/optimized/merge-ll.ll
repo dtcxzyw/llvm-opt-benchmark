@@ -207,9 +207,9 @@ normalize_file.exit48:                            ; preds = %normalize_file.exit
   br label %75
 
 72:                                               ; preds = %60
-  %73 = trunc i64 %58 to i32
+  %73 = trunc nsw i64 %58 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
-  %74 = icmp slt i32 %73, 1
+  %74 = icmp slt i64 %58, 1
   %spec.select = select i1 %74, i32 7, i32 %73
   br label %75
 
@@ -428,9 +428,9 @@ define dso_local range(i32 1, -2147483648) i32 @ll_merge_marker_size(ptr noundef
   br label %35
 
 32:                                               ; preds = %18
-  %33 = trunc i64 %16 to i32
+  %33 = trunc nsw i64 %16 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  %34 = icmp slt i32 %33, 1
+  %34 = icmp slt i64 %16, 1
   %spec.select = select i1 %34, i32 7, i32 %33
   br label %35
 

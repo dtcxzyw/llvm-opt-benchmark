@@ -1658,7 +1658,7 @@ _ZNK3irr4core6stringIcEeqERKS2_.exit:             ; preds = %land.rhs.i.i
   br i1 %12, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %_ZNK3irr4core6stringIcEeqERKS2_.exit, %land.rhs.i.i
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw i64 %indvars.iv to i32
   %vtable11 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 72
   %14 = load ptr, ptr %vfn12, align 8

@@ -3404,7 +3404,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp11COBImporter10BuildNodesERKNS_3COB
   br i1 %21, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %22
 
 22:                                               ; preds = %17
-  %23 = trunc nuw i64 %20 to i32
+  %23 = trunc nuw nsw i64 %20 to i32
   store i32 %23, ptr %16, align 4
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %25 = load ptr, ptr %18, align 8
@@ -4327,7 +4327,7 @@ _ZNSt10unique_ptrIKN6Assimp3COB8MaterialESt14default_deleteIS3_EED2Ev.exit: ; pr
   br i1 %454, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit214, label %455
 
 455:                                              ; preds = %438
-  %456 = trunc nuw i64 %453 to i32
+  %456 = trunc nuw nsw i64 %453 to i32
   store i32 %456, ptr %439, align 4
   %457 = getelementptr inbounds nuw i8, ptr %439, i64 4
   %458 = load ptr, ptr %18, align 8
@@ -4414,7 +4414,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit214:
   br i1 %506, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit215, label %507
 
 507:                                              ; preds = %486
-  %508 = trunc nuw i64 %505 to i32
+  %508 = trunc nuw nsw i64 %505 to i32
   store i32 %508, ptr %487, align 4
   %509 = getelementptr inbounds nuw i8, ptr %487, i64 4
   %510 = load ptr, ptr %18, align 8

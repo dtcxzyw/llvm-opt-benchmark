@@ -2186,7 +2186,7 @@ if.then33:                                        ; preds = %_ZNK2v820FunctionCa
   br label %return
 
 if.end34:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %conv = trunc nuw i64 %37 to i32
+  %conv = trunc nuw nsw i64 %37 to i32
   store i32 %conv, ptr %tag_len, align 4
   %38 = load ptr, ptr %ctx_, align 8
   %call38 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %38) #20
@@ -10695,7 +10695,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

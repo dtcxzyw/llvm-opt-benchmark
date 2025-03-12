@@ -18429,7 +18429,7 @@ _ZN4llvm11SmallVectorIPN5clang11ParmVarDeclELj16EED2Ev.exit: ; preds = %._crit_e
 
 109:                                              ; preds = %99
   %110 = and i32 %104, -268427265
-  %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %111 = shl nuw nsw i32 %indvars.iv.tr, 20
   %112 = or disjoint i32 %110, %111
   store i32 %112, ptr %103, align 8

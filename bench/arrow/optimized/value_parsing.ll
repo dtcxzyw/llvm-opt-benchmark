@@ -592,7 +592,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
   %204 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.4131.i280, i1 true)
   %205 = trunc nuw nsw i64 %204 to i32
   %206 = shl i64 %.4131.i280, %204
-  %207 = trunc i64 %.4145.i278 to i32
+  %207 = trunc nsw i64 %.4145.i278 to i32
   %208 = shl nsw i32 %207, 1
   %209 = add nsw i32 %208, 684
   %210 = zext nneg i32 %209 to i64
@@ -698,7 +698,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIfEEEENS0_17ad
   %273 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %269, i1 true)
   %274 = trunc nuw nsw i64 %273 to i32
   %275 = shl i64 %269, %273
-  %276 = trunc i64 %.4145.i278 to i32
+  %276 = trunc nsw i64 %.4145.i278 to i32
   %277 = shl nsw i32 %276, 1
   %278 = add nsw i32 %277, 684
   %279 = zext nneg i32 %278 to i64
@@ -1426,7 +1426,7 @@ define linkonce_odr { ptr, i32 } @_ZN14arrow_vendored10fast_float19from_chars_ad
   %205 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.4131.i271, i1 true)
   %206 = trunc nuw nsw i64 %205 to i32
   %207 = shl i64 %.4131.i271, %205
-  %208 = trunc i64 %.4145.i269 to i32
+  %208 = trunc nsw i64 %.4145.i269 to i32
   %209 = shl nsw i32 %208, 1
   %210 = add nsw i32 %209, 684
   %211 = zext nneg i32 %210 to i64
@@ -1532,7 +1532,7 @@ _ZN14arrow_vendored10fast_float13compute_floatINS0_13binary_formatIdEEEENS0_17ad
   %276 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %271, i1 true)
   %277 = trunc nuw nsw i64 %276 to i32
   %278 = shl i64 %271, %276
-  %279 = trunc i64 %.4145.i269 to i32
+  %279 = trunc nsw i64 %.4145.i269 to i32
   %280 = shl nsw i32 %279, 1
   %281 = add nsw i32 %280, 684
   %282 = zext nneg i32 %281 to i64
@@ -3750,7 +3750,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loope
   br label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, %69
-  %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
+  %storemerge.i.i.i.us = trunc nuw nsw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !79
   br label %74
 

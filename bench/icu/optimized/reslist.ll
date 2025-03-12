@@ -2659,7 +2659,7 @@ define dso_local void @_ZN17IntVectorResource11handleWriteEP14UNewDataMemoryPj(p
   br label %14
 
 ._crit_edge.loopexit:                             ; preds = %14
-  %9 = trunc i64 %21 to i32
+  %9 = trunc nuw i64 %21 to i32
   %10 = shl i32 %9, 2
   %11 = add i32 %10, 4
   br label %._crit_edge

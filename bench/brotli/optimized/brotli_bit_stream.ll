@@ -1360,7 +1360,7 @@ BuildAndStoreEntropyCodesDistance.exit:           ; preds = %.lr.ph.i207, %220
 
 259:                                              ; preds = %257
   %260 = add nsw i64 %255, -2
-  %261 = trunc i64 %260 to i32
+  %261 = trunc nuw nsw i64 %260 to i32
   %262 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %261, i1 true)
   %263 = sub nsw i32 30, %262
   %264 = shl nuw nsw i32 %263, 1
@@ -1408,7 +1408,7 @@ GetInsertLengthCode.exit:                         ; preds = %245, %259, %271, %2
 
 285:                                              ; preds = %283
   %286 = add nsw i64 %279, -6
-  %287 = trunc i64 %286 to i32
+  %287 = trunc nuw nsw i64 %286 to i32
   %288 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %287, i1 true)
   %289 = sub nsw i32 30, %288
   %290 = shl nuw nsw i32 %289, 1
@@ -3751,7 +3751,7 @@ define internal fastcc void @StoreDataWithHuffmanCodes(ptr noundef readonly capt
 
 42:                                               ; preds = %40
   %43 = add nsw i64 %38, -2
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %46 = sub nsw i32 30, %45
   %47 = shl nuw nsw i32 %46, 1
@@ -3799,7 +3799,7 @@ GetInsertLengthCode.exit:                         ; preds = %.lr.ph55, %42, %54,
 
 68:                                               ; preds = %66
   %69 = add nsw i64 %62, -6
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %70, i1 true)
   %72 = sub nsw i32 30, %71
   %73 = shl nuw nsw i32 %72, 1

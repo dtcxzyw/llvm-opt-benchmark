@@ -358,7 +358,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   br i1 %181, label %.preheader, label %182, !llvm.loop !14
 
 182:                                              ; preds = %.preheader
-  %183 = trunc i64 %175 to i32
+  %183 = trunc nuw nsw i64 %175 to i32
   %184 = icmp slt i32 %174, 0
   %185 = select i1 %184, i32 %174, i32 %183
   br label %186
@@ -2677,7 +2677,7 @@ define internal void @eprobe_trigger_func(ptr noundef readonly captures(none) %0
   br i1 %226, label %.preheader, label %227, !llvm.loop !14
 
 227:                                              ; preds = %.preheader
-  %228 = trunc i64 %220 to i32
+  %228 = trunc nuw nsw i64 %220 to i32
   %229 = icmp slt i32 %219, 0
   %230 = select i1 %229, i32 %219, i32 %228
   br label %231

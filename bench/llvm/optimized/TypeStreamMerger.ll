@@ -1648,7 +1648,7 @@ _ZNK12_GLOBAL__N_116TypeStreamMerger16remapIndexSimpleERN4llvm8codeview9TypeInde
 82:                                               ; preds = %82, %77
   %.079.i = phi i32 [ %10, %77 ], [ %86, %82 ]
   %.04378.i = phi ptr [ %81, %77 ], [ %85, %82 ]
-  %83 = trunc nuw i32 %.079.i to i8
+  %83 = trunc nuw nsw i32 %.079.i to i8
   %84 = sub nuw nsw i8 -12, %83
   %85 = getelementptr inbounds nuw i8, ptr %.04378.i, i64 1
   store i8 %84, ptr %.04378.i, align 1, !tbaa !78

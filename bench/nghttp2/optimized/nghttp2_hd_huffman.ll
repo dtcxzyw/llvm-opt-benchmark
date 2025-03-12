@@ -166,7 +166,7 @@ define hidden i32 @nghttp2_hd_huff_encode(ptr noundef %0, ptr noundef readonly c
 64:                                               ; preds = %._crit_edge75
   %65 = lshr i64 %.246.lcssa, 56
   %66 = trunc nuw nsw i64 %65 to i16
-  %67 = trunc nuw i64 %.2.lcssa to i16
+  %67 = trunc nuw nsw i64 %.2.lcssa to i16
   %68 = sub nuw nsw i16 8, %67
   %notmask = shl nsw i16 -1, %68
   %69 = xor i16 %notmask, -1

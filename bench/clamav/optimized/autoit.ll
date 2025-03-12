@@ -1652,7 +1652,7 @@ ea05.exit:                                        ; preds = %.outer.i, %50, %60,
 
 519:                                              ; preds = %511
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %509, i64 %512, i1 false)
-  %520 = trunc nuw i32 %505 to i16
+  %520 = trunc nuw nsw i32 %505 to i16
   %521 = add nuw nsw i16 %520, -19649
   call fastcc void @LAME_decrypt(ptr noundef nonnull %3, i32 noundef %506, i16 noundef zeroext %521)
   %522 = icmp eq i32 %506, 0
@@ -1789,7 +1789,7 @@ u2a.exit.i:                                       ; preds = %.lr.ph49.i.i, %._cr
 
 581:                                              ; preds = %574
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %569, i64 %573, i1 false)
-  %582 = trunc nuw i32 %565 to i16
+  %582 = trunc nuw nsw i32 %565 to i16
   %583 = add nuw nsw i16 %582, -2951
   call fastcc void @LAME_decrypt(ptr noundef nonnull %3, i32 noundef %566, i16 noundef zeroext %583)
   %584 = getelementptr inbounds nuw [600 x i8], ptr %3, i64 0, i64 %573

@@ -501,7 +501,7 @@ define internal void @early_dbgp_write(ptr readnone captures(none) %0, ptr nound
   %90 = getelementptr i8, ptr %4, i64 %88
   %91 = load i8, ptr %90, align 1
   %92 = zext i8 %91 to i32
-  %93 = trunc i64 %88 to i32
+  %93 = trunc nuw nsw i64 %88 to i32
   %94 = shl nuw nsw i32 %93, 3
   %95 = add nsw i32 %94, -32
   %96 = shl nuw i32 %92, %95

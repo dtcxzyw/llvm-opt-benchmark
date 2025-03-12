@@ -9950,7 +9950,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !2472, !noalias !2469
   %12 = trunc i32 %1 to i8
@@ -9962,7 +9962,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !2472, !noalias !2469
   %19 = lshr i32 %1, 6
@@ -45770,7 +45770,7 @@ default.unreachable40:                            ; preds = %218
   br label %212
 
 338:                                              ; preds = %246
-  %339 = trunc i8 %248 to i1
+  %339 = trunc nuw i8 %248 to i1
   br i1 %339, label %344, label %340
 
 340:                                              ; preds = %246, %338

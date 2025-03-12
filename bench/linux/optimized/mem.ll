@@ -645,7 +645,7 @@ define internal i64 @read_port(ptr readnone captures(none) %0, ptr noundef %1, i
   %15 = phi i64 [ %28, %27 ], [ %2, %10 ]
   %16 = phi i64 [ %29, %27 ], [ %11, %10 ]
   %17 = phi ptr [ %30, %27 ], [ %1, %10 ]
-  %18 = trunc i64 %16 to i16
+  %18 = trunc nuw i64 %16 to i16
   %19 = tail call i8 asm sideeffect "inb ${1:w}, ${0:b}", "={ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %18) #12, !srcloc !15
   %20 = tail call i64 @llvm.read_register.i64(metadata !0)
   %21 = tail call { ptr, i64 } asm sideeffect "call __put_user_nocheck_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %17, i8 %19, i64 1, i64 %20) #12, !srcloc !16

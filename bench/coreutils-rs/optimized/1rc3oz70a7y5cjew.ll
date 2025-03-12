@@ -388,7 +388,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !45, !noalias !42
   %12 = trunc i32 %1 to i8
@@ -400,7 +400,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !45, !noalias !42
   %19 = lshr i32 %1, 6
@@ -471,7 +471,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !58, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !58, !noundef !4
@@ -2103,10 +2103,10 @@ define hidden { ptr, ptr } @_ZN7uu_tail6follow5watch8Observer9add_stdin17h601359
   %9 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 142
   %11 = load i8, ptr %10, align 2, !range !253, !noundef !4
-  %12 = icmp ne i8 %11, 2
-  %13 = trunc i8 %11 to i1
-  %.0 = xor i1 %12, %13
-  br i1 %.0, label %36, label %14
+  %12 = icmp eq i8 %11, 2
+  %13 = trunc nuw i8 %11 to i1
+  %.0.not = select i1 %12, i1 true, i1 %13
+  br i1 %.0.not, label %14, label %36
 
 14:                                               ; preds = %6
   %15 = icmp eq ptr %3, null

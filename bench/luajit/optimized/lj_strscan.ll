@@ -785,7 +785,7 @@ define internal fastcc noundef i32 @strscan_hex(ptr noundef readonly captures(no
   br i1 %or.cond, label %49, label %45
 
 45:                                               ; preds = %42
-  %46 = trunc i64 %.155.lcssa to i32
+  %46 = trunc nuw i64 %.155.lcssa to i32
   %47 = sub i32 0, %46
   %48 = select i1 %44, i32 %47, i32 %46
   store i32 %48, ptr %1, align 8, !tbaa !4
@@ -947,7 +947,7 @@ define internal fastcc noundef i32 @strscan_bin(ptr noundef readonly captures(no
 
 25:                                               ; preds = %20
   %.not47 = icmp eq i32 %5, 0
-  %26 = trunc i64 %.038.lcssa to i32
+  %26 = trunc nuw i64 %.038.lcssa to i32
   %27 = sub i32 0, %26
   %28 = select i1 %.not47, i32 %26, i32 %27
   store i32 %28, ptr %1, align 8, !tbaa !4
@@ -1264,7 +1264,7 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
 
 113:                                              ; preds = %108
   %.not275 = icmp eq i32 %5, 0
-  %114 = trunc i64 %.0211.lcssa457 to i32
+  %114 = trunc nuw i64 %.0211.lcssa457 to i32
   %115 = sub i32 0, %114
   %116 = select i1 %.not275, i32 %114, i32 %115
   store i32 %116, ptr %1, align 8, !tbaa !4

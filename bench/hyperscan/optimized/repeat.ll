@@ -2050,7 +2050,7 @@ define hidden void @repeatStoreTrailer(ptr noundef readonly captures(none) %0, p
   br i1 %.not36, label %31, label %26
 
 26:                                               ; preds = %22
-  %27 = trunc i64 %16 to i32
+  %27 = trunc nuw i64 %16 to i32
   %28 = add i32 %27, -1
   %29 = icmp ult i32 %28, 63
   %notmask.i = shl nsw i64 -1, %16

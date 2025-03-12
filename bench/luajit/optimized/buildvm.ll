@@ -4079,7 +4079,7 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
 
 48:                                               ; preds = %21, %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10697)
-  %49 = trunc nuw i32 %.07 to i8
+  %49 = trunc nuw nsw i32 %.07 to i8
   %.lhs.trunc.i = add nsw i8 %49, -22
   %50 = udiv i8 %.lhs.trunc.i, 5
   switch i8 %50, label %53 [
@@ -4105,7 +4105,7 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
 
 55:                                               ; preds = %21, %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10697)
-  %56 = trunc nuw i32 %.07 to i8
+  %56 = trunc nuw nsw i32 %.07 to i8
   %.lhs.trunc256.i = add nsw i8 %56, -22
   %57 = udiv i8 %.lhs.trunc256.i, 5
   switch i8 %57, label %60 [
@@ -4131,7 +4131,7 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
 
 62:                                               ; preds = %21, %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10697)
-  %63 = trunc nuw i32 %.07 to i8
+  %63 = trunc nuw nsw i32 %.07 to i8
   %.lhs.trunc258.i = add nsw i8 %63, -22
   %64 = udiv i8 %.lhs.trunc258.i, 5
   switch i8 %64, label %67 [
@@ -4157,7 +4157,7 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
 
 69:                                               ; preds = %21, %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10697)
-  %70 = trunc nuw i32 %.07 to i8
+  %70 = trunc nuw nsw i32 %.07 to i8
   %.lhs.trunc260.i = add nsw i8 %70, -22
   %71 = udiv i8 %.lhs.trunc260.i, 5
   switch i8 %71, label %74 [
@@ -4189,7 +4189,7 @@ switch.lookup:                                    ; preds = %21, %21, %21, %21
 
 77:                                               ; preds = %21, %21
   tail call void (ptr, i32, ...) @dasm_put(ptr noundef nonnull readonly %0, i32 noundef 10697)
-  %78 = trunc nuw i32 %.07 to i8
+  %78 = trunc nuw nsw i32 %.07 to i8
   %.lhs.trunc262.off.i = add nsw i8 %78, -27
   %cond.i = icmp samesign ult i8 %.lhs.trunc262.off.i, 5
   br i1 %cond.i, label %79, label %80

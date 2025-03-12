@@ -329,7 +329,7 @@ _ZN4llvm5VFABI24getVFParamKindFromStringENS_9StringRefE.exit41.i: ; preds = %_ZN
   %72 = load i64, ptr %13, align 8, !tbaa !14
   %73 = add i64 %72, 2147483648
   %.not.i.i.i.i = icmp ult i64 %73, 4294967296
-  %74 = trunc i64 %72 to i32
+  %74 = trunc nsw i64 %72 to i32
   %spec.select = select i1 %.not.i.i.i.i, i32 %74, i32 %.099159
   %spec.select144 = select i1 %.not.i.i.i.i, i32 0, i32 2
   br label %_ZN12_GLOBAL__N_134tryParseLinearTokenWithRuntimeStepERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit.i.i
@@ -358,7 +358,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i48.i.i:      ; preds = %_ZNK4llvm9StringRef
   %80 = load i64, ptr %12, align 8, !tbaa !14
   %81 = add i64 %80, 2147483648
   %.not.i.i32.i.i = icmp ult i64 %81, 4294967296
-  %82 = trunc i64 %80 to i32
+  %82 = trunc nsw i64 %80 to i32
   %spec.select145 = select i1 %.not.i.i32.i.i, i32 %82, i32 %.099159
   %spec.select146 = select i1 %.not.i.i32.i.i, i32 0, i32 2
   br label %_ZN12_GLOBAL__N_134tryParseLinearTokenWithRuntimeStepERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit36.i.i
@@ -388,7 +388,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i39.i.i: ; preds = %_ZNK4llvm9String
   %90 = load i64, ptr %11, align 8, !tbaa !14
   %91 = add i64 %90, 2147483648
   %.not.i.i42.i.i = icmp ult i64 %91, 4294967296
-  %92 = trunc i64 %90 to i32
+  %92 = trunc nsw i64 %90 to i32
   %spec.select147 = select i1 %.not.i.i42.i.i, i32 %92, i32 %.099159
   %spec.select148 = select i1 %.not.i.i42.i.i, i32 0, i32 2
   br label %_ZN12_GLOBAL__N_134tryParseLinearTokenWithRuntimeStepERN4llvm9StringRefERNS0_11VFParamKindERiS1_.exit46.i.i
@@ -418,7 +418,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i.i49.i.i: ; preds = %_ZNK4llvm9String
   %100 = load i64, ptr %10, align 8, !tbaa !14
   %101 = add i64 %100, 2147483648
   %.not.i.i52.i.i = icmp ult i64 %101, 4294967296
-  %102 = trunc i64 %100 to i32
+  %102 = trunc nsw i64 %100 to i32
   %spec.select149 = select i1 %.not.i.i52.i.i, i32 %102, i32 %.099159
   %spec.select150 = select i1 %.not.i.i52.i.i, i32 0, i32 2
   br label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread.sink.split.i53.i.i
@@ -463,7 +463,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i.i.i: ; preds = %_ZNK4llvm9StringR
   %111 = load i64, ptr %9, align 8
   %112 = add i64 %111, 2147483648
   %.not.i.i.i30.i = icmp ult i64 %112, 4294967296
-  %113 = trunc i64 %111 to i32
+  %113 = trunc nsw i64 %111 to i32
   %spec.select166 = select i1 %.not.i.i.i30.i, i32 %113, i32 1
   %.4 = select i1 %110, i32 1, i32 %spec.select166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
@@ -496,7 +496,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i20.i.i: ; preds = %_ZNK4llvm9Strin
   %123 = load i64, ptr %8, align 8
   %124 = add i64 %123, 2147483648
   %.not.i.i21.i.i = icmp ult i64 %124, 4294967296
-  %125 = trunc i64 %123 to i32
+  %125 = trunc nsw i64 %123 to i32
   %spec.select167 = select i1 %.not.i.i21.i.i, i32 %125, i32 1
   %.3 = select i1 %122, i32 1, i32 %spec.select167
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
@@ -529,7 +529,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i33.i.i: ; preds = %_ZNK4llvm9Strin
   %135 = load i64, ptr %7, align 8
   %136 = add i64 %135, 2147483648
   %.not.i.i34.i.i = icmp ult i64 %136, 4294967296
-  %137 = trunc i64 %135 to i32
+  %137 = trunc nsw i64 %135 to i32
   %spec.select168 = select i1 %.not.i.i34.i.i, i32 %137, i32 1
   %.2101 = select i1 %134, i32 1, i32 %spec.select168
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
@@ -562,7 +562,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit17.i46.i.i: ; preds = %_ZNK4llvm9Strin
   %147 = load i64, ptr %6, align 8
   %148 = add i64 %147, 2147483648
   %.not.i.i47.i.i = icmp ult i64 %148, 4294967296
-  %149 = trunc i64 %147 to i32
+  %149 = trunc nsw i64 %147 to i32
   %spec.select169 = select i1 %.not.i.i47.i.i, i32 %149, i32 1
   %.1100 = select i1 %146, i32 1, i32 %spec.select169
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16

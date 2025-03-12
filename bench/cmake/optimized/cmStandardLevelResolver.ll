@@ -9479,7 +9479,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %28, %30
   %31 = phi i32 [ %23, %28 ], [ %11, %30 ]
-  %32 = trunc i64 %12 to i32
+  %32 = trunc nsw i64 %12 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #25
   %33 = load ptr, ptr %3, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
@@ -9535,7 +9535,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit11
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit11: ; preds = %50, %52
-  %53 = trunc i64 %34 to i32
+  %53 = trunc nsw i64 %34 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #25
   %54 = getelementptr i8, ptr %7, i64 72
   %.val6 = load ptr, ptr %54, align 8, !tbaa !306
@@ -10081,7 +10081,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %23, %25
-  %26 = trunc i64 %4 to i32
+  %26 = trunc nsw i64 %4 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #25
   br label %30
 

@@ -1869,7 +1869,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit294:              ; preds = %650
   br i1 %.not.i295, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i.loopexit:                           ; preds = %.noexc298
-  %672 = trunc i64 %696 to i32
+  %672 = trunc nuw i64 %696 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %669

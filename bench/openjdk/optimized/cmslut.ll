@@ -2447,7 +2447,7 @@ define hidden ptr @_cmsStageAllocLabV2ToV4curves(ptr noundef %0) local_unnamed_a
   %14 = mul i32 %13, 65535
   %15 = add i32 %14, 128
   %16 = lshr i32 %15, 8
-  %17 = trunc i32 %16 to i16
+  %17 = trunc nuw i32 %16 to i16
   %18 = load ptr, ptr %9, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8

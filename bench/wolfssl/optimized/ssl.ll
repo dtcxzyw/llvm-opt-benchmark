@@ -8107,7 +8107,7 @@ define internal fastcc range(i32 -463, 1) i32 @wolfssl_read_file_static(ptr noun
   br i1 %or.cond62.i, label %static_buffer_set_size.exit.thread30, label %wolfssl_file_len.exit
 
 wolfssl_file_len.exit:                            ; preds = %15
-  %18 = trunc nuw i64 %13 to i32
+  %18 = trunc nuw nsw i64 %13 to i32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !216
   %21 = icmp ult i32 %20, %18

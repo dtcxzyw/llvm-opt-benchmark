@@ -69,7 +69,7 @@ define void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef readonly c
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %15
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %11, %15 ]
   %.0.lcssa = phi i32 [ %18, %._crit_edge.loopexit ], [ %10, %15 ]
-  %23 = trunc i64 %2 to i32
+  %23 = trunc nuw i64 %2 to i32
   %24 = sub i32 %23, %.0.lcssa
   store i32 %24, ptr %8, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi
@@ -79,7 +79,7 @@ define void @pg_md5_update(ptr noundef captures(none) %0, ptr noundef readonly c
 
 27:                                               ; preds = %3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %1, i64 %2, i1 false)
-  %28 = trunc i64 %2 to i32
+  %28 = trunc nuw i64 %2 to i32
   %29 = add i32 %9, %28
   store i32 %29, ptr %8, align 8
   br label %30

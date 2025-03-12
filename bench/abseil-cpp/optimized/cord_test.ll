@@ -47193,7 +47193,7 @@ _ZN4absl10CordBuffer22CreateWithDefaultLimitEm.exit: ; preds = %36
   %.sink5.i.i.i.i.i = select i1 %50, i64 2, i64 58
   %51 = lshr i64 %43, %.sink6.i.i.i.i.i
   %52 = add nuw nsw i64 %51, %.sink5.i.i.i.i.i
-  %53 = trunc i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i8 %53, ptr %54, align 4, !tbaa !96, !noalias !628
   store i64 0, ptr %44, align 8, !tbaa !119, !noalias !628
@@ -47691,7 +47691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit97: ; p
   %.sink5.i.i.i.i.i102 = select i1 %240, i64 2, i64 58
   %241 = lshr i64 %237, %.sink6.i.i.i.i.i101
   %242 = add nuw nsw i64 %241, %.sink5.i.i.i.i.i102
-  %243 = trunc i64 %242 to i8
+  %243 = trunc nuw nsw i64 %242 to i8
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 12
   store i8 %243, ptr %244, align 4, !tbaa !96, !noalias !631
   store i64 0, ptr %238, align 8, !tbaa !119, !noalias !631
@@ -49791,7 +49791,7 @@ _ZN4absl10CordBuffer22CreateWithDefaultLimitEm.exit: ; preds = %36
   %.sink5.i.i.i.i.i = select i1 %50, i64 2, i64 58
   %51 = lshr i64 %43, %.sink6.i.i.i.i.i
   %52 = add nuw nsw i64 %51, %.sink5.i.i.i.i.i
-  %53 = trunc i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %44, i64 12
   store i8 %53, ptr %54, align 4, !tbaa !96, !noalias !657
   store i64 0, ptr %44, align 8, !tbaa !119, !noalias !657
@@ -50289,7 +50289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit97: ; p
   %.sink5.i.i.i.i.i102 = select i1 %240, i64 2, i64 58
   %241 = lshr i64 %237, %.sink6.i.i.i.i.i101
   %242 = add nuw nsw i64 %241, %.sink5.i.i.i.i.i102
-  %243 = trunc i64 %242 to i8
+  %243 = trunc nuw nsw i64 %242 to i8
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 12
   store i8 %243, ptr %244, align 4, !tbaa !96, !noalias !660
   store i64 0, ptr %238, align 8, !tbaa !119, !noalias !660
@@ -52595,7 +52595,7 @@ _ZNK4absl4Cord5emptyEv.exit.i:                    ; preds = %15, %11
   %.sink5.i.i.i.i.i.i = select i1 %32, i64 2, i64 58
   %33 = lshr i64 %29, %.sink6.i.i.i.i.i.i
   %34 = add nuw nsw i64 %33, %.sink5.i.i.i.i.i.i
-  %35 = trunc i64 %34 to i8
+  %35 = trunc nuw nsw i64 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i8 %35, ptr %36, align 4, !tbaa !96, !noalias !695
   store i64 0, ptr %30, align 8, !tbaa !119, !noalias !695
@@ -64765,7 +64765,7 @@ define dso_local void @_ZN31CordTest_TryFlatSubstrFlat_Test8TestBodyEv(ptr nonnu
   store i64 1, ptr %5, align 8, !tbaa !24
   %18 = load i64, ptr %3, align 8
   %.not.i6.i.i = icmp ult i64 %18, 2
-  %19 = trunc i64 %18 to i8
+  %19 = trunc nuw nsw i64 %18 to i8
   br i1 %.not.i6.i.i, label %_ZN4absl4CordC2ERKS0_.exit, label %20, !prof !117
 
 20:                                               ; preds = %14
@@ -66834,7 +66834,7 @@ common.resume:                                    ; preds = %138, %21
   store i64 1, ptr %5, align 8, !tbaa !24
   %30 = load i64, ptr %3, align 8
   %.not.i6.i.i = icmp ult i64 %30, 2
-  %31 = trunc i64 %30 to i8
+  %31 = trunc nuw nsw i64 %30 to i8
   br i1 %.not.i6.i.i, label %_ZN4absl4CordC2ERKS0_.exit, label %32, !prof !117
 
 32:                                               ; preds = %26
@@ -140319,7 +140319,7 @@ _ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit: ; preds = %18, %20, %_ZN4ab
   %.sink5.i.i.i.i.i = select i1 %65, i64 2, i64 58
   %66 = lshr i64 %62, %.sink6.i.i.i.i.i
   %67 = add nuw nsw i64 %66, %.sink5.i.i.i.i.i
-  %68 = trunc i64 %67 to i8
+  %68 = trunc nuw nsw i64 %67 to i8
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i8 %68, ptr %69, align 4, !tbaa !96, !noalias !2023
   store i64 0, ptr %63, align 8, !tbaa !119, !noalias !2023
@@ -143241,7 +143241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i64 1, ptr %5, align 8, !tbaa !24
   %43 = load i64, ptr %2, align 8
   %.not.i6.i.i = icmp ult i64 %43, 2
-  %44 = trunc i64 %43 to i8
+  %44 = trunc nuw nsw i64 %43 to i8
   br i1 %.not.i6.i.i, label %_ZN4absl4CordC2ERKS0_.exit, label %45, !prof !117
 
 45:                                               ; preds = %39
@@ -147932,7 +147932,7 @@ _ZNK4absl4Cord4sizeEv.exit37.i:                   ; preds = %52, %48
   store i64 1, ptr %8, align 8, !tbaa !24, !alias.scope !2238
   %63 = load i64, ptr %6, align 8, !noalias !2238
   %.not.i6.i.i.i = icmp ult i64 %63, 2
-  %64 = trunc i64 %63 to i8
+  %64 = trunc nuw nsw i64 %63 to i8
   br i1 %.not.i6.i.i.i, label %_ZN4absl4CordC2ERKS0_.exit.i, label %65, !prof !117
 
 65:                                               ; preds = %59
@@ -214158,7 +214158,7 @@ common.resume.i:                                  ; preds = %55, %15
   store i64 1, ptr %3, align 8, !tbaa !24, !noalias !3223
   %24 = load i64, ptr %2, align 8, !noalias !3223
   %.not.i6.i.i.i = icmp ult i64 %24, 2
-  %25 = trunc i64 %24 to i8
+  %25 = trunc nuw nsw i64 %24 to i8
   br i1 %.not.i6.i.i.i, label %_ZN4absl4CordC2ERKS0_.exit.i, label %26, !prof !117
 
 26:                                               ; preds = %20

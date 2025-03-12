@@ -1237,7 +1237,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 20:                                               ; preds = %16
   %21 = lshr i32 %.val15, 6
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -64
   store i8 %23, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !178, !noalias !175
   %24 = trunc i32 %.val15 to i8
@@ -1248,7 +1248,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 27:                                               ; preds = %18
   %28 = lshr i32 %.val15, 12
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -32
   store i8 %30, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !178, !noalias !175
   %31 = lshr i32 %.val15, 6
@@ -1311,7 +1311,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i.i: ; preds
   br label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2bd41ba58e46081dE.exit"
 
 .critedge.i.i.i.i:                                ; preds = %13
-  %67 = trunc nuw i32 %.val15 to i8
+  %67 = trunc nuw nsw i32 %.val15 to i8
   %68 = load i64, ptr %11, align 8, !alias.scope !191, !noundef !11
   %69 = load i64, ptr %2, align 8, !alias.scope !191, !noundef !11
   %70 = icmp eq i64 %68, %69

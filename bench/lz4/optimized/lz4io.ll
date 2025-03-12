@@ -6638,7 +6638,7 @@ thread-pre-split:                                 ; preds = %34, %29
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %54, ptr %55, align 1, !tbaa !40
   %56 = lshr i32 %13, 24
-  %57 = trunc nuw i32 %56 to i8
+  %57 = trunc nuw nsw i32 %56 to i8
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %57, ptr %58, align 1, !tbaa !40
   %narrow = add nuw i32 %13, 4
@@ -6726,7 +6726,7 @@ thread-pre-split:                                 ; preds = %32, %27
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 %52, ptr %53, align 1, !tbaa !40
   %54 = lshr i32 %11, 24
-  %55 = trunc nuw i32 %54 to i8
+  %55 = trunc nuw nsw i32 %54 to i8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 3
   store i8 %55, ptr %56, align 1, !tbaa !40
   %narrow = add nuw i32 %11, 4

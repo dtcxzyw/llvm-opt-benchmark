@@ -2290,7 +2290,7 @@ define i32 @EVP_EncryptFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writ
 
 .lr.ph:                                           ; preds = %66
   %68 = sub nuw nsw i32 %52, %60
-  %69 = trunc nuw i32 %68 to i8
+  %69 = trunc nuw nsw i32 %68 to i8
   %70 = zext nneg i32 %60 to i64
   %71 = getelementptr i8, ptr %0, i64 %70
   %scevgep = getelementptr i8, ptr %71, i64 56

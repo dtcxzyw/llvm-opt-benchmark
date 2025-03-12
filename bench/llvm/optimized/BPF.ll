@@ -595,7 +595,7 @@ _ZNK12_GLOBAL__N_110BPFABIInfo18classifyReturnTypeEN5clang8QualTypeE.exit: ; pre
   br i1 %104, label %106, label %112
 
 106:                                              ; preds = %103
-  %107 = trunc nuw i64 %96 to i32
+  %107 = trunc nuw nsw i64 %96 to i32
   %108 = add nuw nsw i32 %107, 255
   %109 = and i32 %108, 248
   %110 = add nuw nsw i32 %109, 8

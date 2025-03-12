@@ -37,7 +37,7 @@ define range(i32 0, 2) i32 @FSEv06_isError(i64 noundef %0) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define ptr @FSEv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #28
@@ -614,7 +614,7 @@ define i64 @FSEv06_decompress_usingDTable(ptr noundef %0, i64 noundef %1, ptr no
 BITv06_initDStream.exit.thread308:                ; preds = %62
   %67 = zext i8 %65 to i32
   %68 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
-  %69 = trunc nuw i64 %3 to i32
+  %69 = trunc nuw nsw i64 %3 to i32
   %70 = shl nuw nsw i32 %69, 3
   %reass.sub = sub nsw i32 %68, %70
   %71 = add nsw i32 %reass.sub, 41
@@ -1124,7 +1124,7 @@ BITv06_reloadDStream.exit92:                      ; preds = %255, %251, %257
 BITv06_initDStream.exit103.thread338:             ; preds = %325
   %330 = zext i8 %328 to i32
   %331 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %330, i1 true)
-  %332 = trunc nuw i64 %3 to i32
+  %332 = trunc nuw nsw i64 %3 to i32
   %333 = shl nuw nsw i32 %332, 3
   %reass.sub428 = sub nsw i32 %331, %333
   %334 = add nsw i32 %reass.sub428, 41
@@ -1892,7 +1892,7 @@ FSEv06_decompress.exit:                           ; preds = %47
   br i1 %or.cond, label %95, label %.critedge95
 
 95:                                               ; preds = %83
-  %96 = trunc i64 %.075 to i32
+  %96 = trunc nuw i64 %.075 to i32
   %97 = add i32 %96, 1
   store i32 %97, ptr %2, align 4, !tbaa !3
   %98 = add nuw nsw i64 %.074, 1
@@ -2009,7 +2009,7 @@ define i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr
 BITv06_initDStream.exit.thread20:                 ; preds = %65
   %70 = zext i8 %68 to i32
   %71 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %70, i1 true)
-  %72 = trunc nuw i64 %3 to i32
+  %72 = trunc nuw nsw i64 %3 to i32
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %74 = shl nuw nsw i32 %72, 3
   %reass.sub = sub nsw i32 %71, %74
@@ -2168,7 +2168,7 @@ define internal fastcc range(i64 1, 0) i64 @BITv06_initDStream(ptr noundef nonnu
 71:                                               ; preds = %66
   %72 = zext i8 %69 to i32
   %73 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %72, i1 true)
-  %74 = trunc nuw i64 %2 to i32
+  %74 = trunc nuw nsw i64 %2 to i32
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = shl nuw nsw i32 %74, 3
   %77 = sub nsw i32 %73, %76
@@ -2449,7 +2449,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %15, label %HUFv06_readDTableX2.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = trunc nuw i32 %14 to i16
+  %17 = trunc nuw nsw i32 %14 to i16
   store i16 %17, ptr %9, align 16, !tbaa !10
   %.not37.i = icmp eq i32 %14, 0
   br i1 %.not37.i, label %.preheader.i, label %.lr.ph.preheader.i
@@ -2465,7 +2465,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %.not.i, label %HUFv06_readDTableX2.exit.thread20, label %.lr.ph43.i
 
 .lr.ph43.i:                                       ; preds = %.preheader.i
-  %20 = trunc nuw i32 %14 to i8
+  %20 = trunc nuw nsw i32 %14 to i8
   %21 = add nuw nsw i8 %20, 1
   %wide.trip.count52.i = zext i32 %19 to i64
   br label %29
@@ -3584,7 +3584,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %15, label %HUFv06_readDTableX2.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = trunc nuw i32 %14 to i16
+  %17 = trunc nuw nsw i32 %14 to i16
   store i16 %17, ptr %9, align 16, !tbaa !10
   %.not37.i = icmp eq i32 %14, 0
   br i1 %.not37.i, label %.preheader.i, label %.lr.ph.preheader.i
@@ -3600,7 +3600,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %.not.i, label %HUFv06_readDTableX2.exit.thread20, label %.lr.ph43.i
 
 .lr.ph43.i:                                       ; preds = %.preheader.i
-  %20 = trunc nuw i32 %14 to i8
+  %20 = trunc nuw nsw i32 %14 to i8
   %21 = add nuw nsw i8 %20, 1
   %wide.trip.count52.i = zext i32 %19 to i64
   br label %29
@@ -4125,7 +4125,7 @@ define i64 @HUFv06_decompress1X4_usingDTable(ptr noundef %0, i64 noundef %1, ptr
 BITv06_initDStream.exit.thread21:                 ; preds = %64
   %69 = zext i8 %67 to i32
   %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %69, i1 true)
-  %71 = trunc nuw i64 %3 to i32
+  %71 = trunc nuw nsw i64 %3 to i32
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %73 = shl nuw nsw i32 %71, 3
   %reass.sub = sub nsw i32 %70, %73
@@ -5585,7 +5585,7 @@ define range(i32 0, 2) i32 @ZSTDv06_isError(i64 noundef %0) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define ptr @ZSTDv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #28
@@ -5602,7 +5602,7 @@ define range(i32 0, 2) i32 @ZBUFFv06_isError(i64 noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define ptr @ZBUFFv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #28
@@ -6762,7 +6762,7 @@ ZSTDv06_decodeSeqHeaders.exit.i:                  ; preds = %.thread163.sink.spl
 BITv06_initDStream.exit.thread161.i:              ; preds = %481
   %486 = zext i8 %484 to i32
   %487 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %486, i1 true)
-  %488 = trunc nuw i64 %428 to i32
+  %488 = trunc nuw nsw i64 %428 to i32
   %489 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %490 = shl nuw nsw i32 %488, 3
   %reass.sub.i = sub nsw i32 %487, %490

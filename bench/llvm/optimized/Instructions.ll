@@ -13303,7 +13303,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isTransposeMas
   br i1 %.not, label %5, label %.critedge
 
 5:                                                ; preds = %3
-  %6 = trunc i64 %1 to i32
+  %6 = trunc nuw i64 %1 to i32
   %7 = icmp sgt i32 %6, 1
   %8 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
   %9 = icmp samesign ult i32 %8, 2
@@ -13324,20 +13324,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isTransposeMas
 
 .preheader:                                       ; preds = %12
   %invariant.gep = getelementptr i8, ptr %0, i64 -8
-  %.not2533 = icmp samesign ult i32 %6, 3
-  br i1 %.not2533, label %.critedge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = and i64 %1, 2147483647
-  br label %.lr.ph
+  %.not2533 = icmp ult i64 %1, 3
+  br i1 %.not2533, label %.critedge, label %.lr.ph
 
 16:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %1
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !293
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
-  %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %16 ]
+.lr.ph:                                           ; preds = %.preheader, %16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 2, %.preheader ]
   %17 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !108
   %19 = icmp eq i32 %18, -1

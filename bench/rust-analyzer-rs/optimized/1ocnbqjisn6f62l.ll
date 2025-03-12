@@ -543,7 +543,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h7793649cad6db04eE.exit.thread.
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %trunc.i1.i.i.i.i = trunc i64 %48 to i1
+  %trunc.i1.i.i.i.i = trunc nuw i64 %48 to i1
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 120
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -50431,7 +50431,7 @@ _ZN4core3ops8function6FnOnce9call_once17h2669f95943edea52E.exit.thread: ; preds 
 31:                                               ; preds = %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$chalk_ir..Binders$LT$chalk_ir..WhereClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h96f3eb75b4d9517dE.exit.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15431)
   %.promoted.i.i.i.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !15434, !noalias !15439
-  %trunc.i.i.i.i.i.i.i.i = trunc i64 %29 to i1
+  %trunc.i.i.i.i.i.i.i.i = trunc nuw i64 %29 to i1
   %32 = load ptr, ptr %15, align 8, !alias.scope !15434, !noalias !15439
   %.fr9.i.i.i.i.i.i.i.i.i.i.i.i = freeze ptr %32
   %33 = getelementptr inbounds nuw i8, ptr %.fr9.i.i.i.i.i.i.i.i.i.i.i.i, i64 16

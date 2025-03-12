@@ -104,7 +104,7 @@ define dso_local range(i32 1, 6) i32 @zipStoreEntryEncoding(ptr noundef writeonl
 
 13:                                               ; preds = %12
   %14 = lshr i32 %2, 8
-  %15 = trunc nuw i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = or disjoint i8 %15, 64
   store i8 %16, ptr %4, align 1, !tbaa !9
   %17 = trunc i32 %2 to i8
@@ -233,7 +233,7 @@ define dso_local range(i32 0, 2) i32 @zipTryEncoding(ptr noundef %0, i32 noundef
   br i1 %or.cond3, label %12, label %15
 
 12:                                               ; preds = %10
-  %13 = trunc nuw i64 %11 to i8
+  %13 = trunc nuw nsw i64 %11 to i8
   %14 = add nuw nsw i8 %13, -15
   br label %23
 
@@ -1673,7 +1673,7 @@ zipRawEntryLengthSafe.exit:                       ; preds = %23
   br label %61
 
 50:                                               ; preds = %39
-  %51 = trunc nuw i64 %40 to i8
+  %51 = trunc nuw nsw i64 %40 to i8
   %52 = add nuw nsw i8 %51, -15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   br label %61
@@ -1878,7 +1878,7 @@ zipStorePrevEntryLength.exit119:                  ; preds = %131, %136, %zipStor
 
 147:                                              ; preds = %145
   %148 = lshr i32 %3, 8
-  %149 = trunc nuw i32 %148 to i8
+  %149 = trunc nuw nsw i32 %148 to i8
   %150 = or disjoint i8 %149, 64
   store i8 %150, ptr %5, align 1, !tbaa !9
   %151 = trunc i32 %3 to i8
@@ -2835,7 +2835,7 @@ zipEntry.exit:                                    ; preds = %15, %18, %26, %45, 
   br label %zipStoreEntryEncoding.exit
 
 67:                                               ; preds = %57
-  %68 = trunc nuw i64 %58 to i8
+  %68 = trunc nuw nsw i64 %58 to i8
   %69 = add nuw nsw i8 %68, -15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   br label %zipStoreEntryEncoding.exit
@@ -2880,7 +2880,7 @@ zipStoreEntryEncoding.exit:                       ; preds = %72, %65, %.thread51
 
 84:                                               ; preds = %82
   %85 = lshr i32 %3, 8
-  %86 = trunc nuw i32 %85 to i8
+  %86 = trunc nuw nsw i32 %85 to i8
   %87 = or disjoint i8 %86, 64
   store i8 %87, ptr %5, align 1, !tbaa !9
   %88 = trunc i32 %3 to i8
@@ -3253,7 +3253,7 @@ define dso_local noundef ptr @ziplistFind(ptr noundef captures(address) %0, ptr 
   br i1 %or.cond3.i, label %40, label %43
 
 40:                                               ; preds = %38
-  %41 = trunc nuw i64 %39 to i8
+  %41 = trunc nuw nsw i64 %39 to i8
   %42 = add nuw nsw i8 %41, -15
   br label %.thread59
 

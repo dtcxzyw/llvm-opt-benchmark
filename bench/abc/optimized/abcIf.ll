@@ -2005,7 +2005,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %106 = phi i8 [ %101, %.lr.ph140 ], [ %203, %199 ]
   %.089138 = phi i32 [ 2, %.lr.ph140 ], [ %.2.lcssa175177, %199 ]
   %107 = zext i8 %106 to i32
-  %108 = trunc nuw i64 %indvars.iv169 to i32
+  %108 = trunc nuw nsw i64 %indvars.iv169 to i32
   %109 = add nsw i32 %107, -1
   %110 = icmp samesign ugt i32 %109, %108
   br i1 %110, label %111, label %113

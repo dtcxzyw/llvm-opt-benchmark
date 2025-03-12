@@ -660,7 +660,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 17:                                               ; preds = %11
   %18 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %15 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %15 to i32
   %19 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %20 = shl nuw i32 %19, 8
   %21 = or i32 %20, %18
@@ -759,7 +759,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 17:                                               ; preds = %11
   %18 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %15 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %15 to i32
   %19 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %20 = shl nuw i32 %19, 8
   %21 = or i32 %20, %18
@@ -1986,7 +1986,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath19GetPathElementCountEv.exit: ; pr
 
 63:                                               ; preds = %56
   %64 = trunc nuw nsw i64 %indvars.iv.i.i5.i.us to i32
-  %.lhs.trunc.i.i.i8.i.us = trunc nuw i64 %60 to i32
+  %.lhs.trunc.i.i.i8.i.us = trunc nuw nsw i64 %60 to i32
   %65 = udiv i32 %.lhs.trunc.i.i.i8.i.us, 24
   %66 = shl nuw i32 %65, 8
   %67 = or i32 %66, %64
@@ -2057,7 +2057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.us: ; preds = %83, %70, %
 
 97:                                               ; preds = %91
   %98 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %95 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %95 to i32
   %99 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %100 = shl nuw i32 %99, 8
   %101 = or i32 %100, %98
@@ -2085,7 +2085,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 111:                                              ; preds = %105
   %112 = trunc nuw nsw i64 %indvars.iv.i.i5.i to i32
-  %.lhs.trunc.i.i.i8.i = trunc nuw i64 %109 to i32
+  %.lhs.trunc.i.i.i8.i = trunc nuw nsw i64 %109 to i32
   %113 = udiv i32 %.lhs.trunc.i.i.i8.i, 24
   %114 = shl nuw i32 %113, 8
   %115 = or i32 %114, %112
@@ -2166,7 +2166,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %132, %119, %_
 
 149:                                              ; preds = %143
   %150 = trunc nuw nsw i64 %indvars.iv.i.i.i19 to i32
-  %.lhs.trunc.i.i.i.i26 = trunc nuw i64 %147 to i32
+  %.lhs.trunc.i.i.i.i26 = trunc nuw nsw i64 %147 to i32
   %151 = udiv i32 %.lhs.trunc.i.i.i.i26, 24
   %152 = shl nuw i32 %151, 8
   %153 = or i32 %152, %150
@@ -3086,7 +3086,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit: ; preds = %2
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.lhs.trunc.i.i.i = trunc nuw i64 %27 to i32
+  %.lhs.trunc.i.i.i = trunc nuw nsw i64 %27 to i32
   %31 = udiv i32 %.lhs.trunc.i.i.i, 24
   %32 = shl nuw i32 %31, 8
   %33 = or i32 %32, %30
@@ -3205,7 +3205,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 90:                                               ; preds = %84
   %91 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %88 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %88 to i32
   %92 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %93 = shl nuw i32 %92, 8
   %94 = or i32 %93, %91
@@ -4433,7 +4433,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11GetPrimPathEv(ptr d
 
 21:                                               ; preds = %15
   %22 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %19 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %19 to i32
   %23 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %24 = shl nuw i32 %23, 8
   %25 = or i32 %24, %22
@@ -4511,7 +4511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 23:                                               ; preds = %17
   %24 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %21 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %21 to i32
   %25 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %26 = shl nuw i32 %25, 8
   %27 = or i32 %26, %24
@@ -4606,7 +4606,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25GetAbsoluteRootOrPr
 
 36:                                               ; preds = %30
   %37 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  %.lhs.trunc.i.i.i.i.i = trunc nuw i64 %34 to i32
+  %.lhs.trunc.i.i.i.i.i = trunc nuw nsw i64 %34 to i32
   %38 = udiv i32 %.lhs.trunc.i.i.i.i.i, 24
   %39 = shl nuw i32 %38, 8
   %40 = or i32 %39, %37
@@ -4822,7 +4822,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 81:                                               ; preds = %75
   %82 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %79 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %79 to i32
   %83 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %84 = shl nuw i32 %83, 8
   %85 = or i32 %84, %82
@@ -8517,7 +8517,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj1
 
 76:                                               ; preds = %70
   %77 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %74 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %74 to i32
   %78 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %79 = shl nuw i32 %78, 8
   %80 = or i32 %79, %77
@@ -8553,7 +8553,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 91:                                               ; preds = %85
   %92 = trunc nuw nsw i64 %indvars.iv.i.i5.i to i32
-  %.lhs.trunc.i.i.i8.i = trunc nuw i64 %89 to i32
+  %.lhs.trunc.i.i.i8.i = trunc nuw nsw i64 %89 to i32
   %93 = udiv i32 %.lhs.trunc.i.i.i8.i, 24
   %94 = shl nuw i32 %93, 8
   %95 = or i32 %94, %92
@@ -10162,7 +10162,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath15GetCommonPrefixERKS
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %59 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %59 to i32
   %63 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %64 = shl nuw i32 %63, 8
   %65 = or i32 %64, %62
@@ -10245,7 +10245,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 105:                                              ; preds = %99
   %106 = trunc nuw nsw i64 %indvars.iv.i.i.i38 to i32
-  %.lhs.trunc.i.i.i.i41 = trunc nuw i64 %103 to i32
+  %.lhs.trunc.i.i.i.i41 = trunc nuw nsw i64 %103 to i32
   %107 = udiv i32 %.lhs.trunc.i.i.i.i41, 24
   %108 = shl nuw i32 %107, 8
   %109 = or i32 %108, %106
@@ -10384,7 +10384,7 @@ _ZSt9make_pairIRKN32pxrInternal_v0_24__pxrReserved__7SdfPathES3_ESt4pairINSt25__
 
 78:                                               ; preds = %72
   %79 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %.lhs.trunc.i.i.i = trunc nuw i64 %76 to i32
+  %.lhs.trunc.i.i.i = trunc nuw nsw i64 %76 to i32
   %80 = udiv i32 %.lhs.trunc.i.i.i, 24
   %81 = shl nuw i32 %80, 8
   %82 = or i32 %81, %79
@@ -10429,7 +10429,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 103:                                              ; preds = %97
   %104 = trunc nuw nsw i64 %indvars.iv.i.i57 to i32
-  %.lhs.trunc.i.i.i61 = trunc nuw i64 %101 to i32
+  %.lhs.trunc.i.i.i61 = trunc nuw nsw i64 %101 to i32
   %105 = udiv i32 %.lhs.trunc.i.i.i61, 24
   %106 = shl nuw i32 %105, 8
   %107 = or i32 %106, %104
@@ -10509,7 +10509,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 138:                                              ; preds = %132
   %139 = trunc nuw nsw i64 %indvars.iv.i.i70 to i32
-  %.lhs.trunc.i.i.i74 = trunc nuw i64 %136 to i32
+  %.lhs.trunc.i.i.i74 = trunc nuw nsw i64 %136 to i32
   %140 = udiv i32 %.lhs.trunc.i.i.i74, 24
   %141 = shl nuw i32 %140, 8
   %142 = or i32 %141, %139
@@ -10559,7 +10559,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKNS_22Sdf_PathNodeHandleImplINS
 
 165:                                              ; preds = %159
   %166 = trunc nuw nsw i64 %indvars.iv.i.i80 to i32
-  %.lhs.trunc.i.i.i84 = trunc nuw i64 %163 to i32
+  %.lhs.trunc.i.i.i84 = trunc nuw nsw i64 %163 to i32
   %167 = udiv i32 %.lhs.trunc.i.i.i84, 24
   %168 = shl nuw i32 %167, 8
   %169 = or i32 %168, %166
@@ -10658,7 +10658,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 222:                                              ; preds = %216
   %223 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %220 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %220 to i32
   %224 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %225 = shl nuw i32 %224, 8
   %226 = or i32 %225, %223
@@ -10687,7 +10687,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 237:                                              ; preds = %231
   %238 = trunc nuw nsw i64 %indvars.iv.i.i.i91 to i32
-  %.lhs.trunc.i.i.i.i96 = trunc nuw i64 %235 to i32
+  %.lhs.trunc.i.i.i.i96 = trunc nuw nsw i64 %235 to i32
   %239 = udiv i32 %.lhs.trunc.i.i.i.i96, 24
   %240 = shl nuw i32 %239, 8
   %241 = or i32 %240, %238
@@ -10760,7 +10760,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit100: ; preds = %242, %237
 
 269:                                              ; preds = %263
   %270 = trunc nuw nsw i64 %indvars.iv.i.i.i105 to i32
-  %.lhs.trunc.i.i.i.i110 = trunc nuw i64 %267 to i32
+  %.lhs.trunc.i.i.i.i110 = trunc nuw nsw i64 %267 to i32
   %271 = udiv i32 %.lhs.trunc.i.i.i.i110, 24
   %272 = shl nuw i32 %271, 8
   %273 = or i32 %272, %270
@@ -10798,7 +10798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2EPKNS_12Sdf_PathNodeES3_.exit112:
 
 284:                                              ; preds = %278
   %285 = trunc nuw nsw i64 %indvars.iv.i.i.i115 to i32
-  %.lhs.trunc.i.i.i.i120 = trunc nuw i64 %282 to i32
+  %.lhs.trunc.i.i.i.i120 = trunc nuw nsw i64 %282 to i32
   %286 = udiv i32 %.lhs.trunc.i.i.i.i120, 24
   %287 = shl nuw i32 %286, 8
   %288 = or i32 %287, %285
@@ -12207,7 +12207,7 @@ _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESaIS3_EED2Ev.ex
 
 219:                                              ; preds = %213
   %220 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  %.lhs.trunc.i.i.i.i.i = trunc nuw i64 %217 to i32
+  %.lhs.trunc.i.i.i.i.i = trunc nuw nsw i64 %217 to i32
   %221 = udiv i32 %.lhs.trunc.i.i.i.i.i, 24
   %222 = shl nuw i32 %221, 8
   %223 = or i32 %222, %220
@@ -15610,7 +15610,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEC2ERKS3_.exit: 
 
 95:                                               ; preds = %89
   %96 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
-  %.lhs.trunc.i.i.i.i.i = trunc nuw i64 %93 to i32
+  %.lhs.trunc.i.i.i.i.i = trunc nuw nsw i64 %93 to i32
   %97 = udiv i32 %.lhs.trunc.i.i.i.i.i, 24
   %98 = shl nuw i32 %97, 8
   %99 = or i32 %98, %96
@@ -17975,7 +17975,7 @@ define noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 
 46:                                               ; preds = %40
   %47 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %44 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %44 to i32
   %48 = udiv i32 %.lhs.trunc.i.i.i.i, 24
   %49 = shl nuw i32 %48, 8
   %50 = or i32 %49, %47
@@ -18012,7 +18012,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i64 %indvars.iv.i.i5.i to i32
-  %.lhs.trunc.i.i.i8.i = trunc nuw i64 %59 to i32
+  %.lhs.trunc.i.i.i8.i = trunc nuw nsw i64 %59 to i32
   %63 = udiv i32 %.lhs.trunc.i.i.i8.i, 24
   %64 = shl nuw i32 %63, 8
   %65 = or i32 %64, %62
@@ -18395,7 +18395,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.
   br i1 %27, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.thread18.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.thread18.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.i
-  %28 = trunc i64 %.0.copyload.i.i1.i.i to i32
+  %28 = trunc nuw i64 %.0.copyload.i.i1.i.i to i32
   %.not5.i.i = icmp ult i64 %.0.copyload.i.i1.i.i, 4294967296
   br i1 %.not5.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath24IsAbsoluteRootOrPrimPathEv.exit.thread18.thread.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath26IsPrimVariantSelectionPathEv.exit.thread.i
 

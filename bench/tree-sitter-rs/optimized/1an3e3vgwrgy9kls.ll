@@ -18984,7 +18984,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit21.i: ; preds = %.noexc20.i
 
 170:                                              ; preds = %166
   %171 = lshr i32 %.sroa.4.0.i.ph35.i, 6
-  %172 = trunc nuw i32 %171 to i8
+  %172 = trunc nuw nsw i32 %171 to i8
   %173 = or disjoint i8 %172, -64
   store i8 %173, ptr %.sroa.0.i, align 4, !alias.scope !5074, !noalias !5073
   %174 = trunc i32 %.sroa.4.0.i.ph35.i to i8
@@ -18995,7 +18995,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit21.i: ; preds = %.noexc20.i
 
 177:                                              ; preds = %168
   %178 = lshr i32 %.sroa.4.0.i.ph35.i, 12
-  %179 = trunc nuw i32 %178 to i8
+  %179 = trunc nuw nsw i32 %178 to i8
   %180 = or disjoint i8 %179, -32
   store i8 %180, ptr %.sroa.0.i, align 4, !alias.scope !5074, !noalias !5073
   %181 = lshr i32 %.sroa.4.0.i.ph35.i, 6
@@ -19058,7 +19058,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %18
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %.invoke.i
-  %214 = trunc nuw i32 %.sroa.4.0.i.ph35.i to i8
+  %214 = trunc nuw nsw i32 %.sroa.4.0.i.ph35.i to i8
   %215 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !5087, !noalias !5023, !noundef !9
   %216 = load i64, ptr %21, align 8, !alias.scope !5087, !noalias !5023, !noundef !9
   %217 = icmp eq i64 %215, %216
@@ -22773,13 +22773,13 @@ default.unreachable:                              ; preds = %2
   br i1 %38, label %48, label %59
 
 39:                                               ; preds = %32
-  %40 = trunc nuw i32 %33 to i8
+  %40 = trunc nuw nsw i32 %33 to i8
   store i8 %40, ptr %.sroa.0, align 4, !alias.scope !5538
   br label %84
 
 41:                                               ; preds = %35
   %42 = lshr i32 %33, 6
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -64
   store i8 %44, ptr %.sroa.0, align 4, !alias.scope !5538
   %45 = trunc i32 %33 to i8
@@ -22791,7 +22791,7 @@ default.unreachable:                              ; preds = %2
 
 48:                                               ; preds = %37
   %49 = lshr i32 %33, 12
-  %50 = trunc nuw i32 %49 to i8
+  %50 = trunc nuw nsw i32 %49 to i8
   %51 = or disjoint i8 %50, -32
   store i8 %51, ptr %.sroa.0, align 4, !alias.scope !5538
   %52 = lshr i32 %33, 6

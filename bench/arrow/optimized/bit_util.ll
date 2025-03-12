@@ -138,7 +138,7 @@ _ZN5arrow8bit_util7RoundUpEll.exit.i:             ; preds = %7, %5
 44:                                               ; preds = %28
   %45 = add i64 %2, %1
   %46 = sub i64 %45, %42
-  %47 = trunc nsw i64 %42 to i32
+  %47 = trunc nuw nsw i64 %42 to i32
   %48 = sdiv i64 %46, 8
   %49 = getelementptr inbounds i8, ptr %0, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !3
@@ -221,12 +221,12 @@ _ZN5arrow8bit_util7RoundUpEll.exit.i:             ; preds = %7, %5
 49:                                               ; preds = %29
   %50 = add i64 %2, %1
   %51 = sub i64 %50, %47
-  %52 = trunc nsw i64 %47 to i32
+  %52 = trunc nuw nsw i64 %47 to i32
   %53 = sdiv i64 %51, 8
   %54 = getelementptr inbounds i8, ptr %0, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !3
   %.neg.i = shl nsw i32 -1, %52
-  %.neg37.i = trunc i32 %.neg.i to i8
+  %.neg37.i = trunc nsw i32 %.neg.i to i8
   %56 = and i8 %55, %.neg37.i
   store i8 %56, ptr %54, align 1, !tbaa !3
   br label %_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit

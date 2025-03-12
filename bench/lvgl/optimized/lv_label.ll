@@ -1446,7 +1446,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 
 .lr.ph:                                           ; preds = %395
   %405 = load ptr, ptr @lv_text_encoded_prev, align 8, !tbaa !67
-  %406 = trunc i64 %398 to i32
+  %406 = trunc nuw i64 %398 to i32
   br label %407
 
 407:                                              ; preds = %.lr.ph, %407

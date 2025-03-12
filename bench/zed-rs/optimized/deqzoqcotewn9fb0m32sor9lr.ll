@@ -2636,7 +2636,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
   br i1 %27, label %54, label %14
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %0 to i8
+  %29 = trunc nuw nsw i32 %0 to i8
   store i8 %29, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hd0ec398efa899483E.exit"
 
@@ -2649,7 +2649,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %1, align 1
   %37 = trunc i32 %0 to i8
@@ -2661,7 +2661,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 41:                                               ; preds = %24
   %42 = lshr i32 %0, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   store i8 %44, ptr %1, align 1
   %45 = lshr i32 %0, 6
@@ -14963,7 +14963,7 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.130333
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !3792
   %12 = trunc i32 %1 to i8
@@ -14975,7 +14975,7 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.130333
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !3792
   %19 = lshr i32 %1, 6
@@ -19964,7 +19964,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN81_$LT$async_channel..Receiver$LT$T
 
 "_ZN13async_channel17Receiver$LT$T$GT$8try_recv17h0521a2e6c1eb4441E.exit": ; preds = %6, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h3d56381a6ee9d716E.exit28"
   %46 = phi i8 [ %93, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$event_listener..EventListener$GT$$GT$17h3d56381a6ee9d716E.exit28" ], [ %8, %6 ]
-  %trunc = trunc i8 %46 to i1
+  %trunc = trunc nuw i8 %46 to i1
   %47 = load ptr, ptr %2, align 8, !noundef !5
   %48 = icmp eq ptr %47, null
   br i1 %trunc, label %53, label %52

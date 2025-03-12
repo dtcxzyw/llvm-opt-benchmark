@@ -4215,7 +4215,7 @@ define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTabl
   %67 = zext i1 %or.cond3 to i32
   %.469 = add nuw nsw i32 %.368, %67
   %.4 = or i32 %.364, %67
-  %68 = trunc i32 %.3 to i8
+  %68 = trunc nuw i32 %.3 to i8
   store i8 %68, ptr %37, align 2, !tbaa !430
   %69 = trunc nuw nsw i32 %.4 to i8
   %70 = shl nuw nsw i8 %69, 4

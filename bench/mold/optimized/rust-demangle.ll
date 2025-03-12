@@ -3667,7 +3667,7 @@ print_str.exit:                                   ; preds = %2, %8, %12
 
 35:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #11
-  %36 = trunc nuw i64 %33 to i8
+  %36 = trunc nuw nsw i64 %33 to i8
   %37 = add nuw nsw i8 %36, 97
   store i8 %37, ptr %4, align 1, !tbaa !21
   %38 = load i8, ptr %5, align 8, !tbaa !15, !range !24, !noundef !25

@@ -3104,7 +3104,7 @@ ZSTD_getCParamRowSize.exit.i:                     ; preds = %ZSTD_getCParamRowSi
   br i1 %.not12, label %27, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %ZSTD_getCParamRowSize.exit.i
-  %18 = trunc nuw i64 %8 to i32
+  %18 = trunc nuw nsw i64 %8 to i32
   %19 = add nsw i32 %18, -1
   %20 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -5665,7 +5665,7 @@ ZSTD_shouldAttachDict.exit.thread17.i:            ; preds = %ZSTD_shouldAttachDi
 
 62:                                               ; preds = %ZSTD_shouldAttachDict.exit.thread17.i
   %63 = icmp samesign ult i64 %7, 64
-  %64 = trunc nuw i64 %7 to i32
+  %64 = trunc nuw nsw i64 %7 to i32
   %65 = add nsw i32 %64, -1
   %66 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %67 = sub nuw nsw i32 32, %66
@@ -6052,7 +6052,7 @@ ZSTD_resetCCtx_byCopyingCDict.exit.i:             ; preds = %ZSTD_cwksp_mark_tab
   br i1 %289, label %290, label %ZSTD_resetCCtx_usingCDict.exit
 
 290:                                              ; preds = %287
-  %291 = trunc i64 %288 to i32
+  %291 = trunc nuw i64 %288 to i32
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store i32 %291, ptr %292, align 8, !tbaa !176
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -7783,7 +7783,7 @@ ZSTD_cwksp_reserve_object.exit58:                 ; preds = %46, %48
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %61
-  %71 = trunc i64 %68 to i32
+  %71 = trunc nuw i64 %68 to i32
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6064
   store i32 %71, ptr %72, align 8, !tbaa !269
   br label %.thread
@@ -11080,10 +11080,10 @@ determine_blockSize.exit.i:                       ; preds = %43
   br i1 %82, label %ZSTD_compressSequences_internal.exit.thread, label %83
 
 83:                                               ; preds = %80
-  %.tr.i.i = trunc nuw i64 %78 to i32
+  %.tr.i.i = trunc nuw nsw i64 %78 to i32
   %84 = shl nuw nsw i32 %.tr.i.i, 3
   %85 = or disjoint i32 %84, %71
-  %86 = trunc nuw i32 %85 to i16
+  %86 = trunc nuw nsw i32 %85 to i16
   store i16 %86, ptr %.2138214.i, align 1, !tbaa !224
   %87 = getelementptr inbounds nuw i8, ptr %.2138214.i, i64 2
   store i8 0, ptr %87, align 1, !tbaa !188
@@ -15777,7 +15777,7 @@ ZSTD_literalsCompressionIsDisabled.exit.i:        ; preds = %46, %44, %43, %._cr
 
 64:                                               ; preds = %62
   %65 = lshr i64 %22, 8
-  %66 = trunc nuw i64 %65 to i8
+  %66 = trunc nuw nsw i64 %65 to i8
   %67 = or disjoint i8 %66, -128
   store i8 %67, ptr %53, align 1, !tbaa !188
   %68 = trunc i64 %22 to i8

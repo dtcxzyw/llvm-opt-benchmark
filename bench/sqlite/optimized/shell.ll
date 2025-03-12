@@ -5990,7 +5990,7 @@ sqlite3re_free.exit89.i:                          ; preds = %74
 
 132:                                              ; preds = %130
   %133 = lshr i32 %126, 6
-  %134 = trunc nuw i32 %133 to i8
+  %134 = trunc nuw nsw i32 %133 to i8
   %135 = or disjoint i8 %134, -64
   %136 = add nuw nsw i32 %.064101.i, 1
   %137 = zext nneg i32 %.064101.i to i64
@@ -6007,7 +6007,7 @@ sqlite3re_free.exit89.i:                          ; preds = %74
 
 144:                                              ; preds = %142
   %145 = lshr i32 %126, 12
-  %146 = trunc nuw i32 %145 to i8
+  %146 = trunc nuw nsw i32 %145 to i8
   %147 = or disjoint i8 %146, -32
   %148 = add nuw nsw i32 %.064101.i, 1
   %149 = zext nneg i32 %.064101.i to i64
@@ -29499,7 +29499,7 @@ shell_strcpy.exit.preheader38.i.i:                ; preds = %shell_strcpy.exit.p
 .lr.ph.i24.preheader.i.preheader.i:               ; preds = %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) @dynPrompt, ptr noundef nonnull align 1 dereferenceable(3) @.str.1876, i64 3, i1 false), !tbaa !25
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @dynPrompt, i64 3), align 1, !tbaa !25
-  %105 = trunc i32 %83 to i8
+  %105 = trunc nuw nsw i32 %83 to i8
   %106 = add nuw nsw i8 %105, 48
   store i8 %106, ptr getelementptr inbounds nuw (i8, ptr @dynPrompt, i64 2), align 2, !tbaa !25
   br label %.lr.ph.i30.i.i.preheader

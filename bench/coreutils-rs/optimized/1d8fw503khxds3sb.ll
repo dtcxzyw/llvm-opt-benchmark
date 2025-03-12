@@ -2656,13 +2656,13 @@ select.unfold:                                    ; preds = %219
   br i1 %337, label %347, label %358
 
 338:                                              ; preds = %328
-  %339 = trunc nuw i32 %332 to i8
+  %339 = trunc nuw nsw i32 %332 to i8
   store i8 %339, ptr %35, align 4, !alias.scope !593
   br label %373
 
 340:                                              ; preds = %334
   %341 = lshr i32 %332, 6
-  %342 = trunc nuw i32 %341 to i8
+  %342 = trunc nuw nsw i32 %341 to i8
   %343 = or disjoint i8 %342, -64
   store i8 %343, ptr %35, align 4, !alias.scope !593
   %344 = trunc i32 %332 to i8
@@ -2673,7 +2673,7 @@ select.unfold:                                    ; preds = %219
 
 347:                                              ; preds = %336
   %348 = lshr i32 %332, 12
-  %349 = trunc nuw i32 %348 to i8
+  %349 = trunc nuw nsw i32 %348 to i8
   %350 = or disjoint i8 %349, -32
   store i8 %350, ptr %35, align 4, !alias.scope !593
   %351 = lshr i32 %332, 6
@@ -3151,13 +3151,13 @@ select.unfold341:                                 ; preds = %485
   br i1 %530, label %540, label %551
 
 531:                                              ; preds = %521
-  %532 = trunc nuw i32 %525 to i8
+  %532 = trunc nuw nsw i32 %525 to i8
   store i8 %532, ptr %41, align 4, !alias.scope !669
   br label %566
 
 533:                                              ; preds = %527
   %534 = lshr i32 %525, 6
-  %535 = trunc nuw i32 %534 to i8
+  %535 = trunc nuw nsw i32 %534 to i8
   %536 = or disjoint i8 %535, -64
   store i8 %536, ptr %41, align 4, !alias.scope !669
   %537 = trunc i32 %525 to i8
@@ -3168,7 +3168,7 @@ select.unfold341:                                 ; preds = %485
 
 540:                                              ; preds = %529
   %541 = lshr i32 %525, 12
-  %542 = trunc nuw i32 %541 to i8
+  %542 = trunc nuw nsw i32 %541 to i8
   %543 = or disjoint i8 %542, -32
   store i8 %543, ptr %41, align 4, !alias.scope !669
   %544 = lshr i32 %525, 6

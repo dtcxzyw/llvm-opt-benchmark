@@ -149732,7 +149732,7 @@ sljit_emit_jump.exit1377:                         ; preds = %3439, %3446
   store i8 72, ptr %3510, align 1, !tbaa !75
   %3514 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i.i.i2785, i64 3
   store i8 61, ptr %3513, align 1, !tbaa !75
-  %3515 = trunc i64 %3488 to i32
+  %3515 = trunc nsw i64 %3488 to i32
   store i32 %3515, ptr %3514, align 1
   br label %sljit_emit_op2u.exit2786.thread
 
@@ -150615,7 +150615,7 @@ sljit_emit_op2u.exit1434:                         ; preds = %emit_x86_instructio
   store i8 72, ptr %3915, align 1, !tbaa !75
   %3919 = getelementptr inbounds nuw i8, ptr %.0.i.ph.i.i.i1450, i64 3
   store i8 61, ptr %3918, align 1, !tbaa !75
-  %3920 = trunc i64 %3891 to i32
+  %3920 = trunc nsw i64 %3891 to i32
   store i32 %3920, ptr %3919, align 1
   br label %sljit_emit_op2u.exit1451
 
@@ -150671,7 +150671,7 @@ emit_x86_instruction.exit2830.thread:             ; preds = %3931
   %3944 = getelementptr inbounds nuw i8, ptr %.0.i269.ph.i2822, i64 3
   store i8 -125, ptr %3943, align 1, !tbaa !75
   %3945 = getelementptr inbounds nuw i8, ptr %.0.i269.ph.i2822, i64 4
-  %3946 = trunc i64 %3891 to i8
+  %3946 = trunc nsw i64 %3891 to i8
   store i8 %3946, ptr %3945, align 1, !tbaa !75
   store i8 -8, ptr %3944, align 1, !tbaa !75
   br label %sljit_emit_op2u.exit1451

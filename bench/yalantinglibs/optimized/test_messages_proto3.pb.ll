@@ -35360,7 +35360,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit2753: ; preds = 
   br i1 %cmp.i.i4990, label %if.then.i.i5014, label %if.end.i.i4991
 
 if.then.i.i5014:                                  ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit2753
-  %conv.i.i5015 = trunc nuw i32 %113 to i8
+  %conv.i.i5015 = trunc nuw nsw i32 %113 to i8
   store i8 %conv.i.i5015, ptr %retval.0.i2752, align 1
   %add.ptr.i.i5016 = getelementptr inbounds nuw i8, ptr %retval.0.i2752, i64 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i5007
@@ -36833,7 +36833,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit3093: ; preds = 
   br i1 %cmp.i.i4862, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit3093
-  %conv.i.i = trunc nuw i32 %198 to i8
+  %conv.i.i = trunc nuw nsw i32 %198 to i8
   store i8 %conv.i.i, ptr %retval.0.i3092, align 1
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i3092, i64 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i
@@ -36948,7 +36948,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit3103: ; preds = 
   br i1 %cmp.i.i4888, label %if.then.i.i4912, label %if.end.i.i4889
 
 if.then.i.i4912:                                  ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit3103
-  %conv.i.i4913 = trunc nuw i32 %205 to i8
+  %conv.i.i4913 = trunc nuw nsw i32 %205 to i8
   store i8 %conv.i.i4913, ptr %retval.0.i3102, align 1
   %add.ptr.i.i4914 = getelementptr inbounds nuw i8, ptr %retval.0.i3102, i64 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i4905
@@ -42398,7 +42398,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5323: ; preds = 
   br i1 %cmp.i.i5041, label %if.then.i.i5065, label %if.end.i.i5042
 
 if.then.i.i5065:                                  ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5323
-  %conv.i.i5066 = trunc nuw i32 %997 to i8
+  %conv.i.i5066 = trunc nuw nsw i32 %997 to i8
   store i8 %conv.i.i5066, ptr %retval.0.i5322, align 1
   %add.ptr.i.i5067 = getelementptr inbounds nuw i8, ptr %retval.0.i5322, i64 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i5058
@@ -43517,7 +43517,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5515: ; preds = 
   br i1 %cmp.i.i4939, label %if.then.i.i4963, label %if.end.i.i4940
 
 if.then.i.i4963:                                  ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit5515
-  %conv.i.i4964 = trunc nuw i32 %1055 to i8
+  %conv.i.i4964 = trunc nuw nsw i32 %1055 to i8
   store i8 %conv.i.i4964, ptr %retval.0.i5514, align 1
   %add.ptr.i.i4965 = getelementptr inbounds nuw i8, ptr %retval.0.i5514, i64 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i4956

@@ -3807,7 +3807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
   unreachable
 
 145:                                              ; preds = %138
-  %146 = trunc i64 %136 to i32
+  %146 = trunc nuw i64 %136 to i32
   %147 = sub i32 %139, %146
   store i32 %147, ptr %14, align 8, !tbaa !126
   %148 = load i32, ptr %12, align 4, !tbaa !127
@@ -5056,7 +5056,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %32, %30, %26, %22, 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 73:                                               ; preds = %._crit_edge.i.i
-  %74 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %74 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %75 = or disjoint i8 %74, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

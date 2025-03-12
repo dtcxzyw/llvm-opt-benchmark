@@ -11921,7 +11921,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit75: ; preds = %79
           to label %122 unwind label %.loopexit.split-lp.loopexit
 
 119:                                              ; preds = %.noexc81
-  %120 = trunc i8 %115 to i1
+  %120 = trunc nuw i8 %115 to i1
   br label %122
 
 121:                                              ; preds = %96

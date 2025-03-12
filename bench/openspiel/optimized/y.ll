@@ -3972,7 +3972,7 @@ _ZN10open_spiel6y_game6YState15FindGroupLeaderEi.exit9: ; preds = %_ZN10open_spi
   %40 = icmp ult i16 %36, %39
   %spec.select = select i1 %40, i32 %.0.i8, i32 %.0.i
   %spec.select20 = select i1 %40, i32 %.0.i, i32 %.0.i8
-  %41 = trunc i32 %spec.select to i16
+  %41 = trunc nuw i32 %spec.select to i16
   %42 = zext nneg i32 %spec.select20 to i64
   %43 = getelementptr inbounds nuw %"struct.open_spiel::y_game::YState::Cell", ptr %34, i64 %42, i32 2
   store i16 %41, ptr %43, align 2

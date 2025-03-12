@@ -5369,7 +5369,7 @@ if.then.i.i:                                      ; preds = %invoke.cont.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %invoke.cont.i
-  %979 = trunc nuw i64 %indvars.iv.next to i8
+  %979 = trunc nuw nsw i64 %indvars.iv.next to i8
   %980 = or i8 %979, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

@@ -1301,7 +1301,7 @@ define linkonce_odr void @_ZNK7rocksdb21PersistentCacheConfig16ValidateSettingsE
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %45
-  %.rhs.trunc = trunc i64 %47 to i32
+  %.rhs.trunc = trunc nuw i64 %47 to i32
   %50 = urem i32 %25, %.rhs.trunc
   %.not5 = icmp eq i32 %50, 0
   br i1 %.not5, label %54, label %51

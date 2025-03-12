@@ -49934,7 +49934,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i:         ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i474, label %._crit_edge.i, label %.lr.ph.i470, !llvm.loop !1464
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i
-  %1382 = trunc nuw i64 %1381 to i32
+  %1382 = trunc nuw nsw i64 %1381 to i32
   %1383 = shl i32 %1382, %storemerge6.i.i
   %1384 = or i32 %1383, %1380
   store i32 %1384, ptr %1196, align 4, !tbaa !287
@@ -51723,7 +51723,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i551:      ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i553, label %._crit_edge.i554, label %.lr.ph.i542, !llvm.loop !1464
 
 ._crit_edge.i554:                                 ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i551
-  %2259 = trunc nuw i64 %2258 to i32
+  %2259 = trunc nuw nsw i64 %2258 to i32
   %2260 = shl i32 %2259, %storemerge6.i.i552
   %2261 = or i32 %2260, %2257
   store i32 %2261, ptr %2073, align 4, !tbaa !287
@@ -61992,7 +61992,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit.i:         ; preds = %_ZN4llvm15Bitstream
   br i1 %.not.i76, label %._crit_edge.i, label %.lr.ph.i73, !llvm.loop !1464
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit.i
-  %451 = trunc nuw i64 %450 to i32
+  %451 = trunc nuw nsw i64 %450 to i32
   %452 = shl i32 %451, %storemerge6.i.i
   %453 = or i32 %452, %449
   store i32 %453, ptr %269, align 4, !tbaa !287
@@ -116832,7 +116832,7 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %37 = and i8 %.sroa.0.0.copyload.i, %36
   %38 = sub nuw nsw i32 8, %34
   %notmask29.i = shl nsw i32 -1, %38
-  %39 = trunc i32 %notmask29.i to i8
+  %39 = trunc nsw i32 %notmask29.i to i8
   %40 = xor i8 %39, -1
   %41 = and i8 %2, %40
   %42 = zext nneg i8 %41 to i32
@@ -116919,7 +116919,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %83 = and i8 %.sroa.0.0.copyload.i51, %82
   %84 = sub nuw nsw i32 8, %80
   %notmask29.i55 = shl nsw i32 -1, %84
-  %85 = trunc i32 %notmask29.i55 to i8
+  %85 = trunc nsw i32 %notmask29.i55 to i8
   %86 = xor i8 %85, -1
   %87 = and i8 %2, %86
   %88 = zext nneg i8 %87 to i32

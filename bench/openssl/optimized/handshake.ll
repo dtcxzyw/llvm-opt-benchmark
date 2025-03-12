@@ -289,7 +289,7 @@ define internal fastcc noundef ptr @do_handshake_internal(ptr noundef %0, ptr no
   br i1 %switch.i, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = trunc nuw i32 %60 to i8
+  %62 = trunc nuw nsw i32 %60 to i8
   %63 = tail call i32 @SSL_CTX_set_tlsext_max_fragment_length(ptr noundef %2, i8 noundef zeroext %62) #10
   br label %64
 

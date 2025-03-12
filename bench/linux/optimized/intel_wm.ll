@@ -273,12 +273,12 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(addr
   %23 = select i1 %18, i32 %19, i32 %22
   %24 = udiv i32 %23, 10
   %25 = urem i32 %23, 10
-  %26 = trunc i64 %11 to i32
+  %26 = trunc nuw nsw i64 %11 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %26, i32 noundef %16, i32 noundef %24, i32 noundef %25) #6
   br label %29
 
 27:                                               ; preds = %.split.us
-  %28 = trunc i64 %11 to i32
+  %28 = trunc nuw nsw i64 %11 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %28) #6
   br label %29
 
@@ -298,7 +298,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(addr
 
 38:                                               ; preds = %.split
   %39 = load ptr, ptr %10, align 8
-  %40 = trunc i64 %34 to i32
+  %40 = trunc nuw nsw i64 %34 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %39, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %1, i32 noundef %40) #6
   br label %54
 
@@ -314,7 +314,7 @@ define dso_local void @intel_print_wm_latency(ptr noundef readonly captures(addr
   %50 = load ptr, ptr %10, align 8
   %51 = udiv i32 %49, 10
   %52 = urem i32 %49, 10
-  %53 = trunc i64 %34 to i32
+  %53 = trunc nuw nsw i64 %34 to i32
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %1, i32 noundef %53, i32 noundef %42, i32 noundef %51, i32 noundef %52) #6
   br label %54
 
@@ -555,7 +555,7 @@ define internal noundef i32 @pri_wm_latency_show(ptr noundef %0, ptr readnone ca
   %33 = phi i32 [ %27, %26 ], [ %31, %28 ]
   %34 = udiv i32 %33, 10
   %35 = urem i32 %33, 10
-  %36 = trunc i64 %16 to i32
+  %36 = trunc nuw nsw i64 %16 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %36, i32 noundef %19, i32 noundef %34, i32 noundef %35) #6
   %37 = add nuw nsw i64 %16, 1
   %38 = load i8, ptr %10, align 8
@@ -655,7 +655,7 @@ define internal noundef i32 @spr_wm_latency_show(ptr noundef %0, ptr readnone ca
   %33 = phi i32 [ %27, %26 ], [ %31, %28 ]
   %34 = udiv i32 %33, 10
   %35 = urem i32 %33, 10
-  %36 = trunc i64 %16 to i32
+  %36 = trunc nuw nsw i64 %16 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %36, i32 noundef %19, i32 noundef %34, i32 noundef %35) #6
   %37 = add nuw nsw i64 %16, 1
   %38 = load i8, ptr %10, align 8
@@ -752,7 +752,7 @@ define internal noundef i32 @cur_wm_latency_show(ptr noundef %0, ptr readnone ca
   %33 = phi i32 [ %27, %26 ], [ %31, %28 ]
   %34 = udiv i32 %33, 10
   %35 = urem i32 %33, 10
-  %36 = trunc i64 %16 to i32
+  %36 = trunc nuw nsw i64 %16 to i32
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %36, i32 noundef %19, i32 noundef %34, i32 noundef %35) #6
   %37 = add nuw nsw i64 %16, 1
   %38 = load i8, ptr %10, align 8

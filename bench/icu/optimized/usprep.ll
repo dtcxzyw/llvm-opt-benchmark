@@ -1537,7 +1537,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
 
 178:                                              ; preds = %175
   %179 = lshr i32 %.3111, 10
-  %180 = trunc i32 %179 to i16
+  %180 = trunc nuw nsw i32 %179 to i16
   %181 = add nsw i16 %180, -10304
   %182 = sext i32 %.0105150 to i64
   %183 = getelementptr inbounds i16, ptr %3, i64 %182

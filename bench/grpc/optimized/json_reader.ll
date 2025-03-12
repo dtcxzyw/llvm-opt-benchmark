@@ -1761,7 +1761,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonReader9SetStringEv.exit.i.i: ; preds = %_ZN9grp
   %.071.i.i = phi i32 [ %519, %518 ], [ %523, %522 ], [ %515, %514 ]
   %525 = load i16, ptr %72, align 2, !tbaa !108, !noalias !3
   %526 = shl i16 %525, 4
-  %527 = trunc nsw i32 %.071.i.i to i16
+  %527 = trunc nuw nsw i32 %.071.i.i to i16
   %528 = or i16 %526, %527
   store i16 %528, ptr %72, align 2, !tbaa !108, !noalias !3
   switch i32 %326, label %default.unreachable.i.i [

@@ -308,7 +308,7 @@ define hidden range(i32 -1, 7) i32 @UTF8_putc(ptr noundef writeonly captures(add
 
 15:                                               ; preds = %13
   %16 = lshr i64 %2, 6
-  %17 = trunc nuw i64 %16 to i8
+  %17 = trunc nuw nsw i64 %16 to i8
   %18 = or disjoint i8 %17, -64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %18, ptr %0, align 1, !tbaa !6
@@ -330,7 +330,7 @@ define hidden range(i32 -1, 7) i32 @UTF8_putc(ptr noundef writeonly captures(add
 
 27:                                               ; preds = %25
   %28 = lshr i64 %2, 12
-  %29 = trunc nuw i64 %28 to i8
+  %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, -32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %30, ptr %0, align 1, !tbaa !6
@@ -358,7 +358,7 @@ define hidden range(i32 -1, 7) i32 @UTF8_putc(ptr noundef writeonly captures(add
 
 44:                                               ; preds = %42
   %45 = lshr i64 %2, 18
-  %46 = trunc nuw i64 %45 to i8
+  %46 = trunc nuw nsw i64 %45 to i8
   %47 = or disjoint i8 %46, -16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %47, ptr %0, align 1, !tbaa !6
@@ -392,7 +392,7 @@ define hidden range(i32 -1, 7) i32 @UTF8_putc(ptr noundef writeonly captures(add
 
 66:                                               ; preds = %64
   %67 = lshr i64 %2, 24
-  %68 = trunc nuw i64 %67 to i8
+  %68 = trunc nuw nsw i64 %67 to i8
   %69 = or disjoint i8 %68, -8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %69, ptr %0, align 1, !tbaa !6

@@ -141,7 +141,7 @@ define ptr @ev_token_bucket_cfg_new(i64 noundef %0, i64 noundef %1, i64 noundef 
   %8 = trunc i64 %.pre to i32
   %9 = and i32 %8, 1048568
   %10 = udiv i32 %9, 1000
-  %11 = trunc nuw i64 %.pr to i32
+  %11 = trunc nuw nsw i64 %.pr to i32
   %12 = mul nuw nsw i32 %11, 1000
   %13 = add nuw i32 %10, %12
   br label %14

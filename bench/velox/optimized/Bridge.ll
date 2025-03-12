@@ -43439,7 +43439,7 @@ if.end.i:                                         ; preds = %if.then
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit.thread.i: ; preds = %if.end.i
   %mul.i413.i = shl nuw nsw i64 %capacity, 3
   %add.i14.i = add nuw nsw i64 %mul.i413.i, 16
-  %1 = trunc nuw i64 %capacity to i8
+  %1 = trunc nuw nsw i64 %capacity to i8
   br label %3
 
 if.else11.i.i:                                    ; preds = %if.end.i
@@ -191363,7 +191363,7 @@ if.then.i9.i:                                     ; preds = %if.end11.i
   br label %_ZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_.exit
 
 _ZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_.exit: ; preds = %if.end11.i, %if.then.i9.i
-  %conv.i = trunc i64 %call.i to i32
+  %conv.i = trunc nsw i64 %call.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i)
   ret i32 %conv.i
 }

@@ -26352,7 +26352,7 @@ define hidden void @_ZN7similar4text14TextDiffConfig4diff17hb115e2c8beffb8ceE.ll
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 25
   %27 = load i8, ptr %26, align 1, !range !737, !noundef !9
   %28 = icmp eq i8 %27, 2
-  %29 = trunc i8 %27 to i1
+  %29 = trunc nuw i8 %27 to i1
   %spec.select = select i1 %28, i1 %4, i1 %29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)

@@ -42481,7 +42481,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t19get_
 
 _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit.thread: ; preds = %39, %37
   %.08.i.ph = phi i32 [ 0, %37 ], [ %spec.select, %39 ]
-  %45 = trunc i32 %.08.i.ph to i16
+  %45 = trunc nuw nsw i32 %.08.i.ph to i16
   br label %.thread
 
 _ZNK2OT4cff119accelerator_templ_tIN3CFF25cff1_private_dict_opset_tENS2_31cff1_private_dict_values_base_tINS2_10dict_val_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit: ; preds = %35, %41, %43

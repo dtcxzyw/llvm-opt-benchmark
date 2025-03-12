@@ -581,7 +581,7 @@ define dso_local ptr @drm_internal_framebuffer_create(ptr noundef %0, ptr nounde
   %149 = phi i32 [ %147, %141 ], [ 0, %132 ], [ 0, %126 ], [ %spec.select, %.thread18 ]
   %150 = getelementptr [4 x i8], ptr %106, i64 0, i64 %127
   %151 = load i8, ptr %150, align 1
-  %152 = trunc i64 %127 to i32
+  %152 = trunc nuw nsw i64 %127 to i32
   %153 = tail call i64 @drm_format_info_min_pitch(ptr noundef %98, i32 noundef %152, i32 noundef %148) #6
   %154 = icmp ne i8 %151, 0
   br i1 %154, label %164, label %155

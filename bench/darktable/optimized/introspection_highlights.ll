@@ -7401,7 +7401,7 @@ FCxtrans.exit566.us.us.i:                         ; preds = %2446, %.lr.ph682.sp
   br label %2580
 
 2500:                                             ; preds = %2494
-  %2501 = trunc i64 %2491 to i32
+  %2501 = trunc nuw nsw i64 %2491 to i32
   %2502 = udiv i32 %2501, 3
   %.reass695.us.i.us = add i32 %invariant.op694.i, %2502
   %2503 = sext i32 %.reass695.us.i.us to i64

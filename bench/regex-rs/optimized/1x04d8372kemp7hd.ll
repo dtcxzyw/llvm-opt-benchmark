@@ -12282,7 +12282,7 @@ define range(i32 1, 16777218) i32 @_ZN14regex_automata4util8alphabet4Unit3eoi17h
   unreachable
 
 .split7:                                          ; preds = %1
-  %.sroa.44.0.insert.ext = trunc nuw i64 %0 to i32
+  %.sroa.44.0.insert.ext = trunc nuw nsw i64 %0 to i32
   %.sroa.44.0.insert.shift = shl nuw nsw i32 %.sroa.44.0.insert.ext, 16
   %.sroa.02.0.insert.insert = or disjoint i32 %.sroa.44.0.insert.shift, 1
   ret i32 %.sroa.02.0.insert.insert
@@ -12577,7 +12577,7 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.i.i": ; preds = %67
-  %.sroa.4.0.insert.ext.i.i.i = trunc nuw i64 %.sroa.5.0 to i32
+  %.sroa.4.0.insert.ext.i.i.i = trunc nuw nsw i64 %.sroa.5.0 to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !3364
   %.sroa.4.0.insert.shift.i.i.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i.i, 8
   br label %"_ZN104_$LT$regex_automata..util..alphabet..ByteClassIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd5d657b7c527ad2eE.exit.i"
@@ -12732,7 +12732,7 @@ define noundef zeroext i1 @"_ZN80_$LT$regex_automata..util..alphabet..ByteClasse
   br i1 %.not25.i.i, label %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread", label %.split.i.i
 
 "_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit.i.thread": ; preds = %98
-  %.sroa.4.0.insert.ext.i.i.i63 = trunc nuw i64 %.sroa.26.2 to i32
+  %.sroa.4.0.insert.ext.i.i.i63 = trunc nuw nsw i64 %.sroa.26.2 to i32
   %.sroa.4.0.insert.shift.i.i.i64 = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i.i63, 8
   br label %102
 
@@ -12955,7 +12955,7 @@ define range(i32 0, 16777472) i32 @"_ZN104_$LT$regex_automata..util..alphabet..B
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit": ; preds = %16
-  %.sroa.4.0.insert.ext.i = trunc nuw i64 %4 to i32
+  %.sroa.4.0.insert.ext.i = trunc nuw nsw i64 %4 to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   store i64 %5, ptr %3, align 8
   %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i, 8
@@ -13056,7 +13056,7 @@ define range(i32 0, 16777472) i32 @"_ZN115_$LT$regex_automata..util..alphabet..B
 .critedge:                                        ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.us"
   %.us-phi47 = phi i64 [ %.promoted, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.us" ], [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit" ]
   %.us-phi48 = phi i8 [ %17, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit.us" ], [ %24, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h839709a51b834882E.llvm.8347807780687254574.exit" ]
-  %.sroa.4.0.insert.ext.i.le = trunc nuw i64 %.us-phi47 to i32
+  %.sroa.4.0.insert.ext.i.le = trunc nuw nsw i64 %.us-phi47 to i32
   store i8 1, ptr %9, align 8
   store i8 %.us-phi48, ptr %11, align 1
   %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.le, 8
@@ -13114,7 +13114,7 @@ define range(i32 0, 16777220) i32 @"_ZN108_$LT$regex_automata..util..alphabet..B
   br i1 %.not25, label %14, label %.split
 
 14:                                               ; preds = %10
-  %.sroa.4.0.insert.ext.i = trunc nuw i64 %6 to i32
+  %.sroa.4.0.insert.ext.i = trunc nuw nsw i64 %6 to i32
   %.sroa.4.0.insert.shift.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i, 8
   br label %9
 }
@@ -13215,7 +13215,7 @@ define i64 @"_ZN113_$LT$regex_automata..util..alphabet..ByteClassElementRanges$u
   br i1 %.not25.i, label %21, label %.split.i
 
 21:                                               ; preds = %17
-  %.sroa.4.0.insert.ext.i.i = trunc nuw i64 %.promoted.i79 to i32
+  %.sroa.4.0.insert.ext.i.i = trunc nuw nsw i64 %.promoted.i79 to i32
   %.sroa.4.0.insert.shift.i.i = shl nuw nsw i32 %.sroa.4.0.insert.ext.i.i, 8
   br label %"_ZN108_$LT$regex_automata..util..alphabet..ByteClassElements$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he836e12f071b565dE.exit"
 

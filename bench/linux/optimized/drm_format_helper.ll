@@ -173,7 +173,7 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
 
 .split3.us:                                       ; preds = %18, %.split3.us
   %22 = phi i64 [ %25, %.split3.us ], [ 0, %18 ]
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = tail call i32 @drm_format_info_bpp(ptr noundef %7, i32 noundef %23) #12
   %25 = add nuw nsw i64 %22, 1
   %26 = load i8, ptr %15, align 1
@@ -183,7 +183,7 @@ define dso_local void @drm_fb_memcpy(ptr noundef readonly captures(none) %0, ptr
 
 .split3:                                          ; preds = %18, %.loopexit
   %29 = phi i64 [ %79, %.loopexit ], [ 0, %18 ]
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   %31 = tail call i32 @drm_format_info_bpp(ptr noundef %7, i32 noundef %30) #12
   %32 = load i32, ptr %19, align 4
   %33 = load i32, ptr %4, align 4

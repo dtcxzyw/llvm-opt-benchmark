@@ -28471,7 +28471,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i, i64 24, i1 false), !noalias !6205
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !6205
   store ptr %12, ptr %3, align 8, !noalias !6205
-  %trunc.i = trunc i8 %9 to i1
+  %trunc.i = trunc nuw i8 %9 to i1
   br i1 %trunc.i, label %17, label %16
 
 14:                                               ; preds = %2
@@ -28524,7 +28524,7 @@ define hidden void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$ser
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i, i64 24, i1 false), !noalias !6211
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !6211
   store ptr %12, ptr %3, align 8, !noalias !6211
-  %trunc.i = trunc i8 %9 to i1
+  %trunc.i = trunc nuw i8 %9 to i1
   br i1 %trunc.i, label %17, label %16
 
 14:                                               ; preds = %2
@@ -36313,7 +36313,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i.i, i64 24, i1 false), !noalias !8123
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !8123
   store ptr %16, ptr %3, align 8, !noalias !8123
-  %trunc.i.i = trunc i8 %13 to i1
+  %trunc.i.i = trunc nuw i8 %13 to i1
   br i1 %trunc.i.i, label %21, label %20
 
 18:                                               ; preds = %9
@@ -39213,7 +39213,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i.i, i64 24, i1 false), !noalias !8950
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !8950
   store ptr %16, ptr %3, align 8, !noalias !8950
-  %trunc.i.i = trunc i8 %13 to i1
+  %trunc.i.i = trunc nuw i8 %13 to i1
   br i1 %trunc.i.i, label %21, label %20
 
 18:                                               ; preds = %9
@@ -42395,7 +42395,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i.i, i64 24, i1 false), !noalias !9851
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !9851
   store ptr %29, ptr %3, align 8, !noalias !9851
-  %trunc.i.i = trunc i8 %26 to i1
+  %trunc.i.i = trunc nuw i8 %26 to i1
   br i1 %trunc.i.i, label %32, label %31
 
 "_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h6d3fcc2876fe14a9E.llvm.9953363128220797170.exit.thread": ; preds = %19
@@ -43090,7 +43090,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx.i.i, i64 24, i1 false), !noalias !10067
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !10067
   store ptr %29, ptr %3, align 8, !noalias !10067
-  %trunc.i.i = trunc i8 %26 to i1
+  %trunc.i.i = trunc nuw i8 %26 to i1
   br i1 %trunc.i.i, label %34, label %33
 
 31:                                               ; preds = %19

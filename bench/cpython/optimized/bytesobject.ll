@@ -14917,7 +14917,7 @@ Py_DECREF.exit90.i:                               ; preds = %85, %82, %_Py_NewRe
 
 .preheader107.i:                                  ; preds = %87, %.preheader107.i
   %.167114.i = phi i64 [ %91, %.preheader107.i ], [ 0, %87 ]
-  %89 = trunc nuw i64 %.167114.i to i32
+  %89 = trunc nuw nsw i64 %.167114.i to i32
   %90 = getelementptr [256 x i32], ptr %8, i64 0, i64 %.167114.i
   store i32 %89, ptr %90, align 4, !tbaa !24
   %91 = add nuw nsw i64 %.167114.i, 1

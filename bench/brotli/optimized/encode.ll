@@ -509,7 +509,7 @@ BrotliEncoderIsFinished.exit.thread:              ; preds = %BrotliEncoderSetPar
 
 96:                                               ; preds = %74
   %97 = lshr i32 %86, 24
-  %98 = trunc nuw i32 %97 to i8
+  %98 = trunc nuw nsw i32 %97 to i8
   %99 = add i64 %.04548.i, 4
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 %94
   store i8 %98, ptr %100, align 1, !tbaa !70
@@ -4731,7 +4731,7 @@ ChooseContextMode.exit:                           ; preds = %1513, %1518
 
 1601:                                             ; preds = %1599
   %1602 = add nsw i64 %1584, -2
-  %1603 = trunc nuw i64 %1602 to i32
+  %1603 = trunc nuw nsw i64 %1602 to i32
   %1604 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1603, i1 true)
   %1605 = sub nuw nsw i32 30, %1604
   %1606 = shl nuw nsw i32 %1605, 1
@@ -4739,7 +4739,7 @@ ChooseContextMode.exit:                           ; preds = %1513, %1518
   %1608 = zext nneg i32 %1605 to i64
   %1609 = lshr i64 %1602, %1608
   %1610 = add nuw nsw i64 %1609, %1607
-  %1611 = trunc i64 %1610 to i16
+  %1611 = trunc nuw nsw i64 %1610 to i16
   %1612 = add nuw nsw i16 %1611, 2
   br label %GetInsertLengthCode.exit
 
@@ -4776,7 +4776,7 @@ GetInsertLengthCode.exit:                         ; preds = %1597, %1601, %1615,
   %1631 = lshr i32 5377344, %1628
   %1632 = and i32 %1631, 192
   %1633 = add nuw nsw i32 %1630, %1632
-  %1634 = trunc i32 %1633 to i16
+  %1634 = trunc nuw nsw i32 %1633 to i16
   %1635 = or disjoint i16 %1625, %1634
   %1636 = or disjoint i16 %1635, 2
   store i16 %1636, ptr %1595, align 2, !tbaa !80
@@ -6343,7 +6343,7 @@ CommandRestoreDistanceCode.exit:                  ; preds = %3, %38
   br i1 %150, label %151, label %153
 
 151:                                              ; preds = %.critedge
-  %152 = trunc nuw i32 %140 to i16
+  %152 = trunc nuw nsw i32 %140 to i16
   br label %GetInsertLengthCode.exit
 
 153:                                              ; preds = %.critedge
@@ -6352,7 +6352,7 @@ CommandRestoreDistanceCode.exit:                  ; preds = %3, %38
 
 155:                                              ; preds = %153
   %156 = add nsw i64 %141, -2
-  %157 = trunc nuw i64 %156 to i32
+  %157 = trunc nuw nsw i64 %156 to i32
   %158 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
   %159 = sub nsw i32 30, %158
   %160 = shl nuw nsw i32 %159, 1
@@ -6360,7 +6360,7 @@ CommandRestoreDistanceCode.exit:                  ; preds = %3, %38
   %162 = zext nneg i32 %159 to i64
   %163 = lshr i64 %156, %162
   %164 = add nuw nsw i64 %163, %161
-  %165 = trunc i64 %164 to i16
+  %165 = trunc nuw nsw i64 %164 to i16
   %166 = add nuw nsw i16 %165, 2
   br label %GetInsertLengthCode.exit
 
@@ -6390,7 +6390,7 @@ GetInsertLengthCode.exit:                         ; preds = %151, %155, %169, %1
   br i1 %178, label %179, label %182
 
 179:                                              ; preds = %GetInsertLengthCode.exit
-  %180 = trunc nuw i32 %145 to i16
+  %180 = trunc nuw nsw i32 %145 to i16
   %181 = add nsw i16 %180, -2
   br label %GetCopyLengthCode.exit
 
@@ -6408,7 +6408,7 @@ GetInsertLengthCode.exit:                         ; preds = %151, %155, %169, %1
   %191 = zext nneg i32 %188 to i64
   %192 = lshr i64 %185, %191
   %193 = add nuw nsw i64 %192, %190
-  %194 = trunc i64 %193 to i16
+  %194 = trunc nuw nsw i64 %193 to i16
   %195 = add nuw nsw i16 %194, 4
   br label %GetCopyLengthCode.exit
 

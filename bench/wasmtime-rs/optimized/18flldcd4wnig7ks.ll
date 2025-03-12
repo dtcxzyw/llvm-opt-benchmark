@@ -10197,7 +10197,7 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform17address_transform16
   br label %.loopexit
 
 .lr.ph530:                                        ; preds = %3
-  %72 = trunc i64 %64 to i32
+  %72 = trunc nuw i64 %64 to i32
   %73 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %75 = getelementptr inbounds nuw i8, ptr %52, i64 16

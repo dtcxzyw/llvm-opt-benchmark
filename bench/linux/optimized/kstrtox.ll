@@ -629,7 +629,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoint(ptr noundef readonly c
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = trunc i64 %8 to i32
+  %12 = trunc nsw i64 %8 to i32
   store i32 %12, ptr %2, align 4
   br label %13
 
@@ -680,7 +680,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos16(ptr noundef readonly c
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = trunc i64 %8 to i16
+  %12 = trunc nsw i64 %8 to i16
   store i16 %12, ptr %2, align 2
   br label %13
 
@@ -731,7 +731,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8(ptr noundef readonly ca
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = trunc i64 %8 to i8
+  %12 = trunc nsw i64 %8 to i8
   store i8 %12, ptr %2, align 1
   br label %13
 
@@ -1010,7 +1010,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtoint_from_user(ptr noundef 
   br i1 %17, label %18, label %kstrtoint.exit
 
 18:                                               ; preds = %14
-  %19 = trunc i64 %15 to i32
+  %19 = trunc nsw i64 %15 to i32
   store i32 %19, ptr %3, align 4
   br label %kstrtoint.exit
 
@@ -1093,7 +1093,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos16_from_user(ptr noundef 
   br i1 %17, label %18, label %kstrtos16.exit
 
 18:                                               ; preds = %14
-  %19 = trunc i64 %15 to i16
+  %19 = trunc nsw i64 %15 to i16
   store i16 %19, ptr %3, align 2
   br label %kstrtos16.exit
 
@@ -1176,7 +1176,7 @@ define dso_local noundef range(i32 -34, 1) i32 @kstrtos8_from_user(ptr noundef %
   br i1 %17, label %18, label %kstrtos8.exit
 
 18:                                               ; preds = %14
-  %19 = trunc i64 %15 to i8
+  %19 = trunc nsw i64 %15 to i8
   store i8 %19, ptr %3, align 1
   br label %kstrtos8.exit
 

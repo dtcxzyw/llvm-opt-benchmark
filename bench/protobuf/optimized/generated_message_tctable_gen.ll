@@ -2812,7 +2812,7 @@ invoke.cont303:                                   ; preds = %for.inc.i, %if.then
   %shr.i.i = lshr i32 %tag.addr.0.i.i, 3
   %cmp15.i = icmp samesign ult i64 %retval.sroa.0.0.i, 128
   %spec.select1326 = select i1 %cmp15.i, i8 109, i8 110
-  %conv16.i = trunc nuw i32 %tag.addr.0.i.i to i16
+  %conv16.i = trunc nuw nsw i32 %tag.addr.0.i.i to i16
   %conv18.i = trunc i64 %retval.sroa.0.0.i to i16
   %_M_finish.i25.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %uses_codegen.i.i = getelementptr inbounds nuw i8, ptr %message_options, i64 1
@@ -5674,7 +5674,7 @@ land.lhs.true50:                                  ; preds = %invoke.cont40
   br i1 %cmp54.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit33, label %land.lhs.true55
 
 land.lhs.true55:                                  ; preds = %land.lhs.true50
-  %14 = trunc nuw i64 %sub.ptr.div.i to i32
+  %14 = trunc nuw nsw i64 %sub.ptr.div.i to i32
   %15 = add nsw i32 %12, -1
   %conv59 = add nsw i32 %15, %14
   %add.ptr.i.i24 = getelementptr inbounds i8, ptr %enum_values.sroa.14.2, i64 -4
@@ -5683,7 +5683,7 @@ land.lhs.true55:                                  ; preds = %land.lhs.true50
   br i1 %cmp61, label %if.then, label %_ZNSt6vectorIiSaIiEED2Ev.exit33
 
 if.then:                                          ; preds = %land.lhs.true55
-  %conv63 = trunc i32 %12 to i16
+  %conv63 = trunc nsw i32 %12 to i16
   store i16 %conv63, ptr %start, align 2
   %conv65 = trunc nuw i64 %sub.ptr.div.i to i16
   store i16 %conv65, ptr %size, align 2

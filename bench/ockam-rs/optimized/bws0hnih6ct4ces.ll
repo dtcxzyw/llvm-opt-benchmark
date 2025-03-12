@@ -2986,7 +2986,7 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deseri
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  %trunc.i.i = trunc i8 %3 to i1
+  %trunc.i.i = trunc nuw i8 %3 to i1
   br i1 %trunc.i.i, label %10, label %16
 
 6:                                                ; preds = %1
@@ -3030,7 +3030,7 @@ define hidden void @"_ZN5serde2de5impls86_$LT$impl$u20$serde..de..Deserialize$u2
   br i1 %6, label %10, label %9
 
 9:                                                ; preds = %2
-  %trunc.i.i = trunc i8 %5 to i1
+  %trunc.i.i = trunc nuw i8 %5 to i1
   br i1 %trunc.i.i, label %21, label %12
 
 10:                                               ; preds = %2

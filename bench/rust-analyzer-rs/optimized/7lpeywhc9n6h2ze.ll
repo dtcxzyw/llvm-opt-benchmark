@@ -50607,7 +50607,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !16626
   %12 = trunc i32 %1 to i8
@@ -50619,7 +50619,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !16626
   %19 = lshr i32 %1, 6
@@ -50690,7 +50690,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %70
 
 .critedge:                                        ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !16639, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !16639, !noundef !4
@@ -74361,7 +74361,7 @@ define internal fastcc void @"_ZN6hir_ty3mir5lower8as_place49_$LT$impl$u20$hir_t
           to label %76 unwind label %78
 
 75:                                               ; preds = %68
-  %trunc = trunc i8 %26 to i1
+  %trunc = trunc nuw i8 %26 to i1
   %.0110 = xor i1 %trunc, true
   tail call fastcc void @"_ZN6hir_ty3mir5lower8as_place49_$LT$impl$u20$hir_ty..mir..lower..MirLowerCtx$GT$22lower_overloaded_deref17h1279a1eeeaffe9f8E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(344) %1, i32 noundef %.sroa.682.0.copyload, i32 noundef %.sroa.480.0.copyload, i32 noundef %.sroa.581.0.copyload, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 0, i32 %3, i1 noundef zeroext %.0110)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
@@ -80674,9 +80674,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit1001: ; pre
 766:                                              ; preds = %760
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !22363
   %767 = icmp eq i8 %745, 2
-  %trunc.i1009 = trunc i8 %745 to i1
+  %trunc.i1009 = trunc nuw i8 %745 to i1
   %spec.select.i1010 = select i1 %trunc.i1009, i8 3, i8 0
   %.sroa.10.0.i = select i1 %767, i32 0, i32 %135
+  %.sroa.642.0.i = select i1 %767, i8 undef, i8 %spec.select.i1010
   %.sroa.041.0.i = select i1 %767, i8 0, i8 2
   %768 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val37.i = load ptr, ptr %768, align 8, !alias.scope !22355, !noalias !22358
@@ -80687,7 +80688,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.450774749160709717.exit1001: ; pre
   %770 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 %.sroa.041.0.i, ptr %770, align 8, !alias.scope !22375, !noalias !22363
   %.sroa.642.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 9
-  store i8 %spec.select.i1010, ptr %.sroa.642.0..sroa_idx.i, align 1, !alias.scope !22375, !noalias !22363
+  store i8 %.sroa.642.0.i, ptr %.sroa.642.0..sroa_idx.i, align 1, !alias.scope !22375, !noalias !22363
   %.sroa.844.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %5, ptr %.sroa.844.0..sroa_idx.i, align 4, !alias.scope !22375, !noalias !22363
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -81585,9 +81586,10 @@ define internal fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$
 29:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   %30 = icmp eq i8 %3, 2
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %spec.select = select i1 %trunc, i8 3, i8 0
   %.sroa.10.0 = select i1 %30, i32 0, i32 %5
+  %.sroa.642.0 = select i1 %30, i8 undef, i8 %spec.select
   %.sroa.041.0 = select i1 %30, i8 0, i8 2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val37 = load ptr, ptr %31, align 8
@@ -81598,7 +81600,7 @@ define internal fastcc void @"_ZN6hir_ty3mir5lower16pattern_matching49_$LT$impl$
   %33 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 %.sroa.041.0, ptr %33, align 8, !alias.scope !22533
   %.sroa.642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 9
-  store i8 %spec.select, ptr %.sroa.642.0..sroa_idx, align 1, !alias.scope !22533
+  store i8 %.sroa.642.0, ptr %.sroa.642.0..sroa_idx, align 1, !alias.scope !22533
   %.sroa.844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %4, ptr %.sroa.844.0..sroa_idx, align 4, !alias.scope !22533
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -104100,8 +104102,6 @@ define void @_ZN6hir_ty3mir5lower12lower_to_mir17h41c707f2f1b2a00fE(ptr noalias 
   call void @llvm.experimental.noalias.scope.decl(metadata !26436)
   %449 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i8 0, ptr %449, align 8, !alias.scope !26439, !noalias !26423
-  %.sroa.642.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 9
-  store i8 0, ptr %.sroa.642.0..sroa_idx.i.i.i, align 1, !alias.scope !26439, !noalias !26423
   %.sroa.844.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %418, ptr %.sroa.844.0..sroa_idx.i.i.i, align 4, !alias.scope !26439, !noalias !26423
   %.sroa.10.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16

@@ -7884,7 +7884,7 @@ _ZN5clang8comments4Sema12getParamVarsEv.exit:     ; preds = %23, %33
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
-  %42 = trunc i64 %.sroa.2.0.copyload.i to i32
+  %42 = trunc nuw i64 %.sroa.2.0.copyload.i to i32
   br label %.sink.split.i
 
 43:                                               ; preds = %39

@@ -305,7 +305,7 @@ fail_due_to_record_overflow.exit:                 ; preds = %71
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 3, ptr %90, align 1, !tbaa !13
   %91 = lshr i64 %.2, 8
-  %92 = trunc i64 %91 to i8
+  %92 = trunc nuw nsw i64 %91 to i8
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %92, ptr %93, align 1, !tbaa !13
   %94 = trunc i64 %.2 to i8

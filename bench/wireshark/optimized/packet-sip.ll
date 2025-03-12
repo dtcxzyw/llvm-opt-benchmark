@@ -1781,7 +1781,7 @@ define internal range(i32 0, 2) i32 @sip_stat_packet(ptr noundef readonly captur
   br i1 %.not94, label %32, label %36
 
 32:                                               ; preds = %30
-  %.lhs.trunc = trunc nuw i32 %.fr to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.fr to i16
   %33 = urem i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %33 to i32
   %34 = add nuw nsw i32 %.fr, 99

@@ -41912,7 +41912,7 @@ newtok.exit:                                      ; preds = %17, %22
   ]
 
 25:                                               ; preds = %newtok.exit, %newtok.exit
-  %26 = trunc i32 %1 to i8
+  %26 = trunc nuw nsw i32 %1 to i8
   %27 = load i32, ptr %11, align 8, !tbaa !505
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %11, align 8, !tbaa !505
@@ -42167,7 +42167,7 @@ switch.early.test586:                             ; preds = %122
   ]
 
 125:                                              ; preds = %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %switch.early.test586, %122
-  %126 = trunc nuw i32 %.3.fr to i8
+  %126 = trunc nuw nsw i32 %.3.fr to i8
   %127 = load ptr, ptr %12, align 8, !tbaa !462
   %128 = load i32, ptr %11, align 8, !tbaa !505
   %129 = add nsw i32 %128, 1
@@ -42380,7 +42380,7 @@ nextc0.exit373:                                   ; preds = %nextc0.exit373.back
   br i1 %or.cond9, label %.thread483, label %222
 
 222:                                              ; preds = %220
-  %223 = trunc nuw i32 %.6 to i8
+  %223 = trunc nuw nsw i32 %.6 to i8
   %224 = load ptr, ptr %12, align 8, !tbaa !462
   %225 = load i32, ptr %11, align 8, !tbaa !505
   %226 = add nsw i32 %225, 1
@@ -42793,7 +42793,7 @@ nextc0.exit406:                                   ; preds = %nextc0.exit406.back
   br i1 %411, label %.loopexit, label %412
 
 412:                                              ; preds = %410
-  %413 = trunc nuw i32 %.12 to i8
+  %413 = trunc nuw nsw i32 %.12 to i8
   %414 = load ptr, ptr %12, align 8, !tbaa !462
   %415 = load i32, ptr %11, align 8, !tbaa !505
   %416 = add nsw i32 %415, 1
@@ -42967,7 +42967,7 @@ nextc0.exit446:                                   ; preds = %nextc0.exit446.back
   ]
 
 474:                                              ; preds = %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446, %nextc0.exit446
-  %475 = trunc i32 %.16 to i8
+  %475 = trunc nuw nsw i32 %.16 to i8
   %476 = load ptr, ptr %12, align 8, !tbaa !462
   %477 = load i32, ptr %11, align 8, !tbaa !505
   %478 = add nsw i32 %477, 1
@@ -43245,7 +43245,7 @@ nextc0.exit432.thread:                            ; preds = %583
   br label %pushback.exit423.thread
 
 612:                                              ; preds = %583, %583, %nextc0.exit432.thread
-  %613 = trunc i32 %.16 to i8
+  %613 = trunc nuw nsw i32 %.16 to i8
   %614 = load ptr, ptr %12, align 8, !tbaa !462
   %615 = load i32, ptr %11, align 8, !tbaa !505
   %616 = add nsw i32 %615, 1
@@ -45504,7 +45504,7 @@ parser_is_identchar.exit.thread..thread202_crit_edge: ; preds = %parser_is_ident
   br i1 %59, label %77, label %60
 
 60:                                               ; preds = %57, %54
-  %61 = trunc i32 %.011.i to i8
+  %61 = trunc nuw nsw i32 %.011.i to i8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %63 = load ptr, ptr %62, align 8, !tbaa !462
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -47510,7 +47510,7 @@ define internal fastcc void @flush_string_content(ptr noundef %0, ptr noundef %1
   unreachable
 
 28:                                               ; preds = %15
-  %29 = trunc i64 %25 to i32
+  %29 = trunc nsw i64 %25 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %29, ptr %30, align 4, !tbaa !573
   %.pre = load ptr, ptr %8, align 8, !tbaa !40
@@ -49462,7 +49462,7 @@ rb_parser_enc_associate.exit:                     ; preds = %.thread, %88
   unreachable
 
 .thread61:                                        ; preds = %rb_parser_enc_associate.exit
-  %99 = trunc i64 %96 to i32
+  %99 = trunc nsw i64 %96 to i32
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i32 %99, ptr %100, align 4, !tbaa !45
   %101 = ptrtoint ptr %2 to i64
@@ -49533,7 +49533,7 @@ rb_parser_str_buf_cat.exit:                       ; preds = %108, %ruby_nonempty
   unreachable
 
 rb_long2int_inline.exit59:                        ; preds = %rb_parser_str_buf_cat.exit
-  %136 = trunc i64 %133 to i32
+  %136 = trunc nsw i64 %133 to i32
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 %136, ptr %137, align 4, !tbaa !573
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 96

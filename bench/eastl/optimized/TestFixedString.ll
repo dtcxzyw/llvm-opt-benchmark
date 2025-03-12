@@ -5450,7 +5450,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %cond.i10.i to i8
+  %5 = trunc nuw nsw i64 %cond.i10.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -5494,7 +5494,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %2 = trunc nuw i64 %n to i8
+  %2 = trunc nuw nsw i64 %n to i8
   %conv.i.i41.i.i = sub nsw i8 23, %2
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -5551,7 +5551,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %3 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %3
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -5628,7 +5628,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %5 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %this, ptr align 1 %spec.select.i.i.i, i64 %spec.select.i, i1 false)
-  %6 = trunc nuw i64 %spec.select.i to i8
+  %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 23, %6
   store i8 %conv.i.i6.i, ptr %mRemainingSizeField.i.i, align 1
   %add.ptr.i41.i.i = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.i
@@ -5750,7 +5750,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -5809,7 +5809,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -5868,7 +5868,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -5915,7 +5915,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %2 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i41.i = sub nsw i8 23, %2
   store i8 %conv.i.i41.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -6017,7 +6017,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %ilist.coerce1 to i8
+  %2 = trunc nuw nsw i64 %ilist.coerce1 to i8
   %conv.i.i41.i = sub nsw i8 23, %2
   store i8 %conv.i.i41.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -6076,7 +6076,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -6135,7 +6135,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -6974,7 +6974,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %cond.i10.i to i8
+  %5 = trunc nuw nsw i64 %cond.i10.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7019,7 +7019,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %2 = trunc nuw i64 %n to i8
+  %2 = trunc nuw nsw i64 %n to i8
   %conv.i.i41.i.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7077,7 +7077,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.div.i6.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7155,7 +7155,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %spec.select.i.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %5
   %add.ptr.idx.i.i = shl nuw nsw i64 %spec.select.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %this, ptr align 2 %spec.select.i.i.i, i64 %add.ptr.idx.i.i, i1 false)
-  %6 = trunc nuw i64 %spec.select.i to i8
+  %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 11, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
   %add.ptr.i41.i.i = getelementptr inbounds nuw i16, ptr %this, i64 %spec.select.i
@@ -7288,7 +7288,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -7348,7 +7348,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -7408,7 +7408,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7456,7 +7456,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %2 = trunc nuw nsw i64 %sub.ptr.div.i to i8
   %conv.i.i41.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7559,7 +7559,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %ilist.coerce1 to i8
+  %2 = trunc nuw nsw i64 %ilist.coerce1 to i8
   %conv.i.i41.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7619,7 +7619,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -7679,7 +7679,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -8525,7 +8525,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %cond.i10.i to i8
+  %5 = trunc nuw nsw i64 %cond.i10.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -8570,7 +8570,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %2 = trunc nuw i64 %n to i8
+  %2 = trunc nuw nsw i64 %n to i8
   %conv.i.i41.i.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -8628,7 +8628,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.div.i6.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -8706,7 +8706,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %spec.select.i.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %5
   %add.ptr.idx.i.i = shl nuw nsw i64 %spec.select.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %this, ptr align 4 %spec.select.i.i.i, i64 %add.ptr.idx.i.i, i1 false)
-  %6 = trunc nuw i64 %spec.select.i to i8
+  %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 5, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
   %add.ptr.i41.i.i = getelementptr inbounds nuw i32, ptr %this, i64 %spec.select.i
@@ -8839,7 +8839,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -8899,7 +8899,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -8959,7 +8959,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -9007,7 +9007,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %2 = trunc nuw nsw i64 %sub.ptr.div.i to i8
   %conv.i.i41.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -9110,7 +9110,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %ilist.coerce1 to i8
+  %2 = trunc nuw nsw i64 %ilist.coerce1 to i8
   %conv.i.i41.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -9170,7 +9170,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -9230,7 +9230,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14294,7 +14294,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %cond.i10.i to i8
+  %5 = trunc nuw nsw i64 %cond.i10.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14338,7 +14338,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %2 = trunc nuw i64 %n to i8
+  %2 = trunc nuw nsw i64 %n to i8
   %conv.i.i41.i.i = sub nsw i8 23, %2
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14395,7 +14395,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %3 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %3
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14472,7 +14472,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %5 = load ptr, ptr %this, align 8
   %spec.select.i.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %this, ptr align 1 %spec.select.i.i.i, i64 %spec.select.i, i1 false)
-  %6 = trunc nuw i64 %spec.select.i to i8
+  %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 23, %6
   store i8 %conv.i.i6.i, ptr %mRemainingSizeField.i.i, align 1
   %add.ptr.i41.i.i = getelementptr inbounds nuw i8, ptr %this, i64 %spec.select.i
@@ -14594,7 +14594,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -14653,7 +14653,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -14712,7 +14712,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14759,7 +14759,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %2 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i41.i = sub nsw i8 23, %2
   store i8 %conv.i.i41.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14861,7 +14861,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %ilist.coerce1 to i8
+  %2 = trunc nuw nsw i64 %ilist.coerce1 to i8
   %conv.i.i41.i = sub nsw i8 23, %2
   store i8 %conv.i.i41.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14920,7 +14920,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -14979,7 +14979,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 23, %5
   store i8 %conv.i.i41.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -15818,7 +15818,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %cond.i10.i to i8
+  %5 = trunc nuw nsw i64 %cond.i10.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -15863,7 +15863,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %2 = trunc nuw i64 %n to i8
+  %2 = trunc nuw nsw i64 %n to i8
   %conv.i.i41.i.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -15921,7 +15921,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.div.i6.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -15999,7 +15999,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %spec.select.i.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %5
   %add.ptr.idx.i.i = shl nuw nsw i64 %spec.select.i, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %this, ptr align 2 %spec.select.i.i.i, i64 %add.ptr.idx.i.i, i1 false)
-  %6 = trunc nuw i64 %spec.select.i to i8
+  %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 11, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
   %add.ptr.i41.i.i = getelementptr inbounds nuw i16, ptr %this, i64 %spec.select.i
@@ -16132,7 +16132,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -16192,7 +16192,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -16252,7 +16252,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -16300,7 +16300,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %2 = trunc nuw nsw i64 %sub.ptr.div.i to i8
   %conv.i.i41.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -16403,7 +16403,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %ilist.coerce1 to i8
+  %2 = trunc nuw nsw i64 %ilist.coerce1 to i8
   %conv.i.i41.i = sub nsw i8 11, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -16463,7 +16463,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -16523,7 +16523,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 11, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -17369,7 +17369,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %cond.i10.i to i8
+  %5 = trunc nuw nsw i64 %cond.i10.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -17414,7 +17414,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %2 = trunc nuw i64 %n to i8
+  %2 = trunc nuw nsw i64 %n to i8
   %conv.i.i41.i.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -17472,7 +17472,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %3 = trunc nuw i64 %sub.ptr.div.i6.i to i8
+  %3 = trunc nuw nsw i64 %sub.ptr.div.i6.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %3
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -17550,7 +17550,7 @@ if.then21.i.i:                                    ; preds = %if.then19.i.i
   %spec.select.i.i.i = select i1 %tobool.i.i29.i.i, ptr %this, ptr %5
   %add.ptr.idx.i.i = shl nuw nsw i64 %spec.select.i, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 dereferenceable(24) %this, ptr align 4 %spec.select.i.i.i, i64 %add.ptr.idx.i.i, i1 false)
-  %6 = trunc nuw i64 %spec.select.i to i8
+  %6 = trunc nuw nsw i64 %spec.select.i to i8
   %conv.i.i6.i = sub nuw nsw i8 5, %6
   store i8 %conv.i.i6.i, ptr %mnRemainingSize.i.i, align 1
   %add.ptr.i41.i.i = getelementptr inbounds nuw i32, ptr %this, i64 %spec.select.i
@@ -17683,7 +17683,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -17743,7 +17743,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont9
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont9
@@ -17803,7 +17803,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -17851,7 +17851,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %sub.ptr.div.i to i8
+  %2 = trunc nuw nsw i64 %sub.ptr.div.i to i8
   %conv.i.i41.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -17954,7 +17954,7 @@ cond.true.i.i:                                    ; preds = %if.else.i
   br label %invoke.cont
 
 cond.false.i.i:                                   ; preds = %if.else.i
-  %2 = trunc nuw i64 %ilist.coerce1 to i8
+  %2 = trunc nuw nsw i64 %ilist.coerce1 to i8
   %conv.i.i41.i = sub nsw i8 5, %2
   store i8 %conv.i.i41.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -18014,7 +18014,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -18074,7 +18074,7 @@ cond.true.i.i.i:                                  ; preds = %if.else.i.i
   br label %invoke.cont
 
 cond.false.i.i.i:                                 ; preds = %if.else.i.i
-  %5 = trunc nuw i64 %sub.ptr.div.i.i to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.div.i.i to i8
   %conv.i.i41.i.i = sub nsw i8 5, %5
   store i8 %conv.i.i41.i.i, ptr %mnRemainingSize.i.i.i.i.i.i, align 1
   br label %invoke.cont
@@ -26923,7 +26923,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0
@@ -27343,7 +27343,7 @@ if.then21:                                        ; preds = %if.then19
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   %add.ptr.idx = shl nuw nsw i64 %n.addr.0, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 2 %spec.select.i, i64 %add.ptr.idx, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 11, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i16, ptr %this, i64 %n.addr.0
@@ -27758,7 +27758,7 @@ if.then21:                                        ; preds = %if.then19
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   %add.ptr.idx = shl nuw nsw i64 %n.addr.0, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 4 %spec.select.i, i64 %add.ptr.idx, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 5, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %this, i64 %n.addr.0
@@ -29686,7 +29686,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0
@@ -30135,7 +30135,7 @@ if.then21:                                        ; preds = %if.then19
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   %add.ptr.idx = shl nuw nsw i64 %n.addr.0, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 2 %spec.select.i, i64 %add.ptr.idx, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 11, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i16, ptr %this, i64 %n.addr.0
@@ -30589,7 +30589,7 @@ if.then21:                                        ; preds = %if.then19
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   %add.ptr.idx = shl nuw nsw i64 %n.addr.0, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 4 %spec.select.i, i64 %add.ptr.idx, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 5, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %this, i64 %n.addr.0
@@ -32556,7 +32556,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0
@@ -33069,7 +33069,7 @@ if.then.i.i.i:                                    ; preds = %if.then18
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then18
-  %4 = trunc nuw i64 %sub.ptr.sub5 to i8
+  %4 = trunc nuw nsw i64 %sub.ptr.sub5 to i8
   %conv.i.i.i.i52 = sub nuw nsw i8 23, %4
   store i8 %conv.i.i.i.i52, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcS4_RKS1_.exit
@@ -33792,7 +33792,7 @@ if.then21:                                        ; preds = %if.then19
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   %add.ptr.idx = shl nuw nsw i64 %n.addr.0, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 4 %spec.select.i, i64 %add.ptr.idx, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 5, %11
   store i8 %conv.i, ptr %mnRemainingSize.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i32, ptr %this, i64 %n.addr.0
@@ -34151,7 +34151,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0
@@ -34562,7 +34562,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0
@@ -34712,7 +34712,7 @@ if.then.i.i.i:                                    ; preds = %if.then18
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEEC2EPKcS6_RKS3_.exit
 
 if.else.i.i.i:                                    ; preds = %if.then18
-  %5 = trunc nuw i64 %sub.ptr.sub5 to i8
+  %5 = trunc nuw nsw i64 %sub.ptr.sub5 to i8
   %conv.i.i.i.i52 = sub nuw nsw i8 23, %5
   store i8 %conv.i.i.i.i52, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_22fixed_vector_allocatorILm1ELm8ELm1ELm0ELb1ENS_9allocatorEEEEC2EPKcS6_RKS3_.exit
@@ -35073,7 +35073,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0

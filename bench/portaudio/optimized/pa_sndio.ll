@@ -109,7 +109,7 @@ define noundef i32 @PaSndio_Initialize(ptr noundef writeonly captures(none) init
   br i1 %exitcond.not, label %.outer.split.us, label %.outer.split, !llvm.loop !34
 
 .loopexit.loopexit:                               ; preds = %25
-  %42 = trunc i64 %.1.ph46 to i32
+  %42 = trunc nuw nsw i64 %.1.ph46 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.outer.split.us, %6

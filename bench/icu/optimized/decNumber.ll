@@ -15146,7 +15146,7 @@ define internal fastcc noundef i32 @_ZL13decUnitAddSubPKhiS0_iiPhi(ptr noundef r
   br i1 %.not145, label %118, label %115
 
 115:                                              ; preds = %._crit_edge174
-  %116 = trunc i32 %114 to i8
+  %116 = trunc nsw i32 %114 to i8
   store i8 %116, ptr %.5134.lcssa, align 1, !tbaa !10
   %117 = getelementptr inbounds nuw i8, ptr %.5134.lcssa, i64 1
   br label %118

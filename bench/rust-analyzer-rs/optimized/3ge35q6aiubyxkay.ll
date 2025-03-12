@@ -183,7 +183,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9
 
 53:                                               ; preds = %49
   %54 = lshr i32 %47, 6
-  %55 = trunc nuw i32 %54 to i8
+  %55 = trunc nuw nsw i32 %54 to i8
   %56 = or disjoint i8 %55, -64
   store i8 %56, ptr %.sroa.0.i.i.i, align 4, !alias.scope !40, !noalias !37
   %57 = trunc i32 %47 to i8
@@ -194,7 +194,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc9
 
 60:                                               ; preds = %51
   %61 = lshr i32 %47, 12
-  %62 = trunc nuw i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   %63 = or disjoint i8 %62, -32
   store i8 %63, ptr %.sroa.0.i.i.i, align 4, !alias.scope !40, !noalias !37
   %64 = lshr i32 %47, 6
@@ -256,7 +256,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i.i.i: ; preds =
 .critedge.i.i.i:                                  ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.thread", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread"
   %97 = phi ptr [ %12, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.thread" ], [ %46, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread" ]
   %98 = phi i32 [ %25, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.thread" ], [ %47, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread" ]
-  %99 = trunc nuw i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %100 = load i64, ptr %6, align 8, !alias.scope !53, !noundef !9
   %101 = load i64, ptr %2, align 8, !alias.scope !53, !noundef !9
   %102 = icmp eq i64 %100, %101

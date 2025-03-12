@@ -2238,7 +2238,7 @@ define internal void @input_repeat_key(ptr noundef %0) #0 align 16 {
   %50 = zext i32 %48 to i64
   %51 = getelementptr %struct.input_value, ptr %44, i64 %50
   store i16 1, ptr %51, align 4
-  %52 = trunc nuw i32 %32 to i16
+  %52 = trunc nuw nsw i32 %32 to i16
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
   store i16 %52, ptr %53, align 2
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 4

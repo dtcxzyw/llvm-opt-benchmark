@@ -4187,7 +4187,7 @@ _.exit:                                           ; preds = %5, %_.exit.sink.spl
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %15
-  %18 = trunc i64 %1 to i32
+  %18 = trunc nuw nsw i64 %1 to i32
   %19 = add nuw nsw i32 %18, 5243
   %20 = icmp eq i32 %2, 0
   %21 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !33
@@ -4213,7 +4213,7 @@ _.exit26:                                         ; preds = %17, %_.exit26.sink.
   br i1 %29, label %30, label %41
 
 30:                                               ; preds = %28
-  %31 = trunc i64 %1 to i32
+  %31 = trunc nuw nsw i64 %1 to i32
   %32 = add nuw nsw i32 %31, 5
   %33 = icmp eq i32 %2, 0
   %34 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !33

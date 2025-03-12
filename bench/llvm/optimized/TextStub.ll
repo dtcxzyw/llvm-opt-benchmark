@@ -11891,7 +11891,7 @@ _ZN4llvm15SmallVectorImplINS_5MachO6TargetEE7reserveEm.exit.i.i.i: ; preds = %35
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %.lr.ph.preheader.i.i.i, %_ZN4llvm15SmallVectorImplINS_5MachO6TargetEE7reserveEm.exit.i.i.i
-  %41 = trunc i64 %32 to i32
+  %41 = trunc nuw i64 %32 to i32
   store i32 %41, ptr %14, align 8, !tbaa !117
   br label %_ZN4llvm4yaml15IsResizableBaseINS_11SmallVectorINS_5MachO6TargetELj5EEELb1EE7elementERNS0_2IOERS5_m.exit
 
@@ -25831,7 +25831,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_5MachO6TargetELb1EE18growAndEmplaceBackIJRK
   br i1 %.not.i.i11, label %71, label %_ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit, !llvm.loop !782
 
 _ZN4llvm5MachO15ArchitectureSet13arch_iteratorIjEppEv.exit: ; preds = %73
-  %76 = trunc nuw i64 %indvars.iv.next.i to i32
+  %76 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %38
 }
 

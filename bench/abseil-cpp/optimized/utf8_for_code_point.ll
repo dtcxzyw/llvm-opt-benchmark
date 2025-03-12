@@ -26,7 +26,7 @@ define dso_local void @_ZN4absl18debugging_internal16Utf8ForCodePointC2Em(ptr no
 9:                                                ; preds = %7
   store i32 2, ptr %3, align 4, !tbaa !4
   %10 = lshr i64 %1, 6
-  %11 = trunc nuw i64 %10 to i8
+  %11 = trunc nuw nsw i64 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %0, align 4, !tbaa !9
   %13 = trunc i64 %1 to i8
@@ -48,7 +48,7 @@ define dso_local void @_ZN4absl18debugging_internal16Utf8ForCodePointC2Em(ptr no
 21:                                               ; preds = %19
   store i32 3, ptr %3, align 4, !tbaa !4
   %22 = lshr i64 %1, 12
-  %23 = trunc nuw i64 %22 to i8
+  %23 = trunc nuw nsw i64 %22 to i8
   %24 = or disjoint i8 %23, -32
   store i8 %24, ptr %0, align 4, !tbaa !9
   %25 = lshr i64 %1, 6
@@ -71,7 +71,7 @@ define dso_local void @_ZN4absl18debugging_internal16Utf8ForCodePointC2Em(ptr no
 36:                                               ; preds = %34
   store i32 4, ptr %3, align 4, !tbaa !4
   %37 = lshr i64 %1, 18
-  %38 = trunc nuw i64 %37 to i8
+  %38 = trunc nuw nsw i64 %37 to i8
   %39 = or disjoint i8 %38, -16
   store i8 %39, ptr %0, align 4, !tbaa !9
   %40 = lshr i64 %1, 12

@@ -6941,7 +6941,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4651 = or disjoint i8 %4645, 68
   store i8 %4651, ptr %4596, align 1, !tbaa !51
   store i8 %4648, ptr %4646, align 1, !tbaa !51
-  %4652 = trunc i32 %4639 to i8
+  %4652 = trunc nsw i32 %4639 to i8
   store i8 %4652, ptr %4649, align 1, !tbaa !51
   %4653 = getelementptr inbounds nuw i8, ptr %4596, i64 3
   br label %5279
@@ -6979,7 +6979,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 4672:                                             ; preds = %4661
   %4673 = or disjoint i8 %4670, 64
   store i8 %4673, ptr %4596, align 1, !tbaa !51
-  %4674 = trunc i32 %4664 to i8
+  %4674 = trunc nsw i32 %4664 to i8
   store i8 %4674, ptr %4671, align 1, !tbaa !51
   %4675 = getelementptr inbounds nuw i8, ptr %4596, i64 2
   br label %5279
@@ -7212,7 +7212,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4834 = or disjoint i8 %4833, 5
   store i8 %4834, ptr %4596, align 1, !tbaa !51
   %4835 = getelementptr inbounds nuw i8, ptr %4596, i64 1
-  %4836 = trunc i64 %4828 to i32
+  %4836 = trunc nsw i64 %4828 to i32
   store i32 %4836, ptr %4835, align 1, !tbaa !51
   %4837 = getelementptr inbounds nuw i8, ptr %4596, i64 5
   %4838 = icmp samesign ugt i8 %4601, 3
@@ -7717,7 +7717,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5174 = add nuw nsw i8 %5169, 68
   store i8 %5174, ptr %5127, align 1, !tbaa !51
   store i8 %5171, ptr %5170, align 1, !tbaa !51
-  %5175 = trunc i32 %5163 to i8
+  %5175 = trunc nsw i32 %5163 to i8
   store i8 %5175, ptr %5172, align 1, !tbaa !51
   %5176 = getelementptr inbounds nuw i8, ptr %5127, i64 3
   br label %5279

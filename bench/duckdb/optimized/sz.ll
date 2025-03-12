@@ -227,7 +227,7 @@ sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %sz_boot_index2size_tab.exit
-  %64 = trunc i64 %indvars.iv.i6 to i8
+  %64 = trunc nuw i64 %indvars.iv.i6 to i8
   %scevgep.i = getelementptr i8, ptr @duckdb_je_sz_size2index_tab, i64 %.020.i
   %65 = tail call i64 @llvm.usub.sat.i64(i64 512, i64 %.020.i)
   %66 = sub nuw nsw i64 %63, %.020.i

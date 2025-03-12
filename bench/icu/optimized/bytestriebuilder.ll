@@ -516,7 +516,7 @@ define void @_ZN6icu_7716BytesTrieElement5setToENS_11StringPieceEiRNS_10CharStri
 16:                                               ; preds = %12
   %17 = xor i32 %14, -1
   %18 = lshr i32 %2, 8
-  %19 = trunc i32 %18 to i8
+  %19 = trunc nuw i32 %18 to i8
   %20 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %4, i8 noundef signext %19, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br label %21
 
@@ -827,7 +827,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7716BytesTrieBui
 59:                                               ; preds = %55
   %60 = xor i32 %57, -1
   %61 = lshr i32 %2, 8
-  %62 = trunc i32 %61 to i8
+  %62 = trunc nuw i32 %61 to i8
   %63 = tail call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %52, i8 noundef signext %62, ptr noundef nonnull align 4 dereferenceable(4) %4)
   br label %64
 
@@ -2027,7 +2027,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder18writeValueAndFinalEia(ptr noun
 
 29:                                               ; preds = %27
   %30 = lshr i32 %1, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = add nuw nsw i8 %31, 81
   br label %47
 
@@ -2188,7 +2188,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder12writeDeltaToEi(ptr noundef non
 
 15:                                               ; preds = %13
   %16 = lshr i32 %6, 8
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   store i8 %18, ptr %3, align 1, !tbaa !20
   br label %_ZN6icu_7716BytesTrieBuilder19internalEncodeDeltaEiPc.exit
@@ -2199,7 +2199,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder12writeDeltaToEi(ptr noundef non
 
 21:                                               ; preds = %19
   %22 = lshr i32 %6, 16
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, -16
   store i8 %24, ptr %3, align 1, !tbaa !20
   br label %37
@@ -2210,7 +2210,7 @@ define noundef i32 @_ZN6icu_7716BytesTrieBuilder12writeDeltaToEi(ptr noundef non
 
 27:                                               ; preds = %25
   %28 = lshr i32 %6, 24
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %29, ptr %30, align 1, !tbaa !20
   br label %31
@@ -2329,7 +2329,7 @@ define noundef range(i32 1, 6) i32 @_ZN6icu_7716BytesTrieBuilder19internalEncode
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 8
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %1, align 1, !tbaa !20
   br label %36
@@ -2340,7 +2340,7 @@ define noundef range(i32 1, 6) i32 @_ZN6icu_7716BytesTrieBuilder19internalEncode
 
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 16
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -16
   store i8 %17, ptr %1, align 1, !tbaa !20
   br label %30
@@ -2351,7 +2351,7 @@ define noundef range(i32 1, 6) i32 @_ZN6icu_7716BytesTrieBuilder19internalEncode
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 24
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %22, ptr %23, align 1, !tbaa !20
   br label %24

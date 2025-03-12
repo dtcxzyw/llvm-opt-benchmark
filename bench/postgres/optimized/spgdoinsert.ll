@@ -610,7 +610,7 @@ BufferGetPage.exit:                               ; preds = %176, %182
 
 232:                                              ; preds = %224
   store i16 %.sroa.48.01023, ptr %219, align 2
-  %233 = trunc i32 %.sroa.57297.01022 to i16
+  %233 = trunc nsw i32 %.sroa.57297.01022 to i16
   store i16 %233, ptr %220, align 2
   %234 = getelementptr inbounds nuw i8, ptr %.sroa.34.01025, i64 24
   %235 = zext i16 %.sroa.48.01023 to i64

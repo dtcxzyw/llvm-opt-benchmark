@@ -1239,7 +1239,7 @@ agxbputc.exit506:                                 ; preds = %380, %385
 
 agxbclear.exit509:                                ; preds = %415, %416
   tail call fastcc void @agxbput(ptr noundef nonnull %12)
-  %417 = trunc nuw i32 %411 to i8
+  %417 = trunc nuw nsw i32 %411 to i8
   br label %628
 
 418:                                              ; preds = %410
@@ -1392,7 +1392,7 @@ lex.exit542:                                      ; preds = %459, %461
   br i1 %467, label %.lr.ph1085, label %._crit_edge
 
 468:                                              ; preds = %lex.exit542
-  %469 = trunc nuw i32 %.0.i529 to i8
+  %469 = trunc nuw nsw i32 %.0.i529 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %469)
   %470 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   br label %lex.exit573
@@ -1420,7 +1420,7 @@ switch.early.test888:                             ; preds = %lex.exit573
   ]
 
 gv_isxdigit.exit.thread:                          ; preds = %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %switch.early.test888, %lex.exit573
-  %473 = trunc i32 %.6 to i8
+  %473 = trunc nuw nsw i32 %.6 to i8
   %.val.i.i544 = load i8, ptr %13, align 1, !tbaa !28
   %.not.i.i545 = icmp eq i8 %.val.i.i544, -1
   br i1 %.not.i.i545, label %475, label %agxblen.exit.i546
@@ -1567,7 +1567,7 @@ lex.exit573.backedge:                             ; preds = %511, %505, %.loopex
 
 .lr.ph1085:                                       ; preds = %.preheader, %lex.exit603
   %.81084 = phi i32 [ %.0.i590, %lex.exit603 ], [ %.0.i529, %.preheader ]
-  %522 = trunc nuw i32 %.81084 to i8
+  %522 = trunc nuw nsw i32 %.81084 to i8
   %.val.i.i574 = load i8, ptr %13, align 1, !tbaa !28
   %.not.i.i575 = icmp eq i8 %.val.i.i574, -1
   br i1 %.not.i.i575, label %524, label %agxblen.exit.i576
@@ -2023,7 +2023,7 @@ lex.exit652.thread:                               ; preds = %lex.exit652, %._cri
   br i1 %or.cond5, label %679, label %lex.exit652.thread.thread
 
 679:                                              ; preds = %lex.exit652.thread
-  %680 = trunc nuw i32 %.10 to i8
+  %680 = trunc nuw nsw i32 %.10 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %680)
   %681 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   switch i32 %681, label %685 [
@@ -2032,7 +2032,7 @@ lex.exit652.thread:                               ; preds = %lex.exit652, %._cri
   ]
 
 682:                                              ; preds = %679, %679
-  %683 = trunc nuw i32 %681 to i8
+  %683 = trunc nuw nsw i32 %681 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %683)
   %684 = tail call fastcc i32 @lex(ptr noundef nonnull %0)
   br label %685
@@ -2045,7 +2045,7 @@ lex.exit652.thread:                               ; preds = %lex.exit652, %._cri
 
 .lr.ph1089:                                       ; preds = %685, %lex.exit693
   %.121087 = phi i32 [ %.0.i680, %lex.exit693 ], [ %.11, %685 ]
-  %688 = trunc nuw i32 %.121087 to i8
+  %688 = trunc nuw nsw i32 %.121087 to i8
   %.val.i.i664 = load i8, ptr %13, align 1, !tbaa !28
   %.not.i.i665 = icmp eq i8 %.val.i.i664, -1
   br i1 %.not.i.i665, label %690, label %agxblen.exit.i666
@@ -2858,7 +2858,7 @@ lex.exit749.thread:                               ; preds = %.loopexit.i735, %le
   %.3287 = phi i32 [ %.0284, %957 ], [ 41, %951 ], [ 93, %953 ], [ 125, %952 ]
   %.2283 = phi i32 [ %.0281, %957 ], [ %.14, %951 ], [ %.14, %953 ], [ %.14, %952 ]
   %spec.select = add nsw i32 %.0288, %.sink1457
-  %961 = trunc i32 %.14 to i8
+  %961 = trunc nuw nsw i32 %.14 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %961)
   br label %1094
 
@@ -2876,7 +2876,7 @@ lex.exit749.thread:                               ; preds = %.loopexit.i735, %le
   br label %.loopexit906
 
 968:                                              ; preds = %962
-  %969 = trunc i32 %.14 to i8
+  %969 = trunc nuw nsw i32 %.14 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %969)
   %970 = icmp eq i32 %.14, %.0284
   br i1 %970, label %971, label %1094
@@ -2899,7 +2899,7 @@ lex.exit749.thread:                               ; preds = %.loopexit.i735, %le
   br label %1094
 
 978:                                              ; preds = %lex.exit828, %lex.exit828
-  %979 = trunc i32 %.14 to i8
+  %979 = trunc nuw nsw i32 %.14 to i8
   tail call fastcc void @agxbputc(ptr noundef nonnull %12, i8 noundef signext %979)
   %980 = load ptr, ptr %8, align 8, !tbaa !23
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 36

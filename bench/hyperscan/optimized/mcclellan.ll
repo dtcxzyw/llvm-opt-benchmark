@@ -1434,7 +1434,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit213
   %331 = icmp ult ptr %.0583, %28
   %.sroa.0.0.insert.ext297 = zext nneg i16 %.sroa.0.0 to i32
   %332 = icmp ne i16 %.sroa.0.0, 0
-  %333 = and i1 %332, %331
+  %333 = and i1 %331, %332
   br i1 %333, label %334, label %.critedge123.i46
 
 334:                                              ; preds = %330
@@ -2496,7 +2496,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %907 = icmp ult ptr %.0591, %581
   %.sroa.0416.0.insert.ext420 = zext nneg i16 %.sroa.0416.0 to i32
   %908 = icmp ne i16 %.sroa.0416.0, 0
-  %909 = and i1 %908, %907
+  %909 = and i1 %907, %908
   br i1 %909, label %910, label %.critedge123.i
 
 910:                                              ; preds = %906
@@ -5877,7 +5877,7 @@ doNormal16.exit122:                               ; preds = %doSherman16.exit, %
   %347 = icmp ult ptr %.0591, %39
   %.sroa.0413.0.insert.ext417 = zext nneg i16 %.sroa.0413.0 to i32
   %348 = icmp ne i16 %.sroa.0413.0, 0
-  %349 = and i1 %348, %347
+  %349 = and i1 %347, %348
   br i1 %349, label %350, label %.critedge123.i
 
 350:                                              ; preds = %346
@@ -6930,7 +6930,7 @@ doNormal16.exit94:                                ; preds = %doSherman16.exit217
   %906 = icmp ult ptr %.0583, %575
   %.sroa.0.0.insert.ext294 = zext nneg i16 %.sroa.0.0 to i32
   %907 = icmp ne i16 %.sroa.0.0, 0
-  %908 = and i1 %907, %906
+  %908 = and i1 %906, %907
   br i1 %908, label %909, label %.critedge123.i47
 
 909:                                              ; preds = %905
@@ -9061,7 +9061,7 @@ doNormal16.exit37:                                ; preds = %doSherman16.exit, %
   %356 = icmp ult ptr %.0162, %18
   %.sroa.0.0.insert.ext26 = zext nneg i16 %.sroa.0.0 to i32
   %357 = icmp ne i16 %.sroa.0.0, 0
-  %358 = and i1 %357, %356
+  %358 = and i1 %356, %357
   br i1 %358, label %359, label %.critedge123.i
 
 359:                                              ; preds = %355
@@ -10125,7 +10125,7 @@ doSherman16.exit:                                 ; preds = %.thread165, %252, %
   %317 = icmp ult ptr %.0144, %16
   %.sroa.0.0.insert.ext22 = zext nneg i16 %.sroa.0.0 to i32
   %318 = icmp ne i16 %.sroa.0.0, 0
-  %319 = and i1 %318, %317
+  %319 = and i1 %317, %318
   br i1 %319, label %320, label %.critedge123.i
 
 320:                                              ; preds = %316

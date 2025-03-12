@@ -188,7 +188,7 @@ _ZNK3smt5enode12get_num_argsEv.exit:              ; preds = %2
   br i1 %.wide, label %12, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %12
-  %77 = trunc nuw i64 %32 to i32
+  %77 = trunc nuw nsw i64 %32 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK3smt5enode12get_num_argsEv.exit

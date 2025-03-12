@@ -5062,7 +5062,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %7 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %7 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %7, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

@@ -1254,7 +1254,7 @@ define internal fastcc range(i32 -2147483648, 256) i32 @endBracket(ptr noundef n
   ]
 
 17:                                               ; preds = %16, %16
-  %18 = trunc nuw i32 %11 to i8
+  %18 = trunc nuw nsw i32 %11 to i8
   tail call fastcc void @agxbputc(ptr noundef %1, i8 noundef signext %18)
   %19 = load i32, ptr @lineno, align 4, !tbaa !3
   %20 = tail call i32 @getc(ptr noundef nonnull %0)

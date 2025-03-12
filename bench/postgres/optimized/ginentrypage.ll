@@ -130,7 +130,7 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
   call void @llvm.memset.p0.i64(ptr align 1 %67, i8 0, i64 %68, i1 false)
   %69 = load i16, ptr %64, align 2
   %70 = and i16 %69, -8192
-  %71 = trunc nuw i32 %48 to i16
+  %71 = trunc nuw nsw i32 %48 to i16
   %72 = or disjoint i16 %70, %71
   store i16 %72, ptr %64, align 2
   br label %73

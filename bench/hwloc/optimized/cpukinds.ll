@@ -1010,7 +1010,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_internal_cpukinds_register(ptr noundef
   %24 = or disjoint i32 %.3.i, 2
   %.425.i = select i1 %.not31.i, i64 %.324.i, i64 %23
   %.4.i = select i1 %.not31.i, i32 %.3.i, i32 %24
-  %25 = trunc nuw i64 %.425.i to i32
+  %25 = trunc nuw nsw i64 %.425.i to i32
   %26 = lshr i32 %25, 1
   %27 = and i32 %26, 1
   %.5.i = add nuw nsw i32 %.4.i, 1

@@ -13445,7 +13445,7 @@ _ZNK4llvm6SDNode9hasOneUseEv.exit4436:            ; preds = %3855
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %257) #31
   %3887 = sub i32 %3826, %329
   call void @_ZN4llvm5APInt14getHighBitsSetEjj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %257, i32 noundef %3826, i32 noundef %3887)
-  %3888 = trunc i64 %3882 to i32
+  %3888 = trunc nuw i64 %3882 to i32
   call void @_ZN4llvm5APInt11lshrInPlaceEj(ptr noundef nonnull align 8 dereferenceable(12) %257, i32 noundef %3888)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %258) #31
   call void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %258, ptr noundef nonnull align 8 dereferenceable(12) %257, i32 noundef %329) #31
@@ -31854,7 +31854,7 @@ _ZNK4llvm5APInt3ugeEm.exit.i:                     ; preds = %_ZNK4llvm5APInt13ge
   br i1 %.not191.i, label %449, label %_ZL24foldSetCCWithFunnelShiftN4llvm3EVTENS_7SDValueES1_NS_3ISD8CondCodeERKNS_5SDLocERNS_12SelectionDAGE.exit.thread
 
 449:                                              ; preds = %_ZNK4llvm5APInt3ugeEm.exit.i
-  %450 = trunc i64 %.0.i.i.i157.i to i32
+  %450 = trunc nuw i64 %.0.i.i.i157.i to i32
   %451 = load i32, ptr %402, align 8, !tbaa !242
   %452 = icmp eq i32 %451, 196
   %453 = sub i32 %432, %450

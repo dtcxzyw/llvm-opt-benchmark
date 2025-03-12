@@ -50346,7 +50346,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %19, %17, %13, %9, %
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 71:                                               ; preds = %._crit_edge.i.i
-  %72 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %72 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %73 = or disjoint i8 %72, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -54642,7 +54642,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa48.i = phi ptr [ %369, %._crit_edge.thread.i93 ], [ %.0.lcssa.i, %._crit_edge.i92 ]
   %.1.lcssa47.i = phi i64 [ %360, %._crit_edge.thread.i93 ], [ %.1.lcssa.i, %._crit_edge.i92 ]
   %406 = phi i64 [ 1, %._crit_edge.thread.i93 ], [ %385, %._crit_edge.i92 ]
-  %407 = trunc nuw i64 %.1.lcssa47.i to i8
+  %407 = trunc nuw nsw i64 %.1.lcssa47.i to i8
   %408 = or disjoint i8 %407, 48
   %409 = getelementptr inbounds i8, ptr %.0.lcssa48.i, i64 -1
   store i8 %408, ptr %409, align 1, !tbaa !11
@@ -54962,7 +54962,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa48.i116 = phi ptr [ %547, %._crit_edge.thread.i121 ], [ %.0.lcssa.i115, %._crit_edge.i113 ]
   %.1.lcssa47.i117 = phi i64 [ %538, %._crit_edge.thread.i121 ], [ %.1.lcssa.i114, %._crit_edge.i113 ]
   %584 = phi i64 [ 1, %._crit_edge.thread.i121 ], [ %563, %._crit_edge.i113 ]
-  %585 = trunc nuw i64 %.1.lcssa47.i117 to i8
+  %585 = trunc nuw nsw i64 %.1.lcssa47.i117 to i8
   %586 = or disjoint i8 %585, 48
   %587 = getelementptr inbounds i8, ptr %.0.lcssa48.i116, i64 -1
   store i8 %586, ptr %587, align 1, !tbaa !11
@@ -55114,7 +55114,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa48.i131 = phi ptr [ %626, %._crit_edge.thread.i136 ], [ %.0.lcssa.i130, %._crit_edge.i128 ]
   %.1.lcssa47.i132 = phi i64 [ %617, %._crit_edge.thread.i136 ], [ %.1.lcssa.i129, %._crit_edge.i128 ]
   %663 = phi i64 [ 1, %._crit_edge.thread.i136 ], [ %642, %._crit_edge.i128 ]
-  %664 = trunc nuw i64 %.1.lcssa47.i132 to i8
+  %664 = trunc nuw nsw i64 %.1.lcssa47.i132 to i8
   %665 = or disjoint i8 %664, 48
   %666 = getelementptr inbounds i8, ptr %.0.lcssa48.i131, i64 -1
   store i8 %665, ptr %666, align 1, !tbaa !11
@@ -56175,7 +56175,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa57 = phi ptr [ %32, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
   %.1.lcssa56 = phi i64 [ %1, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
   %69 = phi i64 [ 1, %._crit_edge.thread ], [ %48, %._crit_edge ]
-  %70 = trunc nuw i64 %.1.lcssa56 to i8
+  %70 = trunc nuw nsw i64 %.1.lcssa56 to i8
   %71 = or disjoint i8 %70, 48
   %72 = getelementptr inbounds i8, ptr %.0.lcssa57, i64 -1
   store i8 %71, ptr %72, align 1, !tbaa !11
@@ -56375,7 +56375,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %6, %10, %14
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 64:                                               ; preds = %._crit_edge.i
-  %65 = trunc nuw i64 %.0.lcssa.i to i8
+  %65 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %66 = or disjoint i8 %65, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -56905,7 +56905,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %.pn.i, i64 4
   store i8 48, ptr %.023.i.i, align 1, !tbaa !11
-  %65 = trunc nuw i32 %.0.i.i to i8
+  %65 = trunc nuw nsw i32 %.0.i.i to i8
   %66 = or disjoint i8 %65, 48
   %67 = getelementptr i8, ptr %.pn.i, i64 5
   store i8 %66, ptr %64, align 1, !tbaa !11
@@ -56917,7 +56917,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   br i1 %69, label %71, label %77
 
 71:                                               ; preds = %68
-  %.lhs.trunc.i.i = trunc nuw i32 %.0.i.i to i8
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %.0.i.i to i8
   %72 = udiv i8 %.lhs.trunc.i.i, 10
   %73 = or disjoint i8 %72, 48
   store i8 %73, ptr %.023.i.i, align 1, !tbaa !11

@@ -12185,7 +12185,7 @@ define linkonce_odr void @_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringS
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !111
@@ -12211,7 +12211,7 @@ define linkonce_odr void @_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringS
 
 28:                                               ; preds = %23
   %29 = lshr i32 %1, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   store i8 %31, ptr %26, align 1, !tbaa !20
   %32 = lshr i32 %1, 6

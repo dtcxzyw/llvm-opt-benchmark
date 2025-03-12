@@ -408,7 +408,7 @@ switch.early.test.i:                              ; preds = %201
   br i1 %.not.i817, label %212, label %207
 
 207:                                              ; preds = %205
-  %.rhs.trunc.i = trunc i64 %203 to i32
+  %.rhs.trunc.i = trunc nuw i64 %203 to i32
   %208 = urem i32 %202, %.rhs.trunc.i
   %209 = udiv i32 %202, %.rhs.trunc.i
   %.not26.i = icmp eq i32 %208, 0

@@ -4428,7 +4428,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br i1 %.not, label %77, label %41
 
 41:                                               ; preds = %.split74.us
-  %42 = trunc nuw i32 %.us-phi to i16
+  %42 = trunc nuw nsw i32 %.us-phi to i16
   %43 = add nuw nsw i16 %42, 27
   %44 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef %1, i16 noundef signext %43) #8
   %45 = inttoptr i64 %44 to ptr
@@ -4490,7 +4490,7 @@ define dso_local noundef zeroext i1 @get_attstatsslot(ptr noundef initializes((0
   br i1 %.not66, label %.loopexit, label %79
 
 79:                                               ; preds = %77
-  %80 = trunc nuw i32 %.us-phi to i16
+  %80 = trunc nuw nsw i32 %.us-phi to i16
   %81 = add nuw nsw i16 %80, 22
   %82 = tail call i64 @SysCacheGetAttrNotNull(i32 noundef 65, ptr noundef %1, i16 noundef signext %81) #8
   %83 = inttoptr i64 %82 to ptr

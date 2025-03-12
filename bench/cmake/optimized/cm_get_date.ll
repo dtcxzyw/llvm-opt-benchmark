@@ -1024,7 +1024,7 @@ datephrase.exit.i:                                ; preds = %321, %313, %304, %2
 
 433:                                              ; preds = %428
   %434 = icmp samesign ult i64 %414, 2400
-  %.lhs.trunc75.i = trunc i64 %414 to i16
+  %.lhs.trunc75.i = trunc nuw nsw i64 %414 to i16
   %435 = urem i16 %.lhs.trunc75.i, 100
   %436 = udiv i16 %.lhs.trunc75.i, 100
   %437 = icmp samesign ult i16 %435, 60

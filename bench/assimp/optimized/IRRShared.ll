@@ -2918,7 +2918,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit173:        ; preds = %_ZNK4pugi8xml_node4
   br i1 %280, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %281
 
 281:                                              ; preds = %277
-  %282 = trunc nuw i64 %279 to i32
+  %282 = trunc nuw nsw i64 %279 to i32
   store i32 %282, ptr %5, align 4
   %283 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %283, i64 %279, i1 false)
@@ -2961,7 +2961,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit175.invoke.sink.split: ; preds = %298, %293
   %.sink276 = phi i64 [ %294, %293 ], [ %299, %298 ]
   %.ph = phi i32 [ 10, %293 ], [ 6, %298 ]
-  %301 = trunc nuw i64 %.sink276 to i32
+  %301 = trunc nuw nsw i64 %.sink276 to i32
   store i32 %301, ptr %5, align 4
   %302 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %302, i64 %.sink276, i1 false)
@@ -2985,7 +2985,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit175.
   br i1 %310, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176, label %311
 
 311:                                              ; preds = %308
-  %312 = trunc nuw i64 %309 to i32
+  %312 = trunc nuw nsw i64 %309 to i32
   store i32 %312, ptr %5, align 4
   %313 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %313, i64 %309, i1 false)
@@ -3022,7 +3022,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176:
   br i1 %327, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit177, label %328
 
 328:                                              ; preds = %325
-  %329 = trunc nuw i64 %326 to i32
+  %329 = trunc nuw nsw i64 %326 to i32
   store i32 %329, ptr %5, align 4
   %330 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %330, i64 %326, i1 false)
@@ -3048,7 +3048,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit177:
   br i1 %340, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit178, label %341
 
 341:                                              ; preds = %338
-  %342 = trunc nuw i64 %339 to i32
+  %342 = trunc nuw nsw i64 %339 to i32
   store i32 %342, ptr %5, align 4
   %343 = load ptr, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %343, i64 %339, i1 false)

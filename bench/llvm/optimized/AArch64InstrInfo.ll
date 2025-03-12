@@ -6616,7 +6616,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo20optimizeCompar
   br i1 %53, label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit, label %.thread
 
 .thread:                                          ; preds = %.loopexit, %52
-  %54 = trunc nuw i64 %5 to i32
+  %54 = trunc nuw nsw i64 %5 to i32
   %55 = tail call noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo20removeCmpToZeroOrOneERNS_12MachineInstrEjiRKNS_19MachineRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1, i32 noundef %2, i32 noundef %54, ptr noundef nonnull align 8 dereferenceable(504) %6)
   br label %_ZNK4llvm19MachineRegisterInfo15use_nodbg_emptyENS_8RegisterE.exit
 

@@ -8046,7 +8046,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_syncnt(ptr noundef 
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   store volatile i8 %6, ptr %7, align 4
   br label %8
@@ -8191,7 +8191,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tcp_sock_set_keepcnt(ptr noundef
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   store volatile i8 %6, ptr %7, align 8
   br label %8
@@ -8468,7 +8468,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br i1 %96, label %392, label %97
 
 97:                                               ; preds = %93
-  %98 = trunc nuw i32 %94 to i8
+  %98 = trunc nuw nsw i32 %94 to i8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1212
   store volatile i8 %98, ptr %99, align 4
   br label %392
@@ -8502,7 +8502,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br i1 %115, label %392, label %116
 
 116:                                              ; preds = %112
-  %117 = trunc nuw i32 %113 to i8
+  %117 = trunc nuw nsw i32 %113 to i8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   store volatile i8 %117, ptr %118, align 8
   br label %392
@@ -8598,7 +8598,7 @@ define dso_local i32 @do_tcp_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, 
   br i1 %154, label %390, label %155
 
 155:                                              ; preds = %149
-  %156 = trunc nuw i32 %150 to i16
+  %156 = trunc nuw nsw i32 %150 to i16
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   store i16 %156, ptr %157, align 4
   br label %390

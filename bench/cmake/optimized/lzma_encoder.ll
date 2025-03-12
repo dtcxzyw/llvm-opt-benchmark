@@ -1406,7 +1406,7 @@ define dso_local range(i32 0, 9) i32 @lzma_lzma_encoder_create(ptr noundef captu
   br i1 %.not41, label %55, label %79
 
 55:                                               ; preds = %52
-  %56 = trunc nuw i32 %54 to i8
+  %56 = trunc nuw nsw i32 %54 to i8
   store i8 %56, ptr %49, align 1, !tbaa !52
   br label %57
 
@@ -1587,7 +1587,7 @@ is_lclppb_valid.exit:                             ; preds = %6
   %17 = add nuw nsw i32 %16, %8
   %18 = mul nuw nsw i32 %17, 9
   %19 = add nuw nsw i32 %18, %4
-  %20 = trunc i32 %19 to i8
+  %20 = trunc nuw i32 %19 to i8
   store i8 %20, ptr %1, align 1, !tbaa !31
   br label %is_lclppb_valid.exit.thread
 
@@ -1627,7 +1627,7 @@ is_lclppb_valid.exit.i:                           ; preds = %8
   %19 = add nuw nsw i32 %18, %10
   %20 = mul nuw nsw i32 %19, 9
   %21 = add nuw nsw i32 %20, %6
-  %22 = trunc i32 %21 to i8
+  %22 = trunc nuw i32 %21 to i8
   store i8 %22, ptr %1, align 1, !tbaa !31
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = load i32, ptr %0, align 8, !tbaa !83

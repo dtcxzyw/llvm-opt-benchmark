@@ -741,7 +741,7 @@ default.unreachable2225:                          ; preds = %132
 
 ._crit_edge1374.loopexit:                         ; preds = %250
   %261 = zext i8 %.sroa.18.0.copyload to i32
-  %262 = trunc nuw i64 %indvars.iv.next2148 to i32
+  %262 = trunc nuw nsw i64 %indvars.iv.next2148 to i32
   br label %._crit_edge1374
 
 ._crit_edge1374:                                  ; preds = %._crit_edge1374.loopexit, %.preheader814
@@ -1093,7 +1093,7 @@ default.unreachable2225:                          ; preds = %132
 
 ._crit_edge1450.loopexit:                         ; preds = %389
   %401 = zext i8 %.sroa.18.0.copyload45 to i32
-  %402 = trunc nuw i64 %indvars.iv.next2163 to i32
+  %402 = trunc nuw nsw i64 %indvars.iv.next2163 to i32
   br label %._crit_edge1450
 
 ._crit_edge1450:                                  ; preds = %._crit_edge1450.loopexit, %378
@@ -1340,7 +1340,7 @@ default.unreachable2225:                          ; preds = %132
 
 ._crit_edge1495.loopexit:                         ; preds = %489
   %501 = zext i8 %.sroa.18.0.copyload49 to i32
-  %502 = trunc nuw i64 %indvars.iv.next2172 to i32
+  %502 = trunc nuw nsw i64 %indvars.iv.next2172 to i32
   br label %._crit_edge1495
 
 ._crit_edge1495:                                  ; preds = %._crit_edge1495.loopexit, %478
@@ -1744,7 +1744,7 @@ default.unreachable2225:                          ; preds = %132
   br label %.loopexit
 
 .loopexit.loopexit1795:                           ; preds = %.lr.ph1535
-  %659 = trunc nuw i64 %indvars.iv2180 to i32
+  %659 = trunc nuw nsw i64 %indvars.iv2180 to i32
   br label %.loopexit
 
 .loopexit.loopexit1803:                           ; preds = %.lr.ph1215

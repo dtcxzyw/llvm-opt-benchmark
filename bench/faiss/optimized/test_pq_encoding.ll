@@ -377,7 +377,7 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit.preheader:   ; preds = %46, %47
   br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
 76:                                               ; preds = %50
-  %77 = trunc nuw i32 %58 to i8
+  %77 = trunc nuw nsw i32 %58 to i8
   br label %_ZN5faiss16PQEncoderGeneric6encodeEm.exit
 
 _ZN5faiss16PQEncoderGeneric6encodeEm.exit:        ; preds = %._crit_edge.i, %76
@@ -471,7 +471,7 @@ _ZN5faiss16PQEncoderGenericD2Ev.exit:             ; preds = %_ZN5faiss16PQEncode
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit
 
 113:                                              ; preds = %._crit_edge16.i
-  %114 = trunc nuw i32 %85 to i8
+  %114 = trunc nuw nsw i32 %85 to i8
   br label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit
 
 _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i28, %108, %113

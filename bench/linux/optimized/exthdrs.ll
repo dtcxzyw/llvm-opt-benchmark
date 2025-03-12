@@ -2453,7 +2453,7 @@ define internal noundef range(i32 -1, 2) i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 
   %612 = zext i16 %611 to i64
   %613 = getelementptr i8, ptr %610, i64 %612
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 24
-  %615 = trunc i64 %574 to i8
+  %615 = trunc nuw i64 %574 to i8
   tail call void @ipv6_rpl_srh_decompress(ptr noundef nonnull %605, ptr noundef %556, ptr noundef nonnull %614, i8 noundef zeroext %615) #10
   %616 = getelementptr inbounds nuw i8, ptr %605, i64 1
   %617 = load i8, ptr %616, align 1

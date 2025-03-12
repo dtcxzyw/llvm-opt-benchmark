@@ -290,7 +290,7 @@ png_write_chunk_header.exit:                      ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1196
   store i32 34, ptr %11, align 4, !tbaa !6, !alias.scope !30
   %12 = lshr i64 %3, 24
-  %13 = trunc nuw i64 %12 to i8
+  %13 = trunc nuw nsw i64 %12 to i8
   store i8 %13, ptr %6, align 1, !tbaa !3, !noalias !30
   %14 = lshr i64 %3, 16
   %15 = trunc i64 %14 to i8
@@ -513,16 +513,16 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 41:                                               ; preds = %40, %39
   %.0 = phi i32 [ 1, %40 ], [ %7, %39 ]
-  %42 = trunc i32 %3 to i8
+  %42 = trunc nuw nsw i32 %3 to i8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i8 %42, ptr %43, align 8, !tbaa !43
-  %44 = trunc i32 %4 to i8
+  %44 = trunc nuw nsw i32 %4 to i8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 623
   store i8 %44, ptr %45, align 1, !tbaa !44
-  %46 = trunc nuw i32 %.0 to i8
+  %46 = trunc nuw nsw i32 %.0 to i8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 620
   store i8 %46, ptr %47, align 4, !tbaa !45
-  %48 = trunc i32 %.089 to i8
+  %48 = trunc nuw nsw i32 %.089 to i8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   store i8 %48, ptr %49, align 4, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1112
@@ -1193,7 +1193,7 @@ define internal fastcc noundef i32 @png_deflate_claim(ptr noalias noundef %0, i3
   br i1 %.not7388, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %65
-  %70 = trunc nuw i64 %68 to i32
+  %70 = trunc nuw nsw i64 %68 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3027,7 +3027,7 @@ define void @png_write_tEXt(ptr noalias noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not30, label %png_write_chunk_data.exit22, label %png_write_chunk_header.exit
 
 png_write_chunk_header.exit:                      ; preds = %.thread
-  %22 = trunc i64 %.024 to i32
+  %22 = trunc nuw i64 %.024 to i32
   %23 = add i32 %8, 1
   %24 = add i32 %23, %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1196

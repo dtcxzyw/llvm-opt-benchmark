@@ -2981,7 +2981,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
   br i1 %221, label %222, label %226
 
 222:                                              ; preds = %220
-  %223 = trunc nuw i32 %.083.in.i to i8
+  %223 = trunc nuw nsw i32 %.083.in.i to i8
   %224 = add i64 %.0107, 1
   %225 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %223, ptr %225, align 1, !alias.scope !23, !noalias !26
@@ -2993,7 +2993,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 228:                                              ; preds = %226
   %229 = lshr i32 %.083.in.i, 6
-  %230 = trunc nuw i32 %229 to i8
+  %230 = trunc nuw nsw i32 %229 to i8
   %231 = or disjoint i8 %230, -64
   %232 = getelementptr inbounds i8, ptr %16, i64 %.0107
   store i8 %231, ptr %232, align 1, !alias.scope !23, !noalias !26
@@ -3014,7 +3014,7 @@ backtrack.exit68:                                 ; preds = %.loopexit, %47
 
 243:                                              ; preds = %238
   %244 = lshr i32 %.083.in.i, 12
-  %245 = trunc nuw i32 %244 to i8
+  %245 = trunc nuw nsw i32 %244 to i8
   %246 = or disjoint i8 %245, -32
   store i8 %246, ptr %240, align 1, !alias.scope !23, !noalias !26
   %247 = lshr i32 %.083.in.i, 6

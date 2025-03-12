@@ -70,7 +70,7 @@ define dso_local void @rhash_byte_to_base32(ptr noundef writeonly captures(none)
 9:                                                ; preds = %7
   %10 = load i8, ptr %.03039, align 1, !tbaa !4
   %11 = lshr i32 255, %.02840
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = and i8 %10, %12
   %14 = add nuw nsw i32 %.02840, 5
   %15 = and i32 %14, 7
@@ -141,7 +141,7 @@ define dso_local void @rhash_byte_to_base64(ptr noundef writeonly captures(none)
 6:                                                ; preds = %.lr.ph
   %7 = load i8, ptr %.03543, align 1, !tbaa !4
   %8 = lshr i32 255, %.03344
-  %9 = trunc nuw i32 %8 to i8
+  %9 = trunc nuw nsw i32 %8 to i8
   %10 = and i8 %7, %9
   %11 = add nuw nsw i32 %.03344, 6
   %12 = and i32 %11, 7
@@ -266,7 +266,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
 12:                                               ; preds = %.lr.ph.i
   %13 = load i8, ptr %.03543.i, align 1, !tbaa !4
   %14 = lshr i32 255, %.03344.i
-  %15 = trunc nuw i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = and i8 %13, %15
   %17 = add nuw nsw i32 %.03344.i, 6
   %18 = and i32 %17, 7
@@ -470,7 +470,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
 115:                                              ; preds = %.lr.ph.i31
   %116 = load i8, ptr %.03543.i34, align 1, !tbaa !4
   %117 = lshr i32 255, %.03344.i33
-  %118 = trunc nuw i32 %117 to i8
+  %118 = trunc nuw nsw i32 %117 to i8
   %119 = and i8 %116, %118
   %120 = add nuw nsw i32 %.03344.i33, 6
   %121 = and i32 %120, 7

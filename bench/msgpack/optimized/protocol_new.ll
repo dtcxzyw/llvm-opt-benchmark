@@ -1858,7 +1858,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v14packINSt7__cxx1118basic_strin
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #24
-  %.sroa.0.0.extract.trunc.i.i.i.i = trunc nuw i32 %12 to i8
+  %.sroa.0.0.extract.trunc.i.i.i.i = trunc nuw nsw i32 %12 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i.i.i, ptr %3, align 1, !tbaa !13
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %3, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #24
@@ -9276,7 +9276,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
-  %.sroa.0.0.extract.trunc.i.i.i = trunc nuw i32 %2 to i8
+  %.sroa.0.0.extract.trunc.i.i.i = trunc nuw nsw i32 %2 to i8
   store i8 %.sroa.0.0.extract.trunc.i.i.i, ptr %4, align 1, !tbaa !13
   %12 = load ptr, ptr %1, align 8, !tbaa !260
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -9361,7 +9361,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %19 = trunc nuw i64 %9 to i8
+  %19 = trunc nuw nsw i64 %9 to i8
   %20 = or disjoint i8 %19, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
   store i8 %20, ptr %4, align 1, !tbaa !13
@@ -9645,7 +9645,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
 
 25:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #24
-  %26 = trunc nuw i64 %16 to i8
+  %26 = trunc nuw nsw i64 %16 to i8
   %27 = or disjoint i8 %26, -112
   store i8 %27, ptr %7, align 1, !tbaa !13
   %28 = load ptr, ptr %1, align 8, !tbaa !260

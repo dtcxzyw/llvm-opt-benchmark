@@ -3457,7 +3457,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %1345, %1343, %1339,
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 1397:                                             ; preds = %._crit_edge.i.i63
-  %1398 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %1398 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %1399 = or disjoint i8 %1398, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

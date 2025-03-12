@@ -10527,7 +10527,7 @@ rb_array_len.exit.i.thread:                       ; preds = %5
   unreachable
 
 20:                                               ; preds = %rb_array_len.exit.i
-  %21 = trunc i64 %13 to i32
+  %21 = trunc nsw i64 %13 to i32
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   br label %rb_array_const_ptr.exit
@@ -10539,7 +10539,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.i
   %26 = load i64, ptr %25, align 8, !tbaa !15
   %27 = icmp eq i64 %26, 4
   %28 = icmp slt i32 %24, 1
-  %or.cond.not = or i1 %28, %27
+  %or.cond.not = select i1 %27, i1 true, i1 %28
   br i1 %or.cond.not, label %121, label %29
 
 29:                                               ; preds = %rb_array_const_ptr.exit

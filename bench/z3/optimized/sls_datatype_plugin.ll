@@ -10236,7 +10236,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit:             ; preds = %603
 612:                                              ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit
   %613 = load ptr, ptr %595, align 8, !tbaa !92
   %614 = load ptr, ptr %596, align 8, !tbaa !51
-  %615 = trunc i64 %.sroa.5200.0.copyload to i32
+  %615 = trunc nuw i64 %.sroa.5200.0.copyload to i32
   %616 = add nuw i32 %615, 1
   %617 = invoke noundef ptr @_ZN11ast_manager11mk_distinctEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %614, i32 noundef %616, ptr noundef nonnull %605)
           to label %618 unwind label %610

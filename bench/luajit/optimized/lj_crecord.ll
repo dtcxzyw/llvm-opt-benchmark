@@ -4615,7 +4615,7 @@ crec_arith_ptr.exit.thread225:                    ; preds = %409
   store i16 %461, ptr %19, align 8, !tbaa !31
   store i16 %464, ptr %21, align 2, !tbaa !31
   %465 = call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
-  %.tr.i = trunc i32 %16 to i16
+  %.tr.i = trunc nuw nsw i32 %16 to i16
   %466 = shl nuw nsw i16 %.tr.i, 8
   %467 = add nuw nsw i16 %466, 7945
   %468 = trunc i32 %441 to i16

@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 
 76:                                               ; preds = %73
   %77 = load i32, ptr %2, align 4, !tbaa !4
-  %78 = trunc nuw i64 %.0 to i32
+  %78 = trunc nuw nsw i64 %.0 to i32
   %79 = add nuw nsw i32 %78, 2
   %80 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 183, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, i32 noundef %77, i32 noundef %79) #6
   %.not87 = icmp eq i32 %80, 0
@@ -420,7 +420,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 110:                                              ; preds = %104
   %111 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %.3
   %112 = load i32, ptr %111, align 4, !tbaa !4
-  %113 = trunc nuw i64 %.3 to i32
+  %113 = trunc nuw nsw i64 %.3 to i32
   %114 = add nuw nsw i32 %113, 2
   %115 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 210, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.34, i32 noundef %112, i32 noundef %114) #6
   %.not79 = icmp eq i32 %115, 0
@@ -489,7 +489,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
 144:                                              ; preds = %138
   %145 = getelementptr inbounds nuw [3 x i32], ptr %2, i64 0, i64 %.6
   %146 = load i32, ptr %145, align 4, !tbaa !4
-  %147 = trunc nuw i64 %.6 to i32
+  %147 = trunc nuw nsw i64 %.6 to i32
   %148 = add nuw nsw i32 %147, 2
   %149 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 232, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.34, i32 noundef %146, i32 noundef %148) #6
   %.not74 = icmp eq i32 %149, 0

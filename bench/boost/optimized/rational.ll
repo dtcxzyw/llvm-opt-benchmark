@@ -75818,7 +75818,7 @@ define linkonce_odr hidden i64 @_ZN5boost8geometry6detail15coordinate_castINS_8r
 
 _ZN5boost8rationalIiEC2IlEERKT_PKNS_11enable_if_cIXsr15rational_detail30is_backward_compatible_integerIS3_iEE5valueEvE4typeE.exit: ; preds = %26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #57
-  %37 = trunc i64 %28 to i32
+  %37 = trunc nsw i64 %28 to i32
   store i32 %37, ptr %12, align 8, !tbaa !1516
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %38, align 4, !tbaa !1518

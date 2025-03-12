@@ -2043,7 +2043,7 @@ _ZN5clang6interp7Program18allocateDescriptorIJRKN4llvm12PointerUnionIJPKNS_4Decl
 
 _ZN5clang6interp7Program18allocateDescriptorIJRKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEERPKNS0_10DescriptorERSt8optionalIjERmRbSM_SM_EEEPSE_DpOT_.exit: ; preds = %129, %132
   %.0.i.i.i.i93 = phi ptr [ %131, %129 ], [ %133, %132 ]
-  %134 = trunc i64 %74 to i32
+  %134 = trunc nuw i64 %74 to i32
   tail call void @_ZN5clang6interp10DescriptorC1ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKS1_St8optionalIjEjbbb(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i93, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %107, i64 %3, i32 noundef %134, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #17
   br label %.thread155
 

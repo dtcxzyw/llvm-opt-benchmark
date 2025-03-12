@@ -3391,7 +3391,7 @@ if.then25:                                        ; preds = %if.end21
   %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %2, i64 %conv18
   %arrayidx27 = getelementptr inbounds i8, ptr %add.ptr.i30, i64 -4
   %13 = load i32, ptr %arrayidx27, align 4
-  %14 = trunc nuw i64 %add to i32
+  %14 = trunc nuw nsw i64 %add to i32
   %conv30 = sub i32 %13, %14
   store i32 %conv30, ptr %arrayidx27, align 4
   %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %conv

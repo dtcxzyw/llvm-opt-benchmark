@@ -6404,7 +6404,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not, label %17, label %20
 
 17:                                               ; preds = %switch.lookup
-  %18 = trunc nuw i16 %9 to i8
+  %18 = trunc nuw nsw i16 %9 to i8
   store i8 %18, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %19, align 4
@@ -6415,7 +6415,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %22 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %23 = load i32, ptr @ett_netflow, align 4
   %24 = tail call ptr @proto_item_add_subtree(ptr noundef %22, i32 noundef %23)
-  %25 = trunc nuw i16 %9 to i8
+  %25 = trunc nuw nsw i16 %9 to i8
   store i8 %25, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %26, align 4

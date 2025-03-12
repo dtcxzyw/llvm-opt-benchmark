@@ -580,7 +580,7 @@ Abc_TtCofactor0p.exit.thread65.i.us:              ; preds = %.lr.ph, %Abc_TtCofa
   br i1 %66, label %.preheader.lr.ph.i28.i.thread, label %.preheader.us.preheader.i.i
 
 .preheader.lr.ph.i28.i.thread:                    ; preds = %.preheader.lr.ph.i.i
-  %69 = trunc i64 %indvars.iv to i32
+  %69 = trunc nuw nsw i64 %indvars.iv to i32
   %70 = add nsw i32 %69, -5
   %71 = shl nuw nsw i32 2, %70
   %72 = zext nneg i32 %71 to i64
@@ -1446,7 +1446,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %3
 
 .preheader.us.preheader.i:                        ; preds = %87
   %88 = icmp samesign ult i64 %indvars.iv, 7
-  %89 = trunc i64 %indvars.iv to i32
+  %89 = trunc nuw nsw i64 %indvars.iv to i32
   %90 = add nsw i32 %89, -6
   %91 = shl nuw nsw i32 1, %90
   %92 = select i1 %88, i32 1, i32 %91
@@ -2695,7 +2695,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i, %4
 
 .preheader.us.preheader.i:                        ; preds = %91
   %92 = icmp samesign ult i64 %indvars.iv, 7
-  %93 = trunc i64 %indvars.iv to i32
+  %93 = trunc nuw nsw i64 %indvars.iv to i32
   %94 = add nsw i32 %93, -6
   %95 = shl nuw nsw i32 1, %94
   %96 = select i1 %92, i32 1, i32 %95
@@ -2804,7 +2804,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
 
 .preheader.us.preheader.i83:                      ; preds = %147
   %148 = icmp samesign ult i64 %indvars.iv198, 7
-  %149 = trunc i64 %indvars.iv198 to i32
+  %149 = trunc nuw nsw i64 %indvars.iv198 to i32
   %150 = add nsw i32 %149, -6
   %151 = shl nuw nsw i32 1, %150
   %152 = select i1 %148, i32 1, i32 %151

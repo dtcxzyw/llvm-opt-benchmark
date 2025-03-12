@@ -1029,7 +1029,7 @@ _ZZN4moldL13uniquify_ciesINS_6X86_64EEEvRNS_7ContextIT_EEENKUlRNS_9CieRecordIS1_
   br i1 %.not.i.i.i, label %158, label %156
 
 .loopexit.i.thread:                               ; preds = %.lr.ph.i
-  %154 = trunc i64 %.pre57.i to i32
+  %154 = trunc nuw nsw i64 %.pre57.i to i32
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.013.041.i, i64 28
   store i32 %154, ptr %155, align 4, !tbaa !27
   %.not.i.i.i197 = icmp eq ptr %.sroa.9.139.i, %.sroa.15.140.i
@@ -14095,14 +14095,14 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit102.i.i.i.i.i: ; preds = %_ZN11S
   %.120.lcssa.i90.i.i.i.i.i = phi ptr [ %235, %211 ], [ %257, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit102.loopexit.i.i.i.i.i ]
   %.1.lcssa.i91.i.i.i.i.i = phi i64 [ %212, %211 ], [ %258, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit102.loopexit.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i90.i.i.i.i.i, i64 %.1.lcssa.i91.i.i.i.i.i, i1 false)
-  %storemerge.i93.i.i.i.i.i = trunc i64 %.1.lcssa.i91.i.i.i.i.i to i8
+  %storemerge.i93.i.i.i.i.i = trunc nuw nsw i64 %.1.lcssa.i91.i.i.i.i.i to i8
   store i8 %storemerge.i93.i.i.i.i.i, ptr %28, align 8, !tbaa !878
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %264 = load i8, ptr %29, align 1, !tbaa !880
   %265 = trunc i64 %207 to i8
   %266 = add i8 %264, %265
   store i8 %266, ptr %29, align 1, !tbaa !880
-  %.not.i67.i.i.i.i.i = icmp eq i8 %storemerge.i93.i.i.i.i.i, 0
+  %.not.i67.i.i.i.i.i = icmp eq i64 %.1.lcssa.i91.i.i.i.i.i, 0
   br i1 %.not.i67.i.i.i.i.i, label %296, label %267
 
 267:                                              ; preds = %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit102.i.i.i.i.i
@@ -14338,7 +14338,7 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit66.i.i.i.i.i: ; preds = %_ZN11Si
   %.120.lcssa.i54.i.i.i.i.i = phi ptr [ %378, %358 ], [ %400, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit66.loopexit.i.i.i.i.i ]
   %.1.lcssa.i55.i.i.i.i.i = phi i64 [ %359, %358 ], [ %401, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit66.loopexit.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i54.i.i.i.i.i, i64 %.1.lcssa.i55.i.i.i.i.i, i1 false)
-  %storemerge.i57.i.i.i.i.i = trunc i64 %.1.lcssa.i55.i.i.i.i.i to i8
+  %storemerge.i57.i.i.i.i.i = trunc nuw nsw i64 %.1.lcssa.i55.i.i.i.i.i to i8
   store i8 %storemerge.i57.i.i.i.i.i, ptr %28, align 8, !tbaa !878
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %403 = load ptr, ptr %42, align 8, !tbaa !535
@@ -14393,7 +14393,7 @@ _ZNK4mold9FdeRecordINS_6X86_64EE8get_relsERNS_10ObjectFileIS1_EE.exit84.i.i.i.i.
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit136.i.i.i.i.i.i.i.i.i.i.i, %_ZNK4mold9FdeRecordINS_6X86_64EE8get_relsERNS_10ObjectFileIS1_EE.exit84.i.i.i.i.i.i.i.i.i.i.i
-  %432 = phi i8 [ %storemerge.i57.i.i.i.i.i, %_ZNK4mold9FdeRecordINS_6X86_64EE8get_relsERNS_10ObjectFileIS1_EE.exit84.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i127.i.i.i.i.i.i.i.i.i.i.i, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit136.i.i.i.i.i.i.i.i.i.i.i ]
+  %432 = phi i8 [ %storemerge.i57.i.i.i.i.i, %_ZNK4mold9FdeRecordINS_6X86_64EE8get_relsERNS_10ObjectFileIS1_EE.exit84.i.i.i.i.i.i.i.i.i.i.i ], [ %storemerge.i109.i.i.i.i.i.i.i.i.i.i.i, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit136.i.i.i.i.i.i.i.i.i.i.i ]
   %433 = getelementptr inbounds nuw i8, ptr %.sroa.0151.0200.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %434 = icmp eq ptr %433, %115
   br i1 %434, label %.preheader.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph201.i.i.i.i.i.i.i.i.i.i.i
@@ -14610,7 +14610,7 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit118.i.i.i.i.i.i.i.i.i.i.i: ; pre
   %.120.lcssa.i106.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %534, %510 ], [ %556, %.lr.ph.i110.i.i.i.i.i.i.i.i.i.i.i ]
   %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %511, %510 ], [ %557, %.lr.ph.i110.i.i.i.i.i.i.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i106.i.i.i.i.i.i.i.i.i.i.i, i64 %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i, i1 false)
-  %storemerge.i109.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i to i8
+  %storemerge.i109.i.i.i.i.i.i.i.i.i.i.i = trunc nuw nsw i64 %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i to i8
   store i8 %storemerge.i109.i.i.i.i.i.i.i.i.i.i.i, ptr %28, align 8, !tbaa !878
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %559 = getelementptr inbounds nuw i8, ptr %.pn198.i.i.i.i.i.i.i.i.i.i.i, i64 40
@@ -14620,7 +14620,7 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit118.i.i.i.i.i.i.i.i.i.i.i: ; pre
   %561 = load i8, ptr %29, align 1, !tbaa !880
   %562 = add i8 %561, 8
   store i8 %562, ptr %29, align 1, !tbaa !880
-  %.not.i119.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %storemerge.i109.i.i.i.i.i.i.i.i.i.i.i, 0
+  %.not.i119.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not.i119.i.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i, label %563
 
 563:                                              ; preds = %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit118.i.i.i.i.i.i.i.i.i.i.i
@@ -14672,14 +14672,12 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit136.i.i.i.i.i.i.i.i.i.i.i: ; pre
   %.sink38.i.i.i.i.i.i.i.i.i.i = phi i64 [ %597, %.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i ], [ %580, %563 ]
   %.sink.i.i.i.i.i.i.i.i.i.i = phi i64 [ %598, %.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i ], [ %581, %563 ]
   %.120.lcssa.i124.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i ], [ %582, %563 ]
-  %.1.lcssa.i125.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i128.i.i.i.i.i.i.i.i.i.i.i ], [ %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i, %563 ]
   store i64 %.sink40.i.i.i.i.i.i.i.i.i.i, ptr %32, align 8, !tbaa !883
   store i64 %.sink39.i.i.i.i.i.i.i.i.i.i, ptr %30, align 8, !tbaa !884
   store i64 %.sink38.i.i.i.i.i.i.i.i.i.i, ptr %31, align 8, !tbaa !882
   store i64 %.sink.i.i.i.i.i.i.i.i.i.i, ptr %18, align 8, !tbaa !881
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i124.i.i.i.i.i.i.i.i.i.i.i, i64 %.1.lcssa.i125.i.i.i.i.i.i.i.i.i.i.i, i1 false)
-  %storemerge.i127.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i64 %.1.lcssa.i125.i.i.i.i.i.i.i.i.i.i.i to i8
-  store i8 %storemerge.i127.i.i.i.i.i.i.i.i.i.i.i, ptr %28, align 8, !tbaa !878
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i124.i.i.i.i.i.i.i.i.i.i.i, i64 %.1.lcssa.i107.i.i.i.i.i.i.i.i.i.i.i, i1 false)
+  store i8 %storemerge.i109.i.i.i.i.i.i.i.i.i.i.i, ptr %28, align 8, !tbaa !878
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.sroa.0139.0.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0139.0199.i.i.i.i.i.i.i.i.i.i.i, i64 24
   %599 = icmp eq ptr %.sroa.0139.0.i.i.i.i.i.i.i.i.i.i.i, %430
@@ -14843,7 +14841,7 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit42.i.i.i.i.i: ; preds = %_ZN11Si
   %.120.lcssa.i30.i.i.i.i.i = phi ptr [ %659, %635 ], [ %681, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit42.loopexit.i.i.i.i.i ]
   %.1.lcssa.i31.i.i.i.i.i = phi i64 [ %636, %635 ], [ %682, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit42.loopexit.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i30.i.i.i.i.i, i64 %.1.lcssa.i31.i.i.i.i.i, i1 false)
-  %storemerge.i33.i.i.i.i.i = trunc i64 %.1.lcssa.i31.i.i.i.i.i to i8
+  %storemerge.i33.i.i.i.i.i = trunc nuw nsw i64 %.1.lcssa.i31.i.i.i.i.i to i8
   store i8 %storemerge.i33.i.i.i.i.i, ptr %28, align 8, !tbaa !878
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %688 = getelementptr inbounds nuw i8, ptr %631, i64 8
@@ -14853,7 +14851,7 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit42.i.i.i.i.i: ; preds = %_ZN11Si
   %689 = load i8, ptr %29, align 1, !tbaa !880
   %690 = add i8 %689, 4
   store i8 %690, ptr %29, align 1, !tbaa !880
-  %.not.i9.i.i.i.i.i = icmp eq i8 %storemerge.i33.i.i.i.i.i, 0
+  %.not.i9.i.i.i.i.i = icmp eq i64 %.1.lcssa.i31.i.i.i.i.i, 0
   br i1 %.not.i9.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %691
 
 691:                                              ; preds = %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit42.i.i.i.i.i
@@ -15006,7 +15004,7 @@ _ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit.i.i.i.i.i: ; preds = %_ZN11SipH
   %.120.lcssa.i.i.i.i.i.i = phi ptr [ %752, %732 ], [ %774, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit.loopexit.i.i.i.i.i ]
   %.1.lcssa.i.i.i.i.i.i = phi i64 [ %733, %732 ], [ %775, %_ZN11SipHashTmplILi1ELi3ELi128EE6updateEPvl.exit.loopexit.i.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 1 %.120.lcssa.i.i.i.i.i.i, i64 %.1.lcssa.i.i.i.i.i.i, i1 false)
-  %storemerge.i.i.i.i.i.i = trunc i64 %.1.lcssa.i.i.i.i.i.i to i8
+  %storemerge.i.i.i.i.i.i = trunc nuw nsw i64 %.1.lcssa.i.i.i.i.i.i to i8
   store i8 %storemerge.i.i.i.i.i.i, ptr %28, align 8, !tbaa !878
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %777 = load ptr, ptr %42, align 8, !tbaa !535
@@ -17734,7 +17732,7 @@ define internal fastcc void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeIlEE
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %.lr.ph.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull align 1 %150, i64 %151, i1 false)
-  %storemerge.i.i.i.i.i.i = trunc i64 %151 to i8
+  %storemerge.i.i.i.i.i.i = trunc nuw nsw i64 %151 to i8
   store i8 %storemerge.i.i.i.i.i.i, ptr %12, align 8, !tbaa !878
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.015.020.i.i.i.i.i.i.i.i.i.i, i64 4
   %154 = icmp eq ptr %153, %64

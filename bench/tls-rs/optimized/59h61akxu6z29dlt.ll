@@ -3816,7 +3816,7 @@ _ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !689
   store i8 16, ptr %6, align 1, !noalias !689
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !689
-  %35 = trunc nuw i64 %24 to i8
+  %35 = trunc nuw nsw i64 %24 to i8
   store i8 %35, ptr %5, align 1, !noalias !689
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !689
   store ptr %7, ptr %4, align 8, !noalias !689
@@ -4979,7 +4979,7 @@ _ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empty_hash17hbca0ec443c9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !1146
   store i8 13, ptr %9, align 1, !noalias !1146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !1146
-  %40 = trunc nuw i64 %30 to i8
+  %40 = trunc nuw nsw i64 %30 to i8
   store i8 %40, ptr %8, align 1, !noalias !1146
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !1146
   store ptr %10, ptr %7, align 8, !noalias !1146
@@ -5485,7 +5485,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule18KeyScheduleTraffic46resumpti
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !1370
   store i8 16, ptr %8, align 1, !noalias !1370
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7), !noalias !1370
-  %23 = trunc nuw i64 %12 to i8
+  %23 = trunc nuw nsw i64 %12 to i8
   store i8 %23, ptr %7, align 1, !noalias !1370
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6), !noalias !1370
   store ptr %9, ptr %6, align 8, !noalias !1370
@@ -6574,7 +6574,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule23input_from_key_
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9), !noalias !1713
   store i8 13, ptr %9, align 1, !noalias !1713
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8), !noalias !1713
-  %39 = trunc nuw i64 %28 to i8
+  %39 = trunc nuw nsw i64 %28 to i8
   store i8 %39, ptr %8, align 1, !noalias !1713
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7), !noalias !1713
   store ptr %10, ptr %7, align 8, !noalias !1713
@@ -7034,7 +7034,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule21derive_for_empt
   %37 = add nuw nsw i8 %36, 6
   store i8 %37, ptr %6, align 1, !noalias !1860
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !1860
-  %38 = trunc nuw i64 %23 to i8
+  %38 = trunc nuw nsw i64 %23 to i8
   store i8 %38, ptr %5, align 1, !noalias !1860
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4), !noalias !1860
   store ptr %7, ptr %4, align 8, !noalias !1860
@@ -7589,7 +7589,7 @@ define hidden void @_ZN6rustls5tls1312key_schedule11KeySchedule22export_keying_m
   %51 = add i8 %50, 6
   store i8 %51, ptr %16, align 1, !noalias !1999
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15), !noalias !1999
-  %52 = trunc nuw i64 %39 to i8
+  %52 = trunc nuw nsw i64 %39 to i8
   store i8 %52, ptr %15, align 1, !noalias !1999
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %14), !noalias !1999
   store ptr %17, ptr %14, align 8, !noalias !1999
@@ -7738,7 +7738,7 @@ common.resume:                                    ; preds = %.lr.ph.i.i.i.i, %42
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12), !noalias !2044
   store i8 14, ptr %12, align 1, !noalias !2044
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11), !noalias !2044
-  %110 = trunc nuw i64 %101 to i8
+  %110 = trunc nuw nsw i64 %101 to i8
   store i8 %110, ptr %11, align 1, !noalias !2044
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10), !noalias !2044
   store ptr %13, ptr %10, align 8, !noalias !2044

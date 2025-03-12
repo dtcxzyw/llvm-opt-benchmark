@@ -1370,7 +1370,7 @@ define internal void @queue_process(ptr noundef %0) #0 align 16 {
   br i1 %25, label %28, label %26, !prof !13
 
 26:                                               ; preds = %18
-  %.rhs.trunc = trunc i32 %24 to i16
+  %.rhs.trunc = trunc nuw i32 %24 to i16
   %27 = urem i16 %21, %.rhs.trunc
   %.zext = zext i16 %27 to i32
   store i16 %27, ptr %20, align 4

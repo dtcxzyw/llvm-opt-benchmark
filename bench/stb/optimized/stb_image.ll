@@ -23187,7 +23187,7 @@ stbi__get8.exit316.thread:                        ; preds = %198, %stbi__get8.ex
   br label %.thread384
 
 260:                                              ; preds = %256
-  %.lhs.trunc = trunc nuw i32 %65 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %65 to i16
   %261 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %261 to i32
   %262 = mul nuw nsw i32 %.zext, 3

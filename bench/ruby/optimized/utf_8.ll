@@ -268,7 +268,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr rea
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = trunc nuw i32 %0 to i8
+  %6 = trunc nuw nsw i32 %0 to i8
   store i8 %6, ptr %1, align 1, !tbaa !7
   br label %55
 
@@ -278,7 +278,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr rea
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   %13 = getelementptr i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1, !tbaa !7
@@ -290,7 +290,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr rea
 
 16:                                               ; preds = %14
   %17 = lshr i32 %0, 12
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -32
   %20 = getelementptr i8, ptr %1, i64 1
   store i8 %19, ptr %1, align 1, !tbaa !7
@@ -308,7 +308,7 @@ define internal noundef i32 @code_to_mbc(i32 noundef %0, ptr noundef %1, ptr rea
 
 28:                                               ; preds = %26
   %29 = lshr i32 %0, 18
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -16
   %32 = getelementptr i8, ptr %1, i64 1
   store i8 %31, ptr %1, align 1, !tbaa !7

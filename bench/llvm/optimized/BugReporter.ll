@@ -1023,7 +1023,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %26, %24, %20, %16, 
   br label %_ZN4llvmplERKNS_5TwineES2_.exit18
 
 66:                                               ; preds = %._crit_edge.i.i
-  %67 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %67 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %68 = or disjoint i8 %67, 48
   br label %_ZN4llvmplERKNS_5TwineES2_.exit18
 

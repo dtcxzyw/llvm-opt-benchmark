@@ -7762,8 +7762,8 @@ _ZN7hir_def9item_tree8ItemTree5attrs17haa4e2e6c6799598fE.exit.i.i: ; preds = %"_
 
 .noexc2.i.i.i:                                    ; preds = %96
   %97 = icmp eq i8 %93, 2
-  %98 = trunc i8 %93 to i1
-  %99 = or i1 %97, %98
+  %98 = trunc nuw i8 %93 to i1
+  %99 = select i1 %97, i1 true, i1 %98
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !2855
   %.pre.i.i.i = load ptr, ptr %7, align 8, !alias.scope !2860, !noalias !2815
   br label %107
@@ -40996,8 +40996,8 @@ define hidden noundef zeroext i1 @"_ZN7hir_def4data12FunctionData13fn_data_query
 
 .noexc2:                                          ; preds = %29
   %30 = icmp eq i8 %26, 2
-  %31 = trunc i8 %26 to i1
-  %32 = or i1 %30, %31
+  %31 = trunc nuw i8 %26 to i1
+  %32 = select i1 %30, i1 true, i1 %31
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !10106
   %.pre = load ptr, ptr %5, align 8, !alias.scope !10110
   br label %40

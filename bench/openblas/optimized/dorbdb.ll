@@ -946,7 +946,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 566:                                              ; preds = %.lr.ph, %838
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %838 ]
   %.3.neg1503 = phi i32 [ -1, %.lr.ph ], [ %840, %838 ]
-  %indvars1542 = trunc i64 %indvars.iv to i32
+  %indvars1542 = trunc nuw i64 %indvars.iv to i32
   %567 = icmp eq i64 %indvars.iv, 1
   %568 = load i32, ptr %3, align 4, !tbaa !3
   br i1 %567, label %569, label %573
@@ -1371,7 +1371,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 838:                                              ; preds = %814, %830
   %.not1367.not = icmp samesign ult i64 %indvars.iv, %565
-  %839 = trunc i64 %indvars.iv to i32
+  %839 = trunc nuw i64 %indvars.iv to i32
   %840 = xor i32 %839, -1
   br i1 %.not1367.not, label %566, label %._crit_edge.loopexit, !llvm.loop !13
 

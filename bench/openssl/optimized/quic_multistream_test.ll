@@ -8281,7 +8281,7 @@ define internal range(i32 0, 2) i32 @script_85_poll(ptr noundef readonly capture
 
 45:                                               ; preds = %44, %41
   %.054 = phi i32 [ 1, %41 ], [ 0, %44 ]
-  %46 = trunc i64 %33 to i32
+  %46 = trunc nuw nsw i64 %33 to i32
   br label %47
 
 47:                                               ; preds = %45, %54

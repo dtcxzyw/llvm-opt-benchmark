@@ -1007,7 +1007,7 @@ ZSTD_decodeSeqHeaders.exit.i:                     ; preds = %222, %FSE_buildDTab
 BIT_initDStream.exit.thread146.i:                 ; preds = %296
   %300 = zext i8 %298 to i32
   %301 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %300, i1 true)
-  %302 = trunc nuw i64 %gepdiff.i to i32
+  %302 = trunc nuw nsw i64 %gepdiff.i to i32
   %303 = shl nuw nsw i32 %302, 3
   %reass.sub = sub nsw i32 %301, %303
   %304 = add nsw i32 %reass.sub, 41
@@ -1649,7 +1649,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %19, label %HUF_readDTableX2.exit.thread, label %20
 
 20:                                               ; preds = %17
-  %21 = trunc nuw i32 %18 to i16
+  %21 = trunc nuw nsw i32 %18 to i16
   store i16 %21, ptr %13, align 16, !tbaa !37
   %.not3940.i = icmp eq i32 %18, 0
   br i1 %.not3940.i, label %.preheader.i, label %.lr.ph.preheader.i
@@ -1665,7 +1665,7 @@ define internal i64 @HUF_decompress4X2(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %.not.i, label %HUF_readDTableX2.exit.thread23, label %.lr.ph46.i
 
 .lr.ph46.i:                                       ; preds = %.preheader.i
-  %24 = trunc nuw i32 %18 to i8
+  %24 = trunc nuw nsw i32 %18 to i8
   %25 = add nuw nsw i8 %24, 1
   %wide.trip.count56.i = zext i32 %23 to i64
   br label %32
@@ -5255,7 +5255,7 @@ FSE_decompress.exit:                              ; preds = %BIT_reloadDStream.e
   br i1 %or.cond, label %616, label %.critedge
 
 616:                                              ; preds = %604
-  %617 = trunc i64 %.074 to i32
+  %617 = trunc nuw i64 %.074 to i32
   %618 = add i32 %617, 1
   store i32 %618, ptr %2, align 4, !tbaa !22
   store i32 %596, ptr %3, align 4, !tbaa !22
@@ -5777,7 +5777,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr noundef nonnull 
   %71 = zext i8 %69 to i32
   %72 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %71, i1 true)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = trunc nuw i64 %2 to i32
+  %74 = trunc nuw nsw i64 %2 to i32
   %75 = shl nuw nsw i32 %74, 3
   %76 = sub nsw i32 %72, %75
   %77 = add nsw i32 %76, 41

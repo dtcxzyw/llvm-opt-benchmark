@@ -10890,7 +10890,7 @@ default.unreachable2.i.i.i.i:                     ; preds = %34
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17hd1801198d1bc4ba6E.exit"
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0.i.i.i = trunc i64 %.sroa.2.0.copyload.i.i.i to i32
+  %.sroa.12.0.i.i.i = trunc nuw i64 %.sroa.2.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !2730
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !2724
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10980,7 +10980,7 @@ default.unreachable2.i22.i.i.i:                   ; preds = %64
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17hd1801198d1bc4ba6E.exit"
 
 81:                                               ; preds = %73, %68
-  %.sroa.12.1.i.i.i = trunc i64 %.sroa.232.0.copyload.i.i.i to i32
+  %.sroa.12.1.i.i.i = trunc nuw i64 %.sroa.232.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !2746
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !2724
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4

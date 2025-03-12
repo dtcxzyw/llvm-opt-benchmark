@@ -129,7 +129,7 @@ define dso_local range(i32 -1, 1) i32 @pg_sockaddr_cidr_mask(ptr noundef writeon
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %30
-  %33 = trunc nuw i64 %.13641 to i16
+  %33 = trunc nuw nsw i64 %.13641 to i16
   %34 = sub nuw nsw i16 8, %33
   %35 = shl nuw nsw i16 255, %34
   %36 = trunc i16 %35 to i8

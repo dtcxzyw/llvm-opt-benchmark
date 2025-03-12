@@ -99,10 +99,10 @@ define dso_local void @get_parallel_checkout_configs(ptr noundef %0, ptr noundef
   unreachable
 
 18:                                               ; preds = %11
-  %19 = trunc i64 %9 to i32
+  %19 = trunc nsw i64 %9 to i32
   store i32 %19, ptr %0, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
-  %20 = icmp slt i32 %19, 1
+  %20 = icmp slt i64 %9, 1
   br i1 %20, label %21, label %.sink.split20
 
 21:                                               ; preds = %18

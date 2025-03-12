@@ -1510,7 +1510,7 @@ _ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit: ; preds = %4, %44, %48,
   br i1 %77, label %62, label %._crit_edge.i, !llvm.loop !503
 
 ._crit_edge.i:                                    ; preds = %74, %_ZNK4llvm16AArch64Subtarget18isCallingConvWin64Ejb.exit
-  %78 = trunc i64 %29 to i32
+  %78 = trunc nuw i64 %29 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit: ; preds = %62
@@ -1717,7 +1717,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   br i1 %174, label %159, label %._crit_edge.i139, !llvm.loop !503
 
 ._crit_edge.i139:                                 ; preds = %171, %156
-  %175 = trunc i64 %32 to i32
+  %175 = trunc nuw i64 %32 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit141
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit141.loopexit: ; preds = %159

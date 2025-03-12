@@ -3971,11 +3971,11 @@ define dso_local noundef range(i32 0, 2) i32 @jbd2_journal_set_features(ptr noun
   br label %145
 
 145:                                              ; preds = %141, %137
-  %146 = trunc nuw i64 %48 to i32
+  %146 = trunc nuw nsw i64 %48 to i32
   %147 = shl nuw nsw i32 %146, 24
   %148 = or i32 %.pre, %147
   store i32 %148, ptr %16, align 4
-  %149 = trunc nuw i64 %45 to i32
+  %149 = trunc nuw nsw i64 %45 to i32
   %150 = shl nuw nsw i32 %149, 24
   %151 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %152 = load i32, ptr %151, align 4

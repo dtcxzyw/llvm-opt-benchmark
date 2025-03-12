@@ -4968,14 +4968,14 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
 
 103:                                              ; preds = %99
   %104 = lshr i32 %.sroa.4.0.i.ph, 6
-  %105 = trunc nuw i32 %104 to i8
+  %105 = trunc nuw nsw i32 %104 to i8
   %106 = or disjoint i8 %105, -64
   store i8 %106, ptr %.sroa.0.i, align 4, !alias.scope !1037, !noalias !1034
   br label %_ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i
 
 107:                                              ; preds = %101
   %108 = lshr i32 %.sroa.4.0.i.ph, 12
-  %109 = trunc nuw i32 %108 to i8
+  %109 = trunc nuw nsw i32 %108 to i8
   %110 = or disjoint i8 %109, -32
   store i8 %110, ptr %.sroa.0.i, align 4, !alias.scope !1037, !noalias !1034
   %111 = lshr i32 %.sroa.4.0.i.ph, 6

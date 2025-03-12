@@ -485,7 +485,7 @@ define dso_local void @intel_cx0_phy_set_signal_levels(ptr noundef %0, ptr nound
   %185 = and i32 %177, 1
   %186 = load i32, ptr %5, align 4
   %187 = xor i32 %184, %185
-  %188 = trunc i32 %187 to i16
+  %188 = trunc nuw nsw i32 %187 to i16
   %189 = shl nuw nsw i16 %188, 4
   %190 = add nuw nsw i16 %189, 3456
   %191 = load ptr, ptr %65, align 8
@@ -796,7 +796,7 @@ define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly captures(
 
 .split.us:                                        ; preds = %.split.us.preheader, %.split.us
   %62 = phi i64 [ %82, %.split.us ], [ 0, %.split.us.preheader ]
-  %63 = trunc i64 %62 to i32
+  %63 = trunc nuw nsw i64 %62 to i32
   %64 = getelementptr [20 x i8], ptr %3, i64 0, i64 %62
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
@@ -822,7 +822,7 @@ define dso_local void @intel_c10pll_dump_hw_state(ptr noundef readonly captures(
 
 .split:                                           ; preds = %.split.preheader, %.split
   %84 = phi i64 [ %105, %.split ], [ 0, %.split.preheader ]
-  %85 = trunc i64 %84 to i32
+  %85 = trunc nuw nsw i64 %84 to i32
   %86 = load ptr, ptr %55, align 8
   %87 = getelementptr [20 x i8], ptr %3, i64 0, i64 %84
   %88 = load i8, ptr %87, align 1

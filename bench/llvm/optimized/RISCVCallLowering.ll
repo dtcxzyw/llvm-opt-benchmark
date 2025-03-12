@@ -838,7 +838,7 @@ define dso_local void @_ZNK4llvm17RISCVCallLowering19saveVarArgRegistersERNS_16M
   br i1 %49, label %34, label %._crit_edge.i, !llvm.loop !420
 
 ._crit_edge.i:                                    ; preds = %46, %5
-  %50 = trunc i64 %29 to i32
+  %50 = trunc nuw i64 %29 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.loopexit: ; preds = %34

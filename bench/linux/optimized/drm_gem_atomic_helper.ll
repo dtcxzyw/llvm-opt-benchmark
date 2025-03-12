@@ -79,7 +79,7 @@ define dso_local i32 @drm_gem_plane_helper_prepare_fb(ptr readnone captures(none
   %28 = phi ptr [ %55, %52 ], [ %19, %21 ]
   %29 = phi i64 [ %54, %52 ], [ 0, %21 ]
   %30 = phi ptr [ %53, %52 ], [ %5, %21 ]
-  %31 = trunc i64 %29 to i32
+  %31 = trunc nuw nsw i64 %29 to i32
   %32 = call ptr @drm_gem_fb_get_obj(ptr noundef %28, i32 noundef %31) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
   store ptr null, ptr %3, align 8, !annotation !8

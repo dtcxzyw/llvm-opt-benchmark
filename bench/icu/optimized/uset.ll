@@ -1070,14 +1070,14 @@ define void @uset_setSerializedToOne_77(ptr noundef %0, i32 noundef %1) local_un
 25:                                               ; preds = %21
   store i32 4, ptr %24, align 4, !tbaa !35
   %26 = lshr i32 %1, 16
-  %27 = trunc nuw i32 %26 to i16
+  %27 = trunc nuw nsw i32 %26 to i16
   store i16 %27, ptr %6, align 8, !tbaa !32
   %28 = trunc i32 %1 to i16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %28, ptr %29, align 2, !tbaa !32
   %30 = add nuw nsw i32 %1, 1
   %31 = lshr i32 %30, 16
-  %32 = trunc nuw i32 %31 to i16
+  %32 = trunc nuw nsw i32 %31 to i16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 %32, ptr %33, align 4, !tbaa !32
   %34 = trunc i32 %30 to i16

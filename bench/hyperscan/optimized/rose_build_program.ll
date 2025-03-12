@@ -6431,7 +6431,7 @@ _ZNSt6vectorIN3ue29LookEntryESaIS1_EED2Ev.exit71.i: ; preds = %236, %_ZNSt6vecto
   br label %.body.i.i
 
 313:                                              ; preds = %300
-  %314 = trunc i64 %305 to i8
+  %314 = trunc nsw i64 %305 to i8
   %315 = getelementptr inbounds nuw i8, ptr %.sroa.026.098.i.i, i64 8
   %316 = load ptr, ptr %275, align 8
   %.not.i.i.i97 = icmp eq ptr %290, %316
@@ -7049,9 +7049,9 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IiNS5_11_Alloc_nodeE
   br label %654
 
 526:                                              ; preds = %._crit_edge135.i.i
-  %527 = trunc nuw i64 %492 to i32
+  %527 = trunc nuw nsw i64 %492 to i32
   %notmask.i.i = shl nsw i32 -1, %527
-  %528 = trunc i32 %notmask.i.i to i8
+  %528 = trunc nsw i32 %notmask.i.i to i8
   %529 = xor i8 %528, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 %529, i64 16, i1 false)
   br label %531
@@ -13199,7 +13199,7 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i: ; preds
   br label %.body
 
 163:                                              ; preds = %156
-  %164 = trunc i32 %.040 to i8
+  %164 = trunc nsw i32 %.040 to i8
   store i8 %164, ptr %6, align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #29
   %165 = load i8, ptr %148, align 1

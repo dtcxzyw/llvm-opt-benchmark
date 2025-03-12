@@ -5039,7 +5039,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %68, %70
   br i1 %or.cond.i52, label %.critedge.i, label %.critedge.thread.i
 
 .critedge.i:                                      ; preds = %152
-  %163 = trunc i64 %158 to i32
+  %163 = trunc nsw i64 %158 to i32
   store i32 %163, ptr %148, align 8, !tbaa !723
   %164 = load ptr, ptr %153, align 8, !tbaa !555
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 36

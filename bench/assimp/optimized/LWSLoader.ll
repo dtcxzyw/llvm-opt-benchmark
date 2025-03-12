@@ -2475,7 +2475,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %84, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %85
 
 85:                                               ; preds = %79
-  %86 = trunc nuw i64 %83 to i32
+  %86 = trunc nuw nsw i64 %83 to i32
   store i32 %86, ptr %1, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %64, ptr align 1 %.pre138, i64 %83, i1 false)
   %87 = getelementptr inbounds nuw [1024 x i8], ptr %64, i64 0, i64 %83

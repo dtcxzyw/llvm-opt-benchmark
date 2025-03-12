@@ -4259,7 +4259,7 @@ Vec_WecStart.exit:                                ; preds = %1, %6
 
 44:                                               ; preds = %41
   %45 = shl nsw i32 %42, 1
-  %46 = trunc i64 %indvars.iv to i32
+  %46 = trunc nsw i64 %indvars.iv to i32
   %47 = add nsw i32 %46, 1
   %48 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %45, i32 range(i32 -2147483647, -2147483648) %47)
   %49 = load i32, ptr %4, align 8, !tbaa !91

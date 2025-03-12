@@ -1085,7 +1085,7 @@ define dso_local i32 @createPostingTree(ptr noundef %0, ptr noundef %1, i32 noun
 .loopexit:                                        ; preds = %28, %5, %.thread
   %.06277 = phi i32 [ %.06278, %.thread ], [ 0, %5 ], [ %26, %28 ]
   %.06075 = phi i32 [ %.06079, %.thread ], [ 0, %5 ], [ %32, %28 ]
-  %34 = trunc i32 %.06277 to i16
+  %34 = trunc nuw nsw i32 %.06277 to i16
   %35 = add nuw nsw i16 %34, 32
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i16 %35, ptr %36, align 4

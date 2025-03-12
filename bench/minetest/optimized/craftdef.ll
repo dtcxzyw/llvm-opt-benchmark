@@ -5646,7 +5646,7 @@ _ZNSt6vectorIS_ItSaItEESaIS1_EE6resizeEm.exit:    ; preds = %_ZNKSt6vectorIS_ItS
   %add.ptr37.i = getelementptr inbounds nuw %"class.std::vector.61", ptr %call5.i.i.i.i470, i64 %sub.ptr.div.i255
   store ptr %add.ptr37.i, ptr %_M_finish.i.i, align 8, !tbaa !183
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i454, align 8, !tbaa !184
-  %84 = trunc nuw i64 %sub.ptr.div.i255 to i16
+  %84 = trunc nuw nsw i64 %sub.ptr.div.i255 to i16
   br label %for.body114
 
 for.cond.cleanup113.loopexit:                     ; preds = %for.cond.cleanup121

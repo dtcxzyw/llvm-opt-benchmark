@@ -2594,7 +2594,7 @@ _ZN10aiMetadata5AllocEj.exit:                     ; preds = %17, %41
   %69 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw %struct.aiString, ptr %70, i64 %66
-  %72 = trunc nuw i64 %63 to i32
+  %72 = trunc nuw nsw i64 %63 to i32
   store i32 %72, ptr %71, align 4
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load ptr, ptr %51, align 8
@@ -2675,7 +2675,7 @@ define hidden void @_ZN6Assimp11AMFImporter30Postprocess_BuildNodeAndObjectERK9A
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = trunc nuw i64 %10 to i32
+  %14 = trunc nuw nsw i64 %10 to i32
   store i32 %14, ptr %7, align 4
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %16 = load ptr, ptr %13, align 8
@@ -5390,7 +5390,7 @@ define hidden void @_ZNK6Assimp11AMFImporter30Postprocess_BuildConstellationER16
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = trunc nuw i64 %12 to i32
+  %16 = trunc nuw nsw i64 %12 to i32
   store i32 %16, ptr %8, align 4
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %18 = load ptr, ptr %15, align 8

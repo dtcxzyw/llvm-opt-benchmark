@@ -634,7 +634,7 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit:
   %11 = load i64, ptr %6, align 8
   %12 = add i64 %11, 2147483648
   %.not.i = icmp ult i64 %12, 4294967296
-  %13 = trunc i64 %11 to i32
+  %13 = trunc nsw i64 %11 to i32
   %spec.select = select i1 %.not.i, i32 %13, i32 0
   %.0 = select i1 %10, i32 0, i32 %spec.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
@@ -658,7 +658,7 @@ define dso_local noundef i32 @_ZNK5clang15AnalyzerOptions23getCheckerIntegerOpti
   %17 = load i64, ptr %6, align 8
   %18 = add i64 %17, 2147483648
   %.not.i.i = icmp ult i64 %18, 4294967296
-  %19 = trunc i64 %17 to i32
+  %19 = trunc nsw i64 %17 to i32
   %spec.select.i = select i1 %.not.i.i, i32 %19, i32 0
   %.0.i = select i1 %16, i32 0, i32 %spec.select.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12

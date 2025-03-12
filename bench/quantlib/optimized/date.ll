@@ -3430,7 +3430,7 @@ do.end63:                                         ; preds = %do.body24
   %conv.neg = sext i1 %cmp66.not to i64
   %sub = add nsw i64 %nth, %conv.neg
   %add = add nsw i32 %dayOfWeek, 1
-  %43 = trunc i64 %sub to i32
+  %43 = trunc nuw nsw i64 %sub to i32
   %44 = mul nuw nsw i32 %43, 7
   %45 = sub i32 %add, %cond.i
   %conv71 = add i32 %45, %44
@@ -15100,7 +15100,7 @@ lpad.i6.i.i.i:                                    ; preds = %if.then8.i.i.i
   resume { ptr, i32 } %4
 
 _ZN5boost9gregorian12greg_weekdayC2Et.exit:       ; preds = %entry
-  %conv30.i = trunc nsw i32 %rem.i to i16
+  %conv30.i = trunc nuw nsw i32 %rem.i to i16
   ret i16 %conv30.i
 }
 

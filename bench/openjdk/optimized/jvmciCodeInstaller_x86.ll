@@ -423,7 +423,7 @@ define hidden void @_ZN13CodeInstaller23pd_relocate_ForeignCallEP17NativeInstruc
   unreachable
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %10
-  %18 = trunc i64 %13 to i32
+  %18 = trunc nsw i64 %13 to i32
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i32 %18, ptr %19, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef 1) #5
@@ -599,7 +599,7 @@ define hidden void @_ZN13CodeInstaller22pd_relocate_JavaMethodER10CodeBufferR12m
   unreachable
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
-  %28 = trunc i64 %23 to i32
+  %28 = trunc nsw i64 %23 to i32
   %29 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store i32 %28, ptr %29, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %14, i32 noundef 1) #5
@@ -644,7 +644,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
   unreachable
 
 _ZN10NativeCall15set_destinationEPh.exit18:       ; preds = %37
-  %56 = trunc i64 %51 to i32
+  %56 = trunc nsw i64 %51 to i32
   %57 = getelementptr inbounds nuw i8, ptr %42, i64 1
   store i32 %56, ptr %57, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %42, i32 noundef 1) #5
@@ -678,7 +678,7 @@ _ZN10NativeCall15set_destinationEPh.exit18:       ; preds = %37
   unreachable
 
 _ZN10NativeCall15set_destinationEPh.exit19:       ; preds = %59
-  %78 = trunc i64 %73 to i32
+  %78 = trunc nsw i64 %73 to i32
   %79 = getelementptr inbounds nuw i8, ptr %64, i64 1
   store i32 %78, ptr %79, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %64, i32 noundef 1) #5

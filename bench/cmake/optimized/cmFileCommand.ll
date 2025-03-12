@@ -17830,7 +17830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   br i1 %666, label %.preheader611, label %804
 
 .preheader604:                                    ; preds = %.preheader611
-  %743 = trunc i64 %indvars.iv to i32
+  %743 = trunc nuw nsw i64 %indvars.iv to i32
   %744 = add nuw nsw i32 %743, 2
   %spec.select381.le = select i1 %752, i32 0, i32 %744
   br i1 %752, label %.loopexit605, label %.lr.ph819
@@ -33556,7 +33556,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %85, %83, %79, %75, 
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 121:                                              ; preds = %._crit_edge.i.i
-  %122 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %122 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %123 = or disjoint i8 %122, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -40791,7 +40791,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %408
 
 408:                                              ; preds = %407, %405
-  %409 = trunc i64 %389 to i32
+  %409 = trunc nsw i64 %389 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   %410 = load i32, ptr %27, align 4, !tbaa !51
   %411 = icmp sgt i32 %410, %409

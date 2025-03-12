@@ -68,7 +68,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hba3d8c64299
   br i1 %26, label %53, label %14
 
 27:                                               ; preds = %20
-  %28 = trunc nuw i32 %0 to i8
+  %28 = trunc nuw nsw i32 %0 to i8
   store i8 %28, ptr %1, align 1
   br label %29
 
@@ -79,7 +79,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hba3d8c64299
 
 32:                                               ; preds = %21
   %33 = lshr i32 %0, 6
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   store i8 %35, ptr %1, align 1
   %36 = trunc i32 %0 to i8
@@ -91,7 +91,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hba3d8c64299
 
 40:                                               ; preds = %23
   %41 = lshr i32 %0, 12
-  %42 = trunc nuw i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = or disjoint i8 %42, -32
   store i8 %43, ptr %1, align 1
   %44 = lshr i32 %0, 6

@@ -1995,7 +1995,7 @@ define internal void @rht_deferred_worker(ptr noundef %0) #0 align 16 {
   br i1 %93, label %97, label %94, !prof !7
 
 94:                                               ; preds = %88
-  %95 = trunc i64 %89 to i32
+  %95 = trunc nuw i64 %89 to i32
   %96 = call ptr @__rht_bucket_nested(ptr noundef %90, i32 noundef %95)
   br label %100
 
@@ -2408,7 +2408,7 @@ define dso_local void @rhashtable_free_and_destroy(ptr noundef %0, ptr noundef r
   %48 = phi i32 [ %.pre, %46 ], [ %41, %43 ]
   %49 = shl nsw i32 -1, %48
   %50 = xor i32 %49, -1
-  %51 = trunc i64 %39 to i32
+  %51 = trunc nuw i64 %39 to i32
   %52 = and i32 %50, %51
   %53 = load i32, ptr %32, align 64
   %54 = lshr i32 %53, %48

@@ -4817,7 +4817,7 @@ define internal fastcc ptr @lexname(i64 noundef %0, i32 noundef %1) unnamed_addr
   br i1 %or.cond7, label %32, label %34
 
 32:                                               ; preds = %30
-  %33 = trunc nuw i64 %0 to i32
+  %33 = trunc nuw nsw i64 %0 to i32
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.56, i32 noundef %33)
   br label %35
 

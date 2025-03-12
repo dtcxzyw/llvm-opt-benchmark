@@ -4508,7 +4508,7 @@ Ins_Goto_CodeRange.exit.i490:                     ; preds = %1185, %1184, %1179,
 1214:                                             ; preds = %1211
   %1215 = load i32, ptr %67, align 4, !tbaa !292
   store i32 %1215, ptr %.0.lcssa49.i, align 8, !tbaa !361
-  %1216 = trunc nuw i64 %1212 to i32
+  %1216 = trunc nuw nsw i64 %1212 to i32
   %1217 = getelementptr inbounds nuw i8, ptr %.0.lcssa49.i, i64 24
   store i32 %1216, ptr %1217, align 8, !tbaa !356
   %1218 = load i64, ptr %150, align 8, !tbaa !309
@@ -8766,7 +8766,7 @@ Ins_GETINFO.exit:                                 ; preds = %3324, %3331, %3340,
   br i1 %or.cond.i777, label %.loopexit.sink.split, label %3368
 
 3368:                                             ; preds = %3366
-  %3369 = trunc nuw i64 %3367 to i32
+  %3369 = trunc nuw nsw i64 %3367 to i32
   %3370 = getelementptr inbounds nuw i8, ptr %.0.lcssa51.i, i64 24
   store i32 %3369, ptr %3370, align 8, !tbaa !356
   %3371 = load i64, ptr %150, align 8, !tbaa !309
@@ -8906,7 +8906,7 @@ Ins_GETINFO.exit:                                 ; preds = %3324, %3331, %3340,
   br i1 %.not31.i790, label %Ins_SPVTL.exitthread-pre-split, label %.loopexit.sink.split
 
 3443:                                             ; preds = %3438
-  %3444 = trunc nuw i64 %.val404 to i32
+  %3444 = trunc nuw nsw i64 %.val404 to i32
   %3445 = add nsw i32 %3444, -1
   %3446 = shl nuw nsw i32 1, %3445
   %.not.i785 = icmp eq i64 %.val403, 0
@@ -8927,10 +8927,10 @@ Ins_GETINFO.exit:                                 ; preds = %3324, %3331, %3340,
 
 3453:                                             ; preds = %3450
   %3454 = load i8, ptr %169, align 4, !tbaa !235
-  %3455 = trunc i32 %3446 to i8
+  %3455 = trunc nuw nsw i32 %3446 to i8
   %3456 = xor i8 %3455, -1
   %3457 = and i8 %3454, %3456
-  %3458 = trunc i64 %.val403 to i8
+  %3458 = trunc nuw nsw i64 %.val403 to i8
   %3459 = or i8 %3457, %3458
   store i8 %3459, ptr %169, align 4, !tbaa !235
   br label %Ins_SPVTL.exitthread-pre-split

@@ -8047,7 +8047,7 @@ _ZN4llvm5APIntD2Ev.exit30:                        ; preds = %_ZNK4llvm5APInt18ge
 
 156:                                              ; preds = %140
   %157 = trunc nuw i64 %.0.i.i33 to i16
-  %158 = trunc nuw i64 %.0.i.i31 to i8
+  %158 = trunc nuw nsw i64 %.0.i.i31 to i8
   %159 = getelementptr inbounds i8, ptr %1, i64 -32
   %160 = load ptr, ptr %159, align 8, !tbaa !976
   %161 = call noundef zeroext i1 @_ZNK4llvm8Constant11isNullValueEv(ptr noundef nonnull align 8 dereferenceable(24) %160) #24

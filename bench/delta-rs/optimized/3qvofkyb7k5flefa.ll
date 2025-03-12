@@ -49145,7 +49145,7 @@ define internal fastcc void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..ex
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i128, ptr %0, align 16, !range !12883, !noundef !5
   %7 = add nsw i128 %6, -3
-  %8 = trunc nsw i128 %7 to i64
+  %8 = trunc nuw nsw i128 %7 to i64
   %9 = icmp ult i128 %7, 35
   %10 = select i1 %9, i64 %8, i64 25
   switch i64 %10, label %11 [
@@ -53100,7 +53100,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$datafusion_common..
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i128, ptr %0, align 16, !range !13922, !noundef !5
   %8 = add nsw i128 %7, -2
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 41
   %11 = select i1 %10, i64 %9, i64 5
   switch i64 %11, label %12 [
@@ -110611,7 +110611,7 @@ define internal fastcc void @"_ZN66_$LT$datafusion_expr..expr..Expr$u20$as$u20$c
   %.sroa.0 = alloca { { { { i64, ptr, {} }, i64 } }, { [6 x i64], i64, [2 x i64] } }, align 8
   %90 = load i128, ptr %1, align 16, !range !12883, !noundef !5
   %91 = add nsw i128 %90, -3
-  %92 = trunc nsw i128 %91 to i64
+  %92 = trunc nuw nsw i128 %91 to i64
   %93 = icmp ult i128 %91, 35
   %94 = select i1 %93, i64 %92, i64 25
   switch i64 %94, label %95 [
@@ -111480,7 +111480,7 @@ common.resume423:                                 ; preds = %950, %"_ZN4core3ptr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23460)
   %345 = load i128, ptr %337, align 16, !range !1516, !alias.scope !23460, !noalias !23463, !noundef !5
   %346 = add nsw i128 %345, -43
-  %347 = trunc nsw i128 %346 to i64
+  %347 = trunc nuw nsw i128 %346 to i64
   %348 = icmp ult i128 %346, 2
   %349 = add nsw i64 %347, 1
   %350 = select i1 %348, i64 %349, i64 0
@@ -123906,7 +123906,7 @@ define internal fastcc void @"_ZN77_$LT$datafusion_common..scalar..ScalarValue$u
   %.sroa.525 = alloca [2 x i64], align 8
   %8 = load i128, ptr %1, align 16, !range !13922, !noundef !5
   %9 = add nsw i128 %8, -2
-  %10 = trunc nsw i128 %9 to i64
+  %10 = trunc nuw nsw i128 %9 to i64
   %11 = icmp ult i128 %9, 41
   %12 = select i1 %11, i64 %10, i64 5
   switch i64 %12, label %13 [

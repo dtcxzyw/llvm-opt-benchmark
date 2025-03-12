@@ -302,7 +302,7 @@ define range(i32 -1, 2) i32 @CRYPTO_ocb128_setiv(ptr noundef captures(none) %0, 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %13, i8 0, i64 80, i1 false)
-  %.tr = trunc nuw i64 %3 to i8
+  %.tr = trunc nuw nsw i64 %3 to i8
   %14 = shl i8 %.tr, 4
   store i8 %14, ptr %8, align 16, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 1

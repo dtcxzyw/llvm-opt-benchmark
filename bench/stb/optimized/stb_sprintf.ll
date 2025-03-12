@@ -2065,7 +2065,7 @@ stbsp__lead_sign.exit1244:                        ; preds = %531, %.sink.split.i
 863:                                              ; preds = %.loopexit1459, %860
   %storemerge = phi i64 [ %862, %860 ], [ 0, %.loopexit1459 ]
   %.15933.in = phi i64 [ %861, %860 ], [ %.4, %.loopexit1459 ]
-  %.15933 = trunc nuw i64 %.15933.in to i32
+  %.15933 = trunc nuw nsw i64 %.15933.in to i32
   br i1 %857, label %.preheader1460, label %.loopexit1461
 
 .preheader1460:                                   ; preds = %863, %.preheader1460

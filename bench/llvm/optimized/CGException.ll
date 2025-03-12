@@ -5088,7 +5088,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %139 = load i32, ptr %112, align 8
   %140 = lshr i32 %139, 3
   %.not69185 = icmp ult i32 %139, 8
-  %141 = trunc i32 %139 to i8
+  %141 = trunc nuw nsw i32 %139 to i8
   br i1 %.not69185, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %138

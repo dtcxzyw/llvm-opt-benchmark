@@ -749,7 +749,7 @@ zlib_deflate_raw.exit:                            ; preds = %111
   %147 = trunc i64 %.1167558574 to i8
   store i8 %147, ptr %146, align 1, !tbaa !31
   %148 = lshr i64 %.1167558574, 8
-  %149 = trunc i64 %148 to i8
+  %149 = trunc nuw nsw i64 %148 to i8
   %150 = getelementptr inbounds nuw i8, ptr %10, i64 7
   store i8 %149, ptr %150, align 1, !tbaa !31
   %151 = getelementptr inbounds nuw i8, ptr %10, i64 8

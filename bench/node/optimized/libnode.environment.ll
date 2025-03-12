@@ -4427,7 +4427,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
   br label %if.then.i.i.i.i
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.i.i.i: ; preds = %entry
-  %conv.i.i.i.i = trunc nuw i64 %agg.tmp4.sroa.0.0.copyload.i.i.i to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %agg.tmp4.sroa.0.0.copyload.i.i.i to i32
   %call11.i.i.i.i = tail call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.i.i.i, ptr noundef %agg.tmp4.sroa.2.0.copyload.i.i.i, i32 noundef 0, i32 noundef %conv.i.i.i.i) #12
   %cmp.i.i.i.i.i.i = icmp eq ptr %call11.i.i.i.i, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %"_ZSt10__invoke_rIN2v810MaybeLocalINS0_5ValueEEERZN4node15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0JRKNS4_26StartExecutionCallbackInfoEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit"

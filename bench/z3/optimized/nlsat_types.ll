@@ -369,7 +369,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPKN5nlsat9ineq_at
   br i1 %.wide, label %193, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %193
-  %255 = trunc nuw i64 %211 to i32
+  %255 = trunc nuw nsw i64 %211 to i32
   switch i32 %255, label %272 [
     i32 2, label %256
     i32 1, label %264

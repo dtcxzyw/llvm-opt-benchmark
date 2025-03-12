@@ -435,7 +435,7 @@ while.end6.i:                                     ; preds = %while.body3.prehead
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 land.rhs.i.i:                                     ; preds = %while.end6.i
-  %rem1.i28.lhs.trunc.i = trunc nuw i32 %year.addr.1.lcssa.i to i16
+  %rem1.i28.lhs.trunc.i = trunc nuw nsw i32 %year.addr.1.lcssa.i to i16
   %rem1.i2829.i = urem i16 %rem1.i28.lhs.trunc.i, 100
   %cmp2.not.i.i = icmp eq i16 %rem1.i2829.i, 0
   br i1 %cmp2.not.i.i, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
@@ -609,7 +609,7 @@ while.end6.i:                                     ; preds = %while.body3.prehead
   br i1 %cmp.i.i3, label %land.rhs.i.i4, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 land.rhs.i.i4:                                    ; preds = %while.end6.i
-  %rem1.i28.lhs.trunc.i = trunc nuw i32 %year.addr.1.lcssa.i to i16
+  %rem1.i28.lhs.trunc.i = trunc nuw nsw i32 %year.addr.1.lcssa.i to i16
   %rem1.i2829.i = urem i16 %rem1.i28.lhs.trunc.i, 100
   %cmp2.not.i.i5 = icmp eq i16 %rem1.i2829.i, 0
   br i1 %cmp2.not.i.i5, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
@@ -865,7 +865,7 @@ while.end6.i:                                     ; preds = %while.body3.prehead
   br i1 %cmp.i.i, label %land.rhs.i.i, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit
 
 land.rhs.i.i:                                     ; preds = %while.end6.i
-  %rem1.i28.lhs.trunc.i = trunc nuw i32 %year.addr.1.lcssa.i to i16
+  %rem1.i28.lhs.trunc.i = trunc nuw nsw i32 %year.addr.1.lcssa.i to i16
   %rem1.i2829.i = urem i16 %rem1.i28.lhs.trunc.i, 100
   %cmp2.not.i.i = icmp eq i16 %rem1.i2829.i, 0
   br i1 %cmp2.not.i.i, label %_ZN8facebook5velox4util10isLeapYearEi.exit.i, label %_ZN8facebook5velox4util22daysSinceEpochFromDateEiii.exit

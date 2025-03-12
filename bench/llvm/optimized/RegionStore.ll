@@ -2300,7 +2300,7 @@ define internal void @_ZN12_GLOBAL__N_118RegionStoreManager18removeDeadBindingsE
 _ZN12_GLOBAL__N_117RegionBindingsRefC2ERKS0_.exit.thread: ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %30 = trunc nuw i64 %25 to i8
+  %30 = trunc nuw nsw i64 %25 to i8
   %31 = lshr i8 %30, 1
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %28, ptr %32, align 8, !tbaa !391, !alias.scope !806
@@ -4739,7 +4739,7 @@ _ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread: ; preds = %_ZNK5clang
 
 _ZNK12_GLOBAL__N_118RegionStoreManager17getRegionBindingsEPKv.exit: ; preds = %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %52) #21
-  %91 = trunc nuw i64 %88 to i8
+  %91 = trunc nuw nsw i64 %88 to i8
   %92 = lshr i8 %91, 1
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8, !tbaa !179

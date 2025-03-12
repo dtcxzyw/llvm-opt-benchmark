@@ -1510,7 +1510,7 @@ compare_handler.exit15.thread:                    ; preds = %17, %compare_handle
 22:                                               ; preds = %compare_handler.exit15.thread
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !198
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #15
-  %24 = trunc nuw i32 %0 to i8
+  %24 = trunc nuw nsw i32 %0 to i8
   store i8 %24, ptr %2, align 1, !tbaa !180
   %25 = call i64 @_Py_write_noraise(i32 noundef %21, ptr noundef nonnull %2, i64 noundef 1) #15
   %26 = icmp slt i64 %25, 0

@@ -738,7 +738,7 @@ thread-pre-split113:                              ; preds = %346, %310
   %351 = trunc i64 %349 to i16
   %352 = and i16 %351, 7
   %353 = add nuw nsw i64 %329, 1
-  %354 = trunc i64 %353 to i32
+  %354 = trunc nuw i64 %353 to i32
   store i32 %354, ptr %44, align 4
   %355 = getelementptr [19 x i16], ptr @zlib_inflate.order, i64 0, i64 %329
   %356 = load i16, ptr %355, align 2
@@ -1886,23 +1886,23 @@ thread-pre-split122:                              ; preds = %64
   br label %.loopexit132
 
 1142:                                             ; preds = %90
-  %1143 = trunc i64 %91 to i32
+  %1143 = trunc nuw nsw i64 %91 to i32
   br label %.loopexit132
 
 1144:                                             ; preds = %137
-  %1145 = trunc i64 %138 to i32
+  %1145 = trunc nuw nsw i64 %138 to i32
   br label %.loopexit132
 
 1146:                                             ; preds = %223
-  %1147 = trunc i64 %224 to i32
+  %1147 = trunc nuw i64 %224 to i32
   br label %.loopexit132
 
 1148:                                             ; preds = %273
-  %1149 = trunc i64 %274 to i32
+  %1149 = trunc nuw nsw i64 %274 to i32
   br label %.loopexit132
 
 1150:                                             ; preds = %1087
-  %1151 = trunc i64 %1088 to i32
+  %1151 = trunc nuw nsw i64 %1088 to i32
   br label %.loopexit132
 
 1152:                                             ; preds = %400

@@ -7577,7 +7577,7 @@ if.else3.i:                                       ; preds = %if.else.i
 
 if.then5.i:                                       ; preds = %if.else3.i
   %shr.i = lshr i32 %cond.i4292, 6
-  %31 = trunc nuw i32 %shr.i to i8
+  %31 = trunc nuw nsw i32 %shr.i to i8
   %conv6.i = or disjoint i8 %31, -64
   store i8 %conv6.i, ptr %arrayidx16.i95, align 1
   %32 = trunc i32 %cond.i4292 to i8
@@ -7593,7 +7593,7 @@ if.else11.i:                                      ; preds = %if.else3.i
 
 if.then13.i:                                      ; preds = %if.else11.i
   %shr14.i = lshr i32 %cond.i4292, 12
-  %34 = trunc nuw i32 %shr14.i to i8
+  %34 = trunc nuw nsw i32 %shr14.i to i8
   %conv16.i = or disjoint i8 %34, -32
   store i8 %conv16.i, ptr %arrayidx16.i95, align 1
   %shr18.i = lshr i32 %cond.i4292, 6
@@ -7615,7 +7615,7 @@ if.else27.i:                                      ; preds = %if.else11.i
 
 if.then29.i:                                      ; preds = %if.else27.i
   %shr30.i = lshr i32 %cond.i4292, 18
-  %39 = trunc nuw i32 %shr30.i to i8
+  %39 = trunc nuw nsw i32 %shr30.i to i8
   %conv32.i = or disjoint i8 %39, -16
   store i8 %conv32.i, ptr %arrayidx16.i95, align 1
   %shr34.i = lshr i32 %cond.i4292, 12
@@ -9902,7 +9902,7 @@ if.else3.i:                                       ; preds = %if.else.i
 
 if.then5.i:                                       ; preds = %if.else3.i
   %shr.i = lshr i32 %cond.i4292, 6
-  %31 = trunc nuw i32 %shr.i to i8
+  %31 = trunc nuw nsw i32 %shr.i to i8
   %conv6.i = or disjoint i8 %31, -64
   store i8 %conv6.i, ptr %arrayidx16.i95, align 1
   %32 = trunc i32 %cond.i4292 to i8
@@ -9918,7 +9918,7 @@ if.else11.i:                                      ; preds = %if.else3.i
 
 if.then13.i:                                      ; preds = %if.else11.i
   %shr14.i = lshr i32 %cond.i4292, 12
-  %34 = trunc nuw i32 %shr14.i to i8
+  %34 = trunc nuw nsw i32 %shr14.i to i8
   %conv16.i = or disjoint i8 %34, -32
   store i8 %conv16.i, ptr %arrayidx16.i95, align 1
   %shr18.i = lshr i32 %cond.i4292, 6
@@ -9940,7 +9940,7 @@ if.else27.i:                                      ; preds = %if.else11.i
 
 if.then29.i:                                      ; preds = %if.else27.i
   %shr30.i = lshr i32 %cond.i4292, 18
-  %39 = trunc nuw i32 %shr30.i to i8
+  %39 = trunc nuw nsw i32 %shr30.i to i8
   %conv32.i = or disjoint i8 %39, -16
   store i8 %conv32.i, ptr %arrayidx16.i95, align 1
   %shr34.i = lshr i32 %cond.i4292, 12

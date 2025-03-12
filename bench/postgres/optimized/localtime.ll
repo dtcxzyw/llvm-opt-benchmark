@@ -3449,7 +3449,7 @@ leaps_thru_end_of.exit:                           ; preds = %67, %75
   br label %34
 
 107:                                              ; preds = %45
-  %108 = trunc i64 %.076 to i32
+  %108 = trunc nuw nsw i64 %.076 to i32
   %109 = sext i32 %1 to i64
   %110 = sub i64 %109, %.079
   %111 = add i64 %110, %33

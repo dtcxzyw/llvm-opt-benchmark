@@ -2674,7 +2674,7 @@ unescape_unicode.exit.i.i:                        ; preds = %95
 
 175:                                              ; preds = %173
   %176 = lshr i32 %112, 6
-  %177 = trunc nuw i32 %176 to i8
+  %177 = trunc nuw nsw i32 %176 to i8
   %178 = or disjoint i8 %177, -64
   store i8 %178, ptr %4, align 1, !tbaa !62
   %179 = trunc i32 %112 to i8
@@ -2691,7 +2691,7 @@ unescape_unicode.exit.i.i:                        ; preds = %95
   %.075110114119.i.i = phi i32 [ 65533, %.thread111.thread.i.i ], [ %112, %.thread111.i.i ]
   %.288109115118.i.i = phi ptr [ %102, %.thread111.thread.i.i ], [ %96, %.thread111.i.i ]
   %184 = lshr i32 %.075110114119.i.i, 12
-  %185 = trunc nuw i32 %184 to i8
+  %185 = trunc nuw nsw i32 %184 to i8
   %186 = or disjoint i8 %185, -32
   store i8 %186, ptr %4, align 1, !tbaa !62
   %187 = lshr i32 %.075110114119.i.i, 6

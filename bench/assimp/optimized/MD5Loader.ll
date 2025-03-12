@@ -3781,7 +3781,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
 
 354:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   %355 = getelementptr inbounds nuw i8, ptr %319, i64 236
-  %356 = trunc nuw i64 %352 to i32
+  %356 = trunc nuw nsw i64 %352 to i32
   store i32 %356, ptr %355, align 4
   %357 = getelementptr inbounds nuw i8, ptr %319, i64 240
   %358 = load ptr, ptr %9, align 8

@@ -1299,7 +1299,7 @@ Vec_QueGrow.exit.i:                               ; preds = %.Vec_QueGrow.exit.i
 
 72:                                               ; preds = %Vec_QueGrow.exit.i
   %73 = shl nsw i32 %71, 1
-  %74 = trunc i64 %indvars.iv to i32
+  %74 = trunc nsw i64 %indvars.iv to i32
   %75 = add nsw i32 %74, 1
   %76 = tail call noundef i32 @llvm.smax.i32(i32 %75, i32 %73)
   %77 = getelementptr inbounds nuw i8, ptr %31, i64 8

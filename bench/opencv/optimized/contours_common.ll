@@ -217,7 +217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %348
 
 76:                                               ; preds = %51
-  %77 = trunc nuw i64 %57 to i32
+  %77 = trunc nuw nsw i64 %57 to i32
   %78 = add nsw i32 %77, -1
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %78, i32 noundef 1, i32 noundef 0, i32 noundef -1, i1 noundef zeroext true, i32 noundef 0)
           to label %79 unwind label %91
@@ -402,12 +402,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
 
 _ZNK2cv7Contour4sizeEv.exit82:                    ; preds = %_ZNK2cv7Contour4sizeEv.exit, %.thread
   %149 = phi i64 [ %148, %.thread ], [ %123, %_ZNK2cv7Contour4sizeEv.exit ]
-  %150 = trunc i64 %149 to i32
+  %150 = trunc nuw nsw i64 %149 to i32
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %150, i32 noundef 1, i32 noundef %1, i32 noundef %.055161, i1 noundef zeroext true, i32 noundef 0)
           to label %151 unwind label %161
 
 151:                                              ; preds = %_ZNK2cv7Contour4sizeEv.exit82
-  %.not192 = icmp eq i32 %150, 0
+  %.not192 = icmp eq i64 %149, 0
   br i1 %.not192, label %190, label %152
 
 152:                                              ; preds = %151

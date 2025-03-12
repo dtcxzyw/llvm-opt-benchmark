@@ -11890,7 +11890,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header6shared7quality8itoa_fmt
   %.02544.i = phi i16 [ %16, %.thread.i ], [ %.025.in.i, %26 ]
   %.12743.i = phi i64 [ 1, %.thread.i ], [ %.127.i, %26 ]
   %36 = add nsw i64 %.12743.i, -1
-  %37 = trunc nuw i16 %.02544.i to i8
+  %37 = trunc nuw nsw i16 %.02544.i to i8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = or disjoint i8 %37, 48
   store i8 %39, ptr %38, align 1, !alias.scope !1786

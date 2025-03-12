@@ -3300,7 +3300,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef r
   br i1 %140, label %80, label %.loopexit20, !llvm.loop !79
 
 .thread:                                          ; preds = %80, %125
-  %141 = trunc i64 %81 to i32
+  %141 = trunc nuw nsw i64 %81 to i32
   br label %.loopexit20
 
 .loopexit20:                                      ; preds = %.thread42, %.thread
@@ -5921,7 +5921,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   br label %172
 
 149:                                              ; preds = %116
-  %150 = trunc i64 %102 to i32
+  %150 = trunc nuw nsw i64 %102 to i32
   %151 = or i32 %124, %150
   %152 = icmp eq i32 %151, 0
   %153 = mul nuw nsw i32 %129, %112
@@ -6128,7 +6128,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   br i1 %262, label %101, label %.loopexit, !llvm.loop !156
 
 263:                                              ; preds = %205
-  %264 = trunc i64 %102 to i32
+  %264 = trunc nuw nsw i64 %102 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %257, %263, %50

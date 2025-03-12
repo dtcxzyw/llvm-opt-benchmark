@@ -1376,7 +1376,7 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit.thread: ; preds = %
   %149 = trunc nuw i16 %148 to i8
   %150 = or i8 %149, 16
   store i8 %150, ptr %147, align 1, !tbaa !15
-  %151 = trunc i64 %139 to i32
+  %151 = trunc nsw i64 %139 to i32
   %152 = lshr i32 %151, 24
   %153 = and i32 %152, 1
   %154 = and i64 %139, 8388608
@@ -1433,7 +1433,7 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit.thread: ; preds = %
   %193 = trunc nuw i16 %192 to i8
   %194 = and i8 %193, -17
   store i8 %194, ptr %191, align 1, !tbaa !15
-  %195 = trunc i64 %139 to i32
+  %195 = trunc nsw i64 %139 to i32
   %196 = add nsw i32 %195, 3
   %197 = and i32 %196, -4
   %198 = zext i32 %197 to i64
@@ -1751,7 +1751,7 @@ _ZNK4mold6SymbolINS_5ARM32EE23is_remaining_undef_weakEv.exit235.thread: ; preds 
 
 411:                                              ; preds = %391
   store i8 -21, ptr %394, align 1, !tbaa !15
-  %412 = trunc i64 %388 to i32
+  %412 = trunc nsw i64 %388 to i32
   %413 = lshr i32 %412, 2
   %414 = load i32, ptr %72, align 1
   %415 = or i32 %414, %413

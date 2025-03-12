@@ -282,7 +282,7 @@ define void @_ZNK2cv12MatAllocator8downloadEPNS_8UMatDataEPviPKmS5_S5_S5_(ptr no
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
-  %28 = trunc nuw i64 %23 to i32
+  %28 = trunc nuw nsw i64 %23 to i32
   %29 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv61
   store i32 %28, ptr %29, align 4, !tbaa !23
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -359,7 +359,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %54 = phi i64 [ %52, %50 ], [ 1, %47 ]
   %55 = mul i64 %54, %49
   %56 = getelementptr inbounds nuw i8, ptr %.03156, i64 %55
-  %57 = trunc nuw i64 %31 to i32
+  %57 = trunc nuw nsw i64 %31 to i32
   %58 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -525,7 +525,7 @@ define void @_ZNK2cv12MatAllocator6uploadEPNS_8UMatDataEPKviPKmS6_S6_S6_(ptr non
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
-  %28 = trunc nuw i64 %23 to i32
+  %28 = trunc nuw nsw i64 %23 to i32
   %29 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv61
   store i32 %28, ptr %29, align 4, !tbaa !23
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -602,7 +602,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %54 = phi i64 [ %52, %50 ], [ 1, %47 ]
   %55 = mul i64 %54, %49
   %56 = getelementptr inbounds nuw i8, ptr %.03156, i64 %55
-  %57 = trunc nuw i64 %31 to i32
+  %57 = trunc nuw nsw i64 %31 to i32
   %58 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %57, ptr %58, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -758,7 +758,7 @@ define void @_ZNK2cv12MatAllocator4copyEPNS_8UMatDataES2_iPKmS4_S4_S4_S4_b(ptr n
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %32
-  %35 = trunc nuw i64 %30 to i32
+  %35 = trunc nuw nsw i64 %30 to i32
   %36 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv114
   store i32 %35, ptr %36, align 4, !tbaa !23
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -792,7 +792,7 @@ define void @_ZNK2cv12MatAllocator4copyEPNS_8UMatDataES2_iPKmS4_S4_S4_S4_b(ptr n
   %49 = phi i64 [ %47, %45 ], [ 1, %42 ]
   %50 = mul i64 %49, %44
   %51 = getelementptr inbounds nuw i8, ptr %.05076.us, i64 %50
-  %52 = trunc nuw i64 %38 to i32
+  %52 = trunc nuw nsw i64 %38 to i32
   %53 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv109
   store i32 %52, ptr %53, align 4, !tbaa !23
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
@@ -831,7 +831,7 @@ define void @_ZNK2cv12MatAllocator4copyEPNS_8UMatDataES2_iPKmS4_S4_S4_S4_b(ptr n
   %67 = phi i64 [ %65, %63 ], [ 1, %60 ]
   %68 = mul i64 %67, %62
   %69 = getelementptr inbounds nuw i8, ptr %.05275.us82, i64 %68
-  %70 = trunc nuw i64 %56 to i32
+  %70 = trunc nuw nsw i64 %56 to i32
   %71 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv104
   store i32 %70, ptr %71, align 4, !tbaa !23
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
@@ -916,7 +916,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %100 = load i64, ptr %.in, align 8, !tbaa !22
   %101 = mul i64 %98, %100
   %102 = getelementptr inbounds nuw i8, ptr %.05076, i64 %101
-  %103 = trunc nuw i64 %73 to i32
+  %103 = trunc nuw nsw i64 %73 to i32
   %104 = getelementptr inbounds nuw [32 x i32], ptr %12, i64 0, i64 %indvars.iv
   store i32 %103, ptr %104, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5124,7 +5124,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 40:                                               ; preds = %34
   %41 = icmp sgt i32 %.sroa.057.0.extract.trunc, -1
   %42 = icmp slt i32 %.sroa.057.0.extract.trunc, %.sroa.658.0.extract.trunc
-  %or.cond = and i1 %41, %42
+  %or.cond = select i1 %41, i1 %42, i1 false
   br i1 %or.cond, label %43, label %.critedge36
 
 43:                                               ; preds = %40
@@ -5427,7 +5427,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 50:                                               ; preds = %44
   %51 = icmp sgt i32 %.sroa.057.0.extract.trunc, -1
   %52 = icmp slt i32 %.sroa.057.0.extract.trunc, %.sroa.658.0.extract.trunc
-  %or.cond = and i1 %51, %52
+  %or.cond = select i1 %51, i1 %52, i1 false
   br i1 %or.cond, label %53, label %.critedge36
 
 53:                                               ; preds = %50

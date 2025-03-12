@@ -4616,7 +4616,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum18_Se
   %.03245 = phi double [ 0.000000e+00, %10 ], [ %.1, %57 ]
   %.03344 = phi double [ 1.000000e+00, %10 ], [ %.134, %57 ]
   %.03643 = phi i64 [ 0, %10 ], [ %58, %57 ]
-  %26 = trunc nuw i64 %.03643 to i32
+  %26 = trunc nuw nsw i64 %.03643 to i32
   %27 = shl nuw nsw i32 1, %26
   %28 = and i32 %27, %2
   %29 = and i32 %27, %4
@@ -4846,7 +4846,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.03245.i = phi double [ 0.000000e+00, %150 ], [ %.1.i, %191 ]
   %.03344.i = phi double [ 1.000000e+00, %150 ], [ %.134.i, %191 ]
   %.03643.i = phi i64 [ 0, %150 ], [ %192, %191 ]
-  %160 = trunc nuw i64 %.03643.i to i32
+  %160 = trunc nuw nsw i64 %.03643.i to i32
   %161 = shl nuw nsw i32 1, %160
   %162 = and i32 %161, %99
   %163 = and i32 %161, %145
@@ -5134,7 +5134,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.03245.i = phi double [ 0.000000e+00, %205 ], [ %.1.i, %246 ]
   %.03344.i = phi double [ 1.000000e+00, %205 ], [ %.134.i, %246 ]
   %.03643.i = phi i64 [ 0, %205 ], [ %247, %246 ]
-  %215 = trunc nuw i64 %.03643.i to i32
+  %215 = trunc nuw nsw i64 %.03643.i to i32
   %216 = shl nuw nsw i32 1, %215
   %217 = and i32 %216, %105
   %218 = and i32 %216, %151
@@ -5215,7 +5215,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.03245.i73 = phi double [ 0.000000e+00, %249 ], [ %.1.i80, %293 ]
   %.03344.i74 = phi double [ 1.000000e+00, %249 ], [ %.134.i79, %293 ]
   %.03643.i75 = phi i64 [ 0, %249 ], [ %294, %293 ]
-  %262 = trunc nuw i64 %.03643.i75 to i32
+  %262 = trunc nuw nsw i64 %.03643.i75 to i32
   %263 = shl nuw nsw i32 1, %262
   %264 = and i32 %263, %151
   %265 = and i32 %263, %197
@@ -5296,7 +5296,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
   %.03245.i91 = phi double [ 0.000000e+00, %296 ], [ %.1.i98, %340 ]
   %.03344.i92 = phi double [ 1.000000e+00, %296 ], [ %.134.i97, %340 ]
   %.03643.i93 = phi i64 [ 0, %296 ], [ %341, %340 ]
-  %309 = trunc nuw i64 %.03643.i93 to i32
+  %309 = trunc nuw nsw i64 %.03643.i93 to i32
   %310 = shl nuw nsw i32 1, %309
   %311 = and i32 %310, %197
   %312 = and i32 %310, %105

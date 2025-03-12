@@ -1568,14 +1568,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !478, !noalias !475
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
   store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !478, !noalias !475
   %16 = lshr i32 %1, 6
@@ -22580,7 +22580,7 @@ _ZN3log13__private_api3log17h0fa816d13ada2eb4E.exit: ; preds = %175
 315:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hbb6df77962e80d6fE.exit.i.i"
   %316 = add nsw i64 %313, -2
   %317 = icmp ult i64 %316, 227
-  %318 = trunc i64 %316 to i8
+  %318 = trunc nuw i64 %316 to i8
   %trunc.i.i.i.i.i = select i1 %317, i8 %318, i8 97
   switch i8 %trunc.i.i.i.i.i, label %319 [
     i8 0, label %320

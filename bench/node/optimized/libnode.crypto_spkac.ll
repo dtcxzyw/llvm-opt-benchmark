@@ -200,7 +200,7 @@ if.end14:                                         ; preds = %if.end
   %offset_.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8
   %27 = load i64, ptr %offset_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %26, i64 %27
-  %conv.i = trunc nuw i64 %18 to i32
+  %conv.i = trunc nuw nsw i64 %18 to i32
   %call2.i = call ptr @NETSCAPE_SPKI_b64_decode(ptr noundef %add.ptr.i.i, i32 noundef %conv.i) #16
   %cmp.i2.not.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i2.not.i, label %_ZN4node6crypto5SPKAC11VerifySpkacERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread, label %if.end.i12
@@ -672,7 +672,7 @@ if.end14:                                         ; preds = %if.end
   %offset_.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8
   %26 = load i64, ptr %offset_.i.i, align 8, !noalias !5
   %add.ptr.i.i = getelementptr inbounds i8, ptr %25, i64 %26
-  %conv.i = trunc nuw i64 %18 to i32
+  %conv.i = trunc nuw nsw i64 %18 to i32
   %call2.i = call ptr @NETSCAPE_SPKI_b64_decode(ptr noundef %add.ptr.i.i, i32 noundef %conv.i) #16, !noalias !5
   %cmp.i3.not.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i3.not.i, label %_ZN4node6crypto5SPKAC15ExportChallengeERKNS0_25ArrayBufferOrViewContentsIcEE.exit.thread, label %if.end.i18

@@ -2300,7 +2300,7 @@ _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit: ; preds = %85
   br i1 %.not64, label %125, label %112
 
 _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread87: ; preds = %85
-  %94 = trunc i64 %86 to i32
+  %94 = trunc nsw i64 %86 to i32
   %95 = add nsw i32 %78, -1499
   %96 = sub nsw i32 %95, %94
   %97 = zext i32 %96 to i64
@@ -2323,7 +2323,7 @@ _ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread: ; preds = %82
   br label %_ZNK5clang7Builtin7Context16isInStdNamespaceEj.exit
 
 .thread90:                                        ; preds = %_ZNK5clang7Builtin7Context23isPredefinedLibFunctionEj.exit.thread87
-  %106 = trunc i64 %86 to i32
+  %106 = trunc nsw i64 %86 to i32
   %107 = add nsw i32 %78, -1499
   %108 = sub nsw i32 %107, %106
   %109 = zext i32 %108 to i64

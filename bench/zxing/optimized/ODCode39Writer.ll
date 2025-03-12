@@ -285,7 +285,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i: ; 
   br label %418
 
 99:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %100 = trunc i32 %84 to i8
+  %100 = trunc nuw nsw i32 %84 to i8
   %101 = load i64, ptr %76, align 8, !tbaa !14, !alias.scope !23
   %102 = add i64 %101, 1
   %103 = load ptr, ptr %10, align 8, !tbaa !26, !alias.scope !23
@@ -420,7 +420,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i100.i: ;
   %157 = load ptr, ptr %10, align 8, !tbaa !26, !alias.scope !23
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 %145
   store i8 0, ptr %158, align 1, !tbaa !16
-  %159 = trunc nuw i32 %84 to i8
+  %159 = trunc nuw nsw i32 %84 to i8
   %160 = or disjoint i8 %159, 64
   %161 = load i64, ptr %76, align 8, !tbaa !14, !alias.scope !23
   %162 = add i64 %161, 1
@@ -492,7 +492,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i108.i: ;
   %189 = load ptr, ptr %10, align 8, !tbaa !26, !alias.scope !23
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 %177
   store i8 0, ptr %190, align 1, !tbaa !16
-  %191 = trunc nuw i32 %84 to i8
+  %191 = trunc nuw nsw i32 %84 to i8
   %192 = add nuw nsw i8 %191, 38
   %193 = load i64, ptr %76, align 8, !tbaa !14, !alias.scope !23
   %194 = add i64 %193, 1
@@ -570,7 +570,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i116.i: ;
   %221 = load ptr, ptr %10, align 8, !tbaa !26, !alias.scope !23
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 %209
   store i8 0, ptr %222, align 1, !tbaa !16
-  %223 = trunc nuw i32 %84 to i8
+  %223 = trunc nuw nsw i32 %84 to i8
   %224 = add nuw nsw i8 %223, 32
   %225 = load i64, ptr %76, align 8, !tbaa !14, !alias.scope !23
   %226 = add i64 %225, 1
@@ -680,7 +680,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i128.i: ;
   %269 = load ptr, ptr %10, align 8, !tbaa !26, !alias.scope !23
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 %257
   store i8 0, ptr %270, align 1, !tbaa !16
-  %271 = trunc nuw i32 %84 to i8
+  %271 = trunc nuw nsw i32 %84 to i8
   %272 = add nuw nsw i8 %271, 11
   %273 = load i64, ptr %76, align 8, !tbaa !14, !alias.scope !23
   %274 = add i64 %273, 1
@@ -795,7 +795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit132: ; pre
   %316 = load ptr, ptr %10, align 8, !tbaa !26
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 %.sink
   store i8 0, ptr %317, align 1, !tbaa !16
-  %318 = trunc nuw i32 %84 to i8
+  %318 = trunc nuw nsw i32 %84 to i8
   %319 = add nsw i8 %.sink179.i, %318
   %320 = load i64, ptr %76, align 8, !tbaa !14
   %321 = add i64 %320, 1
@@ -1983,7 +1983,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %6, %10, %14
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 64:                                               ; preds = %._crit_edge.i
-  %65 = trunc nuw i64 %.0.lcssa.i to i8
+  %65 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %66 = or disjoint i8 %65, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

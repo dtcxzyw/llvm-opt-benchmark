@@ -402,7 +402,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 ._crit_edge3094:                                  ; preds = %.lr.ph3093.preheader, %169
   %.22713.lcssa = phi i32 [ %172, %169 ], [ %179, %.lr.ph3093.preheader ]
   %.62650.lcssa = phi ptr [ %116, %169 ], [ %scevgep3325, %.lr.ph3093.preheader ]
-  %.lhs.trunc2957 = trunc nuw i32 %.22713.lcssa to i16
+  %.lhs.trunc2957 = trunc nuw nsw i32 %.22713.lcssa to i16
   %180 = udiv i16 %.lhs.trunc2957, 255
   %181 = zext nneg i16 %180 to i64
   %182 = getelementptr inbounds nuw i8, ptr %.62650.lcssa, i64 %181
@@ -417,7 +417,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %188 = phi ptr [ %129, %.thread ], [ %166, %161 ]
   %.024952947 = phi i32 [ %127, %.thread ], [ %.02495, %161 ]
   %189 = load i8, ptr %.02667, align 1
-  %190 = trunc nuw i32 %.024952947 to i8
+  %190 = trunc nuw nsw i32 %.024952947 to i8
   %191 = add i8 %189, %190
   store i8 %191, ptr %.02667, align 1
   br label %192
@@ -507,7 +507,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %235
 
 233:                                              ; preds = %.loopexit2973
-  %.tr2873 = trunc nuw i64 %220 to i8
+  %.tr2873 = trunc nuw nsw i64 %220 to i8
   %234 = shl nuw i8 %.tr2873, 4
   store i8 %234, ptr %.02644, align 1
   br label %235
@@ -847,7 +847,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
 ._crit_edge3057:                                  ; preds = %.lr.ph3056.preheader, %384
   %.62705.lcssa = phi ptr [ %331, %384 ], [ %scevgep3304, %.lr.ph3056.preheader ]
   %.22671.lcssa = phi i32 [ %387, %384 ], [ %394, %.lr.ph3056.preheader ]
-  %.lhs.trunc2961 = trunc nuw i32 %.22671.lcssa to i16
+  %.lhs.trunc2961 = trunc nuw nsw i32 %.22671.lcssa to i16
   %395 = udiv i16 %.lhs.trunc2961, 255
   %396 = zext nneg i16 %395 to i64
   %397 = getelementptr inbounds nuw i8, ptr %.62705.lcssa, i64 %396
@@ -862,7 +862,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
   %403 = phi ptr [ %344, %.thread2948 ], [ %381, %376 ]
   %.024552950 = phi i32 [ %342, %.thread2948 ], [ %.02455, %376 ]
   %404 = load i8, ptr %.02685, align 1
-  %405 = trunc nuw i32 %.024552950 to i8
+  %405 = trunc nuw nsw i32 %.024552950 to i8
   %406 = add i8 %404, %405
   store i8 %406, ptr %.02685, align 1
   br label %407
@@ -953,7 +953,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2934:
   br label %453
 
 451:                                              ; preds = %.loopexit2976
-  %.tr2868 = trunc nuw i64 %438 to i8
+  %.tr2868 = trunc nuw nsw i64 %438 to i8
   %452 = shl nuw i8 %.tr2868, 4
   store i8 %452, ptr %.02699, align 1
   br label %453
@@ -1319,7 +1319,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2939:
 ._crit_edge3170:                                  ; preds = %.lr.ph3169.preheader, %625
   %.62582.lcssa = phi ptr [ %560, %625 ], [ %scevgep3369, %.lr.ph3169.preheader ]
   %.22548.lcssa = phi i32 [ %627, %625 ], [ %634, %.lr.ph3169.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.22548.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.22548.lcssa to i16
   %635 = udiv i16 %.lhs.trunc, 255
   %636 = zext nneg i16 %635 to i64
   %637 = getelementptr inbounds nuw i8, ptr %.62582.lcssa, i64 %636
@@ -1330,7 +1330,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2939:
   br label %644
 
 641:                                              ; preds = %622
-  %642 = trunc nuw i32 %.02400.fr to i8
+  %642 = trunc nuw nsw i32 %.02400.fr to i8
   %643 = add i8 %624, %642
   store i8 %643, ptr %.02562, align 1
   br label %644
@@ -1427,7 +1427,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2939:
   br label %692
 
 690:                                              ; preds = %677
-  %.tr2862 = trunc nuw i64 %670 to i8
+  %.tr2862 = trunc nuw nsw i64 %670 to i8
   %691 = shl nuw i8 %.tr2862, 4
   store i8 %691, ptr %.02576, align 1
   br label %692
@@ -1790,7 +1790,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
 ._crit_edge3133:                                  ; preds = %.lr.ph3132.preheader, %860
   %.6.lcssa = phi ptr [ %795, %860 ], [ %scevgep3348, %.lr.ph3132.preheader ]
   %.22398.lcssa = phi i32 [ %862, %860 ], [ %869, %.lr.ph3132.preheader ]
-  %.lhs.trunc2953 = trunc nuw i32 %.22398.lcssa to i16
+  %.lhs.trunc2953 = trunc nuw nsw i32 %.22398.lcssa to i16
   %870 = udiv i16 %.lhs.trunc2953, 255
   %871 = zext nneg i16 %870 to i64
   %872 = getelementptr inbounds nuw i8, ptr %.6.lcssa, i64 %871
@@ -1801,7 +1801,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
   br label %879
 
 876:                                              ; preds = %857
-  %877 = trunc nuw i32 %.02364.fr to i8
+  %877 = trunc nuw nsw i32 %.02364.fr to i8
   %878 = add i8 %859, %877
   store i8 %878, ptr %.02423, align 1
   br label %879
@@ -1899,7 +1899,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit2944:
   br label %930
 
 928:                                              ; preds = %915
-  %.tr2857 = trunc nuw i64 %908 to i8
+  %.tr2857 = trunc nuw nsw i64 %908 to i8
   %929 = shl nuw i8 %.tr2857, 4
   store i8 %929, ptr %.02440, align 1
   br label %930
@@ -2341,7 +2341,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 ._crit_edge4793:                                  ; preds = %.lr.ph4792.preheader, %182
   %.24167.lcssa = phi i32 [ %185, %182 ], [ %192, %.lr.ph4792.preheader ]
   %.64104.lcssa = phi ptr [ %129, %182 ], [ %scevgep5170, %.lr.ph4792.preheader ]
-  %.lhs.trunc4609 = trunc nuw i32 %.24167.lcssa to i16
+  %.lhs.trunc4609 = trunc nuw nsw i32 %.24167.lcssa to i16
   %193 = udiv i16 %.lhs.trunc4609, 255
   %194 = zext nneg i16 %193 to i64
   %195 = getelementptr inbounds nuw i8, ptr %.64104.lcssa, i64 %194
@@ -2356,7 +2356,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   %201 = phi ptr [ %142, %.thread ], [ %179, %174 ]
   %.038914588 = phi i32 [ %140, %.thread ], [ %.03891, %174 ]
   %202 = load i8, ptr %.04121, align 1
-  %203 = trunc nuw i32 %.038914588 to i8
+  %203 = trunc nuw nsw i32 %.038914588 to i8
   %204 = add i8 %202, %203
   store i8 %204, ptr %.04121, align 1
   br label %205
@@ -2449,7 +2449,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %253
 
 251:                                              ; preds = %.loopexit4633
-  %.tr4476 = trunc nuw i64 %238 to i8
+  %.tr4476 = trunc nuw nsw i64 %238 to i8
   %252 = shl nuw i8 %.tr4476, 4
   store i8 %252, ptr %.04098, align 1
   br label %253
@@ -2783,7 +2783,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4565:
 ._crit_edge4830:                                  ; preds = %.lr.ph4829.preheader, %399
   %.24243.lcssa = phi i32 [ %402, %399 ], [ %409, %.lr.ph4829.preheader ]
   %.64206.lcssa = phi ptr [ %346, %399 ], [ %scevgep5191, %.lr.ph4829.preheader ]
-  %.lhs.trunc4605 = trunc nuw i32 %.24243.lcssa to i16
+  %.lhs.trunc4605 = trunc nuw nsw i32 %.24243.lcssa to i16
   %410 = udiv i16 %.lhs.trunc4605, 255
   %411 = zext nneg i16 %410 to i64
   %412 = getelementptr inbounds nuw i8, ptr %.64206.lcssa, i64 %411
@@ -2798,7 +2798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4565:
   %418 = phi ptr [ %359, %.thread4589 ], [ %396, %391 ]
   %.038514591 = phi i32 [ %357, %.thread4589 ], [ %.03851, %391 ]
   %419 = load i8, ptr %.04228, align 1
-  %420 = trunc nuw i32 %.038514591 to i8
+  %420 = trunc nuw nsw i32 %.038514591 to i8
   %421 = add i8 %419, %420
   store i8 %421, ptr %.04228, align 1
   br label %422
@@ -2888,7 +2888,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4565:
   br label %465
 
 463:                                              ; preds = %.loopexit4630
-  %.tr4470 = trunc nuw i64 %450 to i8
+  %.tr4470 = trunc nuw nsw i64 %450 to i8
   %464 = shl nuw i8 %.tr4470, 4
   store i8 %464, ptr %.04200, align 1
   br label %465
@@ -3267,7 +3267,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
 ._crit_edge4747:                                  ; preds = %.lr.ph4746.preheader, %629
   %.64159.lcssa = phi ptr [ %576, %629 ], [ %scevgep5147, %.lr.ph4746.preheader ]
   %.24125.lcssa = phi i32 [ %632, %629 ], [ %639, %.lr.ph4746.preheader ]
-  %.lhs.trunc4613 = trunc nuw i32 %.24125.lcssa to i16
+  %.lhs.trunc4613 = trunc nuw nsw i32 %.24125.lcssa to i16
   %640 = udiv i16 %.lhs.trunc4613, 255
   %641 = zext nneg i16 %640 to i64
   %642 = getelementptr inbounds nuw i8, ptr %.64159.lcssa, i64 %641
@@ -3282,7 +3282,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
   %648 = phi ptr [ %589, %.thread4592 ], [ %626, %621 ]
   %.038154594 = phi i32 [ %587, %.thread4592 ], [ %.03815, %621 ]
   %649 = load i8, ptr %.04139, align 1
-  %650 = trunc nuw i32 %.038154594 to i8
+  %650 = trunc nuw nsw i32 %.038154594 to i8
   %651 = add i8 %649, %650
   store i8 %651, ptr %.04139, align 1
   br label %652
@@ -3373,7 +3373,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4570:
   br label %698
 
 696:                                              ; preds = %.loopexit4636
-  %.tr4461 = trunc nuw i64 %683 to i8
+  %.tr4461 = trunc nuw nsw i64 %683 to i8
   %697 = shl nuw i8 %.tr4461, 4
   store i8 %697, ptr %.04153, align 1
   br label %698
@@ -3793,7 +3793,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
 ._crit_edge4915:                                  ; preds = %.lr.ph4914.preheader, %890
   %.64036.lcssa = phi ptr [ %825, %890 ], [ %scevgep5237, %.lr.ph4914.preheader ]
   %.24002.lcssa = phi i32 [ %892, %890 ], [ %899, %.lr.ph4914.preheader ]
-  %.lhs.trunc4597 = trunc nuw i32 %.24002.lcssa to i16
+  %.lhs.trunc4597 = trunc nuw nsw i32 %.24002.lcssa to i16
   %900 = udiv i16 %.lhs.trunc4597, 255
   %901 = zext nneg i16 %900 to i64
   %902 = getelementptr inbounds nuw i8, ptr %.64036.lcssa, i64 %901
@@ -3804,7 +3804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
   br label %909
 
 906:                                              ; preds = %887
-  %907 = trunc nuw i32 %.03775.fr to i8
+  %907 = trunc nuw nsw i32 %.03775.fr to i8
   %908 = add i8 %889, %907
   store i8 %908, ptr %.04016, align 1
   br label %909
@@ -3904,7 +3904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4575:
   br label %962
 
 960:                                              ; preds = %947
-  %.tr4451 = trunc nuw i64 %940 to i8
+  %.tr4451 = trunc nuw nsw i64 %940 to i8
   %961 = shl nuw i8 %.tr4451, 4
   store i8 %961, ptr %.04030, align 1
   br label %962
@@ -4263,7 +4263,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4580:
 ._crit_edge4951:                                  ; preds = %.lr.ph4950.preheader, %1129
   %.63937.lcssa = phi ptr [ %1064, %1129 ], [ %scevgep5258, %.lr.ph4950.preheader ]
   %.23889.lcssa = phi i32 [ %1131, %1129 ], [ %1138, %.lr.ph4950.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.23889.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.23889.lcssa to i16
   %1139 = udiv i16 %.lhs.trunc, 255
   %1140 = zext nneg i16 %1139 to i64
   %1141 = getelementptr inbounds nuw i8, ptr %.63937.lcssa, i64 %1140
@@ -4274,7 +4274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4580:
   br label %1148
 
 1145:                                             ; preds = %1126
-  %1146 = trunc nuw i32 %.03720.fr to i8
+  %1146 = trunc nuw nsw i32 %.03720.fr to i8
   %1147 = add i8 %1128, %1146
   store i8 %1147, ptr %.03914, align 1
   br label %1148
@@ -4371,7 +4371,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4580:
   br label %1196
 
 1194:                                             ; preds = %1181
-  %.tr4445 = trunc nuw i64 %1174 to i8
+  %.tr4445 = trunc nuw nsw i64 %1174 to i8
   %1195 = shl nuw i8 %.tr4445, 4
   store i8 %1195, ptr %.03931, align 1
   br label %1196
@@ -4775,7 +4775,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
 ._crit_edge4869:                                  ; preds = %.lr.ph4868.preheader, %1381
   %.6.lcssa = phi ptr [ %1316, %1381 ], [ %scevgep5214, %.lr.ph4868.preheader ]
   %.23718.lcssa = phi i32 [ %1383, %1381 ], [ %1390, %.lr.ph4868.preheader ]
-  %.lhs.trunc4601 = trunc nuw i32 %.23718.lcssa to i16
+  %.lhs.trunc4601 = trunc nuw nsw i32 %.23718.lcssa to i16
   %1391 = udiv i16 %.lhs.trunc4601, 255
   %1392 = zext nneg i16 %1391 to i64
   %1393 = getelementptr inbounds nuw i8, ptr %.6.lcssa, i64 %1392
@@ -4786,7 +4786,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
   br label %1400
 
 1397:                                             ; preds = %1378
-  %1398 = trunc nuw i32 %.03684.fr to i8
+  %1398 = trunc nuw nsw i32 %.03684.fr to i8
   %1399 = add i8 %1380, %1398
   store i8 %1399, ptr %.03743, align 1
   br label %1400
@@ -4884,7 +4884,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4585:
   br label %1451
 
 1449:                                             ; preds = %1436
-  %.tr4436 = trunc nuw i64 %1429 to i8
+  %.tr4436 = trunc nuw nsw i64 %1429 to i8
   %1450 = shl nuw i8 %.tr4436, 4
   store i8 %1450, ptr %.03760, align 1
   br label %1451
@@ -5274,7 +5274,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 ._crit_edge1567:                                  ; preds = %.lr.ph1566.preheader, %170
   %.21350.lcssa = phi i32 [ %172, %170 ], [ %179, %.lr.ph1566.preheader ]
   %.61329.lcssa = phi ptr [ %105, %170 ], [ %scevgep1674, %.lr.ph1566.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.21350.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.21350.lcssa to i16
   %180 = udiv i16 %.lhs.trunc, 255
   %181 = zext nneg i16 %180 to i64
   %182 = getelementptr inbounds nuw i8, ptr %.61329.lcssa, i64 %181
@@ -5285,7 +5285,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %189
 
 186:                                              ; preds = %167
-  %187 = trunc nuw i32 %.01213.fr to i8
+  %187 = trunc nuw nsw i32 %.01213.fr to i8
   %188 = add i8 %169, %187
   store i8 %188, ptr %.01346, align 1
   br label %189
@@ -5382,7 +5382,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %237
 
 235:                                              ; preds = %222
-  %.tr1425 = trunc nuw i64 %215 to i8
+  %.tr1425 = trunc nuw nsw i64 %215 to i8
   %236 = shl nuw i8 %.tr1425, 4
   store i8 %236, ptr %.01323, align 1
   br label %237
@@ -5742,7 +5742,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
 ._crit_edge1530:                                  ; preds = %.lr.ph1529.preheader, %402
   %.6.lcssa = phi ptr [ %337, %402 ], [ %scevgep1653, %.lr.ph1529.preheader ]
   %.21211.lcssa = phi i32 [ %404, %402 ], [ %411, %.lr.ph1529.preheader ]
-  %.lhs.trunc1462 = trunc nuw i32 %.21211.lcssa to i16
+  %.lhs.trunc1462 = trunc nuw nsw i32 %.21211.lcssa to i16
   %412 = udiv i16 %.lhs.trunc1462, 255
   %413 = zext nneg i16 %412 to i64
   %414 = getelementptr inbounds nuw i8, ptr %.6.lcssa, i64 %413
@@ -5753,7 +5753,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
   br label %421
 
 418:                                              ; preds = %399
-  %419 = trunc nuw i32 %.01177.fr to i8
+  %419 = trunc nuw nsw i32 %.01177.fr to i8
   %420 = add i8 %401, %419
   store i8 %420, ptr %.01236, align 1
   br label %421
@@ -5851,7 +5851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1458:
   br label %472
 
 470:                                              ; preds = %457
-  %.tr1420 = trunc nuw i64 %450 to i8
+  %.tr1420 = trunc nuw nsw i64 %450 to i8
   %471 = shl nuw i8 %.tr1420, 4
   store i8 %471, ptr %.01253, align 1
   br label %472
@@ -6276,7 +6276,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preh
 ._crit_edge1580.i:                                ; preds = %.lr.ph1579.preheader.i, %194
   %.21361.lcssa.i = phi i32 [ %196, %194 ], [ %203, %.lr.ph1579.preheader.i ]
   %.61335.lcssa.i = phi ptr [ %115, %194 ], [ %scevgep1680.i, %.lr.ph1579.preheader.i ]
-  %.lhs.trunc.i = trunc nuw i32 %.21361.lcssa.i to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %.21361.lcssa.i to i16
   %204 = udiv i16 %.lhs.trunc.i, 255
   %205 = zext nneg i16 %204 to i64
   %206 = getelementptr inbounds nuw i8, ptr %.61335.lcssa.i, i64 %205
@@ -6287,7 +6287,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.preh
   br label %213
 
 210:                                              ; preds = %.loopexit.i
-  %211 = trunc nuw i32 %.11360.fr.i to i8
+  %211 = trunc nuw nsw i32 %.11360.fr.i to i8
   %212 = add i8 %193, %211
   store i8 %212, ptr %.013561583.i, align 1
   br label %213
@@ -6387,7 +6387,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit.i: ;
   br label %267
 
 265:                                              ; preds = %254
-  %.01341.tr.i = trunc nuw i64 %.01341.i to i8
+  %.01341.tr.i = trunc nuw nsw i64 %.01341.i to i8
   %266 = shl nuw i8 %.01341.tr.i, 4
   store i8 %266, ptr %.01329.i, align 1
   br label %267
@@ -6781,7 +6781,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
 ._crit_edge1530.i:                                ; preds = %.lr.ph1529.preheader.i, %452
   %.6.lcssa.i = phi ptr [ %374, %452 ], [ %scevgep1659.i, %.lr.ph1529.preheader.i ]
   %.21222.lcssa.i = phi i32 [ %454, %452 ], [ %461, %.lr.ph1529.preheader.i ]
-  %.lhs.trunc1476.i = trunc nuw i32 %.21222.lcssa.i to i16
+  %.lhs.trunc1476.i = trunc nuw nsw i32 %.21222.lcssa.i to i16
   %462 = udiv i16 %.lhs.trunc1476.i, 255
   %463 = zext nneg i16 %462 to i64
   %464 = getelementptr inbounds nuw i8, ptr %.6.lcssa.i, i64 %463
@@ -6792,7 +6792,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
   br label %471
 
 468:                                              ; preds = %.loopexit1486.i
-  %469 = trunc nuw i32 %.11221.fr.i to i8
+  %469 = trunc nuw nsw i32 %.11221.fr.i to i8
   %470 = add i8 %451, %469
   store i8 %470, ptr %.012501536.i, align 1
   br label %471
@@ -6899,7 +6899,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1472.
   br label %527
 
 525:                                              ; preds = %514
-  %.01201.tr.i = trunc nuw i64 %.01201.i to i8
+  %.01201.tr.i = trunc nuw nsw i64 %.01201.i to i8
   %526 = shl nuw i8 %.01201.tr.i, 4
   store i8 %526, ptr %.01264.i, align 1
   br label %527
@@ -7620,7 +7620,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 ._crit_edge5019:                                  ; preds = %.lr.ph5018.preheader, %235
   %.24077.lcssa = phi i32 [ %237, %235 ], [ %244, %.lr.ph5018.preheader ]
   %.64011.lcssa = phi ptr [ %170, %235 ], [ %scevgep5416, %.lr.ph5018.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.24077.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.24077.lcssa to i16
   %245 = udiv i16 %.lhs.trunc, 255
   %246 = zext nneg i16 %245 to i64
   %247 = getelementptr inbounds nuw i8, ptr %.64011.lcssa, i64 %246
@@ -7631,7 +7631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %254
 
 251:                                              ; preds = %232
-  %252 = trunc nuw i32 %.03799.fr to i8
+  %252 = trunc nuw nsw i32 %.03799.fr to i8
   %253 = add i8 %234, %252
   store i8 %253, ptr %.04034, align 1
   br label %254
@@ -7731,7 +7731,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %305
 
 303:                                              ; preds = %290
-  %.tr4393 = trunc nuw i64 %283 to i8
+  %.tr4393 = trunc nuw nsw i64 %283 to i8
   %304 = shl nuw i8 %.tr4393, 4
   store i8 %304, ptr %.04005, align 1
   br label %305
@@ -8100,7 +8100,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
 ._crit_edge4973:                                  ; preds = %.lr.ph4972.preheader, %478
   %.24150.lcssa = phi i32 [ %480, %478 ], [ %487, %.lr.ph4972.preheader ]
   %.64119.lcssa = phi ptr [ %413, %478 ], [ %scevgep5393, %.lr.ph4972.preheader ]
-  %.lhs.trunc4542 = trunc nuw i32 %.24150.lcssa to i16
+  %.lhs.trunc4542 = trunc nuw nsw i32 %.24150.lcssa to i16
   %488 = udiv i16 %.lhs.trunc4542, 255
   %489 = zext nneg i16 %488 to i64
   %490 = getelementptr inbounds nuw i8, ptr %.64119.lcssa, i64 %489
@@ -8111,7 +8111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
   br label %497
 
 494:                                              ; preds = %475
-  %495 = trunc nuw i32 %.03758.fr to i8
+  %495 = trunc nuw nsw i32 %.03758.fr to i8
   %496 = add i8 %477, %495
   store i8 %496, ptr %.04135, align 1
   br label %497
@@ -8209,7 +8209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4516:
   br label %548
 
 546:                                              ; preds = %533
-  %.tr4386 = trunc nuw i64 %526 to i8
+  %.tr4386 = trunc nuw nsw i64 %526 to i8
   %547 = shl nuw i8 %.tr4386, 4
   store i8 %547, ptr %.04113, align 1
   br label %548
@@ -8851,7 +8851,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
 ._crit_edge4799:                                  ; preds = %.lr.ph4798.preheader, %851
   %.64064.lcssa = phi ptr [ %666, %851 ], [ %scevgep5324, %.lr.ph4798.preheader ]
   %.24026.lcssa = phi i32 [ %853, %851 ], [ %860, %.lr.ph4798.preheader ]
-  %.lhs.trunc4554 = trunc nuw i32 %.24026.lcssa to i16
+  %.lhs.trunc4554 = trunc nuw nsw i32 %.24026.lcssa to i16
   %861 = udiv i16 %.lhs.trunc4554, 255
   %862 = zext nneg i16 %861 to i64
   %863 = getelementptr inbounds nuw i8, ptr %.64064.lcssa, i64 %862
@@ -8862,7 +8862,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
   br label %870
 
 867:                                              ; preds = %848
-  %868 = trunc nuw i32 %.04024.fr to i8
+  %868 = trunc nuw nsw i32 %.04024.fr to i8
   %869 = add i8 %850, %868
   store i8 %869, ptr %.04044, align 1
   br label %870
@@ -8967,7 +8967,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4521:
   br label %924
 
 922:                                              ; preds = %909
-  %.tr4380 = trunc nuw i64 %902 to i8
+  %.tr4380 = trunc nuw nsw i64 %902 to i8
   %923 = shl nuw i8 %.tr4380, 4
   store i8 %923, ptr %.04058, align 1
   br label %924
@@ -9622,7 +9622,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
 ._crit_edge4735:                                  ; preds = %.lr.ph4734.preheader, %1238
   %.63941.lcssa = phi ptr [ %1053, %1238 ], [ %scevgep5301, %.lr.ph4734.preheader ]
   %.23907.lcssa = phi i32 [ %1240, %1238 ], [ %1247, %.lr.ph4734.preheader ]
-  %.lhs.trunc4558 = trunc nuw i32 %.23907.lcssa to i16
+  %.lhs.trunc4558 = trunc nuw nsw i32 %.23907.lcssa to i16
   %1248 = udiv i16 %.lhs.trunc4558, 255
   %1249 = zext nneg i16 %1248 to i64
   %1250 = getelementptr inbounds nuw i8, ptr %.63941.lcssa, i64 %1249
@@ -9633,7 +9633,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
   br label %1257
 
 1254:                                             ; preds = %1235
-  %1255 = trunc nuw i32 %.03905.fr to i8
+  %1255 = trunc nuw nsw i32 %.03905.fr to i8
   %1256 = add i8 %1237, %1255
   store i8 %1256, ptr %.03921, align 1
   br label %1257
@@ -9753,7 +9753,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4527:
   br label %1320
 
 1318:                                             ; preds = %1305
-  %.tr4370 = trunc nuw i64 %1298 to i8
+  %.tr4370 = trunc nuw nsw i64 %1298 to i8
   %1319 = shl nuw i8 %.tr4370, 4
   store i8 %1319, ptr %.03935, align 1
   br label %1320
@@ -10394,7 +10394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
 ._crit_edge4925:                                  ; preds = %.lr.ph4924.preheader, %1622
   %.63835.lcssa = phi ptr [ %1437, %1622 ], [ %scevgep5370, %.lr.ph4924.preheader ]
   %.23787.lcssa = phi i32 [ %1624, %1622 ], [ %1631, %.lr.ph4924.preheader ]
-  %.lhs.trunc4546 = trunc nuw i32 %.23787.lcssa to i16
+  %.lhs.trunc4546 = trunc nuw nsw i32 %.23787.lcssa to i16
   %1632 = udiv i16 %.lhs.trunc4546, 255
   %1633 = zext nneg i16 %1632 to i64
   %1634 = getelementptr inbounds nuw i8, ptr %.63835.lcssa, i64 %1633
@@ -10405,7 +10405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
   br label %1641
 
 1638:                                             ; preds = %1619
-  %1639 = trunc nuw i32 %.03785.fr to i8
+  %1639 = trunc nuw nsw i32 %.03785.fr to i8
   %1640 = add i8 %1621, %1639
   store i8 %1640, ptr %.03815, align 1
   br label %1641
@@ -10512,7 +10512,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4533:
   br label %1695
 
 1693:                                             ; preds = %1680
-  %.tr4360 = trunc nuw i64 %1673 to i8
+  %.tr4360 = trunc nuw nsw i64 %1673 to i8
   %1694 = shl nuw i8 %.tr4360, 4
   store i8 %1694, ptr %.03829, align 1
   br label %1695
@@ -11141,7 +11141,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
 ._crit_edge4862:                                  ; preds = %.lr.ph4861.preheader, %1989
   %.6.lcssa = phi ptr [ %1804, %1989 ], [ %scevgep5347, %.lr.ph4861.preheader ]
   %.23616.lcssa = phi i32 [ %1991, %1989 ], [ %1998, %.lr.ph4861.preheader ]
-  %.lhs.trunc4550 = trunc nuw i32 %.23616.lcssa to i16
+  %.lhs.trunc4550 = trunc nuw nsw i32 %.23616.lcssa to i16
   %1999 = udiv i16 %.lhs.trunc4550, 255
   %2000 = zext nneg i16 %1999 to i64
   %2001 = getelementptr inbounds nuw i8, ptr %.6.lcssa, i64 %2000
@@ -11152,7 +11152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
   br label %2008
 
 2005:                                             ; preds = %1986
-  %2006 = trunc nuw i32 %.03614.fr to i8
+  %2006 = trunc nuw nsw i32 %.03614.fr to i8
   %2007 = add i8 %1988, %2006
   store i8 %2007, ptr %.03644, align 1
   br label %2008
@@ -11257,7 +11257,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit4538:
   br label %2062
 
 2060:                                             ; preds = %2047
-  %.tr4349 = trunc nuw i64 %2040 to i8
+  %.tr4349 = trunc nuw nsw i64 %2040 to i8
   %2061 = shl nuw i8 %.tr4349, 4
   store i8 %2061, ptr %.03658, align 1
   br label %2062
@@ -11941,7 +11941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
 ._crit_edge1630:                                  ; preds = %.lr.ph1629.preheader, %310
   %.21356.lcssa = phi i32 [ %312, %310 ], [ %319, %.lr.ph1629.preheader ]
   %.61336.lcssa = phi ptr [ %132, %310 ], [ %scevgep1761, %.lr.ph1629.preheader ]
-  %.lhs.trunc = trunc nuw i32 %.21356.lcssa to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.21356.lcssa to i16
   %320 = udiv i16 %.lhs.trunc, 255
   %321 = zext nneg i16 %320 to i64
   %322 = getelementptr inbounds nuw i8, ptr %.61336.lcssa, i64 %321
@@ -11952,7 +11952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %329
 
 326:                                              ; preds = %307
-  %327 = trunc nuw i32 %.01354.fr to i8
+  %327 = trunc nuw nsw i32 %.01354.fr to i8
   %328 = add i8 %309, %327
   store i8 %328, ptr %.01358, align 1
   br label %329
@@ -12050,7 +12050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit: ; p
   br label %376
 
 374:                                              ; preds = %.loopexit
-  %.tr1444 = trunc nuw i64 %361 to i8
+  %.tr1444 = trunc nuw nsw i64 %361 to i8
   %375 = shl nuw i8 %.tr1444, 4
   store i8 %375, ptr %.01330, align 1
   br label %376
@@ -12659,7 +12659,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
 ._crit_edge1567:                                  ; preds = %.lr.ph1566.preheader, %654
   %.6.lcssa = phi ptr [ %476, %654 ], [ %scevgep1738, %.lr.ph1566.preheader ]
   %.21214.lcssa = phi i32 [ %656, %654 ], [ %663, %.lr.ph1566.preheader ]
-  %.lhs.trunc1495 = trunc nuw i32 %.21214.lcssa to i16
+  %.lhs.trunc1495 = trunc nuw nsw i32 %.21214.lcssa to i16
   %664 = udiv i16 %.lhs.trunc1495, 255
   %665 = zext nneg i16 %664 to i64
   %666 = getelementptr inbounds nuw i8, ptr %.6.lcssa, i64 %665
@@ -12670,7 +12670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
   br label %673
 
 670:                                              ; preds = %651
-  %671 = trunc nuw i32 %.01212.fr to i8
+  %671 = trunc nuw nsw i32 %.01212.fr to i8
   %672 = add i8 %653, %671
   store i8 %672, ptr %.01238, align 1
   br label %673
@@ -12766,7 +12766,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit1491:
   br label %720
 
 718:                                              ; preds = %.loopexit1500
-  %.tr1433 = trunc nuw i64 %705 to i8
+  %.tr1433 = trunc nuw nsw i64 %705 to i8
   %719 = shl nuw i8 %.tr1433, 4
   store i8 %719, ptr %.01256, align 1
   br label %720

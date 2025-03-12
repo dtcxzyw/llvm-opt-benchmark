@@ -771,7 +771,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %79
 
 76:                                               ; preds = %70
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   %78 = add nuw nsw i32 %77, 1
   br label %79
 

@@ -582,7 +582,7 @@ define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr 
 158:                                              ; preds = %157
   %159 = getelementptr inbounds nuw i8, ptr %3, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %159, ptr nonnull align 4 %155, i64 %154, i1 false)
-  %160 = trunc nuw i32 %129 to i16
+  %160 = trunc nuw nsw i32 %129 to i16
   store i16 %160, ptr %3, align 2
   br label %161
 
@@ -14266,7 +14266,7 @@ define internal fastcc i32 @decode_getfh(ptr noundef %0, ptr noundef writeonly c
   br label %.thread
 
 63:                                               ; preds = %37
-  %64 = trunc nuw i32 %39 to i16
+  %64 = trunc nuw nsw i32 %39 to i16
   store i16 %64, ptr %1, align 2
   %65 = zext nneg i32 %39 to i64
   %66 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %65) #12

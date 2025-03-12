@@ -15616,7 +15616,7 @@ _ZN5boost13re_detail_50028hash_value_from_capture_nameIPKcEEiT_S4_.exit: ; preds
   br i1 %or.cond12, label %._crit_edge325, label %937
 
 ._crit_edge325:                                   ; preds = %930
-  %.pre326 = trunc nuw i64 %.170 to i32
+  %.pre326 = trunc nuw nsw i64 %.170 to i32
   br label %944
 
 937:                                              ; preds = %930
@@ -51569,7 +51569,7 @@ _ZN5boost13re_detail_50028hash_value_from_capture_nameIPKwEEiT_S4_.exit: ; preds
   br i1 %or.cond12, label %._crit_edge374, label %991
 
 ._crit_edge374:                                   ; preds = %984
-  %.pre375 = trunc nuw i64 %.170 to i32
+  %.pre375 = trunc nuw nsw i64 %.170 to i32
   br label %998
 
 991:                                              ; preds = %984

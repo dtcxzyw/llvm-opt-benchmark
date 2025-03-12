@@ -9648,7 +9648,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsIiNSt7__cxx1112
   %144 = load ptr, ptr %143, align 8, !tbaa !64
   %145 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv33
   store ptr %144, ptr %145, align 8, !tbaa !64
-  %146 = trunc i64 %indvars.iv33 to i8
+  %146 = trunc nuw i64 %indvars.iv33 to i8
   %147 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i8 %146, ptr %147, align 1, !tbaa !17
   store ptr %2, ptr %144, align 8, !tbaa !64
@@ -10564,7 +10564,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %88 = load ptr, ptr %87, align 8, !tbaa !129
   %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv33
   store ptr %88, ptr %89, align 8, !tbaa !129
-  %90 = trunc i64 %indvars.iv33 to i8
+  %90 = trunc nuw i64 %indvars.iv33 to i8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i8 %90, ptr %91, align 1, !tbaa !17
   store ptr %2, ptr %88, align 8, !tbaa !129
@@ -12727,7 +12727,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112b
   %109 = load ptr, ptr %108, align 8, !tbaa !139
   %110 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv30
   store ptr %109, ptr %110, align 8, !tbaa !139
-  %111 = trunc i64 %indvars.iv30 to i8
+  %111 = trunc nuw i64 %indvars.iv30 to i8
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store i8 %111, ptr %112, align 1, !tbaa !17
   store ptr %2, ptr %109, align 8, !tbaa !139

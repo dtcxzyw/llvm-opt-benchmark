@@ -3504,7 +3504,7 @@ switch.early.test:                                ; preds = %6
   ]
 
 10:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %6
-  %11 = trunc i32 %5 to i8
+  %11 = trunc nuw nsw i32 %5 to i8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !25
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %13, i64 noundef 1, i8 noundef signext %11)
@@ -3531,7 +3531,7 @@ switch.early.test96:                              ; preds = %16
   ]
 
 22:                                               ; preds = %switch.early.test96, %switch.early.test96, %switch.early.test96, %switch.early.test96, %16
-  %23 = trunc i32 %18 to i8
+  %23 = trunc nuw nsw i32 %18 to i8
   %24 = load i64, ptr %12, align 8, !tbaa !25
   %25 = add i64 %24, 1
   %26 = load ptr, ptr %1, align 8, !tbaa !20
@@ -3799,7 +3799,7 @@ define noundef ptr @_ZN5Yosys13LibertyParser5parseEv(ptr noundef nonnull align 8
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %49
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %26
-  %28 = trunc i32 %.072 to i8
+  %28 = trunc nuw nsw i32 %.072 to i8
   %29 = load i64, ptr %25, align 8, !tbaa !25
   %30 = add i64 %29, 1
   %31 = load ptr, ptr %7, align 8, !tbaa !20
@@ -3991,7 +3991,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %_
   ]
 
 .critedge:                                        ; preds = %91, %91, %91, %91, %91
-  %92 = trunc nuw i32 %.274 to i8
+  %92 = trunc nuw nsw i32 %.274 to i8
   %93 = load i64, ptr %67, align 8, !tbaa !25
   %94 = add i64 %93, 1
   %95 = load ptr, ptr %65, align 8, !tbaa !20
@@ -4348,7 +4348,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %_Z
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit150 unwind label %225
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit150: ; preds = %202
-  %204 = trunc i32 %119 to i8
+  %204 = trunc nuw nsw i32 %119 to i8
   %205 = load i64, ptr %76, align 8, !tbaa !25
   %206 = add i64 %205, 1
   %207 = load ptr, ptr %13, align 8, !tbaa !20

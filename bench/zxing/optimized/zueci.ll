@@ -1659,12 +1659,12 @@ switch.early.test:                                ; preds = %2
   br i1 %or.cond7, label %48, label %.thread65
 
 48:                                               ; preds = %46
-  %.lhs.trunc = trunc nuw i32 %47 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %47 to i16
   %49 = udiv i16 %.lhs.trunc, 188
   %narrow = mul nuw nsw i16 %49, 68
   %.neg = zext nneg i16 %narrow to i32
   %50 = add nuw nsw i32 %0, %.neg
-  %51 = trunc nuw i16 %49 to i8
+  %51 = trunc nuw nsw i16 %49 to i8
   %52 = or disjoint i8 %51, -16
   store i8 %52, ptr %1, align 1, !tbaa !3
   %53 = and i32 %50, 255
@@ -2663,12 +2663,12 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %44
-  %.lhs.trunc = trunc nuw i32 %43 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %43 to i16
   %47 = udiv i16 %.lhs.trunc, 94
   %48 = icmp samesign ult i32 %43, 564
   %49 = select i1 %48, i16 170, i16 242
   %50 = add nuw nsw i16 %49, %47
-  %51 = trunc i16 %50 to i8
+  %51 = trunc nuw i16 %50 to i8
   store i8 %51, ptr %1, align 1, !tbaa !3
   %narrow = mul nuw nsw i16 %47, 162
   %.neg99 = zext nneg i16 %narrow to i32
@@ -2681,12 +2681,12 @@ define internal range(i32 1, 5) i32 @zueci_u_gb18030(i32 noundef %0, ptr noundef
 
 56:                                               ; preds = %44
   %57 = add nsw i32 %0, -58566
-  %.lhs.trunc107 = trunc i32 %57 to i16
+  %.lhs.trunc107 = trunc nuw nsw i32 %57 to i16
   %58 = udiv i16 %.lhs.trunc107, 96
   %.zext108 = zext nneg i16 %58 to i32
   %.neg = mul nsw i32 %.zext108, -96
   %59 = add nsw i32 %.neg, %57
-  %60 = trunc i16 %58 to i8
+  %60 = trunc nuw nsw i16 %58 to i8
   %61 = add nuw nsw i8 %60, -95
   store i8 %61, ptr %1, align 1, !tbaa !3
   %62 = add nsw i32 %59, 64
@@ -2914,7 +2914,7 @@ switch.early.test:                                ; preds = %4
   br i1 %or.cond9, label %10, label %12
 
 10:                                               ; preds = %6, %2
-  %11 = trunc i32 %0 to i8
+  %11 = trunc nuw nsw i32 %0 to i8
   store i8 %11, ptr %1, align 1, !tbaa !3
   br label %12
 
@@ -3168,7 +3168,7 @@ zueci_encode_utf8.exit:                           ; preds = %.lr.ph, %25
 
 46:                                               ; preds = %44
   %47 = lshr i32 %3, 6
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -64
   store i8 %49, ptr %9, align 1, !tbaa !3
   %50 = trunc i32 %3 to i8
@@ -3180,7 +3180,7 @@ zueci_encode_utf8.exit:                           ; preds = %.lr.ph, %25
 
 53:                                               ; preds = %44
   %54 = lshr i32 %3, 12
-  %55 = trunc nuw i32 %54 to i8
+  %55 = trunc nuw nsw i32 %54 to i8
   %56 = or disjoint i8 %55, -32
   store i8 %56, ptr %9, align 1, !tbaa !3
   %57 = lshr i32 %3, 6
@@ -3395,7 +3395,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 135:                                              ; preds = %133
   %136 = lshr i32 %112, 6
-  %137 = trunc nuw i32 %136 to i8
+  %137 = trunc nuw nsw i32 %136 to i8
   %138 = or disjoint i8 %137, -64
   store i8 %138, ptr %.3135226, align 1, !tbaa !3
   %139 = trunc i32 %112 to i8
@@ -3412,7 +3412,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
 
 146:                                              ; preds = %143
   %147 = lshr i32 %112, 12
-  %148 = trunc nuw i32 %147 to i8
+  %148 = trunc nuw nsw i32 %147 to i8
   %149 = or disjoint i8 %148, -32
   store i8 %149, ptr %.3135226, align 1, !tbaa !3
   %150 = lshr i32 %112, 6
@@ -3595,7 +3595,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader190
 
 234:                                              ; preds = %232
   %235 = lshr i32 %228, 6
-  %236 = trunc nuw i32 %235 to i8
+  %236 = trunc nuw nsw i32 %235 to i8
   %237 = or disjoint i8 %236, -64
   store i8 %237, ptr %.5137234, align 1, !tbaa !3
   %238 = trunc i32 %228 to i8
@@ -3612,7 +3612,7 @@ zueci_is_valid_utf8.exit:                         ; preds = %.preheader190
 
 245:                                              ; preds = %242
   %246 = lshr i32 %228, 12
-  %247 = trunc nuw i32 %246 to i8
+  %247 = trunc nuw nsw i32 %246 to i8
   %248 = or disjoint i8 %247, -32
   store i8 %248, ptr %.5137234, align 1, !tbaa !3
   %249 = lshr i32 %228, 6

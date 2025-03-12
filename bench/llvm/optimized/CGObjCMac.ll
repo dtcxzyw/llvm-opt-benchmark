@@ -20059,7 +20059,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit.i: ; preds = %63, %.lr
   br i1 %.not8.i, label %"_ZZN12_GLOBAL__N_117IvarLayoutBuilder11buildBitmapERNS_15CGObjCCommonMacERN4llvm15SmallVectorImplIhEEENK3$_0clEj.exit", label %71
 
 71:                                               ; preds = %._crit_edge.i
-  %.tr9.i = trunc nuw i32 %.1.lcssa.i to i8
+  %.tr9.i = trunc nuw nsw i32 %.1.lcssa.i to i8
   %72 = shl nuw i8 %.tr9.i, 4
   %73 = add i64 %.pre107, 1
   %74 = load i64, ptr %23, align 8, !tbaa !942
@@ -20281,7 +20281,7 @@ _ZN4llvm23SmallVectorTemplateBaseIhLb1EE9push_backEh.exit.i82: ; preds = %167, %
   br i1 %.not8.i73, label %"_ZZN12_GLOBAL__N_117IvarLayoutBuilder11buildBitmapERNS_15CGObjCCommonMacERN4llvm15SmallVectorImplIhEEENK3$_0clEj.exit84", label %175
 
 175:                                              ; preds = %._crit_edge.i71
-  %.tr9.i74 = trunc nuw i32 %.1.lcssa.i72 to i8
+  %.tr9.i74 = trunc nuw nsw i32 %.1.lcssa.i72 to i8
   %176 = shl nuw i8 %.tr9.i74, 4
   %177 = add i64 %.pre108, 1
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -29942,7 +29942,7 @@ thread-pre-split:                                 ; preds = %121
   br i1 %133, label %134, label %_ZN12_GLOBAL__N_115CGObjCCommonMac23InlineLayoutInstructionERN4llvm15SmallVectorImplIhEE.exit.thread
 
 134:                                              ; preds = %132
-  %135 = trunc nuw i64 %.val104.pr to i32
+  %135 = trunc nuw nsw i64 %.val104.pr to i32
   %136 = load i8, ptr %125, align 1, !tbaa !394
   %137 = zext i8 %136 to i32
   switch i32 %135, label %default.unreachable [

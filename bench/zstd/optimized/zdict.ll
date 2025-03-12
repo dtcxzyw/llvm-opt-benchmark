@@ -62,7 +62,7 @@ define range(i32 0, 2) i32 @ZDICT_isError(i64 noundef %0) local_unnamed_addr #0 
 ; Function Attrs: nounwind uwtable
 define ptr @ZDICT_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #16
@@ -2212,7 +2212,7 @@ define internal fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull captures(none) %0
   br i1 %or.cond, label %42, label %17
 
 17:                                               ; preds = %13
-  %18 = trunc nuw i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = sub nuw i32 %15, %.sroa.0102.sroa.0.0.extract.trunc
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !9
@@ -2283,7 +2283,7 @@ define internal fastcc i32 @ZDICT_tryMerge(ptr noundef nonnull captures(none) %0
   br i1 %or.cond165, label %52, label %79
 
 52:                                               ; preds = %45
-  %53 = trunc nuw i64 %indvars.iv226 to i32
+  %53 = trunc nuw nsw i64 %indvars.iv226 to i32
   %54 = sub nsw i32 %7, %50
   %55 = lshr i32 %.sroa.0102.sroa.14.0.extract.trunc, 3
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 8

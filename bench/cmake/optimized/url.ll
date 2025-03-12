@@ -4450,7 +4450,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %or.cond137.i.i, label %118, label %116
 
 116:                                              ; preds = %115, %111
-  %117 = trunc i64 %109 to i32
+  %117 = trunc nuw nsw i64 %109 to i32
   br label %.thread149.i.i
 
 .thread149.i.i:                                   ; preds = %116, %105

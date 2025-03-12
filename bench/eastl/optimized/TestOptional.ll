@@ -1082,7 +1082,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else14
   br label %_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEE15construct_valueIJRKS3_EEEvDpOT_.exit
 
 if.else.i.i.i.i:                                  ; preds = %if.else14
-  %9 = trunc nuw i64 %sub.ptr.sub.i.i.i to i8
+  %9 = trunc nuw nsw i64 %sub.ptr.sub.i.i.i to i8
   %conv.i.i.i5.i.i = sub nuw nsw i8 23, %9
   store i8 %conv.i.i.i5.i.i, ptr %mRemainingSizeField.i.i.i.i.i.i.i, align 1
   br label %_ZN5eastl8optionalINS_12basic_stringIcNS_9allocatorEEEE15construct_valueIJRKS3_EEEvDpOT_.exit

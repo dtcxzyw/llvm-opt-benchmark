@@ -1184,7 +1184,7 @@ define hidden void @_ZN6Assimp9BVHLoader15CreateAnimationEP7aiScene(ptr noundef 
   br i1 %77, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %78
 
 78:                                               ; preds = %70
-  %79 = trunc nuw i64 %76 to i32
+  %79 = trunc nuw nsw i64 %76 to i32
   store i32 %79, ptr %69, align 4
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %81 = load ptr, ptr %4, align 8

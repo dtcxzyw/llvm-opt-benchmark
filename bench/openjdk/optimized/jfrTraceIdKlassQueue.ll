@@ -410,7 +410,7 @@ _ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE19storage_for_elementEPK5Klassm.ex
 
 43:                                               ; preds = %_ZN13JfrEpochQueueI24JfrEpochQueueKlassPolicyE19storage_for_elementEPK5Klassm.exit
   store i64 0, ptr %36, align 4
-  %.tr.i.i.i.i = trunc nuw i64 %38 to i32
+  %.tr.i.i.i.i = trunc nuw nsw i64 %38 to i32
   %44 = shl nuw i32 %.tr.i.i.i.i, 2
   store i32 %44, ptr %36, align 4
   %45 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8

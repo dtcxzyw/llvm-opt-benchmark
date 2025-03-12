@@ -2096,12 +2096,12 @@ default.unreachable.i.i:                          ; preds = %524
   br i1 %520, label %switch.lookup, label %524
 
 523:                                              ; preds = %521
-  %trunc20.i.i = trunc i8 %.064.i to i1
+  %trunc20.i.i = trunc nuw i8 %.064.i to i1
   %anon.c1442423ab71096c578c2ca821fd175a.139.anon.c1442423ab71096c578c2ca821fd175a.140.i.i = select i1 %trunc20.i.i, ptr @anon.c1442423ab71096c578c2ca821fd175a.140, ptr @anon.c1442423ab71096c578c2ca821fd175a.139
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 524:                                              ; preds = %522
-  %trunc19.i.i = trunc i8 %.064.i to i1
+  %trunc19.i.i = trunc nuw i8 %.064.i to i1
   switch i8 %.0.i, label %default.unreachable.i.i [
     i8 0, label %525
     i8 1, label %526

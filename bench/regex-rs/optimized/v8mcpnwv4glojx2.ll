@@ -713,7 +713,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !83
   %12 = trunc i32 %1 to i8
@@ -725,7 +725,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hda7d9bb0deee805fE(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !83
   %19 = lshr i32 %1, 6
@@ -793,7 +793,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !96, !noundef !4
   %58 = load i64, ptr %0, align 8, !alias.scope !96, !noundef !4
@@ -3388,7 +3388,7 @@ switch.lookup:                                    ; preds = %.preheader86
 
 39:                                               ; preds = %34
   %40 = trunc i32 %18 to i8
-  %.sroa.521.0.extract.trunc = trunc nuw i32 %.sroa.12.0 to i8
+  %.sroa.521.0.extract.trunc = trunc nuw nsw i32 %.sroa.12.0 to i8
   store i8 0, ptr %0, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %40, ptr %.sroa.4.0..sroa_idx, align 1
@@ -3429,12 +3429,12 @@ switch.lookup:                                    ; preds = %.preheader86
   br i1 %56, label %66, label %77
 
 57:                                               ; preds = %51
-  %58 = trunc nuw i32 %18 to i8
+  %58 = trunc nuw nsw i32 %18 to i8
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 59:                                               ; preds = %53
   %60 = lshr i32 %18, 6
-  %61 = trunc nuw i32 %60 to i8
+  %61 = trunc nuw nsw i32 %60 to i8
   %62 = or disjoint i8 %61, -64
   %63 = trunc i32 %18 to i8
   %64 = and i8 %63, 63
@@ -3443,7 +3443,7 @@ switch.lookup:                                    ; preds = %.preheader86
 
 66:                                               ; preds = %55
   %67 = lshr i32 %18, 12
-  %68 = trunc nuw i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   %69 = or disjoint i8 %68, -32
   %70 = lshr i32 %18, 6
   %71 = trunc i32 %70 to i8
@@ -3487,13 +3487,13 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %57
 
 97:                                               ; preds = %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
   %98 = lshr i32 %.sroa.12.0, 6
-  %99 = trunc nuw i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %100 = or disjoint i8 %99, -64
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit12.i
 
 101:                                              ; preds = %95
   %102 = lshr i32 %.sroa.12.0, 12
-  %103 = trunc nuw i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   %104 = or disjoint i8 %103, -32
   %105 = lshr i32 %.sroa.12.0, 6
   %106 = trunc i32 %.sroa.12.0 to i8
@@ -3622,7 +3622,7 @@ _ZN12regex_syntax4utf812Utf8Sequence18from_encoded_range17h3f267fb11c439f54E.exi
 .preheader:                                       ; preds = %34, %138
   %.sroa.010.095 = phi i64 [ %128, %138 ], [ 1, %34 ]
   %128 = add nuw nsw i64 %.sroa.010.095, 1
-  %129 = trunc nuw i64 %.sroa.010.095 to i32
+  %129 = trunc nuw nsw i64 %.sroa.010.095 to i32
   %130 = mul nuw nsw i32 %129, 6
   %notmask = shl nsw i32 -1, %130
   %131 = and i32 %notmask, %18

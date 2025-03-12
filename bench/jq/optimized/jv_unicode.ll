@@ -301,7 +301,7 @@ define dso_local i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %12, ptr %1, align 1, !tbaa !4
@@ -318,7 +318,7 @@ define dso_local i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %23, ptr %1, align 1, !tbaa !4

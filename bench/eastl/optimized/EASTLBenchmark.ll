@@ -1600,7 +1600,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0
@@ -2317,7 +2317,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
 
 if.else.i.i.i:                                    ; preds = %entry
-  %4 = trunc nuw i64 %sub.ptr.sub.i.i to i8
+  %4 = trunc nuw nsw i64 %sub.ptr.sub.i.i to i8
   %conv.i.i.i5.i = sub nuw nsw i8 23, %4
   store i8 %conv.i.i.i5.i, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   br label %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
@@ -2377,7 +2377,7 @@ call.i.i.i.i.i29.noexc:                           ; preds = %if.then.i.i.i27
   br label %invoke.cont
 
 if.else.i.i.i17:                                  ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEEC2ERKS2_.exit
-  %11 = trunc nuw i64 %sub.ptr.sub.i.i15 to i8
+  %11 = trunc nuw nsw i64 %sub.ptr.sub.i.i15 to i8
   %conv.i.i.i5.i18 = sub nuw nsw i8 23, %11
   store i8 %conv.i.i.i5.i18, ptr %mRemainingSizeField.i.i.i.i.i.i3, align 1
   br label %invoke.cont

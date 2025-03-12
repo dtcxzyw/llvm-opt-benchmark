@@ -1086,7 +1086,7 @@ define hidden void @_ZN2cv17QRCodeEncoderImpl10generateQRERKNSt7__cxx1112basic_s
 
 .thread:                                          ; preds = %._crit_edge, %27
   %28 = phi i32 [ 16, %27 ], [ %14, %._crit_edge ]
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = add nsw i8 %29, -1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 338
   store i8 %30, ptr %31, align 2, !tbaa !66
@@ -8121,7 +8121,7 @@ define hidden noundef zeroext i1 @_ZN2cv17QRCodeDecoderImpl16decodeFormatInfoERK
   %39 = zext nneg i8 %38 to i32
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   %41 = shl nuw nsw i32 %39, %40
-  %42 = trunc nuw i32 %41 to i16
+  %42 = trunc nuw nsw i32 %41 to i16
   %43 = or i16 %35, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -8171,7 +8171,7 @@ _ZN2cv17QRCodeDecoderImpl17correctFormatInfoERt.exit: ; preds = %45, %49
   %65 = zext nneg i8 %64 to i32
   %66 = trunc nuw nsw i64 %indvars.iv57 to i32
   %67 = shl nuw nsw i32 %65, %66
-  %68 = trunc nuw i32 %67 to i16
+  %68 = trunc nuw nsw i32 %67 to i16
   %69 = or i16 %60, %68
   store i16 %69, ptr %6, align 2, !tbaa !95
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
@@ -8198,7 +8198,7 @@ _ZN2cv17QRCodeDecoderImpl17correctFormatInfoERt.exit: ; preds = %45, %49
   %81 = zext nneg i8 %80 to i32
   %82 = trunc nuw nsw i64 %indvars.iv60 to i32
   %83 = shl nuw nsw i32 %81, %82
-  %84 = trunc nuw i32 %83 to i16
+  %84 = trunc nuw nsw i32 %83 to i16
   %85 = or i16 %73, %84
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next61, 8

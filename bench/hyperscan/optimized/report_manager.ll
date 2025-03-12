@@ -258,7 +258,7 @@ define hidden noundef i32 @_ZN3ue213ReportManager13getInternalIdERKNS_6ReportE(p
 
 29:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #21
-  %30 = trunc i64 %18 to i32
+  %30 = trunc nuw i64 %18 to i32
   store i32 %30, ptr %3, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %32 = load ptr, ptr %31, align 8

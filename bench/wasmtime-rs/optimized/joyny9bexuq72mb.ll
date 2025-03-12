@@ -1870,7 +1870,7 @@ define hidden void @"_ZN16wasmtime_environ6module1_90_$LT$impl$u20$serde..de..De
   br i1 %5, label %9, label %8
 
 8:                                                ; preds = %2
-  %trunc.i.i = trunc i8 %4 to i1
+  %trunc.i.i = trunc nuw i8 %4 to i1
   br i1 %trunc.i.i, label %12, label %11
 
 9:                                                ; preds = %2
@@ -2680,7 +2680,7 @@ define hidden void @"_ZN16wasmtime_environ6module1_99_$LT$impl$u20$serde..de..De
   br i1 %6, label %10, label %9
 
 9:                                                ; preds = %2
-  %trunc.i.i = trunc i8 %5 to i1
+  %trunc.i.i = trunc nuw i8 %5 to i1
   br i1 %trunc.i.i, label %20, label %12
 
 10:                                               ; preds = %2
@@ -4066,7 +4066,7 @@ define hidden void @"_ZN16wasmtime_environ9component4info1_105_$LT$impl$u20$serd
   br i1 %5, label %9, label %8
 
 8:                                                ; preds = %2
-  %trunc.i.i = trunc i8 %4 to i1
+  %trunc.i.i = trunc nuw i8 %4 to i1
   br i1 %trunc.i.i, label %12, label %11
 
 9:                                                ; preds = %2
@@ -4220,7 +4220,7 @@ define hidden void @"_ZN16wasmtime_environ9component4info1_107_$LT$impl$u20$serd
   br i1 %7, label %11, label %10
 
 10:                                               ; preds = %2
-  %trunc.i.i = trunc i8 %6 to i1
+  %trunc.i.i = trunc nuw i8 %6 to i1
   br i1 %trunc.i.i, label %22, label %13
 
 11:                                               ; preds = %2
@@ -4303,7 +4303,7 @@ define hidden void @"_ZN16wasmtime_environ9component4info1_107_$LT$impl$u20$serd
   br i1 %7, label %11, label %10
 
 10:                                               ; preds = %2
-  %trunc.i.i = trunc i8 %6 to i1
+  %trunc.i.i = trunc nuw i8 %6 to i1
   br i1 %trunc.i.i, label %24, label %13
 
 11:                                               ; preds = %2
@@ -12350,7 +12350,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17ha4c730e7cc8ee3beE.exit.thre
 
 192:                                              ; preds = %185
   %.sroa.0.0.i2.pn.i.i26.i = trunc i64 %186 to i32
-  %193 = trunc i64 %188 to i32
+  %193 = trunc nuw i64 %188 to i32
   %194 = sub i32 %.sroa.0.0.i2.pn.i.i26.i, %193
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !8729
   invoke void @"_ZN156_$LT$wasmtime_runtime..instance..allocator..on_demand..OnDemandInstanceAllocator$u20$as$u20$wasmtime_runtime..instance..allocator..InstanceAllocatorImpl$GT$14allocate_table17h8bcebdd4af29e2d3E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [4 x i64] }) align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %40, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %.sroa.2.0.i.pn.i.i23.i, i32 noundef %194)
@@ -13229,7 +13229,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17ha4c730e7cc8ee3beE.exit.i.i:
 
 50:                                               ; preds = %45
   %.sroa.0.0.i2.pn.i = trunc i64 %46 to i32
-  %51 = trunc i64 %48 to i32
+  %51 = trunc nuw i64 %48 to i32
   %52 = sub i32 %.sroa.0.0.i2.pn.i, %51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @"_ZN156_$LT$wasmtime_runtime..instance..allocator..on_demand..OnDemandInstanceAllocator$u20$as$u20$wasmtime_runtime..instance..allocator..InstanceAllocatorImpl$GT$14allocate_table17h8bcebdd4af29e2d3E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [4 x i64] }) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %.sroa.2.0.i.pn.i, i32 noundef %52)
@@ -13392,7 +13392,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17ha4c730e7cc8ee3beE.exit.i.i:
 
 50:                                               ; preds = %45
   %.sroa.0.0.i2.pn.i = trunc i64 %46 to i32
-  %51 = trunc i64 %48 to i32
+  %51 = trunc nuw i64 %48 to i32
   %52 = sub i32 %.sroa.0.0.i2.pn.i, %51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @"_ZN153_$LT$wasmtime_runtime..instance..allocator..pooling..PoolingInstanceAllocator$u20$as$u20$wasmtime_runtime..instance..allocator..InstanceAllocatorImpl$GT$14allocate_table17h925ce77d660fe765E"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [4 x i64] }) align 8 captures(none) dereferenceable(48) %5, ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %.sroa.2.0.i.pn.i, i32 noundef %52)
@@ -13566,7 +13566,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h1cf112f93dc91914E.exit.i.i:
 
 49:                                               ; preds = %44
   %.sroa.0.0.i2.pn.i = trunc i64 %45 to i32
-  %50 = trunc i64 %47 to i32
+  %50 = trunc nuw i64 %47 to i32
   %51 = sub i32 %.sroa.0.0.i2.pn.i, %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN156_$LT$wasmtime_runtime..instance..allocator..on_demand..OnDemandInstanceAllocator$u20$as$u20$wasmtime_runtime..instance..allocator..InstanceAllocatorImpl$GT$15allocate_memory17h0974992d4770ff40E"(ptr noalias noundef nonnull sret({ [1 x i64], ptr, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.2.0.i.pn.i, i32 noundef %51)
@@ -13724,7 +13724,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h1cf112f93dc91914E.exit.i.i:
 
 49:                                               ; preds = %44
   %.sroa.0.0.i2.pn.i = trunc i64 %45 to i32
-  %50 = trunc i64 %47 to i32
+  %50 = trunc nuw i64 %47 to i32
   %51 = sub i32 %.sroa.0.0.i2.pn.i, %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @"_ZN153_$LT$wasmtime_runtime..instance..allocator..pooling..PoolingInstanceAllocator$u20$as$u20$wasmtime_runtime..instance..allocator..InstanceAllocatorImpl$GT$15allocate_memory17h222e3b400fe7aac9E"(ptr noalias noundef nonnull sret({ [1 x i64], ptr, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.2.0.i.pn.i, i32 noundef %51)
@@ -14339,7 +14339,7 @@ define hidden void @"_ZN181_$LT$wasmtime_environ..module.._..$LT$impl$u20$serde.
   br i1 %5, label %9, label %8
 
 8:                                                ; preds = %2
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %12, label %11
 
 9:                                                ; preds = %2
@@ -14570,7 +14570,7 @@ define hidden void @"_ZN190_$LT$wasmtime_environ..module.._..$LT$impl$u20$serde.
   br i1 %6, label %10, label %9
 
 9:                                                ; preds = %2
-  %trunc = trunc i8 %5 to i1
+  %trunc = trunc nuw i8 %5 to i1
   br i1 %trunc, label %20, label %12
 
 10:                                               ; preds = %2
@@ -14631,7 +14631,7 @@ define hidden void @"_ZN190_$LT$wasmtime_environ..module.._..$LT$impl$u20$serde.
   br i1 %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbdbd4f5b34ae66b4E.llvm.5246528701130514578.exit", label %12
 
 12:                                               ; preds = %2
-  %trunc = trunc i8 %8 to i1
+  %trunc = trunc nuw i8 %8 to i1
   br i1 %trunc, label %26, label %13
 
 13:                                               ; preds = %12
@@ -16040,7 +16040,7 @@ default.unreachable11:                            ; preds = %2
   br i1 %17, label %_ZN5serde2de13VariantAccess15newtype_variant17hd10c305c86123e1cE.llvm.5246528701130514578.exit.thread, label %20
 
 20:                                               ; preds = %15
-  %trunc.i.i.i.i.i.i = trunc i8 %16 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %16 to i1
   br i1 %trunc.i.i.i.i.i.i, label %22, label %21
 
 21:                                               ; preds = %20
@@ -16207,7 +16207,7 @@ define hidden void @"_ZN205_$LT$wasmtime_environ..component..info.._..$LT$impl$u
   br i1 %5, label %9, label %8
 
 8:                                                ; preds = %2
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %12, label %11
 
 9:                                                ; preds = %2
@@ -16574,7 +16574,7 @@ define hidden void @"_ZN216_$LT$wasmtime_environ..component..info.._..$LT$impl$u
   br i1 %7, label %11, label %10
 
 10:                                               ; preds = %2
-  %trunc = trunc i8 %6 to i1
+  %trunc = trunc nuw i8 %6 to i1
   br i1 %trunc, label %22, label %13
 
 11:                                               ; preds = %2
@@ -16655,7 +16655,7 @@ define hidden void @"_ZN216_$LT$wasmtime_environ..component..info.._..$LT$impl$u
   br i1 %7, label %11, label %10
 
 10:                                               ; preds = %2
-  %trunc = trunc i8 %6 to i1
+  %trunc = trunc nuw i8 %6 to i1
   br i1 %trunc, label %24, label %13
 
 11:                                               ; preds = %2
@@ -19186,7 +19186,7 @@ define hidden void @_ZN5serde2de13VariantAccess15newtype_variant17hd10c305c86123
   br i1 %5, label %9, label %8
 
 8:                                                ; preds = %2
-  %trunc.i.i.i.i.i = trunc i8 %4 to i1
+  %trunc.i.i.i.i.i = trunc nuw i8 %4 to i1
   br i1 %trunc.i.i.i.i.i, label %12, label %11
 
 9:                                                ; preds = %2

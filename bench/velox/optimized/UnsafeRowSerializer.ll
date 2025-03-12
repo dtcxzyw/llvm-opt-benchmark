@@ -2400,7 +2400,7 @@ lpad.loopexit.split-lp.i.i184:                    ; preds = %call3.i.i.i.noexc.i
   br label %ehcleanup16.i.i
 
 for.end.loopexit.i.i:                             ; preds = %for.cond.i.i
-  %14 = trunc i64 %12 to i32
+  %14 = trunc nuw i64 %12 to i32
   br label %for.end.i.i177
 
 for.end.i.i177:                                   ; preds = %for.end.loopexit.i.i, %_ZSt20dynamic_pointer_castIN8facebook5velox3row12_GLOBAL__N_122PrimitiveBatchIteratorENS3_26UnsafeRowDataBatchIteratorEESt10shared_ptrIT_ERKS6_IT0_E.exit.i.i
@@ -15256,7 +15256,7 @@ if.end.i:                                         ; preds = %if.then
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit.thread.i: ; preds = %if.end.i
   %mul.i413.i = shl nuw nsw i64 %capacity, 3
   %add.i14.i = add nuw nsw i64 %mul.i413.i, 16
-  %1 = trunc nuw i64 %capacity to i8
+  %1 = trunc nuw nsw i64 %capacity to i8
   br label %3
 
 if.else11.i.i:                                    ; preds = %if.end.i

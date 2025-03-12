@@ -236,7 +236,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
   %97 = sext i32 %96 to i64
   %98 = tail call i64 @llvm.smin.i64(i64 %97, i64 %95)
   %99 = and i64 %98, 4294967295
-  %.not35.i = icmp eq i64 %99, 0
+  %.not35.i = icmp eq i64 %98, 0
   %100 = icmp slt i64 %95, %97
   %101 = lshr i32 %96, 1
   %102 = zext nneg i32 %101 to i64

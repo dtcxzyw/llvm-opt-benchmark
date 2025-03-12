@@ -713,7 +713,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %22 = xor i64 %11, 2147483647
   %23 = and i64 %22, %15
   %.0.in.i = select i1 %21, i64 %23, i64 %20
-  %.0.i = trunc i64 %.0.in.i to i32
+  %.0.i = trunc nuw nsw i64 %.0.in.i to i32
   tail call void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 noundef %1, i32 noundef %.0.i, ptr noundef %2) #13
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8

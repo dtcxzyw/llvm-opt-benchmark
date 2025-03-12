@@ -26516,7 +26516,7 @@ define hidden noundef zeroext i1 @_ZN16futures_executor10local_pool12run_executo
   unreachable
 
 13:                                               ; preds = %10
-  %14 = trunc i8 %6 to i1
+  %14 = trunc nuw i8 %6 to i1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   call void @"_ZN72_$LT$futures_executor..enter..Enter$u20$as$u20$core..ops..drop..Drop$GT$4drop17hacbcfadb55922e71E"(ptr noalias noundef nonnull align 1 %2)
   ret i1 %14
@@ -29909,7 +29909,7 @@ default.unreachable:                              ; preds = %31, %23, %.loopexit
 86:                                               ; preds = %73, %69
   store i8 1, ptr %50, align 8, !noalias !5613
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.6.i.i.i.i.i)
-  %87 = trunc i8 %53 to i1
+  %87 = trunc nuw i8 %53 to i1
   br i1 %87, label %97, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17h124460acd0b7bfa5E.exit.thread.i.i.i"
 
 .body.i.i.i.i:                                    ; preds = %84, %.body.i.i.i.i.i
@@ -128765,26 +128765,24 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load atomic i64, ptr %18 acquire, align 8
   %20 = shl nuw nsw i64 1, %17
-  %21 = and i64 %20, %19
-  %.not.i3 = icmp eq i64 %21, 0
-  %22 = and i64 %19, 8589934592
-  %.not3.i = icmp eq i64 %22, 0
-  %..i = select i1 %.not3.i, i8 2, i8 1
-  %.sroa.0.0.i = select i1 %.not.i3, i8 %..i, i8 0
-  %23 = or disjoint i64 %20, 8589934592
-  %24 = and i64 %23, %19
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %26
+  %21 = or disjoint i64 %20, 8589934592
+  %22 = and i64 %21, %19
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %24
 
-"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit": ; preds = %.lr.ph.i, %26, %.loopexit, %27
-  %.sroa.0.0 = phi i8 [ 2, %.loopexit ], [ 1, %26 ], [ %.sroa.0.0.i, %27 ], [ 2, %.lr.ph.i ]
+"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit": ; preds = %.lr.ph.i, %24, %.loopexit, %27
+  %.sroa.0.0 = phi i8 [ 2, %.loopexit ], [ 1, %24 ], [ 0, %27 ], [ 2, %.lr.ph.i ]
   ret i8 %.sroa.0.0
 
-26:                                               ; preds = %.loopexit
-  %trunc = trunc i8 %.sroa.0.0.i to i1
+24:                                               ; preds = %.loopexit
+  %25 = and i64 %20, %19
+  %.not.i3 = icmp eq i64 %25, 0
+  %26 = and i64 %19, 8589934592
+  %.not3.i = icmp ne i64 %26, 0
+  %trunc = and i1 %.not.i3, %.not3.i
   br i1 %trunc, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h044a24d7285ae5baE.llvm.8265446259410684974.exit", label %27
 
-27:                                               ; preds = %26
+27:                                               ; preds = %24
   %28 = load i64, ptr %3, align 8, !noundef !4
   %29 = add i64 %28, 1
   store i64 %29, ptr %3, align 8

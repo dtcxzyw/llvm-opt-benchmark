@@ -4161,7 +4161,7 @@ _ZN6icu_7718MessagePatternListINS_14MessagePattern4PartELi32EE24ensureCapacityFo
   %204 = trunc i32 %168 to i16
   %205 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i16 %204, ptr %205, align 4, !tbaa !49
-  %206 = trunc nuw i32 %.028.i.i185 to i16
+  %206 = trunc nuw nsw i32 %.028.i.i185 to i16
   %207 = getelementptr inbounds nuw i8, ptr %202, i64 10
   store i16 %206, ptr %207, align 2, !tbaa !50
   %208 = getelementptr inbounds nuw i8, ptr %202, i64 12

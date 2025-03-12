@@ -776,7 +776,7 @@ emit_table_size.exit.thread:                      ; preds = %count_encoded_lengt
   br label %.thread
 
 29:                                               ; preds = %20
-  %30 = trunc nuw i64 %16 to i8
+  %30 = trunc nuw nsw i64 %16 to i8
   %31 = or disjoint i8 %30, 32
   store i8 %31, ptr %8, align 16, !tbaa !11
   br label %emit_table_size.exit
@@ -853,7 +853,7 @@ emit_table_size.exit56.thread:                    ; preds = %count_encoded_lengt
   br label %.thread
 
 50:                                               ; preds = %40
-  %51 = trunc nuw i64 %41 to i8
+  %51 = trunc nuw nsw i64 %41 to i8
   %52 = or disjoint i8 %51, 32
   store i8 %52, ptr %7, align 16, !tbaa !11
   br label %emit_table_size.exit56
@@ -1251,7 +1251,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br i1 %210, label %emit_indexed_block.exit.i, label %.lr.ph.i11.preheader.i.i
 
 211:                                              ; preds = %search_hd_table.exit.thread93.i
-  %212 = trunc i64 %.sroa.024.0.i99.i to i8
+  %212 = trunc nsw i64 %.sroa.024.0.i99.i to i8
   %213 = add nsw i8 %212, 1
   %214 = or i8 %213, -128
   store i8 %214, ptr %5, align 16, !tbaa !11
@@ -3278,7 +3278,7 @@ switch.lookup:                                    ; preds = %count_encoded_lengt
   br i1 %10, label %23, label %26
 
 23:                                               ; preds = %switch.lookup
-  %24 = trunc i64 %7 to i8
+  %24 = trunc nuw nsw i64 %7 to i8
   %25 = or i8 %22, %24
   store i8 %25, ptr %5, align 16, !tbaa !11
   br label %encode_length.exit
@@ -3393,7 +3393,7 @@ count_encoded_length.exit.i:                      ; preds = %.lr.ph.i.i
   br i1 %11, label %emit_table_size.exit, label %.lr.ph.i11.preheader.i
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i64 %1 to i8
+  %13 = trunc nuw nsw i64 %1 to i8
   %14 = or disjoint i8 %13, 32
   store i8 %14, ptr %3, align 16, !tbaa !11
   br label %encode_length.exit.i
@@ -4519,7 +4519,7 @@ count_encoded_length.exit:                        ; preds = %.lr.ph.i
 
 14:                                               ; preds = %3
   %15 = select i1 %.not, i8 -128, i8 0
-  %16 = trunc nuw i64 %. to i8
+  %16 = trunc nuw nsw i64 %. to i8
   %17 = or disjoint i8 %15, %16
   store i8 %17, ptr %4, align 16, !tbaa !11
   br label %encode_length.exit

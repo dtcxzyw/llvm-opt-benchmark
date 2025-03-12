@@ -241,7 +241,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3a1945fcde4e9c05E.exit"
 
@@ -254,7 +254,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -266,7 +266,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -405,7 +405,7 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.960115
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !22
   %12 = trunc i32 %1 to i8
@@ -417,7 +417,7 @@ define hidden void @_ZN5alloc6string6String4push17h1a3e9179dd826612E.llvm.960115
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !22
   %19 = lshr i32 %1, 6
@@ -488,7 +488,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.9601153736935915
   br label %70
 
 .critedge:                                        ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !35, !noundef !5
   %61 = load i64, ptr %0, align 8, !alias.scope !35, !noundef !5
@@ -923,9 +923,9 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$chrono..format..formatting..Delayed
   %205 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %206 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %207 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %.lhs.trunc.i142.i = trunc nuw i32 %200 to i16
+  %.lhs.trunc.i142.i = trunc nuw nsw i32 %200 to i16
   %208 = udiv i16 %.lhs.trunc.i142.i, 100
-  %209 = trunc nuw i16 %208 to i8
+  %209 = trunc nuw nsw i16 %208 to i8
   %210 = udiv i8 %209, 10
   %211 = or disjoint i8 %210, 48
   %212 = zext nneg i8 %211 to i32
@@ -1445,10 +1445,10 @@ _ZN4core3ops5range11RangeBounds8contains17hf898dae668cbe030E.exit.thread.i126.i.
   br i1 %spec.select.i.i127.i.i, label %716, label %715
 
 478:                                              ; preds = %.noexc19.i
-  %.lhs.trunc.i129.i.i = trunc nuw i32 %475 to i16
+  %.lhs.trunc.i129.i.i = trunc nuw nsw i32 %475 to i16
   %479 = udiv i16 %.lhs.trunc.i129.i.i, 100
   %480 = urem i16 %.lhs.trunc.i129.i.i, 100
-  %481 = trunc nuw i16 %479 to i8
+  %481 = trunc nuw nsw i16 %479 to i8
   %482 = udiv i8 %481, 10
   %483 = urem i8 %481, 10
   %484 = or disjoint i8 %482, 48

@@ -107,7 +107,7 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef captures(
 
 57:                                               ; preds = %53
   call fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %54, ptr noundef nonnull %5, i32 noundef 1)
-  %58 = trunc nuw i32 %54 to i16
+  %58 = trunc nuw nsw i32 %54 to i16
   %59 = shl nuw nsw i16 %58, 3
   %60 = or disjoint i16 %59, 3
   %61 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !7

@@ -62065,7 +62065,7 @@ _ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE.exit474: ; preds = %924, %926
   %964 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %963, i1 false)
   %965 = sub nuw nsw i64 64, %964
   %966 = shl nuw nsw i64 1, %965
-  %967 = trunc i64 %966 to i32
+  %967 = trunc nuw nsw i64 %966 to i32
   br label %_ZNK5clang10TargetInfo14getBitIntAlignEj.exit
 
 _ZNK5clang10TargetInfo14getBitIntAlignEj.exit:    ; preds = %954, %961

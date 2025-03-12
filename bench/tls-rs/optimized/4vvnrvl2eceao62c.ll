@@ -11746,8 +11746,8 @@ define noundef zeroext i1 @_ZN6rustls5tls1316Tls13CipherSuite4fips17hb81cca49304
 36:                                               ; preds = %25, %29
   %.04 = phi i8 [ %35, %29 ], [ 2, %25 ]
   %37 = icmp eq i8 %.04, 2
-  %38 = trunc i8 %.04 to i1
-  %.1 = or i1 %37, %38
+  %38 = trunc nuw i8 %.04 to i1
+  %.1 = select i1 %37, i1 true, i1 %38
   br label %28
 }
 
@@ -13379,8 +13379,8 @@ define noundef zeroext i1 @_ZN6rustls6suites20SupportedCipherSuite4fips17h9e22f6
 60:                                               ; preds = %53, %50
   %.04.i = phi i8 [ %59, %53 ], [ 2, %50 ]
   %61 = icmp eq i8 %.04.i, 2
-  %62 = trunc i8 %.04.i to i1
-  %.1.i = or i1 %61, %62
+  %62 = trunc nuw i8 %.04.i to i1
+  %.1.i = select i1 %61, i1 true, i1 %62
   br label %_ZN6rustls5tls1216Tls12CipherSuite4fips17ha6296a01e63db062E.exit
 
 _ZN6rustls5tls1216Tls12CipherSuite4fips17ha6296a01e63db062E.exit: ; preds = %60, %42, %34, %28, %20, %13, %7

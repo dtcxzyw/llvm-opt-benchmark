@@ -8112,7 +8112,7 @@ common.resume:                                    ; preds = %.body, %113, %"_ZN4
   br i1 %97, label %.loopexit, label %119
 
 98:                                               ; preds = %24
-  %trunc = trunc i8 %25 to i1
+  %trunc = trunc nuw i8 %25 to i1
   br i1 %trunc, label %100, label %.loopexit46
 
 99:                                               ; preds = %24

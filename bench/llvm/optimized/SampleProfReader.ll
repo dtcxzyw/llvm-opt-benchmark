@@ -1577,7 +1577,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i: ; preds = %224, %222, %21
   br label %_ZNSt7__cxx119to_stringEm.exit.i.i.i.i
 
 258:                                              ; preds = %._crit_edge.i.i3.i.i.i.i
-  %259 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i to i8
+  %259 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i to i8
   %260 = or disjoint i8 %259, 48
   br label %_ZNSt7__cxx119to_stringEm.exit.i.i.i.i
 
@@ -15645,7 +15645,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %35, %33, %29, %25, 
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 71:                                               ; preds = %._crit_edge.i.i3
-  %72 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %72 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %73 = or disjoint i8 %72, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -16326,7 +16326,7 @@ _ZNK4llvm9StringRef5splitEc.exit8:                ; preds = %25, %26
   %33 = load i64, ptr %6, align 8
   %34 = add i64 %33, 2147483648
   %.not.i = icmp ult i64 %34, 4294967296
-  %35 = trunc i64 %33 to i32
+  %35 = trunc nsw i64 %33 to i32
   %spec.select = select i1 %.not.i, i32 %35, i32 0
   %.0 = select i1 %32, i32 0, i32 %spec.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26

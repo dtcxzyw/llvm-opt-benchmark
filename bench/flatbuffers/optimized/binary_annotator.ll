@@ -4601,7 +4601,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %1125, %.thread, %11
   br label %1163
 
 1160:                                             ; preds = %._crit_edge.i.i460
-  %1161 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %1161 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %1162 = or disjoint i8 %1161, 48
   br label %1163
 
@@ -5735,7 +5735,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i590: ; preds = %1563, %1561, %1557,
   br label %1600
 
 1597:                                             ; preds = %._crit_edge.i.i592
-  %1598 = trunc nuw i64 %.0.lcssa.i.i593 to i8
+  %1598 = trunc nuw nsw i64 %.0.lcssa.i.i593 to i8
   %1599 = or disjoint i8 %1598, 48
   br label %1600
 
@@ -24397,7 +24397,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %2317, %2315, %2311,
   br label %2353
 
 2350:                                             ; preds = %._crit_edge.i.i990
-  %2351 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %2351 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %2352 = or disjoint i8 %2351, 48
   br label %2353
 
@@ -36699,7 +36699,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i.i.
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i.i
 
 159:                                              ; preds = %._crit_edge.i.i72.i.i.i
-  %160 = trunc nuw i32 %.0.lcssa.i.i.i.i.i to i8
+  %160 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i to i8
   %161 = or disjoint i8 %160, 48
   br label %_ZNSt7__cxx119to_stringEi.exit.i.i.i
 
@@ -38712,7 +38712,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw i64 %.0.lcssa.i to i8
+  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -41559,7 +41559,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %576, %574, %570, %5
   br label %615
 
 612:                                              ; preds = %._crit_edge.i.i223
-  %613 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %613 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %614 = or disjoint i8 %613, 48
   br label %615
 
@@ -44107,7 +44107,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i511.us: ; preds = %1688, %1696, %16
   br i1 %1718, label %1722, label %1719
 
 1719:                                             ; preds = %._crit_edge.i.i513.us
-  %1720 = trunc nuw i64 %.0.lcssa.i.i514.us to i8
+  %1720 = trunc nuw nsw i64 %.0.lcssa.i.i514.us to i8
   %1721 = or disjoint i8 %1720, 48
   br label %1730
 

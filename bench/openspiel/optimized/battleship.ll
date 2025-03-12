@@ -7982,7 +7982,7 @@ define void @_ZNK10open_spiel10battleship14BattleshipGame17DeserializeActionEl(p
   br label %44
 
 41:                                               ; preds = %32
-  %.lhs.trunc = trunc i64 %2 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %2 to i32
   %42 = sdiv i32 %.lhs.trunc, %21
   %.sext = zext i32 %42 to i64
   %43 = srem i32 %.lhs.trunc, %21

@@ -3714,8 +3714,8 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit92: ; preds = %if.the
   %26 = trunc nuw nsw i64 %25 to i40
   %ref.tmp88.i.sroa.0.0.extract.trunc = select i1 %or.cond.i.i90, i40 %26, i40 0
   %arrayIndex86.i.sroa.0.0.extract.trunc131 = trunc i40 %ref.tmp88.i.sroa.0.0.extract.trunc to i32
-  %arrayIndex86.i.sroa.5.0.extract.trunc133.not = icmp samesign ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
-  br i1 %arrayIndex86.i.sroa.5.0.extract.trunc133.not, label %land.lhs.true95.i, label %if.then121.i
+  %tobool.i94.not = icmp samesign ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
+  br i1 %tobool.i94.not, label %land.lhs.true95.i, label %if.then121.i
 
 land.lhs.true95.i:                                ; preds = %if.then85.i, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit92
   %shr.i.mask.i = and i64 %retval.sroa.0.0.copyload.i.i.i82, -140737488355328
@@ -3740,8 +3740,8 @@ if.then101.i:                                     ; preds = %if.then98.i
 if.end118.i:                                      ; preds = %if.then98.i, %if.then101.i
   %call117.i = tail call i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #17
   %30 = and i64 %call117.i, 4294967296
-  %arrayIndex86.i.sroa.5.0.extract.trunc.not = icmp eq i64 %30, 0
-  br i1 %arrayIndex86.i.sroa.5.0.extract.trunc.not, label %_ZN6hermes2vm12_GLOBAL__N_137getOwnComputedPrimitiveDescriptorImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS2_INS0_11HermesValueEEENS3_11IgnoreProxyERNS0_8SymbolIDERNS0_13MutableHandleISA_EERNS0_26ComputedPropertyDescriptorE.exit, label %if.end118.i.if.then121.i_crit_edge
+  %.not = icmp eq i64 %30, 0
+  br i1 %.not, label %_ZN6hermes2vm12_GLOBAL__N_137getOwnComputedPrimitiveDescriptorImplENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS2_INS0_11HermesValueEEENS3_11IgnoreProxyERNS0_8SymbolIDERNS0_13MutableHandleISA_EERNS0_26ComputedPropertyDescriptorE.exit, label %if.end118.i.if.then121.i_crit_edge
 
 if.end118.i.if.then121.i_crit_edge:               ; preds = %if.end118.i
   %arrayIndex86.i.sroa.0.0.extract.trunc = trunc i64 %call117.i to i32
@@ -4313,8 +4313,8 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit108: ; preds = %if.th
   %29 = trunc nuw nsw i64 %28 to i40
   %ref.tmp88.i.sroa.0.0.extract.trunc = select i1 %or.cond.i.i106, i40 %29, i40 0
   %arrayIndex86.i.sroa.0.0.extract.trunc179 = trunc i40 %ref.tmp88.i.sroa.0.0.extract.trunc to i32
-  %arrayIndex86.i.sroa.5.0.extract.trunc181.not = icmp samesign ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
-  br i1 %arrayIndex86.i.sroa.5.0.extract.trunc181.not, label %land.lhs.true95.i, label %if.then121.i
+  %tobool.i110.not = icmp samesign ult i40 %ref.tmp88.i.sroa.0.0.extract.trunc, 4294967296
+  br i1 %tobool.i110.not, label %land.lhs.true95.i, label %if.then121.i
 
 land.lhs.true95.i:                                ; preds = %if.then85.i, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit108
   %shr.i.mask.i = and i64 %retval.sroa.0.0.copyload.i.i.i98, -140737488355328
@@ -4339,8 +4339,8 @@ if.then101.i:                                     ; preds = %if.then98.i
 if.end118.i:                                      ; preds = %if.then98.i, %if.then101.i
   %call117.i = tail call i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #17
   %33 = and i64 %call117.i, 4294967296
-  %arrayIndex86.i.sroa.5.0.extract.trunc.not = icmp eq i64 %33, 0
-  br i1 %arrayIndex86.i.sroa.5.0.extract.trunc.not, label %if.end14, label %if.end118.i.if.then121.i_crit_edge
+  %.not = icmp eq i64 %33, 0
+  br i1 %.not, label %if.end14, label %if.end118.i.if.then121.i_crit_edge
 
 if.end118.i.if.then121.i_crit_edge:               ; preds = %if.end118.i
   %arrayIndex86.i.sroa.0.0.extract.trunc = trunc i64 %call117.i to i32
@@ -8470,8 +8470,8 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit375: ; preds = %_ZN6h
   %92 = trunc nuw nsw i64 %91 to i40
   %ref.tmp499.sroa.0.0.extract.trunc = select i1 %or.cond.i.i373, i40 %92, i40 0
   %arrayIndex496.sroa.0.0.extract.trunc470 = trunc i40 %ref.tmp499.sroa.0.0.extract.trunc to i32
-  %arrayIndex496.sroa.6.0.extract.trunc472.not = icmp samesign ult i40 %ref.tmp499.sroa.0.0.extract.trunc, 4294967296
-  br i1 %arrayIndex496.sroa.6.0.extract.trunc472.not, label %land.lhs.true506, label %if.then532
+  %tobool.i377.not = icmp samesign ult i40 %ref.tmp499.sroa.0.0.extract.trunc, 4294967296
+  br i1 %tobool.i377.not, label %land.lhs.true506, label %if.then532
 
 land.lhs.true506:                                 ; preds = %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit375
   %shr.i.mask.i = and i64 %retval.sroa.0.0.copyload.i.i.i365, -140737488355328
@@ -8497,8 +8497,8 @@ do.end530:                                        ; preds = %if.then512, %do.bod
   %call528 = call i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i362) #17
   %arrayIndex496.sroa.0.0.extract.trunc = trunc i64 %call528 to i32
   %96 = and i64 %call528, 4294967296
-  %arrayIndex496.sroa.6.0.extract.trunc.not = icmp eq i64 %96, 0
-  br i1 %arrayIndex496.sroa.6.0.extract.trunc.not, label %if.then596, label %if.then532
+  %.not = icmp eq i64 %96, 0
+  br i1 %.not, label %if.then596, label %if.then532
 
 if.then532:                                       ; preds = %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit375, %do.end530
   %arrayIndex496.sroa.0.0572 = phi i32 [ %arrayIndex496.sroa.0.0.extract.trunc, %do.end530 ], [ %arrayIndex496.sroa.0.0.extract.trunc470, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit375 ]
@@ -9318,8 +9318,8 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit: ; preds = %_ZN6herm
   %8 = trunc nuw nsw i64 %7 to i40
   %ref.tmp.sroa.0.0.extract.trunc = select i1 %or.cond.i.i, i40 %8, i40 0
   %arrayIndex.sroa.0.0.extract.trunc146 = trunc i40 %ref.tmp.sroa.0.0.extract.trunc to i32
-  %arrayIndex.sroa.5.0.extract.trunc148.not = icmp samesign ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
-  br i1 %arrayIndex.sroa.5.0.extract.trunc148.not, label %land.lhs.true, label %land.lhs.true46
+  %tobool.i.not = icmp samesign ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
+  br i1 %tobool.i.not, label %land.lhs.true, label %land.lhs.true46
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit
   %arrayIndex.sroa.0.0.extract.trunc146175 = phi i32 [ %arrayIndex.sroa.0.0.extract.trunc146, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit ]
@@ -9346,8 +9346,8 @@ if.end44:                                         ; preds = %if.then26, %do.body
   %call41 = tail call i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #17
   %arrayIndex.sroa.0.0.extract.trunc = trunc i64 %call41 to i32
   %12 = and i64 %call41, 4294967296
-  %arrayIndex.sroa.5.0.extract.trunc.not = icmp eq i64 %12, 0
-  br i1 %arrayIndex.sroa.5.0.extract.trunc.not, label %if.end44.if.end66_crit_edge, label %land.lhs.true46
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %if.end44.if.end66_crit_edge, label %land.lhs.true46
 
 if.end44.if.end66_crit_edge:                      ; preds = %land.lhs.true, %if.end44
   %arrayIndex.sroa.0.0193 = phi i32 [ %arrayIndex.sroa.0.0.extract.trunc, %if.end44 ], [ %arrayIndex.sroa.0.0.extract.trunc146175, %land.lhs.true ]
@@ -10540,8 +10540,8 @@ _ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit: ; preds = %_ZN6herm
   %8 = trunc nuw nsw i64 %7 to i40
   %ref.tmp.sroa.0.0.extract.trunc = select i1 %or.cond.i.i, i40 %8, i40 0
   %arrayIndex.sroa.0.0.extract.trunc274 = trunc i40 %ref.tmp.sroa.0.0.extract.trunc to i32
-  %arrayIndex.sroa.10.0.extract.trunc276.not = icmp samesign ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
-  br i1 %arrayIndex.sroa.10.0.extract.trunc276.not, label %land.lhs.true, label %if.end71
+  %tobool.i.not = icmp samesign ult i40 %ref.tmp.sroa.0.0.extract.trunc, 4294967296
+  br i1 %tobool.i.not, label %land.lhs.true, label %if.end71
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit, %_ZN6hermes2vm20toArrayIndexFastPathENS0_11HermesValueE.exit
   %shr.i.mask.i = and i64 %retval.sroa.0.0.copyload.i.i.i, -140737488355328
@@ -10567,8 +10567,8 @@ if.end36:                                         ; preds = %if.then19, %do.body
   %call33 = tail call i64 @_ZN6hermes2vm12toArrayIndexERNS0_7RuntimeENS0_6HandleINS0_15StringPrimitiveEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i) #17
   %arrayIndex.sroa.0.0.extract.trunc = trunc i64 %call33 to i32
   %12 = and i64 %call33, 4294967296
-  %arrayIndex.sroa.10.0.extract.trunc.not = icmp eq i64 %12, 0
-  br i1 %arrayIndex.sroa.10.0.extract.trunc.not, label %if.then41, label %if.end71
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %if.then41, label %if.end71
 
 if.then41:                                        ; preds = %land.lhs.true, %entry, %if.end36
   %call45 = tail call ptr @_ZN6hermes2vm15valueToSymbolIDERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %nameValHandle.coerce) #17

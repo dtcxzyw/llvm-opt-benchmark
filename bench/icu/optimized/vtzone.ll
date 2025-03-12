@@ -9666,7 +9666,7 @@ define internal fastcc void @_ZN6icu_77L14millisToOffsetEiRNS_13UnicodeStringE(i
   %.0 = phi i32 [ %0, %16 ], [ %20, %18 ]
   %22 = udiv i32 %.0, 1000
   %23 = udiv i32 %.0, 60000
-  %.lhs.trunc = trunc i32 %23 to i16
+  %.lhs.trunc = trunc nuw i32 %23 to i16
   %24 = urem i16 %.lhs.trunc, 60
   %25 = udiv i32 %.0, 3600000
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #16

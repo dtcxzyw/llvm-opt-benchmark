@@ -633,7 +633,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %165, %.preheader.i
 
 176:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
-  %177 = trunc i64 %1 to i32
+  %177 = trunc nuw i64 %1 to i32
   store i32 %177, ptr %11, align 4, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
   %178 = trunc i64 %109 to i32

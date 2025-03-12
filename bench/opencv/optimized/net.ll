@@ -1025,7 +1025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
 
 50:                                               ; preds = %28
   %.sroa.6.0.extract.shift = lshr i64 %27, 32
-  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
+  %.sroa.6.0.extract.trunc = trunc nuw nsw i64 %.sroa.6.0.extract.shift to i32
   %.sroa.0.0.extract.trunc = trunc i64 %27 to i32
   %51 = load ptr, ptr %0, align 8, !tbaa !17
   invoke void @_ZN2cv3dnn14dnn4_v202412233Net4Impl7connectEiiii(ptr noundef nonnull align 8 dereferenceable(504) %51, i32 noundef %.sroa.019.0.extract.trunc, i32 noundef %.sroa.621.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.sroa.6.0.extract.trunc)

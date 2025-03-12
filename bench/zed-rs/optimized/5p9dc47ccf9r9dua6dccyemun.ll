@@ -39219,7 +39219,7 @@ define hidden void @"_ZN9anthropic1_76_$LT$impl$u20$serde..de..Deserialize$u20$f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   store ptr %12, ptr %3, align 8
-  %trunc = trunc i8 %9 to i1
+  %trunc = trunc nuw i8 %9 to i1
   br i1 %trunc, label %17, label %16
 
 14:                                               ; preds = %2
@@ -39672,7 +39672,7 @@ define hidden void @"_ZN9anthropic1_79_$LT$impl$u20$serde..de..Deserialize$u20$f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   store ptr %12, ptr %3, align 8
-  %trunc = trunc i8 %9 to i1
+  %trunc = trunc nuw i8 %9 to i1
   br i1 %trunc, label %17, label %16
 
 14:                                               ; preds = %2

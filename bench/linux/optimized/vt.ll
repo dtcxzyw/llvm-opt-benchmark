@@ -10792,7 +10792,7 @@ define internal fastcc noundef i32 @vc_t416_color(ptr noundef nonnull %0, i32 no
   %.zext = zext nneg i8 %52 to i16
   %53 = mul nuw nsw i16 %.zext, 85
   %54 = lshr i16 %53, 1
-  %55 = trunc i16 %54 to i8
+  %55 = trunc nuw i16 %54 to i8
   store i8 %55, ptr %4, align 1
   %56 = udiv i8 %.lhs.trunc, 6
   %57 = urem i8 %56, 6

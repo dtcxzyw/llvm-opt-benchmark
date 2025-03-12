@@ -11386,7 +11386,7 @@ define internal fastcc noundef ptr @_ZL15split_flow_pathP8PhaseGVNP7PhiNode(ptr 
 
 ._crit_edge:                                      ; preds = %58, %53, %48, %43
   %.073.lcssa.ph.in = phi i64 [ %indvars.iv.next, %58 ], [ %indvars.iv, %53 ], [ %indvars.iv, %48 ], [ %indvars.iv, %43 ]
-  %.073.lcssa.ph = trunc i64 %.073.lcssa.ph.in to i32
+  %.073.lcssa.ph = trunc nuw i64 %.073.lcssa.ph.in to i32
   %.pre = load i32, ptr %23, align 8
   %.not81 = icmp ugt i32 %.pre, %.073.lcssa.ph
   br i1 %.not81, label %63, label %.loopexit

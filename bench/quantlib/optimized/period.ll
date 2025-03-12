@@ -119,13 +119,13 @@ sw.bb7:                                           ; preds = %entry
 
 sw.bb10:                                          ; preds = %entry, %entry, %entry, %entry, %entry
   store i32 2, ptr %units_, align 4, !tbaa !9
-  %div92.rhs.trunc = trunc i32 %f to i8
+  %div92.rhs.trunc = trunc nuw nsw i32 %f to i8
   %div9293 = udiv i8 12, %div92.rhs.trunc
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry, %entry, %entry
   store i32 1, ptr %units_, align 4, !tbaa !9
-  %div1594.rhs.trunc = trunc i32 %f to i8
+  %div1594.rhs.trunc = trunc nuw nsw i32 %f to i8
   %div159495 = udiv i8 52, %div1594.rhs.trunc
   br label %sw.epilog
 
@@ -637,7 +637,7 @@ sw.bb8:                                           ; preds = %if.end4
   br i1 %or.cond, label %if.then11, label %cleanup
 
 if.then11:                                        ; preds = %sw.bb8
-  %div.rhs.trunc = trunc nuw i32 %1 to i8
+  %div.rhs.trunc = trunc nuw nsw i32 %1 to i8
   %div51 = udiv i8 12, %div.rhs.trunc
   %div.zext = zext nneg i8 %div51 to i32
   br label %cleanup

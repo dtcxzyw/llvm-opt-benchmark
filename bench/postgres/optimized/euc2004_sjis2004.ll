@@ -619,7 +619,7 @@ get_ten.exit127.thread.i:                         ; preds = %get_ten.exit127.i, 
   %122 = add i8 %121, -96
   %123 = getelementptr inbounds nuw i8, ptr %.4.i, i64 1
   store i8 %122, ptr %.4.i, align 1
-  %124 = trunc i32 %.095169.i to i8
+  %124 = trunc nuw i32 %.095169.i to i8
   %125 = add i8 %124, -96
   %126 = getelementptr inbounds nuw i8, ptr %.4.i, i64 2
   store i8 %125, ptr %123, align 1

@@ -47,7 +47,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ioa_WriteAigerEncode(ptr noundef
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.010.lcssa = phi i32 [ %1, %3 ], [ %9, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ %2, %3 ], [ %8, %._crit_edge.loopexit ]
-  %10 = trunc nuw i32 %.0.lcssa to i8
+  %10 = trunc nuw nsw i32 %.0.lcssa to i8
   %11 = add nsw i32 %.010.lcssa, 1
   %12 = sext i32 %.010.lcssa to i64
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
@@ -201,7 +201,7 @@ Vec_StrGrow.exit.i12:                             ; preds = %46, %44
 
 Vec_StrPush.exit13:                               ; preds = %.Vec_StrGrow.exit10_crit_edge.i7, %Vec_StrGrow.exit.i12, %58
   %60 = phi ptr [ %.pre.i9, %.Vec_StrGrow.exit10_crit_edge.i7 ], [ %59, %58 ], [ %48, %Vec_StrGrow.exit.i12 ]
-  %61 = trunc nuw i32 %.0.lcssa to i8
+  %61 = trunc nuw nsw i32 %.0.lcssa to i8
   %62 = load i32, ptr %35, align 4, !tbaa !8
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %35, align 4, !tbaa !8
@@ -474,7 +474,7 @@ Vec_StrAlloc.exit:                                ; preds = %1, %7
 Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i32 [ 0, %Vec_StrAlloc.exit ], [ %17, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %12, %Vec_StrAlloc.exit ], [ %16, %._crit_edge.loopexit.i ]
-  %18 = trunc nuw i32 %.0.lcssa.i to i8
+  %18 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %19 = sext i32 %.010.lcssa.i to i64
   %20 = getelementptr inbounds i8, ptr %.promoted, i64 %19
   store i8 %18, ptr %20, align 1, !tbaa !3
@@ -524,7 +524,7 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %Vec_StrAlloc.exit, 
 Ioa_WriteAigerEncode.exit48:                      ; preds = %.lr.ph, %._crit_edge.loopexit.i45
   %.010.lcssa.i46 = phi i32 [ %.02955, %.lr.ph ], [ %38, %._crit_edge.loopexit.i45 ]
   %.0.lcssa.i47 = phi i32 [ %32, %.lr.ph ], [ %37, %._crit_edge.loopexit.i45 ]
-  %39 = trunc nuw i32 %.0.lcssa.i47 to i8
+  %39 = trunc nuw nsw i32 %.0.lcssa.i47 to i8
   %40 = sext i32 %.010.lcssa.i46 to i64
   %41 = getelementptr inbounds i8, ptr %23, i64 %40
   store i8 %39, ptr %41, align 1, !tbaa !3
@@ -2294,7 +2294,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_StrFree.exit, %
 Ioa_WriteAigerEncode.exit:                        ; preds = %150, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i32 [ %.0127232, %150 ], [ %177, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %171, %150 ], [ %176, %._crit_edge.loopexit.i ]
-  %178 = trunc nuw i32 %.0.lcssa.i to i8
+  %178 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %179 = add nsw i32 %.010.lcssa.i, 1
   %180 = sext i32 %.010.lcssa.i to i64
   %181 = getelementptr inbounds i8, ptr %135, i64 %180
@@ -2326,7 +2326,7 @@ Ioa_WriteAigerEncode.exit:                        ; preds = %150, %._crit_edge.l
 Ioa_WriteAigerEncode.exit212:                     ; preds = %Ioa_WriteAigerEncode.exit, %._crit_edge.loopexit.i209
   %.010.lcssa.i210 = phi i32 [ %179, %Ioa_WriteAigerEncode.exit ], [ %188, %._crit_edge.loopexit.i209 ]
   %.0.lcssa.i211 = phi i32 [ %182, %Ioa_WriteAigerEncode.exit ], [ %187, %._crit_edge.loopexit.i209 ]
-  %189 = trunc nuw i32 %.0.lcssa.i211 to i8
+  %189 = trunc nuw nsw i32 %.0.lcssa.i211 to i8
   %190 = add nsw i32 %.010.lcssa.i210, 1
   %191 = sext i32 %.010.lcssa.i210 to i64
   %192 = getelementptr inbounds i8, ptr %135, i64 %191

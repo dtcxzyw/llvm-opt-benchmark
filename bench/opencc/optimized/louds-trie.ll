@@ -2174,7 +2174,7 @@ define noundef zeroext i1 @_ZNK6marisa8grimoire4trie9LoudsTrie6lookupERNS_5Agent
   %29 = load ptr, ptr %1, align 8, !tbaa !123
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %29, ptr %30, align 8, !tbaa !52
-  %31 = trunc i64 %12 to i32
+  %31 = trunc nuw i64 %12 to i32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %31, ptr %32, align 8, !tbaa !54
   %33 = tail call noundef i64 @_ZNK6marisa8grimoire6vector9BitVector5rank1Em(ptr noundef nonnull align 8 dereferenceable(208) %28, i64 noundef %18)

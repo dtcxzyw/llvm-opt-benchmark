@@ -158,7 +158,7 @@ define dso_local noundef range(i32 0, 2) i32 @mtrr_trim_uncached_memory(i64 noun
   %27 = load ptr, ptr @mtrr_if, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = trunc i64 %26 to i32
+  %30 = trunc nuw i64 %26 to i32
   call void %29(i32 noundef %30, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   %31 = load i64, ptr %2, align 8
   %32 = getelementptr [256 x %struct.var_mtrr_range_state], ptr @range_state, i64 0, i64 %26

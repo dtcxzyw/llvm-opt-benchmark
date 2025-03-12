@@ -43728,7 +43728,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %633, %612, %631, %6
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 671:                                              ; preds = %._crit_edge.i.i
-  %672 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %672 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %673 = or disjoint i8 %672, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -60480,7 +60480,7 @@ define internal fastcc noundef zeroext i1 @_ZL20isValidOrderingForOplN5clang10At
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i64 %0 to i32
+  %5 = trunc nuw nsw i64 %0 to i32
   switch i32 %1, label %12 [
     i32 2, label %9
     i32 86, label %9

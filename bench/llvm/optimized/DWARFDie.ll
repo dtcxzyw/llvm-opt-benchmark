@@ -12860,7 +12860,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %189, %187, %183, %1
   br label %_ZNSt7__cxx119to_stringEl.exit
 
 224:                                              ; preds = %._crit_edge.i.i
-  %225 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %225 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %226 = or disjoint i8 %225, 48
   br label %_ZNSt7__cxx119to_stringEl.exit
 
@@ -13193,7 +13193,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i104: ; preds = %322, %320, %316, %3
   br label %_ZNSt7__cxx119to_stringEl.exit114
 
 357:                                              ; preds = %._crit_edge.i.i107
-  %358 = trunc nuw i64 %.0.lcssa.i.i108 to i8
+  %358 = trunc nuw nsw i64 %.0.lcssa.i.i108 to i8
   %359 = or disjoint i8 %358, 48
   br label %_ZNSt7__cxx119to_stringEl.exit114
 
@@ -13349,7 +13349,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i128: ; preds = %400, %398, %394, %3
   br label %_ZNSt7__cxx119to_stringEl.exit138
 
 435:                                              ; preds = %._crit_edge.i.i131
-  %436 = trunc nuw i64 %.0.lcssa.i.i132 to i8
+  %436 = trunc nuw nsw i64 %.0.lcssa.i.i132 to i8
   %437 = or disjoint i8 %436, 48
   br label %_ZNSt7__cxx119to_stringEl.exit138
 
@@ -13482,7 +13482,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i149: ; preds = %464, %462, %458, %4
   br label %_ZNSt7__cxx119to_stringEl.exit159
 
 499:                                              ; preds = %._crit_edge.i.i152
-  %500 = trunc nuw i64 %.0.lcssa.i.i153 to i8
+  %500 = trunc nuw nsw i64 %.0.lcssa.i.i153 to i8
   %501 = or disjoint i8 %500, 48
   br label %_ZNSt7__cxx119to_stringEl.exit159
 
@@ -13615,7 +13615,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i170: ; preds = %528, %526, %522, %5
   br label %_ZNSt7__cxx119to_stringEl.exit180
 
 563:                                              ; preds = %._crit_edge.i.i173
-  %564 = trunc nuw i64 %.0.lcssa.i.i174 to i8
+  %564 = trunc nuw nsw i64 %.0.lcssa.i.i174 to i8
   %565 = or disjoint i8 %564, 48
   br label %_ZNSt7__cxx119to_stringEl.exit180
 
@@ -13765,7 +13765,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i194: ; preds = %603, %601, %597, %5
   br label %_ZNSt7__cxx119to_stringEl.exit204
 
 638:                                              ; preds = %._crit_edge.i.i197
-  %639 = trunc nuw i64 %.0.lcssa.i.i198 to i8
+  %639 = trunc nuw nsw i64 %.0.lcssa.i.i198 to i8
   %640 = or disjoint i8 %639, 48
   br label %_ZNSt7__cxx119to_stringEl.exit204
 
@@ -13915,7 +13915,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i650: ; preds = %680, %678, %674, %6
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 714:                                              ; preds = %._crit_edge.i.i652
-  %715 = trunc nuw i64 %.0.lcssa.i.i653 to i8
+  %715 = trunc nuw nsw i64 %.0.lcssa.i.i653 to i8
   %716 = or disjoint i8 %715, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -14062,7 +14062,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i663: ; preds = %753, %751, %747, %7
   br label %_ZNSt7__cxx119to_stringEm.exit672
 
 787:                                              ; preds = %._crit_edge.i.i665
-  %788 = trunc nuw i64 %.0.lcssa.i.i666 to i8
+  %788 = trunc nuw nsw i64 %.0.lcssa.i.i666 to i8
   %789 = or disjoint i8 %788, 48
   br label %_ZNSt7__cxx119to_stringEm.exit672
 
@@ -14212,7 +14212,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i679: ; preds = %829, %827, %823, %8
   br label %_ZNSt7__cxx119to_stringEm.exit688
 
 863:                                              ; preds = %._crit_edge.i.i681
-  %864 = trunc nuw i64 %.0.lcssa.i.i682 to i8
+  %864 = trunc nuw nsw i64 %.0.lcssa.i.i682 to i8
   %865 = or disjoint i8 %864, 48
   br label %_ZNSt7__cxx119to_stringEm.exit688
 
@@ -14416,7 +14416,7 @@ _ZN4llvm11raw_ostreamlsEc.exit249:                ; preds = %924, %922, %.crited
   %960 = load ptr, ptr %0, align 8, !tbaa !546
   %961 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %960, ptr noundef nonnull @.str.75)
   %962 = load ptr, ptr %0, align 8, !tbaa !546
-  %963 = trunc nuw i64 %spec.select547 to i8
+  %963 = trunc nuw nsw i64 %spec.select547 to i8
   %964 = getelementptr inbounds nuw i8, ptr %962, i64 32
   %965 = load ptr, ptr %964, align 8, !tbaa !371
   %966 = getelementptr inbounds nuw i8, ptr %962, i64 24

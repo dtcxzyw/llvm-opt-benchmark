@@ -69,7 +69,7 @@ define hidden noundef nonnull ptr @SHA1(ptr noundef %0, i64 noundef %1, ptr noun
 .thread:                                          ; preds = %11, %18
   %.152.i9 = phi ptr [ %21, %18 ], [ %0, %11 ]
   %.154.i8 = phi i64 [ %22, %18 ], [ %1, %11 ]
-  %23 = trunc nuw i64 %.154.i8 to i32
+  %23 = trunc nuw nsw i64 %.154.i8 to i32
   store i32 %23, ptr %17, align 4, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 1 %.152.i9, i64 %.154.i8, i1 false)
@@ -161,7 +161,7 @@ define hidden noundef i32 @SHA1_Update(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %.not58, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = trunc nuw i64 %.154 to i32
+  %43 = trunc nuw nsw i64 %.154 to i32
   store i32 %43, ptr %19, align 4, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.152, i64 %.154, i1 false)

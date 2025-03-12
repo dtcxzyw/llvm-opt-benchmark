@@ -586,7 +586,7 @@ define internal i32 @pkey_ec_ctrl(ptr noundef readonly captures(none) %0, i32 no
   br i1 %or.cond3, label %.thread, label %70
 
 70:                                               ; preds = %68
-  %71 = trunc nuw i32 %2 to i8
+  %71 = trunc nuw nsw i32 %2 to i8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 %71, ptr %72, align 1, !tbaa !13
   br label %.thread

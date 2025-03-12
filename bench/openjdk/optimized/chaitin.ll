@@ -5987,7 +5987,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit127: ; preds = %97, %106
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph145, %142
   %.0116.lcssa.ph.in = phi i64 [ %indvars.iv.next, %142 ], [ %indvars.iv, %.lr.ph145 ]
-  %.0116.lcssa.ph = trunc i64 %.0116.lcssa.ph.in to i32
+  %.0116.lcssa.ph = trunc nuw i64 %.0116.lcssa.ph.in to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %133

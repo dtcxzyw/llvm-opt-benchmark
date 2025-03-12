@@ -3915,7 +3915,7 @@ define internal fastcc noundef zeroext i1 @tcache_bin_info_settings_parse(ptr no
   %35 = add nsw i64 %18, -1
   %36 = and i64 %34, %35
   %37 = lshr i64 %36, %33
-  %38 = trunc i64 %37 to i32
+  %38 = trunc nuw nsw i64 %37 to i32
   %39 = and i32 %38, 3
   %40 = or disjoint i32 %30, 1
   %41 = add nuw nsw i32 %40, %39
@@ -3941,7 +3941,7 @@ sz_size2index_compute.exit:                       ; preds = %23, %21
   %55 = add nsw i64 %17, -1
   %56 = and i64 %54, %55
   %57 = lshr i64 %56, %53
-  %58 = trunc i64 %57 to i32
+  %58 = trunc nuw nsw i64 %57 to i32
   %59 = and i32 %58, 3
   %60 = or disjoint i32 %50, 1
   %61 = add nuw nsw i32 %60, %59
@@ -4510,7 +4510,7 @@ define hidden void @je_tcache_stats_merge(ptr noundef %0, ptr noundef captures(n
   br i1 %13, label %14, label %38
 
 14:                                               ; preds = %12
-  %15 = trunc nuw i64 %indvars.iv to i32
+  %15 = trunc nuw nsw i64 %indvars.iv to i32
   %16 = tail call ptr @je_arena_bin_choose(ptr noundef %0, ptr noundef %2, i32 noundef %15, ptr noundef null) #16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %17) #16
@@ -5054,7 +5054,7 @@ tcache_nfill_small_gc_update.exit67.i:            ; preds = %48, %43
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %56
-  %63 = trunc i16 %53 to i8
+  %63 = trunc nuw i16 %53 to i8
   %64 = sub i8 %59, %63
   store i8 %64, ptr %58, align 1, !tbaa !56
   br label %tcache_gc_small.exit

@@ -28588,7 +28588,7 @@ _ZN4absl16strings_internal22ExtractStringificationINS_3HexEEESt17basic_string_vi
   %.sink5.i.i.i.i.i = select i1 %50, i64 2, i64 58
   %51 = lshr i64 %46, %.sink6.i.i.i.i.i
   %52 = add nuw nsw i64 %51, %.sink5.i.i.i.i.i
-  %53 = trunc i64 %52 to i8
+  %53 = trunc nuw nsw i64 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i8 %53, ptr %54, align 4, !tbaa !308
   store i64 %39, ptr %47, align 8, !tbaa !304
@@ -57621,7 +57621,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 12:                                               ; preds = %3
   %13 = add nuw nsw i64 %10, 1
-  %.rhs.trunc = trunc nuw i64 %13 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %13 to i32
   %14 = udiv i32 2147483645, %.rhs.trunc
   %.zext = zext nneg i32 %14 to i64
   %15 = mul nuw nsw i64 %13, %.zext
@@ -57638,7 +57638,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8, !tbaa !1543
-  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %20 to i32
   %22 = udiv i32 %.lhs.trunc, %14
   %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit
@@ -57704,7 +57704,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 10:                                               ; preds = %3
   %11 = add nuw nsw i64 %8, 1
-  %.rhs.trunc = trunc nuw i64 %11 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %11 to i32
   %12 = udiv i32 2147483645, %.rhs.trunc
   %.zext = zext nneg i32 %12 to i64
   %13 = mul nuw nsw i64 %11, %.zext
@@ -57721,7 +57721,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 19:                                               ; preds = %14
   store i64 %17, ptr %1, align 8, !tbaa !1543
-  %.lhs.trunc = trunc nsw i64 %18 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %18 to i32
   %20 = udiv i32 %.lhs.trunc, %12
   %.zext29 = zext nneg i32 %20 to i64
   br label %.loopexit
@@ -58574,7 +58574,7 @@ _ZN4absl15cordrep_testing9AutoUnrefD2Ev.exit:     ; preds = %._crit_edge.i, %291
   %.sink5.i.i.i.i.i.i = select i1 %325, i64 2, i64 58
   %326 = lshr i64 %321, %.sink6.i.i.i.i.i.i
   %327 = add nuw nsw i64 %326, %.sink5.i.i.i.i.i.i
-  %328 = trunc nuw i64 %327 to i8
+  %328 = trunc nuw nsw i64 %327 to i8
   %329 = getelementptr inbounds nuw i8, ptr %322, i64 12
   store i8 %328, ptr %329, align 4, !tbaa !308, !noalias !1578
   store i64 %.sroa.speculated.i.i, ptr %322, align 8, !tbaa !304, !noalias !1578
@@ -62249,7 +62249,7 @@ define linkonce_odr dso_local void @_ZN4absl15cordrep_testing21CreateFlatsFromSt
   %.sink5.i.i.i.i.i = select i1 %22, i64 2, i64 58
   %23 = lshr i64 %18, %.sink6.i.i.i.i.i
   %24 = add nuw nsw i64 %23, %.sink5.i.i.i.i.i
-  %25 = trunc i64 %24 to i8
+  %25 = trunc nuw nsw i64 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i8 %25, ptr %26, align 4, !tbaa !308
   store i64 %.sroa.speculated.i, ptr %19, align 8, !tbaa !304
@@ -67650,13 +67650,13 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %64
   %.sink5.i.i.i.i.i88 = select i1 %88, i64 2, i64 58
   %89 = lshr i64 %84, %.sink6.i.i.i.i.i87
   %90 = add nuw nsw i64 %89, %.sink5.i.i.i.i.i88
-  %91 = trunc i64 %90 to i8
+  %91 = trunc nuw nsw i64 %90 to i8
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 12
   store i8 %91, ptr %92, align 4, !tbaa !308
   store i64 %77, ptr %85, align 8, !tbaa !304
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %93, ptr align 1 %75, i64 %77, i1 false)
-  %or.cond.i.i91 = icmp samesign ugt i8 %91, 4
+  %or.cond.i.i91 = icmp samesign ugt i64 %90, 4
   br i1 %or.cond.i.i91, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread.i, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread7.i
 
 _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.thread.i: ; preds = %86

@@ -21629,7 +21629,7 @@ _ZN4pstd5arrayIfLi2EEC2ESt16initializer_listIfE.exit:
 
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6InvertIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %260, %._crit_edge.i
   %279 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %260 ]
-  %280 = trunc i64 %279 to i32
+  %280 = trunc nuw i64 %279 to i32
   %281 = getelementptr float, ptr %265, i64 %279
   %282 = load float, ptr %281, align 4, !tbaa !4
   %283 = getelementptr i8, ptr %281, i64 4
@@ -21940,7 +21940,7 @@ _ZN4pstd5arrayIfLi3EEC2ESt16initializer_listIfE.exit:
 
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm3EE8EvaluateIJfffEEEfNS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %215, %._crit_edge.i
   %235 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %215 ]
-  %236 = trunc i64 %235 to i32
+  %236 = trunc nuw i64 %235 to i32
   %237 = getelementptr float, ptr %220, i64 %235
   %238 = load float, ptr %237, align 4, !tbaa !4
   %239 = getelementptr i8, ptr %237, i64 4
@@ -22354,7 +22354,7 @@ _ZN4pstd5arrayIfLi2EEC2ESt16initializer_listIfE.exit:
   %65 = add nsw i64 %.fr.i, -1
   %..i.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %18)
   %.inv.i = icmp sgt i64 %.fr.i, 0
-  %66 = trunc i64 %..i.i to i32
+  %66 = trunc nuw nsw i64 %..i.i to i32
   %67 = select i1 %.inv.i, i32 %66, i32 0
   br label %_ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE1_EEmmRKT_.exit
 
@@ -22510,7 +22510,7 @@ _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleE
 
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %166, %._crit_edge.i70
   %185 = phi i64 [ %spec.select.i73, %._crit_edge.i70 ], [ 0, %166 ]
-  %186 = trunc i64 %185 to i32
+  %186 = trunc nuw i64 %185 to i32
   %187 = getelementptr float, ptr %171, i64 %185
   %188 = load float, ptr %187, align 4, !tbaa !4
   %189 = getelementptr i8, ptr %187, i64 4
@@ -22633,7 +22633,7 @@ _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleE
   %275 = add nsw i64 %.fr.i81, -1
   %..i.i84 = tail call i64 @llvm.umin.i64(i64 %275, i64 %224)
   %.inv.i85 = icmp sgt i64 %.fr.i81, 0
-  %276 = trunc i64 %..i.i84 to i32
+  %276 = trunc nuw nsw i64 %..i.i84 to i32
   %277 = select i1 %.inv.i85, i32 %276, i32 0
   br label %_ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE3_EEmmRKT_.exit
 
@@ -23113,7 +23113,7 @@ _ZN4pstd5arrayIfLi2EEC2ESt16initializer_listIfE.exit:
 
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE8EvaluateIJffEEEfNS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %134, %._crit_edge.i
   %153 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %134 ]
-  %154 = trunc i64 %153 to i32
+  %154 = trunc nuw i64 %153 to i32
   %155 = getelementptr float, ptr %139, i64 %153
   %156 = load float, ptr %155, align 4, !tbaa !4
   %157 = getelementptr i8, ptr %155, i64 4

@@ -164,7 +164,7 @@ define range(i32 0, 5) i32 @BraState_SetFromMethod(ptr noundef writeonly capture
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = trunc nuw i64 %1 to i32
+  %10 = trunc nuw nsw i64 %1 to i32
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %10, ptr %11, align 8, !tbaa !16
   store ptr %7, ptr %0, align 8, !tbaa !19
@@ -552,7 +552,7 @@ define range(i32 0, 5) i32 @MixCoder_SetFromMethod(ptr noundef captures(none) %0
   br i1 %27, label %Lzma2State_SetFromMethod.exit, label %28
 
 28:                                               ; preds = %23
-  %29 = trunc nuw i64 %2 to i32
+  %29 = trunc nuw nsw i64 %2 to i32
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %29, ptr %30, align 8, !tbaa !16
   store ptr %26, ptr %6, align 8, !tbaa !19
@@ -1014,7 +1014,7 @@ Xz_ReadVarInt.exit109:                            ; preds = %.split.loop.exit18.
   br i1 %or.cond, label %Xz_ReadVarInt.exit.thread, label %114
 
 114:                                              ; preds = %107
-  %115 = trunc nuw i64 %103 to i32
+  %115 = trunc nuw nsw i64 %103 to i32
   %116 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 %115, ptr %116, align 8, !tbaa !43
   %117 = getelementptr inbounds nuw i8, ptr %66, i64 12
@@ -1203,7 +1203,7 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   br i1 %72, label %MixCoder_Init.exit, label %73
 
 73:                                               ; preds = %68
-  %74 = trunc nuw i64 %51 to i32
+  %74 = trunc nuw nsw i64 %51 to i32
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i32 %74, ptr %75, align 8, !tbaa !16
   store ptr %71, ptr %52, align 8, !tbaa !19

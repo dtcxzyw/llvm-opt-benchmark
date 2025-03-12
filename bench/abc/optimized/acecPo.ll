@@ -2461,7 +2461,7 @@ Vec_IntGrow.exit.i210:                            ; preds = %47, %65
   br i1 %71, label %47, label %.critedge.loopexit, !llvm.loop !75
 
 .critedge.loopexit:                               ; preds = %Vec_IntGrow.exit.i210
-  %indvars276 = trunc i64 %indvars.iv.next to i32
+  %indvars276 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntPush.exit

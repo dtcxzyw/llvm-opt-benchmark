@@ -56,7 +56,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr noundef writeonly capture
   %.sink = phi ptr [ %12, %11 ], [ %10, %9 ], [ %8, %7 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %16, align 8, !tbaa !12
-  %17 = trunc i64 %2 to i32
+  %17 = trunc nuw nsw i64 %2 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %17, ptr %18, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16

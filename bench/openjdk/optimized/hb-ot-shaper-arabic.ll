@@ -21129,7 +21129,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9ge
   %84 = phi i8 [ %.pre, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ %5, %10 ]
   %.0.i16 = phi i32 [ %82, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ 0, %10 ]
   %85 = and i8 %84, -16
-  %86 = trunc nuw i32 %.0.i16 to i8
+  %86 = trunc nuw nsw i32 %.0.i16 to i8
   %87 = or disjoint i8 %85, %86
   store i8 %87, ptr %4, align 1
   br label %88
@@ -21295,7 +21295,7 @@ _ZNK2OT8ClassDef9get_classEj.exit.thread:         ; preds = %_ZNK2OT8ClassDef9ge
   %84 = phi i8 [ %.pre, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ %5, %10 ]
   %.0.i16 = phi i32 [ %82, %_ZNK2OT8ClassDef9get_classEj.exit._ZNK2OT8ClassDef9get_classEj.exit.thread_crit_edge ], [ 0, %10 ]
   %85 = and i8 %84, 15
-  %.tr = trunc nuw i32 %.0.i16 to i8
+  %.tr = trunc nuw nsw i32 %.0.i16 to i8
   %86 = shl nuw i8 %.tr, 4
   %87 = or disjoint i8 %86, %85
   store i8 %87, ptr %4, align 1

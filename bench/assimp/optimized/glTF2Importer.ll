@@ -6518,7 +6518,7 @@ _ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vec
   br i1 %523, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %524
 
 524:                                              ; preds = %_ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev.exit
-  %525 = trunc nuw i64 %522 to i32
+  %525 = trunc nuw nsw i64 %522 to i32
   store i32 %525, ptr %520, align 4
   %526 = getelementptr inbounds nuw i8, ptr %487, i64 240
   %527 = load ptr, ptr %519, align 8
@@ -7746,7 +7746,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit:     ; preds = %941, %938, %932
   br i1 %1196, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit642, label %1197
 
 1197:                                             ; preds = %1192
-  %1198 = trunc nuw i64 %1195 to i32
+  %1198 = trunc nuw nsw i64 %1195 to i32
   store i32 %1198, ptr %953, align 4
   %1199 = getelementptr inbounds nuw i8, ptr %953, i64 4
   %1200 = load ptr, ptr %1193, align 8
@@ -13264,7 +13264,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -13439,7 +13439,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -13607,7 +13607,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -13775,7 +13775,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -13943,7 +13943,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -17164,7 +17164,7 @@ _ZSt4fillIPP6aiBoneDnEvT_S3_RKT0_.exit:           ; preds = %.lr.ph.preheader.i.
   br i1 %1377, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %1378
 
 1378:                                             ; preds = %1376
-  %1379 = trunc nuw i64 %1374 to i32
+  %1379 = trunc nuw nsw i64 %1374 to i32
   store i32 %1379, ptr %1350, align 4
   %1380 = getelementptr inbounds nuw i8, ptr %1350, i64 4
   %1381 = load ptr, ptr %1372, align 8
@@ -17351,7 +17351,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %1439, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit179, label %1440
 
 1440:                                             ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit
-  %1441 = trunc nuw i64 %1438 to i32
+  %1441 = trunc nuw nsw i64 %1438 to i32
   store i32 %1441, ptr %1350, align 4
   %1442 = getelementptr inbounds nuw i8, ptr %1350, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1442, ptr align 1 %.pre, i64 %1438, i1 false)
@@ -19201,7 +19201,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -19701,7 +19701,7 @@ define hidden noundef nonnull ptr @_Z14CreateNodeAnimRN5glTF25AssetERNS_4NodeER1
   br i1 %37, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %38
 
 38:                                               ; preds = %31
-  %39 = trunc nuw i64 %36 to i32
+  %39 = trunc nuw nsw i64 %36 to i32
   store i32 %39, ptr %12, align 4
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr align 1 %.pre, i64 %36, i1 false)
@@ -22333,7 +22333,7 @@ define hidden noundef nonnull ptr @_Z19CreateMeshMorphAnimRN5glTF25AssetERNS_4No
   br i1 %30, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %31
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i64 %29 to i32
+  %32 = trunc nuw nsw i64 %29 to i32
   store i32 %32, ptr %8, align 4
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %33, ptr align 1 %.pre, i64 %29, i1 false)
@@ -23518,7 +23518,7 @@ _ZSt4fillIPP11aiAnimationDnEvT_S3_RKT0_.exit:     ; preds = %37
 
 70:                                               ; preds = %50
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %72 = trunc nuw i64 %68 to i32
+  %72 = trunc nuw nsw i64 %68 to i32
   store i32 %72, ptr %51, align 4
   %73 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %74 = load ptr, ptr %71, align 8
@@ -24137,7 +24137,7 @@ _ZSt4fillIPP9aiTextureDnEvT_S3_RKT0_.exit:        ; preds = %42, %.lr.ph.prehead
 85:                                               ; preds = %65
   %86 = getelementptr inbounds nuw i8, ptr %62, i64 48
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %88 = trunc nuw i64 %83 to i32
+  %88 = trunc nuw nsw i64 %83 to i32
   store i32 %88, ptr %87, align 4
   %89 = getelementptr inbounds nuw i8, ptr %72, i64 36
   %90 = load ptr, ptr %86, align 8
@@ -24846,7 +24846,7 @@ _ZNK10glTFCommon3RefIN5glTF25SceneEEcvbEv.exit:   ; preds = %34
 54:                                               ; preds = %48
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %57 = trunc nuw i64 %52 to i32
+  %57 = trunc nuw nsw i64 %52 to i32
   store i32 %57, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %59 = load ptr, ptr %55, align 8
@@ -63398,7 +63398,7 @@ define linkonce_odr hidden void @_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsitu
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -63424,7 +63424,7 @@ define linkonce_odr hidden void @_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsitu
 
 28:                                               ; preds = %23
   %29 = lshr i32 %1, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   store i8 %31, ptr %26, align 1
   %32 = lshr i32 %1, 6
@@ -73569,7 +73569,7 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
 
 14:                                               ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit
   store i16 7173, ptr %13, align 2
-  %15 = trunc nuw i32 %2 to i8
+  %15 = trunc nuw nsw i32 %2 to i8
   %16 = sub nuw nsw i8 13, %15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %16, ptr %17, align 1
@@ -73661,7 +73661,7 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
 
 14:                                               ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit
   store i16 7173, ptr %13, align 2
-  %15 = trunc nuw i32 %2 to i8
+  %15 = trunc nuw nsw i32 %2 to i8
   %16 = sub nuw nsw i8 13, %15
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %16, ptr %17, align 1
@@ -73777,7 +73777,7 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
 
 23:                                               ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit
   store i16 7173, ptr %22, align 2
-  %24 = trunc nuw i32 %2 to i8
+  %24 = trunc nuw nsw i32 %2 to i8
   %25 = sub nuw nsw i8 13, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %25, ptr %26, align 1
@@ -74810,7 +74810,7 @@ _ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericVal
 
 23:                                               ; preds = %_ZN9rapidjson22GenericSchemaValidatorINS_21GenericSchemaDocumentINS_12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEES6_EENS_17BaseReaderHandlerIS4_vEES6_E17GetStateAllocatorEv.exit
   store i16 7173, ptr %22, align 2
-  %24 = trunc nuw i32 %2 to i8
+  %24 = trunc nuw nsw i32 %2 to i8
   %25 = sub nuw nsw i8 13, %24
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 %25, ptr %26, align 1
@@ -78782,7 +78782,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE13DoCopyMembersIS3_EE
 
 71:                                               ; preds = %56
   store i16 7173, ptr %70, align 2
-  %72 = trunc nuw i32 %67 to i8
+  %72 = trunc nuw nsw i32 %67 to i8
   %73 = sub nuw nsw i8 13, %72
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %73, ptr %74, align 1
@@ -78970,7 +78970,7 @@ _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_12CrtAllocatorEE13DoCopyMembersINS_19
 
 71:                                               ; preds = %56
   store i16 7173, ptr %70, align 2
-  %72 = trunc nuw i32 %67 to i8
+  %72 = trunc nuw nsw i32 %67 to i8
   %73 = sub nuw nsw i8 13, %72
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 13
   store i8 %73, ptr %74, align 1
@@ -81402,7 +81402,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   br i1 %3, label %4, label %34
 
 4:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %5 = udiv i16 %.lhs.trunc, 100
   %6 = shl nuw nsw i16 %5, 1
   %7 = urem i16 %.lhs.trunc, 100
@@ -81464,7 +81464,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   %38 = urem i32 %0, 10000
   %39 = udiv i32 %0, 1000000
   %40 = shl nuw nsw i32 %39, 1
-  %.lhs.trunc111 = trunc nuw i32 %37 to i16
+  %.lhs.trunc111 = trunc nuw nsw i32 %37 to i16
   %41 = urem i16 %.lhs.trunc111, 100
   %42 = shl nuw nsw i16 %41, 1
   %.lhs.trunc113 = trunc nuw nsw i32 %38 to i16
@@ -130999,7 +130999,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10aiMetadata3SetIS_EEbjRKNSt7_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw %struct.aiString, ptr %16, i64 %12
-  %18 = trunc nuw i64 %9 to i32
+  %18 = trunc nuw nsw i64 %9 to i32
   store i32 %18, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load ptr, ptr %2, align 8

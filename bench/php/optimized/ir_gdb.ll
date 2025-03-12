@@ -510,7 +510,7 @@ ir_gdbjit_strz.exit.i41.i:                        ; preds = %152
 ir_gdbjit_sleb128.exit.i.i:                       ; preds = %.lr.ph.i.i.i, %169
   %.08.lcssa.i.i.i = phi i32 [ %172, %169 ], [ %178, %.lr.ph.i.i.i ]
   %.0.lcssa.i.i.i = phi ptr [ %170, %169 ], [ %177, %.lr.ph.i.i.i ]
-  %181 = trunc i32 %.08.lcssa.i.i.i to i8
+  %181 = trunc nsw i32 %.08.lcssa.i.i.i to i8
   %182 = and i8 %181, 127
   %183 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 1
   store i8 %182, ptr %.0.lcssa.i.i.i, align 1, !tbaa !18

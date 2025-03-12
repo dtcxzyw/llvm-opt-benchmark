@@ -19609,7 +19609,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i110: ; preds = %15
   br i1 %55, label %48, label %._crit_edge, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %48
-  %56 = trunc i64 %44 to i32
+  %56 = trunc nuw i64 %44 to i32
   %57 = add i32 %56, -1
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -62276,7 +62276,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc nuw i32 %.0.lcssa.i to i8
+  %58 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -66880,7 +66880,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri13ParamEdgeFlipI8BaseMeshE10I
 _ZNK3vcg4face3PosI8BaseFaceEneERKS3_.exit.i:      ; preds = %35, %69
   %.sroa.032.0.i = phi ptr [ %56, %69 ], [ %4, %35 ]
   %.sroa.6.0.i = phi i32 [ %70, %69 ], [ %36, %35 ]
-  %45 = trunc i32 %.sroa.6.0.i to i16
+  %45 = trunc nsw i32 %.sroa.6.0.i to i16
   %.lhs.trunc46.i = add nsw i16 %45, 1
   %46 = srem i16 %.lhs.trunc46.i, 3
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.i, i64 64
@@ -69536,7 +69536,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw i64 %.0.lcssa.i to i8
+  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

@@ -12026,7 +12026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   br i1 %239, label %240, label %.sink.split265
 
 240:                                              ; preds = %236
-  %241 = trunc nsw i64 %indvars.iv to i32
+  %241 = trunc nuw nsw i64 %indvars.iv to i32
   %242 = add nsw i32 %85, %241
   %243 = add nsw i32 %242, -1
   %244 = add nsw i32 %89, %241

@@ -5477,7 +5477,7 @@ _ZNK4llvm6APSInt11getExtValueEv.exit.i:           ; preds = %_ZNK4llvm6APSInt11g
 _ZNK4llvm6APSInt11getExtValueEv.exit.thread.i:    ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit.i, %573
   %587 = phi i64 [ %585, %_ZNK4llvm6APSInt11getExtValueEv.exit.i ], [ 0, %573 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #25
-  %588 = trunc nuw i64 %587 to i8
+  %588 = trunc nuw nsw i64 %587 to i8
   store i8 %588, ptr %7, align 1, !tbaa !3
   %589 = call { ptr, i64 } @_ZN5clang12escapeCStyleILNS_10EscapeCharE3EhEEN4llvm9StringRefET0_(i8 noundef zeroext %588) #29
   %590 = extractvalue { ptr, i64 } %589, 0

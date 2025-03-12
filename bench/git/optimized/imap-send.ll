@@ -2671,10 +2671,10 @@ strtol_i.exit.thread:                             ; preds = %79, %next_arg.exit8
   br label %next_arg.exit81.thread124
 
 84:                                               ; preds = %79
-  %85 = trunc i64 %77 to i32
+  %85 = trunc nsw i64 %77 to i32
   store i32 %85, ptr %75, align 4, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  %.not41 = icmp eq i32 %85, 0
+  %.not41 = icmp eq i64 %77, 0
   br i1 %.not41, label %next_arg.exit81.thread124, label %165
 
 next_arg.exit81.thread124:                        ; preds = %._crit_edge.i63, %48, %strtol_i.exit.thread, %84
@@ -2794,10 +2794,10 @@ strtol_i.exit113.thread:                          ; preds = %120, %next_arg.exit
   br label %next_arg.exit106.thread136
 
 125:                                              ; preds = %120
-  %126 = trunc i64 %118 to i32
+  %126 = trunc nsw i64 %118 to i32
   store i32 %126, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
-  %.not45 = icmp eq i32 %126, 0
+  %.not45 = icmp eq i64 %118, 0
   br i1 %.not45, label %next_arg.exit106.thread136, label %165
 
 next_arg.exit106.thread136:                       ; preds = %._crit_edge.i88, %90, %strtol_i.exit113.thread, %125
@@ -3237,7 +3237,7 @@ define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef nonnull %0, pt
   br i1 %or.cond9, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   store i32 %13, ptr %1, align 4, !tbaa !19
   br label %14
 
@@ -4033,7 +4033,7 @@ next_arg.exit153.thread202:                       ; preds = %112, %._crit_edge.i
   br i1 %or.cond9.i, label %strtol_i.exit, label %182
 
 strtol_i.exit:                                    ; preds = %176
-  %181 = trunc i64 %174 to i32
+  %181 = trunc nsw i64 %174 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
   br label %185
 

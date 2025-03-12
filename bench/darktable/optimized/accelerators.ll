@@ -10411,7 +10411,7 @@ define internal fastcc void @_delay_for_double_triple(i32 noundef %0, i32 nounde
   br i1 %.not48, label %31, label %130
 
 31:                                               ; preds = %29
-  %32 = trunc i32 %1 to i16
+  %32 = trunc nsw i32 %1 to i16
   %33 = and i16 %32, 2
   %34 = add i16 %.pre, %33
   %35 = and i16 %34, 7

@@ -711,7 +711,7 @@ define void @SSL_trace(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nound
   %34 = select i1 %.not89, ptr @.str.1, ptr @.str
   %35 = tail call i32 @BIO_puts(ptr noundef %6, ptr noundef nonnull %34) #3
   %36 = tail call i32 @BIO_indent(ptr noundef %6, i32 noundef 0, i32 noundef 80) #3
-  %37 = trunc i64 %4 to i32
+  %37 = trunc nuw nsw i64 %4 to i32
   %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, i32 noundef %37) #3
   %.not.i = icmp eq i64 %4, 0
   br i1 %.not.i, label %ssl_print_hex.exit, label %.lr.ph.i

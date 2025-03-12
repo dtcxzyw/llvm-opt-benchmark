@@ -3987,7 +3987,7 @@ if.end44:                                         ; preds = %invoke.cont34, %_ZN
           to label %invoke.cont47 unwind label %lpad
 
 invoke.cont47:                                    ; preds = %if.end44
-  %conv45 = trunc nuw i64 %rem16 to i32
+  %conv45 = trunc nuw nsw i64 %rem16 to i32
   invoke void @_ZN8facebook5velox10BaseVector14wrapInConstantEiiSt10shared_ptrIS1_Eb(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, i32 noundef %size, i32 noundef %conv45, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
           to label %invoke.cont49 unwind label %lpad48
 
@@ -4791,7 +4791,7 @@ call88.i.i.i.i.noexc.i27.i.i:                     ; preds = %_ZNSt23mersenne_twi
 
 invoke.cont6.i41.i.i:                             ; preds = %call88.i.i.i.i.noexc.i27.i.i
   %div90.i.i.i2.i.i.i.i = lshr i64 %xor9.i.i39.i.i, 1
-  %conv.i75.i.i.i.i.i.i.i = trunc nuw i64 %div90.i.i.i2.i.i.i.i to i32
+  %conv.i75.i.i.i.i.i.i.i = trunc nuw nsw i64 %div90.i.i.i2.i.i.i.i to i32
   %conv4.i42.i.i = trunc i64 %i.04.i23.i.i to i8
   %67 = load ptr, ptr %rawValues_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %67, null
@@ -5052,7 +5052,7 @@ call131.i.i.i.i.noexc.i.i.i:                      ; preds = %_ZNSt23mersenne_twi
 
 invoke.cont6.i148.i.i:                            ; preds = %call131.i.i.i.i.noexc.i.i.i
   %div133.i.i.i2.i.i.i.i = lshr i64 %xor9.i.i147.i.i, 25
-  %conv2.i71.i.i.i.i.i.i.i = trunc nuw i64 %div133.i.i.i2.i.i.i.i to i8
+  %conv2.i71.i.i.i.i.i.i.i = trunc nuw nsw i64 %div133.i.i.i2.i.i.i.i to i8
   %conv4.i149.i.i = trunc i64 %i.04.i132.i.i to i8
   %99 = load ptr, ptr %rawValues_.i.i.i129.i.i, align 8
   %cmp.i.i.i150.i.i = icmp eq ptr %99, null
@@ -5313,7 +5313,7 @@ call131.i.i.i.i.noexc.i267.i.i:                   ; preds = %_ZNSt23mersenne_twi
 
 invoke.cont6.i282.i.i:                            ; preds = %call131.i.i.i.i.noexc.i267.i.i
   %div133.i.i.i2.i.i283.i.i = lshr i64 %xor9.i.i280.i.i, 17
-  %conv2.i71.i.i.i.i.i284.i.i = trunc nuw i64 %div133.i.i.i2.i.i283.i.i to i16
+  %conv2.i71.i.i.i.i.i284.i.i = trunc nuw nsw i64 %div133.i.i.i2.i.i283.i.i to i16
   %conv4.i285.i.i = trunc i64 %i.04.i263.i.i to i8
   %130 = load ptr, ptr %rawValues_.i.i.i259.i.i, align 8
   %cmp.i.i.i286.i.i = icmp eq ptr %130, null
@@ -10822,7 +10822,7 @@ for.cond85.i.i.i.i.i125.i:                        ; preds = %for.cond85.i.i.i.i.
 
 _ZN8facebook5velox12_GLOBAL__N_14randIiEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i: ; preds = %for.cond85.i.i.i.i.i125.i
   %div90.i.i.i2.i.i.i = lshr i64 %call88.i.i.i.i.i126.i, 1
-  %conv.i75.i.i.i.i.i.i = trunc nuw i64 %div90.i.i.i2.i.i.i to i32
+  %conv.i75.i.i.i.i.i.i = trunc nuw nsw i64 %div90.i.i.i2.i.i.i to i32
   store i32 %conv.i75.i.i.i.i.i.i, ptr %ref.tmp15.i8.i, align 4, !noalias !83
   %call5.i.i.i3.i.i.i.i50.i128.i = tail call noalias noundef nonnull align 32 dereferenceable(256) ptr @_ZnwmSt11align_val_t(i64 noundef 256, i64 noundef 32) #35, !noalias !90
   call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i50.i128.i, i64 32) ]
@@ -11084,7 +11084,7 @@ for.cond128.i.i.i.i.i.i:                          ; preds = %for.cond128.i.i.i.i
 
 _ZN8facebook5velox12_GLOBAL__N_14randIaEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i: ; preds = %for.cond128.i.i.i.i.i.i
   %div133.i.i.i2.i.i.i = lshr i64 %call131.i.i.i.i.i.i, 25
-  %conv2.i71.i.i.i.i.i.i = trunc nuw i64 %div133.i.i.i2.i.i.i to i8
+  %conv2.i71.i.i.i.i.i.i = trunc nuw nsw i64 %div133.i.i.i2.i.i.i to i8
   store i8 %conv2.i71.i.i.i.i.i.i, ptr %ref.tmp15.i139.i, align 1, !noalias !96
   %call5.i.i.i3.i.i.i.i50.i256.i = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #35, !noalias !103
   call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i50.i256.i, i64 32) ]
@@ -11346,7 +11346,7 @@ for.cond128.i.i.i.i.i384.i:                       ; preds = %for.cond128.i.i.i.i
 
 _ZN8facebook5velox12_GLOBAL__N_14randIsEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i: ; preds = %for.cond128.i.i.i.i.i384.i
   %div133.i.i.i2.i.i387.i = lshr i64 %call131.i.i.i.i.i385.i, 17
-  %conv2.i71.i.i.i.i.i388.i = trunc nuw i64 %div133.i.i.i2.i.i387.i to i16
+  %conv2.i71.i.i.i.i.i388.i = trunc nuw nsw i64 %div133.i.i.i2.i.i387.i to i16
   store i16 %conv2.i71.i.i.i.i.i388.i, ptr %ref.tmp15.i267.i, align 2, !noalias !109
   %call5.i.i.i3.i.i.i.i50.i389.i = tail call noalias noundef nonnull align 32 dereferenceable(224) ptr @_ZnwmSt11align_val_t(i64 noundef 224, i64 noundef 32) #35, !noalias !116
   call void @llvm.assume(i1 true) [ "align"(ptr %call5.i.i.i3.i.i.i.i50.i389.i, i64 32) ]
@@ -16750,7 +16750,7 @@ call88.i.i.i.i.noexc:                             ; preds = %_ZNSt23mersenne_twi
 
 invoke.cont5:                                     ; preds = %call88.i.i.i.i.noexc
   %div90.i.i.i2.i = lshr i64 %xor9.i, 1
-  %conv.i75.i.i.i.i = trunc nuw i64 %div90.i.i.i2.i to i32
+  %conv.i75.i.i.i.i = trunc nuw nsw i64 %div90.i.i.i2.i to i32
   %rem = srem i32 %conv.i75.i.i.i.i, %baseVectorSize
   %arrayidx = getelementptr inbounds nuw i32, ptr %9, i64 %i.012
   store i32 %rem, ptr %arrayidx, align 4
@@ -19325,11 +19325,11 @@ for.cond128.i.i.i.i1:                             ; preds = %for.cond128.i.i.i.i
 
 _ZN8facebook5velox12_GLOBAL__N_14randIaEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit6: ; preds = %for.cond128.i.i.i.i1
   %div133.i.i.i2.i = lshr i64 %call131.i.i.i.i, 25
-  %conv2.i71.i.i.i.i = trunc nuw i64 %div133.i.i.i2.i to i8
+  %conv2.i71.i.i.i.i = trunc nuw nsw i64 %div133.i.i.i2.i to i8
   %rem8 = srem i8 %conv2.i71.i.i.i.i, %maxPrecision
   %narrow = add nuw i8 %rem8, 1
   %div133.i.i.i2.i4 = lshr i64 %call131.i.i.i.i2, 25
-  %conv2.i71.i.i.i.i5 = trunc nuw i64 %div133.i.i.i2.i4 to i8
+  %conv2.i71.i.i.i.i5 = trunc nuw nsw i64 %div133.i.i.i2.i4 to i8
   %add6 = add nuw i8 %rem8, 2
   %rem7910 = urem i8 %conv2.i71.i.i.i.i5, %add6
   %retval.sroa.2.0.insert.ext = zext nneg i8 %rem7910 to i16

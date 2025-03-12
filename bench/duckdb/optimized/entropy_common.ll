@@ -18,7 +18,7 @@ define noundef range(i32 0, 2) i32 @_ZN11duckdb_zstd11FSE_isErrorEm(i64 noundef 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN11duckdb_zstd16FSE_getErrorNameEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call noundef ptr @_ZN11duckdb_zstd18ERR_getErrorStringENS_14ZSTD_ErrorCodeE(i32 noundef %.0.i.i)
@@ -35,7 +35,7 @@ define noundef range(i32 0, 2) i32 @_ZN11duckdb_zstd11HUF_isErrorEm(i64 noundef 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN11duckdb_zstd16HUF_getErrorNameEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ult i64 %0, -119
-  %3 = trunc i64 %0 to i32
+  %3 = trunc nsw i64 %0 to i32
   %4 = sub i32 0, %3
   %.0.i.i = select i1 %2, i32 0, i32 %4
   %5 = tail call noundef ptr @_ZN11duckdb_zstd18ERR_getErrorStringENS_14ZSTD_ErrorCodeE(i32 noundef %.0.i.i)
@@ -742,7 +742,7 @@ define noundef range(i64 1, 0) i64 @_ZN11duckdb_zstd18HUF_readStats_wkspEPhmPjS1
   br i1 %or.cond.i.i, label %81, label %_ZN11duckdb_zstdL26HUF_readStats_body_defaultEPhmPjS1_S1_PKvmPvm.exit
 
 81:                                               ; preds = %69
-  %82 = trunc i64 %.074.i.i to i32
+  %82 = trunc nuw i64 %.074.i.i to i32
   %83 = add i32 %82, 1
   store i32 %83, ptr %3, align 4, !tbaa !3
   %84 = add nuw nsw i64 %.073.i.i, 1
@@ -892,7 +892,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @_ZN11duckdb_zstdL23HUF_readS
   br i1 %or.cond.i, label %77, label %_ZN11duckdb_zstdL18HUF_readStats_bodyEPhmPjS1_S1_PKvmPvmi.exit
 
 77:                                               ; preds = %65
-  %78 = trunc i64 %.074.i to i32
+  %78 = trunc nuw i64 %.074.i to i32
   %79 = add i32 %78, 1
   store i32 %79, ptr %3, align 4, !tbaa !3
   %80 = add nuw nsw i64 %.073.i, 1

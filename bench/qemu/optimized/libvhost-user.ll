@@ -4402,7 +4402,7 @@ define internal fastcc void @vu_set_vring_kick_exec(ptr noundef %0, ptr noundef 
   br i1 %.not55.i, label %132, label %116
 
 116:                                              ; preds = %.lr.ph4.i
-  %117 = trunc i64 %indvars.iv9.i to i16
+  %117 = trunc nuw i64 %indvars.iv9.i to i16
   %118 = load ptr, ptr %70, align 8
   %119 = load i16, ptr %69, align 8
   %120 = zext i16 %119 to i64

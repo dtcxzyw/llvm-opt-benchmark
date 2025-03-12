@@ -3013,7 +3013,7 @@ tcg_out_push.exit.i:                              ; preds = %31, %28
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = trunc i64 %48 to i32
+  %52 = trunc nsw i64 %48 to i32
   store i32 %52, ptr getelementptr inbounds nuw (i8, ptr @x86_guest_base, i64 8), align 4
   br label %58
 
@@ -9344,7 +9344,7 @@ tcg_out_helper_add_mov.exit58.i.i.i:              ; preds = %1138, %1135
   br i1 %1159, label %1160, label %1165
 
 1160:                                             ; preds = %1153
-  %1161 = trunc nuw i32 %1155 to i8
+  %1161 = trunc nuw nsw i32 %1155 to i8
   %1162 = lshr i8 %1161, 1
   %1163 = and i8 %1162, 4
   %1164 = or disjoint i8 %1163, 72
@@ -9423,7 +9423,7 @@ tcg_out_sib_offset.exit.i.i.i:                    ; preds = %1192, %1191, %1187
   br i1 %1202, label %1203, label %1208
 
 1203:                                             ; preds = %tcg_out_sib_offset.exit.i.i.i
-  %1204 = trunc nuw i32 %1196 to i8
+  %1204 = trunc nuw nsw i32 %1196 to i8
   %1205 = lshr i8 %1204, 1
   %1206 = and i8 %1205, 4
   %1207 = or disjoint i8 %1206, 72
@@ -9688,7 +9688,7 @@ tcg_out_qemu_st_slow_path.exit.i:                 ; preds = %1273, %1272, %1268,
   br i1 %.not.i48.i, label %1349, label %tcg_out_ldst_finalize.exit
 
 1349:                                             ; preds = %1343
-  %1350 = trunc i64 %1347 to i8
+  %1350 = trunc nsw i64 %1347 to i8
   store i8 %1350, ptr %1329, align 1
   br label %patch_reloc.exit.i
 
@@ -9764,7 +9764,7 @@ tcg_out_pool_finalize.exit:                       ; preds = %1353, %.loopexit250
   br i1 %.not.i.i208, label %1381, label %tcg_out_ldst_finalize.exit
 
 1381:                                             ; preds = %1374
-  %1382 = trunc i64 %1379 to i8
+  %1382 = trunc nsw i64 %1379 to i8
   store i8 %1382, ptr %1359, align 1
   br label %patch_reloc.exit.i211
 
@@ -14184,7 +14184,7 @@ tcg_out_extrl_i64_i32.exit:                       ; preds = %831, %842
   br label %tcg_out_extu_i32_i64.exit
 
 1249:                                             ; preds = %1243
-  %1250 = trunc nuw i64 %1112 to i32
+  %1250 = trunc nuw nsw i64 %1112 to i32
   tail call fastcc void @tcg_out_modrm_sib_offset(ptr noundef %0, i32 noundef %1245, i32 noundef %1246, i32 noundef -1, i32 noundef %1247, i32 noundef %1250, i64 noundef 0)
   br label %tcg_out_extu_i32_i64.exit
 
@@ -16814,7 +16814,7 @@ tcg_out_modrm.exit:                               ; preds = %94, %99
   %.070 = phi i32 [ %15, %.thread ], [ %7, %118 ]
   %.05669 = phi i32 [ %6, %.thread ], [ %.056, %118 ]
   %.05768 = phi i64 [ -128, %.thread ], [ %3, %118 ]
-  %122 = trunc i64 %.05768 to i8
+  %122 = trunc nsw i64 %.05768 to i8
   %123 = add nuw nsw i32 %.05669, 131
   tail call fastcc void @tcg_out_modrm(ptr noundef %0, i32 noundef %123, i32 noundef %.070, i32 noundef %2)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -18737,7 +18737,7 @@ define internal fastcc void @tcg_out_sib_offset(ptr noundef captures(none) %0, i
   br i1 %16, label %17, label %25
 
 17:                                               ; preds = %9
-  %18 = trunc i64 %14 to i32
+  %18 = trunc nsw i64 %14 to i32
   %.tr53 = trunc i32 %1 to i8
   %19 = shl i8 %.tr53, 3
   %20 = and i8 %19, 56
@@ -18757,7 +18757,7 @@ define internal fastcc void @tcg_out_sib_offset(ptr noundef captures(none) %0, i
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %25
-  %29 = trunc i64 %5 to i32
+  %29 = trunc nsw i64 %5 to i32
   %.tr = trunc i32 %1 to i8
   %30 = shl i8 %.tr, 3
   %31 = and i8 %30, 56
@@ -19977,7 +19977,7 @@ define internal fastcc void @tcg_out_jxx(ptr noundef captures(none) %0, i32 noun
 22:                                               ; preds = %8
   %23 = trunc i64 %17 to i8
   %24 = add i8 %23, -2
-  %25 = trunc i32 %1 to i8
+  %25 = trunc nuw i32 %1 to i8
   %26 = add i8 %25, 112
   %storemerge = select i1 %21, i8 -21, i8 %26
   %storemerge52 = getelementptr inbounds nuw i8, ptr %.val, i64 1
@@ -20045,7 +20045,7 @@ tcg_out_opc.exit:                                 ; preds = %39, %36, %.sink.spl
   br i1 %3, label %51, label %76
 
 51:                                               ; preds = %49
-  %52 = trunc i32 %1 to i8
+  %52 = trunc nuw i32 %1 to i8
   %53 = add i8 %52, 112
   %.sink = select i1 %50, i8 -21, i8 %53
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -22034,7 +22034,7 @@ tcg_out_modrm.exit113:                            ; preds = %99, %104
 
 124:                                              ; preds = %120
   %trunc = trunc nuw i64 %3 to i16
-  %125 = trunc nuw i64 %2 to i8
+  %125 = trunc nuw nsw i64 %2 to i8
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 1
@@ -22572,7 +22572,7 @@ tcg_out_sib_offset.exit:                          ; preds = %152, %156
   br i1 %165, label %170, label %173
 
 170:                                              ; preds = %tcg_out_sib_offset.exit
-  %171 = trunc i64 %160 to i8
+  %171 = trunc nsw i64 %160 to i8
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 1
   store ptr %172, ptr %144, align 8
   store i8 %171, ptr %169, align 1

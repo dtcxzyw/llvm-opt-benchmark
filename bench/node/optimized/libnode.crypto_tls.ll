@@ -4672,7 +4672,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -7648,7 +7648,7 @@ if.end72:                                         ; preds = %lor.lhs.false
 if.end80:                                         ; preds = %if.end72
   %25 = load ptr, ptr %data_.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %psk, ptr align 1 %25, i64 %24, i1 false)
-  %conv84 = trunc i64 %24 to i32
+  %conv84 = trunc nuw i64 %24 to i32
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNK4node10BaseObject6objectEv.exit.i.i, %if.end72, %_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_6SymbolEEEiPNS2_INS1_5ValueEEE.exit, %lor.lhs.false, %if.end, %if.end80
@@ -17325,7 +17325,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -17783,7 +17783,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 

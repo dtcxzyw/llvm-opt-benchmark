@@ -620,7 +620,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
   %83 = getelementptr inbounds [65536 x i16], ptr @Lpk_ComposeSets.Used, i64 0, i64 %82
   store i16 %80, ptr %83, align 2, !tbaa !14
   store i32 %12, ptr %77, align 4, !tbaa !15
-  %84 = trunc nsw i32 %72 to i8
+  %84 = trunc nuw nsw i32 %72 to i8
   %85 = getelementptr inbounds nuw [65536 x i8], ptr @Lpk_ComposeSets.SRed, i64 0, i64 %76
   store i8 %84, ptr %85, align 1, !tbaa !28
   br label %.sink.split
@@ -638,7 +638,7 @@ define void @Lpk_ComposeSets(ptr noundef readonly captures(none) %0, ptr noundef
 
 93:                                               ; preds = %88
   store i32 %12, ptr %77, align 4, !tbaa !15
-  %94 = trunc nsw i32 %72 to i8
+  %94 = trunc nuw nsw i32 %72 to i8
   store i8 %94, ptr %89, align 1, !tbaa !28
   br label %.sink.split
 

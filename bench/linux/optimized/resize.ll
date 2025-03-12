@@ -3436,7 +3436,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
 .preheader92:                                     ; preds = %424, %508
   %434 = phi i64 [ %509, %508 ], [ 0, %424 ]
   %435 = load i32, ptr %4, align 4
-  %436 = trunc i64 %434 to i32
+  %436 = trunc nuw i64 %434 to i32
   %437 = add i32 %435, %436
   %438 = getelementptr %struct.ext4_new_group_data, ptr %400, i64 %434
   store i32 %437, ptr %438, align 8
@@ -3720,7 +3720,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   unreachable
 
 ._crit_edge770:                                   ; preds = %765
-  %602 = trunc i64 %818 to i32
+  %602 = trunc nuw i64 %818 to i32
   br label %603
 
 603:                                              ; preds = %._crit_edge770, %736
@@ -3747,7 +3747,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br label %627
 
 ._crit_edge765:                                   ; preds = %741
-  %617 = trunc i64 %759 to i32
+  %617 = trunc nuw i64 %759 to i32
   br label %618
 
 618:                                              ; preds = %._crit_edge765, %705
@@ -3759,7 +3759,7 @@ define dso_local i32 @ext4_resize_fs(ptr noundef %0, i64 noundef %1) local_unnam
   br i1 %621, label %612, label %.loopexit83
 
 ._crit_edge761:                                   ; preds = %708
-  %622 = trunc i64 %726 to i32
+  %622 = trunc nuw i64 %726 to i32
   br label %623
 
 623:                                              ; preds = %._crit_edge761, %696

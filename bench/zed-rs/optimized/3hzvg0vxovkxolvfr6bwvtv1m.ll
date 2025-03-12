@@ -563,13 +563,13 @@ default.unreachable43:                            ; preds = %2
   br i1 %114, label %126, label %138
 
 116:                                              ; preds = %107
-  %117 = trunc nuw i32 %109 to i8
+  %117 = trunc nuw nsw i32 %109 to i8
   store i8 %117, ptr %19, align 4, !alias.scope !77, !noalias !74
   br label %_ZN5serde2de7Visitor10visit_char17h1cdd00e69fc83ae2E.exit
 
 118:                                              ; preds = %111
   %119 = lshr i32 %109, 6
-  %120 = trunc nuw i32 %119 to i8
+  %120 = trunc nuw nsw i32 %119 to i8
   %121 = or disjoint i8 %120, -64
   store i8 %121, ptr %19, align 4, !alias.scope !77, !noalias !74
   %122 = trunc i32 %109 to i8
@@ -581,7 +581,7 @@ default.unreachable43:                            ; preds = %2
 
 126:                                              ; preds = %113
   %127 = lshr i32 %109, 12
-  %128 = trunc nuw i32 %127 to i8
+  %128 = trunc nuw nsw i32 %127 to i8
   %129 = or disjoint i8 %128, -32
   store i8 %129, ptr %19, align 4, !alias.scope !77, !noalias !74
   %130 = lshr i32 %109, 6
@@ -1530,13 +1530,13 @@ default.unreachable43:                            ; preds = %2
   br i1 %114, label %126, label %138
 
 116:                                              ; preds = %107
-  %117 = trunc nuw i32 %109 to i8
+  %117 = trunc nuw nsw i32 %109 to i8
   store i8 %117, ptr %19, align 4, !alias.scope !314, !noalias !311
   br label %_ZN5serde2de7Visitor10visit_char17h1e1c1eef6d34e00fE.exit
 
 118:                                              ; preds = %111
   %119 = lshr i32 %109, 6
-  %120 = trunc nuw i32 %119 to i8
+  %120 = trunc nuw nsw i32 %119 to i8
   %121 = or disjoint i8 %120, -64
   store i8 %121, ptr %19, align 4, !alias.scope !314, !noalias !311
   %122 = trunc i32 %109 to i8
@@ -1548,7 +1548,7 @@ default.unreachable43:                            ; preds = %2
 
 126:                                              ; preds = %113
   %127 = lshr i32 %109, 12
-  %128 = trunc nuw i32 %127 to i8
+  %128 = trunc nuw nsw i32 %127 to i8
   %129 = or disjoint i8 %128, -32
   store i8 %129, ptr %19, align 4, !alias.scope !314, !noalias !311
   %130 = lshr i32 %109, 6
@@ -8075,13 +8075,13 @@ _ZN5serde2de7Visitor9visit_f3217hdfd4f6cf5dfb27a5E.exit: ; preds = %56, %62
   br i1 %76, label %86, label %97
 
 77:                                               ; preds = %69
-  %78 = trunc nuw i32 %71 to i8
+  %78 = trunc nuw nsw i32 %71 to i8
   store i8 %78, ptr %.sroa.0.i, align 4, !alias.scope !1492, !noalias !1489
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 79:                                               ; preds = %73
   %80 = lshr i32 %71, 6
-  %81 = trunc nuw i32 %80 to i8
+  %81 = trunc nuw nsw i32 %80 to i8
   %82 = or disjoint i8 %81, -64
   store i8 %82, ptr %.sroa.0.i, align 4, !alias.scope !1492, !noalias !1489
   %83 = trunc i32 %71 to i8
@@ -8093,7 +8093,7 @@ _ZN5serde2de7Visitor9visit_f3217hdfd4f6cf5dfb27a5E.exit: ; preds = %56, %62
 
 86:                                               ; preds = %75
   %87 = lshr i32 %71, 12
-  %88 = trunc nuw i32 %87 to i8
+  %88 = trunc nuw nsw i32 %87 to i8
   %89 = or disjoint i8 %88, -32
   store i8 %89, ptr %.sroa.0.i, align 4, !alias.scope !1492, !noalias !1489
   %90 = lshr i32 %71, 6
@@ -34604,7 +34604,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !9030
   %12 = trunc i32 %1 to i8
@@ -34616,7 +34616,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !9030
   %19 = lshr i32 %1, 6
@@ -39467,7 +39467,7 @@ define hidden void @_ZN5serde9__private2de7content17visit_content_map17h9feb1960
   br label %56
 
 28:                                               ; preds = %22
-  %trunc53.i = trunc i8 %23 to i1
+  %trunc53.i = trunc nuw i8 %23 to i1
   br i1 %trunc53.i, label %35, label %32
 
 29:                                               ; preds = %22
@@ -42808,7 +42808,7 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_map_ref17haca5
   br i1 %20, label %53, label %21
 
 21:                                               ; preds = %18
-  %trunc45.i = trunc i8 %19 to i1
+  %trunc45.i = trunc nuw i8 %19 to i1
   br i1 %trunc45.i, label %24, label %22
 
 22:                                               ; preds = %21

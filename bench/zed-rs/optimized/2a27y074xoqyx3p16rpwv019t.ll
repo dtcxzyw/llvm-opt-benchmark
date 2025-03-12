@@ -182667,7 +182667,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
 
 .lr.ph.i:                                         ; preds = %15, %21
   %19 = phi i8 [ %22, %21 ], [ %17, %15 ]
-  %trunc.i = trunc i8 %19 to i1
+  %trunc.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i, label %21, label %20
 
 ._crit_edge.i:                                    ; preds = %21, %15

@@ -495,7 +495,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
   %indvars.iv712 = phi i64 [ 2, %.lr.ph608.preheader ], [ %indvars.iv.next713, %.loopexit ]
   %indvars.iv695 = phi i64 [ 1, %.lr.ph608.preheader ], [ %indvars.iv.next696, %.loopexit ]
   %.3606 = phi double [ %218, %.lr.ph608.preheader ], [ %338, %.loopexit ]
-  %indvars716 = trunc i64 %indvars.iv695 to i32
+  %indvars716 = trunc nuw i64 %indvars.iv695 to i32
   %243 = mul nsw i64 %indvars.iv695, %140
   %244 = mul nsw i32 %13, %indvars716
   %245 = sext i32 %244 to i64

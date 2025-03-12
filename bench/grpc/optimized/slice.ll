@@ -501,7 +501,7 @@ define void @_Z26grpc_slice_from_cpp_stringNSt7__cxx1112basic_stringIcSt11char_t
   br i1 %5, label %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %4 to i8
+  %7 = trunc nuw nsw i64 %4 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %7, ptr %8, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -699,7 +699,7 @@ define linkonce_odr void @_Z36grpc_slice_split_tail_maybe_ref_implILb1EE10grpc_s
 
 .critedge:                                        ; preds = %8
   store ptr null, ptr %0, align 8, !tbaa !3
-  %13 = trunc i64 %2 to i8
+  %13 = trunc nuw i64 %2 to i8
   %14 = sub i8 %10, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %15, align 8, !tbaa !9
@@ -828,7 +828,7 @@ define linkonce_odr void @_Z36grpc_slice_split_tail_maybe_ref_implILb0EE10grpc_s
 
 .critedge:                                        ; preds = %8
   store ptr null, ptr %0, align 8, !tbaa !3
-  %13 = trunc i64 %2 to i8
+  %13 = trunc nuw i64 %2 to i8
   %14 = sub i8 %10, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %15, align 8, !tbaa !9
@@ -946,7 +946,7 @@ define linkonce_odr void @_Z26grpc_slice_split_head_implILb1EE10grpc_slicePS0_m(
 
 .critedge:                                        ; preds = %9
   store ptr null, ptr %0, align 8, !tbaa !3
-  %14 = trunc i64 %2 to i8
+  %14 = trunc nuw i64 %2 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %14, ptr %15, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 9
@@ -1056,7 +1056,7 @@ define linkonce_odr void @_Z26grpc_slice_split_head_implILb0EE10grpc_slicePS0_m(
 
 .critedge:                                        ; preds = %9
   store ptr null, ptr %0, align 8, !tbaa !3
-  %13 = trunc i64 %2 to i8
+  %13 = trunc nuw i64 %2 to i8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %13, ptr %14, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9

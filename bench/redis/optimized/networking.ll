@@ -9487,7 +9487,7 @@ authRequired.exit:                                ; preds = %91
   br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %.thread, %104
-  %111 = trunc i64 %85 to i32
+  %111 = trunc nuw nsw i64 %85 to i32
   store i32 %111, ptr %3, align 4, !tbaa !83
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %113 = load i32, ptr %112, align 8, !tbaa !197

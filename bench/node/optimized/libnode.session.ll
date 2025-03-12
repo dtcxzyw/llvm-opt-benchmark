@@ -5618,7 +5618,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -5726,7 +5726,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -9275,7 +9275,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %land.rhs
   %24 = extractvalue { i64, ptr } %call44, 1
-  %conv.i = trunc nuw i64 %23 to i32
+  %conv.i = trunc nuw nsw i64 %23 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %24, i32 noundef 0, i32 noundef %conv.i) #29
   store ptr %call11.i, ptr %arrayinit.element23, align 16
   %cmp.i.i = icmp eq ptr %call11.i, null
@@ -10323,7 +10323,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %if.end84
   %21 = extractvalue { i64, ptr } %call94, 1
-  %conv.i = trunc nuw i64 %20 to i32
+  %conv.i = trunc nuw nsw i64 %20 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i, ptr noundef %21, i32 noundef 0, i32 noundef %conv.i) #29
   store ptr %call11.i, ptr %argv, align 16
   %cmp.i.i421.not = icmp eq ptr %call11.i, null
@@ -10352,7 +10352,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit39: ; preds = %lor.lhs.false
   %27 = extractvalue { i64, ptr } %call114, 1
-  %conv.i35 = trunc nuw i64 %26 to i32
+  %conv.i35 = trunc nuw nsw i64 %26 to i32
   %call11.i36 = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i32, ptr noundef %27, i32 noundef 0, i32 noundef %conv.i35) #29
   store ptr %call11.i36, ptr %arrayinit.element, align 8
   %cmp.i.i426.not = icmp eq ptr %call11.i36, null

@@ -271,7 +271,7 @@ define internal void @crawler_expired_eval(ptr noundef readonly captures(none) %
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %93
-  %.lhs.trunc = trunc nuw i32 %95 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %95 to i16
   %98 = udiv i16 %.lhs.trunc, 60
   %99 = zext nneg i16 %98 to i64
   %100 = getelementptr inbounds nuw [61 x i64], ptr %9, i64 0, i64 %99

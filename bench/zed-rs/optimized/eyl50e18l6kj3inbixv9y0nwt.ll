@@ -60202,7 +60202,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$futures_channel..mpsc..Recei
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %.noexc1
-  %trunc.i = trunc i8 %4 to i1
+  %trunc.i = trunc nuw i8 %4 to i1
   br i1 %trunc.i, label %.preheader.i.backedge, label %"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd29cbf2b9fa09732E.llvm.13500094979475201679.exit"
 
 7:                                                ; preds = %.noexc1
@@ -91183,7 +91183,7 @@ define hidden void @"_ZN82_$LT$futures_channel..mpsc..Receiver$LT$T$GT$$u20$as$u
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %.preheader
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %.preheader.backedge, label %.loopexit
 
 7:                                                ; preds = %.preheader

@@ -16760,7 +16760,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89c6d01bf8ed98b6E.exit.thread.
 
 470:                                              ; preds = %467, %463
   %.val = phi i64 [ %464, %467 ], [ %465, %463 ]
-  %471 = trunc i64 %.val to i32
+  %471 = trunc nuw i64 %.val to i32
   %.not = icmp ult i32 %442, %471
   %472 = sub i32 %442, %471
   br i1 %.not, label %473, label %474

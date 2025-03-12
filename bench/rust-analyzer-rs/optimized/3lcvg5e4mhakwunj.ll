@@ -597,7 +597,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 
 40:                                               ; preds = %30
   %41 = lshr i32 %4, 16
-  %42 = trunc nuw i32 %41 to i16
+  %42 = trunc nuw nsw i32 %41 to i16
   %43 = lshr i32 %4, 8
   %44 = trunc i32 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -612,7 +612,7 @@ define hidden void @"_ZN6parser6output6Output4iter28_$u7b$$u7b$closure$u7d$$u7d$
 
 48:                                               ; preds = %32
   %49 = lshr i32 %4, 16
-  %50 = trunc nuw i32 %49 to i16
+  %50 = trunc nuw nsw i32 %49 to i16
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %50, ptr %51, align 2
   br label %28
@@ -1019,7 +1019,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h154333398c45fe76E.exit: ; preds
   br i1 %39, label %.thread, label %41
 
 ._crit_edge.loopexit:                             ; preds = %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
-  %40 = trunc i64 %109 to i8
+  %40 = trunc nuw nsw i64 %109 to i8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %22
@@ -1048,7 +1048,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h154333398c45fe76E.exit: ; preds
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 %.0106
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !149
-  %49 = trunc nuw i32 %38 to i8
+  %49 = trunc nuw nsw i32 %38 to i8
   store i8 %49, ptr %48, align 1, !alias.scope !152
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
@@ -1109,7 +1109,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h154333398c45fe76E.exit: ; preds
 
 70:                                               ; preds = %64
   %71 = lshr i32 %38, 6
-  %72 = trunc nuw i32 %71 to i8
+  %72 = trunc nuw nsw i32 %71 to i8
   %73 = or disjoint i8 %72, -64
   store i8 %73, ptr %51, align 1, !alias.scope !152
   %74 = trunc i32 %38 to i8
@@ -1121,7 +1121,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h154333398c45fe76E.exit: ; preds
 
 78:                                               ; preds = %66
   %79 = lshr i32 %38, 12
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, -32
   store i8 %81, ptr %51, align 1, !alias.scope !152
   %82 = lshr i32 %38, 6
@@ -1244,7 +1244,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
 
 141:                                              ; preds = %137
   %142 = lshr i32 %38, 6
-  %143 = trunc nuw i32 %142 to i8
+  %143 = trunc nuw nsw i32 %142 to i8
   %144 = or disjoint i8 %143, -64
   store i8 %144, ptr %.sroa.0.i, align 4, !alias.scope !173, !noalias !170
   %145 = trunc i32 %38 to i8
@@ -1256,7 +1256,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
 
 148:                                              ; preds = %139
   %149 = lshr i32 %38, 12
-  %150 = trunc nuw i32 %149 to i8
+  %150 = trunc nuw nsw i32 %149 to i8
   %151 = or disjoint i8 %150, -32
   store i8 %151, ptr %.sroa.0.i, align 4, !alias.scope !173, !noalias !170
   %152 = lshr i32 %38, 6
@@ -1323,7 +1323,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %15
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %131
-  %184 = trunc nuw i32 %38 to i8
+  %184 = trunc nuw nsw i32 %38 to i8
   %185 = load i64, ptr %14, align 8, !alias.scope !186, !noundef !4
   %186 = icmp eq i64 %136, %185
   br i1 %186, label %187, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h124253420288fc9cE.exit.i"

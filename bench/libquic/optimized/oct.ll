@@ -220,7 +220,7 @@ define hidden range(i64 0, 8589934592) i64 @EC_POINT_point2oct(ptr noundef %0, p
   br i1 %.not67.i, label %41, label %43
 
 41:                                               ; preds = %39, %38
-  %42 = trunc nuw i32 %2 to i8
+  %42 = trunc nuw nsw i32 %2 to i8
   br label %43
 
 43:                                               ; preds = %41, %39

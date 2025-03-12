@@ -3106,7 +3106,7 @@ define hidden void @je_tcache_stats_merge(ptr noundef %0, ptr noundef captures(n
   br i1 %10, label %11, label %35
 
 11:                                               ; preds = %7
-  %12 = trunc nuw i64 %indvars.iv to i32
+  %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call ptr @je_arena_bin_choose(ptr noundef %0, ptr noundef %2, i32 noundef %12, ptr noundef null) #14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #14

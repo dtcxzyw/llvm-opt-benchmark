@@ -547,7 +547,7 @@ define hidden void @zif_phpdbg_color(ptr noundef readonly captures(none) %0, ptr
   br i1 %switch, label %15, label %19
 
 15:                                               ; preds = %13
-  %16 = trunc nuw i64 %14 to i32
+  %16 = trunc nuw nsw i64 %14 to i32
   %17 = load ptr, ptr %4, align 8, !tbaa !78
   %18 = load i64, ptr %5, align 8, !tbaa !79
   call void @phpdbg_set_color_ex(i32 noundef %16, ptr noundef %17, i64 noundef %18) #27

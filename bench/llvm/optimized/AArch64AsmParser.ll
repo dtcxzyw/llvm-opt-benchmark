@@ -32703,7 +32703,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i: ; preds = %2697
   br label %_ZN12_GLOBAL__N_116AArch64AsmParser20tryParseSysCROperandERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEE.exit
 
 2705:                                             ; preds = %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.i
-  %2706 = trunc nuw i64 %2698 to i32
+  %2706 = trunc nuw nsw i64 %2698 to i32
   %2707 = load ptr, ptr %215, align 8, !tbaa !60
   %2708 = load ptr, ptr %2707, align 8, !tbaa !11
   %2709 = getelementptr inbounds nuw i8, ptr %2708, i64 184
@@ -70027,7 +70027,7 @@ define internal fastcc range(i32 0, 3) i32 @_ZNK12_GLOBAL__N_114AArch64Operand11
   br i1 %.not14.i, label %_ZN4llvm10AArch64_AML11isSVECpyImmIsEEbl.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = trunc i64 %39 to i32
+  %44 = trunc nsw i64 %39 to i32
   %sext.i = shl i32 %44, 24
   %45 = ashr exact i32 %sext.i, 24
   %sext16.i = shl i32 %44, 16

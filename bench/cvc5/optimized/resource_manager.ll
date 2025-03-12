@@ -1083,7 +1083,7 @@ _ZNSt5arrayImLm20EE4fillERKm.exit:                ; preds = %.lr.ph.i.i.i.i.i20
 
 34:                                               ; preds = %40, %32
   %.0913.i = phi i64 [ 0, %32 ], [ %41, %40 ]
-  %35 = trunc nuw i64 %.0913.i to i32
+  %35 = trunc nuw nsw i64 %.0913.i to i32
   %36 = invoke noundef ptr @_ZN4cvc58internal6theory8toStringENS1_11InferenceIdE(i32 noundef %35)
           to label %.noexc unwind label %.loopexit
 

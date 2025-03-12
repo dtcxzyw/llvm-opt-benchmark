@@ -644,7 +644,7 @@ getdatafield.exit:                                ; preds = %104
   %124 = getelementptr inbounds nuw i8, ptr %.015.i, i64 4
   %125 = getelementptr inbounds i8, ptr %124, i64 %98
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %123, ptr nonnull align 1 %125, i64 %.87, i1 false)
-  %126 = trunc i64 %.87 to i32
+  %126 = trunc nsw i64 %.87 to i32
   %127 = add i32 %.2, %126
   %128 = load i64, ptr %6, align 8
   %129 = add i64 %128, %.87

@@ -15631,7 +15631,7 @@ _ZN10aiMaterial11AddPropertyEPKfjPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   br i1 %4572, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %4573
 
 4573:                                             ; preds = %4571
-  %4574 = trunc nuw i64 %4570 to i32
+  %4574 = trunc nuw nsw i64 %4570 to i32
   store i32 %4574, ptr %78, align 4
   %4575 = load ptr, ptr %4568, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4321, ptr align 1 %4575, i64 %4570, i1 false)
@@ -15704,7 +15704,7 @@ _ZN10aiMaterial11AddPropertyEPKijPKcjj.exit:      ; preds = %_ZN10aiMaterial11Ad
   br i1 %4599, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit2425, label %4600
 
 4600:                                             ; preds = %4597
-  %4601 = trunc nuw i64 %4598 to i32
+  %4601 = trunc nuw nsw i64 %4598 to i32
   store i32 %4601, ptr %78, align 4
   %4602 = load ptr, ptr %4568, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %4321, ptr align 1 %4602, i64 %4598, i1 false)

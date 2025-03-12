@@ -332,7 +332,7 @@ lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store ptr %27, ptr %118, align 8, !tbaa !87
   %119 = load ptr, ptr %11, align 8, !tbaa !88
-  %120 = trunc nuw i64 %99 to i32
+  %120 = trunc nuw nsw i64 %99 to i32
   %121 = call ptr @xmlDictLookup(ptr noundef %119, ptr noundef %.0.i.i, i32 noundef %120) #11
   %122 = getelementptr inbounds nuw i8, ptr %114, i64 16
   store ptr %121, ptr %122, align 8, !tbaa !92
@@ -366,7 +366,7 @@ lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_
   br label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread
 
 lexbor_libxml2_bridge_new_text_node_fast.exit:    ; preds = %116
-  %136 = trunc nuw i64 %.sink.i237 to i32
+  %136 = trunc nuw nsw i64 %.sink.i237 to i32
   %137 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %1, ptr noundef %.0.i238, i32 noundef %136) #11
   %.not288 = icmp eq ptr %137, null
   br i1 %.not288, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, !prof !98
@@ -519,7 +519,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br label %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread
 
 lexbor_libxml2_bridge_new_text_node_fast.exit231: ; preds = %189
-  %204 = trunc nuw i64 %187 to i32
+  %204 = trunc nuw nsw i64 %187 to i32
   %205 = call ptr @xmlNewDocTextLen(ptr noundef %1, ptr noundef %191, i32 noundef %204) #11
   %206 = icmp eq ptr %205, null
   br i1 %206, label %.thread281, label %lexbor_libxml2_bridge_new_text_node_fast.exit231.thread, !prof !110

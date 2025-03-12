@@ -506,7 +506,7 @@ _ZN6SymbolC2EPhS0_.exit.i.i:                      ; preds = %116, %113
 
 135:                                              ; preds = %129
   %136 = lshr i64 %128, 16
-  %137 = trunc i64 %136 to i16
+  %137 = trunc nuw i64 %136 to i16
   %138 = and i16 %137, 511
   br label %_ZNK11SymbolTable17findLongestSymbolEPhS0_.exit.i
 
@@ -685,7 +685,7 @@ _ZN6SymbolC2EPhS0_.exit.i81.i:                    ; preds = %220, %216
 
 239:                                              ; preds = %233
   %240 = lshr i64 %232, 16
-  %241 = trunc i64 %240 to i16
+  %241 = trunc nuw i64 %240 to i16
   %242 = and i16 %241, 511
   br label %_ZNK11SymbolTable17findLongestSymbolEPhS0_.exit88.i
 
@@ -724,7 +724,7 @@ _ZNK11SymbolTable17findLongestSymbolEPhS0_.exit88.i: ; preds = %250, %244, %239
   %.sink.i = phi i64 [ %204, %200 ], [ 1, %211 ], [ %260, %_ZNK11SymbolTable17findLongestSymbolEPhS0_.exit88.i ], [ 2, %205 ]
   %.169.i = phi i16 [ %203, %200 ], [ %215, %211 ], [ %.0.i.i87.i, %_ZNK11SymbolTable17findLongestSymbolEPhS0_.exit88.i ], [ %209, %205 ]
   %262 = getelementptr inbounds nuw i8, ptr %.071.i, i64 %.sink.i
-  %263 = trunc i64 %.sink.i to i32
+  %263 = trunc nuw i64 %.sink.i to i32
   %264 = icmp samesign ult i16 %.169.i, 256
   %.neg77.i = select i1 %264, i32 -2, i32 -1
   %265 = add i32 %.3.i, %263

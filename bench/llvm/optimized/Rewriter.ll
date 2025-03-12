@@ -1289,7 +1289,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8Rewriter19IncreaseIndentationENS_
 
 8:                                                ; preds = %4
   %.sroa.4122.0.extract.shift = lshr i64 %1, 32
-  %.sroa.4122.0.extract.trunc = trunc nuw i64 %.sroa.4122.0.extract.shift to i32
+  %.sroa.4122.0.extract.trunc = trunc nuw nsw i64 %.sroa.4122.0.extract.shift to i32
   %9 = load ptr, ptr %0, align 8, !tbaa !7
   %10 = tail call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 %.sroa.0121.0.extract.trunc)
   %.sroa.01.0.extract.trunc.i = trunc i64 %10 to i32

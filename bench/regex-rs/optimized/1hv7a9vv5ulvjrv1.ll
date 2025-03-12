@@ -9496,13 +9496,13 @@ define internal fastcc void @_ZN12regex_syntax3hir9translate11TranslatorI9push_c
   br i1 %7, label %17, label %28
 
 8:                                                ; preds = %1
-  %9 = trunc nuw i32 %0 to i8
+  %9 = trunc nuw nsw i32 %0 to i8
   store i8 %9, ptr %.sroa.0, align 4, !alias.scope !2336
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %0, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %.sroa.0, align 4, !alias.scope !2336
   %14 = trunc i32 %0 to i8
@@ -9514,7 +9514,7 @@ define internal fastcc void @_ZN12regex_syntax3hir9translate11TranslatorI9push_c
 
 17:                                               ; preds = %6
   %18 = lshr i32 %0, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.sroa.0, align 4, !alias.scope !2336
   %21 = lshr i32 %0, 6
@@ -10302,8 +10302,8 @@ define hidden noundef zeroext i1 @_ZN12regex_syntax3hir9translate5Flags7unicode1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i8, ptr %2, align 1, !range !232, !noundef !5
   %4 = icmp eq i8 %3, 2
-  %5 = trunc i8 %3 to i1
-  %.0 = or i1 %4, %5
+  %5 = trunc nuw i8 %3 to i1
+  %.0 = select i1 %4, i1 true, i1 %5
   ret i1 %.0
 }
 

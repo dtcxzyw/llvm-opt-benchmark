@@ -1058,7 +1058,7 @@ select_transform.exit:                            ; preds = %95, %95
   %226 = load i8, ptr %8, align 1, !tbaa !9
   %227 = and i8 %226, -33
   %or.cond11 = icmp eq i8 %227, 66
-  %228 = trunc nuw i64 %223 to i32
+  %228 = trunc nuw nsw i64 %223 to i32
   br i1 %or.cond11, label %229, label %230
 
 229:                                              ; preds = %225

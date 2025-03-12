@@ -1728,7 +1728,7 @@ define internal fastcc void @append_num_word(ptr noundef nonnull %0, i64 noundef
   br label %67
 
 44:                                               ; preds = %14
-  %.lhs.trunc54 = trunc nuw i64 %1 to i8
+  %.lhs.trunc54 = trunc nuw nsw i64 %1 to i8
   %45 = urem i8 %.lhs.trunc54, 10
   %46 = icmp eq i8 %45, 0
   %47 = icmp samesign ugt i16 %3, 10

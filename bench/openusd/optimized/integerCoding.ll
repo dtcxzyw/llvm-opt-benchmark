@@ -314,14 +314,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
 77:                                               ; preds = %74
   %78 = shl nuw nsw i32 %.02329.i.i.i, 1
   %79 = shl nuw i32 1, %78
-  %80 = trunc i32 %70 to i8
+  %80 = trunc nsw i32 %70 to i8
   store i8 %80, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
-  %84 = trunc i32 %70 to i16
+  %84 = trunc nsw i32 %70 to i16
   store i16 %84, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
@@ -389,13 +389,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
-  %103 = trunc i32 %96 to i8
+  %103 = trunc nsw i32 %96 to i8
   store i8 %103, ptr %.098.lcssa.i.i, align 1
   %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 1
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
-  %106 = trunc i32 %96 to i16
+  %106 = trunc nsw i32 %96 to i16
   store i16 %106, ptr %.098.lcssa.i.i, align 1
   %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
@@ -436,14 +436,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKiEEvRT
 118:                                              ; preds = %115
   %119 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %120 = shl nuw nsw i32 1, %119
-  %121 = trunc i32 %111 to i8
+  %121 = trunc nsw i32 %111 to i8
   store i8 %121, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
-  %125 = trunc i32 %111 to i16
+  %125 = trunc nsw i32 %111 to i16
   store i16 %125, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
@@ -499,14 +499,14 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKiEEvR
 140:                                              ; preds = %137
   %141 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %142 = shl nuw i32 1, %141
-  %143 = trunc i32 %133 to i8
+  %143 = trunc nsw i32 %133 to i8
   store i8 %143, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
-  %147 = trunc i32 %133 to i16
+  %147 = trunc nsw i32 %133 to i16
   store i16 %147, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKiEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
@@ -770,14 +770,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIimSt4hashIiESt8equal_toI
 77:                                               ; preds = %74
   %78 = shl nuw nsw i32 %.02329.i.i.i, 1
   %79 = shl nuw i32 1, %78
-  %80 = trunc i32 %70 to i8
+  %80 = trunc nsw i32 %70 to i8
   store i8 %80, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
-  %84 = trunc i32 %70 to i16
+  %84 = trunc nsw i32 %70 to i16
   store i16 %84, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
@@ -845,13 +845,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
-  %103 = trunc i32 %96 to i8
+  %103 = trunc nsw i32 %96 to i8
   store i8 %103, ptr %.098.lcssa.i.i, align 1
   %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 1
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
-  %106 = trunc i32 %96 to i16
+  %106 = trunc nsw i32 %96 to i16
   store i16 %106, ptr %.098.lcssa.i.i, align 1
   %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
@@ -892,14 +892,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKjEEvRT
 118:                                              ; preds = %115
   %119 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %120 = shl nuw nsw i32 1, %119
-  %121 = trunc i32 %111 to i8
+  %121 = trunc nsw i32 %111 to i8
   store i8 %121, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
-  %125 = trunc i32 %111 to i16
+  %125 = trunc nsw i32 %111 to i16
   store i16 %125, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
@@ -955,14 +955,14 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKjEEvR
 140:                                              ; preds = %137
   %141 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %142 = shl nuw i32 1, %141
-  %143 = trunc i32 %133 to i8
+  %143 = trunc nsw i32 %133 to i8
   store i8 %143, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
-  %147 = trunc i32 %133 to i16
+  %147 = trunc nsw i32 %133 to i16
   store i16 %147, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKjEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUliE_clEi.exit.sink.split.i.i.i
 
@@ -1825,14 +1825,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
 77:                                               ; preds = %74
   %78 = shl nuw nsw i32 %.02329.i.i.i, 1
   %79 = shl nuw i32 1, %78
-  %80 = trunc i64 %70 to i16
+  %80 = trunc nsw i64 %70 to i16
   store i16 %80, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
-  %84 = trunc i64 %70 to i32
+  %84 = trunc nsw i64 %70 to i32
   store i32 %84, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
@@ -1900,13 +1900,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
-  %103 = trunc i64 %96 to i16
+  %103 = trunc nsw i64 %96 to i16
   store i16 %103, ptr %.098.lcssa.i.i, align 1
   %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
-  %106 = trunc i64 %96 to i32
+  %106 = trunc nsw i64 %96 to i32
   store i32 %106, ptr %.098.lcssa.i.i, align 1
   %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
@@ -1947,14 +1947,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKlEEvRT
 118:                                              ; preds = %115
   %119 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %120 = shl nuw nsw i32 1, %119
-  %121 = trunc i64 %111 to i16
+  %121 = trunc nsw i64 %111 to i16
   store i16 %121, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
-  %125 = trunc i64 %111 to i32
+  %125 = trunc nsw i64 %111 to i32
   store i32 %125, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
@@ -2010,14 +2010,14 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKlEEvR
 140:                                              ; preds = %137
   %141 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %142 = shl nuw i32 1, %141
-  %143 = trunc i64 %133 to i16
+  %143 = trunc nsw i64 %133 to i16
   store i16 %143, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
-  %147 = trunc i64 %133 to i32
+  %147 = trunc nsw i64 %133 to i32
   store i32 %147, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKlEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
@@ -2281,14 +2281,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl9robin_mapIlmSt4hashIlESt8equal_toI
 77:                                               ; preds = %74
   %78 = shl nuw nsw i32 %.02329.i.i.i, 1
   %79 = shl nuw i32 1, %78
-  %80 = trunc i64 %70 to i16
+  %80 = trunc nsw i64 %70 to i16
   store i16 %80, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 81:                                               ; preds = %76, %75
   %82 = shl nuw nsw i32 %.02329.i.i.i, 1
   %83 = shl i32 2, %82
-  %84 = trunc i64 %70 to i32
+  %84 = trunc nsw i64 %70 to i32
   store i32 %84, ptr %.2100.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
@@ -2356,13 +2356,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
   br i1 %.not9.i.i45.i.i, label %108, label %105
 
 102:                                              ; preds = %99
-  %103 = trunc i64 %96 to i16
+  %103 = trunc nsw i64 %96 to i16
   store i16 %103, ptr %.098.lcssa.i.i, align 1
   %104 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 2
   br label %.sink.split.i.i
 
 105:                                              ; preds = %101, %100
-  %106 = trunc i64 %96 to i32
+  %106 = trunc nsw i64 %96 to i32
   store i32 %106, ptr %.098.lcssa.i.i, align 1
   %107 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i.i, i64 4
   br label %.sink.split.i.i
@@ -2403,14 +2403,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi4EPKmEEvRT
 118:                                              ; preds = %115
   %119 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %120 = shl nuw nsw i32 1, %119
-  %121 = trunc i64 %111 to i16
+  %121 = trunc nsw i64 %111 to i16
   store i16 %121, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = shl nuw nsw i32 %.02329.i48.i.i, 1
   %124 = shl nuw nsw i32 2, %123
-  %125 = trunc i64 %111 to i32
+  %125 = trunc nsw i64 %111 to i32
   store i32 %125, ptr %.5.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
@@ -2466,14 +2466,14 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi2EPKmEEvR
 140:                                              ; preds = %137
   %141 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %142 = shl nuw i32 1, %141
-  %143 = trunc i64 %133 to i16
+  %143 = trunc nsw i64 %133 to i16
   store i16 %143, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 
 144:                                              ; preds = %139, %138
   %145 = shl nuw nsw i32 %.02329.i59.i.i, 1
   %146 = shl i32 2, %145
-  %147 = trunc i64 %133 to i32
+  %147 = trunc nsw i64 %133 to i32
   store i32 %147, ptr %.7.i.i, align 1
   br label %_ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_EncodeNHelperILi3EPKmEEvRT0_NSt15iterator_traitsIS4_E10value_typeERNSt11make_signedIS8_E4typeERPcSE_ENKUllE_clEl.exit.sink.split.i.i.i
 

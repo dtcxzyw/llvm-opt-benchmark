@@ -1409,7 +1409,7 @@ define range(i32 -1, -2147483648) i32 @i2b_PVK_bio_ex(ptr noundef %0, ptr nounde
   %50 = getelementptr inbounds nuw i8, ptr %17, i64 23
   store i8 %49, ptr %47, align 1, !tbaa !8
   %51 = lshr i32 %12, 24
-  %52 = trunc nuw i32 %51 to i8
+  %52 = trunc nuw nsw i32 %51 to i8
   %53 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 %52, ptr %50, align 1, !tbaa !8
   store ptr %53, ptr %8, align 8, !tbaa !3

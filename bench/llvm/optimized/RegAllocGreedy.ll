@@ -2473,7 +2473,7 @@ define hidden void @_ZN4llvm8RAGreedy19LRE_DidCloneVirtRegENS_8RegisterES1_(ptr 
 
 _ZN4llvm10IndexedMapINS_8RAGreedy12ExtraRegInfo7RegInfoENS_20VirtReg2IndexFunctorEE6resizeEm.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i
   %.pre4.i.i.i.i.i = load i32, ptr %6, align 8, !tbaa !26
-  %27 = trunc nuw i64 %19 to i32
+  %27 = trunc nuw nsw i64 %19 to i32
   %28 = add i32 %.pre4.i.i.i.i.i, %27
   store i32 %28, ptr %6, align 8, !tbaa !26
   %.pre9.i = load ptr, ptr %4, align 8, !tbaa !25
@@ -2545,7 +2545,7 @@ define hidden void @_ZN4llvm8RAGreedy12ExtraRegInfo19LRE_DidCloneVirtRegENS_8Reg
 
 _ZN4llvm10IndexedMapINS_8RAGreedy12ExtraRegInfo7RegInfoENS_20VirtReg2IndexFunctorEE6resizeEm.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre4.i.i.i.i = load i32, ptr %5, align 8, !tbaa !26
-  %26 = trunc nuw i64 %18 to i32
+  %26 = trunc nuw nsw i64 %18 to i32
   %27 = add i32 %.pre4.i.i.i.i, %26
   store i32 %27, ptr %5, align 8, !tbaa !26
   %.pre9 = load ptr, ptr %0, align 8, !tbaa !25
@@ -2618,7 +2618,7 @@ define hidden void @_ZThn736_N4llvm8RAGreedy19LRE_DidCloneVirtRegENS_8RegisterES
 
 _ZN4llvm10IndexedMapINS_8RAGreedy12ExtraRegInfo7RegInfoENS_20VirtReg2IndexFunctorEE6resizeEm.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %.pre4.i.i.i.i.i.i = load i32, ptr %6, align 8, !tbaa !26
-  %27 = trunc nuw i64 %19 to i32
+  %27 = trunc nuw nsw i64 %19 to i32
   %28 = add i32 %.pre4.i.i.i.i.i.i, %27
   store i32 %28, ptr %6, align 8, !tbaa !26
   %.pre9.i.i = load ptr, ptr %4, align 8, !tbaa !25
@@ -3697,7 +3697,7 @@ _ZNK4llvm15AllocationOrder6isHintENS_8RegisterE.exit: ; preds = %77, %_ZNK4llvm1
   br label %.critedge42
 
 126:                                              ; preds = %118
-  %127 = trunc i32 %67 to i16
+  %127 = trunc nuw i32 %67 to i16
   %128 = call noundef zeroext i1 @_ZN4llvm8RAGreedy21trySplitAroundHintRegEtRKNS_12LiveIntervalERNS_15SmallVectorImplINS_8RegisterEEERNS_15AllocationOrderE(ptr noundef nonnull align 8 dereferenceable(29026) %0, i16 noundef zeroext %127, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(76) %2)
   br i1 %128, label %.critedge42, label %129
 

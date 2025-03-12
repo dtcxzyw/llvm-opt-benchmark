@@ -49557,10 +49557,10 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %.not25 = icmp eq i64 %21, 0
   %.not26 = icmp eq i32 %5, %24
   %or.cond = select i1 %.not25, i1 true, i1 %.not26
-  br i1 %or.cond, label %27, label %94
+  br i1 %or.cond, label %27, label %92
 
 27:                                               ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit
-  br i1 %.not25, label %.thread50, label %69
+  br i1 %.not25, label %.thread50, label %67
 
 .thread50:                                        ; preds = %..thread50_crit_edge, %.thread56, %27
   %.promoted.i = phi i64 [ %.promoted.i.pre, %..thread50_crit_edge ], [ %14, %.thread56 ], [ %26, %27 ]
@@ -49569,13 +49569,13 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !prof !1478
 
 .lr.ph.i:                                         ; preds = %.thread50
-  %.promoted18.i = load ptr, ptr %0, align 8
+  %.promoted19.i = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %31
 
 31:                                               ; preds = %41, %.lr.ph.i
   %32 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %42, %41 ]
-  %33 = phi ptr [ %.promoted18.i, %.lr.ph.i ], [ %34, %41 ]
+  %33 = phi ptr [ %.promoted19.i, %.lr.ph.i ], [ %34, %41 ]
   %.0.copyload.i.i = load i64, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %34, ptr %0, align 8, !tbaa !1477
@@ -49622,93 +49622,92 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %54 = and i64 %.0..0..0..0..0..0..0..0..i.i, %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %56 = trunc i64 %.pr to i32
+  %56 = trunc nuw nsw i64 %.pr to i32
   %57 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %54, i1 false)
-  %58 = trunc nuw nsw i64 %57 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %58, i32 %56)
-  %59 = zext nneg i32 %.sroa.speculated.i to i64
-  %60 = lshr i64 %54, %59
-  store i64 %60, ptr %55, align 8, !tbaa !1475
-  %61 = sub nsw i32 %56, %.sroa.speculated.i
-  store i32 %61, ptr %4, align 8, !tbaa !1476
-  %62 = sub nsw i64 %.pr, %59
+  %.sroa.speculated13.i = tail call i64 @llvm.umin.i64(i64 %57, i64 %.pr)
+  %.sroa.speculated.i = trunc nuw nsw i64 %.sroa.speculated13.i to i32
+  %58 = lshr i64 %54, %.sroa.speculated13.i
+  store i64 %58, ptr %55, align 8, !tbaa !1475
+  %59 = sub nsw i32 %56, %.sroa.speculated.i
+  store i32 %59, ptr %4, align 8, !tbaa !1476
+  %60 = sub nsw i64 %.pr, %.sroa.speculated13.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %45, %.thread.i
-  %.sink.i = phi i64 [ %40, %.thread.i ], [ %62, %45 ]
+  %.sink.i = phi i64 [ %40, %.thread.i ], [ %60, %45 ]
   store i64 %.sink.i, ptr %28, align 8, !tbaa !1474
   br label %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
 
 _ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit: ; preds = %._crit_edge.i, %.sink.split.i
-  %63 = phi i64 [ %.sink.i, %.sink.split.i ], [ %.pr, %._crit_edge.i ]
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %94, label %65
+  %61 = phi i64 [ %.sink.i, %.sink.split.i ], [ %.pr, %._crit_edge.i ]
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %92, label %63
 
-65:                                               ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !1472
-  %68 = sub nsw i64 %67, %63
-  br label %91
+63:                                               ; preds = %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = load i64, ptr %64, align 8, !tbaa !1472
+  %66 = sub nsw i64 %65, %61
+  br label %89
 
-69:                                               ; preds = %27
+67:                                               ; preds = %27
   %.not28 = icmp eq i32 %5, %24
-  br i1 %.not28, label %70, label %91
+  br i1 %.not28, label %68, label %89
 
-70:                                               ; preds = %69
-  %71 = icmp sgt i64 %26, 63
-  br i1 %71, label %72, label %75, !prof !81
+68:                                               ; preds = %67
+  %69 = icmp sgt i64 %26, 63
+  br i1 %69, label %70, label %73, !prof !81
 
-72:                                               ; preds = %70
-  %73 = load ptr, ptr %0, align 8, !tbaa !1477
-  %.0.copyload.i = load i64, ptr %73, align 1
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %74, ptr %0, align 8, !tbaa !1477
+70:                                               ; preds = %68
+  %71 = load ptr, ptr %0, align 8, !tbaa !1477
+  %.0.copyload.i = load i64, ptr %71, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %72, ptr %0, align 8, !tbaa !1477
   store i64 %.0.copyload.i, ptr %7, align 8, !tbaa !1475
-  br label %88
+  br label %86
 
-75:                                               ; preds = %70
-  %76 = icmp sgt i64 %26, 0
-  br i1 %76, label %77, label %94
+73:                                               ; preds = %68
+  %74 = icmp sgt i64 %26, 0
+  br i1 %74, label %75, label %92
 
-77:                                               ; preds = %75
+75:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !391
-  %78 = lshr i64 %26, 3
-  %79 = and i64 %26, 7
-  %80 = icmp ne i64 %79, 0
-  %81 = zext i1 %80 to i64
-  %82 = add nuw nsw i64 %78, %81
-  %83 = load ptr, ptr %0, align 8, !tbaa !1477
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr align 1 %83, i64 %82, i1 false)
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
-  store ptr %84, ptr %0, align 8, !tbaa !1477
+  %76 = lshr i64 %26, 3
+  %77 = and i64 %26, 7
+  %78 = icmp ne i64 %77, 0
+  %79 = zext i1 %78 to i64
+  %80 = add nuw nsw i64 %76, %79
+  %81 = load ptr, ptr %0, align 8, !tbaa !1477
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr align 1 %81, i64 %80, i1 false)
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %80
+  store ptr %82, ptr %0, align 8, !tbaa !1477
   %.0..0..0..0..0..0..i = load i64, ptr %2, align 8, !tbaa !391
   %notmask.i.i = shl nsw i64 -1, %26
-  %85 = xor i64 %notmask.i.i, -1
-  %86 = and i64 %.0..0..0..0..0..0..i, %85
+  %83 = xor i64 %notmask.i.i, -1
+  %84 = and i64 %.0..0..0..0..0..0..i, %83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  store i64 %86, ptr %7, align 8, !tbaa !1475
-  %87 = trunc i64 %26 to i32
-  br label %88
+  store i64 %84, ptr %7, align 8, !tbaa !1475
+  %85 = trunc nuw nsw i64 %26 to i32
+  br label %86
 
-88:                                               ; preds = %77, %72
-  %89 = phi i64 [ %86, %77 ], [ %.0.copyload.i, %72 ]
-  %storemerge = phi i32 [ %87, %77 ], [ 64, %72 ]
+86:                                               ; preds = %75, %70
+  %87 = phi i64 [ %84, %75 ], [ %.0.copyload.i, %70 ]
+  %storemerge = phi i32 [ %85, %75 ], [ 64, %70 ]
   store i32 %storemerge, ptr %4, align 8, !tbaa !1476
-  %90 = and i64 %89, 1
-  %.not29 = icmp eq i64 %90, 0
-  br i1 %.not29, label %94, label %91
+  %88 = and i64 %87, 1
+  %.not29 = icmp eq i64 %88, 0
+  br i1 %.not29, label %92, label %89
 
-91:                                               ; preds = %69, %88, %65
-  %.02054 = phi i64 [ %21, %69 ], [ %21, %88 ], [ 0, %65 ]
-  %.2 = phi i64 [ %19, %69 ], [ %19, %88 ], [ %68, %65 ]
-  %92 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
-  %93 = add nsw i64 %92, %.02054
-  br label %94
+89:                                               ; preds = %67, %86, %63
+  %.02054 = phi i64 [ %21, %67 ], [ %21, %86 ], [ 0, %63 ]
+  %.2 = phi i64 [ %19, %67 ], [ %19, %86 ], [ %66, %63 ]
+  %90 = tail call noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13CountNextOnesEv(ptr noundef nonnull align 8 dereferenceable(36) %0)
+  %91 = add nsw i64 %90, %.02054
+  br label %92
 
-94:                                               ; preds = %88, %75, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit, %91
-  %.sroa.019.1 = phi i64 [ %.2, %91 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %19, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %19, %75 ], [ %19, %88 ]
-  %.sroa.6.1 = phi i64 [ %93, %91 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %21, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %21, %75 ], [ %21, %88 ]
+92:                                               ; preds = %86, %73, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit, %89
+  %.sroa.019.1 = phi i64 [ %.2, %89 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %19, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %19, %73 ], [ %19, %86 ]
+  %.sroa.6.1 = phi i64 [ %91, %89 ], [ 0, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13SkipNextZerosEv.exit ], [ %21, %_ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit ], [ %21, %73 ], [ %21, %86 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.019.1, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { i64, i64 } %.fca.1.insert
@@ -49804,7 +49803,7 @@ define linkonce_odr noundef i64 @_ZN5arrow8internal19BaseSetBitRunReaderILb0EE13
   %47 = xor i64 %notmask.i.i, -1
   %48 = and i64 %.0..0..0..0..0..0..i, %47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %49 = trunc i64 %25 to i32
+  %49 = trunc nuw nsw i64 %25 to i32
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = xor i64 %48, -1
   %52 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %51, i1 true)
@@ -61570,7 +61569,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
 125:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %126 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %126 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %127 = or disjoint i8 %126, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -61932,7 +61931,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i79.i.i.i
 
 280:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %281 = trunc nuw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %281 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %282 = or disjoint i8 %281, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -62501,7 +62500,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUltE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 124:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %125 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %125 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %126 = or disjoint i8 %125, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUltE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -62852,7 +62851,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 275:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %276 = trunc nuw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %276 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %277 = or disjoint i8 %276, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -63412,7 +63411,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i
 
 125:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %126 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %126 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
   %127 = or disjoint i8 %126, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -63774,7 +63773,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i79.i.i.i
 
 280:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %281 = trunc nuw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %281 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %282 = or disjoint i8 %281, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -64343,7 +64342,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUljE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 124:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %125 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %125 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
   %126 = or disjoint i8 %125, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUljE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -64694,7 +64693,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 275:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %276 = trunc nuw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %276 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %277 = or disjoint i8 %276, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -65252,7 +65251,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
 123:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %124 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %124 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %125 = or disjoint i8 %124, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -65612,7 +65611,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
 276:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %277 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %277 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %278 = or disjoint i8 %277, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -66179,7 +66178,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUlmE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 122:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %123 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %123 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %124 = or disjoint i8 %123, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUlmE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -66528,7 +66527,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 271:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %272 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %272 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %273 = or disjoint i8 %272, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -73775,10 +73774,10 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 
 130:                                              ; preds = %.lr.ph36.i.i.i
   %131 = sdiv i64 %127, 86400000
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nsw i64 %131 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #28, !noalias !3716
   %133 = add nsw i32 %132, 719468
-  %134 = icmp sgt i32 %132, -719469
+  %134 = icmp sgt i64 %127, -62162121600000
   %135 = add nuw nsw i32 %132, 573372
   %136 = select i1 %134, i32 %133, i32 %135
   %137 = sdiv i32 %136, 146097
@@ -74201,10 +74200,10 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc30, %_ZN5arro
 
 334:                                              ; preds = %329
   %335 = sdiv i64 %331, 86400000
-  %336 = trunc i64 %335 to i32
+  %336 = trunc nsw i64 %335 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #28, !noalias !3769
   %337 = add nsw i32 %336, 719468
-  %338 = icmp sgt i32 %336, -719469
+  %338 = icmp sgt i64 %331, -62162121600000
   %339 = add nuw nsw i32 %336, 573372
   %340 = select i1 %338, i32 %337, i32 %339
   %341 = sdiv i32 %340, 146097
@@ -74858,7 +74857,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
 123:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %124 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %124 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %125 = or disjoint i8 %124, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -75218,7 +75217,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
 276:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %277 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %277 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %278 = or disjoint i8 %277, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -80437,7 +80436,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %31, %29, %25, %21, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
 71:                                               ; preds = %._crit_edge.i.i.i
-  %72 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %72 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %73 = or disjoint i8 %72, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
@@ -80623,7 +80622,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19: ; preds = %120, %118, %114, %
   br label %._crit_edge.loopexit48
 
 160:                                              ; preds = %._crit_edge.i.i.i21
-  %161 = trunc nuw i32 %.0.lcssa.i.i.i22 to i8
+  %161 = trunc nuw nsw i32 %.0.lcssa.i.i.i22 to i8
   %162 = or disjoint i8 %161, 48
   br label %._crit_edge.loopexit48
 
@@ -81055,7 +81054,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %31, %29, %25, %21, 
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
 67:                                               ; preds = %._crit_edge.i.i.i
-  %68 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
@@ -81237,7 +81236,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i19: ; preds = %116, %114, %110, %
   br label %._crit_edge.loopexit48
 
 152:                                              ; preds = %._crit_edge.i.i.i21
-  %153 = trunc nuw i64 %.0.lcssa.i.i.i22 to i8
+  %153 = trunc nuw nsw i64 %.0.lcssa.i.i.i22 to i8
   %154 = or disjoint i8 %153, 48
   br label %._crit_edge.loopexit48
 
@@ -81336,7 +81335,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %18 = add nsw i64 %.neg.i5.i.i.i.i.i.i, %14
   %.neg.i6.i.i.i.i.i.i = mul nsw i64 %17, -60000
   %19 = add nsw i64 %18, %.neg.i6.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i = trunc i64 %19 to i32
+  %.lhs.trunc24.i.i.i.i = trunc nsw i64 %19 to i32
   %20 = sdiv i32 %.lhs.trunc24.i.i.i.i, 1000
   %.sext.i.i.i.i = sext i32 %20 to i64
   %.neg.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i.i.i.i, -1000
@@ -81470,7 +81469,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %.zext.i16.i.i.i = zext nneg i32 %83 to i64
   %.neg.i6.i.i.i17.i.i.i = mul nsw i64 %.zext.i16.i.i.i, -60000000
   %84 = add nsw i64 %.neg.i6.i.i.i17.i.i.i, %82
-  %.lhs.trunc22.i.i.i.i = trunc i64 %84 to i32
+  %.lhs.trunc22.i.i.i.i = trunc nsw i64 %84 to i32
   %85 = sdiv i32 %.lhs.trunc22.i.i.i.i, 1000000
   %.sext.i18.i.i.i = sext i32 %85 to i64
   %.neg.i.i.i.i.i19.i.i.i = mul nsw i64 %.sext.i18.i.i.i, -1000000
@@ -82030,7 +82029,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28, !noalias !4366
   %.ptr26.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %9 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %9 to i32
   %14 = udiv i32 %.lhs.trunc.i.i.i.i, 3600000
   %.zext.i.i.i.i = zext nneg i32 %14 to i64
   %15 = udiv i32 %.lhs.trunc.i.i.i.i, 60000
@@ -82041,7 +82040,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %17 = add nsw i64 %.neg.i5.i.i.i.i.i.i, %9
   %.neg.i6.i.i.i.i.i.i = mul nsw i64 %16, -60000
   %18 = add nsw i64 %17, %.neg.i6.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i = trunc i64 %18 to i32
+  %.lhs.trunc24.i.i.i.i = trunc nsw i64 %18 to i32
   %19 = sdiv i32 %.lhs.trunc24.i.i.i.i, 1000
   %.sext.i.i.i.i = sext i32 %19 to i64
   %.neg.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i.i.i.i, -1000
@@ -82438,7 +82437,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 213:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #28, !noalias !4379
-  %.lhs.trunc.i68.i.i.i = trunc nuw i64 %9 to i32
+  %.lhs.trunc.i68.i.i.i = trunc nuw nsw i64 %9 to i32
   %214 = udiv i32 %.lhs.trunc.i68.i.i.i, 3600
   %.zext.i69.i.i.i = zext nneg i32 %214 to i64
   %215 = udiv i32 %.lhs.trunc.i68.i.i.i, 60
@@ -82766,7 +82765,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Ti
 
 13:                                               ; preds = %10
   %14 = sdiv i64 %9, 86400000
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = mul nsw i64 %14, 86400000
   %.not53.i.i.i.i = icmp slt i64 %9, %16
   br i1 %.not53.i.i.i.i, label %19, label %17
@@ -83599,7 +83598,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
 
 490:                                              ; preds = %487
   %491 = sdiv i64 %9, 86400
-  %492 = trunc i64 %491 to i32
+  %492 = trunc nsw i64 %491 to i32
   %493 = mul nsw i64 %491, 86400
   %.not46.i.i.i.i = icmp slt i64 %9, %493
   br i1 %.not46.i.i.i.i, label %496, label %494
@@ -136043,7 +136042,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
 122:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %123 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %123 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %124 = or disjoint i8 %123, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -136512,7 +136511,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i79.i.i.i
 
 315:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %316 = trunc nuw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %316 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %317 = or disjoint i8 %316, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -136980,7 +136979,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_14StringViewTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUltE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 121:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %122 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %122 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %123 = or disjoint i8 %122, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_14StringViewTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUltE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -137438,7 +137437,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 310:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %311 = trunc nuw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %311 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %312 = or disjoint i8 %311, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -137897,7 +137896,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i
 
 122:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %123 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %123 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
   %124 = or disjoint i8 %123, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -138366,7 +138365,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i79.i.i.i
 
 315:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %316 = trunc nuw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %316 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %317 = or disjoint i8 %316, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -138834,7 +138833,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_14StringViewTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUljE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 121:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %122 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %122 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
   %123 = or disjoint i8 %122, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_14StringViewTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUljE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -139292,7 +139291,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 310:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %311 = trunc nuw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %311 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %312 = or disjoint i8 %311, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -139749,7 +139748,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
 120:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %121 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %121 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %122 = or disjoint i8 %121, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -140216,7 +140215,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
 311:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %312 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %312 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %313 = or disjoint i8 %312, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -140682,7 +140681,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_14StringViewTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUlmE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 119:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %120 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %120 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %121 = or disjoint i8 %120, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_14StringViewTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUlmE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -141138,7 +141137,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 306:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %307 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %307 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %308 = or disjoint i8 %307, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -148122,10 +148121,10 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 
 126:                                              ; preds = %.lr.ph36.i.i.i
   %127 = sdiv i64 %123, 86400000
-  %128 = trunc i64 %127 to i32
+  %128 = trunc nsw i64 %127 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %13) #28, !noalias !6832
   %129 = add nsw i32 %128, 719468
-  %130 = icmp sgt i32 %128, -719469
+  %130 = icmp sgt i64 %123, -62162121600000
   %131 = add nuw nsw i32 %128, 573372
   %132 = select i1 %130, i32 %129, i32 %131
   %133 = sdiv i32 %132, 146097
@@ -148650,10 +148649,10 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
 
 365:                                              ; preds = %360
   %366 = sdiv i64 %362, 86400000
-  %367 = trunc i64 %366 to i32
+  %367 = trunc nsw i64 %366 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #28, !noalias !6882
   %368 = add nsw i32 %367, 719468
-  %369 = icmp sgt i32 %367, -719469
+  %369 = icmp sgt i64 %362, -62162121600000
   %370 = add nuw nsw i32 %367, 573372
   %371 = select i1 %369, i32 %368, i32 %370
   %372 = sdiv i32 %371, 146097
@@ -149211,7 +149210,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
 120:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %121 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %121 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %122 = or disjoint i8 %121, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -149678,7 +149677,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc28, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
 311:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %312 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %312 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %313 = or disjoint i8 %312, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -154541,7 +154540,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %18 = add nsw i64 %.neg.i5.i.i.i.i.i.i, %14
   %.neg.i6.i.i.i.i.i.i = mul nsw i64 %17, -60000
   %19 = add nsw i64 %18, %.neg.i6.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i = trunc i64 %19 to i32
+  %.lhs.trunc24.i.i.i.i = trunc nsw i64 %19 to i32
   %20 = sdiv i32 %.lhs.trunc24.i.i.i.i, 1000
   %.sext.i.i.i.i = sext i32 %20 to i64
   %.neg.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i.i.i.i, -1000
@@ -154674,7 +154673,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %.zext.i16.i.i.i = zext nneg i32 %82 to i64
   %.neg.i6.i.i.i17.i.i.i = mul nsw i64 %.zext.i16.i.i.i, -60000000
   %83 = add nsw i64 %.neg.i6.i.i.i17.i.i.i, %81
-  %.lhs.trunc22.i.i.i.i = trunc i64 %83 to i32
+  %.lhs.trunc22.i.i.i.i = trunc nsw i64 %83 to i32
   %84 = sdiv i32 %.lhs.trunc22.i.i.i.i, 1000000
   %.sext.i18.i.i.i = sext i32 %84 to i64
   %.neg.i.i.i.i.i19.i.i.i = mul nsw i64 %.sext.i18.i.i.i, -1000000
@@ -155231,7 +155230,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28, !noalias !7408
   %.ptr26.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %9 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %9 to i32
   %14 = udiv i32 %.lhs.trunc.i.i.i.i, 3600000
   %.zext.i.i.i.i = zext nneg i32 %14 to i64
   %15 = udiv i32 %.lhs.trunc.i.i.i.i, 60000
@@ -155242,7 +155241,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %17 = add nsw i64 %.neg.i5.i.i.i.i.i.i, %9
   %.neg.i6.i.i.i.i.i.i = mul nsw i64 %16, -60000
   %18 = add nsw i64 %17, %.neg.i6.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i = trunc i64 %18 to i32
+  %.lhs.trunc24.i.i.i.i = trunc nsw i64 %18 to i32
   %19 = sdiv i32 %.lhs.trunc24.i.i.i.i, 1000
   %.sext.i.i.i.i = sext i32 %19 to i64
   %.neg.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i.i.i.i, -1000
@@ -155636,7 +155635,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 210:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #28, !noalias !7421
-  %.lhs.trunc.i68.i.i.i = trunc nuw i64 %9 to i32
+  %.lhs.trunc.i68.i.i.i = trunc nuw nsw i64 %9 to i32
   %211 = udiv i32 %.lhs.trunc.i68.i.i.i, 3600
   %.zext.i69.i.i.i = zext nneg i32 %211 to i64
   %212 = udiv i32 %.lhs.trunc.i68.i.i.i, 60
@@ -155951,7 +155950,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Ti
 
 13:                                               ; preds = %10
   %14 = sdiv i64 %9, 86400000
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = mul nsw i64 %14, 86400000
   %.not53.i.i.i.i = icmp slt i64 %9, %16
   br i1 %.not53.i.i.i.i, label %19, label %17
@@ -156781,7 +156780,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
 
 487:                                              ; preds = %484
   %488 = sdiv i64 %9, 86400
-  %489 = trunc i64 %488 to i32
+  %489 = trunc nsw i64 %488 to i32
   %490 = mul nsw i64 %488, 86400
   %.not46.i.i.i.i = icmp slt i64 %9, %490
   br i1 %.not46.i.i.i.i, label %493, label %491
@@ -164822,7 +164821,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
 125:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %126 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %126 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %127 = or disjoint i8 %126, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -165180,7 +165179,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i79.i.i.i
 
 276:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %277 = trunc nuw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %277 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %278 = or disjoint i8 %277, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsItEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -165747,7 +165746,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUltE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 124:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %125 = trunc nuw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %125 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i.i.i.i to i8
   %126 = or disjoint i8 %125, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt16TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUltE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -166094,7 +166093,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 271:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %272 = trunc nuw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %272 = trunc nuw nsw i16 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %273 = or disjoint i8 %272, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -166652,7 +166651,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i
 
 125:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %126 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %126 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
   %127 = or disjoint i8 %126, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -167010,7 +167009,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i79.i.i.i
 
 276:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %277 = trunc nuw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %277 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %278 = or disjoint i8 %277, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -167577,7 +167576,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUljE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 124:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %125 = trunc nuw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %125 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i.i.i.i to i8
   %126 = or disjoint i8 %125, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUljE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -167924,7 +167923,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 271:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %272 = trunc nuw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %272 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %273 = or disjoint i8 %272, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -168480,7 +168479,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
 123:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %124 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %124 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %125 = or disjoint i8 %124, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -168836,7 +168835,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
 272:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %273 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %273 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %274 = or disjoint i8 %273, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -169401,7 +169400,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUlmE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
 122:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %123 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %123 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %124 = or disjoint i8 %123, 48
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10UInt64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_126NumericToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUlmE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl.exit.i.i.i
 
@@ -169746,7 +169745,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
 267:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %268 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %268 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %269 = or disjoint i8 %268, 48
   br label %_ZN5arrow6StatusD2Ev.exit86.i.i.i
 
@@ -176759,10 +176758,10 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 
 130:                                              ; preds = %.lr.ph36.i.i.i
   %131 = sdiv i64 %127, 86400000
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nsw i64 %131 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15) #28, !noalias !9344
   %133 = add nsw i32 %132, 719468
-  %134 = icmp sgt i32 %132, -719469
+  %134 = icmp sgt i64 %127, -62162121600000
   %135 = add nuw nsw i32 %132, 573372
   %136 = select i1 %134, i32 %133, i32 %135
   %137 = sdiv i32 %136, 146097
@@ -177181,10 +177180,10 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc30, %_ZN5arro
 
 330:                                              ; preds = %325
   %331 = sdiv i64 %327, 86400000
-  %332 = trunc i64 %331 to i32
+  %332 = trunc nsw i64 %331 to i32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #28, !noalias !9397
   %333 = add nsw i32 %332, 719468
-  %334 = icmp sgt i32 %332, -719469
+  %334 = icmp sgt i64 %327, -62162121600000
   %335 = add nuw nsw i32 %332, 573372
   %336 = select i1 %334, i32 %333, i32 %335
   %337 = sdiv i32 %336, 146097
@@ -177836,7 +177835,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
 123:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
-  %124 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
+  %124 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i.i to i8
   %125 = or disjoint i8 %124, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i.i.i.i
 
@@ -178192,7 +178191,7 @@ _ZN5arrow6StatusD2Ev.exit75.i.i.i:                ; preds = %.noexc29, %_ZN5arro
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
 272:                                              ; preds = %._crit_edge.i.i.i.i76.i.i.i
-  %273 = trunc nuw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
+  %273 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i78.i.i.i to i8
   %274 = or disjoint i8 %273, 48
   br label %_ZN5arrow8internal6detail15FormatAllDigitsImEEvT_PPc.exit.i.i.i79.i.i.i
 
@@ -183537,7 +183536,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %18 = add nsw i64 %.neg.i5.i.i.i.i.i.i, %14
   %.neg.i6.i.i.i.i.i.i = mul nsw i64 %17, -60000
   %19 = add nsw i64 %18, %.neg.i6.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i = trunc i64 %19 to i32
+  %.lhs.trunc24.i.i.i.i = trunc nsw i64 %19 to i32
   %20 = sdiv i32 %.lhs.trunc24.i.i.i.i, 1000
   %.sext.i.i.i.i = sext i32 %20 to i64
   %.neg.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i.i.i.i, -1000
@@ -183670,7 +183669,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %.zext.i16.i.i.i = zext nneg i32 %82 to i64
   %.neg.i6.i.i.i17.i.i.i = mul nsw i64 %.zext.i16.i.i.i, -60000000
   %83 = add nsw i64 %.neg.i6.i.i.i17.i.i.i, %81
-  %.lhs.trunc22.i.i.i.i = trunc i64 %83 to i32
+  %.lhs.trunc22.i.i.i.i = trunc nsw i64 %83 to i32
   %84 = sdiv i32 %.lhs.trunc22.i.i.i.i, 1000000
   %.sext.i18.i.i.i = sext i32 %84 to i64
   %.neg.i.i.i.i.i19.i.i.i = mul nsw i64 %.sext.i18.i.i.i, -1000000
@@ -184227,7 +184226,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #28, !noalias !9943
   %.ptr26.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %.lhs.trunc.i.i.i.i = trunc nuw i64 %9 to i32
+  %.lhs.trunc.i.i.i.i = trunc nuw nsw i64 %9 to i32
   %14 = udiv i32 %.lhs.trunc.i.i.i.i, 3600000
   %.zext.i.i.i.i = zext nneg i32 %14 to i64
   %15 = udiv i32 %.lhs.trunc.i.i.i.i, 60000
@@ -184238,7 +184237,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Ti
   %17 = add nsw i64 %.neg.i5.i.i.i.i.i.i, %9
   %.neg.i6.i.i.i.i.i.i = mul nsw i64 %16, -60000
   %18 = add nsw i64 %17, %.neg.i6.i.i.i.i.i.i
-  %.lhs.trunc24.i.i.i.i = trunc i64 %18 to i32
+  %.lhs.trunc24.i.i.i.i = trunc nsw i64 %18 to i32
   %19 = sdiv i32 %.lhs.trunc24.i.i.i.i, 1000
   %.sext.i.i.i.i = sext i32 %19 to i64
   %.neg.i.i.i.i.i.i.i.i = mul nsw i64 %.sext.i.i.i.i, -1000
@@ -184632,7 +184631,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
 
 210:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %3) #28, !noalias !9956
-  %.lhs.trunc.i68.i.i.i = trunc nuw i64 %9 to i32
+  %.lhs.trunc.i68.i.i.i = trunc nuw nsw i64 %9 to i32
   %211 = udiv i32 %.lhs.trunc.i68.i.i.i, 3600
   %.zext.i69.i.i.i = zext nneg i32 %211 to i64
   %212 = udiv i32 %.lhs.trunc.i68.i.i.i, 60
@@ -184945,7 +184944,7 @@ define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13Ti
 
 13:                                               ; preds = %10
   %14 = sdiv i64 %9, 86400000
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nsw i64 %14 to i32
   %16 = mul nsw i64 %14, 86400000
   %.not53.i.i.i.i = icmp slt i64 %9, %16
   br i1 %.not53.i.i.i.i, label %19, label %17
@@ -185775,7 +185774,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
 
 487:                                              ; preds = %484
   %488 = sdiv i64 %9, 86400
-  %489 = trunc i64 %488 to i32
+  %489 = trunc nsw i64 %488 to i32
   %490 = mul nsw i64 %488, 86400
   %.not46.i.i.i.i = icmp slt i64 %9, %490
   br i1 %.not46.i.i.i.i, label %493, label %491
@@ -189833,13 +189832,10 @@ declare i64 @llvm.smin.i64(i64, i64) #26
 declare i32 @llvm.smin.i32(i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #26
+declare i64 @llvm.umin.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #26
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

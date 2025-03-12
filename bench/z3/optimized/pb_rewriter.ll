@@ -2522,7 +2522,7 @@ _ZN8rationalD2Ev.exit91:                          ; preds = %.noexc.i90
 
 .thread.i:                                        ; preds = %239
   store ptr %37, ptr %17, align 8, !tbaa !161, !alias.scope !158
-  %.pre242 = trunc nuw i64 %indvars.iv to i32
+  %.pre242 = trunc nuw nsw i64 %indvars.iv to i32
   br label %263
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %253
@@ -2650,7 +2650,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %253, %251, %247, %2
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 303:                                              ; preds = %._crit_edge.i.i
-  %304 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %304 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %305 = or disjoint i8 %304, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -3931,7 +3931,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %23, %21, %17, %13
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 76:                                               ; preds = %._crit_edge.i.i
-  %77 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %77 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %78 = or disjoint i8 %77, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 

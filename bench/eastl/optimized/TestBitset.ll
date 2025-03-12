@@ -2090,7 +2090,7 @@ if.then.i:                                        ; preds = %entry
   %0 = load i8, ptr %this, align 1
   %sh_prom.i = trunc nuw nsw i64 %inc.i to i32
   %shl.i = shl nsw i32 -1, %sh_prom.i
-  %1 = trunc i32 %shl.i to i8
+  %1 = trunc nsw i32 %shl.i to i8
   %conv2.i = and i8 %0, %1
   %tobool.not.i.i = icmp eq i8 %conv2.i, 0
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EhE10DoFindNextEm.exit
@@ -2555,7 +2555,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i8
+  %0 = trunc nuw nsw i64 %i to i8
   %sh_prom.i = and i8 %0, 7
   %shl.i = shl nuw i8 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -2595,7 +2595,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i8
+  %0 = trunc nuw nsw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
@@ -2640,7 +2640,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i8
+  %0 = trunc nuw nsw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
@@ -2800,7 +2800,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -3056,7 +3056,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
   %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = trunc nuw i64 %inc.i to i8
+  %1 = trunc nuw nsw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
   %shl.i = shl nsw i8 -1, %sh_prom.i
   %and2.i = and i8 %0, %shl.i
@@ -3571,7 +3571,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i8
+  %0 = trunc nuw nsw i64 %i to i8
   %sh_prom.i = and i8 %0, 7
   %shl.i = shl nuw i8 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -3611,7 +3611,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i8
+  %0 = trunc nuw nsw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
@@ -3656,7 +3656,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i8
+  %0 = trunc nuw nsw i64 %i to i8
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
@@ -3817,7 +3817,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -4082,7 +4082,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
   %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %1 = trunc nuw i64 %inc.i to i8
+  %1 = trunc nuw nsw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
   %shl.i = shl nsw i8 -1, %sh_prom.i
   %and2.i = and i8 %0, %shl.i
@@ -4848,7 +4848,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -5715,7 +5715,7 @@ if.then.i:                                        ; preds = %entry
   %0 = load i16, ptr %this, align 2
   %sh_prom.i = trunc nuw nsw i64 %inc.i to i32
   %shl.i = shl nsw i32 -1, %sh_prom.i
-  %1 = trunc i32 %shl.i to i16
+  %1 = trunc nsw i32 %shl.i to i16
   %conv2.i = and i16 %0, %1
   %tobool.not.i.i = icmp eq i16 %conv2.i, 0
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EtE10DoFindNextEm.exit
@@ -6195,7 +6195,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom.i = and i16 %0, 15
   %shl.i = shl nuw i16 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -6235,7 +6235,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
@@ -6280,7 +6280,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
@@ -6440,7 +6440,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -6701,7 +6701,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
   %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %1 = trunc nuw i64 %inc.i to i16
+  %1 = trunc nuw nsw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
   %shl.i = shl nsw i16 -1, %sh_prom.i
   %and2.i = and i16 %0, %shl.i
@@ -7232,7 +7232,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom.i = and i16 %0, 15
   %shl.i = shl nuw i16 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -7272,7 +7272,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
@@ -7317,7 +7317,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
@@ -7478,7 +7478,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -7749,7 +7749,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
   %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %1 = trunc nuw i64 %inc.i to i16
+  %1 = trunc nuw nsw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
   %shl.i = shl nsw i16 -1, %sh_prom.i
   %and2.i = and i16 %0, %shl.i
@@ -8282,7 +8282,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom.i = and i16 %0, 15
   %shl.i = shl nuw i16 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -8322,7 +8322,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
@@ -8367,7 +8367,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i16
+  %0 = trunc nuw nsw i64 %i to i16
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
@@ -8531,7 +8531,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and3 = and i32 %shl, %conv
@@ -8796,7 +8796,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
   %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %1 = trunc nuw i64 %inc.i to i16
+  %1 = trunc nuw nsw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
   %shl.i = shl nsw i16 -1, %sh_prom.i
   %and2.i = and i16 %0, %shl.i
@@ -9803,7 +9803,7 @@ if.then.i:                                        ; preds = %if.then
   %.pre.i = load i32, ptr %this, align 4
   %1 = select i1 %cmp.i, i32 0, i32 %0
   %2 = select i1 %cmp.i, i32 %0, i32 %.pre.i
-  %3 = trunc nuw i64 %n to i32
+  %3 = trunc nuw nsw i64 %n to i32
   %sh_prom.i = select i1 %cmp.i, i32 0, i32 %3
   %shr.i = lshr i32 %2, %sh_prom.i
   %sh_prom13.i = sub nuw nsw i32 32, %sh_prom.i
@@ -9840,7 +9840,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom.i = and i32 %0, 31
   %shl.i = shl nuw i32 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -9882,7 +9882,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
@@ -9918,7 +9918,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
@@ -10045,7 +10045,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 31
   %shl = shl nuw i32 1, %sh_prom
   %and3 = and i32 %0, %shl
@@ -10142,7 +10142,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %cmp.i.i = icmp eq i64 %n, 32
   %1 = select i1 %cmp.i.i, i32 0, i32 %ref.tmp.sroa.5.0.extract.trunc
   %2 = select i1 %cmp.i.i, i32 %ref.tmp.sroa.5.0.extract.trunc, i32 %ref.tmp.sroa.0.0.extract.trunc
-  %3 = trunc nuw i64 %n to i32
+  %3 = trunc nuw nsw i64 %n to i32
   %sh_prom.i.i = select i1 %cmp.i.i, i32 0, i32 %3
   %shr.i.i = lshr i32 %2, %sh_prom.i.i
   %sh_prom13.i.i = sub nuw nsw i32 32, %sh_prom.i.i
@@ -10341,7 +10341,7 @@ if.else:                                          ; preds = %entry
 if.then12:                                        ; preds = %if.else
   %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx15, align 4
-  %3 = trunc i64 %last_find to i32
+  %3 = trunc nuw nsw i64 %last_find to i32
   %sh_prom16 = add nsw i32 %3, -31
   %shl17 = shl nsw i32 -1, %sh_prom16
   %and18 = and i32 %2, %shl17
@@ -10563,7 +10563,7 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   %3 = load i32, ptr %this, align 4
-  %4 = trunc nuw i64 %last_find to i32
+  %4 = trunc nuw nsw i64 %last_find to i32
   %sh_prom18 = sub nuw nsw i32 32, %4
   %shr19 = lshr i32 -1, %sh_prom18
   %and20 = and i32 %3, %shr19
@@ -10975,7 +10975,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom.i = and i32 %0, 31
   %shl.i = shl nuw i32 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -11015,7 +11015,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
@@ -11060,7 +11060,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
@@ -11218,7 +11218,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 31
   %shl = shl nuw i32 1, %sh_prom
   %and3 = and i32 %0, %shl
@@ -11492,7 +11492,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 5
   %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc nuw i64 %inc.i to i32
+  %1 = trunc nuw nsw i64 %inc.i to i32
   %sh_prom.i = and i32 %1, 31
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %and2.i = and i32 %0, %shl.i
@@ -12050,7 +12050,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom.i = and i32 %0, 31
   %shl.i = shl nuw i32 1, %sh_prom.i
   br i1 %value, label %if.then.i, label %if.else.i
@@ -12090,7 +12090,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
@@ -12135,7 +12135,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %0 = trunc nuw i64 %i to i32
+  %0 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
@@ -12296,7 +12296,7 @@ if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
   %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc nuw i64 %i to i32
+  %1 = trunc nuw nsw i64 %i to i32
   %sh_prom = and i32 %1, 31
   %shl = shl nuw i32 1, %sh_prom
   %and3 = and i32 %0, %shl
@@ -12566,7 +12566,7 @@ if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 5
   %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %1 = trunc nuw i64 %inc.i to i32
+  %1 = trunc nuw nsw i64 %inc.i to i32
   %sh_prom.i = and i32 %1, 31
   %shl.i = shl nsw i32 -1, %sh_prom.i
   %and2.i = and i32 %0, %shl.i

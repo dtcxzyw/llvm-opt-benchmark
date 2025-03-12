@@ -897,7 +897,7 @@ define void @_ZN6icu_776number9Precision13fixedFractionEi(ptr dead_on_unwind noa
   br i1 %or.cond, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc nuw i32 %1 to i16
+  %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %4, ptr %5, align 8, !alias.scope !35
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -929,7 +929,7 @@ define void @_ZN6icu_776number9Precision11minFractionEi(ptr dead_on_unwind noali
   br i1 %or.cond, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc nuw i32 %1 to i16
+  %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %4, ptr %5, align 8, !alias.scope !38
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -961,7 +961,7 @@ define void @_ZN6icu_776number9Precision11maxFractionEi(ptr dead_on_unwind noali
   br i1 %or.cond, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc nuw i32 %1 to i16
+  %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %5, align 8, !alias.scope !41
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1031,7 +1031,7 @@ define void @_ZN6icu_776number9Precision22fixedSignificantDigitsEi(ptr dead_on_u
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i16
+  %5 = trunc nuw nsw i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 -1, ptr %6, align 8, !alias.scope !47
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1084,7 +1084,7 @@ define void @_ZN6icu_776number9Precision20minSignificantDigitsEi(ptr dead_on_unw
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i16
+  %5 = trunc nuw nsw i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 -1, ptr %6, align 8, !alias.scope !50
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1117,7 +1117,7 @@ define void @_ZN6icu_776number9Precision20maxSignificantDigitsEi(ptr dead_on_unw
   br i1 %or.cond, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i16
+  %5 = trunc nuw nsw i32 %1 to i16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 -1, ptr %6, align 8, !alias.scope !53
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -1343,7 +1343,7 @@ define void @_ZNK6icu_776number17FractionPrecision21withSignificantDigitsEii23UN
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, i64 3, i1 false)
   %17 = trunc i32 %2 to i16
-  %18 = trunc i32 %3 to i16
+  %18 = trunc nuw nsw i32 %3 to i16
   store i32 4, ptr %0, align 8, !tbaa !27, !alias.scope !65
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %16, ptr %19, align 8, !alias.scope !65
@@ -1419,7 +1419,7 @@ define void @_ZNK6icu_776number17FractionPrecision13withMinDigitsEi(ptr dead_on_
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 21
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, i64 3, i1 false)
-  %12 = trunc nuw i32 %2 to i16
+  %12 = trunc nuw nsw i32 %2 to i16
   store i32 4, ptr %0, align 8, !tbaa !27, !alias.scope !68
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %13, align 8, !alias.scope !68
@@ -1469,7 +1469,7 @@ define void @_ZNK6icu_776number17FractionPrecision13withMaxDigitsEi(ptr dead_on_
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 21
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.9.0..sroa_idx.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %.sroa.8.0..sroa_idx.i, i64 3, i1 false)
-  %12 = trunc nuw i32 %2 to i16
+  %12 = trunc nuw nsw i32 %2 to i16
   store i32 4, ptr %0, align 8, !tbaa !27, !alias.scope !71
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %11, ptr %13, align 8, !alias.scope !71

@@ -827,7 +827,7 @@ tool_mime_new.exit.i:                             ; preds = %145
   br i1 %.not150, label %178, label %173
 
 173:                                              ; preds = %172
-  %174 = trunc i32 %.195 to i8
+  %174 = trunc nuw i32 %.195 to i8
   %175 = load ptr, ptr %6, align 8, !tbaa !33
   store i8 %174, ptr %175, align 1, !tbaa !36
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 1328

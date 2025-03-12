@@ -316,7 +316,7 @@ define void @_Z28grpc_chttp2_huffman_compressRK10grpc_slice(ptr dead_on_unwind n
   br i1 %.wide, label %.lr.ph72, label %._crit_edge73.loopexit, !llvm.loop !18
 
 ._crit_edge73.loopexit:                           ; preds = %.lr.ph72
-  %58 = trunc nuw i64 %54 to i32
+  %58 = trunc nuw nsw i64 %54 to i32
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
   %.pre92 = load ptr, ptr %5, align 8
   %.pre93 = load i64, ptr %9, align 8

@@ -3897,7 +3897,7 @@ define noundef range(i32 2, 1) i32 @_ZN6icu_7720CollationDataBuilder9encodeCEsEP
   %38 = shl i32 %37, 8
   %39 = or disjoint i32 %38, %29
   %40 = lshr i64 %27, 16
-  %41 = trunc nuw i64 %40 to i32
+  %41 = trunc nuw nsw i64 %40 to i32
   %42 = or disjoint i32 %39, %41
   %43 = or disjoint i32 %42, 196
   br label %72

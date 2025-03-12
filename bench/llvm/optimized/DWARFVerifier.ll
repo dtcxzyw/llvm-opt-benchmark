@@ -15003,14 +15003,14 @@ _ZNSt14_Function_baseD2Ev.exit85:                 ; preds = %176, %179
   br label %.critedge
 
 182:                                              ; preds = %169
-  %183 = trunc i64 %139 to i32
+  %183 = trunc nuw i64 %139 to i32
   %184 = call noundef i64 @_ZNK4llvm15DWARFDebugNames9NameIndex16getLocalTUOffsetEj(ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %183) #28
   br label %189
 
 185:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #28
   store i8 0, ptr %75, align 8, !tbaa !846
-  %186 = trunc i64 %144 to i32
+  %186 = trunc nuw i64 %144 to i32
   %187 = call noundef i64 @_ZNK4llvm15DWARFDebugNames9NameIndex11getCUOffsetEj(ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %186) #28
   br label %189
 

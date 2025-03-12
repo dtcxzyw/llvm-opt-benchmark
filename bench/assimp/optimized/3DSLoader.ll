@@ -4326,7 +4326,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit: ; preds = %118, %_ZNSt6vect
   br i1 %154, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %155
 
 155:                                              ; preds = %149
-  %156 = trunc nuw i64 %153 to i32
+  %156 = trunc nuw nsw i64 %153 to i32
   store i32 %156, ptr %105, align 4
   %157 = getelementptr inbounds nuw i8, ptr %105, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr align 1 %.pre117, i64 %153, i1 false)
@@ -4641,7 +4641,7 @@ _ZNSt6vectorIP8aiCameraSaIS1_EE9push_backERKS1_.exit: ; preds = %247, %_ZNSt6vec
   br i1 %283, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit53, label %284
 
 284:                                              ; preds = %278
-  %285 = trunc nuw i64 %282 to i32
+  %285 = trunc nuw nsw i64 %282 to i32
   store i32 %285, ptr %230, align 4
   %286 = getelementptr inbounds nuw i8, ptr %230, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %286, ptr align 1 %.pre, i64 %282, i1 false)

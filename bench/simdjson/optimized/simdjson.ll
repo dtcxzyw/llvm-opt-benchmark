@@ -376,7 +376,7 @@ define dso_local noundef ptr @_ZN8simdjson8internal8to_charsEPcPKcd(ptr noundef 
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %.pn.i, i64 4
   store i8 48, ptr %.023.i.i, align 1, !tbaa !4
-  %65 = trunc nuw i32 %.0.i.i to i8
+  %65 = trunc nuw nsw i32 %.0.i.i to i8
   %66 = or disjoint i8 %65, 48
   %67 = getelementptr i8, ptr %.pn.i, i64 5
   store i8 %66, ptr %64, align 1, !tbaa !4
@@ -388,7 +388,7 @@ define dso_local noundef ptr @_ZN8simdjson8internal8to_charsEPcPKcd(ptr noundef 
   br i1 %69, label %71, label %77
 
 71:                                               ; preds = %68
-  %.lhs.trunc.i.i = trunc nuw i32 %.0.i.i to i8
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %.0.i.i to i8
   %72 = udiv i8 %.lhs.trunc.i.i, 10
   %73 = or disjoint i8 %72, 48
   store i8 %73, ptr %.023.i.i, align 1, !tbaa !4
@@ -5940,7 +5940,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7haswell25dom_parser_
 
 159:                                              ; preds = %157
   %160 = lshr i32 %110, 6
-  %161 = trunc nuw i32 %160 to i8
+  %161 = trunc nuw nsw i32 %160 to i8
   %162 = or disjoint i8 %161, -64
   store i8 %162, ptr %84, align 1, !tbaa !4
   %163 = trunc i32 %110 to i8
@@ -5956,7 +5956,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7haswell25dom_parser_
 
 169:                                              ; preds = %167
   %170 = lshr i32 %110, 12
-  %171 = trunc nuw i32 %170 to i8
+  %171 = trunc nuw nsw i32 %170 to i8
   %172 = or disjoint i8 %171, -32
   store i8 %172, ptr %84, align 1, !tbaa !4
   %173 = lshr i32 %110, 6
@@ -5980,7 +5980,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7haswell25dom_parser_
   %.610651202120812121218 = phi ptr [ %152, %.thread1214 ], [ %111, %182 ]
   %.4.i18.i1203120712131217 = phi i32 [ %151, %.thread1214 ], [ %110, %182 ]
   %185 = lshr i32 %.4.i18.i1203120712131217, 18
-  %186 = trunc nuw i32 %185 to i8
+  %186 = trunc nuw nsw i32 %185 to i8
   %187 = or disjoint i8 %186, -16
   store i8 %187, ptr %84, align 1, !tbaa !4
   %188 = lshr i32 %.4.i18.i1203120712131217, 12
@@ -6463,7 +6463,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit:
   %433 = ashr i64 %432, 16
   %434 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.11148, i1 true)
   %435 = shl i64 %.11148, %434
-  %436 = trunc i64 %.111551268 to i32
+  %436 = trunc nsw i64 %.111551268 to i32
   %437 = shl nsw i32 %436, 1
   %438 = add nsw i32 %437, 684
   %439 = zext nneg i32 %438 to i64
@@ -6827,7 +6827,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 672:                                              ; preds = %670
   %673 = lshr i32 %623, 6
-  %674 = trunc nuw i32 %673 to i8
+  %674 = trunc nuw nsw i32 %673 to i8
   %675 = or disjoint i8 %674, -64
   store i8 %675, ptr %597, align 1, !tbaa !4
   %676 = trunc i32 %623 to i8
@@ -6843,7 +6843,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 682:                                              ; preds = %680
   %683 = lshr i32 %623, 12
-  %684 = trunc nuw i32 %683 to i8
+  %684 = trunc nuw nsw i32 %683 to i8
   %685 = or disjoint i8 %684, -32
   store i8 %685, ptr %597, align 1, !tbaa !4
   %686 = lshr i32 %623, 6
@@ -6867,7 +6867,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.611631337134313471353 = phi ptr [ %665, %.thread1349 ], [ %624, %695 ]
   %.4.i18.i621338134213481352 = phi i32 [ %664, %.thread1349 ], [ %623, %695 ]
   %698 = lshr i32 %.4.i18.i621338134213481352, 18
-  %699 = trunc nuw i32 %698 to i8
+  %699 = trunc nuw nsw i32 %698 to i8
   %700 = or disjoint i8 %699, -16
   store i8 %700, ptr %597, align 1, !tbaa !4
   %701 = lshr i32 %.4.i18.i621338134213481352, 12
@@ -7168,7 +7168,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i48:
 
 906:                                              ; preds = %904
   %907 = lshr i32 %857, 6
-  %908 = trunc nuw i32 %907 to i8
+  %908 = trunc nuw nsw i32 %907 to i8
   %909 = or disjoint i8 %908, -64
   store i8 %909, ptr %831, align 1, !tbaa !4
   %910 = trunc i32 %857 to i8
@@ -7184,7 +7184,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i48:
 
 916:                                              ; preds = %914
   %917 = lshr i32 %857, 12
-  %918 = trunc nuw i32 %917 to i8
+  %918 = trunc nuw nsw i32 %917 to i8
   %919 = or disjoint i8 %918, -32
   store i8 %919, ptr %831, align 1, !tbaa !4
   %920 = lshr i32 %857, 6
@@ -7208,7 +7208,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i48:
   %.611251405141114151421 = phi ptr [ %899, %.thread1417 ], [ %858, %929 ]
   %.4.i18.i.i1406141014161420 = phi i32 [ %898, %.thread1417 ], [ %857, %929 ]
   %932 = lshr i32 %.4.i18.i.i1406141014161420, 18
-  %933 = trunc nuw i32 %932 to i8
+  %933 = trunc nuw nsw i32 %932 to i8
   %934 = or disjoint i8 %933, -16
   store i8 %934, ptr %831, align 1, !tbaa !4
   %935 = lshr i32 %.4.i18.i.i1406141014161420, 12
@@ -7577,7 +7577,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1120 = ashr i64 %1119, 16
   %1121 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.21111, i1 true)
   %1122 = shl i64 %.21111, %1121
-  %1123 = trunc i64 %.211181468 to i32
+  %1123 = trunc nsw i64 %.211181468 to i32
   %1124 = shl nsw i32 %1123, 1
   %1125 = add nsw i32 %1124, 684
   %1126 = zext nneg i32 %1125 to i64
@@ -7996,7 +7996,7 @@ select.unfold1473:                                ; preds = %.thread1472, %1207,
 
 1390:                                             ; preds = %1388
   %1391 = lshr i32 %1341, 6
-  %1392 = trunc nuw i32 %1391 to i8
+  %1392 = trunc nuw nsw i32 %1391 to i8
   %1393 = or disjoint i8 %1392, -64
   store i8 %1393, ptr %1315, align 1, !tbaa !4
   %1394 = trunc i32 %1341 to i8
@@ -8012,7 +8012,7 @@ select.unfold1473:                                ; preds = %.thread1472, %1207,
 
 1400:                                             ; preds = %1398
   %1401 = lshr i32 %1341, 12
-  %1402 = trunc nuw i32 %1401 to i8
+  %1402 = trunc nuw nsw i32 %1401 to i8
   %1403 = or disjoint i8 %1402, -32
   store i8 %1403, ptr %1315, align 1, !tbaa !4
   %1404 = lshr i32 %1341, 6
@@ -8036,7 +8036,7 @@ select.unfold1473:                                ; preds = %.thread1472, %1207,
   %.611781503150915131519 = phi ptr [ %1383, %.thread1515 ], [ %1342, %1413 ]
   %.4.i18.i301504150815141518 = phi i32 [ %1382, %.thread1515 ], [ %1341, %1413 ]
   %1416 = lshr i32 %.4.i18.i301504150815141518, 18
-  %1417 = trunc nuw i32 %1416 to i8
+  %1417 = trunc nuw nsw i32 %1416 to i8
   %1418 = or disjoint i8 %1417, -16
   store i8 %1418, ptr %1315, align 1, !tbaa !4
   %1419 = lshr i32 %.4.i18.i301504150815141518, 12
@@ -8390,7 +8390,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1663:                                             ; preds = %1661
   %1664 = lshr i32 %1614, 6
-  %1665 = trunc nuw i32 %1664 to i8
+  %1665 = trunc nuw nsw i32 %1664 to i8
   %1666 = or disjoint i8 %1665, -64
   store i8 %1666, ptr %1588, align 1, !tbaa !4
   %1667 = trunc i32 %1614 to i8
@@ -8406,7 +8406,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1673:                                             ; preds = %1671
   %1674 = lshr i32 %1614, 12
-  %1675 = trunc nuw i32 %1674 to i8
+  %1675 = trunc nuw nsw i32 %1674 to i8
   %1676 = or disjoint i8 %1675, -32
   store i8 %1676, ptr %1588, align 1, !tbaa !4
   %1677 = lshr i32 %1614, 6
@@ -8430,7 +8430,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %.610741572157815821588 = phi ptr [ %1656, %.thread1584 ], [ %1615, %1686 ]
   %.4.i18.i.i2081573157715831587 = phi i32 [ %1655, %.thread1584 ], [ %1614, %1686 ]
   %1689 = lshr i32 %.4.i18.i.i2081573157715831587, 18
-  %1690 = trunc nuw i32 %1689 to i8
+  %1690 = trunc nuw nsw i32 %1689 to i8
   %1691 = or disjoint i8 %1690, -16
   store i8 %1691, ptr %1588, align 1, !tbaa !4
   %1692 = lshr i32 %.4.i18.i.i2081573157715831587, 12
@@ -8799,7 +8799,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1877 = ashr i64 %1876, 16
   %1878 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.21045, i1 true)
   %1879 = shl i64 %.21045, %1878
-  %1880 = trunc i64 %.210521635 to i32
+  %1880 = trunc nsw i64 %.210521635 to i32
   %1881 = shl nsw i32 %1880, 1
   %1882 = add nsw i32 %1881, 684
   %1883 = zext nneg i32 %1882 to i64
@@ -9322,7 +9322,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7haswell25dom_parser_
 
 149:                                              ; preds = %147
   %150 = lshr i32 %100, 6
-  %151 = trunc nuw i32 %150 to i8
+  %151 = trunc nuw nsw i32 %150 to i8
   %152 = or disjoint i8 %151, -64
   store i8 %152, ptr %74, align 1, !tbaa !4
   %153 = trunc i32 %100 to i8
@@ -9338,7 +9338,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7haswell25dom_parser_
 
 159:                                              ; preds = %157
   %160 = lshr i32 %100, 12
-  %161 = trunc nuw i32 %160 to i8
+  %161 = trunc nuw nsw i32 %160 to i8
   %162 = or disjoint i8 %161, -32
   store i8 %162, ptr %74, align 1, !tbaa !4
   %163 = lshr i32 %100, 6
@@ -9362,7 +9362,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7haswell25dom_parser_
   %.6830965971975981 = phi ptr [ %142, %.thread977 ], [ %101, %172 ]
   %.4.i18.i.i966970976980 = phi i32 [ %141, %.thread977 ], [ %100, %172 ]
   %175 = lshr i32 %.4.i18.i.i966970976980, 18
-  %176 = trunc nuw i32 %175 to i8
+  %176 = trunc nuw nsw i32 %175 to i8
   %177 = or disjoint i8 %176, -16
   store i8 %177, ptr %74, align 1, !tbaa !4
   %178 = lshr i32 %.4.i18.i.i966970976980, 12
@@ -9850,7 +9850,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %433 = ashr i64 %432, 16
   %434 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2914, i1 true)
   %435 = shl i64 %.2914, %434
-  %436 = trunc i64 %.29211031 to i32
+  %436 = trunc nsw i64 %.29211031 to i32
   %437 = shl nsw i32 %436, 1
   %438 = add nsw i32 %437, 684
   %439 = zext nneg i32 %438 to i64
@@ -10214,7 +10214,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 672:                                              ; preds = %670
   %673 = lshr i32 %623, 6
-  %674 = trunc nuw i32 %673 to i8
+  %674 = trunc nuw nsw i32 %673 to i8
   %675 = or disjoint i8 %674, -64
   store i8 %675, ptr %597, align 1, !tbaa !4
   %676 = trunc i32 %623 to i8
@@ -10230,7 +10230,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 682:                                              ; preds = %680
   %683 = lshr i32 %623, 12
-  %684 = trunc nuw i32 %683 to i8
+  %684 = trunc nuw nsw i32 %683 to i8
   %685 = or disjoint i8 %684, -32
   store i8 %685, ptr %597, align 1, !tbaa !4
   %686 = lshr i32 %623, 6
@@ -10254,7 +10254,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.69431100110611101116 = phi ptr [ %665, %.thread1112 ], [ %624, %695 ]
   %.4.i18.i202.i1101110511111115 = phi i32 [ %664, %.thread1112 ], [ %623, %695 ]
   %698 = lshr i32 %.4.i18.i202.i1101110511111115, 18
-  %699 = trunc nuw i32 %698 to i8
+  %699 = trunc nuw nsw i32 %698 to i8
   %700 = or disjoint i8 %699, -16
   store i8 %700, ptr %597, align 1, !tbaa !4
   %701 = lshr i32 %.4.i18.i202.i1101110511111115, 12
@@ -10555,7 +10555,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i188
 
 906:                                              ; preds = %904
   %907 = lshr i32 %857, 6
-  %908 = trunc nuw i32 %907 to i8
+  %908 = trunc nuw nsw i32 %907 to i8
   %909 = or disjoint i8 %908, -64
   store i8 %909, ptr %831, align 1, !tbaa !4
   %910 = trunc i32 %857 to i8
@@ -10571,7 +10571,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i188
 
 916:                                              ; preds = %914
   %917 = lshr i32 %857, 12
-  %918 = trunc nuw i32 %917 to i8
+  %918 = trunc nuw nsw i32 %917 to i8
   %919 = or disjoint i8 %918, -32
   store i8 %919, ptr %831, align 1, !tbaa !4
   %920 = lshr i32 %857, 6
@@ -10595,7 +10595,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i188
   %.68901168117411781184 = phi ptr [ %899, %.thread1180 ], [ %858, %929 ]
   %.4.i18.i.i.i1169117311791183 = phi i32 [ %898, %.thread1180 ], [ %857, %929 ]
   %932 = lshr i32 %.4.i18.i.i.i1169117311791183, 18
-  %933 = trunc nuw i32 %932 to i8
+  %933 = trunc nuw nsw i32 %932 to i8
   %934 = or disjoint i8 %933, -16
   store i8 %934, ptr %831, align 1, !tbaa !4
   %935 = lshr i32 %.4.i18.i.i.i1169117311791183, 12
@@ -10964,7 +10964,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1120 = ashr i64 %1119, 16
   %1121 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2876, i1 true)
   %1122 = shl i64 %.2876, %1121
-  %1123 = trunc i64 %.28831231 to i32
+  %1123 = trunc nsw i64 %.28831231 to i32
   %1124 = shl nsw i32 %1123, 1
   %1125 = add nsw i32 %1124, 684
   %1126 = zext nneg i32 %1125 to i64
@@ -11383,7 +11383,7 @@ select.unfold1236:                                ; preds = %.thread1235, %1207,
 
 1390:                                             ; preds = %1388
   %1391 = lshr i32 %1341, 6
-  %1392 = trunc nuw i32 %1391 to i8
+  %1392 = trunc nuw nsw i32 %1391 to i8
   %1393 = or disjoint i8 %1392, -64
   store i8 %1393, ptr %1315, align 1, !tbaa !4
   %1394 = trunc i32 %1341 to i8
@@ -11399,7 +11399,7 @@ select.unfold1236:                                ; preds = %.thread1235, %1207,
 
 1400:                                             ; preds = %1398
   %1401 = lshr i32 %1341, 12
-  %1402 = trunc nuw i32 %1401 to i8
+  %1402 = trunc nuw nsw i32 %1401 to i8
   %1403 = or disjoint i8 %1402, -32
   store i8 %1403, ptr %1315, align 1, !tbaa !4
   %1404 = lshr i32 %1341, 6
@@ -11423,7 +11423,7 @@ select.unfold1236:                                ; preds = %.thread1235, %1207,
   %.69281266127212761282 = phi ptr [ %1383, %.thread1278 ], [ %1342, %1413 ]
   %.4.i18.i234.i1267127112771281 = phi i32 [ %1382, %.thread1278 ], [ %1341, %1413 ]
   %1416 = lshr i32 %.4.i18.i234.i1267127112771281, 18
-  %1417 = trunc nuw i32 %1416 to i8
+  %1417 = trunc nuw nsw i32 %1416 to i8
   %1418 = or disjoint i8 %1417, -16
   store i8 %1418, ptr %1315, align 1, !tbaa !4
   %1419 = lshr i32 %.4.i18.i234.i1267127112771281, 12
@@ -11777,7 +11777,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1663:                                             ; preds = %1661
   %1664 = lshr i32 %1614, 6
-  %1665 = trunc nuw i32 %1664 to i8
+  %1665 = trunc nuw nsw i32 %1664 to i8
   %1666 = or disjoint i8 %1665, -64
   store i8 %1666, ptr %1588, align 1, !tbaa !4
   %1667 = trunc i32 %1614 to i8
@@ -11793,7 +11793,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1673:                                             ; preds = %1671
   %1674 = lshr i32 %1614, 12
-  %1675 = trunc nuw i32 %1674 to i8
+  %1675 = trunc nuw nsw i32 %1674 to i8
   %1676 = or disjoint i8 %1675, -32
   store i8 %1676, ptr %1588, align 1, !tbaa !4
   %1677 = lshr i32 %1614, 6
@@ -11817,7 +11817,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %.68391335134113451351 = phi ptr [ %1656, %.thread1347 ], [ %1615, %1686 ]
   %.4.i18.i.i377.i1336134013461350 = phi i32 [ %1655, %.thread1347 ], [ %1614, %1686 ]
   %1689 = lshr i32 %.4.i18.i.i377.i1336134013461350, 18
-  %1690 = trunc nuw i32 %1689 to i8
+  %1690 = trunc nuw nsw i32 %1689 to i8
   %1691 = or disjoint i8 %1690, -16
   store i8 %1691, ptr %1588, align 1, !tbaa !4
   %1692 = lshr i32 %.4.i18.i.i377.i1336134013461350, 12
@@ -12186,7 +12186,7 @@ _ZN8simdjson7haswell13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1877 = ashr i64 %1876, 16
   %1878 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2810, i1 true)
   %1879 = shl i64 %.2810, %1878
-  %1880 = trunc i64 %.28171398 to i32
+  %1880 = trunc nsw i64 %.28171398 to i32
   %1881 = shl nsw i32 %1880, 1
   %1882 = add nsw i32 %1881, 684
   %1883 = zext nneg i32 %1882 to i64
@@ -12636,7 +12636,7 @@ define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12
 
 108:                                              ; preds = %106
   %109 = lshr i32 %.mux.i, 6
-  %110 = trunc nuw i32 %109 to i8
+  %110 = trunc nuw nsw i32 %109 to i8
   %111 = or disjoint i8 %110, -64
   store i8 %111, ptr %30, align 1, !tbaa !4
   %112 = trunc i32 %.mux.i to i8
@@ -12677,7 +12677,7 @@ define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12
   %.5125131167173 = phi ptr [ %99, %.thread169 ], [ %57, %129 ]
   %.4.i10126130168172 = phi i32 [ %98, %.thread169 ], [ %56, %129 ]
   %132 = lshr i32 %.4.i10126130168172, 18
-  %133 = trunc nuw i32 %132 to i8
+  %133 = trunc nuw nsw i32 %132 to i8
   %134 = or disjoint i8 %133, -16
   store i8 %134, ptr %30, align 1, !tbaa !4
   %135 = lshr i32 %.4.i10126130168172, 12
@@ -12886,7 +12886,7 @@ define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19
 
 106:                                              ; preds = %104
   %107 = lshr i32 %55, 6
-  %108 = trunc nuw i32 %107 to i8
+  %108 = trunc nuw nsw i32 %107 to i8
   %109 = or disjoint i8 %108, -64
   store i8 %109, ptr %29, align 1, !tbaa !4
   %110 = trunc i32 %55 to i8
@@ -12902,7 +12902,7 @@ define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19
 
 .thread111.thread:                                ; preds = %58, %67, %.thread111
   %115 = lshr i32 %55, 12
-  %116 = trunc nuw i32 %115 to i8
+  %116 = trunc nuw nsw i32 %115 to i8
   %117 = or disjoint i8 %116, -32
   store i8 %117, ptr %29, align 1, !tbaa !4
   %118 = lshr i32 %55, 6
@@ -12926,7 +12926,7 @@ define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19
   %.5109115149155 = phi ptr [ %99, %.thread151 ], [ %56, %127 ]
   %.0.i14110114150154 = phi i32 [ %98, %.thread151 ], [ %55, %127 ]
   %130 = lshr i32 %.0.i14110114150154, 18
-  %131 = trunc nuw i32 %130 to i8
+  %131 = trunc nuw nsw i32 %130 to i8
   %132 = or disjoint i8 %131, -16
   store i8 %132, ptr %29, align 1, !tbaa !4
   %133 = lshr i32 %.0.i14110114150154, 12
@@ -14793,7 +14793,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7icelake25dom_parser_
 
 157:                                              ; preds = %155
   %158 = lshr i32 %108, 6
-  %159 = trunc nuw i32 %158 to i8
+  %159 = trunc nuw nsw i32 %158 to i8
   %160 = or disjoint i8 %159, -64
   store i8 %160, ptr %82, align 1, !tbaa !4
   %161 = trunc i32 %108 to i8
@@ -14809,7 +14809,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7icelake25dom_parser_
 
 167:                                              ; preds = %165
   %168 = lshr i32 %108, 12
-  %169 = trunc nuw i32 %168 to i8
+  %169 = trunc nuw nsw i32 %168 to i8
   %170 = or disjoint i8 %169, -32
   store i8 %170, ptr %82, align 1, !tbaa !4
   %171 = lshr i32 %108, 6
@@ -14833,7 +14833,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7icelake25dom_parser_
   %.69281065107110751081 = phi ptr [ %150, %.thread1077 ], [ %109, %180 ]
   %.4.i14.i1066107010761080 = phi i32 [ %149, %.thread1077 ], [ %108, %180 ]
   %183 = lshr i32 %.4.i14.i1066107010761080, 18
-  %184 = trunc nuw i32 %183 to i8
+  %184 = trunc nuw nsw i32 %183 to i8
   %185 = or disjoint i8 %184, -16
   store i8 %185, ptr %82, align 1, !tbaa !4
   %186 = lshr i32 %.4.i14.i1066107010761080, 12
@@ -15314,7 +15314,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit:
   %430 = ashr i64 %429, 16
   %431 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.11011, i1 true)
   %432 = shl i64 %.11011, %431
-  %433 = trunc i64 %.110181131 to i32
+  %433 = trunc nsw i64 %.110181131 to i32
   %434 = shl nsw i32 %433, 1
   %435 = add nsw i32 %434, 684
   %436 = zext nneg i32 %435 to i64
@@ -15676,7 +15676,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 667:                                              ; preds = %665
   %668 = lshr i32 %618, 6
-  %669 = trunc nuw i32 %668 to i8
+  %669 = trunc nuw nsw i32 %668 to i8
   %670 = or disjoint i8 %669, -64
   store i8 %670, ptr %592, align 1, !tbaa !4
   %671 = trunc i32 %618 to i8
@@ -15692,7 +15692,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 677:                                              ; preds = %675
   %678 = lshr i32 %618, 12
-  %679 = trunc nuw i32 %678 to i8
+  %679 = trunc nuw nsw i32 %678 to i8
   %680 = or disjoint i8 %679, -32
   store i8 %680, ptr %592, align 1, !tbaa !4
   %681 = lshr i32 %618, 6
@@ -15716,7 +15716,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.610261200120612101216 = phi ptr [ %660, %.thread1212 ], [ %619, %690 ]
   %.4.i14.i581201120512111215 = phi i32 [ %659, %.thread1212 ], [ %618, %690 ]
   %693 = lshr i32 %.4.i14.i581201120512111215, 18
-  %694 = trunc nuw i32 %693 to i8
+  %694 = trunc nuw nsw i32 %693 to i8
   %695 = or disjoint i8 %694, -16
   store i8 %695, ptr %592, align 1, !tbaa !4
   %696 = lshr i32 %.4.i14.i581201120512111215, 12
@@ -16013,7 +16013,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i44:
 
 897:                                              ; preds = %895
   %898 = lshr i32 %848, 6
-  %899 = trunc nuw i32 %898 to i8
+  %899 = trunc nuw nsw i32 %898 to i8
   %900 = or disjoint i8 %899, -64
   store i8 %900, ptr %822, align 1, !tbaa !4
   %901 = trunc i32 %848 to i8
@@ -16029,7 +16029,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i44:
 
 907:                                              ; preds = %905
   %908 = lshr i32 %848, 12
-  %909 = trunc nuw i32 %908 to i8
+  %909 = trunc nuw nsw i32 %908 to i8
   %910 = or disjoint i8 %909, -32
   store i8 %910, ptr %822, align 1, !tbaa !4
   %911 = lshr i32 %848, 6
@@ -16053,7 +16053,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i44:
   %.69881268127412781284 = phi ptr [ %890, %.thread1280 ], [ %849, %920 ]
   %.4.i14.i.i1269127312791283 = phi i32 [ %889, %.thread1280 ], [ %848, %920 ]
   %923 = lshr i32 %.4.i14.i.i1269127312791283, 18
-  %924 = trunc nuw i32 %923 to i8
+  %924 = trunc nuw nsw i32 %923 to i8
   %925 = or disjoint i8 %924, -16
   store i8 %925, ptr %822, align 1, !tbaa !4
   %926 = lshr i32 %.4.i14.i.i1269127312791283, 12
@@ -16420,7 +16420,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1109 = ashr i64 %1108, 16
   %1110 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2974, i1 true)
   %1111 = shl i64 %.2974, %1110
-  %1112 = trunc i64 %.29811331 to i32
+  %1112 = trunc nsw i64 %.29811331 to i32
   %1113 = shl nsw i32 %1112, 1
   %1114 = add nsw i32 %1113, 684
   %1115 = zext nneg i32 %1114 to i64
@@ -16837,7 +16837,7 @@ select.unfold1336:                                ; preds = %.thread1335, %1196,
 
 1377:                                             ; preds = %1375
   %1378 = lshr i32 %1328, 6
-  %1379 = trunc nuw i32 %1378 to i8
+  %1379 = trunc nuw nsw i32 %1378 to i8
   %1380 = or disjoint i8 %1379, -64
   store i8 %1380, ptr %1302, align 1, !tbaa !4
   %1381 = trunc i32 %1328 to i8
@@ -16853,7 +16853,7 @@ select.unfold1336:                                ; preds = %.thread1335, %1196,
 
 1387:                                             ; preds = %1385
   %1388 = lshr i32 %1328, 12
-  %1389 = trunc nuw i32 %1388 to i8
+  %1389 = trunc nuw nsw i32 %1388 to i8
   %1390 = or disjoint i8 %1389, -32
   store i8 %1390, ptr %1302, align 1, !tbaa !4
   %1391 = lshr i32 %1328, 6
@@ -16877,7 +16877,7 @@ select.unfold1336:                                ; preds = %.thread1335, %1196,
   %.610411366137213761382 = phi ptr [ %1370, %.thread1378 ], [ %1329, %1400 ]
   %.4.i14.i281367137113771381 = phi i32 [ %1369, %.thread1378 ], [ %1328, %1400 ]
   %1403 = lshr i32 %.4.i14.i281367137113771381, 18
-  %1404 = trunc nuw i32 %1403 to i8
+  %1404 = trunc nuw nsw i32 %1403 to i8
   %1405 = or disjoint i8 %1404, -16
   store i8 %1405, ptr %1302, align 1, !tbaa !4
   %1406 = lshr i32 %.4.i14.i281367137113771381, 12
@@ -17228,7 +17228,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1647:                                             ; preds = %1645
   %1648 = lshr i32 %1598, 6
-  %1649 = trunc nuw i32 %1648 to i8
+  %1649 = trunc nuw nsw i32 %1648 to i8
   %1650 = or disjoint i8 %1649, -64
   store i8 %1650, ptr %1572, align 1, !tbaa !4
   %1651 = trunc i32 %1598 to i8
@@ -17244,7 +17244,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1657:                                             ; preds = %1655
   %1658 = lshr i32 %1598, 12
-  %1659 = trunc nuw i32 %1658 to i8
+  %1659 = trunc nuw nsw i32 %1658 to i8
   %1660 = or disjoint i8 %1659, -32
   store i8 %1660, ptr %1572, align 1, !tbaa !4
   %1661 = lshr i32 %1598, 6
@@ -17268,7 +17268,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %.69371435144114451451 = phi ptr [ %1640, %.thread1447 ], [ %1599, %1670 ]
   %.4.i14.i.i2011436144014461450 = phi i32 [ %1639, %.thread1447 ], [ %1598, %1670 ]
   %1673 = lshr i32 %.4.i14.i.i2011436144014461450, 18
-  %1674 = trunc nuw i32 %1673 to i8
+  %1674 = trunc nuw nsw i32 %1673 to i8
   %1675 = or disjoint i8 %1674, -16
   store i8 %1675, ptr %1572, align 1, !tbaa !4
   %1676 = lshr i32 %.4.i14.i.i2011436144014461450, 12
@@ -17635,7 +17635,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1859 = ashr i64 %1858, 16
   %1860 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2908, i1 true)
   %1861 = shl i64 %.2908, %1860
-  %1862 = trunc i64 %.29151498 to i32
+  %1862 = trunc nsw i64 %.29151498 to i32
   %1863 = shl nsw i32 %1862, 1
   %1864 = add nsw i32 %1863, 684
   %1865 = zext nneg i32 %1864 to i64
@@ -18156,7 +18156,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7icelake25dom_parser_
 
 147:                                              ; preds = %145
   %148 = lshr i32 %98, 6
-  %149 = trunc nuw i32 %148 to i8
+  %149 = trunc nuw nsw i32 %148 to i8
   %150 = or disjoint i8 %149, -64
   store i8 %150, ptr %72, align 1, !tbaa !4
   %151 = trunc i32 %98 to i8
@@ -18172,7 +18172,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7icelake25dom_parser_
 
 157:                                              ; preds = %155
   %158 = lshr i32 %98, 12
-  %159 = trunc nuw i32 %158 to i8
+  %159 = trunc nuw nsw i32 %158 to i8
   %160 = or disjoint i8 %159, -32
   store i8 %160, ptr %72, align 1, !tbaa !4
   %161 = lshr i32 %98, 6
@@ -18196,7 +18196,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson7icelake25dom_parser_
   %.6700835841845851 = phi ptr [ %140, %.thread847 ], [ %99, %170 ]
   %.4.i14.i.i836840846850 = phi i32 [ %139, %.thread847 ], [ %98, %170 ]
   %173 = lshr i32 %.4.i14.i.i836840846850, 18
-  %174 = trunc nuw i32 %173 to i8
+  %174 = trunc nuw nsw i32 %173 to i8
   %175 = or disjoint i8 %174, -16
   store i8 %175, ptr %72, align 1, !tbaa !4
   %176 = lshr i32 %.4.i14.i.i836840846850, 12
@@ -18682,7 +18682,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %429 = ashr i64 %428, 16
   %430 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2784, i1 true)
   %431 = shl i64 %.2784, %430
-  %432 = trunc i64 %.2791901 to i32
+  %432 = trunc nsw i64 %.2791901 to i32
   %433 = shl nsw i32 %432, 1
   %434 = add nsw i32 %433, 684
   %435 = zext nneg i32 %434 to i64
@@ -19044,7 +19044,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 666:                                              ; preds = %664
   %667 = lshr i32 %617, 6
-  %668 = trunc nuw i32 %667 to i8
+  %668 = trunc nuw nsw i32 %667 to i8
   %669 = or disjoint i8 %668, -64
   store i8 %669, ptr %591, align 1, !tbaa !4
   %670 = trunc i32 %617 to i8
@@ -19060,7 +19060,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 676:                                              ; preds = %674
   %677 = lshr i32 %617, 12
-  %678 = trunc nuw i32 %677 to i8
+  %678 = trunc nuw nsw i32 %677 to i8
   %679 = or disjoint i8 %678, -32
   store i8 %679, ptr %591, align 1, !tbaa !4
   %680 = lshr i32 %617, 6
@@ -19084,7 +19084,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.6813970976980986 = phi ptr [ %659, %.thread982 ], [ %618, %689 ]
   %.4.i14.i200.i971975981985 = phi i32 [ %658, %.thread982 ], [ %617, %689 ]
   %692 = lshr i32 %.4.i14.i200.i971975981985, 18
-  %693 = trunc nuw i32 %692 to i8
+  %693 = trunc nuw nsw i32 %692 to i8
   %694 = or disjoint i8 %693, -16
   store i8 %694, ptr %591, align 1, !tbaa !4
   %695 = lshr i32 %.4.i14.i200.i971975981985, 12
@@ -19381,7 +19381,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i186
 
 896:                                              ; preds = %894
   %897 = lshr i32 %847, 6
-  %898 = trunc nuw i32 %897 to i8
+  %898 = trunc nuw nsw i32 %897 to i8
   %899 = or disjoint i8 %898, -64
   store i8 %899, ptr %821, align 1, !tbaa !4
   %900 = trunc i32 %847 to i8
@@ -19397,7 +19397,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i186
 
 906:                                              ; preds = %904
   %907 = lshr i32 %847, 12
-  %908 = trunc nuw i32 %907 to i8
+  %908 = trunc nuw nsw i32 %907 to i8
   %909 = or disjoint i8 %908, -32
   store i8 %909, ptr %821, align 1, !tbaa !4
   %910 = lshr i32 %847, 6
@@ -19421,7 +19421,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i186
   %.67601038104410481054 = phi ptr [ %889, %.thread1050 ], [ %848, %919 ]
   %.4.i14.i.i.i1039104310491053 = phi i32 [ %888, %.thread1050 ], [ %847, %919 ]
   %922 = lshr i32 %.4.i14.i.i.i1039104310491053, 18
-  %923 = trunc nuw i32 %922 to i8
+  %923 = trunc nuw nsw i32 %922 to i8
   %924 = or disjoint i8 %923, -16
   store i8 %924, ptr %821, align 1, !tbaa !4
   %925 = lshr i32 %.4.i14.i.i.i1039104310491053, 12
@@ -19788,7 +19788,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1108 = ashr i64 %1107, 16
   %1109 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2746, i1 true)
   %1110 = shl i64 %.2746, %1109
-  %1111 = trunc i64 %.27531101 to i32
+  %1111 = trunc nsw i64 %.27531101 to i32
   %1112 = shl nsw i32 %1111, 1
   %1113 = add nsw i32 %1112, 684
   %1114 = zext nneg i32 %1113 to i64
@@ -20205,7 +20205,7 @@ select.unfold1106:                                ; preds = %.thread1105, %1195,
 
 1376:                                             ; preds = %1374
   %1377 = lshr i32 %1327, 6
-  %1378 = trunc nuw i32 %1377 to i8
+  %1378 = trunc nuw nsw i32 %1377 to i8
   %1379 = or disjoint i8 %1378, -64
   store i8 %1379, ptr %1301, align 1, !tbaa !4
   %1380 = trunc i32 %1327 to i8
@@ -20221,7 +20221,7 @@ select.unfold1106:                                ; preds = %.thread1105, %1195,
 
 1386:                                             ; preds = %1384
   %1387 = lshr i32 %1327, 12
-  %1388 = trunc nuw i32 %1387 to i8
+  %1388 = trunc nuw nsw i32 %1387 to i8
   %1389 = or disjoint i8 %1388, -32
   store i8 %1389, ptr %1301, align 1, !tbaa !4
   %1390 = lshr i32 %1327, 6
@@ -20245,7 +20245,7 @@ select.unfold1106:                                ; preds = %.thread1105, %1195,
   %.67981136114211461152 = phi ptr [ %1369, %.thread1148 ], [ %1328, %1399 ]
   %.4.i14.i230.i1137114111471151 = phi i32 [ %1368, %.thread1148 ], [ %1327, %1399 ]
   %1402 = lshr i32 %.4.i14.i230.i1137114111471151, 18
-  %1403 = trunc nuw i32 %1402 to i8
+  %1403 = trunc nuw nsw i32 %1402 to i8
   %1404 = or disjoint i8 %1403, -16
   store i8 %1404, ptr %1301, align 1, !tbaa !4
   %1405 = lshr i32 %.4.i14.i230.i1137114111471151, 12
@@ -20596,7 +20596,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1646:                                             ; preds = %1644
   %1647 = lshr i32 %1597, 6
-  %1648 = trunc nuw i32 %1647 to i8
+  %1648 = trunc nuw nsw i32 %1647 to i8
   %1649 = or disjoint i8 %1648, -64
   store i8 %1649, ptr %1571, align 1, !tbaa !4
   %1650 = trunc i32 %1597 to i8
@@ -20612,7 +20612,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
 
 1656:                                             ; preds = %1654
   %1657 = lshr i32 %1597, 12
-  %1658 = trunc nuw i32 %1657 to i8
+  %1658 = trunc nuw nsw i32 %1657 to i8
   %1659 = or disjoint i8 %1658, -32
   store i8 %1659, ptr %1571, align 1, !tbaa !4
   %1660 = lshr i32 %1597, 6
@@ -20636,7 +20636,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPKh
   %.67091205121112151221 = phi ptr [ %1639, %.thread1217 ], [ %1598, %1669 ]
   %.4.i14.i.i370.i1206121012161220 = phi i32 [ %1638, %.thread1217 ], [ %1597, %1669 ]
   %1672 = lshr i32 %.4.i14.i.i370.i1206121012161220, 18
-  %1673 = trunc nuw i32 %1672 to i8
+  %1673 = trunc nuw nsw i32 %1672 to i8
   %1674 = or disjoint i8 %1673, -16
   store i8 %1674, ptr %1571, align 1, !tbaa !4
   %1675 = lshr i32 %.4.i14.i.i370.i1206121012161220, 12
@@ -21003,7 +21003,7 @@ _ZN8simdjson7icelake13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit.
   %1858 = ashr i64 %1857, 16
   %1859 = tail call noundef range(i64 0, 64) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2680, i1 true)
   %1860 = shl i64 %.2680, %1859
-  %1861 = trunc i64 %.26871268 to i32
+  %1861 = trunc nsw i64 %.26871268 to i32
   %1862 = shl nsw i32 %1861, 1
   %1863 = add nsw i32 %1862, 684
   %1864 = zext nneg i32 %1863 to i64
@@ -21450,7 +21450,7 @@ define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12
 
 105:                                              ; preds = %103
   %106 = lshr i32 %.mux.i, 6
-  %107 = trunc nuw i32 %106 to i8
+  %107 = trunc nuw nsw i32 %106 to i8
   %108 = or disjoint i8 %107, -64
   store i8 %108, ptr %27, align 1, !tbaa !4
   %109 = trunc i32 %.mux.i to i8
@@ -21491,7 +21491,7 @@ define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12
   %.58995131137 = phi ptr [ %96, %.thread133 ], [ %54, %126 ]
   %.4.i69094132136 = phi i32 [ %95, %.thread133 ], [ %53, %126 ]
   %129 = lshr i32 %.4.i69094132136, 18
-  %130 = trunc nuw i32 %129 to i8
+  %130 = trunc nuw nsw i32 %129 to i8
   %131 = or disjoint i8 %130, -16
   store i8 %131, ptr %27, align 1, !tbaa !4
   %132 = lshr i32 %.4.i69094132136, 12
@@ -21696,7 +21696,7 @@ define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19
 
 103:                                              ; preds = %101
   %104 = lshr i32 %52, 6
-  %105 = trunc nuw i32 %104 to i8
+  %105 = trunc nuw nsw i32 %104 to i8
   %106 = or disjoint i8 %105, -64
   store i8 %106, ptr %26, align 1, !tbaa !4
   %107 = trunc i32 %52 to i8
@@ -21712,7 +21712,7 @@ define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19
 
 .thread75.thread:                                 ; preds = %55, %64, %.thread75
   %112 = lshr i32 %52, 12
-  %113 = trunc nuw i32 %112 to i8
+  %113 = trunc nuw nsw i32 %112 to i8
   %114 = or disjoint i8 %113, -32
   store i8 %114, ptr %26, align 1, !tbaa !4
   %115 = lshr i32 %52, 6
@@ -21736,7 +21736,7 @@ define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19
   %.57379113119 = phi ptr [ %96, %.thread115 ], [ %53, %124 ]
   %.0.i47478114118 = phi i32 [ %95, %.thread115 ], [ %52, %124 ]
   %127 = lshr i32 %.0.i47478114118, 18
-  %128 = trunc nuw i32 %127 to i8
+  %128 = trunc nuw nsw i32 %127 to i8
   %129 = or disjoint i8 %128, -16
   store i8 %129, ptr %26, align 1, !tbaa !4
   %130 = lshr i32 %.0.i47478114118, 12
@@ -24511,7 +24511,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
 
 161:                                              ; preds = %159
   %162 = lshr i32 %112, 6
-  %163 = trunc nuw i32 %162 to i8
+  %163 = trunc nuw nsw i32 %162 to i8
   %164 = or disjoint i8 %163, -64
   store i8 %164, ptr %86, align 1, !tbaa !4
   %165 = trunc i32 %112 to i8
@@ -24527,7 +24527,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
 
 171:                                              ; preds = %169
   %172 = lshr i32 %112, 12
-  %173 = trunc nuw i32 %172 to i8
+  %173 = trunc nuw nsw i32 %172 to i8
   %174 = or disjoint i8 %173, -32
   store i8 %174, ptr %86, align 1, !tbaa !4
   %175 = lshr i32 %112, 6
@@ -24551,7 +24551,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
   %.68661003100910131019 = phi ptr [ %154, %.thread1015 ], [ %113, %184 ]
   %.4.i20.i1004100810141018 = phi i32 [ %153, %.thread1015 ], [ %112, %184 ]
   %187 = lshr i32 %.4.i20.i1004100810141018, 18
-  %188 = trunc nuw i32 %187 to i8
+  %188 = trunc nuw nsw i32 %187 to i8
   %189 = or disjoint i8 %188, -16
   store i8 %189, ptr %86, align 1, !tbaa !4
   %190 = lshr i32 %.4.i20.i1004100810141018, 12
@@ -25022,7 +25022,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %427 = ashr i64 %426, 16
   %428 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.1949, i1 true)
   %429 = shl i64 %.1949, %428
-  %430 = trunc i64 %.19561069 to i32
+  %430 = trunc nsw i64 %.19561069 to i32
   %431 = shl nsw i32 %430, 1
   %432 = add nsw i32 %431, 684
   %433 = zext nneg i32 %432 to i64
@@ -25392,7 +25392,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 668:                                              ; preds = %666
   %669 = lshr i32 %619, 6
-  %670 = trunc nuw i32 %669 to i8
+  %670 = trunc nuw nsw i32 %669 to i8
   %671 = or disjoint i8 %670, -64
   store i8 %671, ptr %593, align 1, !tbaa !4
   %672 = trunc i32 %619 to i8
@@ -25408,7 +25408,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 678:                                              ; preds = %676
   %679 = lshr i32 %619, 12
-  %680 = trunc nuw i32 %679 to i8
+  %680 = trunc nuw nsw i32 %679 to i8
   %681 = or disjoint i8 %680, -32
   store i8 %681, ptr %593, align 1, !tbaa !4
   %682 = lshr i32 %619, 6
@@ -25432,7 +25432,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.69641138114411481154 = phi ptr [ %661, %.thread1150 ], [ %620, %691 ]
   %.4.i20.i621139114311491153 = phi i32 [ %660, %.thread1150 ], [ %619, %691 ]
   %694 = lshr i32 %.4.i20.i621139114311491153, 18
-  %695 = trunc nuw i32 %694 to i8
+  %695 = trunc nuw nsw i32 %694 to i8
   %696 = or disjoint i8 %695, -16
   store i8 %696, ptr %593, align 1, !tbaa !4
   %697 = lshr i32 %.4.i20.i621139114311491153, 12
@@ -25729,7 +25729,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i16
 
 895:                                              ; preds = %893
   %896 = lshr i32 %846, 6
-  %897 = trunc nuw i32 %896 to i8
+  %897 = trunc nuw nsw i32 %896 to i8
   %898 = or disjoint i8 %897, -64
   store i8 %898, ptr %820, align 1, !tbaa !4
   %899 = trunc i32 %846 to i8
@@ -25745,7 +25745,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i16
 
 905:                                              ; preds = %903
   %906 = lshr i32 %846, 12
-  %907 = trunc nuw i32 %906 to i8
+  %907 = trunc nuw nsw i32 %906 to i8
   %908 = or disjoint i8 %907, -32
   store i8 %908, ptr %820, align 1, !tbaa !4
   %909 = lshr i32 %846, 6
@@ -25769,7 +25769,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i16
   %.69261206121212161222 = phi ptr [ %888, %.thread1218 ], [ %847, %918 ]
   %.4.i20.i.i1207121112171221 = phi i32 [ %887, %.thread1218 ], [ %846, %918 ]
   %921 = lshr i32 %.4.i20.i.i1207121112171221, 18
-  %922 = trunc nuw i32 %921 to i8
+  %922 = trunc nuw nsw i32 %921 to i8
   %923 = or disjoint i8 %922, -16
   store i8 %923, ptr %820, align 1, !tbaa !4
   %924 = lshr i32 %.4.i20.i.i1207121112171221, 12
@@ -26126,7 +26126,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1100 = ashr i64 %1099, 16
   %1101 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2912, i1 true)
   %1102 = shl i64 %.2912, %1101
-  %1103 = trunc i64 %.29191269 to i32
+  %1103 = trunc nsw i64 %.29191269 to i32
   %1104 = shl nsw i32 %1103, 1
   %1105 = add nsw i32 %1104, 684
   %1106 = zext nneg i32 %1105 to i64
@@ -26551,7 +26551,7 @@ select.unfold1274:                                ; preds = %.thread1273, %1187,
 
 1372:                                             ; preds = %1370
   %1373 = lshr i32 %1323, 6
-  %1374 = trunc nuw i32 %1373 to i8
+  %1374 = trunc nuw nsw i32 %1373 to i8
   %1375 = or disjoint i8 %1374, -64
   store i8 %1375, ptr %1297, align 1, !tbaa !4
   %1376 = trunc i32 %1323 to i8
@@ -26567,7 +26567,7 @@ select.unfold1274:                                ; preds = %.thread1273, %1187,
 
 1382:                                             ; preds = %1380
   %1383 = lshr i32 %1323, 12
-  %1384 = trunc nuw i32 %1383 to i8
+  %1384 = trunc nuw nsw i32 %1383 to i8
   %1385 = or disjoint i8 %1384, -32
   store i8 %1385, ptr %1297, align 1, !tbaa !4
   %1386 = lshr i32 %1323, 6
@@ -26591,7 +26591,7 @@ select.unfold1274:                                ; preds = %.thread1273, %1187,
   %.69791304131013141320 = phi ptr [ %1365, %.thread1316 ], [ %1324, %1395 ]
   %.4.i20.i301305130913151319 = phi i32 [ %1364, %.thread1316 ], [ %1323, %1395 ]
   %1398 = lshr i32 %.4.i20.i301305130913151319, 18
-  %1399 = trunc nuw i32 %1398 to i8
+  %1399 = trunc nuw nsw i32 %1398 to i8
   %1400 = or disjoint i8 %1399, -16
   store i8 %1400, ptr %1297, align 1, !tbaa !4
   %1401 = lshr i32 %.4.i20.i301305130913151319, 12
@@ -26941,7 +26941,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1638:                                             ; preds = %1636
   %1639 = lshr i32 %1589, 6
-  %1640 = trunc nuw i32 %1639 to i8
+  %1640 = trunc nuw nsw i32 %1639 to i8
   %1641 = or disjoint i8 %1640, -64
   store i8 %1641, ptr %1563, align 1, !tbaa !4
   %1642 = trunc i32 %1589 to i8
@@ -26957,7 +26957,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1648:                                             ; preds = %1646
   %1649 = lshr i32 %1589, 12
-  %1650 = trunc nuw i32 %1649 to i8
+  %1650 = trunc nuw nsw i32 %1649 to i8
   %1651 = or disjoint i8 %1650, -32
   store i8 %1651, ptr %1563, align 1, !tbaa !4
   %1652 = lshr i32 %1589, 6
@@ -26981,7 +26981,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.68751373137913831389 = phi ptr [ %1631, %.thread1385 ], [ %1590, %1661 ]
   %.4.i20.i.i2051374137813841388 = phi i32 [ %1630, %.thread1385 ], [ %1589, %1661 ]
   %1664 = lshr i32 %.4.i20.i.i2051374137813841388, 18
-  %1665 = trunc nuw i32 %1664 to i8
+  %1665 = trunc nuw nsw i32 %1664 to i8
   %1666 = or disjoint i8 %1665, -16
   store i8 %1666, ptr %1563, align 1, !tbaa !4
   %1667 = lshr i32 %.4.i20.i.i2051374137813841388, 12
@@ -27338,7 +27338,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1843 = ashr i64 %1842, 16
   %1844 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2846, i1 true)
   %1845 = shl i64 %.2846, %1844
-  %1846 = trunc i64 %.28531436 to i32
+  %1846 = trunc nsw i64 %.28531436 to i32
   %1847 = shl nsw i32 %1846, 1
   %1848 = add nsw i32 %1847, 684
   %1849 = zext nneg i32 %1848 to i64
@@ -27867,7 +27867,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
 
 151:                                              ; preds = %149
   %152 = lshr i32 %102, 6
-  %153 = trunc nuw i32 %152 to i8
+  %153 = trunc nuw nsw i32 %152 to i8
   %154 = or disjoint i8 %153, -64
   store i8 %154, ptr %76, align 1, !tbaa !4
   %155 = trunc i32 %102 to i8
@@ -27883,7 +27883,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
 
 161:                                              ; preds = %159
   %162 = lshr i32 %102, 12
-  %163 = trunc nuw i32 %162 to i8
+  %163 = trunc nuw nsw i32 %162 to i8
   %164 = or disjoint i8 %163, -32
   store i8 %164, ptr %76, align 1, !tbaa !4
   %165 = lshr i32 %102, 6
@@ -27907,7 +27907,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8westmere25dom_parser
   %.6634769775779785 = phi ptr [ %144, %.thread781 ], [ %103, %174 ]
   %.4.i20.i.i770774780784 = phi i32 [ %143, %.thread781 ], [ %102, %174 ]
   %177 = lshr i32 %.4.i20.i.i770774780784, 18
-  %178 = trunc nuw i32 %177 to i8
+  %178 = trunc nuw nsw i32 %177 to i8
   %179 = or disjoint i8 %178, -16
   store i8 %179, ptr %76, align 1, !tbaa !4
   %180 = lshr i32 %.4.i20.i.i770774780784, 12
@@ -28383,7 +28383,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %426 = ashr i64 %425, 16
   %427 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2718, i1 true)
   %428 = shl i64 %.2718, %427
-  %429 = trunc i64 %.2725835 to i32
+  %429 = trunc nsw i64 %.2725835 to i32
   %430 = shl nsw i32 %429, 1
   %431 = add nsw i32 %430, 684
   %432 = zext nneg i32 %431 to i64
@@ -28753,7 +28753,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 667:                                              ; preds = %665
   %668 = lshr i32 %618, 6
-  %669 = trunc nuw i32 %668 to i8
+  %669 = trunc nuw nsw i32 %668 to i8
   %670 = or disjoint i8 %669, -64
   store i8 %670, ptr %592, align 1, !tbaa !4
   %671 = trunc i32 %618 to i8
@@ -28769,7 +28769,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 677:                                              ; preds = %675
   %678 = lshr i32 %618, 12
-  %679 = trunc nuw i32 %678 to i8
+  %679 = trunc nuw nsw i32 %678 to i8
   %680 = or disjoint i8 %679, -32
   store i8 %680, ptr %592, align 1, !tbaa !4
   %681 = lshr i32 %618, 6
@@ -28793,7 +28793,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.6747904910914920 = phi ptr [ %660, %.thread916 ], [ %619, %690 ]
   %.4.i20.i202.i905909915919 = phi i32 [ %659, %.thread916 ], [ %618, %690 ]
   %693 = lshr i32 %.4.i20.i202.i905909915919, 18
-  %694 = trunc nuw i32 %693 to i8
+  %694 = trunc nuw nsw i32 %693 to i8
   %695 = or disjoint i8 %694, -16
   store i8 %695, ptr %592, align 1, !tbaa !4
   %696 = lshr i32 %.4.i20.i202.i905909915919, 12
@@ -29090,7 +29090,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i22
 
 894:                                              ; preds = %892
   %895 = lshr i32 %845, 6
-  %896 = trunc nuw i32 %895 to i8
+  %896 = trunc nuw nsw i32 %895 to i8
   %897 = or disjoint i8 %896, -64
   store i8 %897, ptr %819, align 1, !tbaa !4
   %898 = trunc i32 %845 to i8
@@ -29106,7 +29106,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i22
 
 904:                                              ; preds = %902
   %905 = lshr i32 %845, 12
-  %906 = trunc nuw i32 %905 to i8
+  %906 = trunc nuw nsw i32 %905 to i8
   %907 = or disjoint i8 %906, -32
   store i8 %907, ptr %819, align 1, !tbaa !4
   %908 = lshr i32 %845, 6
@@ -29130,7 +29130,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb.exit.i22
   %.6694972978982988 = phi ptr [ %887, %.thread984 ], [ %846, %917 ]
   %.4.i20.i.i.i973977983987 = phi i32 [ %886, %.thread984 ], [ %845, %917 ]
   %920 = lshr i32 %.4.i20.i.i.i973977983987, 18
-  %921 = trunc nuw i32 %920 to i8
+  %921 = trunc nuw nsw i32 %920 to i8
   %922 = or disjoint i8 %921, -16
   store i8 %922, ptr %819, align 1, !tbaa !4
   %923 = lshr i32 %.4.i20.i.i.i973977983987, 12
@@ -29487,7 +29487,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1099 = ashr i64 %1098, 16
   %1100 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2680, i1 true)
   %1101 = shl i64 %.2680, %1100
-  %1102 = trunc i64 %.26871035 to i32
+  %1102 = trunc nsw i64 %.26871035 to i32
   %1103 = shl nsw i32 %1102, 1
   %1104 = add nsw i32 %1103, 684
   %1105 = zext nneg i32 %1104 to i64
@@ -29912,7 +29912,7 @@ select.unfold1040:                                ; preds = %.thread1039, %1186,
 
 1371:                                             ; preds = %1369
   %1372 = lshr i32 %1322, 6
-  %1373 = trunc nuw i32 %1372 to i8
+  %1373 = trunc nuw nsw i32 %1372 to i8
   %1374 = or disjoint i8 %1373, -64
   store i8 %1374, ptr %1296, align 1, !tbaa !4
   %1375 = trunc i32 %1322 to i8
@@ -29928,7 +29928,7 @@ select.unfold1040:                                ; preds = %.thread1039, %1186,
 
 1381:                                             ; preds = %1379
   %1382 = lshr i32 %1322, 12
-  %1383 = trunc nuw i32 %1382 to i8
+  %1383 = trunc nuw nsw i32 %1382 to i8
   %1384 = or disjoint i8 %1383, -32
   store i8 %1384, ptr %1296, align 1, !tbaa !4
   %1385 = lshr i32 %1322, 6
@@ -29952,7 +29952,7 @@ select.unfold1040:                                ; preds = %.thread1039, %1186,
   %.67321070107610801086 = phi ptr [ %1364, %.thread1082 ], [ %1323, %1394 ]
   %.4.i20.i234.i1071107510811085 = phi i32 [ %1363, %.thread1082 ], [ %1322, %1394 ]
   %1397 = lshr i32 %.4.i20.i234.i1071107510811085, 18
-  %1398 = trunc nuw i32 %1397 to i8
+  %1398 = trunc nuw nsw i32 %1397 to i8
   %1399 = or disjoint i8 %1398, -16
   store i8 %1399, ptr %1296, align 1, !tbaa !4
   %1400 = lshr i32 %.4.i20.i234.i1071107510811085, 12
@@ -30302,7 +30302,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1637:                                             ; preds = %1635
   %1638 = lshr i32 %1588, 6
-  %1639 = trunc nuw i32 %1638 to i8
+  %1639 = trunc nuw nsw i32 %1638 to i8
   %1640 = or disjoint i8 %1639, -64
   store i8 %1640, ptr %1562, align 1, !tbaa !4
   %1641 = trunc i32 %1588 to i8
@@ -30318,7 +30318,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1647:                                             ; preds = %1645
   %1648 = lshr i32 %1588, 12
-  %1649 = trunc nuw i32 %1648 to i8
+  %1649 = trunc nuw nsw i32 %1648 to i8
   %1650 = or disjoint i8 %1649, -32
   store i8 %1650, ptr %1562, align 1, !tbaa !4
   %1651 = lshr i32 %1588, 6
@@ -30342,7 +30342,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.66431139114511491155 = phi ptr [ %1630, %.thread1151 ], [ %1589, %1660 ]
   %.4.i20.i.i374.i1140114411501154 = phi i32 [ %1629, %.thread1151 ], [ %1588, %1660 ]
   %1663 = lshr i32 %.4.i20.i.i374.i1140114411501154, 18
-  %1664 = trunc nuw i32 %1663 to i8
+  %1664 = trunc nuw nsw i32 %1663 to i8
   %1665 = or disjoint i8 %1664, -16
   store i8 %1665, ptr %1562, align 1, !tbaa !4
   %1666 = lshr i32 %.4.i20.i.i374.i1140114411501154, 12
@@ -30699,7 +30699,7 @@ _ZN8simdjson8westmere13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1842 = ashr i64 %1841, 16
   %1843 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2614, i1 true)
   %1844 = shl i64 %.2614, %1843
-  %1845 = trunc i64 %.26211202 to i32
+  %1845 = trunc nsw i64 %.26211202 to i32
   %1846 = shl nsw i32 %1845, 1
   %1847 = add nsw i32 %1846, 684
   %1848 = zext nneg i32 %1847 to i64
@@ -31153,7 +31153,7 @@ define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation1
 
 109:                                              ; preds = %107
   %110 = lshr i32 %.mux.i, 6
-  %111 = trunc nuw i32 %110 to i8
+  %111 = trunc nuw nsw i32 %110 to i8
   %112 = or disjoint i8 %111, -64
   store i8 %112, ptr %31, align 1, !tbaa !4
   %113 = trunc i32 %.mux.i to i8
@@ -31194,7 +31194,7 @@ define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation1
   %.5100106142148 = phi ptr [ %100, %.thread144 ], [ %58, %130 ]
   %.4.i12101105143147 = phi i32 [ %99, %.thread144 ], [ %57, %130 ]
   %133 = lshr i32 %.4.i12101105143147, 18
-  %134 = trunc nuw i32 %133 to i8
+  %134 = trunc nuw nsw i32 %133 to i8
   %135 = or disjoint i8 %134, -16
   store i8 %135, ptr %31, align 1, !tbaa !4
   %136 = lshr i32 %.4.i12101105143147, 12
@@ -31397,7 +31397,7 @@ define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation1
 
 107:                                              ; preds = %105
   %108 = lshr i32 %56, 6
-  %109 = trunc nuw i32 %108 to i8
+  %109 = trunc nuw nsw i32 %108 to i8
   %110 = or disjoint i8 %109, -64
   store i8 %110, ptr %30, align 1, !tbaa !4
   %111 = trunc i32 %56 to i8
@@ -31413,7 +31413,7 @@ define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation1
 
 .thread86.thread:                                 ; preds = %59, %68, %.thread86
   %116 = lshr i32 %56, 12
-  %117 = trunc nuw i32 %116 to i8
+  %117 = trunc nuw nsw i32 %116 to i8
   %118 = or disjoint i8 %117, -32
   store i8 %118, ptr %30, align 1, !tbaa !4
   %119 = lshr i32 %56, 6
@@ -31437,7 +31437,7 @@ define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation1
   %.58490124130 = phi ptr [ %100, %.thread126 ], [ %57, %128 ]
   %.0.i288589125129 = phi i32 [ %99, %.thread126 ], [ %56, %128 ]
   %131 = lshr i32 %.0.i288589125129, 18
-  %132 = trunc nuw i32 %131 to i8
+  %132 = trunc nuw nsw i32 %131 to i8
   %133 = or disjoint i8 %132, -16
   store i8 %133, ptr %30, align 1, !tbaa !4
   %134 = lshr i32 %.0.i288589125129, 12
@@ -32598,7 +32598,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8fallback25dom_parser
 
 149:                                              ; preds = %147
   %150 = lshr i32 %100, 6
-  %151 = trunc nuw i32 %150 to i8
+  %151 = trunc nuw nsw i32 %150 to i8
   %152 = or disjoint i8 %151, -64
   store i8 %152, ptr %.0662, align 1, !tbaa !4
   %153 = trunc i32 %100 to i8
@@ -32614,7 +32614,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8fallback25dom_parser
 
 159:                                              ; preds = %157
   %160 = lshr i32 %100, 12
-  %161 = trunc nuw i32 %160 to i8
+  %161 = trunc nuw nsw i32 %160 to i8
   %162 = or disjoint i8 %161, -32
   store i8 %162, ptr %.0662, align 1, !tbaa !4
   %163 = lshr i32 %100, 6
@@ -32638,7 +32638,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8fallback25dom_parser
   %.6674793799803809 = phi ptr [ %142, %.thread805 ], [ %101, %172 ]
   %.4.i11.i794798804808 = phi i32 [ %141, %.thread805 ], [ %100, %172 ]
   %175 = lshr i32 %.4.i11.i794798804808, 18
-  %176 = trunc nuw i32 %175 to i8
+  %176 = trunc nuw nsw i32 %175 to i8
   %177 = or disjoint i8 %176, -16
   store i8 %177, ptr %.0662, align 1, !tbaa !4
   %178 = lshr i32 %.4.i11.i794798804808, 12
@@ -33105,7 +33105,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %408 = ashr i64 %407, 16
   %409 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.1725, i1 true)
   %410 = shl i64 %.1725, %409
-  %411 = trunc i64 %.1722860 to i32
+  %411 = trunc nsw i64 %.1722860 to i32
   %412 = shl nsw i32 %411, 1
   %413 = add nsw i32 %412, 684
   %414 = zext nneg i32 %413 to i64
@@ -33472,7 +33472,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 632:                                              ; preds = %630
   %633 = lshr i32 %583, 6
-  %634 = trunc nuw i32 %633 to i8
+  %634 = trunc nuw nsw i32 %633 to i8
   %635 = or disjoint i8 %634, -64
   store i8 %635, ptr %.0706, align 1, !tbaa !4
   %636 = trunc i32 %583 to i8
@@ -33488,7 +33488,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 642:                                              ; preds = %640
   %643 = lshr i32 %583, 12
-  %644 = trunc nuw i32 %643 to i8
+  %644 = trunc nuw nsw i32 %643 to i8
   %645 = or disjoint i8 %644, -32
   store i8 %645, ptr %.0706, align 1, !tbaa !4
   %646 = lshr i32 %583, 6
@@ -33512,7 +33512,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.6718927933937943 = phi ptr [ %625, %.thread939 ], [ %584, %655 ]
   %.4.i11.i54928932938942 = phi i32 [ %624, %.thread939 ], [ %583, %655 ]
   %658 = lshr i32 %.4.i11.i54928932938942, 18
-  %659 = trunc nuw i32 %658 to i8
+  %659 = trunc nuw nsw i32 %658 to i8
   %660 = or disjoint i8 %659, -16
   store i8 %660, ptr %.0706, align 1, !tbaa !4
   %661 = lshr i32 %.4.i11.i54928932938942, 12
@@ -33773,7 +33773,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 833:                                              ; preds = %831
   %834 = lshr i32 %784, 6
-  %835 = trunc nuw i32 %834 to i8
+  %835 = trunc nuw nsw i32 %834 to i8
   %836 = or disjoint i8 %835, -64
   store i8 %836, ptr %.0745, align 1, !tbaa !4
   %837 = trunc i32 %784 to i8
@@ -33789,7 +33789,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 843:                                              ; preds = %841
   %844 = lshr i32 %784, 12
-  %845 = trunc nuw i32 %844 to i8
+  %845 = trunc nuw nsw i32 %844 to i8
   %846 = or disjoint i8 %845, -32
   store i8 %846, ptr %.0745, align 1, !tbaa !4
   %847 = lshr i32 %784, 6
@@ -33813,7 +33813,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6757995100110051011 = phi ptr [ %826, %.thread1007 ], [ %785, %856 ]
   %.4.i11.i.i996100010061010 = phi i32 [ %825, %.thread1007 ], [ %784, %856 ]
   %859 = lshr i32 %.4.i11.i.i996100010061010, 18
-  %860 = trunc nuw i32 %859 to i8
+  %860 = trunc nuw nsw i32 %859 to i8
   %861 = or disjoint i8 %860, -16
   store i8 %861, ptr %.0745, align 1, !tbaa !4
   %862 = lshr i32 %.4.i11.i.i996100010061010, 12
@@ -34170,7 +34170,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1034 = ashr i64 %1033, 16
   %1035 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2765, i1 true)
   %1036 = shl i64 %.2765, %1035
-  %1037 = trunc i64 %.27621059 to i32
+  %1037 = trunc nsw i64 %.27621059 to i32
   %1038 = shl nsw i32 %1037, 1
   %1039 = add nsw i32 %1038, 684
   %1040 = zext nneg i32 %1039 to i64
@@ -34585,7 +34585,7 @@ select.unfold1062:                                ; preds = %.thread1061, %1123,
 
 1288:                                             ; preds = %1286
   %1289 = lshr i32 %1239, 6
-  %1290 = trunc nuw i32 %1289 to i8
+  %1290 = trunc nuw nsw i32 %1289 to i8
   %1291 = or disjoint i8 %1290, -64
   store i8 %1291, ptr %.0685, align 1, !tbaa !4
   %1292 = trunc i32 %1239 to i8
@@ -34601,7 +34601,7 @@ select.unfold1062:                                ; preds = %.thread1061, %1123,
 
 1298:                                             ; preds = %1296
   %1299 = lshr i32 %1239, 12
-  %1300 = trunc nuw i32 %1299 to i8
+  %1300 = trunc nuw nsw i32 %1299 to i8
   %1301 = or disjoint i8 %1300, -32
   store i8 %1301, ptr %.0685, align 1, !tbaa !4
   %1302 = lshr i32 %1239, 6
@@ -34625,7 +34625,7 @@ select.unfold1062:                                ; preds = %.thread1061, %1123,
   %.66971090109611001106 = phi ptr [ %1281, %.thread1102 ], [ %1240, %1311 ]
   %.4.i11.i261091109511011105 = phi i32 [ %1280, %.thread1102 ], [ %1239, %1311 ]
   %1314 = lshr i32 %.4.i11.i261091109511011105, 18
-  %1315 = trunc nuw i32 %1314 to i8
+  %1315 = trunc nuw nsw i32 %1314 to i8
   %1316 = or disjoint i8 %1315, -16
   store i8 %1316, ptr %.0685, align 1, !tbaa !4
   %1317 = lshr i32 %.4.i11.i261091109511011105, 12
@@ -34943,7 +34943,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1531:                                             ; preds = %1529
   %1532 = lshr i32 %1482, 6
-  %1533 = trunc nuw i32 %1532 to i8
+  %1533 = trunc nuw nsw i32 %1532 to i8
   %1534 = or disjoint i8 %1533, -64
   store i8 %1534, ptr %.0700, align 1, !tbaa !4
   %1535 = trunc i32 %1482 to i8
@@ -34959,7 +34959,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1541:                                             ; preds = %1539
   %1542 = lshr i32 %1482, 12
-  %1543 = trunc nuw i32 %1542 to i8
+  %1543 = trunc nuw nsw i32 %1542 to i8
   %1544 = or disjoint i8 %1543, -32
   store i8 %1544, ptr %.0700, align 1, !tbaa !4
   %1545 = lshr i32 %1482, 6
@@ -34983,7 +34983,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.66821159116511691175 = phi ptr [ %1524, %.thread1171 ], [ %1483, %1554 ]
   %.4.i11.i.i1951160116411701174 = phi i32 [ %1523, %.thread1171 ], [ %1482, %1554 ]
   %1557 = lshr i32 %.4.i11.i.i1951160116411701174, 18
-  %1558 = trunc nuw i32 %1557 to i8
+  %1558 = trunc nuw nsw i32 %1557 to i8
   %1559 = or disjoint i8 %1558, -16
   store i8 %1559, ptr %.0700, align 1, !tbaa !4
   %1560 = lshr i32 %.4.i11.i.i1951160116411701174, 12
@@ -35340,7 +35340,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1732 = ashr i64 %1731, 16
   %1733 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2654, i1 true)
   %1734 = shl i64 %.2654, %1733
-  %1735 = trunc i64 %.26611222 to i32
+  %1735 = trunc nsw i64 %.26611222 to i32
   %1736 = shl nsw i32 %1735, 1
   %1737 = add nsw i32 %1736, 684
   %1738 = zext nneg i32 %1737 to i64
@@ -35865,7 +35865,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8fallback25dom_parser
 
 139:                                              ; preds = %137
   %140 = lshr i32 %90, 6
-  %141 = trunc nuw i32 %140 to i8
+  %141 = trunc nuw nsw i32 %140 to i8
   %142 = or disjoint i8 %141, -64
   store i8 %142, ptr %.0441, align 1, !tbaa !4
   %143 = trunc i32 %90 to i8
@@ -35881,7 +35881,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8fallback25dom_parser
 
 149:                                              ; preds = %147
   %150 = lshr i32 %90, 12
-  %151 = trunc nuw i32 %150 to i8
+  %151 = trunc nuw nsw i32 %150 to i8
   %152 = or disjoint i8 %151, -32
   store i8 %152, ptr %.0441, align 1, !tbaa !4
   %153 = lshr i32 %90, 6
@@ -35905,7 +35905,7 @@ define dso_local noundef range(i32 0, 14) i32 @_ZN8simdjson8fallback25dom_parser
   %.6453570576580586 = phi ptr [ %132, %.thread582 ], [ %91, %162 ]
   %.4.i11.i.i571575581585 = phi i32 [ %131, %.thread582 ], [ %90, %162 ]
   %165 = lshr i32 %.4.i11.i.i571575581585, 18
-  %166 = trunc nuw i32 %165 to i8
+  %166 = trunc nuw nsw i32 %165 to i8
   %167 = or disjoint i8 %166, -16
   store i8 %167, ptr %.0441, align 1, !tbaa !4
   %168 = lshr i32 %.4.i11.i.i571575581585, 12
@@ -36377,7 +36377,7 @@ _ZN8simdjson8fallback13numberparsing11write_floatINS0_12_GLOBAL__N_16stage211tap
   %407 = ashr i64 %406, 16
   %408 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2505, i1 true)
   %409 = shl i64 %.2505, %408
-  %410 = trunc i64 %.2502637 to i32
+  %410 = trunc nsw i64 %.2502637 to i32
   %411 = shl nsw i32 %410, 1
   %412 = add nsw i32 %411, 684
   %413 = zext nneg i32 %412 to i64
@@ -36744,7 +36744,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 631:                                              ; preds = %629
   %632 = lshr i32 %582, 6
-  %633 = trunc nuw i32 %632 to i8
+  %633 = trunc nuw nsw i32 %632 to i8
   %634 = or disjoint i8 %633, -64
   store i8 %634, ptr %.0464, align 1, !tbaa !4
   %635 = trunc i32 %582 to i8
@@ -36760,7 +36760,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 641:                                              ; preds = %639
   %642 = lshr i32 %582, 12
-  %643 = trunc nuw i32 %642 to i8
+  %643 = trunc nuw nsw i32 %642 to i8
   %644 = or disjoint i8 %643, -32
   store i8 %644, ptr %.0464, align 1, !tbaa !4
   %645 = lshr i32 %582, 6
@@ -36784,7 +36784,7 @@ _ZNKSt14default_deleteIA_hEclIhEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %.6476704710714720 = phi ptr [ %624, %.thread716 ], [ %583, %654 ]
   %.4.i11.i198.i705709715719 = phi i32 [ %623, %.thread716 ], [ %582, %654 ]
   %657 = lshr i32 %.4.i11.i198.i705709715719, 18
-  %658 = trunc nuw i32 %657 to i8
+  %658 = trunc nuw nsw i32 %657 to i8
   %659 = or disjoint i8 %658, -16
   store i8 %659, ptr %.0464, align 1, !tbaa !4
   %660 = lshr i32 %.4.i11.i198.i705709715719, 12
@@ -37045,7 +37045,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 832:                                              ; preds = %830
   %833 = lshr i32 %783, 6
-  %834 = trunc nuw i32 %833 to i8
+  %834 = trunc nuw nsw i32 %833 to i8
   %835 = or disjoint i8 %834, -64
   store i8 %835, ptr %.0524, align 1, !tbaa !4
   %836 = trunc i32 %783 to i8
@@ -37061,7 +37061,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 842:                                              ; preds = %840
   %843 = lshr i32 %783, 12
-  %844 = trunc nuw i32 %843 to i8
+  %844 = trunc nuw nsw i32 %843 to i8
   %845 = or disjoint i8 %844, -32
   store i8 %845, ptr %.0524, align 1, !tbaa !4
   %846 = lshr i32 %783, 6
@@ -37085,7 +37085,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6536772778782788 = phi ptr [ %825, %.thread784 ], [ %784, %855 ]
   %.4.i11.i.i.i773777783787 = phi i32 [ %824, %.thread784 ], [ %783, %855 ]
   %858 = lshr i32 %.4.i11.i.i.i773777783787, 18
-  %859 = trunc nuw i32 %858 to i8
+  %859 = trunc nuw nsw i32 %858 to i8
   %860 = or disjoint i8 %859, -16
   store i8 %860, ptr %.0524, align 1, !tbaa !4
   %861 = lshr i32 %.4.i11.i.i.i773777783787, 12
@@ -37442,7 +37442,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1033 = ashr i64 %1032, 16
   %1034 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2544, i1 true)
   %1035 = shl i64 %.2544, %1034
-  %1036 = trunc i64 %.2541836 to i32
+  %1036 = trunc nsw i64 %.2541836 to i32
   %1037 = shl nsw i32 %1036, 1
   %1038 = add nsw i32 %1037, 684
   %1039 = zext nneg i32 %1038 to i64
@@ -37857,7 +37857,7 @@ select.unfold839:                                 ; preds = %.thread838, %1122, 
 
 1287:                                             ; preds = %1285
   %1288 = lshr i32 %1238, 6
-  %1289 = trunc nuw i32 %1288 to i8
+  %1289 = trunc nuw nsw i32 %1288 to i8
   %1290 = or disjoint i8 %1289, -64
   store i8 %1290, ptr %.0485, align 1, !tbaa !4
   %1291 = trunc i32 %1238 to i8
@@ -37873,7 +37873,7 @@ select.unfold839:                                 ; preds = %.thread838, %1122, 
 
 1297:                                             ; preds = %1295
   %1298 = lshr i32 %1238, 12
-  %1299 = trunc nuw i32 %1298 to i8
+  %1299 = trunc nuw nsw i32 %1298 to i8
   %1300 = or disjoint i8 %1299, -32
   store i8 %1300, ptr %.0485, align 1, !tbaa !4
   %1301 = lshr i32 %1238, 6
@@ -37897,7 +37897,7 @@ select.unfold839:                                 ; preds = %.thread838, %1122, 
   %.6497867873877883 = phi ptr [ %1280, %.thread879 ], [ %1239, %1310 ]
   %.4.i11.i226.i868872878882 = phi i32 [ %1279, %.thread879 ], [ %1238, %1310 ]
   %1313 = lshr i32 %.4.i11.i226.i868872878882, 18
-  %1314 = trunc nuw i32 %1313 to i8
+  %1314 = trunc nuw nsw i32 %1313 to i8
   %1315 = or disjoint i8 %1314, -16
   store i8 %1315, ptr %.0485, align 1, !tbaa !4
   %1316 = lshr i32 %.4.i11.i226.i868872878882, 12
@@ -38215,7 +38215,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1530:                                             ; preds = %1528
   %1531 = lshr i32 %1481, 6
-  %1532 = trunc nuw i32 %1531 to i8
+  %1532 = trunc nuw nsw i32 %1531 to i8
   %1533 = or disjoint i8 %1532, -64
   store i8 %1533, ptr %.0479, align 1, !tbaa !4
   %1534 = trunc i32 %1481 to i8
@@ -38231,7 +38231,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
 
 1540:                                             ; preds = %1538
   %1541 = lshr i32 %1481, 12
-  %1542 = trunc nuw i32 %1541 to i8
+  %1542 = trunc nuw nsw i32 %1541 to i8
   %1543 = or disjoint i8 %1542, -32
   store i8 %1543, ptr %.0479, align 1, !tbaa !4
   %1544 = lshr i32 %1481, 6
@@ -38255,7 +38255,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_113stringparsing24handle_unicode_codepointEPPK
   %.6461936942946952 = phi ptr [ %1523, %.thread948 ], [ %1482, %1553 ]
   %.4.i11.i.i364.i937941947951 = phi i32 [ %1522, %.thread948 ], [ %1481, %1553 ]
   %1556 = lshr i32 %.4.i11.i.i364.i937941947951, 18
-  %1557 = trunc nuw i32 %1556 to i8
+  %1557 = trunc nuw nsw i32 %1556 to i8
   %1558 = or disjoint i8 %1557, -16
   store i8 %1558, ptr %.0479, align 1, !tbaa !4
   %1559 = lshr i32 %.4.i11.i.i364.i937941947951, 12
@@ -38612,7 +38612,7 @@ _ZN8simdjson8fallback13numberparsing12_GLOBAL__N_118significant_digitsEPKhm.exit
   %1731 = ashr i64 %1730, 16
   %1732 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, 0) %.2433, i1 true)
   %1733 = shl i64 %.2433, %1732
-  %1734 = trunc i64 %.2440999 to i32
+  %1734 = trunc nsw i64 %.2440999 to i32
   %1735 = shl nsw i32 %1734, 1
   %1736 = add nsw i32 %1735, 684
   %1737 = zext nneg i32 %1736 to i64
@@ -39050,7 +39050,7 @@ define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation1
 
 89:                                               ; preds = %87
   %90 = lshr i32 %.mux.i, 6
-  %91 = trunc nuw i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or disjoint i8 %91, -64
   store i8 %92, ptr %.025, align 1, !tbaa !4
   %93 = trunc i32 %.mux.i to i8
@@ -39091,7 +39091,7 @@ define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation1
   %.543498591 = phi ptr [ %80, %.thread87 ], [ %38, %110 ]
   %.4.i344488690 = phi i32 [ %79, %.thread87 ], [ %37, %110 ]
   %113 = lshr i32 %.4.i344488690, 18
-  %114 = trunc nuw i32 %113 to i8
+  %114 = trunc nuw nsw i32 %113 to i8
   %115 = or disjoint i8 %114, -16
   store i8 %115, ptr %.025, align 1, !tbaa !4
   %116 = lshr i32 %.4.i344488690, 12
@@ -39256,7 +39256,7 @@ define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation1
 
 87:                                               ; preds = %85
   %88 = lshr i32 %36, 6
-  %89 = trunc nuw i32 %88 to i8
+  %89 = trunc nuw nsw i32 %88 to i8
   %90 = or disjoint i8 %89, -64
   store i8 %90, ptr %.020, align 1, !tbaa !4
   %91 = trunc i32 %36 to i8
@@ -39272,7 +39272,7 @@ define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation1
 
 .thread30.thread:                                 ; preds = %39, %48, %.thread30
   %96 = lshr i32 %36, 12
-  %97 = trunc nuw i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   %98 = or disjoint i8 %97, -32
   store i8 %98, ptr %.020, align 1, !tbaa !4
   %99 = lshr i32 %36, 6
@@ -39296,7 +39296,7 @@ define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation1
   %.528346874 = phi ptr [ %80, %.thread70 ], [ %37, %108 ]
   %.0.i229336973 = phi i32 [ %79, %.thread70 ], [ %36, %108 ]
   %111 = lshr i32 %.0.i229336973, 18
-  %112 = trunc nuw i32 %111 to i8
+  %112 = trunc nuw nsw i32 %111 to i8
   %113 = or disjoint i8 %112, -16
   store i8 %113, ptr %.020, align 1, !tbaa !4
   %114 = lshr i32 %.0.i229336973, 12

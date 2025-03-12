@@ -3368,7 +3368,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
   store i32 %206, ptr %6, align 8
   %207 = load i32, ptr %183, align 8
   store i32 %207, ptr %184, align 4
-  %208 = trunc i8 %.09631798 to i1
+  %208 = trunc nuw i8 %.09631798 to i1
   %209 = call noundef zeroext i16 @_ZN13ClassVerifier21verify_stackmap_tableEtiP13StackMapFrameP13StackMapTablebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i16 noundef zeroext %.01799, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %11, i1 noundef zeroext %208, ptr noundef nonnull %2)
   %210 = load ptr, ptr %122, align 8
   %211 = icmp ne ptr %210, null

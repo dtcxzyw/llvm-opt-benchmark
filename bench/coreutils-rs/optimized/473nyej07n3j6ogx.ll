@@ -2723,13 +2723,13 @@ define void @_ZN12uu_dircolors6escape17h0970d982198a26fdE(ptr noalias noundef wr
   br i1 %57, label %67, label %78
 
 58:                                               ; preds = %.thread43, %52
-  %59 = trunc nuw i32 %.sroa.4.0.i.ph41 to i8
+  %59 = trunc nuw nsw i32 %.sroa.4.0.i.ph41 to i8
   store i8 %59, ptr %.sroa.0.i, align 4, !alias.scope !560, !noalias !557
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 60:                                               ; preds = %54
   %61 = lshr i32 %.sroa.4.0.i.ph41, 6
-  %62 = trunc nuw i32 %61 to i8
+  %62 = trunc nuw nsw i32 %61 to i8
   %63 = or disjoint i8 %62, -64
   store i8 %63, ptr %.sroa.0.i, align 4, !alias.scope !560, !noalias !557
   %64 = trunc i32 %.sroa.4.0.i.ph41 to i8
@@ -2740,7 +2740,7 @@ define void @_ZN12uu_dircolors6escape17h0970d982198a26fdE(ptr noalias noundef wr
 
 67:                                               ; preds = %56
   %68 = lshr i32 %.sroa.4.0.i.ph41, 12
-  %69 = trunc nuw i32 %68 to i8
+  %69 = trunc nuw nsw i32 %68 to i8
   %70 = or disjoint i8 %69, -32
   store i8 %70, ptr %.sroa.0.i, align 4, !alias.scope !560, !noalias !557
   %71 = lshr i32 %.sroa.4.0.i.ph41, 6

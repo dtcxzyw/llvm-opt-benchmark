@@ -2060,7 +2060,7 @@ define void @_ZN5folly3ssl12OpenSSLUtils16encodeALPNStringERKSt6vectorINSt7__cxx
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 17:                                               ; preds = %.lr.ph
-  %18 = trunc nuw i64 %10 to i32
+  %18 = trunc nuw nsw i64 %10 to i32
   %19 = add i32 %.032, 1
   %20 = add i32 %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.025.031, i64 32

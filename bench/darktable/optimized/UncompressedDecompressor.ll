@@ -1513,7 +1513,7 @@ _ZN8rawspeed10ByteStream9getStreamEjj.exit:       ; preds = %13
   unreachable
 
 _ZNK8rawspeed24UncompressedDecompressor11sanityCheckEPKji.exit: ; preds = %97
-  %104 = trunc i64 %92 to i32
+  %104 = trunc nuw nsw i64 %92 to i32
   %105 = sub nsw i32 %4, %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %105, ptr %106, align 4, !tbaa !159

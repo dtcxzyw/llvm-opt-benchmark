@@ -2065,7 +2065,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %9 = load i128, ptr %7, align 16, !range !256, !noalias !257, !noundef !7
   %10 = add nsw i128 %9, -3
-  %11 = trunc nsw i128 %10 to i64
+  %11 = trunc nuw nsw i128 %10 to i64
   %12 = icmp ult i128 %10, 35
   %13 = select i1 %12, i64 %11, i64 25
   switch i64 %13, label %22 [
@@ -2078,7 +2078,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %15 = load ptr, ptr %14, align 16, !noalias !257, !nonnull !7, !align !258, !noundef !7
   %16 = load i128, ptr %15, align 16, !range !256, !noalias !257, !noundef !7
   %17 = add nsw i128 %16, -3
-  %18 = trunc nsw i128 %17 to i64
+  %18 = trunc nuw nsw i128 %17 to i64
   %19 = icmp ugt i128 %17, 34
   %20 = icmp ne i64 %18, 24
   %.not2.i.i.i.i = select i1 %19, i1 true, i1 %20
@@ -2655,7 +2655,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %9 = load i128, ptr %7, align 16, !range !256, !noalias !506, !noundef !7
   %10 = add nsw i128 %9, -3
-  %11 = trunc nsw i128 %10 to i64
+  %11 = trunc nuw nsw i128 %10 to i64
   %12 = icmp ult i128 %10, 35
   %13 = select i1 %12, i64 %11, i64 25
   switch i64 %13, label %22 [
@@ -2668,7 +2668,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %15 = load ptr, ptr %14, align 16, !noalias !506, !nonnull !7, !align !258, !noundef !7
   %16 = load i128, ptr %15, align 16, !range !256, !noalias !506, !noundef !7
   %17 = add nsw i128 %16, -3
-  %18 = trunc nsw i128 %17 to i64
+  %18 = trunc nuw nsw i128 %17 to i64
   %19 = icmp ugt i128 %17, 34
   %20 = icmp ne i64 %18, 24
   %.not2.i.i.i.i = select i1 %19, i1 true, i1 %20
@@ -3952,7 +3952,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN108_$LT$cor
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %7 = load i128, ptr %5, align 16, !range !256, !noalias !931, !noundef !7
   %8 = add nsw i128 %7, -3
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 35
   %11 = select i1 %10, i64 %9, i64 25
   switch i64 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split.i" [
@@ -3965,7 +3965,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN108_$LT$cor
   %13 = load ptr, ptr %12, align 16, !noalias !931, !nonnull !7, !align !258, !noundef !7
   %14 = load i128, ptr %13, align 16, !range !256, !noalias !931, !noundef !7
   %15 = add nsw i128 %14, -3
-  %16 = trunc nsw i128 %15 to i64
+  %16 = trunc nuw nsw i128 %15 to i64
   %17 = icmp ugt i128 %15, 34
   %18 = icmp ne i64 %16, 24
   %.not2.i.i.i = select i1 %17, i1 true, i1 %18
@@ -4081,7 +4081,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN108_$LT$cor
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %7 = load i128, ptr %5, align 16, !range !256, !noalias !990, !noundef !7
   %8 = add nsw i128 %7, -3
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 35
   %11 = select i1 %10, i64 %9, i64 25
   switch i64 %11, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split.i" [
@@ -4094,7 +4094,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN108_$LT$cor
   %13 = load ptr, ptr %12, align 16, !noalias !990, !nonnull !7, !align !258, !noundef !7
   %14 = load i128, ptr %13, align 16, !range !256, !noalias !990, !noundef !7
   %15 = add nsw i128 %14, -3
-  %16 = trunc nsw i128 %15 to i64
+  %16 = trunc nuw nsw i128 %15 to i64
   %17 = icmp ugt i128 %15, 34
   %18 = icmp ne i64 %16, 24
   %.not2.i.i.i = select i1 %17, i1 true, i1 %18
@@ -18816,7 +18816,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..expr..Expr$
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i128, ptr %0, align 16, !range !256, !noundef !7
   %7 = add nsw i128 %6, -3
-  %8 = trunc nsw i128 %7 to i64
+  %8 = trunc nuw nsw i128 %7 to i64
   %9 = icmp ult i128 %7, 35
   %10 = select i1 %9, i64 %8, i64 25
   switch i64 %10, label %11 [
@@ -21690,7 +21690,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$datafusion_common..scalar..S
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i128, ptr %0, align 16, !range !4694, !noundef !7
   %8 = add nsw i128 %7, -2
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 41
   %11 = select i1 %10, i64 %9, i64 5
   switch i64 %11, label %12 [
@@ -29067,7 +29067,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !6608, !noalias !6605
   %12 = trunc i32 %1 to i8
@@ -29079,7 +29079,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !6608, !noalias !6605
   %19 = lshr i32 %1, 6
@@ -29147,7 +29147,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !6621, !noundef !7
   %58 = load i64, ptr %0, align 8, !alias.scope !6621, !noundef !7
@@ -35016,7 +35016,7 @@ define hidden void @"_ZN66_$LT$datafusion_expr..expr..Expr$u20$as$u20$core..clon
   %.sroa.0 = alloca { { { { i64, ptr, {} }, i64 } }, { [6 x i64], i64, [2 x i64] } }, align 8
   %73 = load i128, ptr %1, align 16, !range !256, !noundef !7
   %74 = add nsw i128 %73, -3
-  %75 = trunc nsw i128 %74 to i64
+  %75 = trunc nuw nsw i128 %74 to i64
   %76 = icmp ult i128 %74, 35
   %77 = select i1 %76, i64 %75, i64 25
   switch i64 %77, label %78 [
@@ -35826,7 +35826,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7458)
   %303 = load i128, ptr %295, align 16, !range !7461, !alias.scope !7458, !noalias !7462, !noundef !7
   %304 = add nsw i128 %303, -43
-  %305 = trunc nsw i128 %304 to i64
+  %305 = trunc nuw nsw i128 %304 to i64
   %306 = icmp ult i128 %304, 2
   %307 = add nsw i64 %305, 1
   %308 = select i1 %306, i64 %307, i64 0
@@ -41372,7 +41372,7 @@ define hidden void @"_ZN77_$LT$datafusion_common..scalar..ScalarValue$u20$as$u20
   %.sroa.525 = alloca [2 x i64], align 8
   %8 = load i128, ptr %1, align 16, !range !4694, !noundef !7
   %9 = add nsw i128 %8, -2
-  %10 = trunc nsw i128 %9 to i64
+  %10 = trunc nuw nsw i128 %9 to i64
   %11 = icmp ult i128 %9, 41
   %12 = select i1 %11, i64 %10, i64 5
   switch i64 %12, label %13 [
@@ -48323,7 +48323,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %8 = load i128, ptr %6, align 16, !range !256, !noundef !7
   %9 = add nsw i128 %8, -3
-  %10 = trunc nsw i128 %9 to i64
+  %10 = trunc nuw nsw i128 %9 to i64
   %11 = icmp ult i128 %9, 35
   %12 = select i1 %11, i64 %10, i64 25
   switch i64 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split" [
@@ -48336,7 +48336,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
   %14 = load ptr, ptr %13, align 16, !nonnull !7, !align !258, !noundef !7
   %15 = load i128, ptr %14, align 16, !range !256, !noundef !7
   %16 = add nsw i128 %15, -3
-  %17 = trunc nsw i128 %16 to i64
+  %17 = trunc nuw nsw i128 %16 to i64
   %18 = icmp ugt i128 %16, 34
   %19 = icmp ne i64 %17, 24
   %.not2.i.i = select i1 %18, i1 true, i1 %19
@@ -48369,7 +48369,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %8 = load i128, ptr %6, align 16, !range !256, !noundef !7
   %9 = add nsw i128 %8, -3
-  %10 = trunc nsw i128 %9 to i64
+  %10 = trunc nuw nsw i128 %9 to i64
   %11 = icmp ult i128 %9, 35
   %12 = select i1 %11, i64 %10, i64 25
   switch i64 %12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split" [
@@ -48382,7 +48382,7 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
   %14 = load ptr, ptr %13, align 16, !nonnull !7, !align !258, !noundef !7
   %15 = load i128, ptr %14, align 16, !range !256, !noundef !7
   %16 = add nsw i128 %15, -3
-  %17 = trunc nsw i128 %16 to i64
+  %17 = trunc nuw nsw i128 %16 to i64
   %18 = icmp ugt i128 %16, 34
   %19 = icmp ne i64 %17, 24
   %.not2.i.i = select i1 %18, i1 true, i1 %19

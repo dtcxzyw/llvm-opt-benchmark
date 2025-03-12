@@ -515,7 +515,7 @@ define internal fastcc zeroext i1 @acpi_extract_properties(ptr noundef %0, ptr n
   br i1 %or.cond, label %74, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %63
-  %73 = trunc i64 %64 to i32
+  %73 = trunc nuw i64 %64 to i32
   call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.5, ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef %73, i32 noundef %71) #15
   br label %106
 

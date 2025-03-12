@@ -6340,7 +6340,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %39 = zext i16 %38 to i32
   %40 = add nuw i16 %37, 5
   store i16 %40, ptr %25, align 2
-  %41 = trunc nuw i64 %30 to i32
+  %41 = trunc nuw nsw i64 %30 to i32
   %42 = add nuw nsw i32 %41, 8
   %43 = and i32 %42, 131068
   %44 = add nuw nsw i32 %43, 4
@@ -6495,7 +6495,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %134 = zext i16 %133 to i32
   %135 = add nuw i16 %132, 17
   store i16 %135, ptr %120, align 2
-  %136 = trunc nuw i64 %125 to i32
+  %136 = trunc nuw nsw i64 %125 to i32
   %137 = add nuw nsw i32 %136, 20
   %138 = and i32 %137, 131068
   %139 = add nuw nsw i32 %138, 4
@@ -7280,7 +7280,7 @@ pcapng_write_string_option.exit:                  ; preds = %26, %28, %12
   br i1 %39, label %pcapng_write_custom_option.exit, label %40
 
 40:                                               ; preds = %31
-  %41 = trunc i32 %1 to i16
+  %41 = trunc nuw nsw i32 %1 to i16
   store i16 %41, ptr %6, align 2
   %42 = trunc nuw i64 %38 to i16
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -7394,7 +7394,7 @@ define internal noundef zeroext i1 @write_wtap_isb_option(ptr noundef %0, ptr re
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #20
-  %12 = trunc i32 %2 to i16
+  %12 = trunc nuw nsw i32 %2 to i16
   store i16 %12, ptr %8, align 2
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 8, ptr %13, align 2
@@ -7426,7 +7426,7 @@ pcapng_write_timestamp_option.exit:               ; preds = %15
 
 22:                                               ; preds = %6, %6, %6, %6, %6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  %23 = trunc i32 %2 to i16
+  %23 = trunc nuw nsw i32 %2 to i16
   store i16 %23, ptr %7, align 2
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i16 8, ptr %24, align 2
@@ -7487,7 +7487,7 @@ define internal noundef zeroext i1 @write_wtap_shb_option(ptr noundef %0, ptr re
   br i1 %or.cond.i, label %pcapng_write_string_option.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = trunc nuw i32 %2 to i16
+  %14 = trunc nuw nsw i32 %2 to i16
   store i16 %14, ptr %7, align 2
   %15 = trunc nuw i64 %11 to i16
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -7613,7 +7613,7 @@ define internal noundef zeroext i1 @write_wtap_idb_option(ptr noundef %0, ptr re
   br i1 %or.cond.i, label %pcapng_write_string_option.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = trunc i32 %2 to i16
+  %22 = trunc nuw nsw i32 %2 to i16
   store i16 %22, ptr %15, align 2
   %23 = trunc nuw i64 %19 to i16
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 2

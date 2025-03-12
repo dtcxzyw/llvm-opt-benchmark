@@ -32,7 +32,7 @@ fsm_space_needed_to_cat.exit:                     ; preds = %2
   %7 = icmp eq i64 %1, 0
   %8 = add nuw nsw i64 %1, 31
   %9 = lshr i64 %8, 5
-  %10 = trunc i64 %9 to i8
+  %10 = trunc nuw i64 %9 to i8
   %.0.i = select i1 %7, i8 1, i8 %10
   %11 = tail call fastcc i32 @fsm_search(ptr noundef %0, i8 noundef zeroext %.0.i)
   ret i32 %11
@@ -261,7 +261,7 @@ fsm_space_needed_to_cat.exit:                     ; preds = %4
   %12 = icmp eq i64 %3, 0
   %13 = add nuw nsw i64 %3, 31
   %14 = lshr i64 %13, 5
-  %15 = trunc i64 %14 to i8
+  %15 = trunc nuw i64 %14 to i8
   %.0.i18 = select i1 %12, i8 1, i8 %15
   %16 = udiv i32 %1, 4069
   %17 = urem i32 %1, 4069

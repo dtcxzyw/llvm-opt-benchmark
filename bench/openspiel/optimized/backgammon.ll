@@ -3061,7 +3061,7 @@ _ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE17_M_realloc_insertI
   br label %_ZNSt6vectorIN10open_spiel10backgammon11CheckerMoveESaIS2_EE9push_backEOS2_.exit
 
 95:                                               ; preds = %71
-  %96 = trunc nuw i64 %56 to i32
+  %96 = trunc nuw nsw i64 %56 to i32
   br label %97
 
 97:                                               ; preds = %71, %95
@@ -8658,7 +8658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

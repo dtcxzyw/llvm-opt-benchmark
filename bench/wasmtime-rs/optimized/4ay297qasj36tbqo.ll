@@ -1457,7 +1457,7 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
   br i1 %.not131, label %96, label %94
 
 94:                                               ; preds = %3
-  %95 = trunc i8 %93 to i1
+  %95 = trunc nuw i8 %93 to i1
   br i1 %95, label %96, label %105
 
 96:                                               ; preds = %127, %94, %3

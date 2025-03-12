@@ -1273,7 +1273,7 @@ define dso_local noundef range(i32 -1, -2147483648) i32 @_ZN4absl19str_format_in
   br label %23
 
 21:                                               ; preds = %16
-  %22 = trunc nuw i64 %17 to i32
+  %22 = trunc nuw nsw i64 %17 to i32
   br label %23
 
 23:                                               ; preds = %21, %19, %14, %10

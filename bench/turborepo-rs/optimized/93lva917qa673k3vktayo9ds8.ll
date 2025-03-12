@@ -849,7 +849,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
 
 _RINvXNtCs5qLmTC8D4jC_6digest6digestINtNtNtB5_8core_api7wrapper11CoreWrapperINtNtBC_11ct_variable21CtVariableCoreWrapperNtNtCshz1bMpavo8Z_4sha28core_api13Sha256VarCoreINtNtCs5FtjDnxWtNK_7typenum4uint4UIntIB2F_IB2F_IB2F_IB2F_IB2F_NtB2H_5UTermNtNtB2J_3bit2B1ENtB3S_2B0EB46_EB46_EB46_EB46_ENtB1X_9OidSha256EENtB3_6Digest6updateRShECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.i.i.i, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE9index_mutCsff1zCjKRl2o_13turborepo_env.exit12.i.i.i
   %storemerge.in.i.i.i = phi i64 [ %47, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.i.i.i ], [ %35, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE9index_mutCsff1zCjKRl2o_13turborepo_env.exit12.i.i.i ]
-  %storemerge.i.i.i = trunc nuw i64 %storemerge.in.i.i.i to i8
+  %storemerge.i.i.i = trunc nuw nsw i64 %storemerge.in.i.i.i to i8
   store i8 %storemerge.i.i.i, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !155, !noalias !157
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %22), !noalias !159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %22, ptr noundef nonnull align 8 dereferenceable(112) %32, i64 112, i1 false)

@@ -5138,7 +5138,7 @@ define dso_local range(i32 0, 2) i32 @Curl_http_statusline(ptr noundef %0, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1372
   %8 = load i8, ptr %7, align 4, !tbaa !108
   %.not = icmp eq i8 %8, 0
-  %.pre58 = trunc i32 %5 to i8
+  %.pre58 = trunc nuw nsw i32 %5 to i8
   br i1 %.not, label %._crit_edge, label %9
 
 9:                                                ; preds = %6

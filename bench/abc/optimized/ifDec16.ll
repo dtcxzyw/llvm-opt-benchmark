@@ -5593,7 +5593,7 @@ If_CluCopy.exit34.thread:                         ; preds = %21
   br i1 %.not38, label %45, label %.thread
 
 .thread:                                          ; preds = %If_CluCopy.exit34.thread
-  %27 = trunc i32 %10 to i8
+  %27 = trunc nuw nsw i32 %10 to i8
   %28 = add nuw nsw i8 %27, 1
   store i8 %28, ptr %5, align 1, !tbaa !110
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 1

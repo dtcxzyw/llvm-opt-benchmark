@@ -3497,7 +3497,7 @@ define dso_local i32 @__request_percpu_irq(i32 noundef %0, ptr noundef %1, i64 n
 
 20:                                               ; preds = %16
   store ptr %1, ptr %18, align 64
-  %21 = trunc i64 %2 to i32
+  %21 = trunc nuw nsw i64 %2 to i32
   %22 = or i32 %21, 17408
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 60
   store i32 %22, ptr %23, align 4

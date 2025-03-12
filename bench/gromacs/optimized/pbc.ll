@@ -4032,7 +4032,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
 11:                                               ; preds = %3, %37
   %indvars.iv116 = phi i64 [ 2, %3 ], [ %indvars.iv.next117, %37 ]
   %.091 = phi i64 [ 0, %3 ], [ %indvars.iv.next109, %37 ]
-  %12 = trunc i64 %indvars.iv116 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv116 to i32
   %13 = add nsw i32 %12, -1
   store i32 %13, ptr %7, align 16, !tbaa !26
   %14 = icmp eq i64 %indvars.iv116, 2
@@ -4040,7 +4040,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
   %spec.select162 = select i1 %14, i32 12, i32 10
   store i32 %spec.select, ptr %10, align 4, !tbaa !26
   %.cmp.not = icmp eq i64 %indvars.iv116, 5
-  %15 = trunc i64 %indvars.iv116 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv116 to i32
   %16 = add nuw nsw i32 %15, 1
   %17 = select i1 %.cmp.not, i32 0, i32 %16
   store i32 %17, ptr %8, align 8, !tbaa !26
@@ -4101,7 +4101,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
   %44 = icmp eq i64 %indvars.iv131, 7
   %spec.select163 = select i1 %44, i32 8, i32 10
   store i32 %spec.select163, ptr %8, align 8, !tbaa !26
-  %45 = trunc i64 %indvars.iv131 to i32
+  %45 = trunc nuw nsw i64 %indvars.iv131 to i32
   %46 = add nsw i32 %45, -1
   store i32 %46, ptr %9, align 4, !tbaa !26
   %sext158 = shl i64 %.296, 32
@@ -4157,7 +4157,7 @@ define void @_Z30calc_compact_unitcell_verticesiPA3_KfPA3_f(i32 noundef %0, ptr 
   store i32 %69, ptr %10, align 4, !tbaa !26
   %spec.select164 = select i1 %68, i32 6, i32 12
   store i32 %spec.select164, ptr %8, align 8, !tbaa !26
-  %70 = trunc i64 %indvars.iv146 to i32
+  %70 = trunc nuw nsw i64 %indvars.iv146 to i32
   %71 = add nsw i32 %70, -1
   store i32 %71, ptr %9, align 4, !tbaa !26
   %sext160 = shl i64 %.4101.in, 32

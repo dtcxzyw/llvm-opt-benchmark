@@ -6932,7 +6932,7 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail17ansi_color_escapeIcEC2ENS1_
 17:                                               ; preds = %14, %5
   %.1 = phi i32 [ %.zext, %14 ], [ %spec.select, %5 ]
   %.021 = phi i64 [ 3, %14 ], [ 2, %5 ]
-  %.lhs.trunc27 = trunc i32 %.1 to i8
+  %.lhs.trunc27 = trunc nuw nsw i32 %.1 to i8
   %18 = udiv i8 %.lhs.trunc27, 10
   %19 = or disjoint i8 %18, 48
   %20 = add nuw nsw i64 %.021, 1
@@ -11291,7 +11291,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit35:        ; preds = %31, %38
   br label %78
 
 44:                                               ; preds = %2, %2, %2
-  %45 = trunc i32 %4 to i8
+  %45 = trunc nuw nsw i32 %4 to i8
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !276
   %48 = add i64 %47, 1
@@ -12491,7 +12491,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_ge
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45: ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
-  %92 = trunc nuw i64 %.0.i to i32
+  %92 = trunc nuw nsw i64 %.0.i to i32
   ret i32 %92
 }
 

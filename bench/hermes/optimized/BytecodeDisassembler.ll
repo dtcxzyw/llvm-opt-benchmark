@@ -4794,7 +4794,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit71:               ; preds = %if.then.i.i69, %if.
   br label %for.inc
 
 if.end37:                                         ; preds = %if.end28
-  %conv38 = trunc nuw i16 %8 to i8
+  %conv38 = trunc nuw nsw i16 %8 to i8
   %16 = load ptr, ptr %OutBufEnd.i78, align 8
   %cmp.not.i79 = icmp ult ptr %9, %16
   br i1 %cmp.not.i79, label %if.end.i83, label %if.then.i80
@@ -12575,7 +12575,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -12685,7 +12685,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

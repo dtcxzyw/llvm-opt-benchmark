@@ -4599,7 +4599,7 @@ _ZN4core5slice4sort12choose_pivot17hbf4d060c15fa5f21E.exit: ; preds = %"_ZN4core
   br i1 %.not30.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 137:                                              ; preds = %130
-  %.lhs.trunc.i.i = trunc nuw i64 %133 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %133 to i16
   %138 = udiv i16 %.lhs.trunc.i.i, 72
   %.zext.i.i = zext nneg i16 %138 to i64
   %139 = icmp ult ptr %.0140.i.i, %.0143.i.i
@@ -7621,7 +7621,7 @@ _ZN5gimli5write6writer6Writer9write_u6417hfe89ea247b58262eE.exit: ; preds = %11,
   br label %47
 
 31:                                               ; preds = %5
-  %32 = trunc i64 %1 to i8
+  %32 = trunc nsw i64 %1 to i8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !alias.scope !1097, !noalias !1108, !noundef !4
   %35 = load i64, ptr %0, align 8, !alias.scope !1097, !noalias !1108, !noundef !4
@@ -7652,7 +7652,7 @@ _ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit: ; preds = %31, 
   ret i64 %.sroa.0.0
 
 48:                                               ; preds = %7
-  %49 = trunc i64 %1 to i16
+  %49 = trunc nsw i64 %1 to i16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i8, ptr %50, align 8, !range !642, !alias.scope !1112, !noundef !4
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7685,7 +7685,7 @@ _ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit: ; preds = %48,
   br label %47
 
 69:                                               ; preds = %9
-  %70 = trunc i64 %1 to i32
+  %70 = trunc nsw i64 %1 to i32
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load i8, ptr %71, align 8, !range !642, !alias.scope !1130, !noundef !4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7782,7 +7782,7 @@ _ZN5gimli5write6writer6Writer9write_u6417h93a730ab3d49542cE.exit: ; preds = %11,
   br label %49
 
 32:                                               ; preds = %5
-  %33 = trunc i64 %1 to i8
+  %33 = trunc nsw i64 %1 to i8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load i64, ptr %35, align 8, !alias.scope !1166, !noalias !1177, !noundef !4
@@ -7814,7 +7814,7 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit: ; preds = %32, 
   ret i64 %.sroa.0.0
 
 50:                                               ; preds = %7
-  %51 = trunc i64 %1 to i16
+  %51 = trunc nsw i64 %1 to i16
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load i8, ptr %52, align 8, !range !642, !alias.scope !1181, !noundef !4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7848,7 +7848,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit: ; preds = %50,
   br label %49
 
 72:                                               ; preds = %9
-  %73 = trunc i64 %1 to i32
+  %73 = trunc nsw i64 %1 to i32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %75 = load i8, ptr %74, align 8, !range !642, !alias.scope !1199, !noundef !4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9305,7 +9305,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit22: ; preds =
   br i1 %.not29.i23, label %81, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit
 
 81:                                               ; preds = %79
-  %82 = trunc i64 %1 to i16
+  %82 = trunc nsw i64 %1 to i16
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = load i8, ptr %83, align 8, !range !642, !alias.scope !1825, !noundef !4
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9344,7 +9344,7 @@ _ZN5gimli5write6writer6Writer9write_u1617h3444822ba0f53d49E.exit.i25: ; preds = 
   br i1 %.not.i28, label %105, label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit
 
 105:                                              ; preds = %103
-  %106 = trunc i64 %1 to i32
+  %106 = trunc nsw i64 %1 to i32
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %108 = load i8, ptr %107, align 8, !range !642, !alias.scope !1845, !noundef !4
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9559,7 +9559,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit22: ; preds =
   br i1 %.not29.i23, label %78, label %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit
 
 78:                                               ; preds = %76
-  %79 = trunc i64 %1 to i16
+  %79 = trunc nsw i64 %1 to i16
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i8, ptr %80, align 8, !range !642, !alias.scope !1945, !noundef !4
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9597,7 +9597,7 @@ _ZN5gimli5write6writer6Writer9write_u1617hae4b7eac00b57b12E.exit.i25: ; preds = 
   br i1 %.not.i28, label %101, label %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit
 
 101:                                              ; preds = %99
-  %102 = trunc i64 %1 to i32
+  %102 = trunc nsw i64 %1 to i32
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %104 = load i8, ptr %103, align 8, !range !642, !alias.scope !1965, !noundef !4
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 16

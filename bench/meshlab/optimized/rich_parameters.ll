@@ -1768,7 +1768,7 @@ _ZN7QStringD2Ev.exit502:                          ; preds = %_ZN7QStringD2Ev.exi
   %579 = zext i1 %spec.select.i.i to i32
   store i32 %579, ptr %61, align 4
   %580 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %581 = trunc i32 %565 to i16
+  %581 = trunc nuw nsw i32 %565 to i16
   %582 = mul i16 %581, 257
   %583 = select i1 %spec.select.i.i, i16 %582, i16 0
   %584 = trunc i32 %523 to i16

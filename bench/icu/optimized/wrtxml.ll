@@ -3719,7 +3719,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
   br label %167
 
 87:                                               ; preds = %.thread27
-  %88 = trunc nuw i32 %.1142 to i8
+  %88 = trunc nuw nsw i32 %.1142 to i8
   %89 = add nsw i32 %.014316, 1
   %90 = sext i32 %.014316 to i64
   %91 = getelementptr inbounds i8, ptr %.114715, i64 %90
@@ -3737,7 +3737,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
 
 97:                                               ; preds = %94
   %98 = lshr i32 %.1142, 6
-  %99 = trunc nuw i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %100 = or disjoint i8 %99, -64
   %101 = sext i32 %.014316 to i64
   %102 = getelementptr inbounds i8, ptr %.114715, i64 %101
@@ -3792,7 +3792,7 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
 
 134:                                              ; preds = %130
   %135 = lshr i32 %.1142, 18
-  %136 = trunc nuw i32 %135 to i8
+  %136 = trunc nuw nsw i32 %135 to i8
   %137 = or disjoint i8 %136, -16
   %138 = sext i32 %.014316 to i64
   %139 = getelementptr inbounds i8, ptr %.114715, i64 %138

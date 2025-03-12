@@ -9133,13 +9133,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h9c3fe81cf6ed9
   br i1 %7, label %17, label %28
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   store i8 %9, ptr %.sroa.0, align 4, !alias.scope !1207
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %1, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %.sroa.0, align 4, !alias.scope !1207
   %14 = trunc i32 %1 to i8
@@ -9151,7 +9151,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h9c3fe81cf6ed9
 
 17:                                               ; preds = %6
   %18 = lshr i32 %1, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.sroa.0, align 4, !alias.scope !1207
   %21 = lshr i32 %1, 6
@@ -9239,13 +9239,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hef4f24dc5824a
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !1228
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !1228
   %16 = trunc i32 %1 to i8
@@ -9257,7 +9257,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hef4f24dc5824a
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !1228
   %24 = lshr i32 %1, 6

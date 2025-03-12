@@ -2451,7 +2451,7 @@ lor.lhs.false160:                                 ; preds = %_ZNK6hermes2vm10Str
   ]
 
 if.then170:                                       ; preds = %lor.lhs.false160, %lor.lhs.false160, %lor.lhs.false160, %lor.lhs.false160, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit235
-  %conv171 = trunc i16 %cond.i232 to i8
+  %conv171 = trunc nuw nsw i16 %cond.i232 to i8
   %conv172 = zext i32 %i.0 to i64
   %76 = load ptr, ptr %str8, align 8
   %arrayidx.i190 = getelementptr inbounds nuw i8, ptr %76, i64 %conv172

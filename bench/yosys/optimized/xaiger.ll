@@ -18628,7 +18628,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE2atEm.exit398:    ; preds = %266
 
 _ZN12_GLOBAL__N_112aiger_encodeERSoi.exit:        ; preds = %.lr.ph.i, %_ZNSt6vectorISt4pairIiiESaIS1_EE2atEm.exit398
   %.0.lcssa.i = phi i32 [ %284, %_ZNSt6vectorISt4pairIiiESaIS1_EE2atEm.exit398 ], [ %289, %.lr.ph.i ]
-  %290 = trunc nuw i32 %.0.lcssa.i to i8
+  %290 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %291 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %290)
   %.not5.i399 = icmp ult i32 %285, 128
   br i1 %.not5.i399, label %_ZN12_GLOBAL__N_112aiger_encodeERSoi.exit404, label %.lr.ph.i400
@@ -18644,7 +18644,7 @@ _ZN12_GLOBAL__N_112aiger_encodeERSoi.exit:        ; preds = %.lr.ph.i, %_ZNSt6ve
 
 _ZN12_GLOBAL__N_112aiger_encodeERSoi.exit404:     ; preds = %.lr.ph.i400, %_ZN12_GLOBAL__N_112aiger_encodeERSoi.exit
   %.0.lcssa.i403 = phi i32 [ %285, %_ZN12_GLOBAL__N_112aiger_encodeERSoi.exit ], [ %295, %.lr.ph.i400 ]
-  %296 = trunc nuw i32 %.0.lcssa.i403 to i8
+  %296 = trunc nuw nsw i32 %.0.lcssa.i403 to i8
   %297 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %296)
   %indvars.iv.next1051 = add nuw nsw i64 %indvars.iv1050, 1
   %298 = load i32, ptr %84, align 8, !tbaa !453

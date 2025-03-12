@@ -2043,7 +2043,7 @@ define internal fastcc i32 @get_button_from_point(ptr noundef %0, ptr noundef no
 
 ._crit_edge.loopexit:                             ; preds = %42, %55
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %55 ], [ %indvars.iv, %42 ]
-  %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
+  %.0.lcssa.ph = trunc nuw i64 %.0.lcssa.ph.in to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2

@@ -860,7 +860,7 @@ define internal fastcc noundef i64 @_ZN7meshoptL11kdtreeBuildEmPNS_6KDNodeEmPKfm
   %11 = load i32, ptr %3, align 4, !tbaa !16
   store i32 %11, ptr %10, align 4, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = trunc nuw i64 %4 to i32
+  %13 = trunc nuw nsw i64 %4 to i32
   %14 = shl nuw nsw i32 %13, 2
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr %12, align 4

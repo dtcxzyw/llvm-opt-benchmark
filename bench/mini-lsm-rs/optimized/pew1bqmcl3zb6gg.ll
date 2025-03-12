@@ -1964,7 +1964,7 @@ default.unreachable7:                             ; preds = %1
   br i1 %29, label %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit"
 
 30:                                               ; preds = %28
-  %31 = trunc i8 %.0 to i1
+  %31 = trunc nuw i8 %.0 to i1
   br i1 %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit", label %32
 
 32:                                               ; preds = %30

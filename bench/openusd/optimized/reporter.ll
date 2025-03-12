@@ -4688,7 +4688,7 @@ _ZNKSt7__cxx119sub_matchIPKcEcvNS_12basic_stringIcSt11char_traitsIcESaIcEEEEv.ex
   br label %296
 
 296:                                              ; preds = %295, %293
-  %297 = trunc i64 %277 to i32
+  %297 = trunc nsw i64 %277 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #31
   br label %.outer.outer.backedge

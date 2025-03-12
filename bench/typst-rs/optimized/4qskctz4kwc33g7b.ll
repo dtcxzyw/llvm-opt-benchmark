@@ -21236,7 +21236,7 @@ switch.lookup:                                    ; preds = %43
   br label %"_ZN5typst9visualize8gradient8Gradient13relative_data4DATA28_$u7b$$u7b$closure$u7d$$u7d$17hf36a2e689562e8f1E.exit"
 
 70:                                               ; preds = %switch.lookup
-  %71 = trunc i8 %.0.i.i to i1
+  %71 = trunc nuw i8 %.0.i.i to i1
   br i1 %71, label %.split.i.i.i, label %.split2.i.i.i
 
 .split2.i.i.i:                                    ; preds = %70
@@ -31484,14 +31484,14 @@ define internal fastcc void @_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE(
 
 11:                                               ; preds = %7
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %5, align 4, !alias.scope !7272
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 15:                                               ; preds = %9
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %5, align 4, !alias.scope !7272
   %19 = lshr i32 %1, 6
@@ -31534,7 +31534,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %11, 
   br label %_ZN4ecow7dynamic10DynamicVec4push17h5dfa790286aa0757E.exit
 
 .critedge:                                        ; preds = %2
-  %43 = trunc nuw i32 %1 to i8
+  %43 = trunc nuw nsw i32 %1 to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7275)
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %45 = load i8, ptr %44, align 1, !alias.scope !7275, !noundef !4
@@ -52870,7 +52870,7 @@ define hidden void @_ZN5typst11foundations5scope4Slot5write17h71e2025cc259f027E.
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %trunc = trunc i8 %9 to i1
+  %trunc = trunc nuw i8 %9 to i1
   %spec.select = select i1 %trunc, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.317, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.316
   %spec.select10 = select i1 %trunc, i64 18, i64 8
   store ptr %spec.select, ptr %4, align 8
@@ -55352,7 +55352,7 @@ define void @"_ZN5typst6layout4grid146_$LT$impl$u20$typst..layout..grid..layout.
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %23), !noalias !11609
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   %76 = icmp eq i8 %75, 2
-  %77 = trunc i8 %75 to i1
+  %77 = trunc nuw i8 %75 to i1
   br i1 %76, label %78, label %79
 
 78:                                               ; preds = %.thread113, %74
@@ -69587,7 +69587,7 @@ define void @"_ZN5typst5model5table147_$LT$impl$u20$typst..layout..grid..layout.
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %23), !noalias !15081
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   %76 = icmp eq i8 %75, 2
-  %77 = trunc i8 %75 to i1
+  %77 = trunc nuw i8 %75 to i1
   br i1 %76, label %78, label %79
 
 78:                                               ; preds = %.thread118, %74
@@ -71730,8 +71730,8 @@ define void @"_ZN5typst4text10smartquote151_$LT$impl$u20$typst..foundations..con
   %18 = getelementptr i8, ptr %17, i64 96
   %19 = load i8, ptr %18, align 8, !range !1126, !noundef !4
   %20 = icmp eq i8 %19, 2
-  %21 = trunc i8 %19 to i1
-  %.0 = or i1 %20, %21
+  %21 = trunc nuw i8 %19 to i1
+  %.0 = select i1 %20, i1 true, i1 %21
   %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546 = select i1 %.0, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546
   tail call void @_ZN4ecow6string9EcoString8push_str17h2542dc826b62bb60E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546, i64 noundef 1)
   ret void
@@ -73763,7 +73763,7 @@ define hidden void @_ZN5typst4text8features17hb5680ea8b67742e0E(ptr noalias noun
           to label %274 unwind label %32
 
 256:                                              ; preds = %240
-  %trunc = trunc i8 %241 to i1
+  %trunc = trunc nuw i8 %241 to i1
   %257 = load i64, ptr %19, align 8, !noalias !4, !noundef !4
   %258 = load i64, ptr %17, align 8, !noalias !4, !noundef !4
   %259 = icmp eq i64 %257, %258
@@ -73879,7 +73879,7 @@ define hidden void @_ZN5typst4text8features17hb5680ea8b67742e0E(ptr noalias noun
           to label %308 unwind label %32
 
 290:                                              ; preds = %274
-  %trunc48 = trunc i8 %275 to i1
+  %trunc48 = trunc nuw i8 %275 to i1
   %291 = load i64, ptr %19, align 8, !noalias !4, !noundef !4
   %292 = load i64, ptr %17, align 8, !noalias !4, !noundef !4
   %293 = icmp eq i64 %291, %292
@@ -74527,7 +74527,7 @@ switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %switch.load
   %.0.i = load i8, ptr %5, align 1, !range !1126, !noalias !16550, !noundef !4
   %6 = icmp eq i8 %.0.i, 2
-  %7 = trunc i8 %.0.i to i1
+  %7 = trunc nuw i8 %.0.i to i1
   %.0.i1 = select i1 %6, i1 %1, i1 %7
   ret i1 %.0.i1
 }
@@ -74983,7 +74983,7 @@ switch.lookup:                                    ; preds = %69
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.experimental.noalias.scope.decl(metadata !16618)
-  %105 = trunc i8 %72 to i1
+  %105 = trunc nuw i8 %72 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !16621)
   br i1 %105, label %.split.i.i, label %.split2.i.i
 
@@ -75850,7 +75850,7 @@ switch.lookup:                                    ; preds = %202
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !16898)
-  %238 = trunc i8 %205 to i1
+  %238 = trunc nuw i8 %205 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !16901)
   br i1 %238, label %.split.i.i, label %.split2.i.i
 
@@ -76500,7 +76500,7 @@ switch.lookup:                                    ; preds = %109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.experimental.noalias.scope.decl(metadata !17092)
-  %145 = trunc i8 %112 to i1
+  %145 = trunc nuw i8 %112 to i1
   call void @llvm.experimental.noalias.scope.decl(metadata !17095)
   br i1 %145, label %.split.i.i, label %.split2.i.i
 
@@ -78693,7 +78693,7 @@ define void @"_ZN5typst11foundations7content1_105_$LT$impl$u20$typst..foundation
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %15, label %7
 
 6:                                                ; preds = %3
@@ -78766,7 +78766,7 @@ define void @"_ZN5typst11foundations7content1_105_$LT$impl$u20$typst..foundation
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %16, label %8
 
 7:                                                ; preds = %4
@@ -91049,7 +91049,7 @@ define void @"_ZN5typst6layout4page90_$LT$impl$u20$typst..foundations..content..
   br label %233
 
 231:                                              ; preds = %225
-  %232 = trunc i8 %226 to i1
+  %232 = trunc nuw i8 %226 to i1
   br label %233
 
 233:                                              ; preds = %.noexc203, %231
@@ -104753,7 +104753,7 @@ define noundef zeroext i1 @"_ZN5typst4math2lr1_89_$LT$impl$u20$typst..foundation
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   %4 = load i64, ptr %0, align 8, !range !5
   %5 = icmp ne i64 %4, 2
   %.1 = select i1 %trunc, i1 true, i1 %5
@@ -104778,7 +104778,7 @@ default.unreachable47:                            ; preds = %7
   unreachable
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %9, label %7
 
 6:                                                ; preds = %3
@@ -104866,7 +104866,7 @@ define void @"_ZN5typst4math2lr1_89_$LT$impl$u20$typst..foundations..element..Fi
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %33, label %9
 
 8:                                                ; preds = %4
@@ -104987,7 +104987,7 @@ define void @"_ZN5typst4math2lr1_89_$LT$impl$u20$typst..foundations..element..Fi
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %30, label %8
 
 7:                                                ; preds = %3
@@ -106644,10 +106644,10 @@ define { ptr, i64 } @"_ZN5typst4math2lr120_$LT$impl$u20$typst..math..LayoutMath$
 202:                                              ; preds = %.lr.ph
   %203 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0127, i64 89
   %204 = load i8, ptr %203, align 1, !range !1126, !noundef !4
-  %205 = icmp ne i8 %204, 2
-  %206 = trunc i8 %204 to i1
-  %.044 = xor i1 %205, %206
-  br i1 %.044, label %209, label %207
+  %205 = icmp eq i8 %204, 2
+  %206 = trunc nuw i8 %204 to i1
+  %.044.not = select i1 %205, i1 true, i1 %206
+  br i1 %.044.not, label %207, label %209
 
 207:                                              ; preds = %210, %202, %.lr.ph
   %208 = icmp eq ptr %187, %177
@@ -109792,7 +109792,7 @@ define noundef zeroext i1 @"_ZN5typst4math4root1_93_$LT$impl$u20$typst..foundati
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   %4 = load i64, ptr %0, align 8, !range !1065
   %5 = trunc nuw i64 %4 to i1
   %.1 = select i1 %trunc, i1 true, i1 %5
@@ -109814,7 +109814,7 @@ define void @"_ZN5typst4math4root1_93_$LT$impl$u20$typst..foundations..element..
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %9, label %7
 
 6:                                                ; preds = %3
@@ -109915,7 +109915,7 @@ define void @"_ZN5typst4math4root1_93_$LT$impl$u20$typst..foundations..element..
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %36, label %9
 
 8:                                                ; preds = %4
@@ -110048,7 +110048,7 @@ define void @"_ZN5typst4math4root1_93_$LT$impl$u20$typst..foundations..element..
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %33, label %8
 
 7:                                                ; preds = %3
@@ -114573,7 +114573,7 @@ define noundef zeroext i1 @"_ZN5typst4math9underover1_104_$LT$impl$u20$typst..fo
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   %switch = xor i1 %trunc, true
   %4 = load i64, ptr %0, align 8, !range !1065
   %5 = trunc nuw i64 %4 to i1
@@ -114596,7 +114596,7 @@ define void @"_ZN5typst4math9underover1_104_$LT$impl$u20$typst..foundations..ele
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %16, label %7
 
 6:                                                ; preds = %3
@@ -114697,7 +114697,7 @@ define void @"_ZN5typst4math9underover1_104_$LT$impl$u20$typst..foundations..ele
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %18, label %9
 
 8:                                                ; preds = %4
@@ -114830,7 +114830,7 @@ define void @"_ZN5typst4math9underover1_104_$LT$impl$u20$typst..foundations..ele
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %9, label %8
 
 7:                                                ; preds = %3
@@ -116541,7 +116541,7 @@ define noundef zeroext i1 @"_ZN5typst4math9underover1_103_$LT$impl$u20$typst..fo
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   %switch = xor i1 %trunc, true
   %4 = load i64, ptr %0, align 8, !range !1065
   %5 = trunc nuw i64 %4 to i1
@@ -116564,7 +116564,7 @@ define void @"_ZN5typst4math9underover1_103_$LT$impl$u20$typst..foundations..ele
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %16, label %7
 
 6:                                                ; preds = %3
@@ -116665,7 +116665,7 @@ define void @"_ZN5typst4math9underover1_103_$LT$impl$u20$typst..foundations..ele
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %18, label %9
 
 8:                                                ; preds = %4
@@ -116798,7 +116798,7 @@ define void @"_ZN5typst4math9underover1_103_$LT$impl$u20$typst..foundations..ele
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %9, label %8
 
 7:                                                ; preds = %3
@@ -118509,7 +118509,7 @@ define noundef zeroext i1 @"_ZN5typst4math9underover1_106_$LT$impl$u20$typst..fo
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   %switch = xor i1 %trunc, true
   %4 = load i64, ptr %0, align 8, !range !1065
   %5 = trunc nuw i64 %4 to i1
@@ -118532,7 +118532,7 @@ define void @"_ZN5typst4math9underover1_106_$LT$impl$u20$typst..foundations..ele
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %16, label %7
 
 6:                                                ; preds = %3
@@ -118633,7 +118633,7 @@ define void @"_ZN5typst4math9underover1_106_$LT$impl$u20$typst..foundations..ele
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %18, label %9
 
 8:                                                ; preds = %4
@@ -118766,7 +118766,7 @@ define void @"_ZN5typst4math9underover1_106_$LT$impl$u20$typst..foundations..ele
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %9, label %8
 
 7:                                                ; preds = %3
@@ -120477,7 +120477,7 @@ define noundef zeroext i1 @"_ZN5typst4math9underover1_105_$LT$impl$u20$typst..fo
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   %switch = xor i1 %trunc, true
   %4 = load i64, ptr %0, align 8, !range !1065
   %5 = trunc nuw i64 %4 to i1
@@ -120500,7 +120500,7 @@ define void @"_ZN5typst4math9underover1_105_$LT$impl$u20$typst..foundations..ele
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %16, label %7
 
 6:                                                ; preds = %3
@@ -120601,7 +120601,7 @@ define void @"_ZN5typst4math9underover1_105_$LT$impl$u20$typst..foundations..ele
   br i1 %6, label %8, label %7
 
 7:                                                ; preds = %4
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %18, label %9
 
 8:                                                ; preds = %4
@@ -120734,7 +120734,7 @@ define void @"_ZN5typst4math9underover1_105_$LT$impl$u20$typst..foundations..ele
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  %trunc = trunc i8 %switch.select2.i to i1
+  %trunc = trunc nuw i8 %switch.select2.i to i1
   br i1 %trunc, label %9, label %8
 
 7:                                                ; preds = %3
@@ -143834,7 +143834,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h5a7a544ce9f998dfE.exit: ; preds 
   br label %"_ZN78_$LT$typst..text..Hyphenate$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17h9d16d1e549a2f3b9E.exit"
 
 34:                                               ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h5a7a544ce9f998dfE.exit
-  %35 = trunc i8 %16 to i1
+  %35 = trunc nuw i8 %16 to i1
   br label %"_ZN78_$LT$typst..text..Hyphenate$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17h9d16d1e549a2f3b9E.exit"
 
 "_ZN78_$LT$typst..text..Hyphenate$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17h9d16d1e549a2f3b9E.exit": ; preds = %"_ZN5typst5model3par1_44_$LT$impl$u20$typst..model..par..ParElem$GT$10justify_in17heb1dd41971697c12E.exit.i", %34
@@ -147965,7 +147965,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h6a769189086776d0E.exit: ; preds 
   br i1 %634, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h4897371b411e933fE.exit", label %635
 
 635:                                              ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h6a769189086776d0E.exit
-  %636 = trunc i8 %633 to i1
+  %636 = trunc nuw i8 %633 to i1
   br i1 %636, label %.split.i.i, label %.split2.i.i
 
 .split2.i.i:                                      ; preds = %635
@@ -148086,7 +148086,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h44cd8096d23bb2a4E.exit: ; preds 
   br i1 %669, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h63bcffe6a538b678E.exit", label %670
 
 670:                                              ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h44cd8096d23bb2a4E.exit
-  %671 = trunc i8 %668 to i1
+  %671 = trunc nuw i8 %668 to i1
   br i1 %671, label %.split.i.i271, label %.split2.i.i260
 
 .split2.i.i260:                                   ; preds = %670
@@ -150466,7 +150466,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h6a769189086776d0E.exit: ; preds 
   br i1 %633, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h4897371b411e933fE.exit", label %634
 
 634:                                              ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h6a769189086776d0E.exit
-  %635 = trunc i8 %632 to i1
+  %635 = trunc nuw i8 %632 to i1
   br i1 %635, label %.split.i.i, label %.split2.i.i
 
 .split2.i.i:                                      ; preds = %634
@@ -150587,7 +150587,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h44cd8096d23bb2a4E.exit: ; preds 
   br i1 %668, label %"_ZN96_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$typst..foundations..cast..IntoValue$GT$10into_value17h63bcffe6a538b678E.exit", label %669
 
 669:                                              ; preds = %_ZN5typst11foundations6styles10StyleChain3get17h44cd8096d23bb2a4E.exit
-  %670 = trunc i8 %667 to i1
+  %670 = trunc nuw i8 %667 to i1
   br i1 %670, label %.split.i.i271, label %.split2.i.i260
 
 .split2.i.i260:                                   ; preds = %669
@@ -151905,7 +151905,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 352:                                              ; preds = %348
-  %353 = trunc i8 %346 to i1
+  %353 = trunc nuw i8 %346 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %52)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$21set_cjk_latin_spacing17h44071e6ebb09e4ccE"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %52, i1 noundef zeroext %353)
           to label %355 unwind label %85
@@ -151985,7 +151985,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 382:                                              ; preds = %378
-  %383 = trunc i8 %376 to i1
+  %383 = trunc nuw i8 %376 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$12set_overhang17h31fb04a606dbf6b6E"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %48, i1 noundef zeroext %383)
           to label %385 unwind label %85
@@ -152333,7 +152333,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 497:                                              ; preds = %493
-  %498 = trunc i8 %491 to i1
+  %498 = trunc nuw i8 %491 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$11set_kerning17hff64a7675f4a752aE"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %30, i1 noundef zeroext %498)
           to label %500 unwind label %85
@@ -152373,7 +152373,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 512:                                              ; preds = %508
-  %513 = trunc i8 %506 to i1
+  %513 = trunc nuw i8 %506 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$14set_alternates17h3f27c618c8dc7d8cE"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %28, i1 noundef zeroext %513)
           to label %515 unwind label %85
@@ -152416,7 +152416,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 529:                                              ; preds = %521
-  %530 = trunc i8 %522 to i1
+  %530 = trunc nuw i8 %522 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$17set_stylistic_set17hccbfa4cb9fe2c617E"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %26, i1 noundef zeroext %530, i8 %524)
           to label %532 unwind label %85
@@ -152456,7 +152456,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 544:                                              ; preds = %540
-  %545 = trunc i8 %538 to i1
+  %545 = trunc nuw i8 %538 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$13set_ligatures17h34df97d12b7fb9e2E"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %24, i1 noundef zeroext %545)
           to label %547 unwind label %85
@@ -152496,7 +152496,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 559:                                              ; preds = %555
-  %560 = trunc i8 %553 to i1
+  %560 = trunc nuw i8 %553 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$27set_discretionary_ligatures17h16d10351735bf524E"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %22, i1 noundef zeroext %560)
           to label %562 unwind label %85
@@ -152536,7 +152536,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 574:                                              ; preds = %570
-  %575 = trunc i8 %568 to i1
+  %575 = trunc nuw i8 %568 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$24set_historical_ligatures17hdf918c280da409baE"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %20, i1 noundef zeroext %575)
           to label %577 unwind label %85
@@ -152654,7 +152654,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 617:                                              ; preds = %613
-  %618 = trunc i8 %611 to i1
+  %618 = trunc nuw i8 %611 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$16set_slashed_zero17h518a1eabb4a6a3aaE"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %14, i1 noundef zeroext %618)
           to label %620 unwind label %85
@@ -152694,7 +152694,7 @@ switch.lookup:                                    ; preds = %235
   br label %656
 
 632:                                              ; preds = %628
-  %633 = trunc i8 %626 to i1
+  %633 = trunc nuw i8 %626 to i1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   invoke void @"_ZN5typst4text1_39_$LT$impl$u20$typst..text..TextElem$GT$13set_fractions17h9fd93105104f656fE"(ptr noalias noundef nonnull sret({ ptr, { { { { { ptr, ptr } }, {} }, {} } }, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) %12, i1 noundef zeroext %633)
           to label %635 unwind label %85

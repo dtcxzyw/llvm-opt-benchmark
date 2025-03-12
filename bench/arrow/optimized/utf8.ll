@@ -2135,7 +2135,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 30:                                               ; preds = %28
   %31 = lshr i32 %0, 6
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, -64
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !36
@@ -2213,7 +2213,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 73:                                               ; preds = %65
   %74 = lshr i32 %0, 12
-  %75 = trunc nuw i32 %74 to i8
+  %75 = trunc nuw nsw i32 %74 to i8
   %76 = or disjoint i8 %75, -32
   br i1 %72, label %77, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i24
 
@@ -2309,7 +2309,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 120:                                              ; preds = %65
   %121 = lshr i32 %0, 18
-  %122 = trunc nuw i32 %121 to i8
+  %122 = trunc nuw nsw i32 %121 to i8
   %123 = or disjoint i8 %122, -16
   br i1 %72, label %124, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i36
 

@@ -152,7 +152,7 @@ define noundef i32 @SHA224_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = trunc nuw i64 %.155.i to i32
+  %43 = trunc nuw nsw i64 %.155.i to i32
   store i32 %43, ptr %18, align 4, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr align 1 %.1.i, i64 %.155.i, i1 false)
   br label %SHA256_Update.exit
@@ -236,7 +236,7 @@ define noundef i32 @SHA256_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = trunc nuw i64 %.155 to i32
+  %44 = trunc nuw nsw i64 %.155 to i32
   store i32 %44, ptr %19, align 4, !tbaa !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1, i64 %.155, i1 false)
   br label %45

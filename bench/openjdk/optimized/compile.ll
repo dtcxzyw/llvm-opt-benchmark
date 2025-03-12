@@ -7051,7 +7051,7 @@ _ZNK7Compile21is_method_compilationEv.exit:       ; preds = %1
 _ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData.exit: ; preds = %9
   %23 = shl nuw nsw i64 1, %indvars.iv
   %24 = load i32, ptr %2, align 8
-  %25 = trunc nuw i64 %23 to i32
+  %25 = trunc nuw nsw i64 %23 to i32
   %26 = or i32 %24, %25
   store i32 %26, ptr %2, align 8
   br label %_ZN7Compile14too_many_trapsEN14Deoptimization11DeoptReasonEP12ciMethodData.exit.thread

@@ -1637,7 +1637,7 @@ if.then.i59:                                      ; preds = %invoke.cont59
 invoke.cont60.thread:                             ; preds = %if.then.i59
   %14 = getelementptr inbounds nuw i8, ptr %call57, i64 8
   store ptr %call.i62, ptr %14, align 8
-  %conv2.i57119 = trunc i32 %nsub.addr.0 to i16
+  %conv2.i57119 = trunc nuw i32 %nsub.addr.0 to i16
   %nsub_.i58120 = getelementptr inbounds nuw i8, ptr %call57, i64 6
   store i16 %conv2.i57119, ptr %nsub_.i58120, align 2
   br label %for.body67.preheader

@@ -24816,7 +24816,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %383 = load ptr, ptr %agg.tmp68.sroa.4.0.agg.tmp68417.sroa_idx, align 8
   %384 = load ptr, ptr %agg.tmp68.sroa.5.0.agg.tmp68417.sroa_idx, align 8
   %385 = load ptr, ptr %agg.tmp68.sroa.6.0.agg.tmp68417.sroa_idx, align 8
-  %conv.i.i.i637 = trunc i64 %381 to i32
+  %conv.i.i.i637 = trunc nuw nsw i64 %381 to i32
   %emptyNoMatch_.i.i.i638 = getelementptr inbounds nuw i8, ptr %371, i64 224
   %386 = load i8, ptr %emptyNoMatch_.i.i.i638, align 8
   %tobool.i.i.i639 = trunc i8 %386 to i1
@@ -25114,7 +25114,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %432 = load ptr, ptr %agg.tmp68.sroa.4.0.agg.tmp68417.sroa_idx, align 8
   %433 = load ptr, ptr %agg.tmp68.sroa.5.0.agg.tmp68417.sroa_idx, align 8
   %434 = load ptr, ptr %agg.tmp68.sroa.6.0.agg.tmp68417.sroa_idx, align 8
-  %conv.i21.i.i.i.i.i.i496 = trunc i64 %430 to i32
+  %conv.i21.i.i.i.i.i.i496 = trunc nuw nsw i64 %430 to i32
   %emptyNoMatch_.i.i.i.i.i.i.i497 = getelementptr inbounds nuw i8, ptr %420, i64 224
   %435 = load i8, ptr %emptyNoMatch_.i.i.i.i.i.i.i497, align 8
   %tobool.i.i.i.i.i.i.i498 = trunc i8 %435 to i1
@@ -25303,7 +25303,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %469 = load ptr, ptr %agg.tmp68.sroa.4.0.agg.tmp68417.sroa_idx, align 8
   %470 = load ptr, ptr %agg.tmp68.sroa.5.0.agg.tmp68417.sroa_idx, align 8
   %471 = load ptr, ptr %agg.tmp68.sroa.6.0.agg.tmp68417.sroa_idx, align 8
-  %conv.i61.i.i.i.i.i.i = trunc i64 %467 to i32
+  %conv.i61.i.i.i.i.i.i = trunc nuw nsw i64 %467 to i32
   %emptyNoMatch_.i62.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %458, i64 224
   %472 = load i8, ptr %emptyNoMatch_.i62.i.i.i.i.i.i, align 8
   %tobool.i63.i.i.i.i.i.i = trunc i8 %472 to i1
@@ -27632,7 +27632,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %29 = load ptr, ptr %28, align 8
-  %conv.i = trunc i64 %22 to i32
+  %conv.i = trunc nuw nsw i64 %22 to i32
   %emptyNoMatch_.i = getelementptr inbounds nuw i8, ptr %13, i64 224
   %30 = load i8, ptr %emptyNoMatch_.i, align 8
   %tobool.i = trunc i8 %30 to i1
@@ -36700,7 +36700,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   %29 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %25, align 8
-  %conv = trunc i64 %10 to i32
+  %conv = trunc nuw nsw i64 %10 to i32
   %emptyNoMatch_ = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %emptyNoMatch_, align 8
   %tobool = trunc i8 %32 to i1
@@ -62077,7 +62077,7 @@ if.end.i:                                         ; preds = %if.then
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit.thread.i: ; preds = %if.end.i
   %mul.i413.i = shl nuw nsw i64 %capacity, 3
   %add.i14.i = add nuw nsw i64 %mul.i413.i, 16
-  %1 = trunc nuw i64 %capacity to i8
+  %1 = trunc nuw nsw i64 %capacity to i8
   br label %3
 
 if.else11.i.i:                                    ; preds = %if.end.i
@@ -67575,7 +67575,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %360 = load ptr, ptr %agg.tmp72.sroa.3.0.agg.tmp72430.sroa_idx, align 8
   %361 = load ptr, ptr %agg.tmp72.sroa.4.0.agg.tmp72430.sroa_idx, align 8
   %362 = load ptr, ptr %agg.tmp72.sroa.5.0.agg.tmp72430.sroa_idx, align 8
-  %conv.i.i.i591 = trunc i64 %358 to i32
+  %conv.i.i.i591 = trunc nuw nsw i64 %358 to i32
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_113re2ExtractAllERNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEERKN3re23RE2ERKNS3_18LocalDecodedVectorEiRSt6vectorINSA_11StringPieceESaISI_EEi(ptr noundef nonnull align 8 dereferenceable(192) %360, ptr noundef nonnull align 8 dereferenceable(212) %re_.i.i.i590, ptr noundef nonnull align 8 dereferenceable(16) %361, i32 noundef %353, ptr noundef nonnull align 8 dereferenceable(24) %362, i32 noundef %conv.i.i.i591)
           to label %for.inc.i.i604 unwind label %lpad.i.i.i592
 
@@ -67850,7 +67850,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %400 = load ptr, ptr %agg.tmp72.sroa.3.0.agg.tmp72430.sroa_idx, align 8
   %401 = load ptr, ptr %agg.tmp72.sroa.4.0.agg.tmp72430.sroa_idx, align 8
   %402 = load ptr, ptr %agg.tmp72.sroa.5.0.agg.tmp72430.sroa_idx, align 8
-  %conv.i21.i.i.i.i.i.i502 = trunc i64 %398 to i32
+  %conv.i21.i.i.i.i.i.i502 = trunc nuw nsw i64 %398 to i32
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_113re2ExtractAllERNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEERKN3re23RE2ERKNS3_18LocalDecodedVectorEiRSt6vectorINSA_11StringPieceESaISI_EEi(ptr noundef nonnull align 8 dereferenceable(192) %400, ptr noundef nonnull align 8 dereferenceable(212) %re_.i.i.i.i.i.i.i501, ptr noundef nonnull align 8 dereferenceable(16) %401, i32 noundef %conv.i.i.i.i.i.i.i496, ptr noundef nonnull align 8 dereferenceable(24) %402, i32 noundef %conv.i21.i.i.i.i.i.i502)
           to label %for.inc.i.i.i.i.i.i520 unwind label %lpad.i17.i.i.i.i.i.i503
 
@@ -68025,7 +68025,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %430 = load ptr, ptr %agg.tmp72.sroa.3.0.agg.tmp72430.sroa_idx, align 8
   %431 = load ptr, ptr %agg.tmp72.sroa.4.0.agg.tmp72430.sroa_idx, align 8
   %432 = load ptr, ptr %agg.tmp72.sroa.5.0.agg.tmp72430.sroa_idx, align 8
-  %conv.i58.i.i.i.i.i.i = trunc i64 %428 to i32
+  %conv.i58.i.i.i.i.i.i = trunc nuw nsw i64 %428 to i32
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_113re2ExtractAllERNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEERKN3re23RE2ERKNS3_18LocalDecodedVectorEiRSt6vectorINSA_11StringPieceESaISI_EEi(ptr noundef nonnull align 8 dereferenceable(192) %430, ptr noundef nonnull align 8 dereferenceable(212) %re_.i57.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %431, i32 noundef %add9.i.i.i.i.i.i545, ptr noundef nonnull align 8 dereferenceable(24) %432, i32 noundef %conv.i58.i.i.i.i.i.i)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERS2_RSE_EUliE1_EEvSA_T_ENKUlSQ_E_clIiEEDaSQ_.exit.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i546
 
@@ -70182,7 +70182,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_118checkForBadGroupIdElRKN3re23RE2E.exi
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %29 = load ptr, ptr %28, align 8
-  %conv.i = trunc i64 %22 to i32
+  %conv.i = trunc nuw nsw i64 %22 to i32
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_113re2ExtractAllERNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEERKN3re23RE2ERKNS3_18LocalDecodedVectorEiRSt6vectorINSA_11StringPieceESaISI_EEi(ptr noundef nonnull align 8 dereferenceable(192) %25, ptr noundef nonnull align 8 dereferenceable(212) %re_.i, ptr noundef nonnull align 8 dereferenceable(16) %27, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %conv.i)
           to label %_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISE_EERKSC_IKNS0_4TypeEERS2_RSE_EUliE1_EEvSA_T_ENKUlSQ_E_clIiEEDaSQ_.exit unwind label %lpad.i
 
@@ -77873,7 +77873,7 @@ invoke.cont9.i.i.i.i.i.i:                         ; preds = %invoke.cont.i.i.i.i
   %332 = load ptr, ptr %agg.tmp46.sroa.4.0.agg.tmp46203.sroa_idx, align 8
   %333 = load ptr, ptr %agg.tmp46.sroa.5.0.agg.tmp46203.sroa_idx, align 8
   %334 = load ptr, ptr %agg.tmp46.sroa.3.0.agg.tmp46203.sroa_idx, align 8
-  %conv.i39.i.i.i.i.i = trunc i64 %316 to i32
+  %conv.i39.i.i.i.i.i = trunc nuw nsw i64 %316 to i32
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_113re2ExtractAllERNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEERKN3re23RE2ERKNS3_18LocalDecodedVectorEiRSt6vectorINSA_11StringPieceESaISI_EEi(ptr noundef nonnull align 8 dereferenceable(192) %332, ptr noundef nonnull align 8 dereferenceable(212) %re.i.i.i.i.i.i204, ptr noundef nonnull align 8 dereferenceable(16) %333, i32 noundef %add9.i.i.i.i.i.i316, ptr noundef nonnull align 8 dereferenceable(24) %334, i32 noundef %conv.i39.i.i.i.i.i)
           to label %_ZZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISB_EERKS9_IKNS0_4TypeEERNS0_4exec7EvalCtxERSB_ENKUliE0_clEi.exit.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i378
 
@@ -80129,7 +80129,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   %27 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %23, align 8
-  %conv = trunc i64 %8 to i32
+  %conv = trunc nuw nsw i64 %8 to i32
   invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_113re2ExtractAllERNS0_4exec12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEERKN3re23RE2ERKNS3_18LocalDecodedVectorEiRSt6vectorINSA_11StringPieceESaISI_EEi(ptr noundef nonnull align 8 dereferenceable(192) %26, ptr noundef nonnull align 8 dereferenceable(212) %re, ptr noundef nonnull align 8 dereferenceable(16) %28, i32 noundef %row, ptr noundef nonnull align 8 dereferenceable(24) %29, i32 noundef %conv)
           to label %invoke.cont10 unwind label %lpad
 

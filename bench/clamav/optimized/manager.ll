@@ -2054,7 +2054,7 @@ define internal noundef i32 @sigload_callback(i64 noundef %0, i64 noundef %1, pt
   br i1 %38, label %40, label %44
 
 40:                                               ; preds = %37
-  %.lhs.trunc7.i = trunc i64 %22 to i16
+  %.lhs.trunc7.i = trunc nuw nsw i64 %22 to i16
   %41 = udiv i16 %.lhs.trunc7.i, 60
   %.zext8.i = zext nneg i16 %41 to i64
   %42 = urem i16 %.lhs.trunc7.i, 60
@@ -2097,7 +2097,7 @@ print_time.exit:                                  ; preds = %31, %40, %44
   br i1 %63, label %65, label %69
 
 65:                                               ; preds = %62
-  %.lhs.trunc7.i45 = trunc i64 %22 to i16
+  %.lhs.trunc7.i45 = trunc nuw nsw i64 %22 to i16
   %66 = udiv i16 %.lhs.trunc7.i45, 60
   %.zext8.i46 = zext nneg i16 %66 to i64
   %67 = urem i16 %.lhs.trunc7.i45, 60
@@ -2131,7 +2131,7 @@ print_time.exit50:                                ; preds = %56, %65, %69
   br i1 %81, label %83, label %87
 
 83:                                               ; preds = %80
-  %.lhs.trunc7.i51 = trunc i64 %52 to i16
+  %.lhs.trunc7.i51 = trunc nuw nsw i64 %52 to i16
   %84 = udiv i16 %.lhs.trunc7.i51, 60
   %.zext8.i52 = zext nneg i16 %84 to i64
   %85 = urem i16 %.lhs.trunc7.i51, 60
@@ -2333,7 +2333,7 @@ define internal noundef i32 @engine_compile_callback(i64 noundef %0, i64 noundef
   br i1 %38, label %40, label %44
 
 40:                                               ; preds = %37
-  %.lhs.trunc7.i = trunc i64 %22 to i16
+  %.lhs.trunc7.i = trunc nuw nsw i64 %22 to i16
   %41 = udiv i16 %.lhs.trunc7.i, 60
   %.zext8.i = zext nneg i16 %41 to i64
   %42 = urem i16 %.lhs.trunc7.i, 60
@@ -2376,7 +2376,7 @@ print_time.exit:                                  ; preds = %31, %40, %44
   br i1 %63, label %65, label %69
 
 65:                                               ; preds = %62
-  %.lhs.trunc7.i45 = trunc i64 %22 to i16
+  %.lhs.trunc7.i45 = trunc nuw nsw i64 %22 to i16
   %66 = udiv i16 %.lhs.trunc7.i45, 60
   %.zext8.i46 = zext nneg i16 %66 to i64
   %67 = urem i16 %.lhs.trunc7.i45, 60
@@ -2410,7 +2410,7 @@ print_time.exit50:                                ; preds = %56, %65, %69
   br i1 %81, label %83, label %87
 
 83:                                               ; preds = %80
-  %.lhs.trunc7.i51 = trunc i64 %52 to i16
+  %.lhs.trunc7.i51 = trunc nuw nsw i64 %52 to i16
   %84 = udiv i16 %.lhs.trunc7.i51, 60
   %.zext8.i52 = zext nneg i16 %84 to i64
   %85 = urem i16 %.lhs.trunc7.i51, 60

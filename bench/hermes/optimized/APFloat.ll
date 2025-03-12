@@ -2782,7 +2782,7 @@ if.then20:                                        ; preds = %if.else
   %sub21 = add nsw i32 %sub, -1
   %exponent.i19 = getelementptr inbounds nuw i8, ptr %temp_rhs, i64 16
   %14 = load i16, ptr %exponent.i19, align 8
-  %15 = trunc i32 %sub21 to i16
+  %15 = trunc nuw i32 %sub21 to i16
   %conv2.i = add i16 %14, %15
   store i16 %conv2.i, ptr %exponent.i19, align 8
   %16 = load ptr, ptr %temp_rhs, align 8
@@ -3002,7 +3002,7 @@ if.then57:                                        ; preds = %if.else55
   call void @_ZN4llvh6detail9IEEEFloatC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %temp_rhs58, ptr noundef nonnull align 8 dereferenceable(24) %rhs)
   %exponent.i97 = getelementptr inbounds nuw i8, ptr %temp_rhs58, i64 16
   %66 = load i16, ptr %exponent.i97, align 8
-  %67 = trunc i32 %sub to i16
+  %67 = trunc nuw i32 %sub to i16
   %conv2.i98 = add i16 %66, %67
   store i16 %conv2.i98, ptr %exponent.i97, align 8
   %68 = load ptr, ptr %temp_rhs58, align 8
@@ -3077,7 +3077,7 @@ delete.notnull.i.i136:                            ; preds = %if.then.i.i133
 
 if.else61:                                        ; preds = %if.else55
   %sub62 = sub nsw i32 0, %sub
-  %84 = trunc i32 %sub62 to i16
+  %84 = trunc nuw i32 %sub62 to i16
   %conv2.i139 = add i16 %2, %84
   store i16 %conv2.i139, ptr %exponent, align 8
   %85 = load ptr, ptr %this, align 8

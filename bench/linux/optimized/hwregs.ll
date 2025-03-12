@@ -82,7 +82,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_hw_validate_register(ptr n
 36:                                               ; preds = %34
   %37 = zext nneg i8 %16 to i32
   %38 = shl nuw nsw i32 4, %37
-  %39 = trunc i32 %38 to i8
+  %39 = trunc nuw nsw i32 %38 to i8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %acpi_hw_get_access_bit_width.exit

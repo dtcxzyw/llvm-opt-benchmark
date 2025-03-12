@@ -4039,7 +4039,7 @@ php_cli_server_parse_addr.exit.i:                 ; preds = %72, %70, %63, %61
   br i1 %.not27.i.i, label %.thread40.i.thread.i, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %83
-  %86 = trunc i64 %.sink45.i.i to i16
+  %86 = trunc nuw i64 %.sink45.i.i to i16
   %rev.i76.i.i = call i16 @llvm.bswap.i16(i16 %86)
   br label %.lr.ph.i.outer.i
 

@@ -222,7 +222,7 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i32 %3 to i8
+  %6 = trunc nuw nsw i32 %3 to i8
   store i8 %6, ptr %0, align 1, !tbaa !4
   br label %50
 
@@ -233,7 +233,7 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(
 
 10:                                               ; preds = %7
   %11 = lshr i32 %3, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %0, align 1, !tbaa !4
   %14 = trunc i32 %3 to i8
@@ -254,7 +254,7 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr noundef writeonly captures(
 
 21:                                               ; preds = %17
   %22 = lshr i64 %spec.store.select2, 12
-  %23 = trunc nuw i64 %22 to i8
+  %23 = trunc nuw nsw i64 %22 to i8
   %24 = or disjoint i8 %23, -32
   store i8 %24, ptr %0, align 1, !tbaa !4
   %25 = lshr i64 %spec.store.select2, 6

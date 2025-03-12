@@ -1231,7 +1231,7 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
   %104 = load ptr, ptr @awt_display, align 8
   %105 = load i64, ptr %65, align 8
   %106 = sub nsw i64 %54, %50
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nsw i64 %106 to i32
   %108 = tail call i32 @XFillRectangle(ptr noundef %104, i64 noundef %105, ptr noundef %66, i32 noundef %67, i32 noundef %39, i32 noundef %107, i32 noundef %.tr170) #10
   br label %109
 
@@ -1244,7 +1244,7 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
   %113 = load i64, ptr %65, align 8
   %114 = trunc nsw i64 %63 to i32
   %115 = sub nsw i64 %54, %50
-  %116 = trunc i64 %115 to i32
+  %116 = trunc nsw i64 %115 to i32
   %117 = trunc nsw i64 %64 to i32
   %118 = tail call i32 @XFillRectangle(ptr noundef %112, i64 noundef %113, ptr noundef %66, i32 noundef %67, i32 noundef %114, i32 noundef %116, i32 noundef %117) #10
   br label %119
@@ -1258,7 +1258,7 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
   %123 = load i64, ptr %65, align 8
   %124 = sub nsw i32 %narrow, %37
   %125 = sub nsw i64 %63, %59
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nsw i64 %125 to i32
   %127 = tail call i32 @XFillRectangle(ptr noundef %122, i64 noundef %123, ptr noundef %66, i32 noundef %37, i32 noundef %69, i32 noundef %124, i32 noundef %126) #10
   br label %.sink.split
 

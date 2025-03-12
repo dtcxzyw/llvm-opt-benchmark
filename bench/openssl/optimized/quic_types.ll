@@ -15,7 +15,7 @@ define range(i32 0, 2) i32 @ossl_quic_gen_rand_conn_id(ptr noundef %0, i64 nound
   %6 = trunc nuw nsw i64 %1 to i8
   store i8 %6, ptr %2, align 1, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.tr = trunc nuw i64 %1 to i32
+  %.tr = trunc nuw nsw i64 %1 to i32
   %8 = shl nuw nsw i32 %.tr, 3
   %9 = tail call i32 @RAND_bytes_ex(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %1, i32 noundef %8) #2
   %.not = icmp eq i32 %9, 1

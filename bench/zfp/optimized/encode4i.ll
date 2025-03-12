@@ -1007,7 +1007,7 @@ stream_write_bit.exit44.i:                        ; preds = %113, %.lr.ph96.i
   br i1 %116, label %.lr.ph96.i, label %.critedge.i
 
 .critedge2.i:                                     ; preds = %stream_write_bit.exit44.i
-  %117 = trunc nuw i64 %indvars.iv132.i to i32
+  %117 = trunc nuw nsw i64 %indvars.iv132.i to i32
   %118 = add nuw nsw i32 %117, 1
   br label %.lr.ph110.i
 

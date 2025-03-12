@@ -1064,11 +1064,11 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   %.not97 = icmp eq i8 %99, 0
   %.not100 = icmp eq i8 %108, 0
   %.not101 = icmp samesign ult i32 %.0148152, 4096
+  %or.cond185 = select i1 %.not100, i1 %.not101, i1 false
   br i1 %.not97, label %122, label %113
 
 113:                                              ; preds = %96
-  %or.cond = select i1 %.not100, i1 %.not101, i1 false
-  br i1 %or.cond, label %.sink.split, label %114
+  br i1 %or.cond185, label %.sink.split, label %114
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1087,7 +1087,6 @@ priv_init_scratch.exit.thread:                    ; preds = %69, %priv_init_scra
   br label %priv_destroy_scratch.exit
 
 122:                                              ; preds = %96
-  %or.cond185 = and i1 %.not101, %.not100
   br i1 %or.cond185, label %.sink.split, label %124
 
 .sink.split:                                      ; preds = %122, %113

@@ -4175,7 +4175,7 @@ setup_quantization.exit:                          ; preds = %1180, %1185, %1187
   %.06696.i = phi i32 [ 0, %.preheader.i732 ], [ %1299, %._crit_edge.i735 ]
   %1283 = call i32 @aom_rb_read_bit(ptr noundef %1) #16
   %.not78.i = icmp eq i32 %1283, 0
-  %.pre102.i = trunc nuw i32 %.06696.i to i8
+  %.pre102.i = trunc nuw nsw i32 %.06696.i to i8
   br i1 %.not78.i, label %._crit_edge.i735, label %1284
 
 1284:                                             ; preds = %1282

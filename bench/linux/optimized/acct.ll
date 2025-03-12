@@ -998,7 +998,7 @@ define internal fastcc void @do_acct_process(ptr noundef captures(none) %0) unna
   br i1 %223, label %.preheader48, label %.thread27
 
 .thread27:                                        ; preds = %216
-  %224 = trunc nuw i64 %222 to i16
+  %224 = trunc nuw nsw i64 %222 to i16
   br label %247
 
 .preheader48:                                     ; preds = %216, %.preheader48
@@ -1044,7 +1044,7 @@ define internal fastcc void @do_acct_process(ptr noundef captures(none) %0) unna
   br i1 %252, label %.preheader47, label %.thread31
 
 .thread31:                                        ; preds = %247
-  %253 = trunc nuw i64 %251 to i16
+  %253 = trunc nuw nsw i64 %251 to i16
   br label %276
 
 .preheader47:                                     ; preds = %247, %.preheader47
@@ -1090,7 +1090,7 @@ define internal fastcc void @do_acct_process(ptr noundef captures(none) %0) unna
   br i1 %281, label %.preheader, label %.thread35
 
 .thread35:                                        ; preds = %276
-  %282 = trunc nuw i64 %280 to i16
+  %282 = trunc nuw nsw i64 %280 to i16
   br label %305
 
 .preheader:                                       ; preds = %276, %.preheader

@@ -1217,7 +1217,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfcEENS_19
   %70 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %65, i1 true)
   %71 = trunc nuw nsw i64 %70 to i32
   %72 = shl i64 %65, %70
-  %73 = trunc i64 %7 to i32
+  %73 = trunc nsw i64 %7 to i32
   %74 = shl nsw i32 %73, 1
   %75 = add nsw i32 %74, 684
   %76 = zext nneg i32 %75 to i64
@@ -1331,7 +1331,7 @@ _ZN10fast_float13compute_floatINS_13binary_formatIfEEEENS_17adjusted_mantissaElm
   %143 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %139, i1 true)
   %144 = trunc nuw nsw i64 %143 to i32
   %145 = shl i64 %139, %143
-  %146 = trunc i64 %7 to i32
+  %146 = trunc nsw i64 %7 to i32
   %147 = shl nsw i32 %146, 1
   %148 = add nsw i32 %147, 684
   %149 = zext nneg i32 %148 to i64
@@ -3229,7 +3229,7 @@ _ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us: ; pred
   br label %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 _ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, %69
-  %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
+  %storemerge.i.i.i.us = trunc nuw nsw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !57
   br label %74
 
@@ -4391,7 +4391,7 @@ define linkonce_odr { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdcEENS_19
   %71 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %65, i1 true)
   %72 = trunc nuw nsw i64 %71 to i32
   %73 = shl i64 %65, %71
-  %74 = trunc i64 %7 to i32
+  %74 = trunc nsw i64 %7 to i32
   %75 = shl nsw i32 %74, 1
   %76 = add nsw i32 %75, 684
   %77 = zext nneg i32 %76 to i64
@@ -4506,7 +4506,7 @@ _ZN10fast_float13compute_floatINS_13binary_formatIdEEEENS_17adjusted_mantissaElm
   %147 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %142, i1 true)
   %148 = trunc nuw nsw i64 %147 to i32
   %149 = shl i64 %142, %147
-  %150 = trunc i64 %7 to i32
+  %150 = trunc nsw i64 %7 to i32
   %151 = shl nsw i32 %150, 1
   %152 = add nsw i32 %151, 684
   %153 = zext nneg i32 %152 to i64
@@ -6072,7 +6072,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
 
 60:                                               ; preds = %.lr.ph
   %61 = mul i16 %.03993, 10000
-  %62 = trunc nuw i32 %58 to i16
+  %62 = trunc nuw nsw i32 %58 to i16
   %63 = add i16 %61, %62
   %64 = getelementptr inbounds nuw i8, ptr %.292, i64 4
   %65 = ptrtoint ptr %64 to i64
@@ -6281,7 +6281,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toItEENS_8ExpectedIT_NS_14Conversio
 
 51:                                               ; preds = %.lr.ph
   %52 = mul i16 %.03979, 10000
-  %53 = trunc nuw i32 %49 to i16
+  %53 = trunc nuw nsw i32 %49 to i16
   %54 = add i16 %52, %53
   %55 = getelementptr inbounds nuw i8, ptr %.278, i64 4
   %56 = ptrtoint ptr %55 to i64

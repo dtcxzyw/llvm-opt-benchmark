@@ -276,7 +276,7 @@ define hidden void @ssl_read_buffer_consume(ptr noundef readonly captures(none) 
   unreachable
 
 consume_buffer.exit:                              ; preds = %2
-  %10 = trunc i64 %1 to i16
+  %10 = trunc nuw i64 %1 to i16
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %12 = load i16, ptr %11, align 8, !tbaa !55
   %13 = add i16 %12, %10
@@ -514,7 +514,7 @@ define hidden range(i32 -2147483648, 2) i32 @ssl_write_buffer_flush(ptr noundef 
   unreachable
 
 54:                                               ; preds = %49
-  %55 = trunc i32 %46 to i16
+  %55 = trunc nuw i32 %46 to i16
   %56 = load i16, ptr %36, align 8, !tbaa !55
   %57 = add i16 %56, %55
   store i16 %57, ptr %36, align 8, !tbaa !55

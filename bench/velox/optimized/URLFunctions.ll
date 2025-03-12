@@ -12106,7 +12106,7 @@ land.lhs.true339:                                 ; preds = %if.end331
   br i1 %call340, label %land.lhs.true339.if.then355_crit_edge, label %if.else366
 
 land.lhs.true339.if.then355_crit_edge:            ; preds = %land.lhs.true339
-  %.pre392 = trunc nuw i64 %i.1 to i32
+  %.pre392 = trunc nuw nsw i64 %i.1 to i32
   br label %if.then355
 
 lor.lhs.false341:                                 ; preds = %if.end331

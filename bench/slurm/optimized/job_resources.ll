@@ -1286,7 +1286,7 @@ job_res_job_action_string.exit170:                ; preds = %41, %switch.lookup2
   br i1 %.not163, label %222, label %219
 
 219:                                              ; preds = %212
-  %220 = trunc i32 %218 to i16
+  %220 = trunc nuw i32 %218 to i16
   %221 = sub i16 %216, %220
   store i16 %221, ptr %215, align 8
   br label %229

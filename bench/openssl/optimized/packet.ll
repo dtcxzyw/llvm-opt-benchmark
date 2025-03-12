@@ -1146,7 +1146,7 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.thread17.i.i.i
   br i1 %134, label %.critedge76, label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %128
-  %135 = trunc nuw i64 %.0.lcssa125 to i8
+  %135 = trunc nuw nsw i64 %.0.lcssa125 to i8
   %136 = or disjoint i8 %135, -128
   store i8 %136, ptr %.098, align 1, !tbaa !33
   br label %.critedge76

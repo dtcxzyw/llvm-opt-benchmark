@@ -221,7 +221,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %42
   br label %95
 
 74:                                               ; preds = %_ZN8rawspeed19roundUpDivisionSafeEmm.exit
-  %75 = trunc i64 %58 to i32
+  %75 = trunc nuw nsw i64 %58 to i32
   %76 = shl nuw i32 %75, 14
   %77 = zext nneg i32 %63 to i64
   %78 = zext i32 %76 to i64
@@ -1093,7 +1093,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   call void @llvm.assume(i1 %77)
   call void @llvm.assume(i1 %80)
   %109 = zext nneg i32 %.01146.i to i64
-  %110 = trunc i32 %.lcssa404245.i to i8
+  %110 = trunc nuw nsw i32 %.lcssa404245.i to i8
   %.lhs.trunc.i = add nuw nsw i8 %110, 20
   %111 = udiv i8 %.lhs.trunc.i, 12
   %112 = icmp sgt i32 %.01146.i, -1
@@ -1654,7 +1654,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   call void @llvm.assume(i1 %77)
   call void @llvm.assume(i1 %80)
   %109 = zext nneg i32 %.01146.i to i64
-  %110 = trunc i32 %.lcssa404245.i to i8
+  %110 = trunc nuw nsw i32 %.lcssa404245.i to i8
   %.lhs.trunc.i = add nuw nsw i8 %110, 18
   %111 = udiv i8 %.lhs.trunc.i, 14
   %112 = icmp sgt i32 %.01146.i, -1

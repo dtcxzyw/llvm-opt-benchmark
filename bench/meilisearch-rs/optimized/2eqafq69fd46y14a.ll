@@ -1424,7 +1424,7 @@ define hidden void @"_ZN101_$LT$serde_json..iter..LineColIterator$LT$I$GT$$u20$a
   br label %8
 
 7:                                                ; preds = %2
-  %trunc = trunc i8 %4 to i1
+  %trunc = trunc nuw i8 %4 to i1
   br i1 %trunc, label %16, label %9
 
 8:                                                ; preds = %26, %19, %16, %6

@@ -4981,7 +4981,7 @@ define internal fastcc void @dissect_smb2_NETWORK_INTERFACE_INFO(ptr noundef %0,
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %32
-  %.lhs.trunc = trunc nuw i64 %26 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %26 to i32
   %35 = udiv i32 %.lhs.trunc, 1000000
   %.zext = zext nneg i32 %35 to i64
   br label %40
@@ -4991,7 +4991,7 @@ define internal fastcc void @dissect_smb2_NETWORK_INTERFACE_INFO(ptr noundef %0,
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %.lhs.trunc71 = trunc nuw i64 %26 to i32
+  %.lhs.trunc71 = trunc nuw nsw i64 %26 to i32
   %39 = udiv i32 %.lhs.trunc71, 1000
   %.zext72 = zext nneg i32 %39 to i64
   br label %40

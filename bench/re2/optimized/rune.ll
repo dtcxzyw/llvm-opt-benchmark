@@ -110,7 +110,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   %shr = lshr i32 %0, 6
-  %1 = trunc nuw i32 %shr to i8
+  %1 = trunc nuw nsw i32 %shr to i8
   %conv5 = or disjoint i8 %1, -64
   store i8 %conv5, ptr %str, align 1
   %2 = trunc i32 %0 to i8
@@ -129,7 +129,7 @@ if.end10:                                         ; preds = %if.end
 
 if.then15:                                        ; preds = %if.end10
   %shr16 = lshr i32 %spec.store.select, 12
-  %4 = trunc nuw i32 %shr16 to i8
+  %4 = trunc nuw nsw i32 %shr16 to i8
   %conv20 = or disjoint i8 %4, -32
   store i8 %conv20, ptr %str, align 1
   %shr22 = lshr i32 %spec.store.select, 6

@@ -227,7 +227,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14stringToInstI
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i64 %11 to i32
+  %32 = trunc nuw nsw i64 %11 to i32
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 3
@@ -3362,7 +3362,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 1284:                                             ; preds = %1256
   store i32 6, ptr %1259, align 4, !tbaa !75
-  %1285 = trunc nuw i32 %1258 to i8
+  %1285 = trunc nuw nsw i32 %1258 to i8
   store i8 %1285, ptr %1261, align 1, !tbaa !67
   br label %1286
 
@@ -3645,7 +3645,7 @@ define hidden noundef range(i32 0, 27) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
 
 1460:                                             ; preds = %1456
   store i32 5, ptr %1432, align 4, !tbaa !75
-  %1461 = trunc nuw i32 %1420 to i8
+  %1461 = trunc nuw nsw i32 %1420 to i8
   store i8 %1461, ptr %1434, align 1, !tbaa !67
   br label %1462
 

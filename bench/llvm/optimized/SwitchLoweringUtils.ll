@@ -1341,7 +1341,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPN4llvm17BranchProbabilityESt6ve
   br i1 %233, label %234, label %237
 
 234:                                              ; preds = %232
-  %235 = trunc nuw i64 %.0.i.i.i.i to i32
+  %235 = trunc nuw nsw i64 %.0.i.i.i.i to i32
   %.lhs.trunc.i.i = sub nuw i32 -2147483648, %235
   %236 = udiv i32 %.lhs.trunc.i.i, %.1.i.i
   br label %237
@@ -2063,7 +2063,7 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i: ; preds = %54
   br i1 %.not11.i.i.i, label %.thread, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge.i
 
 .thread:                                          ; preds = %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i.i
-  %56 = trunc i64 %44 to i32
+  %56 = trunc nuw i64 %44 to i32
   store i32 %56, ptr %46, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #20
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 16

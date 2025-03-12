@@ -601,7 +601,7 @@ define internal void @replace_entry(i64 noundef %0, ptr noundef readonly capture
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = load i32, ptr %31, align 8, !tbaa !29
   %.not31 = icmp eq i32 %32, 0
-  %33 = trunc i64 %0 to i32
+  %33 = trunc nuw i64 %0 to i32
   br i1 %.not31, label %35, label %34
 
 34:                                               ; preds = %25

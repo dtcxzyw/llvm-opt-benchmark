@@ -508,7 +508,7 @@ define range(i32 0, 1114112) i32 @u_fputc_77(i32 noundef %0, ptr noundef capture
 
 9:                                                ; preds = %7
   %10 = lshr i32 %0, 10
-  %11 = trunc nuw i32 %10 to i16
+  %11 = trunc nuw nsw i32 %10 to i16
   %12 = add nuw nsw i16 %11, -10304
   store i16 %12, ptr %3, align 2, !tbaa !38
   %13 = trunc i32 %0 to i16

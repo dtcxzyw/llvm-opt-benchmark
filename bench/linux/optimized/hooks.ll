@@ -7579,7 +7579,7 @@ define internal i32 @selinux_file_ioctl(ptr noundef %0, i32 noundef %1, i64 %2) 
   br i1 %157, label %158, label %166
 
 158:                                              ; preds = %155
-  %159 = trunc i32 %1 to i16
+  %159 = trunc nuw nsw i32 %1 to i16
   %160 = getelementptr i8, ptr %12, i64 128
   %.val = load ptr, ptr %160, align 8
   %161 = tail call fastcc i32 @ioctl_has_perm(ptr %.val, ptr noundef %0, i16 noundef zeroext %159)

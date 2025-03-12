@@ -155,7 +155,7 @@ define dso_local i32 @hidraw_connect(ptr noundef %0) #0 align 16 {
 12:                                               ; preds = %8
   %13 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %17
   %14 = icmp samesign ult i64 %16, 63
-  %15 = trunc i64 %17 to i32
+  %15 = trunc nuw nsw i64 %17 to i32
   store ptr %3, ptr %13, align 8
   br i1 %14, label %20, label %.loopexit
 

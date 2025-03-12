@@ -1057,7 +1057,7 @@ define noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__c
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw i16 %17 to i8
+  %20 = trunc nuw nsw i16 %17 to i8
   %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq i64 %.01527.i.idx.i.i, 2
   br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
@@ -1108,7 +1108,7 @@ define noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__c
   br i1 %or.cond.i.i.i26.i.i, label %37, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 37:                                               ; preds = %.preheader.i24.i.i
-  %38 = trunc nuw i16 %35 to i8
+  %38 = trunc nuw nsw i16 %35 to i8
   %39 = add nsw i8 %38, -48
   %.not20.i28.i.i = icmp eq ptr %.01527.i25.i.i, %.118.i.i
   br i1 %.not20.i28.i.i, label %.critedge.i30.i.i, label %40
@@ -1311,7 +1311,7 @@ define noundef zeroext i1 @_ZN4base12StringToUintERKNS_16BasicStringPieceINSt7__
   br i1 %or.cond.i.i.i.i.i, label %20, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pj.exit.i.i
 
 20:                                               ; preds = %.preheader.i.i.i
-  %21 = trunc nuw i16 %18 to i8
+  %21 = trunc nuw nsw i16 %18 to i8
   %22 = add nsw i8 %21, -48
   %.not20.i.i.i = icmp eq ptr %.01527.i.i.i, %.116.i.i
   br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %23
@@ -1543,7 +1543,7 @@ define noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7_
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw i16 %17 to i8
+  %20 = trunc nuw nsw i16 %17 to i8
   %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq i64 %.01527.i.idx.i.i, 2
   br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
@@ -1594,7 +1594,7 @@ define noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7_
   br i1 %or.cond.i.i.i26.i.i, label %37, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 37:                                               ; preds = %.preheader.i24.i.i
-  %38 = trunc nuw i16 %35 to i8
+  %38 = trunc nuw nsw i16 %35 to i8
   %39 = add nsw i8 %38, -48
   %.not20.i28.i.i = icmp eq ptr %.01527.i25.i.i, %.118.i.i
   br i1 %.not20.i28.i.i, label %.critedge.i30.i.i, label %40
@@ -1797,7 +1797,7 @@ define noundef zeroext i1 @_ZN4base14StringToUint64ERKNS_16BasicStringPieceINSt7
   br i1 %or.cond.i.i.i.i.i, label %20, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i
 
 20:                                               ; preds = %.preheader.i.i.i
-  %21 = trunc nuw i16 %18 to i8
+  %21 = trunc nuw nsw i16 %18 to i8
   %22 = add nsw i8 %21, -48
   %.not20.i.i.i = icmp eq ptr %.01527.i.i.i, %.116.i.i
   br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %23
@@ -2007,7 +2007,7 @@ define noundef zeroext i1 @_ZN4base13StringToSizeTERKNS_16BasicStringPieceINSt7_
   br i1 %or.cond.i.i.i.i.i, label %20, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE4BaseINS4_8PositiveEE6InvokeEPKtS9_Pm.exit.i.i
 
 20:                                               ; preds = %.preheader.i.i.i
-  %21 = trunc nuw i16 %18 to i8
+  %21 = trunc nuw nsw i16 %18 to i8
   %22 = add nsw i8 %21, -48
   %.not20.i.i.i = icmp eq ptr %.01527.i.i.i, %.116.i.i
   br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %23

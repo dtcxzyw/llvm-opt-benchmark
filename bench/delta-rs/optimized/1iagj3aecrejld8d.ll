@@ -13245,7 +13245,7 @@ define hidden { ptr, ptr } @"_ZN5tokio4sync6rwlock15RwLock$LT$T$GT$8try_read17h2
   br label %7
 
 6:                                                ; preds = %1
-  %trunc = trunc i8 %2 to i1
+  %trunc = trunc nuw i8 %2 to i1
   br i1 %trunc, label %7, label %10
 
 7:                                                ; preds = %6, %4
@@ -13852,7 +13852,7 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$tokio..sync..rwlock..RwLock$LT$T$GT
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %2
-  %trunc.i = trunc i8 %6 to i1
+  %trunc.i = trunc nuw i8 %6 to i1
   br i1 %trunc.i, label %13, label %9
 
 9:                                                ; preds = %8

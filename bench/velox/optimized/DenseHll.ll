@@ -2230,7 +2230,7 @@ if.then.i1.i.i.i.i:                               ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i.i: ; preds = %if.end.i.i.i.i
-  %conv.i.i.i.i = trunc nuw i64 %36 to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %36 to i32
   %39 = tail call i32 @llvm.umax.i32(i32 %conv.i.i.i.i, i32 16)
   %call3.i.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %37, i32 noundef %39, i1 noundef zeroext true)
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i.i, i64 4
@@ -2699,7 +2699,7 @@ if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %3 to i32
+  %conv.i.i.i = trunc nuw nsw i64 %3 to i32
   %6 = tail call i32 @llvm.umax.i32(i32 %conv.i.i.i, i32 16)
   %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %4, i32 noundef %6, i1 noundef zeroext true)
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call3.i.i.i.i, i64 4

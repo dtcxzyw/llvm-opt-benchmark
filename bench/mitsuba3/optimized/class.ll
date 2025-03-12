@@ -412,7 +412,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !4
-  %35 = trunc nuw i64 %22 to i8
+  %35 = trunc nuw nsw i64 %22 to i8
   %36 = shl nuw nsw i8 %35, 1
   store i8 %36, ptr %4, align 8, !alias.scope !4
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -564,7 +564,7 @@ define void @_ZN7mitsuba5Class15initialize_onceEPS0_(ptr noundef %0) local_unnam
 
 32:                                               ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !12
-  %33 = trunc nuw i64 %27 to i8
+  %33 = trunc nuw nsw i64 %27 to i8
   %34 = shl nuw nsw i8 %33, 1
   store i8 %34, ptr %6, align 8, !alias.scope !12
   br label %_ZNSt3__111char_traitsIcE4copyB8ne190000EPcPKcm.exit.i

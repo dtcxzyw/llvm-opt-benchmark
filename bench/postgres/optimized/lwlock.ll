@@ -264,7 +264,7 @@ NumLWLocksForNamedTranches.exit.i:                ; preds = %NumLWLocksForNamedT
   %.03842.i = phi ptr [ %21, %NumLWLocksForNamedTranches.exit.i ], [ %28, %22 ]
   %23 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 4
   store volatile i32 536870912, ptr %23, align 4
-  %24 = trunc nuw i32 %.043.i to i16
+  %24 = trunc nuw nsw i32 %.043.i to i16
   store i16 %24, ptr %.03842.i, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.03842.i, i64 12

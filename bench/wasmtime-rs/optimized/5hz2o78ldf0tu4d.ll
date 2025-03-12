@@ -31201,7 +31201,7 @@ switch.lookup4656:                                ; preds = %1694
           to label %.loopexit unwind label %.loopexit.split-lp
 
 1986:                                             ; preds = %1982
-  %1987 = trunc i64 %1974 to i32
+  %1987 = trunc nsw i64 %1974 to i32
   br label %.invoke4269
 
 .invoke4269:                                      ; preds = %.invoke4307, %.invoke4306, %5000, %4993, %1994, %1986
@@ -40969,7 +40969,7 @@ switch.lookup4797:                                ; preds = %4322
           to label %5000 unwind label %.loopexit.split-lp
 
 5000:                                             ; preds = %4998
-  %5001 = trunc i64 %4981 to i32
+  %5001 = trunc nsw i64 %4981 to i32
   %5002 = sub nsw i32 0, %5001
   br label %.invoke4269
 

@@ -33142,7 +33142,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433: ; preds = %
   ]
 
 235:                                              ; preds = %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433, %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit433
-  %236 = trunc i64 %.0.i.i.i435 to i32
+  %236 = trunc nuw nsw i64 %.0.i.i.i435 to i32
   %237 = add nsw i32 %236, -1
   %238 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 %237, ptr %238, align 4, !tbaa !881

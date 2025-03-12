@@ -7848,7 +7848,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i59: ; preds = %159, %.thread.i
   br i1 %178, label %dissect_someip_payload_typedef.exit, label %179
 
 179:                                              ; preds = %176
-  %180 = trunc i64 %177 to i32
+  %180 = trunc nuw i64 %177 to i32
   %181 = add i32 %170, %3
   br label %182
 

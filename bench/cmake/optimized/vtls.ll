@@ -4212,7 +4212,7 @@ define dso_local range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeon
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.lr.ph35
-  %9 = trunc nuw i64 %6 to i32
+  %9 = trunc nuw nsw i64 %6 to i32
   %10 = add nsw i32 %.0232933, %9
   %11 = icmp sgt i32 %10, 31
   br i1 %11, label %.loopexit, label %12
@@ -4506,7 +4506,7 @@ define dso_local range(i32 0, 36) i32 @Curl_alpn_set_negotiated(ptr noundef read
   br i1 %74, label %75, label %120
 
 75:                                               ; preds = %71, %68
-  %76 = trunc i64 %4 to i32
+  %76 = trunc nuw nsw i64 %4 to i32
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i32 noundef %76, ptr noundef nonnull %3) #20
   br label %120
 
@@ -4533,7 +4533,7 @@ define dso_local range(i32 0, 36) i32 @Curl_alpn_set_negotiated(ptr noundef read
   br i1 %88, label %89, label %120
 
 89:                                               ; preds = %85, %82
-  %90 = trunc i64 %4 to i32
+  %90 = trunc nuw nsw i64 %4 to i32
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i32 noundef %90, ptr noundef nonnull %3) #20
   br label %120
 

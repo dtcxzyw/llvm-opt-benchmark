@@ -3728,7 +3728,7 @@ _ZN5tokio7runtime6handle6Handle5spawn17h340da8d20722c573E.exit.i.i: ; preds = %1
 330:                                              ; preds = %317, %313
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   store i8 1, ptr %301, align 8, !noalias !507
-  %331 = trunc i8 %304 to i1
+  %331 = trunc nuw i8 %304 to i1
   br i1 %331, label %356, label %340
 
 .body.i.i.i.i:                                    ; preds = %328, %291

@@ -6902,7 +6902,7 @@ _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
 
 81:                                               ; preds = %79
   %82 = lshr i32 %73, 6
-  %83 = trunc nuw i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   %84 = or disjoint i8 %83, -64
   store i8 %84, ptr %.01119.i19.i, align 1
   %85 = trunc i32 %73 to i8
@@ -6914,7 +6914,7 @@ _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
 
 89:                                               ; preds = %79
   %90 = lshr i32 %73, 12
-  %91 = trunc nuw i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or disjoint i8 %91, -32
   store i8 %92, ptr %.01119.i19.i, align 1
   %93 = lshr i32 %73, 6
@@ -7029,7 +7029,7 @@ _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10v
 
 142:                                              ; preds = %140
   %143 = lshr i32 %134, 6
-  %144 = trunc nuw i32 %143 to i8
+  %144 = trunc nuw nsw i32 %143 to i8
   %145 = or disjoint i8 %144, -64
   store i8 %145, ptr %.01119.i19.i62, align 1
   %146 = trunc i32 %134 to i8
@@ -7041,7 +7041,7 @@ _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10v
 
 150:                                              ; preds = %140
   %151 = lshr i32 %134, 12
-  %152 = trunc nuw i32 %151 to i8
+  %152 = trunc nuw nsw i32 %151 to i8
   %153 = or disjoint i8 %152, -32
   store i8 %153, ptr %.01119.i19.i62, align 1
   %154 = lshr i32 %134, 6
@@ -7893,7 +7893,7 @@ _ZN4pugi4impl13utf16_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = trunc nuw i16 %39 to i8
+  %45 = trunc nuw nsw i16 %39 to i8
   store i8 %45, ptr %.02937.i20, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i
 
@@ -7903,7 +7903,7 @@ _ZN4pugi4impl13utf16_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
 
 48:                                               ; preds = %46
   %49 = lshr i16 %39, 6
-  %50 = trunc nuw i16 %49 to i8
+  %50 = trunc nuw nsw i16 %49 to i8
   %51 = or disjoint i8 %50, -64
   store i8 %51, ptr %.02937.i20, align 1
   %52 = trunc i16 %39 to i8
@@ -8059,7 +8059,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13utf16_decoderINS0_8opt_tr
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i16 %rev.i to i8
+  %10 = trunc nuw nsw i16 %rev.i to i8
   store i8 %10, ptr %.02938, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit
 
@@ -8069,7 +8069,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13utf16_decoderINS0_8opt_tr
 
 13:                                               ; preds = %11
   %14 = lshr i16 %rev.i, 6
-  %15 = trunc nuw i16 %14 to i8
+  %15 = trunc nuw nsw i16 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %.02938, align 1
   %17 = trunc i16 %rev.i to i8
@@ -11739,7 +11739,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3ga
 
 51:                                               ; preds = %49
   %52 = lshr i32 %.3, 6
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -64
   store i8 %54, ptr %0, align 1
   %55 = trunc i32 %.3 to i8
@@ -11750,7 +11750,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3ga
 
 58:                                               ; preds = %49
   %59 = lshr i32 %.3, 12
-  %60 = trunc nuw i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = or disjoint i8 %60, -32
   store i8 %61, ptr %0, align 1
   %62 = lshr i32 %.3, 6

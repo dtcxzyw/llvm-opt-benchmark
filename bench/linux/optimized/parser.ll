@@ -240,7 +240,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_int(ptr noundef readonly c
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = trunc i64 %15 to i32
+  %22 = trunc nsw i64 %15 to i32
   store i32 %22, ptr %1, align 4
   br label %23
 
@@ -380,7 +380,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_octal(ptr noundef readonly
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = trunc i64 %15 to i32
+  %22 = trunc nsw i64 %15 to i32
   store i32 %22, ptr %1, align 4
   br label %23
 
@@ -424,7 +424,7 @@ define dso_local noundef range(i32 -34, 1) i32 @match_hex(ptr noundef readonly c
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %18
-  %22 = trunc i64 %15 to i32
+  %22 = trunc nsw i64 %15 to i32
   store i32 %22, ptr %1, align 4
   br label %23
 

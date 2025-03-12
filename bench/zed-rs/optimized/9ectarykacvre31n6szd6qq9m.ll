@@ -21103,7 +21103,7 @@ default.unreachable2.i:                           ; preds = %34
   br label %56
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0 = trunc i64 %.sroa.2.0.copyload to i32
+  %.sroa.12.0 = trunc nuw i64 %.sroa.2.0.copyload to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !5594
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -21196,7 +21196,7 @@ default.unreachable2.i25:                         ; preds = %65
   br label %56
 
 82:                                               ; preds = %74, %69
-  %.sroa.12.1 = trunc i64 %.sroa.235.0.copyload to i32
+  %.sroa.12.1 = trunc nuw i64 %.sroa.235.0.copyload to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !5607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -21342,7 +21342,7 @@ default.unreachable2.i:                           ; preds = %34
   br label %56
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0 = trunc i64 %.sroa.2.0.copyload to i32
+  %.sroa.12.0 = trunc nsw i64 %.sroa.2.0.copyload to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !5642
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -21436,7 +21436,7 @@ default.unreachable2.i26:                         ; preds = %65
   br label %56
 
 82:                                               ; preds = %74, %69
-  %.sroa.12.1 = trunc i64 %.sroa.236.0.copyload to i32
+  %.sroa.12.1 = trunc nsw i64 %.sroa.236.0.copyload to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !5655
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -21581,7 +21581,7 @@ default.unreachable2.i:                           ; preds = %34
   br label %56
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0 = trunc i64 %.sroa.2.0.copyload to i32
+  %.sroa.12.0 = trunc nsw i64 %.sroa.2.0.copyload to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !5686
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -21675,7 +21675,7 @@ default.unreachable2.i26:                         ; preds = %65
   br label %56
 
 82:                                               ; preds = %74, %69
-  %.sroa.12.1 = trunc i64 %.sroa.236.0.copyload to i32
+  %.sroa.12.1 = trunc nsw i64 %.sroa.236.0.copyload to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !5699
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -84930,7 +84930,7 @@ default.unreachable2.i.i.i.i:                     ; preds = %34
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17h46ad02f669aba12eE.exit"
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0.i.i.i = trunc i64 %.sroa.2.0.copyload.i.i.i to i32
+  %.sroa.12.0.i.i.i = trunc nuw i64 %.sroa.2.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !22266
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !22260
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -85020,7 +85020,7 @@ default.unreachable2.i25.i.i.i:                   ; preds = %64
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17h46ad02f669aba12eE.exit"
 
 81:                                               ; preds = %73, %68
-  %.sroa.12.1.i.i.i = trunc i64 %.sroa.235.0.copyload.i.i.i to i32
+  %.sroa.12.1.i.i.i = trunc nuw i64 %.sroa.235.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !22282
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !22260
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -106370,7 +106370,7 @@ _ZN5serde2de9MapAccess10next_value17h786b9421c9b4ded3E.exit.thread.loopexit.i: ;
   ]
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit206.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i205.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h531efaf20d2227e6E.exit.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h531efaf20d2227e6E.exit.i"
-  %364 = trunc i8 %.sroa.0114.51090.i to i1
+  %364 = trunc nuw i8 %.sroa.0114.51090.i to i1
   br i1 %364, label %switch.early.test.i, label %"_ZN147_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..Command$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h49b8cf76db8bb87fE.exit"
 
 switch.early.test.i:                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit206.i"
@@ -106386,7 +106386,7 @@ switch.early.test.i:                              ; preds = %"_ZN4core3ptr42drop
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit206.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit210.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i209.i", %.body203.i, %.body203.i
-  %366 = trunc i8 %.sroa.0114.3.i to i1
+  %366 = trunc nuw i8 %.sroa.0114.3.i to i1
   br i1 %366, label %switch.early.test1471.i, label %common.resume
 
 switch.early.test1471.i:                          ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit210.i"
@@ -135904,7 +135904,7 @@ _ZN5serde2de9MapAccess10next_value17h456aa9965a89e500E.exit.thread.loopexit.i: ;
   ]
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit206.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i205.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h531efaf20d2227e6E.exit.i", %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h531efaf20d2227e6E.exit.i"
-  %364 = trunc i8 %.sroa.0114.51090.i to i1
+  %364 = trunc nuw i8 %.sroa.0114.51090.i to i1
   br i1 %364, label %switch.early.test.i, label %"_ZN147_$LT$lsp_types.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..Command$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h2e86d167d65c6edeE.exit"
 
 switch.early.test.i:                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit206.i"
@@ -135920,7 +135920,7 @@ switch.early.test.i:                              ; preds = %"_ZN4core3ptr42drop
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit206.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit210.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i209.i", %.body203.i, %.body203.i
-  %366 = trunc i8 %.sroa.0114.3.i to i1
+  %366 = trunc nuw i8 %.sroa.0114.3.i to i1
   br i1 %366, label %switch.early.test1471.i, label %common.resume
 
 switch.early.test1471.i:                          ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h0708543c178029fcE.exit210.i"

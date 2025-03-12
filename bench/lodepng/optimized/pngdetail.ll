@@ -5036,7 +5036,7 @@ _ZN4Data5isIccEv.exit:                            ; preds = %77
 
 82:                                               ; preds = %_ZN4Data5isIccEv.exit
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %84 = trunc i64 %23 to i32
+  %84 = trunc nsw i64 %23 to i32
   %85 = tail call noundef i32 @_Z15lodepng_set_iccP11LodePNGInfoPKcPKhj(ptr noundef nonnull %83, ptr noundef nonnull @.str.229, ptr noundef nonnull %15, i32 noundef %84)
   store i8 1, ptr %19, align 2, !tbaa !152
   br label %151
@@ -5499,7 +5499,7 @@ _ZNSolsEPFRSoS_E.exit48.preheader:                ; preds = %.noexc85
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit50: ; preds = %138
   %140 = load i32, ptr %3, align 4, !tbaa !116
-  %.lhs.trunc = trunc i64 %.020120 to i32
+  %.lhs.trunc = trunc nuw i64 %.020120 to i32
   %141 = urem i32 %.lhs.trunc, %140
   %142 = add i32 %140, -1
   %143 = icmp eq i32 %141, %142

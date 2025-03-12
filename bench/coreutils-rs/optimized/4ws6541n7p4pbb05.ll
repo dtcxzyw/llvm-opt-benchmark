@@ -2423,7 +2423,7 @@ define void @_ZN7uu_tail4args8Settings14check_warnings17h568a4b0d461a17d9E(ptr n
   br label %29
 
 52:                                               ; preds = %35
-  %53 = trunc i8 %37 to i1
+  %53 = trunc nuw i8 %37 to i1
   br i1 %53, label %29, label %54
 
 54:                                               ; preds = %52

@@ -79,7 +79,7 @@ define hidden noundef i32 @RIPEMD160_Update(ptr noundef captures(none) %0, ptr n
   br i1 %.not58, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = trunc nuw i64 %.154 to i32
+  %43 = trunc nuw nsw i64 %.154 to i32
   store i32 %43, ptr %19, align 4, !tbaa !12
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.152, i64 %.154, i1 false)
@@ -1937,7 +1937,7 @@ define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %0, i64
 .thread:                                          ; preds = %11, %18
   %.152.i8 = phi ptr [ %21, %18 ], [ %0, %11 ]
   %.154.i7 = phi i64 [ %22, %18 ], [ %1, %11 ]
-  %23 = trunc nuw i64 %.154.i7 to i32
+  %23 = trunc nuw nsw i64 %.154.i7 to i32
   store i32 %23, ptr %17, align 4, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 1 %.152.i8, i64 %.154.i7, i1 false)

@@ -5123,7 +5123,7 @@ if.end13.i:                                       ; preds = %if.then10.i, %if.en
   %conv.i81.i = zext i32 %n.1.i to i64
   %add.ptr.i.i82.i = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SPositionKey", ptr %94, i64 %conv.i81.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i82.i, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i80.i, i64 16, i1 false), !tbaa.struct !80
-  %95 = trunc i64 %indvars.iv.i to i32
+  %95 = trunc nuw i64 %indvars.iv.i to i32
   %.pre20.i = load ptr, ptr %_M_finish.i.i.i430, align 8, !tbaa !48
   %.pre21.i = load ptr, ptr %PositionKeys92, align 8, !tbaa !48
   br label %for.inc.i
@@ -5424,7 +5424,7 @@ if.end13.i513:                                    ; preds = %if.then10.i596, %if
   %conv.i81.i517 = zext i32 %n.1.i514 to i64
   %add.ptr.i.i82.i518 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SScaleKey", ptr %126, i64 %conv.i81.i517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i82.i518, ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i80.i515, i64 16, i1 false), !tbaa.struct !80
-  %127 = trunc i64 %indvars.iv.i503 to i32
+  %127 = trunc nuw i64 %indvars.iv.i503 to i32
   %.pre20.i519 = load ptr, ptr %_M_finish.i.i.i495, align 8, !tbaa !48
   %.pre21.i520 = load ptr, ptr %ScaleKeys95, align 8, !tbaa !48
   br label %for.inc.i521
@@ -5733,7 +5733,7 @@ if.end13.i725:                                    ; preds = %if.then10.i798, %if
   %conv.i81.i729 = zext i32 %n.1.i726 to i64
   %add.ptr.i.i82.i730 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SRotationKey", ptr %160, i64 %conv.i81.i729
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i.i82.i730, ptr noundef nonnull align 4 dereferenceable(20) %add.ptr.i.i80.i727, i64 20, i1 false), !tbaa.struct !236
-  %161 = trunc i64 %indvars.iv.i715 to i32
+  %161 = trunc nuw i64 %indvars.iv.i715 to i32
   %.pre20.i731 = load ptr, ptr %_M_finish.i.i.i707, align 8, !tbaa !48
   %.pre21.i732 = load ptr, ptr %RotationKeys98, align 8, !tbaa !48
   br label %for.inc.i733
@@ -8811,7 +8811,7 @@ for.body:                                         ; preds = %_ZN3irr4core5arrayI
   %call2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #34
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !48
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   tail call void @_ZN3irr5scene14CBoneSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEijRKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(272) %call2, ptr noundef null, ptr noundef %smgr, i32 noundef 0, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %7) #31
   %9 = load ptr, ptr %_M_finish.i.i75.phi.trans.insert, align 8, !tbaa !48
   %10 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !375

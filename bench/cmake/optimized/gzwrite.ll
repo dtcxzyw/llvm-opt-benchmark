@@ -462,7 +462,7 @@ define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzputs(ptr noundef %0, 
   br label %18
 
 13:                                               ; preds = %10
-  %14 = trunc nuw i64 %11 to i32
+  %14 = trunc nuw nsw i64 %11 to i32
   %15 = tail call fastcc i64 @gz_write(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %11)
   %16 = icmp ult i64 %15, %11
   %17 = select i1 %16, i32 -1, i32 %14

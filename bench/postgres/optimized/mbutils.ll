@@ -1163,7 +1163,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
 
 22:                                               ; preds = %20
   %23 = lshr i32 %0, 6
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -64
   store i8 %25, ptr %1, align 1
   br label %unicode_to_utf8.exit
@@ -1175,7 +1175,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
 
 29:                                               ; preds = %26
   %30 = lshr i32 %0, 12
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -32
   store i8 %32, ptr %1, align 1
   %33 = lshr i32 %0, 6
@@ -1187,7 +1187,7 @@ define dso_local void @pg_unicode_to_server(i32 noundef %0, ptr noundef %1) loca
 
 37:                                               ; preds = %26
   %38 = lshr i32 %0, 18
-  %39 = trunc nuw i32 %38 to i8
+  %39 = trunc nuw nsw i32 %38 to i8
   %40 = or disjoint i8 %39, -16
   store i8 %40, ptr %1, align 1
   %41 = lshr i32 %0, 12
@@ -1238,7 +1238,7 @@ unicode_to_utf8.exit:                             ; preds = %22, %29, %37
 
 69:                                               ; preds = %67
   %70 = lshr i32 %0, 6
-  %71 = trunc nuw i32 %70 to i8
+  %71 = trunc nuw nsw i32 %70 to i8
   %72 = or disjoint i8 %71, -64
   store i8 %72, ptr %3, align 1
   br label %unicode_to_utf8.exit16
@@ -1249,7 +1249,7 @@ unicode_to_utf8.exit:                             ; preds = %22, %29, %37
 
 75:                                               ; preds = %73
   %76 = lshr i32 %0, 12
-  %77 = trunc nuw i32 %76 to i8
+  %77 = trunc nuw nsw i32 %76 to i8
   %78 = or disjoint i8 %77, -32
   store i8 %78, ptr %3, align 1
   %79 = lshr i32 %0, 6
@@ -1261,7 +1261,7 @@ unicode_to_utf8.exit:                             ; preds = %22, %29, %37
 
 83:                                               ; preds = %73
   %84 = lshr i32 %0, 18
-  %85 = trunc nuw i32 %84 to i8
+  %85 = trunc nuw nsw i32 %84 to i8
   %86 = or disjoint i8 %85, -16
   store i8 %86, ptr %3, align 1
   %87 = lshr i32 %0, 12
@@ -1337,7 +1337,7 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
 
 18:                                               ; preds = %16
   %19 = lshr i32 %0, 6
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -64
   store i8 %21, ptr %1, align 1
   br label %unicode_to_utf8.exit
@@ -1349,7 +1349,7 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
 
 25:                                               ; preds = %22
   %26 = lshr i32 %0, 12
-  %27 = trunc nuw i32 %26 to i8
+  %27 = trunc nuw nsw i32 %26 to i8
   %28 = or disjoint i8 %27, -32
   store i8 %28, ptr %1, align 1
   %29 = lshr i32 %0, 6
@@ -1361,7 +1361,7 @@ define dso_local zeroext i1 @pg_unicode_to_server_noerror(i32 noundef %0, ptr no
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 18
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %1, align 1
   %37 = lshr i32 %0, 12
@@ -1401,7 +1401,7 @@ unicode_to_utf8.exit:                             ; preds = %18, %25, %33
 
 58:                                               ; preds = %56
   %59 = lshr i32 %0, 6
-  %60 = trunc nuw i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = or disjoint i8 %60, -64
   store i8 %61, ptr %3, align 1
   br label %unicode_to_utf8.exit20
@@ -1412,7 +1412,7 @@ unicode_to_utf8.exit:                             ; preds = %18, %25, %33
 
 64:                                               ; preds = %62
   %65 = lshr i32 %0, 12
-  %66 = trunc nuw i32 %65 to i8
+  %66 = trunc nuw nsw i32 %65 to i8
   %67 = or disjoint i8 %66, -32
   store i8 %67, ptr %3, align 1
   %68 = lshr i32 %0, 6
@@ -1424,7 +1424,7 @@ unicode_to_utf8.exit:                             ; preds = %18, %25, %33
 
 72:                                               ; preds = %62
   %73 = lshr i32 %0, 18
-  %74 = trunc nuw i32 %73 to i8
+  %74 = trunc nuw nsw i32 %73 to i8
   %75 = or disjoint i8 %74, -16
   store i8 %75, ptr %3, align 1
   %76 = lshr i32 %0, 12

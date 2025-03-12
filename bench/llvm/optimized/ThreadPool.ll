@@ -194,7 +194,7 @@ _ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb0EEEEC2ERS3_.exit: ; preds = %2
 
 18:                                               ; preds = %_ZNSt10lock_guardIN4llvm3sys12SmartRWMutexILb0EEEEC2ERS3_.exit
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %16, i32 %1)
-  %19 = trunc i64 %14 to i32
+  %19 = trunc nuw i64 %14 to i32
   %20 = icmp sgt i32 %.sroa.speculated, %19
   br i1 %20, label %.lr.ph, label %.loopexit
 

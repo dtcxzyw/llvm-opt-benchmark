@@ -386,7 +386,7 @@ if.then.i9.i.i:                                   ; preds = %if.else8.i.i
   br label %invoke.cont85
 
 invoke.cont85:                                    ; preds = %if.else8.i.i, %if.then.i9.i.i
-  %conv.i.i = trunc i64 %call.i.i29 to i32
+  %conv.i.i = trunc nsw i64 %call.i.i29 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i)
   %major_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 %conv.i.i, ptr %major_.i.i, align 8
@@ -447,7 +447,7 @@ if.then.i9.i.i46:                                 ; preds = %if.else8.i.i43
   br label %invoke.cont89
 
 invoke.cont89:                                    ; preds = %if.else8.i.i43, %if.then.i9.i.i46
-  %conv.i.i45 = trunc i64 %call.i.i38 to i32
+  %conv.i.i45 = trunc nsw i64 %call.i.i38 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i35)
   %minor_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 36
   store i32 %conv.i.i45, ptr %minor_.i.i, align 4
@@ -507,7 +507,7 @@ if.then.i9.i.i71:                                 ; preds = %if.else8.i.i68
   br label %invoke.cont93
 
 invoke.cont93:                                    ; preds = %if.else8.i.i68, %if.then.i9.i.i71
-  %conv.i.i70 = trunc i64 %call.i.i63 to i32
+  %conv.i.i70 = trunc nsw i64 %call.i.i63 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i60)
   %patch_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i32 %conv.i.i70, ptr %patch_.i.i, align 8

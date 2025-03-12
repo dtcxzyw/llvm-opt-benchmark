@@ -2452,7 +2452,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %19, %17, %13, %9, %
   br label %58
 
 55:                                               ; preds = %._crit_edge.i.i
-  %56 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %56 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %57 = or disjoint i8 %56, 48
   br label %58
 

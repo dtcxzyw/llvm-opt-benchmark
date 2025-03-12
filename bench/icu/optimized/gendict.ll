@@ -1869,7 +1869,7 @@ define linkonce_odr dso_local void @_ZN8DataDict12setTransformEPKc(ptr noundef n
   %25 = load i32, ptr @_ZN6icu_7714DictionaryData21TRANSFORM_TYPE_OFFSETE, align 4, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %25, ptr %26, align 4, !tbaa !30
-  %27 = trunc nuw i64 %8 to i32
+  %27 = trunc nuw nsw i64 %8 to i32
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %27, ptr %28, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19

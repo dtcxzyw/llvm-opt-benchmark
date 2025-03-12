@@ -3387,7 +3387,7 @@ define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr noundef writeonly 
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.lr.ph35
-  %9 = trunc nuw i64 %6 to i32
+  %9 = trunc nuw nsw i64 %6 to i32
   %10 = add nsw i32 %.0232933, %9
   %11 = icmp sgt i32 %10, 31
   br i1 %11, label %.loopexit, label %12

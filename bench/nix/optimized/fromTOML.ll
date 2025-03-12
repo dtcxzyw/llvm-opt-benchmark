@@ -14321,7 +14321,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 66:                                               ; preds = %._crit_edge.i
-  %67 = trunc nuw i64 %.0.lcssa.i to i8
+  %67 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %68 = or disjoint i8 %67, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -15911,7 +15911,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN4tomllsIc
   %.018 = phi i32 [ %18, %16 ], [ %14, %19 ]
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 48)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 2)
-  %.lhs.trunc = trunc nsw i32 %.018 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.018 to i16
   %24 = udiv i16 %.lhs.trunc, 60
   %.zext = zext nneg i16 %24 to i32
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef %.zext)
@@ -22892,7 +22892,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 64:                                               ; preds = %._crit_edge.i
-  %65 = trunc nuw i64 %.0.lcssa.i to i8
+  %65 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %66 = or disjoint i8 %65, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -100580,7 +100580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
 
 72:                                               ; preds = %70
   %73 = lshr i32 %46, 6
-  %74 = trunc nuw i32 %73 to i8
+  %74 = trunc nuw nsw i32 %73 to i8
   %75 = or disjoint i8 %74, -64
   %76 = load i64, ptr %44, align 8
   %77 = add i64 %76, 1
@@ -100771,7 +100771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit84: ; preds = %_ZN
 
 137:                                              ; preds = %109
   %138 = lshr i32 %46, 12
-  %139 = trunc nuw i32 %138 to i8
+  %139 = trunc nuw nsw i32 %138 to i8
   %140 = or disjoint i8 %139, -32
   %141 = load i64, ptr %44, align 8
   %142 = add i64 %141, 1
@@ -100885,7 +100885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit96: ; preds = %_ZN
 
 194:                                              ; preds = %192
   %195 = lshr i32 %46, 18
-  %196 = trunc nuw i32 %195 to i8
+  %196 = trunc nuw nsw i32 %195 to i8
   %197 = or disjoint i8 %196, -16
   %198 = load i64, ptr %44, align 8
   %199 = add i64 %198, 1
@@ -111162,18 +111162,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit168: ; preds = %_Z
   %197 = load ptr, ptr %22, align 8
   %198 = load i8, ptr %197, align 1
   %199 = icmp eq i8 %198, 43
-  %200 = trunc nuw i32 %137 to i8
+  %200 = trunc nuw nsw i32 %137 to i8
   br i1 %199, label %201, label %203
 
 201:                                              ; preds = %196
   store i8 %200, ptr %34, align 1
-  %202 = trunc nuw i32 %152 to i8
+  %202 = trunc nuw nsw i32 %152 to i8
   br label %207
 
 203:                                              ; preds = %196
   %204 = sub nsw i8 0, %200
   store i8 %204, ptr %35, align 1
-  %205 = trunc nuw i32 %152 to i8
+  %205 = trunc nuw nsw i32 %152 to i8
   %206 = sub nsw i8 0, %205
   br label %207
 
@@ -117899,9 +117899,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %_Z
   br label %.body323
 
 313:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256
-  %314 = trunc nuw i32 %240 to i8
-  %315 = trunc nuw i32 %255 to i8
-  %316 = trunc nuw i32 %270 to i8
+  %314 = trunc nuw nsw i32 %240 to i8
+  %315 = trunc nuw nsw i32 %255 to i8
+  %316 = trunc nuw nsw i32 %270 to i8
   %.sroa.0.0.copyload.i257 = load ptr, ptr %119, align 8
   invoke void @_ZN4toml6detail8sequenceIJNS0_9characterILc46EEENS0_6repeatINS0_8in_rangeILc48ELc57EEENS0_8at_leastILm1EEEEEEE6invokeERNS0_8locationE(ptr dead_on_unwind nonnull writable sret(%"struct.toml::result") align 8 %67, ptr noundef nonnull align 8 dereferenceable(72) %22)
           to label %317 unwind label %288

@@ -3805,7 +3805,7 @@ define i32 @Gia_ManSimulateBatch(ptr noundef captures(none) initializes((816, 82
 
 .split.loop.exit52:                               ; preds = %40, %.split.loop.exit
   %.0 = phi i32 [ %41, %.split.loop.exit ], [ 0, %40 ]
-  %42 = trunc nuw i32 %.0 to i8
+  %42 = trunc nuw nsw i32 %.0 to i8
   %43 = load i32, ptr %26, align 4, !tbaa !51
   %44 = load i32, ptr %2, align 8, !tbaa !52
   %45 = icmp eq i32 %43, %44

@@ -1831,7 +1831,7 @@ SzReadID.exit363.thread.i:                        ; preds = %191, %181, %SzReadI
   br i1 %236, label %SzReadHeader2.exit, label %237
 
 237:                                              ; preds = %.loopexit.i368.i
-  %238 = trunc nuw i64 %.17.ph.i.i to i32
+  %238 = trunc nuw nsw i64 %.17.ph.i.i to i32
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %238, ptr %239, align 8, !tbaa !62
   %240 = icmp eq i64 %.17.ph.i.i, 0
@@ -2013,7 +2013,7 @@ SzSkeepDataSize.exit.i:                           ; preds = %329
   br label %.loopexit.i
 
 333:                                              ; preds = %329
-  %334 = trunc i64 %.2417.ph.i to i32
+  %334 = trunc nsw i64 %.2417.ph.i to i32
   switch i32 %334, label %SzSkeepDataSize.exit395.i [
     i32 17, label %335
     i32 14, label %366
@@ -2520,7 +2520,7 @@ define internal fastcc range(i32 0, 17) i32 @SzReadStreamsInfo(ptr noundef nonnu
   br i1 %.not46, label %61, label %SzReadPackInfo.exit.thread
 
 61:                                               ; preds = %.loopexit
-  %62 = trunc i64 %.2107.ph to i32
+  %62 = trunc nsw i64 %.2107.ph to i32
   switch i32 %62, label %SzReadPackInfo.exit.thread [
     i32 0, label %SzReadPackInfo.exit.thread.loopexit1896
     i32 6, label %63
@@ -3155,7 +3155,7 @@ SzReadSwitch.exit.preheader.i:                    ; preds = %347
   br i1 %or.cond.i, label %SzReadPackInfo.exit.thread, label %388
 
 388:                                              ; preds = %.loopexit.i.i.i
-  %389 = trunc nuw i64 %.17.ph.i.i.i to i32
+  %389 = trunc nuw nsw i64 %.17.ph.i.i.i to i32
   %390 = getelementptr inbounds nuw i8, ptr %354, i64 32
   store i32 %389, ptr %390, align 8, !tbaa !11
   %391 = icmp eq i64 %.17.ph.i.i.i, 0

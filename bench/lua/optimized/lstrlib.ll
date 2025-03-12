@@ -4676,7 +4676,7 @@ getnum.exit.i:                                    ; preds = %.preheader.i.i
 
 getnum.exit.i.thread:                             ; preds = %19, %getnum.exit.i
   %.07.i.i57 = phi i64 [ %31, %getnum.exit.i ], [ 4, %19 ]
-  %43 = trunc nuw i64 %.07.i.i57 to i32
+  %43 = trunc nuw nsw i64 %.07.i.i57 to i32
   br label %getnumlimit.exit
 
 getnumlimit.exit:                                 ; preds = %40, %getnum.exit.i.thread
@@ -4723,7 +4723,7 @@ getnum.exit.i39:                                  ; preds = %.preheader.i.i37
 
 getnum.exit.i39.thread:                           ; preds = %45, %getnum.exit.i39
   %.07.i.i4059 = phi i64 [ %57, %getnum.exit.i39 ], [ 4, %45 ]
-  %69 = trunc nuw i64 %.07.i.i4059 to i32
+  %69 = trunc nuw nsw i64 %.07.i.i4059 to i32
   br label %getnumlimit.exit42
 
 getnumlimit.exit42:                               ; preds = %66, %getnum.exit.i39.thread
@@ -4770,7 +4770,7 @@ getnum.exit.i45:                                  ; preds = %.preheader.i.i43
 
 getnum.exit.i45.thread:                           ; preds = %71, %getnum.exit.i45
   %.07.i.i4661 = phi i64 [ %83, %getnum.exit.i45 ], [ 8, %71 ]
-  %95 = trunc nuw i64 %.07.i.i4661 to i32
+  %95 = trunc nuw nsw i64 %.07.i.i4661 to i32
   br label %getnumlimit.exit48
 
 getnumlimit.exit48:                               ; preds = %92, %getnum.exit.i45.thread
@@ -4875,7 +4875,7 @@ getnum.exit.i52:                                  ; preds = %.preheader.i.i50
 
 getnum.exit.i52.thread:                           ; preds = %127, %getnum.exit.i52
   %.07.i.i5364 = phi i64 [ %139, %getnum.exit.i52 ], [ 8, %127 ]
-  %151 = trunc nuw i64 %.07.i.i5364 to i32
+  %151 = trunc nuw nsw i64 %.07.i.i5364 to i32
   br label %getnumlimit.exit55
 
 getnumlimit.exit55:                               ; preds = %148, %getnum.exit.i52.thread

@@ -902,7 +902,7 @@ define dso_local i32 @genl_register_family(ptr noundef %0) #0 align 16 {
   %338 = load ptr, ptr %334, align 8
   %339 = getelementptr %struct.genl_multicast_group, ptr %338, i64 %337
   %340 = load i32, ptr %335, align 4
-  %341 = trunc i64 %337 to i32
+  %341 = trunc nuw nsw i64 %337 to i32
   %342 = add i32 %340, %341
   call fastcc void @genl_ctrl_event(i32 noundef 7, ptr noundef %0, ptr noundef %339, i32 noundef %342)
   %343 = add nuw nsw i64 %337, 1
@@ -1330,7 +1330,7 @@ define dso_local noundef range(i32 -2, 1) i32 @genl_unregister_family(ptr nounde
 43:                                               ; preds = %.split, %40
   %44 = phi i64 [ 0, %40 ], [ %53, %.split ]
   %45 = load i32, ptr %41, align 4
-  %46 = trunc i64 %44 to i32
+  %46 = trunc nuw nsw i64 %44 to i32
   %47 = add i32 %45, %46
   %48 = icmp eq i32 %47, 1
   br i1 %48, label %.split, label %.split2

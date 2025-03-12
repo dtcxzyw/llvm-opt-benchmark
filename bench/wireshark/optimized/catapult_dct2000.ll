@@ -1849,7 +1849,7 @@ define internal fastcc void @write_timestamp_string(ptr noundef %0, i32 noundef 
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %9
-  %.lhs.trunc91 = trunc nuw i32 %1 to i8
+  %.lhs.trunc91 = trunc nuw nsw i32 %1 to i8
   %12 = udiv i8 %.lhs.trunc91, 10
   %13 = or disjoint i8 %12, 48
   store i8 %13, ptr %0, align 1
@@ -1864,9 +1864,9 @@ define internal fastcc void @write_timestamp_string(ptr noundef %0, i32 noundef 
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %17
-  %.lhs.trunc94 = trunc nuw i32 %1 to i16
+  %.lhs.trunc94 = trunc nuw nsw i32 %1 to i16
   %20 = udiv i16 %.lhs.trunc94, 100
-  %21 = trunc nuw i16 %20 to i8
+  %21 = trunc nuw nsw i16 %20 to i8
   %22 = or disjoint i8 %21, 48
   store i8 %22, ptr %0, align 1
   %23 = urem i16 %.lhs.trunc94, 100
@@ -1887,7 +1887,7 @@ define internal fastcc void @write_timestamp_string(ptr noundef %0, i32 noundef 
   br i1 %32, label %33, label %50
 
 33:                                               ; preds = %31
-  %.lhs.trunc102 = trunc nuw i32 %1 to i16
+  %.lhs.trunc102 = trunc nuw nsw i32 %1 to i16
   %34 = udiv i16 %.lhs.trunc102, 1000
   %35 = trunc nuw nsw i16 %34 to i8
   %36 = add nuw nsw i8 %35, 48
@@ -1917,7 +1917,7 @@ define internal fastcc void @write_timestamp_string(ptr noundef %0, i32 noundef 
 
 52:                                               ; preds = %50
   %53 = udiv i32 %1, 10000
-  %54 = trunc nuw i32 %53 to i8
+  %54 = trunc nuw nsw i32 %53 to i8
   %55 = or disjoint i8 %54, 48
   store i8 %55, ptr %0, align 1
   %56 = urem i32 %1, 10000
@@ -1953,7 +1953,7 @@ define internal fastcc void @write_timestamp_string(ptr noundef %0, i32 noundef 
 
 76:                                               ; preds = %74
   %77 = udiv i32 %1, 100000
-  %78 = trunc nuw i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   %79 = or disjoint i8 %78, 48
   store i8 %79, ptr %0, align 1
   %80 = urem i32 %1, 100000

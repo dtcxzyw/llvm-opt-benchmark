@@ -170,7 +170,7 @@ define dso_local i32 @acpi_tb_load_namespace() local_unnamed_addr #3 align 16 {
 53:                                               ; preds = %50
   %54 = tail call i32 @acpi_ut_release_mutex(i32 noundef 2) #5
   %55 = load ptr, ptr @acpi_gbl_root_node, align 8
-  %56 = trunc i64 %39 to i32
+  %56 = trunc nuw i64 %39 to i32
   %57 = tail call i32 @acpi_ns_load_table(i32 noundef %56, ptr noundef %55) #5
   %58 = tail call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #5
   %59 = icmp eq i32 %57, 0

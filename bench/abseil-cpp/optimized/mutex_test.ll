@@ -2259,7 +2259,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %83, %81, %77, %73, 
   br label %_ZN7testing8internal16DefaultParamNameIN12_GLOBAL__N_116TimeoutTestParamEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
 119:                                              ; preds = %._crit_edge.i.i.i
-  %120 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %120 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %121 = or disjoint i8 %120, 48
   br label %_ZN7testing8internal16DefaultParamNameIN12_GLOBAL__N_116TimeoutTestParamEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 

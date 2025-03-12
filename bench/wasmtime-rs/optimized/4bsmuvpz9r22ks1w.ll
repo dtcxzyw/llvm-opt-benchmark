@@ -4819,7 +4819,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !522
   %12 = trunc i32 %1 to i8
@@ -4831,7 +4831,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !522
   %19 = lshr i32 %1, 6
@@ -4902,7 +4902,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %70
 
 .critedge:                                        ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !535, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !535, !noundef !4
@@ -56200,7 +56200,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen3isa3x648settings5Flags1
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %3
   %7 = load i8, ptr %6, align 1, !noundef !4
-  %8 = trunc nuw i64 %1 to i8
+  %8 = trunc nuw nsw i64 %1 to i8
   %9 = and i8 %8, 7
   %10 = shl nuw i8 1, %9
   %11 = and i8 %7, %10
@@ -56915,7 +56915,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen8settings5Flags18numbere
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw [9 x i8], ptr %0, i64 0, i64 %4
   %8 = load i8, ptr %7, align 1, !noundef !4
-  %9 = trunc nuw i64 %1 to i8
+  %9 = trunc nuw nsw i64 %1 to i8
   %10 = and i8 %9, 7
   %11 = shl nuw i8 1, %10
   %12 = and i8 %8, %11

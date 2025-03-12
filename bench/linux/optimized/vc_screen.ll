@@ -879,7 +879,7 @@ define internal range(i64 -2147483648, 4294967296) i64 @vcs_write(ptr noundef re
   %169 = getelementptr i8, ptr %71, i64 %166
   %170 = add nuw nsw i64 %73, 1
   %171 = add nuw nsw i64 %170, %166
-  %172 = trunc nuw i64 %171 to i32
+  %172 = trunc nuw nsw i64 %171 to i32
   br label %173
 
 173:                                              ; preds = %157, %155
@@ -1345,7 +1345,7 @@ define internal noundef range(i32 0, 2) i32 @vcs_notifier(ptr noundef %0, i64 no
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %8
-  %19 = trunc i64 %1 to i32
+  %19 = trunc nuw nsw i64 %1 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %19, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32

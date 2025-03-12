@@ -3226,7 +3226,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %47, %45, %41, %37, 
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 87:                                               ; preds = %._crit_edge.i.i
-  %88 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %88 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %89 = or disjoint i8 %88, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -10867,7 +10867,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang8QualTypeELb1EE9push_backES2_.exit: ; p
 
 123:                                              ; preds = %114
   %124 = and i32 %118, -268427265
-  %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %125 = shl nuw nsw i32 %indvars.iv.tr, 20
   %126 = or disjoint i32 %124, %125
   store i32 %126, ptr %117, align 8

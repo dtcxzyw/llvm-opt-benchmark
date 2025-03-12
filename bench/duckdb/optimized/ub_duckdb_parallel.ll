@@ -45893,7 +45893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %14
   unreachable
 
 23:                                               ; preds = %1
-  %24 = trunc nuw i64 %0 to i32
+  %24 = trunc nuw nsw i64 %0 to i32
   ret i32 %24
 }
 

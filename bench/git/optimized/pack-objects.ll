@@ -5236,7 +5236,7 @@ add_to_write_order.exit.i.i.i:                    ; preds = %2083, %oe_layer.exi
   %.2.i.i213 = phi i32 [ %.19.i.i, %add_to_write_order.exit.i.i.i ], [ %.143.i.i, %.lr.ph.i.i.i211 ]
   %2096 = phi i32 [ %2091, %add_to_write_order.exit.i.i.i ], [ %2065, %.lr.ph.i.i.i211 ]
   %.0.lcssa.ph.in.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %add_to_write_order.exit.i.i.i ], [ %indvars.iv.i.i.i, %.lr.ph.i.i.i211 ]
-  %.0.lcssa.ph.i.i.i = trunc i64 %.0.lcssa.ph.in.i.i.i to i32
+  %.0.lcssa.ph.i.i.i = trunc nuw i64 %.0.lcssa.ph.in.i.i.i to i32
   %2097 = icmp ugt i32 %2096, %.0.lcssa.ph.i.i.i
   br i1 %2097, label %.lr.ph89.i.i.i, label %.preheader82.i.i.i
 
@@ -6469,7 +6469,7 @@ write_reused_pack.exit.i:                         ; preds = %.loopexit.i.i206, %
 
 ._crit_edge118.loopexit.i:                        ; preds = %2633, %.lr.ph117.i
   %.1.lcssa.ph.in.i = phi i64 [ %indvars.iv.next.i205, %2633 ], [ %indvars.iv.i204, %.lr.ph117.i ]
-  %.1.lcssa.ph.i = trunc i64 %.1.lcssa.ph.in.i to i32
+  %.1.lcssa.ph.i = trunc nuw i64 %.1.lcssa.ph.in.i to i32
   br label %._crit_edge118.i
 
 ._crit_edge118.i:                                 ; preds = %._crit_edge118.loopexit.i, %2625

@@ -14662,13 +14662,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h1b6bb690b5fc2
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !3619
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !3619
   %16 = trunc i32 %1 to i8
@@ -14680,7 +14680,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h1b6bb690b5fc2
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !3619
   %24 = lshr i32 %1, 6
@@ -14787,13 +14787,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h21ccbb3700850
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !3641
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !3641
   %15 = trunc i32 %1 to i8
@@ -14805,7 +14805,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h21ccbb3700850
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !3641
   %23 = lshr i32 %1, 6
@@ -14870,13 +14870,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hcd3ba4e562811
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !3644
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !3644
   %15 = trunc i32 %1 to i8
@@ -14888,7 +14888,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hcd3ba4e562811
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !3644
   %23 = lshr i32 %1, 6
@@ -14954,13 +14954,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17he34a091bb5e
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !3647
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !3647
   %16 = trunc i32 %1 to i8
@@ -14972,7 +14972,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17he34a091bb5e
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !3647
   %24 = lshr i32 %1, 6
@@ -18714,7 +18714,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !4373, !noalias !4370
   %12 = trunc i32 %1 to i8
@@ -18726,7 +18726,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !4373, !noalias !4370
   %19 = lshr i32 %1, 6
@@ -18794,7 +18794,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !4386, !noundef !4
   %58 = load i64, ptr %0, align 8, !alias.scope !4386, !noundef !4
@@ -25832,7 +25832,7 @@ default.unreachable2.i9.i.i.i.i:                  ; preds = %94
 
 112:                                              ; preds = %88, %_ZN10serde_json2de12ParserNumber5visit17h44b15ee99d895dc9E.exit.i.i.i.i
   %.sroa.713.032.in.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i.i, %_ZN10serde_json2de12ParserNumber5visit17h44b15ee99d895dc9E.exit.i.i.i.i ], [ %.sroa.217.0.copyload.i.i.i.i, %88 ]
-  %.sroa.713.032.i.i.i.i = trunc i64 %.sroa.713.032.in.i.i.i.i to i32
+  %.sroa.713.032.i.i.i.i = trunc nuw i64 %.sroa.713.032.in.i.i.i.i to i32
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %113, align 4
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27859,13 +27859,13 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   br i1 %179, label %182, label %189
 
 180:                                              ; preds = %176
-  %181 = trunc nuw i16 %165 to i8
+  %181 = trunc nuw nsw i16 %165 to i8
   store i8 %181, ptr %.sroa.0.i, align 4, !alias.scope !6675, !noalias !6624
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 182:                                              ; preds = %178
   %183 = lshr i16 %165, 6
-  %184 = trunc nuw i16 %183 to i8
+  %184 = trunc nuw nsw i16 %183 to i8
   %185 = or disjoint i8 %184, -64
   store i8 %185, ptr %.sroa.0.i, align 4, !alias.scope !6675, !noalias !6624
   %186 = trunc i16 %165 to i8

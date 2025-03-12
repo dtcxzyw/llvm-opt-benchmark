@@ -1326,7 +1326,7 @@ define void @ssl_set_master_secret(i32 noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 28:                                               ; preds = %27, %27, %27, %27, %27
-  %29 = trunc i32 %6 to i16
+  %29 = trunc nuw nsw i32 %6 to i16
   store i16 %29, ptr %23, align 8
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 560
   %31 = load i32, ptr %30, align 8

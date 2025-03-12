@@ -3260,7 +3260,7 @@ _ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVect
   br i1 %1354, label %1355, label %1361
 
 1355:                                             ; preds = %1348
-  %1356 = trunc nuw i64 %.0.i.i to i32
+  %1356 = trunc nuw nsw i64 %.0.i.i to i32
   switch i32 %1356, label %default.unreachable [
     i32 0, label %.sink.split
     i32 1, label %1357
@@ -9775,7 +9775,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %25, %32
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
-  %37 = trunc nuw i64 %.0.i.i to i32
+  %37 = trunc nuw nsw i64 %.0.i.i to i32
   %switch.tableidx = add nsw i32 %37, -1
   %38 = icmp ult i32 %switch.tableidx, 5
   br i1 %38, label %switch.lookup, label %.thread

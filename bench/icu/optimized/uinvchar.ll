@@ -66,7 +66,7 @@ define void @u_UCharsToChars_77(ptr noundef readonly captures(none) %0, ptr noun
 
 18:                                               ; preds = %17, %8
   %.0 = phi i16 [ %6, %8 ], [ 0, %17 ]
-  %19 = trunc nuw i16 %.0 to i8
+  %19 = trunc nuw nsw i16 %.0 to i8
   %20 = getelementptr inbounds nuw i8, ptr %.0812, i64 1
   store i8 %19, ptr %.0812, align 1, !tbaa !3
   %21 = add nsw i32 %.0713, -1

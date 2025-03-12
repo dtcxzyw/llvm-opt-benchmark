@@ -376,7 +376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %65
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %76
-  %79 = trunc nuw i32 %25 to i8
+  %79 = trunc nuw nsw i32 %25 to i8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %80, ptr %0, align 8, !tbaa !15, !alias.scope !20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, i8 noundef signext %79)
@@ -394,7 +394,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %65
 85:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #12
   %86 = lshr i32 %25, 6
-  %87 = trunc nuw i32 %86 to i8
+  %87 = trunc nuw nsw i32 %86 to i8
   %88 = or disjoint i8 %87, -64
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %89, ptr %9, align 8, !tbaa !15, !alias.scope !23
@@ -511,7 +511,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit98: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #12
   %124 = lshr i32 %25, 12
-  %125 = trunc nuw i32 %124 to i8
+  %125 = trunc nuw nsw i32 %124 to i8
   %126 = or disjoint i8 %125, -32
   %127 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %127, ptr %12, align 8, !tbaa !15, !alias.scope !29
@@ -840,7 +840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #12
   %240 = lshr i32 %25, 18
-  %241 = trunc nuw i32 %240 to i8
+  %241 = trunc nuw nsw i32 %240 to i8
   %242 = or disjoint i8 %241, -16
   %243 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %243, ptr %17, align 8, !tbaa !15, !alias.scope !41

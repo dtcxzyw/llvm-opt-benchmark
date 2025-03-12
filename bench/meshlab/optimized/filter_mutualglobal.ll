@@ -6138,7 +6138,7 @@ _ZN8SubGraphC2ERKS_.exit37:                       ; preds = %.loopexit.i98, %103
   br i1 %172, label %174, label %176
 
 174:                                              ; preds = %._crit_edge.i
-  %175 = trunc i64 %156 to i32
+  %175 = trunc nuw i64 %156 to i32
   br label %187
 
 176:                                              ; preds = %._crit_edge.i
@@ -6155,7 +6155,7 @@ _ZN8SubGraphC2ERKS_.exit37:                       ; preds = %.loopexit.i98, %103
   br i1 %184, label %185, label %187
 
 185:                                              ; preds = %178
-  %186 = trunc i64 %156 to i32
+  %186 = trunc nuw i64 %156 to i32
   br label %187
 
 187:                                              ; preds = %185, %178, %176, %174, %158, %.lr.ph41.i
@@ -12143,7 +12143,7 @@ define noundef i32 @_ZN18FilterMutualGlobal15getTheRightNodeE8SubGraph(ptr nound
   br i1 %36, label %38, label %40
 
 38:                                               ; preds = %._crit_edge
-  %39 = trunc i64 %20 to i32
+  %39 = trunc nuw i64 %20 to i32
   br label %51
 
 40:                                               ; preds = %._crit_edge
@@ -12160,7 +12160,7 @@ define noundef i32 @_ZN18FilterMutualGlobal15getTheRightNodeE8SubGraph(ptr nound
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %42
-  %50 = trunc i64 %20 to i32
+  %50 = trunc nuw i64 %20 to i32
   br label %51
 
 51:                                               ; preds = %.lr.ph41, %22, %40, %42, %49, %38

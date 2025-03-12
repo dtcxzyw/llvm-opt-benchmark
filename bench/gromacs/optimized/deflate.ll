@@ -128,7 +128,7 @@ define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 n
   %63 = add nsw i32 %61, -1
   %64 = getelementptr inbounds nuw i8, ptr %47, i64 124
   store i32 %63, ptr %64, align 4, !tbaa !33
-  %65 = trunc nuw i32 %4 to i8
+  %65 = trunc nuw nsw i32 %4 to i8
   %.lhs.trunc = add nuw nsw i8 %65, 9
   %66 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %66 to i32

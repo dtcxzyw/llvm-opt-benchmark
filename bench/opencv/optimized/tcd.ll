@@ -2180,7 +2180,7 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge292.i.i,
 
 .preheader.i.i:                                   ; preds = %387
   %390 = icmp eq i64 %indvars.iv374.i.i, 0
-  %391 = trunc i64 %indvars.iv374.i.i to i32
+  %391 = trunc nuw i64 %indvars.iv374.i.i to i32
   %392 = add nuw nsw i64 %indvars.iv374.i.i, 4294967295
   %393 = and i64 %392, 4294967295
   %394 = getelementptr inbounds nuw [100 x double], ptr %10, i64 0, i64 %393

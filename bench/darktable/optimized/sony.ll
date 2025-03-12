@@ -7026,7 +7026,7 @@ _ZN6LibRaw12sony_decryptEPjiii.exit:              ; preds = %.lr.ph.i, %.loopexi
   br i1 %or.cond5, label %212, label %254
 
 212:                                              ; preds = %209
-  %.lhs.trunc = trunc nuw i32 %211 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %211 to i8
   %213 = udiv i8 %.lhs.trunc, 3
   %214 = urem i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %213 to i32

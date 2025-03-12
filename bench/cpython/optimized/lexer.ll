@@ -509,7 +509,7 @@ tok_nextc.exit297.i.i:                            ; preds = %137, %151, %142, %1
 
 163:                                              ; preds = %158
   %164 = load i8, ptr %159, align 1, !tbaa !29
-  %165 = trunc i32 %.0.i293.i.i to i8
+  %165 = trunc nuw i32 %.0.i293.i.i to i8
   %.not6.i299.i.i = icmp eq i8 %164, %165
   br i1 %.not6.i299.i.i, label %167, label %166
 
@@ -2415,7 +2415,7 @@ tok_nextc.exit1280:                               ; preds = %394, %388, %389, %3
 
 452:                                              ; preds = %447
   %453 = load i8, ptr %448, align 1, !tbaa !29
-  %454 = trunc i32 %.41005 to i8
+  %454 = trunc nuw nsw i32 %.41005 to i8
   %.not6.i1290 = icmp eq i8 %453, %454
   br i1 %.not6.i1290, label %456, label %455
 
@@ -3883,7 +3883,7 @@ tok_nextc.exit1373:                               ; preds = %1083, %1077, %1078,
 
 1108:                                             ; preds = %1103
   %1109 = load i8, ptr %1104, align 1, !tbaa !29
-  %1110 = trunc i32 %.0.i1369 to i8
+  %1110 = trunc nuw i32 %.0.i1369 to i8
   %.not6.i1375 = icmp eq i8 %1109, %1110
   br i1 %.not6.i1375, label %1112, label %1111
 
@@ -3940,7 +3940,7 @@ tok_backup.exit1379.thread:                       ; preds = %tok_nextc.exit1365
 
 1130:                                             ; preds = %1125
   %1131 = load i8, ptr %1126, align 1, !tbaa !29
-  %1132 = trunc i32 %.0.i1361 to i8
+  %1132 = trunc nuw i32 %.0.i1361 to i8
   %.not6.i1381 = icmp eq i8 %1131, %1132
   br i1 %.not6.i1381, label %tok_backup.exit1382.sink.split, label %1133
 
@@ -4209,7 +4209,7 @@ tok_nextc.exit1398:                               ; preds = %1225, %1219, %1220,
 
 1253:                                             ; preds = %1248
   %1254 = load i8, ptr %1249, align 1, !tbaa !29
-  %1255 = trunc i32 %.24 to i8
+  %1255 = trunc nuw i32 %.24 to i8
   %.not6.i1400 = icmp eq i8 %1254, %1255
   br i1 %.not6.i1400, label %1257, label %1256
 
@@ -4615,7 +4615,7 @@ tok_nextc.exit1409._crit_edge:                    ; preds = %tok_nextc.exit1425,
   br i1 %1422, label %1423, label %.thread1546
 
 1423:                                             ; preds = %1419
-  %1424 = trunc i32 %.61007 to i8
+  %1424 = trunc nuw nsw i32 %.61007 to i8
   %1425 = tail call i32 @_PyLexer_update_fstring_expr(ptr noundef nonnull %0, i8 noundef signext %1424)
   %.not1195 = icmp eq i32 %1425, 0
   br i1 %.not1195, label %1426, label %1428
@@ -4815,7 +4815,7 @@ tok_nextc.exit1441.tok_backup.exit1447_crit_edge: ; preds = %tok_nextc.exit1441
 
 1508:                                             ; preds = %1503
   %1509 = load i8, ptr %1504, align 1, !tbaa !29
-  %1510 = trunc i32 %.0.i1437 to i8
+  %1510 = trunc nuw i32 %.0.i1437 to i8
   %.not6.i1443 = icmp eq i8 %1509, %1510
   br i1 %.not6.i1443, label %1512, label %1511
 
@@ -4847,7 +4847,7 @@ tok_nextc.exit1441.tok_backup.exit1447_crit_edge: ; preds = %tok_nextc.exit1441
 
 1522:                                             ; preds = %1516
   %1523 = load i8, ptr %1518, align 1, !tbaa !29
-  %1524 = trunc i32 %.0.i1429 to i8
+  %1524 = trunc nuw i32 %.0.i1429 to i8
   %.not6.i1446 = icmp eq i8 %1523, %1524
   br i1 %.not6.i1446, label %1526, label %1525
 
@@ -4889,7 +4889,7 @@ tok_backup.exit1447.thread:                       ; preds = %1515, %1526
   br label %.thread1472
 
 1538:                                             ; preds = %1532
-  %1539 = trunc i32 %.61007 to i8
+  %1539 = trunc nuw nsw i32 %.61007 to i8
   %1540 = getelementptr inbounds nuw i8, ptr %0, i64 532
   %1541 = sext i32 %1533 to i64
   %1542 = getelementptr [200 x i8], ptr %1540, i64 0, i64 %1541
@@ -5700,7 +5700,7 @@ tok_backup.exit.thread:                           ; preds = %27, %32, %41, %26, 
 
 126:                                              ; preds = %119
   %127 = load i8, ptr %122, align 1, !tbaa !29
-  %128 = trunc i32 %1 to i8
+  %128 = trunc nuw nsw i32 %1 to i8
   %.not6.i69 = icmp eq i8 %127, %128
   br i1 %.not6.i69, label %tok_backup.exit70, label %129
 
@@ -5906,7 +5906,7 @@ tok_nextc.exit19:                                 ; preds = %52, %46, %47, %57, 
 
 81:                                               ; preds = %76
   %82 = load i8, ptr %77, align 1, !tbaa !29
-  %83 = trunc i32 %.0.i15 to i8
+  %83 = trunc nuw i32 %.0.i15 to i8
   %.not6.i = icmp eq i8 %82, %83
   br i1 %.not6.i, label %85, label %84
 
@@ -6197,7 +6197,7 @@ tok_nextc.exit:                                   ; preds = %20, %14, %15, %25, 
 
 56:                                               ; preds = %.thread
   %57 = load i8, ptr %52, align 1, !tbaa !29
-  %58 = trunc i32 %.0.i to i8
+  %58 = trunc nuw i32 %.0.i to i8
   %.not6.i = icmp eq i8 %57, %58
   br i1 %.not6.i, label %60, label %59
 

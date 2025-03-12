@@ -3699,7 +3699,7 @@ _ZN3irr4core6stringIwEC2IwEEPKT_.exit:            ; preds = %for.body.i.i, %for.
   %vtable191 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn192 = getelementptr inbounds nuw i8, ptr %vtable191, i64 432
   %121 = load ptr, ptr %vfn192, align 8
-  %122 = trunc nuw i64 %indvars.iv to i32
+  %122 = trunc nuw nsw i64 %indvars.iv to i32
   %call193 = call noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(437) %this, i32 noundef %122, i32 noundef 1) #22
   %vtable195 = load ptr, ptr %this, align 8, !tbaa !3
   br i1 %call193, label %cond.true194, label %cond.false199

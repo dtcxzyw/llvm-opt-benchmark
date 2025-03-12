@@ -24105,7 +24105,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit126: ; preds = %
   br i1 %162, label %163, label %166
 
 163:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit126
-  %164 = trunc nuw i32 %161 to i8
+  %164 = trunc nuw nsw i32 %161 to i8
   store i8 %164, ptr %.0.i125, align 1, !tbaa !78
   %165 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 1
   br label %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i

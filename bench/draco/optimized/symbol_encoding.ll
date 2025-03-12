@@ -2569,7 +2569,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi5EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -8312,7 +8312,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi1EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -10253,7 +10253,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi2EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -12194,7 +12194,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi3EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -14135,7 +14135,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi4EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -16076,7 +16076,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi6EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -18017,7 +18017,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi7EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63
@@ -19958,7 +19958,7 @@ define linkonce_odr void @_ZN5draco17RAnsSymbolEncoderILi8EE11EndEncodingEPNS_13
   %29 = trunc i32 %9 to i8
   store i8 %29, ptr %28, align 1, !tbaa !13
   %30 = lshr i32 %9, 8
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store i8 %31, ptr %32, align 1, !tbaa !13
   %33 = load i32, ptr %25, align 8, !tbaa !63

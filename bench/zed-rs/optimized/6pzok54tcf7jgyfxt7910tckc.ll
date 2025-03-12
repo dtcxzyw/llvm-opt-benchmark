@@ -29136,13 +29136,13 @@ _ZN4gpui7element7Element8into_any17hd84d67785c509ee0E.exit.i.i: ; preds = %"_ZN9
   br i1 %751, label %761, label %772
 
 752:                                              ; preds = %739
-  %753 = trunc nuw i32 %746 to i8
+  %753 = trunc nuw nsw i32 %746 to i8
   store i8 %753, ptr %.sroa.0.i, align 4, !alias.scope !6765, !noalias !6468
   br label %787
 
 754:                                              ; preds = %748
   %755 = lshr i32 %746, 6
-  %756 = trunc nuw i32 %755 to i8
+  %756 = trunc nuw nsw i32 %755 to i8
   %757 = or disjoint i8 %756, -64
   store i8 %757, ptr %.sroa.0.i, align 4, !alias.scope !6765, !noalias !6468
   %758 = trunc i32 %746 to i8
@@ -29154,7 +29154,7 @@ _ZN4gpui7element7Element8into_any17hd84d67785c509ee0E.exit.i.i: ; preds = %"_ZN9
 
 761:                                              ; preds = %750
   %762 = lshr i32 %746, 12
-  %763 = trunc nuw i32 %762 to i8
+  %763 = trunc nuw nsw i32 %762 to i8
   %764 = or disjoint i8 %763, -32
   store i8 %764, ptr %.sroa.0.i, align 4, !alias.scope !6765, !noalias !6468
   %765 = lshr i32 %746, 6
@@ -69823,13 +69823,13 @@ define hidden void @"_ZN13terminal_view21possible_open_targets28_$u7b$$u7b$closu
   br i1 %63, label %73, label %84
 
 64:                                               ; preds = %57
-  %65 = trunc nuw i32 %58 to i8
+  %65 = trunc nuw nsw i32 %58 to i8
   store i8 %65, ptr %.sroa.0, align 4, !alias.scope !13698
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 66:                                               ; preds = %60
   %67 = lshr i32 %58, 6
-  %68 = trunc nuw i32 %67 to i8
+  %68 = trunc nuw nsw i32 %67 to i8
   %69 = or disjoint i8 %68, -64
   store i8 %69, ptr %.sroa.0, align 4, !alias.scope !13698
   %70 = trunc i32 %58 to i8
@@ -69840,7 +69840,7 @@ define hidden void @"_ZN13terminal_view21possible_open_targets28_$u7b$$u7b$closu
 
 73:                                               ; preds = %62
   %74 = lshr i32 %58, 12
-  %75 = trunc nuw i32 %74 to i8
+  %75 = trunc nuw nsw i32 %74 to i8
   %76 = or disjoint i8 %75, -32
   store i8 %76, ptr %.sroa.0, align 4, !alias.scope !13698
   %77 = lshr i32 %58, 6

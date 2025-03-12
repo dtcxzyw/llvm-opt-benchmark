@@ -143,7 +143,7 @@ define dso_local i64 @binary_encode(ptr noundef readonly captures(none) %0) loca
   unreachable
 
 67:                                               ; preds = %56
-  %68 = trunc i64 %62 to i32
+  %68 = trunc nuw nsw i64 %62 to i32
   %69 = shl nuw i32 %68, 2
   %70 = add nuw i32 %69, 16
   store i32 %70, ptr %58, align 4
@@ -276,7 +276,7 @@ define dso_local i64 @binary_decode(ptr noundef readonly captures(none) %0) loca
   unreachable
 
 67:                                               ; preds = %56
-  %68 = trunc i64 %62 to i32
+  %68 = trunc nuw nsw i64 %62 to i32
   %69 = shl nuw i32 %68, 2
   %70 = add nuw i32 %69, 16
   store i32 %70, ptr %58, align 4

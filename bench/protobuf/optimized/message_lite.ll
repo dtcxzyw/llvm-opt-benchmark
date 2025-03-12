@@ -3077,7 +3077,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %.sink.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, %.sink8.i.i.i.i.i.i
   %sub.i.i5.i.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i.i, %.sink.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i = trunc i64 %sub.i.i5.i.i.i.i to i8
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %sub.i.i5.i.i.i.i to i8
   %tag.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 12
   store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4, !noalias !18
   store i64 0, ptr %call4.i.i.i.i, align 8, !noalias !18
@@ -3294,7 +3294,6 @@ terminate.lpad.i:                                 ; preds = %if.then.i40
   unreachable
 
 invoke.cont50:                                    ; preds = %if.then.i40, %_ZN4absl12lts_2023080210CordBufferD2Ev.exit39
-  %conv46 = trunc i64 %sub.i.pn.i98101108 to i32
   %46 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %frombool.i44 = and i8 %46, 1
   %buffer_end_.i45 = getelementptr inbounds nuw i8, ptr %out44, i64 8
@@ -3309,7 +3308,7 @@ invoke.cont50:                                    ; preds = %if.then.i40, %_ZN4a
   store i8 %frombool.i44, ptr %is_serialization_deterministic_.i49, align 2
   %skip_check_consistency.i50 = getelementptr inbounds nuw i8, ptr %out44, i64 59
   store i8 0, ptr %skip_check_consistency.i50, align 1
-  %cmp.i.i51 = icmp samesign ugt i32 %conv46, 16
+  %cmp.i.i51 = icmp samesign ugt i64 %sub.i.pn.i98101108, 16
   %add.ptr.i.i52 = getelementptr inbounds nuw i8, ptr %add.ptr.i.pn.i96102106, i64 %sub.i.pn.i98101108
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i52, i64 -16
   %add.ptr4.i.i = getelementptr inbounds nuw i8, ptr %buffer_.i, i64 %sub.i.pn.i98101108

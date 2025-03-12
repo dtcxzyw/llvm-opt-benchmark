@@ -384,7 +384,7 @@ define hidden range(i32 0, 2) i32 @Curl_resolver_getsock(ptr noundef %0, ptr nou
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %.lhs.trunc = trunc nuw i64 %18 to i8
+  %.lhs.trunc = trunc nuw nsw i64 %18 to i8
   %23 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %23 to i64
   br label %26

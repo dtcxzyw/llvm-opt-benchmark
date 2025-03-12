@@ -2751,8 +2751,8 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit22: ; preds = %_ZN4pbrt12FindInt
   br label %92
 
 92:                                               ; preds = %91, %90
-  %93 = trunc i64 %67 to i32
-  %94 = trunc i64 %24 to i32
+  %93 = trunc nuw nsw i64 %67 to i32
+  %94 = trunc nuw nsw i64 %24 to i32
   %95 = fcmp ogt float %71, %69
   %96 = fsub float %.sroa.024.0.vec.extract, %69
   %97 = fsub float %71, %69

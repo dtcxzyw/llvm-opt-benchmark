@@ -210,7 +210,7 @@ define hidden range(i32 0, 2) i32 @main() local_unnamed_addr #0 {
 
 60:                                               ; preds = %56
   %61 = load ptr, ptr %7, align 8, !tbaa !6
-  %.tr.i = trunc i64 %47 to i32
+  %.tr.i = trunc nuw nsw i64 %47 to i32
   %62 = shl nuw nsw i32 %.tr.i, 3
   %63 = call i32 @AES_set_encrypt_key(ptr noundef %61, i32 noundef %62, ptr noundef nonnull %13) #10
   %.not49.i = icmp eq i32 %63, 0

@@ -2515,7 +2515,7 @@ ensure_cmp.exit:                                  ; preds = %2
 
 rb_num2int_inline.exit:                           ; preds = %7, %11
   %.0.i = phi i64 [ %8, %7 ], [ %12, %11 ]
-  %15 = trunc i64 %.0.i to i32
+  %15 = trunc nsw i64 %.0.i to i32
   ret i32 %15
 }
 
@@ -5682,7 +5682,7 @@ define dso_local signext i16 @rb_num2short(i64 noundef %0) local_unnamed_addr #2
   unreachable
 
 check_short.exit:                                 ; preds = %1
-  %5 = trunc i64 %2 to i16
+  %5 = trunc nsw i64 %2 to i16
   ret i16 %5
 }
 
@@ -5711,7 +5711,7 @@ define dso_local signext i16 @rb_fix2short(i64 noundef %0) local_unnamed_addr #2
   unreachable
 
 check_short.exit:                                 ; preds = %7
-  %11 = trunc i64 %8 to i16
+  %11 = trunc nsw i64 %8 to i16
   ret i16 %11
 }
 
@@ -6458,7 +6458,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 rb_num2int_inline.exit:                           ; preds = %8, %12
   %.0.i = phi i64 [ %9, %8 ], [ %13, %12 ]
-  %16 = trunc i64 %.0.i to i32
+  %16 = trunc nsw i64 %.0.i to i32
   br label %17
 
 17:                                               ; preds = %rb_check_arity.exit, %rb_num2int_inline.exit
@@ -10388,7 +10388,7 @@ rb_check_arity.exit.i.i:                          ; preds = %3
 
 rb_num2int_inline.exit.i.i:                       ; preds = %13, %9
   %.0.i.i.i = phi i64 [ %10, %9 ], [ %14, %13 ]
-  %17 = trunc i64 %.0.i.i.i to i32
+  %17 = trunc nsw i64 %.0.i.i.i to i32
   br label %flo_floor.exit
 
 flo_floor.exit:                                   ; preds = %rb_check_arity.exit.i.i, %rb_num2int_inline.exit.i.i
@@ -10439,7 +10439,7 @@ rb_check_arity.exit.i.i:                          ; preds = %3
 
 rb_num2int_inline.exit.i.i:                       ; preds = %13, %9
   %.0.i.i.i = phi i64 [ %10, %9 ], [ %14, %13 ]
-  %17 = trunc i64 %.0.i.i.i to i32
+  %17 = trunc nsw i64 %.0.i.i.i to i32
   br label %flo_ceil.exit
 
 flo_ceil.exit:                                    ; preds = %rb_check_arity.exit.i.i, %rb_num2int_inline.exit.i.i
@@ -11497,16 +11497,16 @@ rb_check_arity.exit:                              ; preds = %3
 
 rb_num2int_inline.exit:                           ; preds = %8, %12
   %.0.i = phi i64 [ %9, %8 ], [ %13, %12 ]
-  %16 = trunc i64 %.0.i to i32
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %20, label %18
+  %16 = icmp sgt i64 %.0.i, -1
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %rb_num2int_inline.exit
-  %19 = tail call fastcc i64 @rb_int_floor(i64 noundef %2, i32 noundef %16)
+17:                                               ; preds = %rb_num2int_inline.exit
+  %18 = trunc nsw i64 %.0.i to i32
+  %19 = tail call fastcc i64 @rb_int_floor(i64 noundef %2, i32 noundef %18)
   br label %20
 
-20:                                               ; preds = %rb_num2int_inline.exit, %rb_check_arity.exit, %18
-  %.0 = phi i64 [ %19, %18 ], [ %2, %rb_check_arity.exit ], [ %2, %rb_num2int_inline.exit ]
+20:                                               ; preds = %rb_num2int_inline.exit, %rb_check_arity.exit, %17
+  %.0 = phi i64 [ %19, %17 ], [ %2, %rb_check_arity.exit ], [ %2, %rb_num2int_inline.exit ]
   ret i64 %.0
 }
 
@@ -11551,16 +11551,16 @@ rb_check_arity.exit:                              ; preds = %3
 
 rb_num2int_inline.exit:                           ; preds = %8, %12
   %.0.i = phi i64 [ %9, %8 ], [ %13, %12 ]
-  %16 = trunc i64 %.0.i to i32
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %20, label %18
+  %16 = icmp sgt i64 %.0.i, -1
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %rb_num2int_inline.exit
-  %19 = tail call fastcc i64 @rb_int_ceil(i64 noundef %2, i32 noundef %16)
+17:                                               ; preds = %rb_num2int_inline.exit
+  %18 = trunc nsw i64 %.0.i to i32
+  %19 = tail call fastcc i64 @rb_int_ceil(i64 noundef %2, i32 noundef %18)
   br label %20
 
-20:                                               ; preds = %rb_num2int_inline.exit, %rb_check_arity.exit, %18
-  %.0 = phi i64 [ %19, %18 ], [ %2, %rb_check_arity.exit ], [ %2, %rb_num2int_inline.exit ]
+20:                                               ; preds = %rb_num2int_inline.exit, %rb_check_arity.exit, %17
+  %.0 = phi i64 [ %19, %17 ], [ %2, %rb_check_arity.exit ], [ %2, %rb_num2int_inline.exit ]
   ret i64 %.0
 }
 
@@ -11605,16 +11605,16 @@ rb_check_arity.exit:                              ; preds = %3
 
 rb_num2int_inline.exit:                           ; preds = %8, %12
   %.0.i = phi i64 [ %9, %8 ], [ %13, %12 ]
-  %16 = trunc i64 %.0.i to i32
-  %17 = icmp sgt i32 %16, -1
-  br i1 %17, label %20, label %18
+  %16 = icmp sgt i64 %.0.i, -1
+  br i1 %16, label %20, label %17
 
-18:                                               ; preds = %rb_num2int_inline.exit
-  %19 = tail call i64 @rb_int_truncate(i64 noundef %2, i32 noundef %16)
+17:                                               ; preds = %rb_num2int_inline.exit
+  %18 = trunc nsw i64 %.0.i to i32
+  %19 = tail call i64 @rb_int_truncate(i64 noundef %2, i32 noundef %18)
   br label %20
 
-20:                                               ; preds = %rb_num2int_inline.exit, %rb_check_arity.exit, %18
-  %.0 = phi i64 [ %19, %18 ], [ %2, %rb_check_arity.exit ], [ %2, %rb_num2int_inline.exit ]
+20:                                               ; preds = %rb_num2int_inline.exit, %rb_check_arity.exit, %17
+  %.0 = phi i64 [ %19, %17 ], [ %2, %rb_check_arity.exit ], [ %2, %rb_num2int_inline.exit ]
   ret i64 %.0
 }
 
@@ -11693,17 +11693,17 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.thread
 
 rb_num2int_inline.exit:                           ; preds = %20, %24
   %.0.i10 = phi i64 [ %21, %20 ], [ %25, %24 ]
-  %28 = trunc i64 %.0.i10 to i32
-  %29 = tail call i32 @rb_num_get_rounding_option(i64 noundef %.087.i1927)
-  %30 = icmp sgt i32 %28, -1
-  br i1 %30, label %33, label %31
+  %28 = tail call i32 @rb_num_get_rounding_option(i64 noundef %.087.i1927)
+  %29 = icmp sgt i64 %.0.i10, -1
+  br i1 %29, label %33, label %30
 
-31:                                               ; preds = %rb_num2int_inline.exit
-  %32 = tail call fastcc i64 @rb_int_round(i64 noundef %2, i32 noundef %28, i32 noundef %29)
+30:                                               ; preds = %rb_num2int_inline.exit
+  %31 = trunc nsw i64 %.0.i10 to i32
+  %32 = tail call fastcc i64 @rb_int_round(i64 noundef %2, i32 noundef %31, i32 noundef %28)
   br label %33
 
-33:                                               ; preds = %rb_num2int_inline.exit, %rb_scan_args_set.exit, %31
-  %.0 = phi i64 [ %32, %31 ], [ %2, %rb_scan_args_set.exit ], [ %2, %rb_num2int_inline.exit ]
+33:                                               ; preds = %rb_num2int_inline.exit, %rb_scan_args_set.exit, %30
+  %.0 = phi i64 [ %32, %30 ], [ %2, %rb_scan_args_set.exit ], [ %2, %rb_num2int_inline.exit ]
   ret i64 %.0
 }
 
@@ -13679,7 +13679,7 @@ rb_check_arity.exit.i:                            ; preds = %3
 
 rb_num2int_inline.exit.i:                         ; preds = %12, %8
   %.0.i.i = phi i64 [ %9, %8 ], [ %13, %12 ]
-  %16 = trunc i64 %.0.i.i to i32
+  %16 = trunc nsw i64 %.0.i.i to i32
   br label %flo_ndigits.exit
 
 flo_ndigits.exit:                                 ; preds = %rb_check_arity.exit.i, %rb_num2int_inline.exit.i
@@ -13729,7 +13729,7 @@ rb_check_arity.exit.i:                            ; preds = %3
 
 rb_num2int_inline.exit.i:                         ; preds = %12, %8
   %.0.i.i = phi i64 [ %9, %8 ], [ %13, %12 ]
-  %16 = trunc i64 %.0.i.i to i32
+  %16 = trunc nsw i64 %.0.i.i to i32
   br label %flo_ndigits.exit
 
 flo_ndigits.exit:                                 ; preds = %rb_check_arity.exit.i, %rb_num2int_inline.exit.i
@@ -13815,7 +13815,7 @@ rb_scan_args_set.exit:                            ; preds = %.preheader.thread
 
 rb_num2int_inline.exit:                           ; preds = %22, %26
   %.0.i46 = phi i64 [ %23, %22 ], [ %27, %26 ]
-  %30 = trunc i64 %.0.i46 to i32
+  %30 = trunc nsw i64 %.0.i46 to i32
   br label %31
 
 31:                                               ; preds = %rb_num2int_inline.exit, %rb_scan_args_set.exit
@@ -14245,7 +14245,7 @@ rb_check_arity.exit.i.i:                          ; preds = %18
 
 rb_num2int_inline.exit.i.i:                       ; preds = %27, %23
   %.0.i.i.i = phi i64 [ %24, %23 ], [ %28, %27 ]
-  %31 = trunc i64 %.0.i.i.i to i32
+  %31 = trunc nsw i64 %.0.i.i.i to i32
   br label %flo_ceil.exit
 
 flo_ceil.exit:                                    ; preds = %rb_check_arity.exit.i.i, %rb_num2int_inline.exit.i.i
@@ -14293,7 +14293,7 @@ rb_check_arity.exit.i.i9:                         ; preds = %rb_float_value_inli
 
 rb_num2int_inline.exit.i.i13:                     ; preds = %41, %37
   %.0.i.i.i14 = phi i64 [ %38, %37 ], [ %42, %41 ]
-  %45 = trunc i64 %.0.i.i.i14 to i32
+  %45 = trunc nsw i64 %.0.i.i.i14 to i32
   br label %flo_floor.exit
 
 flo_floor.exit:                                   ; preds = %rb_check_arity.exit.i.i9, %rb_num2int_inline.exit.i.i13
@@ -15710,7 +15710,7 @@ rb_array_len.exit.i.thread:                       ; preds = %6
   unreachable
 
 18:                                               ; preds = %rb_array_len.exit.i
-  %19 = trunc i64 %11 to i32
+  %19 = trunc nsw i64 %11 to i32
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   br label %rb_array_const_ptr.exit

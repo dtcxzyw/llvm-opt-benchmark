@@ -8725,7 +8725,7 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h3525518360f88c9cE.exit.i: ; 
   br i1 %492, label %.lr.ph.i.i, label %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17hf8eff6aacaf062abE.exit.i
 
 493:                                              ; preds = %485
-  %494 = trunc nuw i64 %.sroa.03.078.i.i to i32
+  %494 = trunc nuw nsw i64 %.sroa.03.078.i.i to i32
   %495 = and i32 %494, 31
   %496 = shl nuw i32 1, %495
   %497 = getelementptr inbounds nuw [8 x i32], ptr %.ptr49.i.i, i64 0, i64 %486

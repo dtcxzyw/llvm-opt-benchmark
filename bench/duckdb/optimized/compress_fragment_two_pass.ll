@@ -490,7 +490,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -501,7 +501,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -540,7 +540,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -701,7 +701,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -711,7 +711,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -732,7 +732,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -1346,7 +1346,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -1357,7 +1357,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -1396,7 +1396,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -1557,7 +1557,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -1567,7 +1567,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -1588,7 +1588,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -2202,7 +2202,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -2213,7 +2213,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -2252,7 +2252,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -2413,7 +2413,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -2423,7 +2423,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -2444,7 +2444,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -3058,7 +3058,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -3069,7 +3069,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -3108,7 +3108,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -3269,7 +3269,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -3279,7 +3279,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -3300,7 +3300,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -3914,7 +3914,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -3925,7 +3925,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -3964,7 +3964,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -4125,7 +4125,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -4135,7 +4135,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -4156,7 +4156,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -4770,7 +4770,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -4781,7 +4781,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -4820,7 +4820,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -4981,7 +4981,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -4991,7 +4991,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -5012,7 +5012,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -5626,7 +5626,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -5637,7 +5637,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -5676,7 +5676,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -5837,7 +5837,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -5847,7 +5847,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -5868,7 +5868,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -6482,7 +6482,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %161, label %162, label %165
 
 162:                                              ; preds = %160
-  %163 = trunc nuw i64 %99 to i32
+  %163 = trunc nuw nsw i64 %99 to i32
   %164 = add nuw nsw i32 %163, 20
   store i32 %164, ptr %.288, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -6493,7 +6493,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 167:                                              ; preds = %165
   %168 = add nsw i64 %.2.i29, -4
-  %169 = trunc i64 %168 to i32
+  %169 = trunc nuw nsw i64 %168 to i32
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 30, %170
   %172 = zext nneg i32 %171 to i64
@@ -6532,7 +6532,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 195:                                              ; preds = %193
   %196 = add nsw i64 %.2.i29, -68
-  %197 = trunc i64 %196 to i32
+  %197 = trunc nuw nsw i64 %196 to i32
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %197, i1 true)
   %199 = xor i32 %198, 31
   %200 = zext nneg i32 %199 to i64
@@ -6693,7 +6693,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
   br i1 %270, label %271, label %274
 
 271:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %272 = trunc nuw i64 %267 to i32
+  %272 = trunc nuw nsw i64 %267 to i32
   %273 = add nuw nsw i32 %272, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -6703,7 +6703,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 276:                                              ; preds = %274
   %277 = add nsw i64 %.2.i18, -2
-  %278 = trunc i64 %277 to i32
+  %278 = trunc nuw nsw i64 %277 to i32
   %279 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %278, i1 true)
   %280 = sub nuw nsw i32 30, %279
   %281 = zext nneg i32 %280 to i64
@@ -6724,7 +6724,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %244, %.cr
 
 293:                                              ; preds = %291
   %294 = add nsw i64 %.2.i18, -66
-  %295 = trunc i64 %294 to i32
+  %295 = trunc nuw nsw i64 %294 to i32
   %296 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %297 = xor i32 %296, 31
   %298 = zext nneg i32 %297 to i64
@@ -7407,7 +7407,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %200
-  %203 = trunc nuw i64 %139 to i32
+  %203 = trunc nuw nsw i64 %139 to i32
   %204 = add nuw nsw i32 %203, 20
   store i32 %204, ptr %.290, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -7418,7 +7418,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 207:                                              ; preds = %205
   %208 = add nsw i64 %.2.i29, -2
-  %209 = trunc i64 %208 to i32
+  %209 = trunc nuw nsw i64 %208 to i32
   %210 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %209, i1 true)
   %211 = sub nuw nsw i32 30, %210
   %212 = zext nneg i32 %211 to i64
@@ -7457,7 +7457,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 235:                                              ; preds = %233
   %236 = add nsw i64 %.2.i29, -66
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nuw nsw i64 %236 to i32
   %238 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %237, i1 true)
   %239 = xor i32 %238, 31
   %240 = zext nneg i32 %239 to i64
@@ -7654,7 +7654,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %309, %.cr
   br i1 %335, label %336, label %339
 
 336:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %337 = trunc nuw i64 %332 to i32
+  %337 = trunc nuw nsw i64 %332 to i32
   %338 = add nuw nsw i32 %337, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -7663,7 +7663,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %309, %.cr
   br i1 %340, label %341, label %355
 
 341:                                              ; preds = %339
-  %342 = trunc i64 %.2.i18 to i32
+  %342 = trunc nuw nsw i64 %.2.i18 to i32
   %343 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %342, i1 true)
   %344 = sub nuw nsw i32 30, %343
   %345 = zext nneg i32 %344 to i64
@@ -7684,7 +7684,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %309, %.cr
 
 357:                                              ; preds = %355
   %358 = add nsw i64 %.2.i18, -64
-  %359 = trunc i64 %358 to i32
+  %359 = trunc nuw nsw i64 %358 to i32
   %360 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %359, i1 true)
   %361 = xor i32 %360, 31
   %362 = zext nneg i32 %361 to i64
@@ -8379,7 +8379,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %200
-  %203 = trunc nuw i64 %139 to i32
+  %203 = trunc nuw nsw i64 %139 to i32
   %204 = add nuw nsw i32 %203, 20
   store i32 %204, ptr %.290, align 4, !tbaa !41
   br label %_ZL23EmitCopyLenLastDistancemPPj.exit
@@ -8390,7 +8390,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 207:                                              ; preds = %205
   %208 = add nsw i64 %.2.i29, -2
-  %209 = trunc i64 %208 to i32
+  %209 = trunc nuw nsw i64 %208 to i32
   %210 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %209, i1 true)
   %211 = sub nuw nsw i32 30, %210
   %212 = zext nneg i32 %211 to i64
@@ -8429,7 +8429,7 @@ _ZL13EmitInsertLenjPPj.exit:                      ; preds = %_ZN13duckdb_brotliL
 
 235:                                              ; preds = %233
   %236 = add nsw i64 %.2.i29, -66
-  %237 = trunc i64 %236 to i32
+  %237 = trunc nuw nsw i64 %236 to i32
   %238 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %237, i1 true)
   %239 = xor i32 %238, 31
   %240 = zext nneg i32 %239 to i64
@@ -8626,7 +8626,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %309, %.cr
   br i1 %335, label %336, label %339
 
 336:                                              ; preds = %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit
-  %337 = trunc nuw i64 %332 to i32
+  %337 = trunc nuw nsw i64 %332 to i32
   %338 = add nuw nsw i32 %337, 38
   br label %_ZL11EmitCopyLenmPPj.exit
 
@@ -8635,7 +8635,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %309, %.cr
   br i1 %340, label %341, label %355
 
 341:                                              ; preds = %339
-  %342 = trunc i64 %.2.i18 to i32
+  %342 = trunc nuw nsw i64 %.2.i18 to i32
   %343 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %342, i1 true)
   %344 = sub nuw nsw i32 30, %343
   %345 = zext nneg i32 %344 to i64
@@ -8656,7 +8656,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %309, %.cr
 
 357:                                              ; preds = %355
   %358 = add nsw i64 %.2.i18, -64
-  %359 = trunc i64 %358 to i32
+  %359 = trunc nuw nsw i64 %358 to i32
   %360 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %359, i1 true)
   %361 = xor i32 %360, 31
   %362 = zext nneg i32 %361 to i64

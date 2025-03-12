@@ -774,7 +774,7 @@ smb_send_tree_connect.exit.thread:                ; preds = %28, %smb_send_tree_
   store i8 24, ptr %8, align 1, !tbaa !141
   %191 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 -1, ptr %191, align 1, !tbaa !143
-  %192 = trunc i64 %186 to i16
+  %192 = trunc nsw i64 %186 to i16
   %193 = getelementptr inbounds nuw i8, ptr %8, i64 6
   store i16 %192, ptr %193, align 1, !tbaa !144
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 32

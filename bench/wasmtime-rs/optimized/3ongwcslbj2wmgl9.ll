@@ -1232,7 +1232,7 @@ define hidden noundef zeroext i1 @_ZN16wasmtime_environ6module20MemoryInitializa
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 280
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 440
   %29 = load i64, ptr %28, align 8
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8

@@ -6059,7 +6059,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %306
 
 297:                                              ; preds = %._crit_edge.i.i110
-  %298 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %298 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %299 = or disjoint i8 %298, 48
   br label %306
 
@@ -6680,7 +6680,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %86
 
 86:                                               ; preds = %85, %83
-  %87 = trunc i64 %67 to i32
+  %87 = trunc nsw i64 %67 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   invoke void @_ZN14cmConfigureLog10WriteValueESt17basic_string_viewIcSt11char_traitsIcEEi(ptr noundef nonnull align 8 dereferenceable(584) %0, i64 8, ptr nonnull @.str.61, i32 noundef %87)
           to label %99 unwind label %88

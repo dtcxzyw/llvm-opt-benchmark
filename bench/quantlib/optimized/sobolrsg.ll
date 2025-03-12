@@ -39870,7 +39870,7 @@ for.cond.cleanup:                                 ; preds = %for.body201, %for.c
 for.body201:                                      ; preds = %for.body201.lr.ph, %for.body201
   %l.0720 = phi i64 [ 1, %for.body201.lr.ph ], [ %inc214, %for.body201 ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %l.0720
-  %85 = trunc i64 %l.0720 to i32
+  %85 = trunc nuw i64 %l.0720 to i32
   %sh_prom211 = sub i32 32, %85
   %shl212 = shl nuw i32 1, %sh_prom211
   store i32 %shl212, ptr %gep, align 4, !tbaa !34

@@ -5087,7 +5087,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
   br i1 %27, label %54, label %14
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %0 to i8
+  %29 = trunc nuw nsw i32 %0 to i8
   store i8 %29, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha43437507e34d81dE.exit"
 
@@ -5100,7 +5100,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %1, align 1
   %37 = trunc i32 %0 to i8
@@ -5112,7 +5112,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 41:                                               ; preds = %24
   %42 = lshr i32 %0, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   store i8 %44, ptr %1, align 1
   %45 = lshr i32 %0, 6
@@ -5337,7 +5337,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfd
 
 58:                                               ; preds = %"_ZN7channel13channel_store7Channel4slug28_$u7b$$u7b$closure$u7d$$u7d$17h64c36663cf4a9632E.exit.thread5.i"
   %59 = lshr i32 %45, 6
-  %60 = trunc nuw i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = or disjoint i8 %60, -64
   store i8 %61, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !1199, !noalias !1196
   %62 = trunc i32 %45 to i8
@@ -5348,7 +5348,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h07f64e720b9dfd
 
 65:                                               ; preds = %56
   %66 = lshr i32 %45, 12
-  %67 = trunc nuw i32 %66 to i8
+  %67 = trunc nuw nsw i32 %66 to i8
   %68 = or disjoint i8 %67, -32
   store i8 %68, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !1199, !noalias !1196
   %69 = lshr i32 %45, 6

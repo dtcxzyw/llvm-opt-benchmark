@@ -626,7 +626,7 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17h28634a63a7454567E(ptr
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93": ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.exit.thread.thread", %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit._ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93_crit_edge", %"._ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93_crit_edge114", %"._ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93_crit_edge"
   %.0.lcssa = phi i64 [ %.0113, %"._ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93_crit_edge" ], [ %157, %"._ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93_crit_edge114" ], [ %.0113, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit._ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078dc0785d9d8394E.exit.thread93_crit_edge" ], [ 0, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9ca32f626437a49bE.exit.thread.thread" ]
-  %77 = trunc i64 %.0.lcssa to i8
+  %77 = trunc nuw nsw i64 %.0.lcssa to i8
   store i8 %77, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.416.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %14, i64 23, i1 false)
@@ -653,7 +653,7 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17h28634a63a7454567E(ptr
   %86 = getelementptr inbounds nuw i8, ptr %14, i64 %.0113
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !99
-  %87 = trunc nuw i32 %.0.i91105 to i8
+  %87 = trunc nuw nsw i32 %.0.i91105 to i8
   store i8 %87, ptr %86, align 1, !alias.scope !102
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
@@ -733,7 +733,7 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17h28634a63a7454567E(ptr
 
 117:                                              ; preds = %111
   %118 = lshr i32 %.0.i91, 6
-  %119 = trunc nuw i32 %118 to i8
+  %119 = trunc nuw nsw i32 %118 to i8
   %120 = or disjoint i8 %119, -64
   store i8 %120, ptr %98, align 1, !alias.scope !102
   %121 = trunc i32 %.0.i91 to i8
@@ -745,7 +745,7 @@ define hidden void @_ZN8smol_str7SmolStr14from_char_iter17h28634a63a7454567E(ptr
 
 125:                                              ; preds = %113
   %126 = lshr i32 %.0.i91, 12
-  %127 = trunc nuw i32 %126 to i8
+  %127 = trunc nuw nsw i32 %126 to i8
   %128 = or disjoint i8 %127, -32
   store i8 %128, ptr %98, align 1, !alias.scope !102
   %129 = lshr i32 %.0.i91, 6
@@ -866,7 +866,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
 
 185:                                              ; preds = %181
   %186 = lshr i32 %.0.i91106, 6
-  %187 = trunc nuw i32 %186 to i8
+  %187 = trunc nuw nsw i32 %186 to i8
   %188 = or disjoint i8 %187, -64
   store i8 %188, ptr %.sroa.0.i, align 4, !alias.scope !123, !noalias !120
   %189 = trunc i32 %.0.i91106 to i8
@@ -878,7 +878,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %.thr
 
 192:                                              ; preds = %183
   %193 = lshr i32 %.0.i91106, 12
-  %194 = trunc nuw i32 %193 to i8
+  %194 = trunc nuw nsw i32 %193 to i8
   %195 = or disjoint i8 %194, -32
   store i8 %195, ptr %.sroa.0.i, align 4, !alias.scope !123, !noalias !120
   %196 = lshr i32 %.0.i91106, 6
@@ -945,7 +945,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %20
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %175
-  %228 = trunc nuw i32 %.0.i91106 to i8
+  %228 = trunc nuw nsw i32 %.0.i91106 to i8
   %229 = load i64, ptr %13, align 8, !alias.scope !136, !noundef !4
   %230 = icmp eq i64 %180, %229
   br i1 %230, label %231, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd05cb540aafd0eb5E.exit.i"

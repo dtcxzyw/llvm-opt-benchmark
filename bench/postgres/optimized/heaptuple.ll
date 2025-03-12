@@ -626,7 +626,7 @@ store_att_byval.exit:                             ; preds = %41, %43, %45, %47
 105:                                              ; preds = %102
   %106 = zext nneg i32 %103 to i64
   %107 = add nuw nsw i64 %106, 1
-  %108 = trunc nuw i64 %107 to i8
+  %108 = trunc nuw nsw i64 %107 to i8
   %109 = shl nuw i8 %108, 1
   %110 = or disjoint i8 %109, 1
   store i8 %110, ptr %8, align 1

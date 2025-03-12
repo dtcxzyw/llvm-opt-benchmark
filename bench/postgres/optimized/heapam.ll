@@ -11719,7 +11719,7 @@ bottomup_nblocksfavorable.exit.i:                 ; preds = %.lr.ph._crit_edge.i
   %122 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 range(i32 -32768, 32768) %119, i1 true)
   %123 = xor i32 %122, 31
   %124 = shl nuw nsw i32 2, %123
-  %125 = trunc i32 %124 to i16
+  %125 = trunc nuw i32 %124 to i16
   %126 = select i1 %121, i16 %116, i16 %125
   br label %127
 

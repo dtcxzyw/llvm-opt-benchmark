@@ -552,7 +552,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i.i.i: ; preds = %99
   br i1 %149, label %.preheader.i.backedge, label %151
 
 "_ZN14event_listener21Listener$LT$T$C$B$GT$13wait_internal17hc2c6ef1a0a4fefc9E.llvm.6090777742988092048.exit.i.i.i": ; preds = %.noexc97.i
-  %150 = trunc i8 %146 to i1
+  %150 = trunc nuw i8 %146 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br i1 %150, label %.preheader.i.backedge, label %151
 

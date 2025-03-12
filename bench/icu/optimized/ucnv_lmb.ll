@@ -403,7 +403,7 @@ switch.early.test:                                ; preds = %41
   br i1 %or.cond29, label %switch.early.test224, label %.thread437
 
 .thread437:                                       ; preds = %46
-  %48 = trunc nuw i16 %.fr438 to i8
+  %48 = trunc nuw nsw i16 %.fr438 to i8
   store i8 %48, ptr %12, align 1, !tbaa !42
   br label %.thread432
 
@@ -418,7 +418,7 @@ switch.early.test224:                             ; preds = %.thread458, %.threa
   ]
 
 50:                                               ; preds = %switch.early.test224, %switch.early.test224, %switch.early.test224, %switch.early.test224, %switch.early.test224
-  %51 = trunc nuw i16 %.fr438 to i8
+  %51 = trunc nuw nsw i16 %.fr438 to i8
   store i8 %51, ptr %12, align 1, !tbaa !42
   br label %switch.early.test225
 
@@ -479,7 +479,7 @@ _ZL17FindLMBCSUniRangeDs.exit.thread:             ; preds = %56, %_ZL17FindLMBCS
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %.0184371, i64 1
   store i8 15, ptr %.0184371, align 1, !tbaa !42
-  %74 = trunc nuw i16 %.fr438 to i8
+  %74 = trunc nuw nsw i16 %.fr438 to i8
   %75 = or disjoint i8 %74, 32
   %76 = getelementptr inbounds nuw i8, ptr %.0184371, i64 2
   store i8 %75, ptr %73, align 1, !tbaa !42

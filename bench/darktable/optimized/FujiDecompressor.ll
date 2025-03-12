@@ -1647,7 +1647,7 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_blockC2ENS_10Array2DRefItEERKNS_16Fu
   br i1 %exitcond.not.i.i.i, label %259, label %260, !llvm.loop !225
 
 265:                                              ; preds = %259
-  %indvars132.i.i = trunc i64 %indvars.iv.i.i9 to i32
+  %indvars132.i.i = trunc nuw nsw i64 %indvars.iv.i.i9 to i32
   %266 = icmp ne ptr %.sroa.03.0.copyload.i.i, null
   call void @llvm.assume(i1 %266)
   %267 = icmp sgt i32 %.sroa.24.0.copyload.i.i, -1
@@ -2209,7 +2209,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %591 = sub nuw nsw i32 64, %.033.i.i.i.i.i.i.i
   %592 = zext nneg i32 %591 to i64
   %593 = lshr i64 %588, %592
-  %594 = trunc i64 %593 to i32
+  %594 = trunc nuw i64 %593 to i32
   %595 = sub nuw nsw i32 %587, %.033.i.i.i.i.i.i.i
   store i32 %595, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !232
   %596 = zext nneg i32 %.033.i.i.i.i.i.i.i to i64
@@ -2603,7 +2603,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %809 = sub nuw nsw i32 64, %.033.i.i.i.i.i.i
   %810 = zext nneg i32 %809 to i64
   %811 = lshr i64 %802, %810
-  %812 = trunc i64 %811 to i32
+  %812 = trunc nuw i64 %811 to i32
   %813 = sub nuw nsw i32 %805, %.033.i.i.i.i.i.i
   store i32 %813, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !232
   %814 = zext nneg i32 %.033.i.i.i.i.i.i to i64
@@ -3206,7 +3206,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %1133 = sub nuw nsw i32 64, %.033.i.i.i.i115.i.i.i
   %1134 = zext nneg i32 %1133 to i64
   %1135 = lshr i64 %1130, %1134
-  %1136 = trunc i64 %1135 to i32
+  %1136 = trunc nuw i64 %1135 to i32
   %1137 = sub nuw nsw i32 %.promoted.i.pre.i106.i.i.i.i, %.033.i.i.i.i115.i.i.i
   store i32 %1137, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !232
   %1138 = zext nneg i32 %.033.i.i.i.i115.i.i.i to i64
@@ -3598,7 +3598,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %1346 = sub nuw nsw i32 64, %.033.i.i.i81.i.i.i
   %1347 = zext nneg i32 %1346 to i64
   %1348 = lshr i64 %1340, %1347
-  %1349 = trunc i64 %1348 to i32
+  %1349 = trunc nuw i64 %1348 to i32
   %1350 = sub nuw nsw i32 %.promoted.i.pre.i104.i.i.i.i, %.033.i.i.i81.i.i.i
   store i32 %1350, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !232
   %1351 = zext nneg i32 %.033.i.i.i81.i.i.i to i64

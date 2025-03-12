@@ -164,7 +164,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   br i1 %.not3, label %17, label %.critedge2
 
 17:                                               ; preds = %.lr.ph
-  %18 = trunc i64 %storemerge6 to i32
+  %18 = trunc nuw i64 %storemerge6 to i32
   %19 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %8, i32 noundef %18)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !17
@@ -220,7 +220,7 @@ define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq17EqClassesIteratorppEi(p
   br i1 %.not3.i, label %16, label %.critedge2.i
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = trunc i64 %storemerge6.i to i32
+  %17 = trunc nuw i64 %storemerge6.i to i32
   %18 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %7, i32 noundef %17)
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !17

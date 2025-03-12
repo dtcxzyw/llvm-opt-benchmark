@@ -1358,7 +1358,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %30
   br label %108
 
 45:                                               ; preds = %40
-  %46 = trunc nuw i64 %41 to i32
+  %46 = trunc nuw nsw i64 %41 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   %47 = call i32 @glob(ptr noundef nonnull %28, i32 noundef %46, ptr noundef null, ptr noundef nonnull %5) #13
   switch i32 %47, label %48 [

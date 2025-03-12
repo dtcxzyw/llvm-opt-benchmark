@@ -4529,13 +4529,13 @@ define internal fastcc range(i32 0, -191) i32 @ftc_snode_load(ptr noundef captur
   %71 = trunc nuw i32 %38 to i8
   %72 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store i8 %71, ptr %72, align 1, !tbaa !214
-  %73 = trunc i32 %47 to i16
+  %73 = trunc nsw i32 %47 to i16
   %74 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store i16 %73, ptr %74, align 2, !tbaa !218
-  %75 = trunc i32 %52 to i8
+  %75 = trunc nsw i32 %52 to i8
   %76 = getelementptr inbounds nuw i8, ptr %16, i64 2
   store i8 %75, ptr %76, align 2, !tbaa !229
-  %77 = trunc i32 %57 to i8
+  %77 = trunc nsw i32 %57 to i8
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 3
   store i8 %77, ptr %78, align 1, !tbaa !230
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 8

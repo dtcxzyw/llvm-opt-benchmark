@@ -1960,7 +1960,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
   %175 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv56.i50
   %176 = load i16, ptr %175, align 2
   %177 = icmp ult i16 %176, 128
-  %178 = trunc nuw i16 %176 to i8
+  %178 = trunc nuw nsw i16 %176 to i8
   %spec.select.i51 = select i1 %177, i8 %178, i8 63
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv56.i50
   store i8 %spec.select.i51, ptr %179, align 1
@@ -2016,7 +2016,7 @@ define internal fastcc noundef ptr @getStringPlatformChars0(ptr noundef %0, ptr 
 
 208:                                              ; preds = %.lr.ph.split.i40
   %209 = icmp ult i16 %193, 128
-  %210 = trunc nuw i16 %193 to i8
+  %210 = trunc nuw nsw i16 %193 to i8
   %spec.select63.i42 = select i1 %209, i8 %210, i8 63
   %211 = getelementptr inbounds nuw i8, ptr %173, i64 %indvars.iv.i41
   store i8 %spec.select63.i42, ptr %211, align 1

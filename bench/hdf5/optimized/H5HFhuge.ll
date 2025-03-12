@@ -148,7 +148,7 @@ define noundef i32 @H5HF__huge_init(ptr noundef captures(none) %0) local_unnamed
   br i1 %47, label %48, label %55
 
 48:                                               ; preds = %44
-  %49 = trunc nuw i32 %46 to i8
+  %49 = trunc nuw nsw i32 %46 to i8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i8 %49, ptr %50, align 8, !tbaa !37
   %51 = shl nuw nsw i32 %46, 3

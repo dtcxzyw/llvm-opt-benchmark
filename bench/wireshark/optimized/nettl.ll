@@ -917,7 +917,7 @@ define internal zeroext i1 @nettl_dump(ptr noundef %0, ptr noundef readonly capt
   br label %86
 
 21:                                               ; preds = %16
-  %22 = trunc nuw i64 %19 to i32
+  %22 = trunc nuw nsw i64 %19 to i32
   %23 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %22) #11, !srcloc !8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %23, ptr %24, align 4

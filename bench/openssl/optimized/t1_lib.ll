@@ -9033,7 +9033,7 @@ define internal range(i32 0, 2) i32 @add_provider_groups(ptr noundef %0, ptr nou
 
 96:                                               ; preds = %90, %88
   %97 = phi i32 [ %93, %90 ], [ 0, %88 ]
-  %98 = trunc i32 %97 to i8
+  %98 = trunc nuw nsw i32 %97 to i8
   %99 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i8 %98, ptr %99, align 8, !tbaa !313
   %100 = call ptr @OSSL_PARAM_locate_const(ptr noundef %0, ptr noundef nonnull @.str.27) #14

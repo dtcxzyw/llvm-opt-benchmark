@@ -1444,7 +1444,7 @@ XLogEnsureRecordSpace.exit:                       ; preds = %35, %38
   br i1 %.not.i30, label %58, label %55
 
 55:                                               ; preds = %48
-  %56 = trunc i64 %indvars.iv to i32
+  %56 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = add nuw nsw i32 %56, 1
   store i32 %57, ptr @max_registered_block_id, align 4
   br label %58

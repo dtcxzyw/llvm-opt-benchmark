@@ -1230,7 +1230,7 @@ _ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit.i.i: ; preds = %268
   store i64 %.sroa.6.0.copyload.i.i, ptr %12, align 8, !tbaa !45
   %291 = icmp ne i32 %128, %.sroa.032.sroa.0.0.extract.trunc.i.i
   %292 = icmp ne i32 %128, %.sroa.032.sroa.4.0.extract.trunc.i.i
-  %or.cond84.i.i = and i1 %291, %292
+  %or.cond84.i.i = select i1 %291, i1 %292, i1 false
   br i1 %or.cond84.i.i, label %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread.sink.split.sink.split.i, label %293
 
 293:                                              ; preds = %289
@@ -1307,7 +1307,7 @@ _ZNK4llvm12MachineInstr12isPredicableENS0_9QueryTypeE.exit.i.i: ; preds = %268
 314:                                              ; preds = %311
   %.not89.i.i = icmp eq i32 %128, %.sroa.032.sroa.4.0.extract.trunc.i.i
   %brmerge66.i.i = or i1 %.not89.i.i, %313
-  %or.cond90.i.i = or i1 %.not59.i.i, %brmerge66.i.i
+  %or.cond90.i.i = select i1 %.not59.i.i, i1 true, i1 %brmerge66.i.i
   br i1 %or.cond90.i.i, label %315, label %_ZN12_GLOBAL__N_118ImplicitNullChecks18isSuitableMemoryOpERKN4llvm12MachineInstrEjNS1_8ArrayRefIPS2_EE.exit.thread81.i
 
 315:                                              ; preds = %314

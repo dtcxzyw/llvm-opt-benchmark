@@ -145,7 +145,7 @@ if.then9:                                         ; preds = %if.end
   unreachable
 
 if.end10:                                         ; preds = %if.end
-  %rem.lhs.trunc = trunc i32 %sub to i8
+  %rem.lhs.trunc = trunc nuw i32 %sub to i8
   %rem6 = urem i8 %rem.lhs.trunc, %0
   %div7 = udiv i8 %rem.lhs.trunc, %0
   %cmp12.not = icmp eq i8 %rem6, 0
@@ -190,7 +190,7 @@ if.then9.i:                                       ; preds = %if.end.i
   unreachable
 
 if.end10.i:                                       ; preds = %if.end.i
-  %rem.lhs.trunc.i = trunc i32 %sub.i to i8
+  %rem.lhs.trunc.i = trunc nuw i32 %sub.i to i8
   %rem6.i = urem i8 %rem.lhs.trunc.i, %0
   %div7.i = udiv i8 %rem.lhs.trunc.i, %0
   %cmp12.not.i = icmp eq i8 %rem6.i, 0

@@ -291,7 +291,7 @@ H5VM_limit_enc_size.exit13:                       ; preds = %55, %61, %67, %73
 
 79:                                               ; preds = %H5VM_limit_enc_size.exit, %H5VM_limit_enc_size.exit13
   %80 = phi i32 [ %78, %H5VM_limit_enc_size.exit13 ], [ %24, %H5VM_limit_enc_size.exit ]
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw nsw i32 %80 to i8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 698
   store i8 %81, ptr %82, align 2, !tbaa !41
   br label %83

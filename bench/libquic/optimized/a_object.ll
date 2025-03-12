@@ -570,7 +570,7 @@ define hidden ptr @c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr
   br label %61
 
 .lr.ph.preheader:                                 ; preds = %9
-  %14 = trunc nuw i64 %2 to i32
+  %14 = trunc nuw nsw i64 %2 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22

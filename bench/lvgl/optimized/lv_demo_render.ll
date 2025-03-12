@@ -1094,7 +1094,7 @@ define internal fastcc void @image_core_cb(ptr noundef %0, i1 noundef zeroext %1
   %9 = getelementptr inbounds nuw [7 x ptr], ptr @__const.image_core_cb.names, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !62
   tail call void @lv_label_set_text(ptr noundef %8, ptr noundef %10) #6
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %.tr = sub nsw i32 %11, %2
   %12 = shl nsw i32 %.tr, 1
   tail call void @lv_obj_set_grid_cell(ptr noundef %8, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 -8, 21) %12, i32 noundef 1) #6

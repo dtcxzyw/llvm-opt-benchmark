@@ -475,7 +475,7 @@ _ZN4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br i1 %.not34, label %78, label %71
 
 71:                                               ; preds = %68
-  %72 = trunc nuw i64 %.049 to i32
+  %72 = trunc nuw nsw i64 %.049 to i32
   %73 = tail call noundef ptr @_Z14luaC_statenamei(i32 noundef %72)
   %74 = uitofp i64 %70 to double
   %75 = fdiv double %74, %62
@@ -1042,7 +1042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 138:                                              ; preds = %._crit_edge.i.i
-  %139 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %139 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %140 = or disjoint i8 %139, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

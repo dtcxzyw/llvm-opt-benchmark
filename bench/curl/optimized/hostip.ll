@@ -1508,7 +1508,7 @@ create_hostcache_id.exit:                         ; preds = %21
   %38 = sub i64 %37, %36
   %39 = load ptr, ptr %.0132267, align 8, !tbaa !136
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  %41 = trunc nuw i64 %23 to i32
+  %41 = trunc nuw nsw i64 %23 to i32
   %spec.select.i = call i64 @llvm.umin.i64(i64 %38, i64 255)
   call void @Curl_strntolower(ptr noundef nonnull %2, ptr noundef nonnull %40, i64 noundef %spec.select.i) #10
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.i

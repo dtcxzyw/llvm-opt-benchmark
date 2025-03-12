@@ -372,7 +372,7 @@ get_subscript_index.exit.i:                       ; preds = %30
   store i8 0, ptr %6, align 1, !tbaa !25
   %39 = tail call ptr @PyEval_SaveThread() #5
   %40 = load ptr, ptr %14, align 8, !tbaa !22
-  %41 = trunc i64 %.010.i.i to i32
+  %41 = trunc nuw nsw i64 %.010.i.i to i32
   %42 = call i32 @sqlite3_blob_read(ptr noundef %40, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %41) #5
   call void @PyEval_RestoreThread(ptr noundef %39) #5
   %.not.i6.i = icmp eq i32 %42, 0
@@ -624,7 +624,7 @@ get_subscript_index.exit.i:                       ; preds = %45
 68:                                               ; preds = %61
   %69 = tail call ptr @PyEval_SaveThread() #5
   %70 = load ptr, ptr %16, align 8, !tbaa !22
-  %71 = trunc i64 %.010.i.i to i32
+  %71 = trunc nuw nsw i64 %.010.i.i to i32
   %72 = call i32 @sqlite3_blob_write(ptr noundef %70, ptr noundef nonnull %8, i32 noundef 1, i32 noundef %71) #5
   call void @PyEval_RestoreThread(ptr noundef %69) #5
   %.not.i22.i = icmp eq i32 %72, 0

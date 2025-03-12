@@ -19189,8 +19189,8 @@ rb_array_len.exit.i:                              ; preds = %99, %96
   unreachable
 
 RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
-  %104 = trunc i64 %.0.i.i to i32
-  %105 = icmp slt i32 %104, 8
+  %104 = trunc nsw i64 %.0.i.i to i32
+  %105 = icmp slt i64 %.0.i.i, 8
   br i1 %105, label %106, label %118
 
 106:                                              ; preds = %RARRAY_LENINT.exit

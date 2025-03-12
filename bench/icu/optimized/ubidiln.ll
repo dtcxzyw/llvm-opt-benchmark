@@ -2104,7 +2104,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   %113 = zext i1 %or.cond170.us to i32
   %.3148.us = add nsw i32 %.1146191.us, %113
   %114 = add nsw i32 %.3148.us, %1
-  %115 = trunc i64 %indvars.iv213 to i32
+  %115 = trunc nuw nsw i64 %indvars.iv213 to i32
   %116 = add i32 %.0136.lcssa182, %115
   %117 = icmp ne i32 %114, %116
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
@@ -2128,7 +2128,7 @@ define i32 @ubidi_getLogicalIndex_77(ptr noundef %0, i32 noundef %1, ptr noundef
   %126 = zext i1 %or.cond170 to i32
   %.3148 = add nsw i32 %.1146191, %126
   %127 = add nsw i32 %.3148, %1
-  %128 = trunc i64 %indvars.iv210 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv210 to i32
   %129 = add i32 %.0136.lcssa182, %128
   %130 = icmp ne i32 %127, %129
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1

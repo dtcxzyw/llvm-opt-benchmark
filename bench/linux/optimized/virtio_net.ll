@@ -457,7 +457,7 @@ define internal fastcc void @virtnet_set_affinity(ptr noundef captures(none) %0)
 
 67:                                               ; preds = %65, %54
   %68 = load ptr, ptr %26, align 8
-  %69 = trunc i64 %28 to i16
+  %69 = trunc nuw i64 %28 to i16
   %70 = call i32 @__netif_set_xps_queue(ptr noundef %68, ptr noundef nonnull %2, i16 noundef zeroext %69, i32 noundef 0) #26
   store i64 0, ptr %2, align 8
   %71 = add nuw nsw i64 %28, 1
@@ -1392,7 +1392,7 @@ define internal i32 @virtnet_probe(ptr noundef %0) #3 align 16 {
 .preheader:                                       ; preds = %405, %.preheader
   %421 = phi i64 [ %427, %.preheader ], [ 0, %405 ]
   %422 = load i16, ptr %329, align 2
-  %.lhs.trunc = trunc i64 %421 to i16
+  %.lhs.trunc = trunc nuw i64 %421 to i16
   %423 = urem i16 %.lhs.trunc, %422
   %424 = load ptr, ptr %408, align 8
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 32
@@ -2231,7 +2231,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 
 122:                                              ; preds = %145, %120
   %123 = phi i64 [ 0, %120 ], [ %146, %145 ]
-  %124 = trunc i64 %123 to i32
+  %124 = trunc nuw nsw i64 %123 to i32
   %125 = shl nuw nsw i32 %124, 1
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr ptr, ptr %92, i64 %126
@@ -2318,7 +2318,7 @@ define internal fastcc i32 @init_vqs(ptr noundef initializes((248, 256)) %0) unn
 
 182:                                              ; preds = %202, %179
   %183 = phi i64 [ 0, %179 ], [ %219, %202 ]
-  %184 = trunc i64 %183 to i32
+  %184 = trunc nuw nsw i64 %183 to i32
   %185 = shl nuw nsw i32 %184, 1
   %186 = zext nneg i32 %185 to i64
   %187 = getelementptr ptr, ptr %89, i64 %186
@@ -2884,7 +2884,7 @@ define internal range(i32 -2147483648, 1) i32 @virtnet_open(ptr noundef %0) #3 a
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1344
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 292
   %33 = load i32, ptr %32, align 4
-  %34 = trunc i64 %16 to i32
+  %34 = trunc nuw nsw i64 %16 to i32
   %35 = tail call i32 @__xdp_rxq_info_reg(ptr noundef nonnull %31, ptr noundef %28, i32 noundef %34, i32 noundef %33, i32 noundef 0) #26
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %.loopexit5, label %37
@@ -3760,7 +3760,7 @@ define internal i32 @virtnet_set_mac_address(ptr noundef %0, ptr noundef %1) #3 
   %45 = load ptr, ptr %39, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
-  %48 = trunc i64 %41 to i32
+  %48 = trunc nuw nsw i64 %41 to i32
   call void %47(ptr noundef %6, i32 noundef %48, ptr noundef nonnull %3, i32 noundef 1) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %49 = add nuw nsw i64 %41, 1
@@ -7131,7 +7131,7 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
 
 94:                                               ; preds = %78
   %95 = load ptr, ptr %50, align 8
-  %96 = trunc i64 %59 to i32
+  %96 = trunc nuw nsw i64 %59 to i32
   call void (ptr, ptr, ...) @netdev_err(ptr noundef %95, ptr noundef nonnull @.str.43, i32 noundef %96, i32 noundef %92) #29
   br label %97
 
@@ -7183,7 +7183,7 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
   br i1 %93, label %115, label %.loopexit
 
 115:                                              ; preds = %114
-  %116 = trunc i64 %59 to i16
+  %116 = trunc nuw i64 %59 to i16
   %117 = load i32, ptr %53, align 4
   %118 = load i32, ptr %52, align 4
   %119 = shl i16 %116, 1
@@ -7287,7 +7287,7 @@ define internal i32 @virtnet_set_ringparam(ptr noundef %0, ptr noundef readonly 
   br i1 %156, label %173, label %.loopexit
 
 173:                                              ; preds = %172
-  %174 = trunc i64 %59 to i16
+  %174 = trunc nuw i64 %59 to i16
   %175 = load i32, ptr %57, align 4
   %176 = load i32, ptr %56, align 4
   %177 = shl i16 %174, 1
@@ -9191,7 +9191,7 @@ define internal void @virtnet_rx_dim_work(ptr noundef readonly captures(none) %0
 
 45:                                               ; preds = %._crit_edge, %40
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %42, %40 ]
-  %46 = trunc i64 %19 to i16
+  %46 = trunc nuw i64 %19 to i16
   %47 = shl i16 %46, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !15

@@ -1682,7 +1682,7 @@ sort_cc.exit:                                     ; preds = %unicode_get_cc.exit
   br i1 %or.cond7.i, label %240, label %247
 
 240:                                              ; preds = %238
-  %.lhs.trunc.i = trunc nuw i32 %239 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %239 to i16
   %241 = urem i16 %.lhs.trunc.i, 28
   %242 = icmp eq i16 %241, 0
   %243 = add i32 %215, -4519
@@ -1809,7 +1809,7 @@ define internal fastcc void @to_nfd_rec(ptr noundef nonnull %0, ptr noundef read
   br i1 %or.cond, label %14, label %.preheader
 
 14:                                               ; preds = %.lr.ph
-  %.lhs.trunc = trunc nuw i32 %13 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %13 to i16
   %15 = udiv i16 %.lhs.trunc, 588
   %16 = or disjoint i16 %15, 4352
   %17 = zext nneg i16 %16 to i32

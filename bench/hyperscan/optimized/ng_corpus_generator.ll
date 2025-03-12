@@ -2678,7 +2678,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 784:                                              ; preds = %782
   %785 = lshr i32 %760, 6
-  %786 = trunc nuw i32 %785 to i8
+  %786 = trunc nuw nsw i32 %785 to i8
   %787 = or disjoint i8 %786, -64
   %788 = load i64, ptr %750, align 8, !alias.scope !58
   %789 = add i64 %788, 1
@@ -2758,7 +2758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit25.i: ; pr
 
 825:                                              ; preds = %819
   %826 = lshr i32 %760, 12
-  %827 = trunc nuw i32 %826 to i8
+  %827 = trunc nuw nsw i32 %826 to i8
   %828 = or disjoint i8 %827, -32
   br i1 %824, label %829, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i26.i
 

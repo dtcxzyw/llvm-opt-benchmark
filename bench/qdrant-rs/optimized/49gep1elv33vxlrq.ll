@@ -865,13 +865,13 @@ tailrecurse._crit_edge.i:                         ; preds = %68, %tailrecurse.i
   br i1 %192, label %195, label %202
 
 193:                                              ; preds = %189
-  %194 = trunc nuw i16 %177 to i8
+  %194 = trunc nuw nsw i16 %177 to i8
   store i8 %194, ptr %.sroa.0, align 4, !alias.scope !214, !noalias !162
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 195:                                              ; preds = %191
   %196 = lshr i16 %177, 6
-  %197 = trunc nuw i16 %196 to i8
+  %197 = trunc nuw nsw i16 %196 to i8
   %198 = or disjoint i8 %197, -64
   store i8 %198, ptr %.sroa.0, align 4, !alias.scope !214, !noalias !162
   %199 = trunc i16 %177 to i8
@@ -2349,13 +2349,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h48874ddc1db95
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !540
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !540
   %15 = trunc i32 %1 to i8
@@ -2367,7 +2367,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h48874ddc1db95
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !540
   %23 = lshr i32 %1, 6

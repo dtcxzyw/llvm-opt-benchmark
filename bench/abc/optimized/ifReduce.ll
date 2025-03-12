@@ -190,7 +190,7 @@ Vec_PtrGrow.exit.i.i.i.i:                         ; preds = %77, %75
 86:                                               ; preds = %84, %82
   %87 = phi ptr [ %83, %82 ], [ %85, %84 ]
   store ptr %87, ptr %21, align 8, !tbaa !35
-  %indvars.iv.i.i.i.tr = trunc i64 %indvars.iv.i.i.i to i32
+  %indvars.iv.i.i.i.tr = trunc nuw i64 %indvars.iv.i.i.i to i32
   %88 = shl i32 %indvars.iv.i.i.i.tr, 1
   store i32 %88, ptr %13, align 8, !tbaa !34
   br label %Vec_PtrPush.exit.i.i.i

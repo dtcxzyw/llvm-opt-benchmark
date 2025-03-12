@@ -3601,7 +3601,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1015: ; preds = %_ZN5eastl12bas
 
 invoke.cont584:                                   ; preds = %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1015, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1045
   %i.013559 = phi i64 [ 0, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1015 ], [ %inc, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1045 ]
-  %234 = trunc nuw i64 %i.013559 to i8
+  %234 = trunc nuw nsw i64 %i.013559 to i8
   %conv = or disjoint i8 %234, 48
   store i8 22, ptr %mRemainingSizeField.i.i.i.i.i.i1028, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %ref.tmp579, i8 %conv, i64 1, i1 false)
@@ -4108,7 +4108,7 @@ _ZN5eastl6vectorINS_12basic_stringIcNS_9allocatorEEES2_ED2Ev.exit1243: ; preds =
 
 invoke.cont631:                                   ; preds = %_ZN5eastl6vectorINS_12basic_stringIcNS_9allocatorEEES2_ED2Ev.exit1243, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1270
   %i621.013560 = phi i64 [ 0, %_ZN5eastl6vectorINS_12basic_stringIcNS_9allocatorEEES2_ED2Ev.exit1243 ], [ %inc636, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit1270 ]
-  %292 = trunc nuw i64 %i621.013560 to i8
+  %292 = trunc nuw nsw i64 %i621.013560 to i8
   %conv627 = or disjoint i8 %292, 48
   store i8 22, ptr %mRemainingSizeField.i.i.i.i.i.i1244, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %ref.tmp625, i8 %conv627, i64 1, i1 false)
@@ -22776,7 +22776,7 @@ if.then21:                                        ; preds = %if.then19
   %10 = load ptr, ptr %this, align 8
   %spec.select.i = select i1 %tobool.i.i29, ptr %this, ptr %10
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %this, ptr align 1 %spec.select.i, i64 %n.addr.0, i1 false)
-  %11 = trunc nuw i64 %n.addr.0 to i8
+  %11 = trunc nuw nsw i64 %n.addr.0 to i8
   %conv.i = sub nuw nsw i8 23, %11
   store i8 %conv.i, ptr %mRemainingSizeField.i.i28, align 1
   %add.ptr.i41 = getelementptr inbounds nuw i8, ptr %this, i64 %n.addr.0

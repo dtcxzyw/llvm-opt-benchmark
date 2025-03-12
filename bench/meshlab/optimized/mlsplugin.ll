@@ -9438,7 +9438,7 @@ _ZN3vcg3tri15UpdateSelectionI6CMeshOE9FaceClearERS2_.exit: ; preds = %206, %.loo
   br i1 %251, label %252, label %.loopexit
 
 252:                                              ; preds = %242
-  %253 = trunc i64 %250 to i32
+  %253 = trunc nuw i64 %250 to i32
   %254 = add i32 %.046234, %253
   %.not243 = icmp eq ptr %245, %246
   br i1 %.not243, label %.loopexit, label %.lr.ph233

@@ -540,7 +540,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %conv1 = trunc nuw i16 %c to i8
+  %conv1 = trunc nuw nsw i16 %c to i8
   store i8 %conv1, ptr %p, align 1
   br label %if.end29
 
@@ -550,7 +550,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %shr = lshr i16 %c, 6
-  %0 = trunc nuw i16 %shr to i8
+  %0 = trunc nuw nsw i16 %shr to i8
   %conv6 = or disjoint i8 %0, -64
   store i8 %conv6, ptr %p, align 1
   %1 = trunc i16 %c to i8
@@ -601,7 +601,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   %shr = lshr i32 %c, 6
-  %0 = trunc nuw i32 %shr to i8
+  %0 = trunc nuw nsw i32 %shr to i8
   %conv3 = or disjoint i8 %0, -64
   %incdec.ptr4 = getelementptr inbounds nuw i8, ptr %p, i64 1
   store i8 %conv3, ptr %p, align 1
@@ -620,7 +620,7 @@ if.else8:                                         ; preds = %if.else
 
 if.then10:                                        ; preds = %if.else8
   %shr11 = lshr i32 %c, 12
-  %3 = trunc nuw i32 %shr11 to i8
+  %3 = trunc nuw nsw i32 %shr11 to i8
   %conv13 = or disjoint i8 %3, -32
   store i8 %conv13, ptr %p, align 1
   %shr15 = lshr i32 %c, 6

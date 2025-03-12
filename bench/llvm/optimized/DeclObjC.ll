@@ -8338,7 +8338,7 @@ _ZNK5clang11DeclContext9getParentEv.exit:         ; preds = %15, %23
 36:                                               ; preds = %33, %_ZNK5clang11DeclContext9getParentEv.exit
   %.081 = phi ptr [ %35, %33 ], [ %26, %_ZNK5clang11DeclContext9getParentEv.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #25
-  %37 = trunc nuw i32 %9 to i8
+  %37 = trunc nuw nsw i32 %9 to i8
   %38 = xor i8 %37, 1
   store i8 %38, ptr %4, align 1, !tbaa !572
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25

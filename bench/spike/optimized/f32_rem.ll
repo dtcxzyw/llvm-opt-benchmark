@@ -93,7 +93,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   br i1 %.not, label %76, label %44
 
 44:                                               ; preds = %41
-  %45 = trunc i64 %38 to i32
+  %45 = trunc nuw i64 %38 to i32
   %46 = sub i32 %42, %45
   br label %76
 
@@ -129,7 +129,7 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
   %.092.lcssa = phi i64 [ %52, %47 ], [ %62, %.lr.ph ]
   %.189.lcssa = phi i32 [ %51, %47 ], [ %61, %.lr.ph ]
   %.lcssa114 = phi i32 [ %57, %47 ], [ %66, %.lr.ph ]
-  %68 = trunc i64 %.092.lcssa to i32
+  %68 = trunc nsw i64 %.092.lcssa to i32
   %69 = and i32 %68, 31
   %70 = xor i32 %69, 31
   %71 = lshr i32 %.lcssa114, %70

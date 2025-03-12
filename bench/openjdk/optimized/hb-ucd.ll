@@ -305,7 +305,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL14hb_ucd_composeP18hb_unicode_fu
   br i1 %or.cond5.i, label %9, label %14
 
 9:                                                ; preds = %5
-  %.lhs.trunc.i = trunc nuw i32 %6 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %6 to i16
   %10 = urem i16 %.lhs.trunc.i, 28
   %.not.i = icmp eq i16 %10, 0
   br i1 %.not.i, label %11, label %.thread
@@ -447,7 +447,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL16hb_ucd_decomposeP18hb_unicode_
   br i1 %7, label %8, label %_ZL24_hb_ucd_decompose_hanguljPjS_.exit
 
 8:                                                ; preds = %5
-  %.lhs.trunc.i = trunc nuw i32 %6 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %6 to i16
   %9 = urem i16 %.lhs.trunc.i, 28
   %.not.i = icmp eq i16 %9, 0
   br i1 %.not.i, label %13, label %10

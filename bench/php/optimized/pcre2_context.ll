@@ -335,7 +335,7 @@ define dso_local range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr noundef writeonly 
   br i1 %switch, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc nuw i32 %1 to i16
+  %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i16 %4, ptr %5, align 8, !tbaa !41
   br label %6
@@ -366,7 +366,7 @@ define dso_local range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr noundef writeo
   br i1 %switch, label %3, label %6
 
 3:                                                ; preds = %2
-  %4 = trunc nuw i32 %1 to i16
+  %4 = trunc nuw nsw i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i16 %4, ptr %5, align 2, !tbaa !44
   br label %6

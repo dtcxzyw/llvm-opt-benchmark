@@ -6756,7 +6756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 %26, ptr %23, align 1, !tbaa !12
   %27 = load ptr, ptr %0, align 8, !tbaa !46
   %28 = lshr i32 %1, 6
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
   store i8 %30, ptr %27, align 1, !tbaa !12
   br label %75
@@ -6785,7 +6785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 %45, ptr %41, align 1, !tbaa !12
   %46 = load ptr, ptr %0, align 8, !tbaa !46
   %47 = lshr i32 %1, 12
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -32
   store i8 %49, ptr %46, align 1, !tbaa !12
   br label %75
@@ -6821,7 +6821,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store i8 %70, ptr %66, align 1, !tbaa !12
   %71 = load ptr, ptr %0, align 8, !tbaa !46
   %72 = lshr i32 %1, 18
-  %73 = trunc nuw i32 %72 to i8
+  %73 = trunc nuw nsw i32 %72 to i8
   %74 = or disjoint i8 %73, -16
   store i8 %74, ptr %71, align 1, !tbaa !12
   br label %75

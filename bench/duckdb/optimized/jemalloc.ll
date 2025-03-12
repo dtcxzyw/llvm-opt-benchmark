@@ -10563,7 +10563,7 @@ malloc_conf_error.exit:                           ; preds = %134, %131
   br i1 %144, label %145, label %malloc_conf_error.exit.thread1573
 
 145:                                              ; preds = %143
-  %146 = trunc i64 %.41547 to i32
+  %146 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 12, ptr noundef nonnull %.015581986, i32 noundef %146, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -10621,7 +10621,7 @@ malloc_conf_error.exit658:                        ; preds = %156, %153
   br i1 %164, label %165, label %malloc_conf_error.exit.thread1573
 
 165:                                              ; preds = %malloc_conf_error.exit658
-  %166 = trunc i64 %.41547 to i32
+  %166 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 5, ptr noundef nonnull %.015581986, i32 noundef %166, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -10665,7 +10665,7 @@ malloc_conf_error.exit659:                        ; preds = %174, %171
   br i1 %182, label %183, label %malloc_conf_error.exit.thread1573
 
 183:                                              ; preds = %malloc_conf_error.exit659
-  %184 = trunc i64 %.41547 to i32
+  %184 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 10, ptr noundef nonnull %.015581986, i32 noundef %184, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -10709,7 +10709,7 @@ malloc_conf_error.exit660:                        ; preds = %192, %189
   br i1 %200, label %201, label %malloc_conf_error.exit.thread1573
 
 201:                                              ; preds = %malloc_conf_error.exit660
-  %202 = trunc i64 %.41547 to i32
+  %202 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 15, ptr noundef nonnull %.015581986, i32 noundef %202, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -10753,7 +10753,7 @@ malloc_conf_error.exit661:                        ; preds = %210, %207
   br i1 %218, label %219, label %malloc_conf_error.exit.thread1573
 
 219:                                              ; preds = %malloc_conf_error.exit661
-  %220 = trunc i64 %.41547 to i32
+  %220 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 13, ptr noundef nonnull %.015581986, i32 noundef %220, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -10854,7 +10854,7 @@ malloc_conf_error.exit663:                        ; preds = %252, %249
   br i1 %260, label %261, label %malloc_conf_error.exit.thread1573
 
 261:                                              ; preds = %malloc_conf_error.exit663
-  %262 = trunc i64 %.41547 to i32
+  %262 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 6, ptr noundef nonnull %.015581986, i32 noundef %262, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -11552,7 +11552,7 @@ malloc_conf_error.exit680:                        ; preds = %546, %543
   br i1 %554, label %555, label %malloc_conf_error.exit.thread1573
 
 555:                                              ; preds = %malloc_conf_error.exit680
-  %556 = trunc i64 %.41547 to i32
+  %556 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 11, ptr noundef nonnull %.015581986, i32 noundef %556, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -11822,7 +11822,7 @@ malloc_conf_error.exit693:                        ; preds = %633, %641, %645, %6
   br i1 %651, label %652, label %malloc_conf_error.exit.thread1573
 
 652:                                              ; preds = %malloc_conf_error.exit693
-  %653 = trunc i64 %.41547 to i32
+  %653 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 4, ptr noundef nonnull %.015581986, i32 noundef %653, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -11866,7 +11866,7 @@ malloc_conf_error.exit694:                        ; preds = %661, %658
   br i1 %669, label %670, label %malloc_conf_error.exit.thread1573
 
 670:                                              ; preds = %malloc_conf_error.exit694
-  %671 = trunc i64 %.41547 to i32
+  %671 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 4, ptr noundef nonnull %.015581986, i32 noundef %671, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -11910,7 +11910,7 @@ malloc_conf_error.exit695:                        ; preds = %679, %676
   br i1 %687, label %688, label %malloc_conf_error.exit.thread1573
 
 688:                                              ; preds = %malloc_conf_error.exit695
-  %689 = trunc i64 %.41547 to i32
+  %689 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 27, ptr noundef nonnull %.015581986, i32 noundef %689, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -11961,7 +11961,7 @@ malloc_conf_error.exit696:                        ; preds = %699, %696
 
 709:                                              ; preds = %malloc_conf_error.exit696
   %710 = trunc i64 %98 to i32
-  %711 = trunc i64 %.41547 to i32
+  %711 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef %710, ptr noundef nonnull %.015581986, i32 noundef %711, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -12735,7 +12735,7 @@ malloc_conf_error.exit702.thread:                 ; preds = %844, %839, %malloc_
   br i1 %1031, label %1032, label %malloc_conf_error.exit.thread1573
 
 1032:                                             ; preds = %1029
-  %1033 = trunc i64 %.41547 to i32
+  %1033 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 17, ptr noundef nonnull %.015581986, i32 noundef %1033, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -12853,7 +12853,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1079, label %1080, label %malloc_conf_error.exit.thread1573
 
 1080:                                             ; preds = %1077
-  %1081 = trunc i64 %.41547 to i32
+  %1081 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 3, ptr noundef nonnull %.015581986, i32 noundef %1081, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -13120,7 +13120,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %1191, label %1192, label %malloc_conf_error.exit.thread1573
 
 1192:                                             ; preds = %1189
-  %1193 = trunc i64 %.41547 to i32
+  %1193 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 29, ptr noundef nonnull %.015581986, i32 noundef %1193, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 
@@ -13591,7 +13591,7 @@ sub_21947:                                        ; preds = %sub_11946
   br i1 %1384, label %1385, label %malloc_conf_error.exit.thread1573
 
 1385:                                             ; preds = %1382
-  %1386 = trunc i64 %.41547 to i32
+  %1386 = trunc nuw nsw i64 %.41547 to i32
   call void (ptr, ...) @duckdb_je_malloc_printf(ptr noundef nonnull @.str.95, i32 noundef 12, ptr noundef nonnull %.015581986, i32 noundef %1386, ptr noundef nonnull %94) #21
   br label %malloc_conf_error.exit.thread1573
 

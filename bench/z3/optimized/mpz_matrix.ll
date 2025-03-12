@@ -3170,7 +3170,7 @@ define hidden void @_ZNK18mpz_matrix_manager7displayERSoRK10mpz_matrixj(ptr noun
   br i1 %37, label %38, label %.loopexit
 
 38:                                               ; preds = %28
-  %39 = trunc i64 %36 to i32
+  %39 = trunc nuw i64 %36 to i32
   %40 = sub i32 %3, %39
   %.not40 = icmp eq i32 %3, %39
   br i1 %.not40, label %.loopexit, label %.lr.ph

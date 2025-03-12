@@ -1944,7 +1944,7 @@ define internal fastcc range(i32 0, 2) i32 @port_validate_token(ptr noundef nonn
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %32, i64 %43
   %56 = load ptr, ptr %15, align 8, !tbaa !56
-  %57 = trunc nuw i64 %48 to i32
+  %57 = trunc nuw nsw i64 %48 to i32
   %58 = call i32 @EVP_DecryptUpdate(ptr noundef %56, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %55, i32 noundef %57) #11
   %.not35.i = icmp eq i32 %58, 0
   br i1 %.not35.i, label %decrypt_validation_token.exit48.thread, label %59

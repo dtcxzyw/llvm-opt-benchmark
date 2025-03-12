@@ -2298,7 +2298,7 @@ define hidden range(i32 -2147483648, 2147474176) i32 @mbedtls_x509_get_key_usage
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %.013
   %17 = load i8, ptr %16, align 1, !tbaa !8
   %18 = zext i8 %17 to i32
-  %.0.tr = trunc nuw i64 %.013 to i32
+  %.0.tr = trunc nuw nsw i64 %.013 to i32
   %19 = shl nuw nsw i32 %.0.tr, 3
   %20 = shl nuw i32 %18, %19
   %21 = or i32 %20, %15

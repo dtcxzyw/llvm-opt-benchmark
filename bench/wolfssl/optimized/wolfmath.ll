@@ -206,7 +206,7 @@ define i32 @mp_rand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   br i1 %13, label %.critedge, label %.critedge30
 
 .critedge30:                                      ; preds = %9
-  %14 = trunc i32 %1 to i16
+  %14 = trunc nuw i32 %1 to i16
   store i16 %14, ptr %0, align 8, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef nonnull %2, ptr noundef nonnull %15, i32 noundef %4) #6

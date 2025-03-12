@@ -1792,7 +1792,7 @@ fill_buf.exit136.thread.i:                        ; preds = %fmap_need_off_once_
   br label %read_c_len.exit.i.i
 
 461:                                              ; preds = %458
-  %462 = trunc i16 %.062.i.i.i to i8
+  %462 = trunc nuw nsw i16 %.062.i.i.i to i8
   %463 = add nsw i8 %462, -2
   %464 = add nsw i16 %.26594.i.i.i, 1
   %465 = sext i16 %.26594.i.i.i to i64
@@ -2253,7 +2253,7 @@ fill_buf.exit292.i:                               ; preds = %._crit_edge.i269.i,
   %680 = zext i16 %675 to i32
   %681 = sub nuw nsw i32 16, %678
   %682 = lshr i32 %680, %681
-  %683 = trunc nuw i32 %682 to i16
+  %683 = trunc nuw nsw i32 %682 to i16
   br i1 %674, label %fill_buf.exit266.i, label %684
 
 684:                                              ; preds = %676
@@ -2405,7 +2405,7 @@ fmap_need_off_once_len.exit.i258.i:               ; preds = %727
   br label %fill_buf.exit266.i
 
 fill_buf.exit266.i:                               ; preds = %._crit_edge.i243.i, %.loopexit.i257.i, %684, %676
-  %753 = trunc i32 %679 to i16
+  %753 = trunc nuw i32 %679 to i16
   %754 = add nuw i16 %683, %753
   %755 = xor i16 %754, -1
   br label %decode_p.exit.i

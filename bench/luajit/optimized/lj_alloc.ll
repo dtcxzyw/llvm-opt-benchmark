@@ -1098,7 +1098,7 @@ define internal fastcc ptr @lj_alloc_malloc(ptr noundef %0, i64 noundef range(i6
   %90 = lshr i64 %44, 3
   %91 = shl nuw nsw i64 %90, 1
   %92 = getelementptr inbounds nuw [66 x ptr], ptr %55, i64 0, i64 %91
-  %93 = trunc i64 %90 to i32
+  %93 = trunc nuw nsw i64 %90 to i32
   %94 = shl nuw nsw i32 1, %93
   %95 = and i32 %70, %94
   %.not168 = icmp eq i32 %95, 0

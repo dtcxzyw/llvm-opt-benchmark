@@ -132,7 +132,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr align 1 %data.coerce0, i64 %data.coerce1, i1 false)
-  %1 = trunc i64 %data.coerce1 to i32
+  %1 = trunc nuw i64 %data.coerce1 to i32
   %conv9 = sub i32 %mul, %1
   %2 = getelementptr i8, ptr %dst.coerce0, i64 %data.coerce1
   %arrayidx = getelementptr i8, ptr %2, i64 -1
@@ -291,7 +291,7 @@ if.end.i6:                                        ; preds = %_ZN6hermes6bigint17
 
 if.end6.i:                                        ; preds = %if.end.i6
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.coerce0, ptr nonnull readonly align 1 %retval.0.i, i64 %retval.sroa.3.0.copyload3.i, i1 false)
-  %9 = trunc i64 %retval.sroa.3.0.copyload3.i to i32
+  %9 = trunc nuw i64 %retval.sroa.3.0.copyload3.i to i32
   %conv9.i = sub i32 %mul.i, %9
   %10 = getelementptr i8, ptr %dst.coerce0, i64 %retval.sroa.3.0.copyload3.i
   %arrayidx.i = getelementptr i8, ptr %10, i64 -1
@@ -3445,7 +3445,7 @@ if.end53:                                         ; preds = %land.end.thread, %i
   %20 = load i32, ptr %dst.coerce1, align 4
   %conv56 = zext i32 %20 to i64
   %cmp57 = icmp samesign ult i64 %add, %conv56
-  %21 = trunc i64 %div19 to i32
+  %21 = trunc nuw i64 %div19 to i32
   %22 = xor i32 %21, -1
   %23 = add i32 %20, %22
   %24 = shl i32 %23, 3

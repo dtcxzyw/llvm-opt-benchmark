@@ -10589,7 +10589,7 @@ default.unreachable44:                            ; preds = %946, %932, %910, %5
 1043:                                             ; preds = %1030, %1026
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14)
   store i8 1, ptr %1014, align 8, !noalias !1376
-  %1044 = trunc i8 %1017 to i1
+  %1044 = trunc nuw i8 %1017 to i1
   br i1 %1044, label %1061, label %1056
 
 .body.i.i.i.i:                                    ; preds = %1041, %998
@@ -29679,7 +29679,7 @@ common.ret:                                       ; preds = %1646, %1588, %1437,
   br i1 %1411, label %1413, label %1412
 
 1412:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
-  %trunc.i560 = trunc i8 %1396 to i1
+  %trunc.i560 = trunc nuw i8 %1396 to i1
   br i1 %trunc.i560, label %1415, label %1417
 
 1413:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
@@ -59757,13 +59757,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h163782a8c260b
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !8311
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !8311
   %15 = trunc i32 %1 to i8
@@ -59775,7 +59775,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h163782a8c260b
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !8311
   %23 = lshr i32 %1, 6
@@ -59840,13 +59840,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h6d236441d3570
   br i1 %7, label %17, label %28
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   store i8 %9, ptr %.sroa.0, align 4, !alias.scope !8314
   br label %_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %1, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %.sroa.0, align 4, !alias.scope !8314
   %14 = trunc i32 %1 to i8
@@ -59858,7 +59858,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h6d236441d3570
 
 17:                                               ; preds = %6
   %18 = lshr i32 %1, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.sroa.0, align 4, !alias.scope !8314
   %21 = lshr i32 %1, 6
@@ -90884,7 +90884,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !13736, !noalias !13733
   %12 = trunc i32 %1 to i8
@@ -90896,7 +90896,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !13736, !noalias !13733
   %19 = lshr i32 %1, 6
@@ -90964,7 +90964,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !13749, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -93975,7 +93975,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !13870
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17ha531132aec1d2709E.exit.thread", label %104
 
 104:                                              ; preds = %102
@@ -100171,8 +100171,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.010 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.010 = select i1 %13, i1 true, i1 %14
   call void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$7acquire28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb2322c907c9021c5E.llvm.14504113750506346165"(ptr noalias noundef nonnull sret({ i32, [17 x i32] }) align 8 captures(none) dereferenceable(72) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i32, ptr %5, align 8, !range !1988, !noundef !4
   %.not = icmp eq i32 %15, 4
@@ -100321,8 +100321,8 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN87_$LT$tokio..time..timeout..Timeou
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %2, %7
   %.0.i = phi i8 [ %10, %7 ], [ 2, %2 ]
   %11 = icmp eq i8 %.0.i, 2
-  %12 = trunc i8 %.0.i to i1
-  %.015 = or i1 %11, %12
+  %12 = trunc nuw i8 %.0.i to i1
+  %.015 = select i1 %11, i1 true, i1 %12
   %13 = tail call noundef i8 @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17he40198f6885654e1E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1), !range !1310
   %.not = icmp eq i8 %13, 2
   br i1 %.not, label %14, label %"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h68f697b851cbf97fE.llvm.14504113750506346165.exit"
@@ -100461,8 +100461,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.011 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %13, i1 true, i1 %14
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   call void @"_ZN122_$LT$ockam_api..nodes..service..portals..InletSessionReplacer$u20$as$u20$ockam_api..session..sessions..SessionReplacer$GT$6create28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8bbe3b35aa895a20E.llvm.14504113750506346165"(ptr noalias noundef nonnull sret({ i64, [18 x i64] }) align 8 captures(none) dereferenceable(152) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i64, ptr %5, align 8, !range !423, !noundef !4
@@ -100620,8 +100620,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %10
   %.0.i = phi i8 [ %13, %10 ], [ 2, %3 ]
   %14 = icmp eq i8 %.0.i, 2
-  %15 = trunc i8 %.0.i to i1
-  %.011 = or i1 %14, %15
+  %15 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %14, i1 true, i1 %15
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %4)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %17 = load i8, ptr %16, align 8, !range !35, !noalias !14782, !noundef !4
@@ -100854,8 +100854,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.011 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %13, i1 true, i1 %14
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5)
   call void @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$16receive_extended28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h11ff8a07e2b7023bE.llvm.14504113750506346165"(ptr noalias noundef nonnull sret({ i64, [29 x i64] }) align 8 captures(none) dereferenceable(240) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i64, ptr %5, align 8, !range !423, !noundef !4
@@ -101011,8 +101011,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.011 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %13, i1 true, i1 %14
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5)
   call void @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$16receive_extended28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h15a80394cdd910bfE.llvm.14504113750506346165"(ptr noalias noundef nonnull sret({ i64, [29 x i64] }) align 8 captures(none) dereferenceable(240) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i64, ptr %5, align 8, !range !423, !noundef !4
@@ -101168,8 +101168,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.011 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %13, i1 true, i1 %14
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5)
   call void @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$16receive_extended28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hce93e01414f65e1aE.llvm.14504113750506346165"(ptr noalias noundef nonnull sret({ i64, [29 x i64] }) align 8 captures(none) dereferenceable(240) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i64, ptr %5, align 8, !range !423, !noundef !4
@@ -101325,8 +101325,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hfe67b60bb9ae9908E.llvm.14504113750506346165.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.010 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.010 = select i1 %13, i1 true, i1 %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14915)
   %15 = load ptr, ptr %6, align 8, !alias.scope !14918, !noalias !14921, !nonnull !4, !align !74, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 120

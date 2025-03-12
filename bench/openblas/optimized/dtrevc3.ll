@@ -2443,7 +2443,7 @@ thread-pre-split1447:                             ; preds = %.thread1441, %610
   br i1 %1330, label %1331, label %.thread2035
 
 1331:                                             ; preds = %1325
-  %1332 = trunc i64 %indvars.iv1904 to i32
+  %1332 = trunc nsw i64 %indvars.iv1904 to i32
   %1333 = add i32 %1332, 2
   %1334 = getelementptr inbounds double, ptr %47, i64 %indvars.iv1904
   %1335 = load double, ptr %1334, align 8, !tbaa !14

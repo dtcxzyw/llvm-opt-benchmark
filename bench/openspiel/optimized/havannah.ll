@@ -1779,7 +1779,7 @@ _ZNSt6vectorISt5arrayIN10open_spiel8havannah4MoveELm6EESaIS4_EEaSEOS6_.exit.i: ;
   br i1 %or.cond.i, label %..thread_crit_edge, label %202
 
 ..thread_crit_edge:                               ; preds = %198
-  %201 = trunc i64 %179 to i32
+  %201 = trunc nsw i64 %179 to i32
   %.pre = and i32 %201, 255
   br label %.thread
 
@@ -4606,7 +4606,7 @@ _ZN10open_spiel8havannah13HavannahState15FindGroupLeaderEi.exit9: ; preds = %_ZN
   %40 = icmp ult i16 %36, %39
   %spec.select = select i1 %40, i32 %.0.i8, i32 %.0.i
   %spec.select22 = select i1 %40, i32 %.0.i, i32 %.0.i8
-  %41 = trunc i32 %spec.select to i16
+  %41 = trunc nuw i32 %spec.select to i16
   %42 = zext nneg i32 %spec.select22 to i64
   %43 = getelementptr inbounds nuw %"struct.open_spiel::havannah::HavannahState::Cell", ptr %34, i64 %42, i32 2
   store i16 %41, ptr %43, align 2

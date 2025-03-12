@@ -114,7 +114,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit37: ; preds = %_
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %34, %29
-  %39 = trunc nuw i32 %31 to i8
+  %39 = trunc nuw nsw i32 %31 to i8
   store i8 %39, ptr %0, align 8, !tbaa !18
   br label %107
 
@@ -165,7 +165,7 @@ _ZN5boost6system10error_codeC2ERKS1_PKNS_15source_locationE.exit43: ; preds = %_
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %58, %51
-  %63 = trunc i32 %55 to i8
+  %63 = trunc nuw nsw i32 %55 to i8
   store i8 %63, ptr %0, align 8, !tbaa !18
   br label %107
 

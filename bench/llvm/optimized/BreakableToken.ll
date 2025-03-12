@@ -1695,7 +1695,7 @@ _ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit: ; preds 
 
 .lr.ph:                                           ; preds = %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit, %.lr.ph
   %.0158 = phi i64 [ %107, %.lr.ph ], [ 1, %_ZN4llvm15SmallVectorImplIPN5clang6format11FormatTokenEE6resizeEm.exit ]
-  %106 = trunc i64 %.0158 to i32
+  %106 = trunc nuw i64 %.0158 to i32
   call void @_ZN5clang6format21BreakableBlockComment16adjustWhitespaceEji(ptr noundef nonnull align 8 dereferenceable(860) %0, i32 noundef %106, i32 noundef %52)
   %107 = add nuw nsw i64 %.0158, 1
   %108 = load i32, ptr %18, align 8, !tbaa !173

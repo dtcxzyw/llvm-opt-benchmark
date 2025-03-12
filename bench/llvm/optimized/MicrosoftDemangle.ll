@@ -3886,7 +3886,7 @@ switch.lookup:                                    ; preds = %147, %142
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN4llvm11ms_demangle9Demangler21demangleStringLiteralERSt17basic_string_viewIcSt11char_traitsIcEE, i64 0, i64 %150
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %31, align 4, !tbaa !116
-  %.lhs.trunc = trunc i64 %indvars.iv133 to i8
+  %.lhs.trunc = trunc nuw i64 %indvars.iv133 to i8
   %.rhs.trunc = trunc nuw nsw i32 %149 to i8
   %.not105 = icmp ugt i8 %.rhs.trunc, %.lhs.trunc
   br i1 %.not105, label %.thread90, label %.lr.ph

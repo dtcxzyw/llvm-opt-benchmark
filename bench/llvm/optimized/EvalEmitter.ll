@@ -100444,7 +100444,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj8ELb0EEEEERT_v.exit: ; preds = %
   %.0.i = phi ptr [ %40, %39 ], [ %43, %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i ]
   %44 = icmp ugt i32 %18, 7
   %notmask.i = shl nsw i32 -1, %18
-  %45 = trunc i32 %notmask.i to i8
+  %45 = trunc nsw i32 %notmask.i to i8
   %46 = xor i8 %45, -1
   %47 = select i1 %44, i8 -1, i8 %46
   %.sroa.0.0.i = and i8 %47, %.sroa.0.0.copyload.i
@@ -100625,7 +100625,7 @@ _ZNK5clang6interp7Pointer5derefINS0_8IntegralILj16ELb0EEEEERT_v.exit: ; preds = 
   %.0.i = phi ptr [ %40, %39 ], [ %43, %_ZNK5clang6interp7Pointer11isArrayRootEv.exit.thread.i ]
   %44 = icmp ugt i32 %18, 15
   %notmask.i = shl nsw i32 -1, %18
-  %45 = trunc i32 %notmask.i to i16
+  %45 = trunc nsw i32 %notmask.i to i16
   %46 = xor i16 %45, -1
   %47 = select i1 %44, i16 -1, i16 %46
   %.sroa.0.0.i = and i16 %47, %.sroa.0.0.copyload.i
@@ -120077,7 +120077,7 @@ _ZNK5clang6interp8IntegralILj8ELb0EE8truncateEj.exit: ; preds = %12
   %27 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %26) #21
   %28 = icmp ugt i32 %27, 7
   %notmask.i = shl nsw i32 -1, %27
-  %29 = trunc i32 %notmask.i to i8
+  %29 = trunc nsw i32 %notmask.i to i8
   %30 = xor i8 %29, -1
   %31 = select i1 %28, i8 -1, i8 %30
   %.sroa.0.0.i = and i8 %31, %.sroa.0.0.copyload.i
@@ -120287,7 +120287,7 @@ _ZNK5clang6interp8IntegralILj16ELb0EE8truncateEj.exit: ; preds = %12
   %27 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %26) #21
   %28 = icmp ugt i32 %27, 15
   %notmask.i = shl nsw i32 -1, %27
-  %29 = trunc i32 %notmask.i to i16
+  %29 = trunc nsw i32 %notmask.i to i16
   %30 = xor i16 %29, -1
   %31 = select i1 %28, i16 -1, i16 %30
   %.sroa.0.0.i = and i16 %31, %.sroa.0.0.copyload.i
@@ -160282,7 +160282,7 @@ _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.pr
 
 39:                                               ; preds = %37
   %40 = sub nsw i8 0, %21
-  %41 = trunc nuw i64 %19 to i32
+  %41 = trunc nuw nsw i64 %19 to i32
   %42 = zext nneg i8 %40 to i32
   %43 = shl nuw nsw i32 %42, %41
   %44 = trunc i32 %43 to i8
@@ -160290,7 +160290,7 @@ _ZNK5clang6interp8IntegralILj8ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.pr
   br label %51
 
 46:                                               ; preds = %36
-  %47 = trunc nuw i64 %19 to i32
+  %47 = trunc nuw nsw i64 %19 to i32
   %48 = zext nneg i8 %21 to i32
   %49 = shl nuw nsw i32 %48, %47
   %50 = trunc i32 %49 to i8
@@ -160640,7 +160640,7 @@ _ZNK5clang6interp8IntegralILj8ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.pr
   br label %37
 
 33:                                               ; preds = %18
-  %34 = trunc nuw i64 %19 to i32
+  %34 = trunc nuw nsw i64 %19 to i32
   %35 = zext i8 %21 to i32
   %36 = shl nuw nsw i32 %35, %34
   br label %37
@@ -161065,7 +161065,7 @@ _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.p
 
 39:                                               ; preds = %37
   %40 = sub nsw i16 0, %21
-  %41 = trunc nuw i64 %19 to i32
+  %41 = trunc nuw nsw i64 %19 to i32
   %42 = zext nneg i16 %40 to i32
   %43 = shl nuw nsw i32 %42, %41
   %44 = trunc i32 %43 to i16
@@ -161073,7 +161073,7 @@ _ZNK5clang6interp8IntegralILj16ELb1EE17countLeadingZerosEv.exit.i: ; preds = %.p
   br label %51
 
 46:                                               ; preds = %36
-  %47 = trunc nuw i64 %19 to i32
+  %47 = trunc nuw nsw i64 %19 to i32
   %48 = zext nneg i16 %21 to i32
   %49 = shl nuw nsw i32 %48, %47
   %50 = trunc i32 %49 to i16
@@ -161423,7 +161423,7 @@ _ZNK5clang6interp8IntegralILj16ELb0EE17countLeadingZerosEv.exit.i: ; preds = %.p
   br label %37
 
 33:                                               ; preds = %18
-  %34 = trunc nuw i64 %19 to i32
+  %34 = trunc nuw nsw i64 %19 to i32
   %35 = zext i16 %21 to i32
   %36 = shl nuw nsw i32 %35, %34
   br label %37
@@ -161735,12 +161735,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   br i1 %30, label %36, label %31
 
 31:                                               ; preds = %29
-  %32 = trunc nuw i64 %19 to i32
+  %32 = trunc nuw nsw i64 %19 to i32
   %.neg.i = shl i32 %21, %32
   br label %36
 
 33:                                               ; preds = %28
-  %34 = trunc nuw i64 %19 to i32
+  %34 = trunc nuw nsw i64 %19 to i32
   %35 = shl i32 %21, %34
   br label %36
 
@@ -161987,7 +161987,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang6interp3ShlILNS0_8PrimTy
   br label %27
 
 25:                                               ; preds = %18
-  %26 = trunc nuw i64 %19 to i32
+  %26 = trunc nuw nsw i64 %19 to i32
   br label %27
 
 27:                                               ; preds = %25, %22
@@ -173069,7 +173069,7 @@ _ZNK5clang6interp7Pointer8getFieldEv.exit:        ; preds = %40
   %47 = tail call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #21
   %48 = icmp ugt i32 %47, 7
   %notmask.i = shl nsw i32 -1, %47
-  %49 = trunc i32 %notmask.i to i8
+  %49 = trunc nsw i32 %notmask.i to i8
   %50 = xor i8 %49, -1
   %51 = select i1 %48, i8 -1, i8 %50
   %.sroa.0.0.i = and i8 %51, %.sroa.0.0.copyload.i
@@ -173487,7 +173487,7 @@ _ZNK5clang6interp7Pointer8getFieldEv.exit:        ; preds = %40
   %47 = tail call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %41) #21
   %48 = icmp ugt i32 %47, 15
   %notmask.i = shl nsw i32 -1, %47
-  %49 = trunc i32 %notmask.i to i16
+  %49 = trunc nsw i32 %notmask.i to i16
   %50 = xor i16 %49, -1
   %51 = select i1 %48, i16 -1, i16 %50
   %.sroa.0.0.i = and i16 %51, %.sroa.0.0.copyload.i
@@ -176214,7 +176214,7 @@ _ZNK5clang6interp7Pointer8getFieldEv.exit:        ; preds = %39
   %46 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %40) #21
   %47 = icmp ugt i32 %46, 7
   %notmask.i = shl nsw i32 -1, %46
-  %48 = trunc i32 %notmask.i to i8
+  %48 = trunc nsw i32 %notmask.i to i8
   %49 = xor i8 %48, -1
   %50 = select i1 %47, i8 -1, i8 %49
   %.sroa.0.0.i = and i8 %50, %.sroa.0.0.copyload.i
@@ -176630,7 +176630,7 @@ _ZNK5clang6interp7Pointer8getFieldEv.exit:        ; preds = %39
   %46 = call noundef i32 @_ZNK5clang9FieldDecl16getBitWidthValueEv(ptr noundef nonnull align 8 dereferenceable(80) %40) #21
   %47 = icmp ugt i32 %46, 15
   %notmask.i = shl nsw i32 -1, %46
-  %48 = trunc i32 %notmask.i to i16
+  %48 = trunc nsw i32 %notmask.i to i16
   %49 = xor i16 %48, -1
   %50 = select i1 %47, i16 -1, i16 %49
   %.sroa.0.0.i = and i16 %50, %.sroa.0.0.copyload.i

@@ -1248,7 +1248,7 @@ define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr 
 34:                                               ; preds = %33, %25
   %35 = phi i64 [ 4, %33 ], [ %22, %25 ]
   %36 = icmp eq i32 %18, 0
-  %37 = trunc nuw i64 %35 to i32
+  %37 = trunc nuw nsw i64 %35 to i32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %39 = load i16, ptr %38, align 4
   %40 = and i16 %39, 1
@@ -1330,7 +1330,7 @@ define internal fastcc noundef range(i32 -61, 1) i32 @acpi_dev_pm_get_state(ptr 
   %spec.select = select i1 %90, i64 4, i64 %82
   %91 = zext nneg i32 %74 to i64
   %92 = call i64 @llvm.umax.i64(i64 %spec.select, i64 %91)
-  %93 = trunc nuw i64 %92 to i32
+  %93 = trunc nuw nsw i64 %92 to i32
   br label %.thread
 
 .thread:                                          ; preds = %34, %42, %46, %64, %85, %77, %69
@@ -2368,7 +2368,7 @@ acpi_remove_pm_notifier.exit:                     ; preds = %15, %20, %25
   %84 = load i8, ptr %83, align 8
   %85 = and i8 %84, 1
   %86 = icmp eq i8 %85, 0
-  %87 = trunc nuw i64 %78 to i32
+  %87 = trunc nuw nsw i64 %78 to i32
   %88 = select i1 %86, i32 4, i32 %87
   br label %90
 

@@ -27023,7 +27023,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_schar(ptr noundef readonly captures
   br i1 %115, label %118, label %116
 
 116:                                              ; preds = %114
-  %117 = trunc i16 %112 to i8
+  %117 = trunc nsw i16 %112 to i8
   br label %.sink.split
 
 118:                                              ; preds = %114
@@ -27171,7 +27171,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_schar(ptr noundef readonly captures
   br i1 %178, label %181, label %179
 
 179:                                              ; preds = %177
-  %180 = trunc i16 %175 to i8
+  %180 = trunc nsw i16 %175 to i8
   br label %.sink.split628
 
 181:                                              ; preds = %177
@@ -27315,7 +27315,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_schar(ptr noundef readonly captures
   br i1 %240, label %243, label %241
 
 241:                                              ; preds = %239
-  %242 = trunc i16 %237 to i8
+  %242 = trunc nsw i16 %237 to i8
   br label %.sink.split631
 
 243:                                              ; preds = %239
@@ -27616,7 +27616,7 @@ define range(i32 -1, 1) i32 @H5T__conv_short_schar(ptr noundef readonly captures
   br label %.loopexit521
 
 378:                                              ; preds = %357
-  %379 = trunc i16 %336 to i8
+  %379 = trunc nsw i16 %336 to i8
   br label %.sink.split657
 
 .sink.split657:                                   ; preds = %373, %352, %378
@@ -42563,7 +42563,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_schar(ptr noundef readonly capture
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %.preheader398.us
-  %111 = trunc nuw i16 %108 to i8
+  %111 = trunc nuw nsw i16 %108 to i8
   store i8 %111, ptr %11, align 1, !tbaa !25
   br label %.thread350.us
 
@@ -42687,7 +42687,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_schar(ptr noundef readonly capture
   br i1 %158, label %161, label %159
 
 159:                                              ; preds = %.preheader402.us
-  %160 = trunc nuw i16 %157 to i8
+  %160 = trunc nuw nsw i16 %157 to i8
   br label %.thread363.us.sink.split
 
 161:                                              ; preds = %.preheader402.us
@@ -42803,7 +42803,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_schar(ptr noundef readonly capture
   br i1 %205, label %208, label %206
 
 206:                                              ; preds = %.preheader406.us
-  %207 = trunc nuw i16 %204 to i8
+  %207 = trunc nuw nsw i16 %204 to i8
   store i8 %207, ptr %11, align 1, !tbaa !25
   br label %.thread376.us
 
@@ -43001,7 +43001,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ushort_schar(ptr noundef readonly capture
   br label %.loopexit412
 
 292:                                              ; preds = %.preheader410
-  %293 = trunc nuw i16 %271 to i8
+  %293 = trunc nuw nsw i16 %271 to i8
   br label %.thread389.sink.split
 
 .thread389.sink.split:                            ; preds = %287, %292

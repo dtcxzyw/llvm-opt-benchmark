@@ -9047,7 +9047,7 @@ define internal fastcc void @ipv6_create_tempaddr(ptr noundef %0, i1 noundef zer
 107:                                              ; preds = %105
   call void @get_random_bytes(ptr noundef nonnull %22, i64 noundef 4) #20
   %108 = load i32, ptr %22, align 4
-  %.rhs.trunc = trunc i64 %101 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %101 to i32
   %109 = urem i32 %108, %.rhs.trunc
   br label %110
 

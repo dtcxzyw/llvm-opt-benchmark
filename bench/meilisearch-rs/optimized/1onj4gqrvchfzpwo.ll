@@ -1125,13 +1125,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hdf2284352f188
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !76
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !76
   %16 = trunc i32 %1 to i8
@@ -1143,7 +1143,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17hdf2284352f188
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !76
   %24 = lshr i32 %1, 6
@@ -1988,7 +1988,7 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   br i1 %12, label %24, label %28
 
 19:                                               ; preds = %9
-  %.lhs.trunc = trunc i32 %1 to i16
+  %.lhs.trunc = trunc nsw i32 %1 to i16
   %20 = srem i16 %.lhs.trunc, 25
   %21 = icmp ne i16 %20, 0
   %22 = and i32 %1, 12
@@ -2001,7 +2001,7 @@ define internal fastcc void @_ZN4time4date4Date17from_ordinal_date17h4c006040c73
   br label %28
 
 24:                                               ; preds = %18
-  %.pre = trunc i32 %1 to i16
+  %.pre = trunc nsw i32 %1 to i16
   %.pre26 = srem i16 %.pre, 25
   %.pre27 = and i32 %1, 12
   %25 = icmp ne i16 %.pre26, 0

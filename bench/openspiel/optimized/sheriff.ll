@@ -4529,7 +4529,7 @@ define noundef range(i32 0, -2) i32 @_ZNK10open_spiel7sheriff11SheriffGame30Dese
   br label %28
 
 25:                                               ; preds = %16
-  %26 = trunc i64 %1 to i32
+  %26 = trunc nuw i64 %1 to i32
   %27 = add i32 %26, -2
   ret i32 %27
 
@@ -4601,7 +4601,7 @@ define noundef i32 @_ZNK10open_spiel7sheriff11SheriffGame16DeserializeBribeEl(pt
   br label %32
 
 28:                                               ; preds = %19
-  %29 = trunc i64 %1 to i32
+  %29 = trunc nuw i64 %1 to i32
   %30 = add i32 %29, -3
   %31 = sub i32 %30, %12
   ret i32 %31

@@ -628,7 +628,7 @@ _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE4findB8ne190000E
 
 114:                                              ; preds = %112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false), !alias.scope !9
-  %115 = trunc nuw i64 %109 to i8
+  %115 = trunc nuw nsw i64 %109 to i8
   %116 = shl nuw nsw i8 %115, 1
   store i8 %116, ptr %16, align 8, !alias.scope !9
   br label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i

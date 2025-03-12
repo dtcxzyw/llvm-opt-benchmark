@@ -1685,7 +1685,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %35
 
 35:                                               ; preds = %34, %32
-  %36 = trunc i64 %12 to i32
+  %36 = trunc nsw i64 %12 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   store i32 %36, ptr %2, align 4, !tbaa !107
   br label %88
@@ -2123,7 +2123,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
   br label %"_ZZ16cmForEachCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clB5cxx11Ev.exit"
 
 62:                                               ; preds = %._crit_edge.i.i.i
-  %63 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %63 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   br label %"_ZZ16cmForEachCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusENK3$_0clB5cxx11Ev.exit"
 

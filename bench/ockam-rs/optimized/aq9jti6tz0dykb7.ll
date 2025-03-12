@@ -1926,7 +1926,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %267 = load ptr, ptr %266, align 8, !alias.scope !238, !noalias !241, !nonnull !14, !noundef !14
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 704
   store ptr %216, ptr %268, align 8, !noalias !248
-  %269 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %269 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 712
   store i16 %269, ptr %270, align 8, !noalias !249
   %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %253
@@ -2073,7 +2073,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %.lcssa181, ptr %326, align 8, !noalias !180
   %327 = getelementptr inbounds nuw i8, ptr %.lcssa181, i64 704
   store ptr %123, ptr %327, align 8, !noalias !278
-  %328 = trunc nuw i64 %325 to i16
+  %328 = trunc nuw nsw i64 %325 to i16
   %329 = getelementptr inbounds nuw i8, ptr %.lcssa181, i64 712
   store i16 %328, ptr %329, align 8, !noalias !278
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !165
@@ -2745,7 +2745,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %269 = load ptr, ptr %268, align 8, !alias.scope !421, !noalias !424, !nonnull !14, !noundef !14
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 352
   store ptr %217, ptr %270, align 8, !noalias !431
-  %271 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %271 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 624
   store i16 %271, ptr %272, align 8, !noalias !432
   %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %255
@@ -2893,7 +2893,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %.lcssa183, ptr %329, align 8, !noalias !363
   %330 = getelementptr inbounds nuw i8, ptr %.lcssa183, i64 352
   store ptr %123, ptr %330, align 8, !noalias !461
-  %331 = trunc nuw i64 %328 to i16
+  %331 = trunc nuw nsw i64 %328 to i16
   %332 = getelementptr inbounds nuw i8, ptr %.lcssa183, i64 624
   store i16 %331, ptr %332, align 8, !noalias !461
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !348
@@ -3460,7 +3460,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %226 = load ptr, ptr %225, align 8, !alias.scope !569, !noalias !572, !nonnull !14, !noundef !14
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 352
   store ptr %180, ptr %227, align 8, !noalias !579
-  %228 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %228 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 360
   store i16 %228, ptr %229, align 8, !noalias !580
   %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %212
@@ -3581,7 +3581,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %.lcssa171, ptr %277, align 8, !noalias !524
   %278 = getelementptr inbounds nuw i8, ptr %.lcssa171, i64 352
   store ptr %97, ptr %278, align 8, !noalias !600
-  %279 = trunc nuw i64 %276 to i16
+  %279 = trunc nuw nsw i64 %276 to i16
   %280 = getelementptr inbounds nuw i8, ptr %.lcssa171, i64 360
   store i16 %279, ptr %280, align 8, !noalias !600
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !509
@@ -4247,7 +4247,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %264 = getelementptr inbounds nuw ptr, ptr %252, i64 %.sroa.0.011.i.i.i.i
   %265 = load ptr, ptr %264, align 8, !alias.scope !743, !noalias !746, !nonnull !14, !noundef !14
   store ptr %213, ptr %265, align 8, !noalias !753
-  %266 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %266 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %267 = getelementptr inbounds nuw i8, ptr %265, i64 536
   store i16 %266, ptr %267, align 8, !noalias !754
   %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %251
@@ -4393,7 +4393,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %323 = getelementptr inbounds nuw ptr, ptr %134, i64 %322
   store ptr %.lcssa181, ptr %323, align 8, !noalias !685
   store ptr %122, ptr %.lcssa181, align 8, !noalias !783
-  %324 = trunc nuw i64 %322 to i16
+  %324 = trunc nuw nsw i64 %322 to i16
   %325 = getelementptr inbounds nuw i8, ptr %.lcssa181, i64 536
   store i16 %324, ptr %325, align 8, !noalias !783
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !670
@@ -5065,7 +5065,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %272 = load ptr, ptr %271, align 8, !alias.scope !926, !noalias !929, !nonnull !14, !noundef !14
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 880
   store ptr %220, ptr %273, align 8, !noalias !936
-  %274 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %274 = trunc nuw nsw i64 %.sroa.0.011.i.i.i.i to i16
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 888
   store i16 %274, ptr %275, align 8, !noalias !937
   %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %258
@@ -5213,7 +5213,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %.lcssa181, ptr %332, align 8, !noalias !868
   %333 = getelementptr inbounds nuw i8, ptr %.lcssa181, i64 880
   store ptr %126, ptr %333, align 8, !noalias !966
-  %334 = trunc nuw i64 %331 to i16
+  %334 = trunc nuw nsw i64 %331 to i16
   %335 = getelementptr inbounds nuw i8, ptr %.lcssa181, i64 888
   store i16 %334, ptr %335, align 8, !noalias !966
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !853

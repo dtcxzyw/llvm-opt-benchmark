@@ -3217,7 +3217,7 @@ define internal fastcc noundef zeroext i1 @_ZL9HandleWWWP6ssl_st(ptr noundef %0)
 15:                                               ; preds = %9, %11
   %.01531 = phi i64 [ 0, %9 ], [ %13, %11 ]
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 %.01531
-  %17 = trunc nuw i64 %.01531 to i32
+  %17 = trunc nuw nsw i64 %.01531 to i32
   %18 = sub nuw nsw i32 4, %17
   %19 = call i32 @SSL_read(ptr noundef %0, ptr noundef nonnull %16, i32 noundef %18) #20
   %20 = icmp sgt i32 %19, 0

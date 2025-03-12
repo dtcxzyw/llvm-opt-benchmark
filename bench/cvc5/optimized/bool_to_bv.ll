@@ -1708,7 +1708,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backERKS3_.exit17
   br i1 %179, label %.lr.ph.preheader, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit212
 
 .lr.ph.preheader:                                 ; preds = %172
-  %180 = trunc nsw i64 %178 to i32
+  %180 = trunc nuw nsw i64 %178 to i32
   br label %.lr.ph
 
 181:                                              ; preds = %163

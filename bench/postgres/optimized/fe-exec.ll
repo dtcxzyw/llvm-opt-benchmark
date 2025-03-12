@@ -571,7 +571,7 @@ define noundef ptr @pqResultStrdup(ptr noundef %0, ptr noundef readonly captures
   store ptr %29, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %38 = trunc nuw i64 %4 to i32
+  %38 = trunc nuw nsw i64 %4 to i32
   %39 = add nuw nsw i32 %38, 8
   store i32 %39, ptr %36, align 8
   %40 = sub nuw nsw i32 2040, %38
@@ -1232,7 +1232,7 @@ pqSaveMessageField.exit21:                        ; preds = %pqSaveMessageField.
   store ptr %67, ptr %18, align 8
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %73 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %74 = trunc nuw i64 %45 to i32
+  %74 = trunc nuw nsw i64 %45 to i32
   %75 = add nuw nsw i32 %74, 8
   store i32 %75, ptr %72, align 8
   %76 = sub nuw nsw i32 2040, %74
@@ -1385,7 +1385,7 @@ define ptr @pqResultAlloc(ptr noundef captures(address_is_null, ret: address, pr
   store ptr %49, ptr %54, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %58 = trunc nuw i64 %1 to i32
+  %58 = trunc nuw nsw i64 %1 to i32
   %59 = add nuw nsw i32 %58, 8
   store i32 %59, ptr %56, align 8
   %60 = sub nuw nsw i32 2040, %58

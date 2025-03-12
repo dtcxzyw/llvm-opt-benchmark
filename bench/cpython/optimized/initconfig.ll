@@ -6608,7 +6608,7 @@ config_get_xoption_value.exit.thread230:          ; preds = %168, %config_get_xo
   br label %227
 
 223:                                              ; preds = %219
-  %224 = trunc nsw i64 %216 to i32
+  %224 = trunc nuw nsw i64 %216 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #29, !noalias !441
   %225 = icmp slt i64 %216, 0
   br i1 %225, label %227, label %.critedge.i.i
@@ -6776,7 +6776,7 @@ config_wstr_to_int.exit.thread.i.i:               ; preds = %273, %267
   br i1 %280, label %.thread.i, label %284
 
 .thread.i:                                        ; preds = %277
-  %281 = trunc nsw i64 %270 to i32
+  %281 = trunc nuw nsw i64 %270 to i32
   br label %config_init_int_max_str_digits.exit.sink.split.i
 
 282:                                              ; preds = %263
@@ -6875,7 +6875,7 @@ config_wstr_to_int.exit.thread.i80.i:             ; preds = %314, %309
   br label %354
 
 config_wstr_to_int.exit.i.i:                      ; preds = %314
-  %318 = trunc nsw i64 %311 to i32
+  %318 = trunc nuw nsw i64 %311 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #29, !noalias !450
   %319 = icmp slt i64 %311, 1
   br i1 %319, label %354, label %320

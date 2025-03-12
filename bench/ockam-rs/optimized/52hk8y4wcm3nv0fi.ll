@@ -11634,8 +11634,8 @@ define hidden void @"_ZN87_$LT$tokio..time..timeout..Timeout$LT$T$GT$$u20$as$u20
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5aed94866ee99601E.llvm.12508057877380552112.exit": ; preds = %3, %9
   %.0.i = phi i8 [ %12, %9 ], [ 2, %3 ]
   %13 = icmp eq i8 %.0.i, 2
-  %14 = trunc i8 %.0.i to i1
-  %.011 = or i1 %13, %14
+  %14 = trunc nuw i8 %.0.i to i1
+  %.011 = select i1 %13, i1 true, i1 %14
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %5)
   call void @"_ZN10ockam_node7context15receive_message55_$LT$impl$u20$ockam_node..context..context..Context$GT$16receive_extended28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfc24b5b58c93d9f0E.llvm.12508057877380552112"(ptr noalias noundef nonnull sret({ i64, [29 x i64] }) align 8 captures(none) dereferenceable(240) %5, ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %15 = load i64, ptr %5, align 8, !range !201, !noundef !14

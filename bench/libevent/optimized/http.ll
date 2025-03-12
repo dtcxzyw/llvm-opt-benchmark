@@ -3770,7 +3770,7 @@ define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   br i1 %or.cond.i.i, label %evhttp_response_phrase_internal.exit.i, label %22
 
 22:                                               ; preds = %19
-  %.lhs.trunc.i.i = trunc nuw i32 %1 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %23 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %23 to i64
   %24 = add nuw nsw i64 %.zext.i.i, 4294967295
@@ -3825,7 +3825,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
   br i1 %or.cond.i, label %evhttp_response_phrase_internal.exit, label %52
 
 52:                                               ; preds = %49
-  %.lhs.trunc.i = trunc nuw i32 %1 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %1 to i16
   %53 = udiv i16 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i16 %53 to i64
   %54 = add nuw nsw i64 %.zext.i, 4294967295
@@ -3894,7 +3894,7 @@ define hidden void @evhttp_response_code_(ptr noundef captures(none) initializes
   br i1 %or.cond.i, label %evhttp_response_phrase_internal.exit, label %14
 
 14:                                               ; preds = %11
-  %.lhs.trunc.i = trunc nuw i32 %1 to i16
+  %.lhs.trunc.i = trunc nuw nsw i32 %1 to i16
   %15 = udiv i16 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i16 %15 to i64
   %16 = add nuw nsw i64 %.zext.i, 4294967295
@@ -4113,7 +4113,7 @@ define void @evhttp_send_reply(ptr noundef initializes((72, 76), (116, 120)) %0,
   br i1 %or.cond.i.i, label %evhttp_response_phrase_internal.exit.i, label %15
 
 15:                                               ; preds = %12
-  %.lhs.trunc.i.i = trunc nuw i32 %1 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %16 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %16 to i64
   %17 = add nuw nsw i64 %.zext.i.i, 4294967295
@@ -4224,7 +4224,7 @@ define void @evhttp_send_reply_start(ptr noundef captures(none) initializes((72,
   br i1 %or.cond.i.i, label %evhttp_response_phrase_internal.exit.i, label %14
 
 14:                                               ; preds = %11
-  %.lhs.trunc.i.i = trunc nuw i32 %1 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %15 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext.i.i = zext nneg i16 %15 to i64
   %16 = add nuw nsw i64 %.zext.i.i, 4294967295

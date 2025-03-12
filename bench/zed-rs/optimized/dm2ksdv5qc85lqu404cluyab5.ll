@@ -14566,7 +14566,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17hde0d7dda8ff23fa6E.exit.thread.i: ; 
 
 455:                                              ; preds = %451
   %456 = lshr i32 %449, 6
-  %457 = trunc nuw i32 %456 to i8
+  %457 = trunc nuw nsw i32 %456 to i8
   %458 = or disjoint i8 %457, -64
   store i8 %458, ptr %.sroa.0.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !4364, !noalias !4363
   %459 = trunc i32 %449 to i8
@@ -14577,7 +14577,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17hde0d7dda8ff23fa6E.exit.thread.i: ; 
 
 462:                                              ; preds = %453
   %463 = lshr i32 %449, 12
-  %464 = trunc nuw i32 %463 to i8
+  %464 = trunc nuw nsw i32 %463 to i8
   %465 = or disjoint i8 %464, -32
   store i8 %465, ptr %.sroa.0.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !4364, !noalias !4363
   %466 = lshr i32 %449, 6
@@ -24936,7 +24936,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 
 120:                                              ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hd925c8bb62973d56E.exit.i.i.i.i.thread.i.i.i.i.i.i.i.i"
   %121 = lshr i32 %110, 6
-  %122 = trunc nuw i32 %121 to i8
+  %122 = trunc nuw nsw i32 %121 to i8
   %123 = or disjoint i8 %122, -64
   store i8 %123, ptr %.sroa.0.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !7621, !noalias !7620
   %124 = trunc i32 %110 to i8
@@ -24947,7 +24947,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
 
 127:                                              ; preds = %118
   %128 = lshr i32 %110, 12
-  %129 = trunc nuw i32 %128 to i8
+  %129 = trunc nuw nsw i32 %128 to i8
   %130 = or disjoint i8 %129, -32
   store i8 %130, ptr %.sroa.0.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !7621, !noalias !7620
   %131 = lshr i32 %110, 6
@@ -39598,7 +39598,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
   br i1 %27, label %54, label %14
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %0 to i8
+  %29 = trunc nuw nsw i32 %0 to i8
   store i8 %29, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h7971e473d326dd5fE.exit"
 
@@ -39611,7 +39611,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %1, align 1
   %37 = trunc i32 %0 to i8
@@ -39623,7 +39623,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 41:                                               ; preds = %24
   %42 = lshr i32 %0, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   store i8 %44, ptr %1, align 1
   %45 = lshr i32 %0, 6
@@ -54400,7 +54400,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 
 48:                                               ; preds = %44
   %49 = lshr i32 %42, 6
-  %50 = trunc nuw i32 %49 to i8
+  %50 = trunc nuw nsw i32 %49 to i8
   %51 = or disjoint i8 %50, -64
   store i8 %51, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !18324, !noalias !18323
   %52 = trunc i32 %42 to i8
@@ -54411,7 +54411,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 
 55:                                               ; preds = %46
   %56 = lshr i32 %42, 12
-  %57 = trunc nuw i32 %56 to i8
+  %57 = trunc nuw nsw i32 %56 to i8
   %58 = or disjoint i8 %57, -32
   store i8 %58, ptr %.sroa.0.i.i.i.i, align 4, !alias.scope !18324, !noalias !18323
   %59 = lshr i32 %42, 6
@@ -55212,7 +55212,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 
 123:                                              ; preds = %119
   %124 = lshr i32 %117, 6
-  %125 = trunc nuw i32 %124 to i8
+  %125 = trunc nuw nsw i32 %124 to i8
   %126 = or disjoint i8 %125, -64
   store i8 %126, ptr %.sroa.0.i.i.i.i.i, align 4, !alias.scope !18509, !noalias !18508
   %127 = trunc i32 %117 to i8
@@ -55223,7 +55223,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 
 130:                                              ; preds = %121
   %131 = lshr i32 %117, 12
-  %132 = trunc nuw i32 %131 to i8
+  %132 = trunc nuw nsw i32 %131 to i8
   %133 = or disjoint i8 %132, -32
   store i8 %133, ptr %.sroa.0.i.i.i.i.i, align 4, !alias.scope !18509, !noalias !18508
   %134 = lshr i32 %117, 6
@@ -70087,7 +70087,7 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.933925
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !20675
   %12 = trunc i32 %1 to i8
@@ -70099,7 +70099,7 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.933925
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !20675
   %19 = lshr i32 %1, 6
@@ -158001,7 +158001,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
 
 766:                                              ; preds = %762
   %767 = lshr i32 %760, 6
-  %768 = trunc nuw i32 %767 to i8
+  %768 = trunc nuw nsw i32 %767 to i8
   %769 = or disjoint i8 %768, -64
   store i8 %769, ptr %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !41509, !noalias !41508
   %770 = trunc i32 %760 to i8
@@ -158012,7 +158012,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i.i.
 
 773:                                              ; preds = %764
   %774 = lshr i32 %760, 12
-  %775 = trunc nuw i32 %774 to i8
+  %775 = trunc nuw nsw i32 %774 to i8
   %776 = or disjoint i8 %775, -32
   store i8 %776, ptr %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4, !alias.scope !41509, !noalias !41508
   %777 = lshr i32 %760, 6

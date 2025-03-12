@@ -1238,7 +1238,7 @@ if.end101:                                        ; preds = %_ZNK2v820FunctionCa
   %72 = load i64, ptr %offset_.i63, align 8
   %add.ptr.i64 = getelementptr inbounds i8, ptr %71, i64 %72
   %retval.0.i65 = select i1 %cmp.i61, ptr %arg1, ptr %add.ptr.i64
-  %conv107 = trunc nuw i64 %66 to i32
+  %conv107 = trunc nuw nsw i64 %66 to i32
   %call108 = call noundef zeroext i1 @_ZN4node6crypto13DiffieHellman4InitEPKciS3_i(ptr noundef nonnull align 8 dereferenceable(48) %call1, ptr noundef %retval.0.i58, i32 noundef %conv104, ptr noundef %retval.0.i65, i32 noundef %conv107)
   br i1 %call108, label %if.end115, label %if.then113
 
@@ -2928,7 +2928,7 @@ if.end36:                                         ; preds = %if.end.i
   %28 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %27, i64 %28
   %retval.0.i = select i1 %cmp.i29, ptr %key_buf, ptr %add.ptr.i
-  %conv = trunc nuw i64 %25 to i32
+  %conv = trunc nuw nsw i64 %25 to i32
   %call39 = call ptr @BN_bin2bn(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef null) #19
   %isolate_data_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 96
   %29 = load ptr, ptr %isolate_data_.i, align 8
@@ -4377,7 +4377,7 @@ if.end35:                                         ; preds = %if.end.i
   %28 = load i64, ptr %offset_.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %27, i64 %28
   %retval.0.i = select i1 %cmp.i13, ptr %buf, ptr %add.ptr.i
-  %conv = trunc nuw i64 %25 to i32
+  %conv = trunc nuw nsw i64 %25 to i32
   %call38 = call ptr @BN_bin2bn(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef null) #19
   %cmp40.not = icmp eq ptr %call38, null
   br i1 %cmp40.not, label %do.body46, label %do.body50
@@ -4717,7 +4717,7 @@ if.end63:                                         ; preds = %_ZNK2v820FunctionCa
   %62 = load i64, ptr %offset_.i, align 8
   %add.ptr.i73 = getelementptr inbounds i8, ptr %61, i64 %62
   %retval.0.i = select i1 %cmp.i72, ptr %input, ptr %add.ptr.i73
-  %conv = trunc nuw i64 %59 to i32
+  %conv = trunc nuw nsw i64 %59 to i32
   %call67 = call ptr @BN_bin2bn(ptr noundef %retval.0.i, i32 noundef %conv, ptr noundef null) #19
   %prime69 = getelementptr inbounds nuw i8, ptr %params, i64 120
   %_M_index.i.i75 = getelementptr inbounds nuw i8, ptr %params, i64 128

@@ -59,7 +59,7 @@ define void @H5T__bit_copy(ptr noundef captures(none) %0, i64 noundef %1, ptr no
   %29 = load i8, ptr %28, align 1, !tbaa !10
   %30 = trunc nuw nsw i64 %.0110145 to i8
   %31 = lshr i8 %29, %30
-  %32 = trunc nuw i64 %21 to i8
+  %32 = trunc nuw nsw i64 %21 to i8
   %33 = and i8 %31, %32
   %34 = trunc nuw nsw i64 %.0144 to i8
   %35 = shl i8 %33, %34
@@ -293,7 +293,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br i1 %.not41.i, label %H5T__bit_set.exit, label %._crit_edge.thread.sink.split.i
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i
-  %42 = trunc nuw i64 %.1.lcssa.i to i8
+  %42 = trunc nuw nsw i64 %.1.lcssa.i to i8
   %notmask43.i = shl nsw i8 -1, %42
   %43 = sext i32 %.136.lcssa.i to i64
   %44 = getelementptr inbounds i8, ptr %0, i64 %43
@@ -395,7 +395,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br i1 %.not41.i73, label %153, label %._crit_edge.thread.sink.split.i74
 
 ._crit_edge.thread.sink.split.i74:                ; preds = %._crit_edge.i70
-  %103 = trunc nuw i64 %.1.lcssa.i72 to i8
+  %103 = trunc nuw nsw i64 %.1.lcssa.i72 to i8
   %notmask43.i75 = shl nsw i8 -1, %103
   %104 = sext i32 %.136.lcssa.i71 to i64
   %105 = getelementptr inbounds i8, ptr %0, i64 %104
@@ -471,7 +471,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   br i1 %.not41.i89, label %153, label %._crit_edge.thread.sink.split.i90
 
 ._crit_edge.thread.sink.split.i90:                ; preds = %._crit_edge.i86
-  %148 = trunc nuw i64 %.1.lcssa.i88 to i8
+  %148 = trunc nuw nsw i64 %.1.lcssa.i88 to i8
   %notmask43.i91 = shl nsw i8 -1, %148
   %149 = sext i32 %.136.lcssa.i87 to i64
   %150 = getelementptr inbounds i8, ptr %0, i64 %149
@@ -590,7 +590,7 @@ define void @H5T__bit_set(ptr noundef captures(none) %0, i64 noundef %1, i64 nou
   br i1 %.not41, label %._crit_edge.thread, label %._crit_edge.thread.sink.split
 
 ._crit_edge.thread.sink.split:                    ; preds = %._crit_edge
-  %54 = trunc nuw i64 %.1.lcssa to i8
+  %54 = trunc nuw nsw i64 %.1.lcssa to i8
   %notmask43 = shl nsw i8 -1, %54
   %55 = sext i32 %.136.lcssa to i64
   %56 = getelementptr inbounds i8, ptr %0, i64 %55
@@ -789,7 +789,7 @@ define i64 @H5T__bit_find(ptr noundef readonly captures(none) %0, i64 noundef %1
 
 .preheader111:                                    ; preds = %43, %55
   %.092140 = phi i64 [ %56, %55 ], [ 0, %43 ]
-  %47 = trunc nuw i64 %.092140 to i32
+  %47 = trunc nuw nsw i64 %.092140 to i32
   %48 = lshr i32 %46, %47
   %49 = trunc i32 %48 to i1
   %50 = xor i1 %4, %49

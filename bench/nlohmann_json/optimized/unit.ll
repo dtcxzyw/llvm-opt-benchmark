@@ -1184,7 +1184,7 @@ define dso_local noundef nonnull ptr @_ZN7doctest6String8allocateEj(ptr noundef 
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %5
   store i8 0, ptr %6, align 1, !tbaa !38
-  %7 = trunc nuw i32 %1 to i8
+  %7 = trunc nuw nsw i32 %1 to i8
   %8 = sub nuw nsw i8 23, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %8, ptr %9, align 1, !tbaa !38
@@ -1279,7 +1279,7 @@ define dso_local void @_ZN7doctest6String4copyERKS0_(ptr noundef nonnull writeon
   %12 = zext nneg i32 %9 to i64
   %13 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !38
-  %14 = trunc nuw i32 %9 to i8
+  %14 = trunc nuw nsw i32 %9 to i8
   %15 = sub nuw nsw i8 23, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %15, ptr %16, align 1, !tbaa !38
@@ -1399,7 +1399,7 @@ define dso_local void @_ZN7doctest6StringC2EPKcj(ptr noundef nonnull writeonly a
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %6
   store i8 0, ptr %7, align 1, !tbaa !38
-  %8 = trunc nuw i32 %2 to i8
+  %8 = trunc nuw nsw i32 %2 to i8
   %9 = sub nuw nsw i8 23, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %9, ptr %10, align 1, !tbaa !38
@@ -1437,7 +1437,7 @@ define dso_local void @_ZN7doctest6StringC2ERSij(ptr noundef nonnull align 8 der
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %6
   store i8 0, ptr %7, align 1, !tbaa !38
-  %8 = trunc nuw i32 %2 to i8
+  %8 = trunc nuw nsw i32 %2 to i8
   %9 = sub nuw nsw i8 23, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %9, ptr %10, align 1, !tbaa !38
@@ -1489,7 +1489,7 @@ define dso_local void @_ZN7doctest6StringC2ERKS0_(ptr noundef nonnull writeonly 
   %12 = zext nneg i32 %9 to i64
   %13 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !38
-  %14 = trunc nuw i32 %9 to i8
+  %14 = trunc nuw nsw i32 %9 to i8
   %15 = sub nuw nsw i8 23, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %15, ptr %16, align 1, !tbaa !38
@@ -1563,7 +1563,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6St
   %21 = zext nneg i32 %18 to i64
   %22 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !38
-  %23 = trunc nuw i32 %18 to i8
+  %23 = trunc nuw nsw i32 %18 to i8
   %24 = sub nuw nsw i8 23, %23
   store i8 %24, ptr %4, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i
@@ -1631,7 +1631,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6St
   %27 = add i32 %.0.i32, 1
   %28 = zext i32 %27 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %.0.i.i, i64 %28, i1 false)
-  %29 = trunc nuw i32 %19 to i8
+  %29 = trunc nuw nsw i32 %19 to i8
   %30 = sub nuw nsw i8 23, %29
   store i8 %30, ptr %3, align 1, !tbaa !38
   br label %72
@@ -1873,7 +1873,7 @@ define dso_local void @_ZNKR7doctest6String6substrEjj(ptr dead_on_unwind noalias
   %18 = zext nneg i32 %.sroa.speculated to i64
   %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
-  %20 = trunc nuw i32 %.sroa.speculated to i8
+  %20 = trunc nuw nsw i32 %.sroa.speculated to i8
   %21 = sub nuw nsw i8 23, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %21, ptr %22, align 1, !tbaa !38
@@ -2129,7 +2129,7 @@ define dso_local void @_ZN7doctestplERKNS_6StringES2_(ptr dead_on_unwind noalias
   %14 = zext nneg i32 %11 to i64
   %15 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %14
   store i8 0, ptr %15, align 1, !tbaa !38
-  %16 = trunc nuw i32 %11 to i8
+  %16 = trunc nuw nsw i32 %11 to i8
   %17 = sub nuw nsw i8 23, %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 23
   store i8 %17, ptr %18, align 1, !tbaa !38
@@ -2182,7 +2182,7 @@ _ZN7doctest6StringC2ERKS0_.exit5.thread:          ; preds = %30
   %39 = zext nneg i32 %36 to i64
   %40 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !38
-  %41 = trunc nuw i32 %36 to i8
+  %41 = trunc nuw nsw i32 %36 to i8
   %42 = sub nuw nsw i8 23, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %42, ptr %43, align 1, !tbaa !38
@@ -2403,7 +2403,7 @@ define dso_local void @_ZN7doctest8ContainsC2ERKNS_6StringE(ptr noundef nonnull 
   %12 = zext nneg i32 %9 to i64
   %13 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %12
   store i8 0, ptr %13, align 1, !tbaa !38
-  %14 = trunc nuw i32 %9 to i8
+  %14 = trunc nuw nsw i32 %9 to i8
   %15 = sub nuw nsw i8 23, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %15, ptr %16, align 1, !tbaa !38
@@ -4674,7 +4674,7 @@ define dso_local void @_ZN7doctest6detail7SubcaseC2ERKNS_6StringEPKci(ptr nounde
   %14 = zext nneg i32 %11 to i64
   %15 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
   store i8 0, ptr %15, align 1, !tbaa !38
-  %16 = trunc nuw i32 %11 to i8
+  %16 = trunc nuw nsw i32 %11 to i8
   %17 = sub nuw nsw i8 23, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %17, ptr %18, align 1, !tbaa !38
@@ -4829,7 +4829,7 @@ _ZN7doctest6detail7Subcase12checkFiltersEv.exit:  ; preds = %92, %73
   %110 = zext nneg i32 %107 to i64
   %111 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 0, i64 %110
   store i8 0, ptr %111, align 1, !tbaa !38
-  %112 = trunc nuw i32 %107 to i8
+  %112 = trunc nuw nsw i32 %107 to i8
   %113 = sub nuw nsw i8 23, %112
   %114 = getelementptr inbounds nuw i8, ptr %48, i64 23
   store i8 %113, ptr %114, align 1, !tbaa !38
@@ -5281,7 +5281,7 @@ _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE5clearEv.exit: ; preds = %_ZN7d
   %332 = zext nneg i32 %329 to i64
   %333 = getelementptr inbounds nuw [24 x i8], ptr %320, i64 0, i64 %332
   store i8 0, ptr %333, align 1, !tbaa !38
-  %334 = trunc nuw i32 %329 to i8
+  %334 = trunc nuw nsw i32 %329 to i8
   %335 = sub nuw nsw i8 23, %334
   %336 = getelementptr inbounds nuw i8, ptr %320, i64 23
   store i8 %335, ptr %336, align 1, !tbaa !38
@@ -5791,7 +5791,7 @@ define dso_local void @_ZN7doctest6detail6ResultC2EbRKNS_6StringE(ptr noundef no
   %15 = zext nneg i32 %12 to i64
   %16 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 0, i64 %15
   store i8 0, ptr %16, align 1, !tbaa !38
-  %17 = trunc nuw i32 %12 to i8
+  %17 = trunc nuw nsw i32 %12 to i8
   %18 = sub nuw nsw i8 23, %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 31
   store i8 %18, ptr %19, align 1, !tbaa !38
@@ -5950,7 +5950,7 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %17, %.noexc
   %71 = zext nneg i32 %68 to i64
   %72 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 0, i64 %71
   store i8 0, ptr %72, align 1, !tbaa !38
-  %73 = trunc nuw i32 %68 to i8
+  %73 = trunc nuw nsw i32 %68 to i8
   %74 = sub nuw nsw i8 23, %73
   store i8 %74, ptr %11, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i
@@ -6129,7 +6129,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6d
   %21 = zext nneg i32 %18 to i64
   %22 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %21
   store i8 0, ptr %22, align 1, !tbaa !38
-  %23 = trunc nuw i32 %18 to i8
+  %23 = trunc nuw nsw i32 %18 to i8
   %24 = sub nuw nsw i8 23, %23
   store i8 %24, ptr %4, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i
@@ -6201,7 +6201,7 @@ _ZN7doctest6String8allocateEj.exit.i.i.i:         ; preds = %25, %20
   %61 = zext nneg i32 %58 to i64
   %62 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 0, i64 %61
   store i8 0, ptr %62, align 1, !tbaa !38
-  %63 = trunc nuw i32 %58 to i8
+  %63 = trunc nuw nsw i32 %58 to i8
   %64 = sub nuw nsw i8 23, %63
   store i8 %64, ptr %44, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i
@@ -6285,7 +6285,7 @@ _ZN7doctest6StringaSERKS0_.exit:                  ; preds = %2
   %108 = zext nneg i32 %105 to i64
   %109 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 0, i64 %108
   store i8 0, ptr %109, align 1, !tbaa !38
-  %110 = trunc nuw i32 %105 to i8
+  %110 = trunc nuw nsw i32 %105 to i8
   %111 = sub nuw nsw i8 23, %110
   store i8 %111, ptr %91, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i7
@@ -7670,7 +7670,7 @@ define dso_local void @_ZN7doctest10AssertDataC2ENS_10assertType4EnumEPKciS4_S4_
   %33 = zext nneg i32 %30 to i64
   %34 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 0, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !38
-  %35 = trunc nuw i32 %30 to i8
+  %35 = trunc nuw nsw i32 %30 to i8
   %36 = sub nuw nsw i8 23, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 135
   store i8 %36, ptr %37, align 1, !tbaa !38
@@ -7731,7 +7731,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumE
   %18 = zext nneg i32 %15 to i64
   %19 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 0, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
-  %20 = trunc nuw i32 %15 to i8
+  %20 = trunc nuw nsw i32 %15 to i8
   %21 = sub nuw nsw i8 23, %20
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 23
   store i8 %21, ptr %22, align 1, !tbaa !38
@@ -7811,7 +7811,7 @@ _ZN7doctest10AssertData14StringContainsC2ERKNS_6StringE.exit: ; preds = %12, %_Z
   %58 = zext nneg i32 %55 to i64
   %59 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 0, i64 %58
   store i8 0, ptr %59, align 1, !tbaa !38
-  %60 = trunc nuw i32 %55 to i8
+  %60 = trunc nuw nsw i32 %55 to i8
   %61 = sub nuw nsw i8 23, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 135
   store i8 %61, ptr %62, align 1, !tbaa !38
@@ -7892,7 +7892,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumE
   %18 = zext nneg i32 %15 to i64
   %19 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 0, i64 %18
   store i8 0, ptr %19, align 1, !tbaa !38
-  %20 = trunc nuw i32 %15 to i8
+  %20 = trunc nuw nsw i32 %15 to i8
   %21 = sub nuw nsw i8 23, %20
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 23
   store i8 %21, ptr %22, align 1, !tbaa !38
@@ -7980,7 +7980,7 @@ _ZN7doctest8ContainsC2ERKS0_.exit:                ; preds = %12, %_ZN7doctest6St
   %54 = zext nneg i32 %.sroa.8.0.copyload to i64
   %55 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 0, i64 %54
   store i8 0, ptr %55, align 1, !tbaa !38
-  %56 = trunc nuw i32 %.sroa.8.0.copyload to i8
+  %56 = trunc nuw nsw i32 %.sroa.8.0.copyload to i8
   %57 = sub nuw nsw i8 23, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 135
   store i8 %57, ptr %58, align 1, !tbaa !38
@@ -8077,7 +8077,7 @@ define dso_local void @_ZN7doctest6detail13ResultBuilder9setResultERKNS0_6Result
   %23 = zext nneg i32 %20 to i64
   %24 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %23
   store i8 0, ptr %24, align 1, !tbaa !38
-  %25 = trunc nuw i32 %20 to i8
+  %25 = trunc nuw nsw i32 %20 to i8
   %26 = sub nuw nsw i8 23, %25
   store i8 %26, ptr %6, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i
@@ -8844,7 +8844,7 @@ _ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest6StringC
   %38 = zext nneg i32 %35 to i64
   %39 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 0, i64 %38
   store i8 0, ptr %39, align 1, !tbaa !38
-  %40 = trunc nuw i32 %35 to i8
+  %40 = trunc nuw nsw i32 %35 to i8
   %41 = sub nuw nsw i8 23, %40
   store i8 %41, ptr %21, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i
@@ -9086,7 +9086,7 @@ _ZN7doctest6StringD2Ev.exit36:                    ; preds = %_ZN7doctest6StringC
   %140 = zext nneg i32 %137 to i64
   %141 = getelementptr inbounds nuw [24 x i8], ptr %121, i64 0, i64 %140
   store i8 0, ptr %141, align 1, !tbaa !38
-  %142 = trunc nuw i32 %137 to i8
+  %142 = trunc nuw nsw i32 %137 to i8
   %143 = sub nuw nsw i8 23, %142
   store i8 %143, ptr %123, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i38
@@ -9899,7 +9899,7 @@ _ZN7doctest6StringaSERKS0_.exit.thread:           ; preds = %98
   %106 = zext nneg i32 %103 to i64
   %107 = getelementptr inbounds nuw [24 x i8], ptr %89, i64 0, i64 %106
   store i8 0, ptr %107, align 1, !tbaa !38
-  %108 = trunc nuw i32 %103 to i8
+  %108 = trunc nuw nsw i32 %103 to i8
   %109 = sub nuw nsw i8 23, %108
   store i8 %109, ptr %91, align 1, !tbaa !38
   %.pre = load i32, ptr %102, align 8, !tbaa !38
@@ -10055,7 +10055,7 @@ _ZN7doctest6StringD2Ev.exit372:                   ; preds = %_ZN7doctest12_GLOBA
   %160 = zext nneg i32 %157 to i64
   %161 = getelementptr inbounds nuw [24 x i8], ptr %142, i64 0, i64 %160
   store i8 0, ptr %161, align 1, !tbaa !38
-  %162 = trunc nuw i32 %157 to i8
+  %162 = trunc nuw nsw i32 %157 to i8
   %163 = sub nuw nsw i8 23, %162
   store i8 %163, ptr %144, align 1, !tbaa !38
   %.pre412 = load i32, ptr %156, align 8, !tbaa !38
@@ -17065,7 +17065,7 @@ _ZNSt12_Vector_baseIN7doctest16SubcaseSignatureESaIS1_EE11_M_allocateEm.exit: ; 
   %33 = zext nneg i32 %30 to i64
   %34 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 0, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !38
-  %35 = trunc nuw i32 %30 to i8
+  %35 = trunc nuw nsw i32 %30 to i8
   %36 = sub nuw nsw i8 23, %35
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 23
   store i8 %36, ptr %37, align 1, !tbaa !38
@@ -17341,7 +17341,7 @@ _ZSt13move_backwardIPN7doctest16SubcaseSignatureES2_ET0_T_S4_S3_.exit: ; preds =
   %72 = zext nneg i32 %69 to i64
   %73 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i, i64 0, i64 %72
   store i8 0, ptr %73, align 1, !tbaa !38
-  %74 = trunc nuw i32 %69 to i8
+  %74 = trunc nuw nsw i32 %69 to i8
   %75 = sub nuw nsw i8 23, %74
   store i8 %75, ptr %55, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i
@@ -17461,7 +17461,7 @@ _ZSt22__uninitialized_move_aIPN7doctest16SubcaseSignatureES2_SaIS1_EET0_T_S5_S4_
   %125 = zext nneg i32 %122 to i64
   %126 = getelementptr inbounds nuw [24 x i8], ptr %.0811.i.i.i.i.i67, i64 0, i64 %125
   store i8 0, ptr %126, align 1, !tbaa !38
-  %127 = trunc nuw i32 %122 to i8
+  %127 = trunc nuw nsw i32 %122 to i8
   %128 = sub nuw nsw i8 23, %127
   store i8 %128, ptr %108, align 1, !tbaa !38
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i.i.i.i.i.i70
@@ -17706,7 +17706,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   %13 = zext nneg i32 %10 to i64
   %14 = getelementptr inbounds nuw [24 x i8], ptr %.014, i64 0, i64 %13
   store i8 0, ptr %14, align 1, !tbaa !38
-  %15 = trunc nuw i32 %10 to i8
+  %15 = trunc nuw nsw i32 %10 to i8
   %16 = sub nuw nsw i8 23, %15
   %17 = getelementptr inbounds nuw i8, ptr %.014, i64 23
   store i8 %16, ptr %17, align 1, !tbaa !38
@@ -30898,7 +30898,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporter13subcase_startERK
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
-  %19 = trunc nuw i32 %14 to i8
+  %19 = trunc nuw nsw i32 %14 to i8
   %20 = sub nuw nsw i8 23, %19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 23
   store i8 %20, ptr %21, align 1, !tbaa !38
@@ -32878,7 +32878,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17_
   %13 = zext nneg i32 %10 to i64
   %14 = getelementptr inbounds nuw [24 x i8], ptr %.014, i64 0, i64 %13
   store i8 0, ptr %14, align 1, !tbaa !38
-  %15 = trunc nuw i32 %10 to i8
+  %15 = trunc nuw nsw i32 %10 to i8
   %16 = sub nuw nsw i8 23, %15
   %17 = getelementptr inbounds nuw i8, ptr %.014, i64 23
   store i8 %16, ptr %17, align 1, !tbaa !38
@@ -33209,7 +33209,7 @@ _ZNSt12_Vector_baseIN7doctest6StringESaIS1_EE11_M_allocateEm.exit: ; preds = %_Z
   %33 = zext nneg i32 %30 to i64
   %34 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 0, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !38
-  %35 = trunc nuw i32 %30 to i8
+  %35 = trunc nuw nsw i32 %30 to i8
   %36 = sub nuw nsw i8 23, %35
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 23
   store i8 %36, ptr %37, align 1, !tbaa !38
@@ -37106,7 +37106,7 @@ define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter13subcase_startE
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 0, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
-  %19 = trunc nuw i32 %14 to i8
+  %19 = trunc nuw nsw i32 %14 to i8
   %20 = sub nuw nsw i8 23, %19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 23
   store i8 %20, ptr %21, align 1, !tbaa !38
@@ -39383,7 +39383,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeISt4pairIiN7doctest6StringEES0
   %17 = zext nneg i32 %14 to i64
   %18 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 0, i64 %17
   store i8 0, ptr %18, align 1, !tbaa !38
-  %19 = trunc nuw i32 %14 to i8
+  %19 = trunc nuw nsw i32 %14 to i8
   %20 = sub nuw nsw i8 23, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 63
   store i8 %20, ptr %21, align 1, !tbaa !38

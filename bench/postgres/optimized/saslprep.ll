@@ -476,7 +476,7 @@ is_code_in_table.exit181:                         ; preds = %codepoint_range_cmp
 
 186:                                              ; preds = %184
   %187 = lshr i32 %180, 6
-  %188 = trunc nuw i32 %187 to i8
+  %188 = trunc nuw nsw i32 %187 to i8
   %189 = or disjoint i8 %188, -64
   store i8 %189, ptr %3, align 1
   %190 = trunc i32 %180 to i8
@@ -491,7 +491,7 @@ is_code_in_table.exit181:                         ; preds = %codepoint_range_cmp
 
 195:                                              ; preds = %193
   %196 = lshr i32 %180, 12
-  %197 = trunc nuw i32 %196 to i8
+  %197 = trunc nuw nsw i32 %196 to i8
   %198 = or disjoint i8 %197, -32
   store i8 %198, ptr %3, align 1
   %199 = lshr i32 %180, 6
@@ -570,7 +570,7 @@ unicode_to_utf8.exit:                             ; preds = %182, %186, %195, %2
 
 236:                                              ; preds = %234
   %237 = lshr i32 %230, 6
-  %238 = trunc nuw i32 %237 to i8
+  %238 = trunc nuw nsw i32 %237 to i8
   %239 = or disjoint i8 %238, -64
   store i8 %239, ptr %.1106264, align 1
   %240 = trunc i32 %230 to i8
@@ -586,7 +586,7 @@ unicode_to_utf8.exit:                             ; preds = %182, %186, %195, %2
 
 246:                                              ; preds = %244
   %247 = lshr i32 %230, 12
-  %248 = trunc nuw i32 %247 to i8
+  %248 = trunc nuw nsw i32 %247 to i8
   %249 = or disjoint i8 %248, -32
   store i8 %249, ptr %.1106264, align 1
   %250 = lshr i32 %230, 6

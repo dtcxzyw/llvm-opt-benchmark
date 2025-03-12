@@ -1252,7 +1252,7 @@ define hidden void @_ZN6Assimp11MMDImporter20CreateDataFromImportEPKN3pmx8PmxMod
   br i1 %or.cond, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %20
 
 20:                                               ; preds = %15
-  %21 = trunc nuw i64 %18 to i32
+  %21 = trunc nuw nsw i64 %18 to i32
   store i32 %21, ptr %14, align 4
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %23 = load ptr, ptr %16, align 8
@@ -1442,7 +1442,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   br i1 %92, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit107, label %93
 
 93:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
-  %94 = trunc nuw i64 %91 to i32
+  %94 = trunc nuw nsw i64 %91 to i32
   store i32 %94, ptr %31, align 4
   %95 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %96 = load ptr, ptr %6, align 8
@@ -1638,7 +1638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_Z
   %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %indvars.iv153
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 236
-  %185 = trunc nuw i64 %178 to i32
+  %185 = trunc nuw nsw i64 %178 to i32
   store i32 %185, ptr %184, align 4
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 240
   %187 = load ptr, ptr %176, align 8
@@ -4473,7 +4473,7 @@ _ZNSt3mapIiSt6vectorI14aiVertexWeightSaIS1_EESt4lessIiESaISt4pairIKiS3_EEED2Ev.e
   br i1 %839, label %845, label %840
 
 840:                                              ; preds = %827
-  %841 = trunc nuw i64 %838 to i32
+  %841 = trunc nuw nsw i64 %838 to i32
   store i32 %841, ptr %826, align 4
   %842 = getelementptr inbounds nuw i8, ptr %826, i64 4
   %843 = load ptr, ptr %836, align 8

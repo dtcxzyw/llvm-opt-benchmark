@@ -1810,7 +1810,7 @@ define { i64, i64 } @_ZN6duckdb16MakeIntervalNiceENS_10interval_tE(i64 %0, i64 %
 
 22:                                               ; preds = %20
   %23 = add nuw nsw i64 %1, 30000000
-  %.lhs.trunc = trunc i64 %23 to i32
+  %.lhs.trunc = trunc nuw i64 %23 to i32
   %24 = urem i32 %.lhs.trunc, 60000000
   %.zext = zext nneg i32 %24 to i64
   %25 = sub nuw nsw i64 %23, %.zext
@@ -1822,7 +1822,7 @@ define { i64, i64 } @_ZN6duckdb16MakeIntervalNiceENS_10interval_tE(i64 %0, i64 %
 
 28:                                               ; preds = %26
   %29 = add nuw nsw i64 %1, 7500000
-  %.lhs.trunc19 = trunc i64 %29 to i32
+  %.lhs.trunc19 = trunc nuw nsw i64 %29 to i32
   %30 = urem i32 %.lhs.trunc19, 15000000
   %.zext20 = zext nneg i32 %30 to i64
   %31 = sub nuw nsw i64 %29, %.zext20
@@ -1834,7 +1834,7 @@ define { i64, i64 } @_ZN6duckdb16MakeIntervalNiceENS_10interval_tE(i64 %0, i64 %
 
 34:                                               ; preds = %32
   %35 = add nuw nsw i64 %1, 500000
-  %.lhs.trunc21 = trunc i64 %35 to i32
+  %.lhs.trunc21 = trunc nuw nsw i64 %35 to i32
   %36 = urem i32 %.lhs.trunc21, 1000000
   %.zext22 = zext nneg i32 %36 to i64
   %37 = sub nuw nsw i64 %35, %.zext22
@@ -20421,7 +20421,7 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
 
 166:                                              ; preds = %164
   %167 = add nuw nsw i64 %146, 30000000
-  %.lhs.trunc.i = trunc i64 %167 to i32
+  %.lhs.trunc.i = trunc nuw i64 %167 to i32
   %168 = urem i32 %.lhs.trunc.i, 60000000
   %.zext.i = zext nneg i32 %168 to i64
   %169 = sub nuw nsw i64 %167, %.zext.i
@@ -20433,7 +20433,7 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
 
 172:                                              ; preds = %170
   %173 = add nuw nsw i64 %146, 7500000
-  %.lhs.trunc19.i = trunc i64 %173 to i32
+  %.lhs.trunc19.i = trunc nuw nsw i64 %173 to i32
   %174 = urem i32 %.lhs.trunc19.i, 15000000
   %.zext20.i = zext nneg i32 %174 to i64
   %175 = sub nuw nsw i64 %173, %.zext20.i
@@ -20445,7 +20445,7 @@ _ZNSt6vectorIN6duckdb13PrimitiveTypeIlEESaIS2_EED2Ev.exit88: ; preds = %_ZNSt6ve
 
 178:                                              ; preds = %176
   %179 = add nuw nsw i64 %146, 500000
-  %.lhs.trunc21.i = trunc i64 %179 to i32
+  %.lhs.trunc21.i = trunc nuw nsw i64 %179 to i32
   %180 = urem i32 %.lhs.trunc21.i, 1000000
   %.zext22.i = zext nneg i32 %180 to i64
   %181 = sub nuw nsw i64 %179, %.zext22.i

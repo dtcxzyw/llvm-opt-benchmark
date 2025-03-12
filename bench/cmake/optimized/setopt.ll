@@ -467,7 +467,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %or.cond7.i, label %setopt_long.exit, label %132
 
 132:                                              ; preds = %131
-  %133 = trunc nuw i64 %20 to i8
+  %133 = trunc nuw nsw i64 %20 to i8
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i8 %133, ptr %134, align 8, !tbaa !93
   br label %688
@@ -648,7 +648,7 @@ define dso_local i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %
 switch.lookup:                                    ; preds = %225
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table.Curl_vsetopt, i64 0, i64 %20
   %switch.load = load i64, ptr %switch.gep, align 8
-  %229 = trunc i64 %switch.load to i8
+  %229 = trunc nuw nsw i64 %switch.load to i8
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 1322
   store i8 %229, ptr %230, align 2, !tbaa !101
   br label %688
@@ -708,7 +708,7 @@ switch.lookup:                                    ; preds = %225
   br i1 %or.cond21.i, label %setopt_long.exit, label %260
 
 260:                                              ; preds = %259
-  %261 = trunc nuw i64 %20 to i8
+  %261 = trunc nuw nsw i64 %20 to i8
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 1706
   store i8 %261, ptr %262, align 2, !tbaa !104
   br label %688
@@ -846,7 +846,7 @@ switch.lookup:                                    ; preds = %225
   br i1 %or.cond27.i, label %setopt_long.exit, label %340
 
 340:                                              ; preds = %339
-  %341 = trunc nuw i64 %20 to i8
+  %341 = trunc nuw nsw i64 %20 to i8
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 1777
   store i8 %341, ptr %342, align 1, !tbaa !108
   br label %688

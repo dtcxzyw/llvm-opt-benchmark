@@ -971,7 +971,7 @@ _ZNK4llvm8MCSymbol7getNameEv.exit269:             ; preds = %328, %332
   %379 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %380 = load ptr, ptr %379, align 8, !tbaa !92
   call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %1, ptr noundef %.0198, ptr noundef %380, ptr noundef nonnull align 4 dereferenceable(8) %32)
-  %381 = trunc i64 %.0190 to i32
+  %381 = trunc nsw i64 %.0190 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #16
   %382 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %383 = load i32, ptr %382, align 8, !tbaa !127

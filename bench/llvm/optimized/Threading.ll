@@ -746,7 +746,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %136 = load i64, ptr %4, align 8
   %137 = add i64 %136, 2147483648
   %.not.i44 = icmp ult i64 %137, 4294967296
-  %138 = trunc i64 %136 to i32
+  %138 = trunc nsw i64 %136 to i32
   %spec.select = select i1 %.not.i44, i32 %138, i32 %.098134
   %.299 = select i1 %135, i32 %.098134, i32 %spec.select
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
@@ -763,7 +763,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit49.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %141 = load i64, ptr %3, align 8
   %142 = add i64 %141, 2147483648
   %.not.i53 = icmp ult i64 %142, 4294967296
-  %143 = trunc i64 %141 to i32
+  %143 = trunc nsw i64 %141 to i32
   %spec.select125 = select i1 %.not.i53, i32 %143, i32 %.0100133
   %.2102 = select i1 %140, i32 %.0100133, i32 %spec.select125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
@@ -780,7 +780,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit59.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %146 = load i64, ptr %2, align 8
   %147 = add i64 %146, 2147483648
   %.not.i63 = icmp ult i64 %147, 4294967296
-  %148 = trunc i64 %146 to i32
+  %148 = trunc nsw i64 %146 to i32
   %spec.select126 = select i1 %.not.i63, i32 %148, i32 %.0103132
   %.2105 = select i1 %145, i32 %.0103132, i32 %spec.select126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
@@ -797,7 +797,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit69.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %151 = load i64, ptr %1, align 8
   %152 = add i64 %151, 2147483648
   %.not.i73 = icmp ult i64 %152, 4294967296
-  %153 = trunc i64 %151 to i32
+  %153 = trunc nsw i64 %151 to i32
   %spec.select127 = select i1 %.not.i73, i32 %153, i32 %.0106130
   %.2108 = select i1 %150, i32 %.0106130, i32 %spec.select127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #21

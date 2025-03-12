@@ -680,7 +680,7 @@ select.unfold807.i:                               ; preds = %149
   br label %.thread1059.i
 
 180:                                              ; preds = %168
-  %181 = trunc nsw i64 %177 to i32
+  %181 = trunc nuw nsw i64 %177 to i32
   %182 = add nuw i32 %166, %181
   %183 = icmp ult i32 %182, 4
   br i1 %183, label %184, label %185
@@ -724,7 +724,7 @@ select.unfold807.i:                               ; preds = %149
   br label %.thread1059.i
 
 206:                                              ; preds = %194
-  %207 = trunc nsw i64 %203 to i32
+  %207 = trunc nuw nsw i64 %203 to i32
   %208 = add nuw i32 %192, %207
   %209 = icmp ult i32 %208, 4
   br i1 %209, label %210, label %211
@@ -768,7 +768,7 @@ select.unfold807.i:                               ; preds = %149
   br label %.thread1059.i
 
 232:                                              ; preds = %220
-  %233 = trunc nsw i64 %229 to i32
+  %233 = trunc nuw nsw i64 %229 to i32
   %234 = add nuw i32 %218, %233
   %235 = icmp ult i32 %234, 4
   br i1 %235, label %236, label %237
@@ -812,7 +812,7 @@ select.unfold807.i:                               ; preds = %149
   br label %.thread1059.i
 
 258:                                              ; preds = %246
-  %259 = trunc nsw i64 %255 to i32
+  %259 = trunc nuw nsw i64 %255 to i32
   %260 = add nuw i32 %244, %259
   %261 = icmp ult i32 %260, 4
   br i1 %261, label %262, label %263
@@ -856,7 +856,7 @@ select.unfold807.i:                               ; preds = %149
   br label %.thread1059.i
 
 284:                                              ; preds = %272
-  %285 = trunc nsw i64 %281 to i32
+  %285 = trunc nuw nsw i64 %281 to i32
   %286 = add nuw i32 %270, %285
   %287 = icmp ult i32 %286, 4
   br i1 %287, label %288, label %289
@@ -1848,7 +1848,7 @@ real_scansis.exit:                                ; preds = %fmap_readn.exit.thr
 fmap_readn.exit.i.i:                              ; preds = %.fmap_readn.exit_crit_edge.i.i, %677
   %703 = phi i32 [ %684, %677 ], [ %.pre.i.i, %.fmap_readn.exit_crit_edge.i.i ]
   %.0.i.i.i = phi i64 [ 0, %677 ], [ %spec.select.i.i.i, %.fmap_readn.exit_crit_edge.i.i ]
-  %704 = trunc nuw i64 %.0.i.i.i to i32
+  %704 = trunc nuw nsw i64 %.0.i.i.i to i32
   %705 = add i32 %703, %704
   store i32 %705, ptr %618, align 8, !tbaa !65
   store i32 %705, ptr %619, align 4, !tbaa !66
@@ -1949,7 +1949,7 @@ getd.exit.i:                                      ; preds = %707, %673
 fmap_readn.exit.i.i.i:                            ; preds = %.fmap_readn.exit_crit_edge.i.i.i, %736
   %762 = phi i32 [ %743, %736 ], [ %.pre.i.i.i, %.fmap_readn.exit_crit_edge.i.i.i ]
   %.0.i.i.i.i = phi i64 [ 0, %736 ], [ %spec.select.i.i.i.i, %.fmap_readn.exit_crit_edge.i.i.i ]
-  %763 = trunc nuw i64 %.0.i.i.i.i to i32
+  %763 = trunc nuw nsw i64 %.0.i.i.i.i to i32
   %764 = add i32 %762, %763
   store i32 %764, ptr %618, align 8, !tbaa !65
   store i32 %764, ptr %619, align 4, !tbaa !66
@@ -2079,7 +2079,7 @@ fmap_readn.exit.i.i.i:                            ; preds = %.fmap_readn.exit_cr
 fmap_readn.exit.i244.i:                           ; preds = %.fmap_readn.exit_crit_edge.i248.i, %819
   %845 = phi i32 [ %826, %819 ], [ %.pre.i249.i, %.fmap_readn.exit_crit_edge.i248.i ]
   %.0.i.i245.i = phi i64 [ 0, %819 ], [ %spec.select.i.i246.i, %.fmap_readn.exit_crit_edge.i248.i ]
-  %846 = trunc nuw i64 %.0.i.i245.i to i32
+  %846 = trunc nuw nsw i64 %.0.i.i245.i to i32
   %847 = add i32 %845, %846
   store i32 %847, ptr %618, align 8, !tbaa !65
   store i32 %847, ptr %619, align 4, !tbaa !66
@@ -2180,7 +2180,7 @@ getd.exit250.i:                                   ; preds = %849, %815
 fmap_readn.exit.i.i258.i:                         ; preds = %.fmap_readn.exit_crit_edge.i.i262.i, %878
   %904 = phi i32 [ %885, %878 ], [ %.pre.i.i263.i, %.fmap_readn.exit_crit_edge.i.i262.i ]
   %.0.i.i.i259.i = phi i64 [ 0, %878 ], [ %spec.select.i.i.i260.i, %.fmap_readn.exit_crit_edge.i.i262.i ]
-  %905 = trunc nuw i64 %.0.i.i.i259.i to i32
+  %905 = trunc nuw nsw i64 %.0.i.i.i259.i to i32
   %906 = add i32 %904, %905
   store i32 %906, ptr %618, align 8, !tbaa !65
   store i32 %906, ptr %619, align 4, !tbaa !66
@@ -2312,7 +2312,7 @@ fmap_readn.exit.i.i258.i:                         ; preds = %.fmap_readn.exit_cr
 fmap_readn.exit.i270.i:                           ; preds = %.fmap_readn.exit_crit_edge.i274.i, %961
   %987 = phi i32 [ %968, %961 ], [ %.pre.i275.i, %.fmap_readn.exit_crit_edge.i274.i ]
   %.0.i.i271.i = phi i64 [ 0, %961 ], [ %spec.select.i.i272.i, %.fmap_readn.exit_crit_edge.i274.i ]
-  %988 = trunc nuw i64 %.0.i.i271.i to i32
+  %988 = trunc nuw nsw i64 %.0.i.i271.i to i32
   %989 = add i32 %987, %988
   store i32 %989, ptr %618, align 8, !tbaa !65
   store i32 %989, ptr %619, align 4, !tbaa !66
@@ -2384,7 +2384,7 @@ fmap_readn.exit.i270.i:                           ; preds = %.fmap_readn.exit_cr
 fmap_readn.exit.i282.i:                           ; preds = %.fmap_readn.exit_crit_edge.i286.i, %1002
   %1028 = phi i32 [ %1009, %1002 ], [ %.pre.i287.i, %.fmap_readn.exit_crit_edge.i286.i ]
   %.0.i.i283.i = phi i64 [ 0, %1002 ], [ %spec.select.i.i284.i, %.fmap_readn.exit_crit_edge.i286.i ]
-  %1029 = trunc nuw i64 %.0.i.i283.i to i32
+  %1029 = trunc nuw nsw i64 %.0.i.i283.i to i32
   %1030 = add i32 %1028, %1029
   store i32 %1030, ptr %618, align 8, !tbaa !65
   store i32 %1030, ptr %619, align 4, !tbaa !66
@@ -2455,7 +2455,7 @@ fmap_readn.exit.i282.i:                           ; preds = %.fmap_readn.exit_cr
 fmap_readn.exit.i294.i:                           ; preds = %.fmap_readn.exit_crit_edge.i298.i, %1043
   %1069 = phi i32 [ %1050, %1043 ], [ %.pre.i299.i, %.fmap_readn.exit_crit_edge.i298.i ]
   %.0.i.i295.i = phi i64 [ 0, %1043 ], [ %spec.select.i.i296.i, %.fmap_readn.exit_crit_edge.i298.i ]
-  %1070 = trunc nuw i64 %.0.i.i295.i to i32
+  %1070 = trunc nuw nsw i64 %.0.i.i295.i to i32
   %1071 = add i32 %1069, %1070
   store i32 %1071, ptr %618, align 8, !tbaa !65
   store i32 %1071, ptr %619, align 4, !tbaa !66
@@ -2572,7 +2572,7 @@ getd.exit300.i:                                   ; preds = %1073, %._crit_edge.
 1150:                                             ; preds = %1145
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1124, ptr nonnull align 1 %1149, i64 %spec.select.i.i39, i1 false)
   %1151 = icmp samesign ult i64 %spec.select.i.i39, 2147483648
-  %1152 = trunc nuw i64 %spec.select.i.i39 to i32
+  %1152 = trunc nuw nsw i64 %spec.select.i.i39 to i32
   %1153 = select i1 %1151, i32 %1152, i32 -1
   br label %fmap_readn.exit.i37
 
@@ -3130,7 +3130,7 @@ define internal fastcc range(i32 0, 2) i32 @getfield(ptr noundef nonnull capture
 fmap_readn.exit.i:                                ; preds = %.fmap_readn.exit_crit_edge.i, %6
   %36 = phi i32 [ %16, %6 ], [ %.pre.i, %.fmap_readn.exit_crit_edge.i ]
   %.0.i.i = phi i64 [ 0, %6 ], [ %spec.select.i.i, %.fmap_readn.exit_crit_edge.i ]
-  %37 = trunc nuw i64 %.0.i.i to i32
+  %37 = trunc nuw nsw i64 %.0.i.i to i32
   %38 = add i32 %36, %37
   store i32 %38, ptr %8, align 8, !tbaa !65
   store i32 %38, ptr %3, align 4, !tbaa !66
@@ -3212,7 +3212,7 @@ fmap_readn.exit.i:                                ; preds = %.fmap_readn.exit_cr
 fmap_readn.exit.i.i:                              ; preds = %.fmap_readn.exit_crit_edge.i.i, %61
   %88 = phi i32 [ %68, %61 ], [ %.pre.i.i, %.fmap_readn.exit_crit_edge.i.i ]
   %.0.i.i.i = phi i64 [ 0, %61 ], [ %spec.select.i.i.i, %.fmap_readn.exit_crit_edge.i.i ]
-  %89 = trunc nuw i64 %.0.i.i.i to i32
+  %89 = trunc nuw nsw i64 %.0.i.i.i to i32
   %90 = add i32 %88, %89
   store i32 %90, ptr %59, align 8, !tbaa !65
   store i32 %90, ptr %3, align 4, !tbaa !66

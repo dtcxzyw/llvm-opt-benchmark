@@ -369,7 +369,7 @@ define internal noundef range(i32 -22, 135) i32 @pci_conf2_read(i32 noundef %0, 
 
 18:                                               ; preds = %15
   %19 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
-  %20 = trunc nuw i32 %2 to i8
+  %20 = trunc nuw nsw i32 %2 to i8
   %21 = shl nuw i8 %20, 1
   %22 = or i8 %21, -16
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %22, i16 3320) #5, !srcloc !9
@@ -447,7 +447,7 @@ define internal noundef range(i32 -22, 135) i32 @pci_conf2_write(i32 noundef %0,
 
 17:                                               ; preds = %14
   %18 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @pci_config_lock) #5
-  %19 = trunc nuw i32 %2 to i8
+  %19 = trunc nuw nsw i32 %2 to i8
   %20 = shl nuw i8 %19, 1
   %21 = or i8 %20, -16
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %21, i16 3320) #5, !srcloc !9

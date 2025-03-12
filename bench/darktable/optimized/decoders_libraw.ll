@@ -113,7 +113,7 @@ define void @_ZN6LibRaw17sony_arq_load_rawEv(ptr noundef nonnull align 8 derefer
   br i1 %55, label %56, label %72
 
 56:                                               ; preds = %.lr.ph
-  %indvars61 = trunc i64 %indvars.iv to i32
+  %indvars61 = trunc nuw nsw i64 %indvars.iv to i32
   %57 = load i16, ptr %33, align 2, !tbaa !83
   %58 = zext i16 %57 to i32
   %59 = sub nsw i32 %indvars61, %58

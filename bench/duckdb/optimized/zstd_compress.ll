@@ -3083,7 +3083,7 @@ _ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i: ; pre
   br i1 %.not12, label %28, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %_ZN11duckdb_zstdL21ZSTD_getCParamRowSizeEmmNS_17ZSTD_cParamMode_eE.exit.i
-  %19 = trunc nuw i64 %9 to i32
+  %19 = trunc nuw nsw i64 %9 to i32
   %20 = add nsw i32 %19, -1
   %21 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %22 = sub nuw nsw i32 32, %21
@@ -5660,7 +5660,7 @@ _ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_pa
 
 62:                                               ; preds = %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread17.i
   %63 = icmp samesign ult i64 %7, 64
-  %64 = trunc nuw i64 %7 to i32
+  %64 = trunc nuw nsw i64 %7 to i32
   %65 = add nsw i32 %64, -1
   %66 = tail call range(i32 0, 32) i32 @llvm.ctlz.i32(i32 %65, i1 true)
   %67 = sub nuw nsw i32 32, %66
@@ -6047,7 +6047,7 @@ _ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_C
   br i1 %289, label %290, label %_ZN11duckdb_zstdL25ZSTD_resetCCtx_usingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit
 
 290:                                              ; preds = %287
-  %291 = trunc i64 %288 to i32
+  %291 = trunc nuw i64 %288 to i32
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store i32 %291, ptr %292, align 8, !tbaa !199
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -7760,7 +7760,7 @@ _ZN11duckdb_zstdL25ZSTD_cwksp_reserve_objectEPNS_10ZSTD_cwkspEm.exit58: ; preds 
   br i1 %69, label %70, label %.thread
 
 70:                                               ; preds = %61
-  %71 = trunc i64 %68 to i32
+  %71 = trunc nuw i64 %68 to i32
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 6064
   store i32 %71, ptr %72, align 8, !tbaa !294
   br label %.thread
@@ -11055,10 +11055,10 @@ _ZN11duckdb_zstdL19determine_blockSizeENS_21ZSTD_sequenceFormat_eEmmPKNS_13ZSTD_
   br i1 %82, label %_ZN11duckdb_zstdL31ZSTD_compressSequences_internalEPNS_11ZSTD_CCtx_sEPvmPKNS_13ZSTD_SequenceEmPKvm.exit.thread, label %83
 
 83:                                               ; preds = %80
-  %.tr.i.i = trunc nuw i64 %78 to i32
+  %.tr.i.i = trunc nuw nsw i64 %78 to i32
   %84 = shl nuw nsw i32 %.tr.i.i, 3
   %85 = or disjoint i32 %84, %71
-  %86 = trunc nuw i32 %85 to i16
+  %86 = trunc nuw nsw i32 %85 to i16
   store i16 %86, ptr %.2138214.i, align 1, !tbaa !247
   %87 = getelementptr inbounds nuw i8, ptr %.2138214.i, i64 2
   store i8 0, ptr %87, align 1, !tbaa !211
@@ -15732,7 +15732,7 @@ _ZN11duckdb_zstdL34ZSTD_literalsCompressionIsDisabledEPKNS_18ZSTD_CCtx_params_sE
 
 64:                                               ; preds = %62
   %65 = lshr i64 %22, 8
-  %66 = trunc nuw i64 %65 to i8
+  %66 = trunc nuw nsw i64 %65 to i8
   %67 = or disjoint i8 %66, -128
   store i8 %67, ptr %53, align 1, !tbaa !211
   %68 = trunc i64 %22 to i8

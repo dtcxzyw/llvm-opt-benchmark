@@ -475,7 +475,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %248, label %249, label %252
 
 249:                                              ; preds = %243
-  %250 = trunc i64 %indvars.iv1009 to i32
+  %250 = trunc nsw i64 %indvars.iv1009 to i32
   %251 = add i32 %250, 2
   br label %252
 
@@ -517,7 +517,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 274:                                              ; preds = %259, %269, %257
   %.5823 = phi double [ %273, %269 ], [ %.4822925, %259 ], [ %.4822925, %257 ]
-  %275 = trunc i64 %indvars.iv1009 to i32
+  %275 = trunc nuw i64 %indvars.iv1009 to i32
   %276 = add i32 %275, -1
   store i32 %276, ptr %13, align 4, !tbaa !3
   %277 = mul nsw i64 %indvars.iv1009, %234
@@ -1187,7 +1187,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %680, label %681, label %684
 
 681:                                              ; preds = %675
-  %682 = trunc i64 %indvars.iv1015 to i32
+  %682 = trunc nsw i64 %indvars.iv1015 to i32
   %683 = add i32 %682, 2
   br label %684
 
@@ -1236,7 +1236,7 @@ define void @dlaqtr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 713:                                              ; preds = %691, %708, %689
   %.15 = phi double [ %712, %708 ], [ %.14958, %691 ], [ %.14958, %689 ]
-  %714 = trunc i64 %indvars.iv1015 to i32
+  %714 = trunc nuw i64 %indvars.iv1015 to i32
   %715 = add i32 %714, -1
   store i32 %715, ptr %13, align 4, !tbaa !3
   %716 = mul nsw i64 %indvars.iv1015, %666

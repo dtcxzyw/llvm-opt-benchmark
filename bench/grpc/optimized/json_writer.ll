@@ -1718,7 +1718,7 @@ _ZN9grpc_core12_GLOBAL__N_110JsonWriter12OutputStringESt17basic_string_viewIcSt1
 194:                                              ; preds = %192
   %195 = add nuw nsw i32 %177, 16711680
   %196 = lshr i32 %195, 10
-  %197 = trunc nuw i32 %196 to i16
+  %197 = trunc nuw nsw i32 %196 to i16
   %198 = or i16 %197, -10240
   tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_110JsonWriter11EscapeUtf16Et(ptr noundef nonnull align 8 dereferenceable(48) %0, i16 noundef zeroext %198)
   %199 = trunc i32 %187 to i16

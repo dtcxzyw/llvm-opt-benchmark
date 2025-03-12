@@ -1209,7 +1209,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %51, label %55, label %52
 
 52:                                               ; preds = %48
-  %53 = trunc i64 %35 to i32
+  %53 = trunc nsw i64 %35 to i32
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %25, align 4
   br label %55
@@ -4501,7 +4501,7 @@ define internal i32 @ipmr_rtm_dumplink(ptr noundef %0, ptr noundef captures(none
 186:                                              ; preds = %290, %167
   %187 = phi i32 [ %165, %167 ], [ %291, %290 ]
   %188 = phi i64 [ 0, %167 ], [ %292, %290 ]
-  %indvars58 = trunc i64 %188 to i32
+  %indvars58 = trunc nuw i64 %188 to i32
   %189 = icmp ult i32 %indvars58, %76
   br i1 %189, label %290, label %190
 

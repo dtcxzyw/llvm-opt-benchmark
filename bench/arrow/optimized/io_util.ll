@@ -18107,7 +18107,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear
 
 12:                                               ; preds = %3
   %13 = add nuw nsw i64 %10, 1
-  %.rhs.trunc = trunc nuw i64 %13 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %13 to i32
   %14 = udiv i32 2147483645, %.rhs.trunc
   %.zext = zext nneg i32 %14 to i64
   %15 = mul nuw nsw i64 %13, %.zext
@@ -18124,7 +18124,7 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8, !tbaa !639
-  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %20 to i32
   %22 = udiv i32 %.lhs.trunc, %14
   %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit

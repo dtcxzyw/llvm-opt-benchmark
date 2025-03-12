@@ -530,7 +530,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   unreachable
 
 .critedge:                                        ; preds = %112
-  %118 = trunc i64 %.pre-phi98 to i32
+  %118 = trunc nuw i64 %.pre-phi98 to i32
   %119 = add i32 %114, %118
   store i32 %119, ptr %113, align 4, !tbaa !32
   store i32 8, ptr %1, align 8, !tbaa !33

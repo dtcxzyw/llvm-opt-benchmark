@@ -512,7 +512,7 @@ define hidden noundef ptr @_ZN3smt15fingerprint_set6insertEPvjjPKPNS_5enodeEP4ex
   br i1 %.wide.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !61
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %242 = trunc nuw i64 %199 to i32
+  %242 = trunc nuw nsw i64 %199 to i32
   switch i32 %242, label %256 [
     i32 2, label %243
     i32 1, label %250

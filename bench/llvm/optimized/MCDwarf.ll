@@ -6004,7 +6004,7 @@ _ZL14ScaleAddrDeltaRN4llvm9MCContextEm.exit:      ; preds = %3, %7
   br i1 %15, label %16, label %31
 
 16:                                               ; preds = %11
-  %17 = trunc nuw i64 %.0.i to i8
+  %17 = trunc nuw nsw i64 %.0.i to i8
   %18 = or disjoint i8 %17, 64
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !326

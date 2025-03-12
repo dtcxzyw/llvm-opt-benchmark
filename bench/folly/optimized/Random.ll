@@ -5063,7 +5063,7 @@ _ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm
   %86 = mul i32 %85, 1566083941
   %87 = xor i32 %86, %77
   store i32 %87, ptr %76, align 4, !tbaa !66
-  %88 = trunc nuw i64 %.fr to i32
+  %88 = trunc nuw nsw i64 %.fr to i32
   %89 = sub i32 %86, %88
   %90 = add i64 %.fr, 317
   %.urem53 = add i64 %.fr, -307

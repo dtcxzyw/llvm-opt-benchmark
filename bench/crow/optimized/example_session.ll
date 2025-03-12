@@ -20423,7 +20423,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %29, %27, %23, %19, 
   br label %68
 
 65:                                               ; preds = %._crit_edge.i.i6
-  %66 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %66 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %67 = or disjoint i8 %66, 48
   br label %68
 
@@ -23658,7 +23658,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i.i: ; preds = %31, %29, %25, 
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEOZNK4crow7session11multi_value6stringEvEUlT_E_RKSt7variantIJbldS9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_SK_.exit
 
 67:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %68 = trunc nuw i64 %.0.lcssa.i.i.i.i.i.i to i8
+  %68 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i.i to i8
   %69 = or disjoint i8 %68, 48
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEOZNK4crow7session11multi_value6stringEvEUlT_E_RKSt7variantIJbldS9_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESG_SK_.exit
 
@@ -31179,7 +31179,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %62, %60, %56, %52, 
   br label %101
 
 98:                                               ; preds = %._crit_edge.i.i14
-  %99 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %99 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %100 = or disjoint i8 %99, 48
   br label %101
 
@@ -75798,7 +75798,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %724, %722, %718, %7
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 760:                                              ; preds = %._crit_edge.i.i297
-  %761 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %761 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %762 = or disjoint i8 %761, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 

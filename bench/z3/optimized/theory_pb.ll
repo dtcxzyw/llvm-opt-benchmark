@@ -1049,7 +1049,7 @@ _ZNK3smt9theory_pb5arg_t9kind_hashclERKS1_.exit:  ; preds = %4, %7
   br i1 %.wide, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %287 = trunc nuw i64 %239 to i32
+  %287 = trunc nuw nsw i64 %239 to i32
   switch i32 %287, label %311 [
     i32 2, label %288
     i32 1, label %300

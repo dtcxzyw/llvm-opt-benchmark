@@ -90408,7 +90408,7 @@ define hidden void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$prot
 4:                                                ; preds = %1
   %5 = add nsw i64 %2, -2
   %6 = icmp ult i64 %5, 227
-  %7 = trunc i64 %5 to i8
+  %7 = trunc nuw i64 %5 to i8
   %trunc.i = select i1 %6, i8 %7, i8 97
   switch i8 %trunc.i, label %8 [
     i8 0, label %"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17hf02bd1ccd285ca32E.exit"

@@ -508,7 +508,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %16, %_ZN12ar
   br i1 %or.cond19, label %31, label %36
 
 31:                                               ; preds = %27
-  %32 = trunc nuw i64 %24 to i32
+  %32 = trunc nuw nsw i64 %24 to i32
   %33 = tail call { i8, i64 } @_ZN7ciArray13element_valueEi(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %32)
   %34 = extractvalue { i8, i64 } %33, 0
   %35 = extractvalue { i8, i64 } %33, 1

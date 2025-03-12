@@ -1194,7 +1194,7 @@ _ZNSt6vectorI14aiVertexWeightSaIS0_EED2Ev.exit:   ; preds = %.loopexit316, %435
 .loopexit319.thread:                              ; preds = %459
   %462 = getelementptr inbounds nuw i8, ptr %76, i64 208
   store ptr %460, ptr %462, align 8
-  %463 = trunc i64 %454 to i32
+  %463 = trunc nuw nsw i64 %454 to i32
   store i32 %463, ptr %79, align 8
   br label %._crit_edge355
 

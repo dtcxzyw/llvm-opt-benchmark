@@ -5830,7 +5830,7 @@ decode_udvm_literal_operand.exit2726:             ; preds = %2228, %2239, %2250
   br i1 %.not2555, label %2376, label %2373
 
 2373:                                             ; preds = %2370
-  %2374 = trunc i32 %.133283 to i16
+  %2374 = trunc nuw i32 %.133283 to i16
   %2375 = sub i16 %2354, %2374
   br label %2376
 

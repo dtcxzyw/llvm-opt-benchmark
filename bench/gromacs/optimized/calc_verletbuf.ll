@@ -2443,7 +2443,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %431, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i, label %432
 
 432:                                              ; preds = %426
-  %433 = trunc nuw i64 %.024.i.i to i32
+  %433 = trunc nuw nsw i64 %.024.i.i to i32
   %.not.i.i.i.i168 = icmp eq ptr %422, %421
   br i1 %.not.i.i.i.i168, label %436, label %434
 
@@ -5722,7 +5722,7 @@ _ZNSt12_Vector_baseI19AtomConstraintPropsSaIS0_EEC2EmRKS1_.exit.thread.i.i.i.i: 
   br i1 %344, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i.i, label %345
 
 345:                                              ; preds = %339
-  %346 = trunc nuw i64 %.024.i.i.i.i to i32
+  %346 = trunc nuw nsw i64 %.024.i.i.i.i to i32
   %.not.i.i.i.i.i.i = icmp eq ptr %335, %334
   br i1 %.not.i.i.i.i.i.i, label %349, label %347
 

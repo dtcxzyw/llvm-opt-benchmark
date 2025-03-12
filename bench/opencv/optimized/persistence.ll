@@ -13433,7 +13433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %_ZN
 178:                                              ; preds = %174
   %179 = select i1 %.0.i578588, i32 32, i32 0
   %180 = or disjoint i32 %179, %1
-  %181 = trunc nuw i32 %180 to i8
+  %181 = trunc nuw nsw i32 %180 to i8
   store i8 %181, ptr %177, align 1, !tbaa !5
   %spec.select.v = select i1 %.0.i578588, i64 5, i64 1
   %spec.select = getelementptr inbounds nuw i8, ptr %177, i64 %spec.select.v
@@ -14333,7 +14333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71: ; preds = %_ZN
   %79 = sext i32 %.146 to i64
   %80 = tail call noundef ptr @_ZN2cv11FileStorage4Impl16reserveNodeSpaceERNS_8FileNodeEm(ptr noundef nonnull align 8 dereferenceable(700) %78, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %79)
   %81 = or i32 %49, %1
-  %82 = trunc i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   store i8 %82, ptr %80, align 1, !tbaa !5
   %spec.select65.v = select i1 %.not60, i64 1, i64 5
   %spec.select65 = getelementptr inbounds nuw i8, ptr %80, i64 %spec.select65.v

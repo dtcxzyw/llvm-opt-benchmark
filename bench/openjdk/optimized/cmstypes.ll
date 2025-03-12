@@ -1756,7 +1756,7 @@ define internal range(i32 0, 2) i32 @Type_ParametricCurve_Write(ptr noundef read
   %16 = zext nneg i32 %8 to i64
   %17 = getelementptr inbounds nuw [6 x i32], ptr @Type_ParametricCurve_Write.ParamsByType, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
-  %19 = trunc nuw i32 %8 to i16
+  %19 = trunc nuw nsw i32 %8 to i16
   %20 = add nsw i16 %19, -1
   %21 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %20) #13
   %.not = icmp eq i32 %21, 0
@@ -8876,7 +8876,7 @@ Type_Curve_Write.exit:                            ; preds = %42, %48
   %66 = zext nneg i32 %58 to i64
   %67 = getelementptr inbounds nuw [6 x i32], ptr @Type_ParametricCurve_Write.ParamsByType, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
-  %69 = trunc nuw i32 %58 to i16
+  %69 = trunc nuw nsw i32 %58 to i16
   %70 = add nsw i16 %69, -1
   %71 = tail call i32 @_cmsWriteUInt16Number(ptr noundef %1, i16 noundef zeroext %70) #13
   %.not.i34 = icmp eq i32 %71, 0

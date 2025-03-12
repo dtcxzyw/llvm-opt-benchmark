@@ -12543,7 +12543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i32 %.0.lcssa.i to i8
+  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -13106,7 +13106,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
   %217 = mul nuw nsw i64 %.051, %79
-  %218 = trunc nuw i64 %217 to i16
+  %218 = trunc nuw nsw i64 %217 to i16
   %219 = and i16 %218, 31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #33
@@ -13977,7 +13977,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %.04450 = phi ptr [ %0, %.preheader ], [ %.1, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
   %221 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %.051
   %222 = mul nuw nsw i64 %.051, %84
-  %223 = trunc nuw i64 %222 to i16
+  %223 = trunc nuw nsw i64 %222 to i16
   %224 = and i16 %223, 31
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
   %225 = zext nneg i16 %224 to i32
@@ -31501,7 +31501,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %27, %25, %21, %17, 
   br label %66
 
 63:                                               ; preds = %._crit_edge.i.i.i
-  %64 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %64 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %65 = or disjoint i8 %64, 48
   br label %66
 
@@ -31688,7 +31688,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i28: ; preds = %110, %108, %104, %
   br label %148
 
 145:                                              ; preds = %._crit_edge.i.i.i31
-  %146 = trunc nuw i64 %.0.lcssa.i.i.i32 to i8
+  %146 = trunc nuw nsw i64 %.0.lcssa.i.i.i32 to i8
   %147 = or disjoint i8 %146, 48
   br label %148
 

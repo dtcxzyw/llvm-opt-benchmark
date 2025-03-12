@@ -6555,7 +6555,7 @@ define dso_local void @_ZN4llvm17ScheduleDAGMILive23updateScheduledPressureEPKNS
   br i1 %or.cond, label %.critedge37, label %45
 
 45:                                               ; preds = %36
-  %46 = trunc nuw i32 %40 to i16
+  %46 = trunc nuw nsw i32 %40 to i16
   store i16 %46, ptr %41, align 2, !tbaa !535
   br label %.critedge37
 
@@ -7258,7 +7258,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit: ; preds
   br i1 %or.cond.i, label %.critedge37.i, label %169
 
 169:                                              ; preds = %160
-  %170 = trunc nuw i32 %164 to i16
+  %170 = trunc nuw nsw i32 %164 to i16
   store i16 %170, ptr %165, align 2, !tbaa !535
   br label %.critedge37.i
 
@@ -7729,7 +7729,7 @@ _ZNK4llvm13LiveIntervals19getInstructionIndexERKNS_12MachineInstrE.exit96: ; pre
   br i1 %or.cond.i113, label %.critedge37.i107, label %377
 
 377:                                              ; preds = %368
-  %378 = trunc nuw i32 %372 to i16
+  %378 = trunc nuw nsw i32 %372 to i16
   store i16 %378, ptr %373, align 2, !tbaa !535
   br label %.critedge37.i107
 

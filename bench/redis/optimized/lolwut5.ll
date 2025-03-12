@@ -247,9 +247,9 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #2 {
 
 45:                                               ; preds = %.sink.split29, %43
   %46 = phi i64 [ %41, %43 ], [ %.sink31, %.sink.split29 ]
-  %47 = trunc nuw i64 %34 to i32
-  %48 = trunc nuw i64 %40 to i32
-  %49 = trunc nuw i64 %46 to i32
+  %47 = trunc nuw nsw i64 %34 to i32
+  %48 = trunc nuw nsw i64 %40 to i32
+  %49 = trunc nuw nsw i64 %46 to i32
   %50 = call ptr @lwDrawSchotter(i32 noundef %47, i32 noundef %48, i32 noundef %49)
   %51 = call ptr @sdsempty() #6
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4

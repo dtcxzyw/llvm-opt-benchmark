@@ -1201,7 +1201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br label %36
 
 33:                                               ; preds = %1
-  %34 = trunc nuw i32 %0 to i8
+  %34 = trunc nuw nsw i32 %0 to i8
   %35 = or disjoint i8 %34, 48
   ret i8 %35
 

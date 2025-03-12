@@ -5080,7 +5080,7 @@ define dso_local noundef ptr @_Z16ImTextCharToUtf8Pcj(ptr noundef returned write
 
 8:                                                ; preds = %6
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %0, align 1, !tbaa !206
   %12 = trunc i32 %1 to i8
@@ -5096,7 +5096,7 @@ define dso_local noundef ptr @_Z16ImTextCharToUtf8Pcj(ptr noundef returned write
 
 18:                                               ; preds = %16
   %19 = lshr i32 %1, 12
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %0, align 1, !tbaa !206
   %22 = lshr i32 %1, 6
@@ -5118,7 +5118,7 @@ define dso_local noundef ptr @_Z16ImTextCharToUtf8Pcj(ptr noundef returned write
 
 33:                                               ; preds = %31
   %34 = lshr i32 %1, 18
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %0, align 1, !tbaa !206
   %37 = lshr i32 %1, 12
@@ -5212,7 +5212,7 @@ define dso_local noundef i32 @_Z15ImTextStrToUtf8PciPKtS1_(ptr noundef %0, i32 n
 
 33:                                               ; preds = %31
   %34 = lshr i16 %10, 6
-  %35 = trunc nuw i16 %34 to i8
+  %35 = trunc nuw nsw i16 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %.02026.us, align 1, !tbaa !206
   br label %_ZL23ImTextCharToUtf8_inlinePcij.exit.us.sink.split
@@ -5233,7 +5233,7 @@ _ZL23ImTextCharToUtf8_inlinePcij.exit.us:         ; preds = %_ZL23ImTextCharToUt
   br label %45
 
 42:                                               ; preds = %11
-  %43 = trunc nuw i16 %10 to i8
+  %43 = trunc nuw nsw i16 %10 to i8
   %44 = getelementptr inbounds nuw i8, ptr %.02026.us, i64 1
   store i8 %43, ptr %.02026.us, align 1, !tbaa !206
   br label %45
@@ -5260,7 +5260,7 @@ _ZL23ImTextCharToUtf8_inlinePcij.exit.us:         ; preds = %_ZL23ImTextCharToUt
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %50
-  %54 = trunc nuw i16 %49 to i8
+  %54 = trunc nuw nsw i16 %49 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.02026, i64 1
   store i8 %54, ptr %.02026, align 1, !tbaa !206
   br label %84
@@ -5279,7 +5279,7 @@ _ZL23ImTextCharToUtf8_inlinePcij.exit.us:         ; preds = %_ZL23ImTextCharToUt
 
 64:                                               ; preds = %62
   %65 = lshr i16 %49, 6
-  %66 = trunc nuw i16 %65 to i8
+  %66 = trunc nuw nsw i16 %65 to i8
   %67 = or disjoint i8 %66, -64
   store i8 %67, ptr %.02026, align 1, !tbaa !206
   br label %_ZL23ImTextCharToUtf8_inlinePcij.exit.sink.split
@@ -70465,7 +70465,7 @@ _ZN5ImGui8SameLineEff.exit98:                     ; preds = %46, %63
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %_ZN5ImGui8SameLineEff.exit98
-  %93 = trunc nuw i16 %89 to i8
+  %93 = trunc nuw nsw i16 %89 to i8
   store i8 %93, ptr %2, align 1, !tbaa !206
   br label %_Z16ImTextCharToUtf8Pcj.exit
 
@@ -70475,7 +70475,7 @@ _ZN5ImGui8SameLineEff.exit98:                     ; preds = %46, %63
 
 96:                                               ; preds = %94
   %97 = lshr i16 %89, 6
-  %98 = trunc nuw i16 %97 to i8
+  %98 = trunc nuw nsw i16 %97 to i8
   %99 = or disjoint i8 %98, -64
   store i8 %99, ptr %2, align 1, !tbaa !206
   %100 = trunc i16 %89 to i8
@@ -70511,7 +70511,7 @@ _Z16ImTextCharToUtf8Pcj.exit:                     ; preds = %92, %96, %103
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %_Z16ImTextCharToUtf8Pcj.exit
-  %119 = trunc nuw i16 %115 to i8
+  %119 = trunc nuw nsw i16 %115 to i8
   store i8 %119, ptr %2, align 1, !tbaa !206
   br label %_Z16ImTextCharToUtf8Pcj.exit100
 
@@ -70521,7 +70521,7 @@ _Z16ImTextCharToUtf8Pcj.exit:                     ; preds = %92, %96, %103
 
 122:                                              ; preds = %120
   %123 = lshr i16 %115, 6
-  %124 = trunc nuw i16 %123 to i8
+  %124 = trunc nuw nsw i16 %123 to i8
   %125 = or disjoint i8 %124, -64
   store i8 %125, ptr %2, align 1, !tbaa !206
   %126 = trunc i16 %115 to i8

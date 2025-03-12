@@ -887,7 +887,7 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread:     ; preds = %32, %_ZN10duckdb_hl
   tail call void @free(ptr noundef %35) #30
   %51 = getelementptr inbounds i8, ptr %50, i64 -1
   store i8 %34, ptr %51, align 1, !tbaa !20
-  %.tr.i = trunc i64 %.0.i384348 to i8
+  %.tr.i = trunc nuw i64 %.0.i384348 to i8
   br i1 %switch, label %52, label %54
 
 52:                                               ; preds = %49

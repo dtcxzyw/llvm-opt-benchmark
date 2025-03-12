@@ -1794,7 +1794,7 @@ define internal fastcc i32 @do_vfs_ioctl(ptr noundef %0, i32 noundef %1, i32 nou
 487:                                              ; preds = %471
   %.fr = freeze i32 %473
   %488 = icmp eq i32 %.fr, 0
-  %489 = trunc nuw i64 %474 to i32
+  %489 = trunc nuw nsw i64 %474 to i32
   %spec.select = select i1 %488, i32 %489, i32 0
   br label %.thread25
 

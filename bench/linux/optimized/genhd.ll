@@ -313,7 +313,7 @@ define dso_local i32 @__register_blkdev(i32 noundef %0, ptr noundef %1, ptr noun
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %28 = tail call i64 @strscpy(ptr noundef nonnull %27, ptr noundef %1, i64 noundef 16) #17
   store ptr null, ptr %22, align 8
-  %.lhs.trunc = trunc nuw i32 %16 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %16 to i16
   %29 = urem i16 %.lhs.trunc, 255
   tail call void @_raw_spin_lock(ptr noundef nonnull @major_names_spinlock) #17
   %30 = zext nneg i16 %29 to i64

@@ -124,7 +124,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   %.sink.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, %.sink8.i.i.i.i.i.i
   %sub.i.i5.i.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i.i, %.sink.i.i.i.i.i.i
-  %conv.i.i.i.i.i.i = trunc i64 %sub.i.i5.i.i.i.i to i8
+  %conv.i.i.i.i.i.i = trunc nuw nsw i64 %sub.i.i5.i.i.i.i to i8
   %tag.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i.i, i64 12
   store i8 %conv.i.i.i.i.i.i, ptr %tag.i.i.i.i, align 4, !noalias !10
   store i64 0, ptr %call4.i.i.i.i, align 8, !noalias !10
@@ -584,7 +584,7 @@ if.then.i4:                                       ; preds = %_ZN4absl12lts_20230
   %.sink.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 2, i64 58
   %div36.i.i.i.i.i = lshr i64 %and.i.i.i.i.i, %.sink8.i.i.i.i.i
   %sub.i.i5.i.i.i = add nuw nsw i64 %div36.i.i.i.i.i, %.sink.i.i.i.i.i
-  %conv.i.i.i.i.i = trunc i64 %sub.i.i5.i.i.i to i8
+  %conv.i.i.i.i.i = trunc nuw nsw i64 %sub.i.i5.i.i.i to i8
   %tag.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 12
   store i8 %conv.i.i.i.i.i, ptr %tag.i.i.i, align 4, !noalias !14
   store i64 0, ptr %call4.i.i.i, align 8, !noalias !14

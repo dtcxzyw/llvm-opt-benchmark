@@ -1117,7 +1117,7 @@ digits10.exit:                                    ; preds = %.lr.ph.i, %6, %tail
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %._crit_edge
-  %57 = trunc nuw i64 %.030.lcssa to i8
+  %57 = trunc nuw nsw i64 %.030.lcssa to i8
   %58 = or disjoint i8 %57, 48
   %59 = zext i32 %.031.lcssa to i64
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 %59
@@ -2008,7 +2008,7 @@ digits10.exit:                                    ; preds = %.lr.ph.i, %34, %tai
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %._crit_edge
-  %93 = trunc nuw i64 %.2.lcssa to i8
+  %93 = trunc nuw nsw i64 %.2.lcssa to i8
   %94 = or disjoint i8 %93, 48
   %95 = sext i32 %.069.lcssa to i64
   %96 = getelementptr inbounds i8, ptr %.1, i64 %95

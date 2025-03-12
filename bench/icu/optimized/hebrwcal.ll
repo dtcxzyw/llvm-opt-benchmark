@@ -146,7 +146,7 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %14
-  %.lhs.trunc = trunc i64 %17 to i32
+  %.lhs.trunc = trunc nuw i64 %17 to i32
   %20 = udiv i32 %.lhs.trunc, 235
   %21 = urem i32 %.lhs.trunc, 235
   %22 = mul nuw nsw i32 %20, 19
@@ -211,7 +211,7 @@ define void @_ZN6icu_7714HebrewCalendar3addE19UCalendarDateFieldsiR10UErrorCode(
   %.nonneg = sub nsw i64 0, %45
   %48 = udiv i64 %.nonneg, 235
   %49 = urem i64 %.nonneg, 235
-  %50 = trunc i64 %48 to i32
+  %50 = trunc nuw nsw i64 %48 to i32
   %51 = mul nsw i32 %50, -19
   %52 = call signext i8 @uprv_add32_overflow_77(i32 noundef %12, i32 noundef %51, ptr noundef nonnull %5)
   %.not45 = icmp eq i8 %52, 0
@@ -874,7 +874,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111startOfYearEiR10UE
   br i1 %or.cond9, label %.thread49, label %47
 
 .thread49:                                        ; preds = %.thread
-  %46 = trunc i64 %.2 to i32
+  %46 = trunc nsw i64 %.2 to i32
   tail call void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef nonnull @_ZL6gCache, i32 noundef %0, i32 noundef %46, ptr noundef nonnull align 4 dereferenceable(4) %1)
   br label %48
 

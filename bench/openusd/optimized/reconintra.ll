@@ -1777,7 +1777,7 @@ has_bottom_left.exit:                             ; preds = %has_top_right.exit,
   br i1 %387, label %.lr.ph.i, label %.loopexit.loopexit.i, !llvm.loop !38
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i
-  %388 = trunc nsw i64 %indvars.iv.next326.i to i32
+  %388 = trunc nuw nsw i64 %indvars.iv.next326.i to i32
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.preheader.i, %378
@@ -2759,7 +2759,7 @@ build_intra_predictors_high.exit:                 ; preds = %.loopexit.us.i.i.i,
   br i1 %906, label %.lr.ph.i327, label %.loopexit.loopexit.i328, !llvm.loop !46
 
 .loopexit.loopexit.i328:                          ; preds = %.lr.ph.i327
-  %907 = trunc nsw i64 %indvars.iv.next329.i to i32
+  %907 = trunc nuw nsw i64 %indvars.iv.next329.i to i32
   br label %.loopexit.i323
 
 .loopexit.i323:                                   ; preds = %.loopexit.loopexit.i328, %.preheader.i325, %897

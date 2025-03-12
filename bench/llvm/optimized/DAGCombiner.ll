@@ -36186,8 +36186,8 @@ _ZNK4llvm5APInt3ugeEm.exit.thread:                ; preds = %_ZNK4llvm5APInt13ge
   br label %.critedge239
 
 141:                                              ; preds = %_ZNK4llvm5APInt3ugeEm.exit
-  %142 = trunc i64 %.0.i.i.i to i32
-  %143 = icmp eq i32 %142, 0
+  %142 = trunc nuw i64 %.0.i.i.i to i32
+  %143 = icmp eq i64 %.0.i.i.i, 0
   br i1 %143, label %144, label %145
 
 144:                                              ; preds = %141
@@ -161065,7 +161065,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRKT0_.exit: ; preds = %96,
   %.sroa.023.0.copyload = load ptr, ptr %98, align 8, !tbaa !94
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %98, i64 8
   %.sroa.224.0.copyload = load i32, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !72
-  %122 = trunc i64 %116 to i32
+  %122 = trunc nuw i64 %116 to i32
   %123 = sub i32 %3, %122
   %124 = add nuw nsw i32 %4, 1
   call fastcc void @_ZL21calculateByteProviderN4llvm7SDValueEjjSt8optionalImEj(ptr dead_on_unwind noalias writable align 8 %0, ptr %.sroa.023.0.copyload, i32 %.sroa.224.0.copyload, i32 noundef %123, i32 noundef %124, ptr noundef nonnull byval(%"class.std::optional.566") align 8 %5, i32 noundef %3)
@@ -165249,7 +165249,7 @@ _ZNK4llvm5APInt3ugeEm.exit.thread.i.i.i:          ; preds = %_ZNK4llvm5APInt3uge
   br label %73
 
 71:                                               ; preds = %_ZNK4llvm5APInt3ugeEm.exit.i.i.i
-  %72 = trunc i64 %.0.i.i.i.i.i.i to i32
+  %72 = trunc nuw i64 %.0.i.i.i.i.i.i to i32
   br label %73
 
 73:                                               ; preds = %71, %_ZNK4llvm5APInt3ugeEm.exit.thread.i.i.i

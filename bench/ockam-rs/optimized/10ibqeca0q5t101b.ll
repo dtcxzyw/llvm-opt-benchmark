@@ -4468,7 +4468,7 @@ common.ret:                                       ; preds = %1945, %383
 829:                                              ; preds = %816, %812
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35)
   store i8 1, ptr %800, align 8, !noalias !661
-  %830 = trunc i8 %803 to i1
+  %830 = trunc nuw i8 %803 to i1
   br i1 %830, label %865, label %844
 
 .body.i.i.i.i.i:                                  ; preds = %827, %780
@@ -6629,7 +6629,7 @@ common.ret:                                       ; preds = %1945, %383
 1613:                                             ; preds = %1600, %1596
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12)
   store i8 1, ptr %1584, align 8, !noalias !897
-  %1614 = trunc i8 %1587 to i1
+  %1614 = trunc nuw i8 %1587 to i1
   br i1 %1614, label %1633, label %1628
 
 .body.i.i443.i.i.i:                               ; preds = %1611, %1564

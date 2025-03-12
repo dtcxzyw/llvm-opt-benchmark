@@ -250,7 +250,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %16 ]
-  %18 = trunc nuw i64 %indvars.iv.i to i32
+  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = load ptr, ptr @gpus, align 8
   %20 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %19, i64 %indvars.iv.i, i32 3
   tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %20, i32 noundef %18)
@@ -333,7 +333,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i40, %69
   %indvars.iv27.i = phi i64 [ %indvars.iv.next28.i, %69 ], [ 0, %.lr.ph.i40 ]
-  %indvars67 = trunc i64 %indvars.iv27.i to i32
+  %indvars67 = trunc nuw nsw i64 %indvars.iv27.i to i32
   %57 = load ptr, ptr @saved_usable_gpus, align 8
   %58 = tail call i32 @slurm_bit_test(ptr noundef %57, i64 noundef %indvars.iv27.i) #11
   %.not21.us.i = icmp eq i32 %58, 0
@@ -369,7 +369,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i40, %.lr.ph.split.i
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.lr.ph.split.i ], [ 0, %.lr.ph.i40 ]
-  %indvars66 = trunc i64 %indvars.iv.i41 to i32
+  %indvars66 = trunc nuw nsw i64 %indvars.iv.i41 to i32
   %73 = load ptr, ptr @gpus, align 8
   %74 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %73, i64 %indvars.iv.i41, i32 3
   tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %74, i32 noundef %indvars66)
@@ -409,7 +409,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_energy_p_get_data(i32 noundef
 
 .lr.ph.i45:                                       ; preds = %91, %.lr.ph.i45
   %indvars.iv.i46 = phi i64 [ %indvars.iv.next.i47, %.lr.ph.i45 ], [ 0, %91 ]
-  %93 = trunc nuw i64 %indvars.iv.i46 to i32
+  %93 = trunc nuw nsw i64 %indvars.iv.i46 to i32
   %94 = load ptr, ptr @gpus, align 8
   %95 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %94, i64 %indvars.iv.i46, i32 3
   tail call fastcc void @_add_energy(ptr noundef nonnull %1, ptr noundef nonnull %95, i32 noundef %93)
@@ -855,7 +855,7 @@ _running_profile.exit:                            ; preds = %0, %10
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %17 ]
-  %23 = trunc nuw i64 %indvars.iv to i32
+  %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call ptr (ptr, ...) @slurm_xstrdup_printf(ptr noundef nonnull @.str.27, i32 noundef %23) #11
   %25 = getelementptr inbounds nuw %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv
   store ptr %24, ptr %25, align 16
@@ -967,7 +967,7 @@ _running_profile.exit:                            ; preds = %0, %10
 
 70:                                               ; preds = %.lr.ph45, %67
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %71 = trunc nuw i64 %indvars.iv.next58 to i32
+  %71 = trunc nuw nsw i64 %indvars.iv.next58 to i32
   %72 = load i16, ptr @gpus_len, align 2
   %73 = zext i16 %72 to i64
   %74 = icmp samesign ult i64 %indvars.iv.next58, %73
@@ -1255,7 +1255,7 @@ define internal noalias noundef ptr @_thread_gpu_run(ptr readnone captures(none)
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %87
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %87 ], [ 0, %.lr.ph ]
-  %46 = trunc nuw i64 %indvars.iv.i to i32
+  %46 = trunc nuw nsw i64 %indvars.iv.i to i32
   %47 = load ptr, ptr @gpus, align 8
   %48 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %47, i64 %indvars.iv.i
   %49 = call i32 @gpu_g_energy_read(i32 noundef %46, ptr noundef %48) #11
@@ -1353,7 +1353,7 @@ _update_energy.exit.i:                            ; preds = %82, %76
   br i1 %98, label %99, label %109
 
 99:                                               ; preds = %.lr.ph19.i
-  %indvars32 = trunc i64 %indvars.iv23.i to i32
+  %indvars32 = trunc nuw nsw i64 %indvars.iv23.i to i32
   %100 = load ptr, ptr @gpus, align 8
   %101 = getelementptr inbounds nuw %struct.gpu_status_t, ptr %100, i64 %indvars.iv23.i, i32 3
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 24

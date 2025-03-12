@@ -1484,7 +1484,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
 
 78:                                               ; preds = %70
   %79 = lshr i64 %37, 38
-  %80 = trunc nuw i64 %79 to i8
+  %80 = trunc nuw nsw i64 %79 to i8
   %81 = or disjoint i8 %80, -64
   store i8 %81, ptr %.sroa.013.0, align 1, !alias.scope !130
   %82 = trunc i64 %.sroa.5.0.extract.shift.i to i8
@@ -1496,7 +1496,7 @@ _ZN16wasmtime_runtime9component8libcalls17assert_no_overlap17hec5426d07a251dedE.
 
 86:                                               ; preds = %72
   %87 = lshr i64 %37, 44
-  %88 = trunc nuw i64 %87 to i8
+  %88 = trunc nuw nsw i64 %87 to i8
   %89 = or disjoint i8 %88, -32
   store i8 %89, ptr %.sroa.013.0, align 1, !alias.scope !130
   %90 = lshr i64 %37, 38

@@ -199,7 +199,7 @@ define dso_local void @mp_encode_bytes(ptr noundef %0, ptr noundef captures(none
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = trunc nuw i64 %3 to i8
+  %10 = trunc nuw nsw i64 %3 to i8
   %11 = or disjoint i8 %10, -96
   store i8 %11, ptr %7, align 1, !tbaa !4
   br label %30
@@ -524,7 +524,7 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i64 %2 to i8
+  %10 = trunc nuw nsw i64 %2 to i8
   store i8 %10, ptr %5, align 1, !tbaa !4
   br label %87
 
@@ -627,7 +627,7 @@ define dso_local void @mp_encode_int(ptr noundef %0, ptr noundef captures(none) 
 
 53:                                               ; preds = %51
   store i8 -48, ptr %5, align 1, !tbaa !4
-  %54 = trunc i64 %2 to i8
+  %54 = trunc nsw i64 %2 to i8
   %.1..1..1..sroa_idx90 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %54, ptr %.1..1..1..sroa_idx90, align 1, !tbaa !4
   br label %87
@@ -771,7 +771,7 @@ define dso_local void @mp_encode_array(ptr noundef %0, ptr noundef captures(none
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = trunc nuw i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, -112
   store i8 %9, ptr %5, align 1, !tbaa !4
   br label %24
@@ -876,7 +876,7 @@ define dso_local void @mp_encode_map(ptr noundef %0, ptr noundef captures(none) 
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = trunc nuw i64 %2 to i8
+  %8 = trunc nuw nsw i64 %2 to i8
   %9 = or disjoint i8 %8, -128
   store i8 %9, ptr %5, align 1, !tbaa !4
   br label %24

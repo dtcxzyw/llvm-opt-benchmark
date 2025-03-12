@@ -586,7 +586,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 .thread1.i.i:                                     ; preds = %13
   %17 = lshr i32 %1, 6
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -64
   store i8 %19, ptr %8, align 4, !alias.scope !119, !noalias !116
   %20 = trunc i32 %1 to i8
@@ -598,7 +598,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
 
 24:                                               ; preds = %15
   %25 = lshr i32 %1, 12
-  %26 = trunc nuw i32 %25 to i8
+  %26 = trunc nuw nsw i32 %25 to i8
   %27 = or disjoint i8 %26, -32
   store i8 %27, ptr %8, align 4, !alias.scope !119, !noalias !116
   %28 = lshr i32 %1, 6
@@ -1019,7 +1019,7 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
 
 216:                                              ; preds = %210
   %217 = lshr i32 %1, 6
-  %218 = trunc nuw i32 %217 to i8
+  %218 = trunc nuw nsw i32 %217 to i8
   %219 = or disjoint i8 %218, -64
   store i8 %219, ptr %.sroa.0.i.i, align 4, !alias.scope !183, !noalias !186
   %220 = trunc i32 %1 to i8
@@ -1031,7 +1031,7 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
 
 223:                                              ; preds = %211
   %224 = lshr i32 %1, 12
-  %225 = trunc nuw i32 %224 to i8
+  %225 = trunc nuw nsw i32 %224 to i8
   %226 = or disjoint i8 %225, -32
   store i8 %226, ptr %.sroa.0.i.i, align 4, !alias.scope !183, !noalias !186
   %227 = lshr i32 %1, 6

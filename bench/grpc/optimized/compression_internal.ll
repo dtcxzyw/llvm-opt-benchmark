@@ -468,7 +468,7 @@ define void @_ZN9grpc_core23CompressionAlgorithmSetC2ESt16initializer_listI26grp
   br i1 %7, label %8, label %_ZN9grpc_core23CompressionAlgorithmSet3SetE26grpc_compression_algorithm.exit
 
 8:                                                ; preds = %.lr.ph
-  %9 = trunc nuw i32 %6 to i8
+  %9 = trunc nuw nsw i32 %6 to i8
   %10 = shl nuw nsw i8 1, %9
   %11 = or i8 %5, %10
   store i8 %11, ptr %0, align 1, !tbaa !6
@@ -487,7 +487,7 @@ define void @_ZN9grpc_core23CompressionAlgorithmSet3SetE26grpc_compression_algor
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = shl nuw nsw i8 1, %5
   %7 = load i8, ptr %0, align 1, !tbaa !6
   %8 = or i8 %7, %6
@@ -502,7 +502,7 @@ define void @_ZN9grpc_core23CompressionAlgorithmSet3SetE26grpc_compression_algor
 define noundef zeroext i1 @_ZNK9grpc_core23CompressionAlgorithmSet5IsSetE26grpc_compression_algorithm(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0, i32 noundef %1) local_unnamed_addr #14 align 2 {
   %3 = icmp ult i32 %1, 3
   %4 = load i8, ptr %0, align 1
-  %5 = trunc nuw i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = shl nuw nsw i8 1, %5
   %7 = and i8 %4, %6
   %8 = icmp ne i8 %7, 0

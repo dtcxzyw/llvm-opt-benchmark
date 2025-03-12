@@ -1959,7 +1959,7 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.594110 = phi i64 [ %51, %50 ], [ %.089, %45 ]
   %52 = getelementptr inbounds nuw i8, ptr %.076, i64 %47
   %53 = getelementptr inbounds nuw i8, ptr %.079, i64 %47
-  %54 = trunc i64 %.594110 to i32
+  %54 = trunc nuw nsw i64 %.594110 to i32
   %55 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %54) #10
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %57 = load i16, ptr %56, align 4
@@ -2081,7 +2081,7 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
   br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %27 = trunc i64 %22 to i32
+  %27 = trunc nuw nsw i64 %22 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -2121,7 +2121,7 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
   %.35370 = phi i64 [ %38, %37 ], [ %.050, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %.048, i64 %34
   %40 = getelementptr inbounds nuw i8, ptr %.054, i64 %34
-  %41 = trunc i64 %.35370 to i32
+  %41 = trunc nuw nsw i64 %.35370 to i32
   %42 = tail call i32 @EVP_CIPHER_CTX_set_num(ptr noundef %0, i32 noundef %41) #10
   tail call void @padlock_reload_key() #10
   tail call void @padlock_aes_block(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %10) #10

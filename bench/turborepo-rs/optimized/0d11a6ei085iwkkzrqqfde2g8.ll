@@ -521,7 +521,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %.sroa.04.037.i = phi i16 [ %16, %.thread.i ], [ %.sroa.04.0.in.i, %26 ]
   %.sroa.010.136.i = phi i64 [ 1, %.thread.i ], [ %.sroa.010.1.i, %26 ]
   %36 = add nsw i64 %.sroa.010.136.i, -1
-  %37 = trunc nuw i16 %.sroa.04.037.i to i8
+  %37 = trunc nuw nsw i16 %.sroa.04.037.i to i8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = or disjoint i8 %37, 48
   store i8 %39, ptr %38, align 1, !alias.scope !18

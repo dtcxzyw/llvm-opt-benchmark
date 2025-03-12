@@ -990,7 +990,7 @@ lex_next.exit87:                                  ; preds = %308, %312
 
 lj_buf_more.exit122.i:                            ; preds = %323, %315
   %.0.i121.i = phi ptr [ %324, %323 ], [ %317, %315 ]
-  %325 = trunc i32 %63 to i8
+  %325 = trunc nuw nsw i32 %63 to i8
   %326 = getelementptr inbounds nuw i8, ptr %.0.i121.i, i64 1
   store i8 %325, ptr %.0.i121.i, align 1, !tbaa !29
   store ptr %326, ptr %3, align 8, !tbaa !53
@@ -1293,7 +1293,7 @@ lex_next.exit95.i:                                ; preds = %448, %444
 
 lj_buf_more.exit116.i:                            ; preds = %464, %455
   %.0.i115.i = phi ptr [ %465, %464 ], [ %458, %455 ]
-  %466 = trunc i32 %456 to i8
+  %466 = trunc nuw nsw i32 %456 to i8
   %467 = or i8 %466, -64
   store i8 %467, ptr %.0.i115.i, align 1, !tbaa !29
   br label %524
@@ -1319,7 +1319,7 @@ lj_buf_more.exit116.i:                            ; preds = %464, %455
 
 lj_buf_more.exit114.i:                            ; preds = %479, %470
   %.0.i113.i = phi ptr [ %480, %479 ], [ %473, %470 ]
-  %481 = trunc i32 %471 to i8
+  %481 = trunc nuw nsw i32 %471 to i8
   %482 = or i8 %481, -16
   %483 = getelementptr inbounds nuw i8, ptr %.0.i113.i, i64 1
   store i8 %482, ptr %.0.i113.i, align 1, !tbaa !29
@@ -1367,7 +1367,7 @@ lj_buf_more.exit112.i:                            ; preds = %491, %lj_buf_more.e
 
 lj_buf_more.exit110.i:                            ; preds = %507, %498
   %.0.i109.i = phi ptr [ %508, %507 ], [ %501, %498 ]
-  %509 = trunc nuw i32 %499 to i8
+  %509 = trunc nuw nsw i32 %499 to i8
   %510 = or disjoint i8 %509, -32
   store i8 %510, ptr %.0.i109.i, align 1, !tbaa !29
   br label %511
@@ -2801,7 +2801,7 @@ lex_newline.exit40:                               ; preds = %155
 
 lj_buf_more.exit31:                               ; preds = %165, %173
   %.0.i30 = phi ptr [ %174, %173 ], [ %167, %165 ]
-  %175 = trunc i32 %67 to i8
+  %175 = trunc nuw i32 %67 to i8
   %176 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 1
   store i8 %175, ptr %.0.i30, align 1, !tbaa !29
   store ptr %176, ptr %6, align 8, !tbaa !53

@@ -359,18 +359,18 @@ define noundef ptr @lv_tlsf_add_pool(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %8
-  %15 = trunc nuw i64 %12 to i32
+  %15 = trunc nuw nsw i64 %12 to i32
   %16 = lshr i32 %15, 3
   br label %mapping_insert.exit.i
 
 17:                                               ; preds = %8
   %18 = and i64 %12, -8
-  %19 = trunc nuw i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %21 = sub nuw nsw i32 26, %20
   %22 = zext nneg i32 %21 to i64
   %23 = lshr i64 %18, %22
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = xor i32 %24, 32
   %26 = sub nuw nsw i32 24, %20
   br label %mapping_insert.exit.i
@@ -472,7 +472,7 @@ block_next.exit14:                                ; preds = %block_next.exit
   br i1 %20, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = trunc nuw i64 %.val9 to i32
+  %22 = trunc nuw nsw i64 %.val9 to i32
   %23 = lshr i32 %22, 3
   br label %mapping_insert.exit
 
@@ -648,18 +648,18 @@ lv_tlsf_create.exit:                              ; preds = %13, %2
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %19
-  %26 = trunc nuw i64 %23 to i32
+  %26 = trunc nuw nsw i64 %23 to i32
   %27 = lshr i32 %26, 3
   br label %mapping_insert.exit.i.i
 
 28:                                               ; preds = %19
   %29 = and i64 %23, -8
-  %30 = trunc nuw i64 %29 to i32
+  %30 = trunc nuw nsw i64 %29 to i32
   %31 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %30, i1 true)
   %32 = sub nuw nsw i32 26, %31
   %33 = zext nneg i32 %32 to i64
   %34 = lshr i64 %29, %33
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw nsw i64 %34 to i32
   %36 = xor i32 %35, 32
   %37 = sub nuw nsw i32 24, %31
   br label %mapping_insert.exit.i.i
@@ -759,12 +759,12 @@ mapping_search.exit:                              ; preds = %3
   %8 = xor i32 %notmask.i, -1
   %9 = zext nneg i32 %8 to i64
   %10 = add nuw nsw i64 %1, %9
-  %11 = trunc nuw i64 %10 to i32
+  %11 = trunc nuw nsw i64 %10 to i32
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %13 = sub nuw nsw i32 26, %12
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %10, %14
-  %16 = trunc nuw i64 %15 to i32
+  %16 = trunc nuw nsw i64 %15 to i32
   %17 = xor i32 %16, 32
   %18 = sub nuw nsw i32 24, %12
   %19 = icmp samesign ult i64 %10, 65536
@@ -988,7 +988,7 @@ block_link_next.exit.i:                           ; preds = %block_split.exit.i
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %block_link_next.exit.i
-  %52 = trunc nuw i64 %42 to i32
+  %52 = trunc nuw nsw i64 %42 to i32
   %53 = lshr i32 %52, 3
   br label %mapping_insert.exit.i.i
 
@@ -1241,7 +1241,7 @@ block_link_next.exit.i:                           ; preds = %block_split.exit.i
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %block_link_next.exit.i
-  %86 = trunc nuw i64 %.val.i.i.i to i32
+  %86 = trunc nuw nsw i64 %.val.i.i.i to i32
   %87 = lshr i32 %86, 3
   br label %mapping_insert.exit.i.i
 
@@ -1490,7 +1490,7 @@ block_merge_prev.exit:                            ; preds = %block_mark_as_free.
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %block_merge_prev.exit
-  %85 = trunc nuw i64 %.val.i15 to i32
+  %85 = trunc nuw nsw i64 %.val.i15 to i32
   %86 = lshr i32 %85, 3
   br label %mapping_insert.exit.i
 
@@ -1886,7 +1886,7 @@ block_split.exit.i:                               ; preds = %79
   br i1 %95, label %96, label %99
 
 96:                                               ; preds = %block_split.exit.i
-  %97 = trunc nuw i64 %.val.i.i69 to i32
+  %97 = trunc nuw nsw i64 %.val.i.i69 to i32
   %98 = lshr i32 %97, 3
   br label %mapping_insert.exit.i.i
 

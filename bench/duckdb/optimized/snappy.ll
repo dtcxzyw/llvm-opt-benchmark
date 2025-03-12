@@ -437,7 +437,7 @@ define noundef ptr @_ZN13duckdb_snappy8internal16CompressFragmentEPKcmPcPti(ptr 
   br i1 %91, label %92, label %94
 
 92:                                               ; preds = %90
-  %.tr.i = trunc i32 %83 to i8
+  %.tr.i = trunc nuw nsw i32 %83 to i8
   %93 = shl nuw i8 %.tr.i, 2
   br label %103
 
@@ -1207,7 +1207,7 @@ _ZN13duckdb_snappy8internalL20FindMatchLengthPlainEPKcS2_S2_.exit268: ; preds = 
   br i1 %202, label %203, label %205
 
 203:                                              ; preds = %201
-  %.tr.i = trunc i32 %194 to i8
+  %.tr.i = trunc nuw nsw i32 %194 to i8
   %204 = shl nuw i8 %.tr.i, 2
   br label %214
 

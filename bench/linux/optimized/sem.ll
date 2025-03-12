@@ -4792,7 +4792,7 @@ define internal fastcc range(i32 -34, 2) i32 @perform_atomic_semop_slow(ptr noun
   br i1 %52, label %.thread, label %.thread12
 
 .thread:                                          ; preds = %44
-  %53 = trunc i32 %50 to i16
+  %53 = trunc nsw i32 %50 to i16
   store i16 %53, ptr %47, align 2
   br label %54
 

@@ -857,7 +857,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_112appendResultEPDsii
 
 57:                                               ; preds = %54
   %58 = lshr i32 %.071, 10
-  %59 = trunc nuw i32 %58 to i16
+  %59 = trunc nuw nsw i32 %58 to i16
   %60 = add nuw nsw i16 %59, -10304
   %61 = sext i32 %1 to i64
   %62 = getelementptr inbounds i16, ptr %0, i64 %61

@@ -18060,7 +18060,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %29, %27, %23, %19, 
   br label %68
 
 65:                                               ; preds = %._crit_edge.i.i6
-  %66 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %66 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %67 = or disjoint i8 %66, 48
   br label %68
 
@@ -36601,7 +36601,7 @@ define linkonce_odr dso_local void @_ZN4crow9websocket10ConnectionINS_13SocketAd
 
 12:                                               ; preds = %2
   %.sink26.i.sroa.gep15 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  %13 = trunc nuw i64 %8 to i8
+  %13 = trunc nuw nsw i64 %8 to i8
   %.1..1..1..1..sroa_idx23 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %13, ptr %.1..1..1..1..sroa_idx23, align 1, !tbaa !14, !noalias !964
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -38091,7 +38091,7 @@ _ZNKSt8functionIFvRN4crow9websocket10connectionERKNSt7__cxx1112basic_stringIcSt1
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %25
-  %32 = trunc nuw i64 %29 to i8
+  %32 = trunc nuw nsw i64 %29 to i8
   %.1..1..1..1..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %32, ptr %.1..1..1..1..sroa_idx, align 1, !tbaa !14, !noalias !987
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -42813,7 +42813,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %108, %106, %102, %9
   br label %_ZNSt7__cxx119to_stringEl.exit
 
 144:                                              ; preds = %._crit_edge.i.i
-  %145 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %145 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %146 = or disjoint i8 %145, 48
   br label %_ZNSt7__cxx119to_stringEl.exit
 
@@ -42980,7 +42980,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i144: ; preds = %185, %183, %179, %1
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 221:                                              ; preds = %._crit_edge.i.i146
-  %222 = trunc nuw i64 %.0.lcssa.i.i147 to i8
+  %222 = trunc nuw nsw i64 %.0.lcssa.i.i147 to i8
   %223 = or disjoint i8 %222, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -57615,7 +57615,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %62, %60, %56, %52, 
   br label %101
 
 98:                                               ; preds = %._crit_edge.i.i14
-  %99 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %99 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %100 = or disjoint i8 %99, 48
   br label %101
 
@@ -100299,7 +100299,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %724, %722, %718, %7
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 760:                                              ; preds = %._crit_edge.i.i297
-  %761 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %761 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %762 = or disjoint i8 %761, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 

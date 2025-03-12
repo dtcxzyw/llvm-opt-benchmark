@@ -4488,7 +4488,7 @@ define dso_local void @bio_trim(ptr noundef captures(none) %0, i64 noundef %1, i
   br i1 %19, label %27, label %20
 
 20:                                               ; preds = %14
-  %21 = trunc nuw i64 %1 to i32
+  %21 = trunc nuw nsw i64 %1 to i32
   %22 = shl nuw i32 %21, 9
   %23 = icmp eq i32 %9, %22
   br i1 %23, label %25, label %24

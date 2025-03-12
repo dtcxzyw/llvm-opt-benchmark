@@ -11367,7 +11367,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit466: ; preds =
   %1885 = add nuw nsw i32 %1884, 1024
   %1886 = add nsw i32 %1884, -56613888
   %1887 = lshr i32 %1886, 18
-  %1888 = trunc i32 %1887 to i8
+  %1888 = trunc nuw nsw i32 %1887 to i8
   %1889 = or i8 %1888, -16
   %1890 = getelementptr inbounds nuw i8, ptr %.0.i741, i64 1
   store i8 %1889, ptr %.0.i741, align 1, !tbaa !75
@@ -13272,7 +13272,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit859: ; preds = %2184
   %2782 = add nuw nsw i32 %2781, 1024
   %2783 = add nsw i32 %2781, -56613888
   %2784 = lshr i32 %2783, 18
-  %2785 = trunc i32 %2784 to i8
+  %2785 = trunc nuw nsw i32 %2784 to i8
   %2786 = or i8 %2785, -16
   %2787 = getelementptr inbounds nuw i8, ptr %.0.i825, i64 1
   store i8 %2786, ptr %.0.i825, align 1, !tbaa !75
@@ -14459,7 +14459,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit851: ; preds =
   %3387 = add nuw nsw i32 %3386, 1024
   %3388 = add nsw i32 %3386, -56613888
   %3389 = lshr i32 %3388, 18
-  %3390 = trunc i32 %3389 to i8
+  %3390 = trunc nuw nsw i32 %3389 to i8
   %3391 = or i8 %3390, -16
   %3392 = getelementptr inbounds nuw i8, ptr %.0.i783, i64 1
   store i8 %3391, ptr %.0.i783, align 1, !tbaa !75
@@ -21594,7 +21594,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %6
   %6919 = add nuw nsw i32 %6918, 1024
   %6920 = add nsw i32 %6918, -56613888
   %6921 = lshr i32 %6920, 18
-  %6922 = trunc i32 %6921 to i8
+  %6922 = trunc nuw nsw i32 %6921 to i8
   %6923 = or i8 %6922, -16
   %6924 = getelementptr inbounds nuw i8, ptr %.0.i626, i64 1
   store i8 %6923, ptr %.0.i626, align 1, !tbaa !75
@@ -23279,7 +23279,7 @@ _ZN13duckdb_yyjsonL9read_nullEPPhPNS_10yyjson_valE.exit: ; preds = %7218
   %7742 = add nuw nsw i32 %7741, 1024
   %7743 = add nsw i32 %7741, -56613888
   %7744 = lshr i32 %7743, 18
-  %7745 = trunc i32 %7744 to i8
+  %7745 = trunc nuw nsw i32 %7744 to i8
   %7746 = or i8 %7745, -16
   %7747 = getelementptr inbounds nuw i8, ptr %.0.i699, i64 1
   store i8 %7746, ptr %.0.i699, align 1, !tbaa !75
@@ -24454,7 +24454,7 @@ _ZN13duckdb_yyjsonL11read_stringEPPhS0_bPNS_10yyjson_valEPPKc.exit725: ; preds =
   %8346 = add nuw nsw i32 %8345, 1024
   %8347 = add nsw i32 %8345, -56613888
   %8348 = lshr i32 %8347, 18
-  %8349 = trunc i32 %8348 to i8
+  %8349 = trunc nuw nsw i32 %8348 to i8
   %8350 = or i8 %8349, -16
   %8351 = getelementptr inbounds nuw i8, ptr %.0.i657, i64 1
   store i8 %8350, ptr %.0.i657, align 1, !tbaa !75
@@ -31625,7 +31625,7 @@ _ZN13duckdb_yyjsonL11read_numberEPPhS1_jPNS_10yyjson_valEPPKc.exit: ; preds = %1
   %1659 = add nuw nsw i32 %1658, 1024
   %1660 = add nsw i32 %1658, -56613888
   %1661 = lshr i32 %1660, 18
-  %1662 = trunc i32 %1661 to i8
+  %1662 = trunc nuw nsw i32 %1661 to i8
   %1663 = or i8 %1662, -16
   %1664 = getelementptr inbounds nuw i8, ptr %.0.i151, i64 1
   store i8 %1663, ptr %.0.i151, align 1, !tbaa !75

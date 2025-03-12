@@ -2709,7 +2709,7 @@ _ZN5boost10shared_ptrIKNS_15program_options14value_semanticEED2Ev.exit279: ; pre
   br i1 %570, label %571, label %.critedge
 
 571:                                              ; preds = %560
-  %572 = trunc i64 %568 to i32
+  %572 = trunc nuw i64 %568 to i32
   %573 = sub i32 %538, %572
   %.not169417 = icmp eq i32 %573, 0
   br i1 %.not169417, label %.critedge, label %.lr.ph422
@@ -7129,7 +7129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit121: ; preds = %_Z
 .lr.ph249:                                        ; preds = %215
   %217 = zext i32 %104 to i64
   %.not = icmp ugt i64 %160, %217
-  %218 = trunc i64 %160 to i32
+  %218 = trunc nuw i64 %160 to i32
   %219 = sub i32 %104, %218
   %220 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %221 = getelementptr inbounds nuw i8, ptr %21, i64 16

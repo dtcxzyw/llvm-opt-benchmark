@@ -63209,7 +63209,7 @@ define noundef zeroext i1 @_ZN7glslang16HlslParseContext20setTextureReturnTypeER
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  %159 = trunc nuw i64 %86 to i32
+  %159 = trunc nuw nsw i64 %86 to i32
   %160 = load i32, ptr %1, align 4
   %161 = shl nuw nsw i32 %159, 25
   %162 = and i32 %160, -503316481
@@ -71301,7 +71301,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i32 %.0.lcssa.i to i8
+  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -71432,7 +71432,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i32 %.0.lcssa.i to i8
+  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

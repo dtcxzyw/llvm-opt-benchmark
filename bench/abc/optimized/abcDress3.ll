@@ -549,7 +549,7 @@ Vec_IntAlloc.exit:                                ; preds = %Vec_IntStartNatural
   br i1 %30, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader.loopexit:                     ; preds = %.lr.ph
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nsw i64 %indvars.iv.next to i32
   %.val113170.pre = load ptr, ptr %19, align 8, !tbaa !33
   %.phi.trans.insert = getelementptr i8, ptr %.val113170.pre, i64 4
   %.val113.val171.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !34

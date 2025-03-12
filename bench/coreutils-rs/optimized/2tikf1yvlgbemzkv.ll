@@ -408,7 +408,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge: ; preds = %148, 
 
 155:                                              ; preds = %151
   %156 = lshr i32 %.0.i126256, 6
-  %157 = trunc nuw i32 %156 to i8
+  %157 = trunc nuw nsw i32 %156 to i8
   %158 = or disjoint i8 %157, -64
   store i8 %158, ptr %.sroa.0.i, align 4, !alias.scope !33, !noalias !30
   %159 = trunc i32 %.0.i126256 to i8
@@ -419,7 +419,7 @@ _ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge: ; preds = %148, 
 
 162:                                              ; preds = %153
   %163 = lshr i32 %.0.i126256, 12
-  %164 = trunc nuw i32 %163 to i8
+  %164 = trunc nuw nsw i32 %163 to i8
   %165 = or disjoint i8 %164, -32
   store i8 %165, ptr %.sroa.0.i, align 4, !alias.scope !33, !noalias !30
   %166 = lshr i32 %.0.i126256, 6
@@ -482,7 +482,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %17
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit.backedge
 
 .critedge.i:                                      ; preds = %149
-  %199 = trunc nuw i32 %.0.i126256 to i8
+  %199 = trunc nuw nsw i32 %.0.i126256 to i8
   %200 = load i64, ptr %.sroa.585.0..sroa_idx, align 8, !alias.scope !46, !noundef !4
   %201 = load i64, ptr %15, align 8, !alias.scope !46, !noundef !4
   %202 = icmp eq i64 %200, %201
@@ -1386,7 +1386,7 @@ _ZN5uu_od13parse_formats11format_type17h5604a84489e7d84aE.exit: ; preds = %77
   %173 = phi i64 [ %185, %.thread224 ], [ 0, %133 ]
   %.3265 = phi i32 [ %256, %.thread224 ], [ %126, %133 ]
   %.sroa.0.1264 = phi ptr [ %.sroa.0.7229, %.thread224 ], [ %.sroa.0.5207, %133 ]
-  %174 = trunc nuw i32 %.3265 to i8
+  %174 = trunc nuw nsw i32 %.3265 to i8
   %175 = load i64, ptr %20, align 8, !alias.scope !172, !noundef !4
   %176 = icmp eq i64 %173, %175
   br i1 %176, label %177, label %180

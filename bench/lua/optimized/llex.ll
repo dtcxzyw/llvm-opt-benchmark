@@ -1081,7 +1081,7 @@ save.exit.i:                                      ; preds = %301, %._crit_edge.i
   %.pre-phi.i.i = phi i64 [ %294, %._crit_edge.i.i ], [ %.pre16.i.i, %301 ]
   %307 = phi i64 [ %293, %._crit_edge.i.i ], [ %.pre15.i.i, %301 ]
   %308 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %306, %301 ]
-  %309 = trunc i32 %10 to i8
+  %309 = trunc nuw nsw i32 %10 to i8
   store i64 %.pre-phi.i.i, ptr %292, align 8, !tbaa !28
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 %307
   store i8 %309, ptr %310, align 1, !tbaa !13
@@ -3469,7 +3469,7 @@ save.exit.i:                                      ; preds = %66, %._crit_edge.i.
   %.pre-phi.i.i = phi i64 [ %59, %._crit_edge.i.i ], [ %.pre16.i.i, %66 ]
   %71 = phi i64 [ %58, %._crit_edge.i.i ], [ %.pre15.i.i, %66 ]
   %72 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %70, %66 ]
-  %73 = trunc i32 %49 to i8
+  %73 = trunc nsw i32 %49 to i8
   store i64 %.pre-phi.i.i, ptr %57, align 8, !tbaa !28
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 %71
   store i8 %73, ptr %74, align 1, !tbaa !13
@@ -3888,7 +3888,7 @@ save.exit:                                        ; preds = %._crit_edge.i, %24
   %.pre-phi.i = phi i64 [ %17, %._crit_edge.i ], [ %.pre16.i, %24 ]
   %30 = phi i64 [ %16, %._crit_edge.i ], [ %.pre15.i, %24 ]
   %31 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %29, %24 ]
-  %32 = trunc i32 %3 to i8
+  %32 = trunc nsw i32 %3 to i8
   store i64 %.pre-phi.i, ptr %15, align 8, !tbaa !28
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %30
   store i8 %32, ptr %33, align 1, !tbaa !13

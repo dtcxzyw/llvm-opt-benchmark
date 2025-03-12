@@ -160,7 +160,7 @@ _ZL12asciiCaseMapca.exit224.us:                   ; preds = %51
   br i1 %.not211, label %_ZL12asciiCaseMapca.exit, label %75
 
 75:                                               ; preds = %74
-  %76 = trunc nuw i16 %64 to i8
+  %76 = trunc nuw nsw i16 %64 to i8
   %77 = getelementptr inbounds i8, ptr %4, i64 %65
   %78 = load i8, ptr %77, align 1, !tbaa !13
   %.not.i = icmp eq i8 %78, 0
@@ -269,7 +269,7 @@ _ZL12asciiCaseMapca.exit:                         ; preds = %74, %82, %79
   br i1 %130, label %131, label %144
 
 131:                                              ; preds = %128
-  %132 = trunc nuw i16 %125 to i8
+  %132 = trunc nuw nsw i16 %125 to i8
   %133 = getelementptr inbounds i8, ptr %4, i64 %123
   %134 = load i8, ptr %133, align 1, !tbaa !13
   %.not.i218 = icmp eq i8 %134, 0

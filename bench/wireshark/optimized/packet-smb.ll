@@ -14652,7 +14652,7 @@ proto_item_set_generated.exit508:                 ; preds = %proto_item_set_gene
   br i1 %.not487, label %proto_item_set_generated.exit526, label %218
 
 218:                                              ; preds = %216
-  %219 = trunc i32 %217 to i16
+  %219 = trunc nuw i32 %217 to i16
   %220 = sub i16 %153, %219
   %221 = load i32, ptr @hf_bytes_until_total_data_count, align 4
   %222 = zext i16 %220 to i32
@@ -20775,7 +20775,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
 203:                                              ; preds = %200
   call fastcc void @dissect_nt_trans_param_request(ptr noundef %0, ptr noundef %1, i32 noundef %.8, ptr noundef %2, i32 noundef %.0283, i16 noundef zeroext %.1297, ptr noundef %.0292, ptr noundef %5, i32 noundef %.0301, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %204 = add i32 %.8, %.0283
-  %205 = trunc i32 %.0283 to i16
+  %205 = trunc nuw i32 %.0283 to i16
   %206 = sub i16 %.1297, %205
   br label %207
 
@@ -20812,7 +20812,7 @@ dissect_nt_trans_setup_request.exit:              ; preds = %126, %130, %143
   %223 = load i32, ptr %8, align 4
   call fastcc void @dissect_nt_trans_data_request(ptr noundef %0, ptr noundef %1, i32 noundef %.10, ptr noundef %2, i32 noundef %.0285, ptr noundef %.0292, i32 noundef %.0301, i32 noundef %222, i32 noundef %223)
   %224 = add i32 %.10, %.0285
-  %225 = trunc i32 %.0285 to i16
+  %225 = trunc nuw i32 %.0285 to i16
   %226 = sub i16 %.3299, %225
   br label %227
 
@@ -21102,7 +21102,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 144:                                              ; preds = %141
   call fastcc void @dissect_nt_trans_param_response(ptr noundef %0, ptr noundef %1, i32 noundef %.3, ptr noundef %2, i32 noundef %.0244, i16 noundef zeroext %.1256, ptr noundef %5)
   %145 = add i32 %.3, %.0244
-  %146 = trunc i32 %.0244 to i16
+  %146 = trunc nuw i32 %.0244 to i16
   %147 = sub i16 %.1256, %146
   br label %148
 
@@ -21137,7 +21137,7 @@ dissect_nt_trans_setup_response.exit:             ; preds = %88, %90, %95
 162:                                              ; preds = %159
   call fastcc void @dissect_nt_trans_data_response(ptr noundef %0, ptr noundef %1, i32 noundef %.5, ptr noundef %2, i32 noundef %.0247, ptr noundef %.0260295)
   %163 = add i32 %.5, %.0247
-  %164 = trunc i32 %.0247 to i16
+  %164 = trunc nuw i32 %.0247 to i16
   %165 = sub i16 %.3258, %164
   br label %166
 

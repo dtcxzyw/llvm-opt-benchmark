@@ -3747,7 +3747,7 @@ sane_qsort.exit:                                  ; preds = %.thread154, %._crit
 181:                                              ; preds = %177
   %182 = load ptr, ptr %14, align 8, !tbaa !49
   %.not76.i = icmp eq ptr %182, null
-  %183 = trunc i64 %173 to i32
+  %183 = trunc nuw i64 %173 to i32
   br i1 %.not76.i, label %st_sub.exit.i, label %184
 
 184:                                              ; preds = %181

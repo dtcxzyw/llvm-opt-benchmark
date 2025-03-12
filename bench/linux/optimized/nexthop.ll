@@ -6464,7 +6464,7 @@ define internal fastcc void @nh_res_table_upkeep(ptr noundef %0, i1 noundef zero
   %87 = load volatile ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %89 = load volatile ptr, ptr %88, align 8
-  %90 = trunc i64 %26 to i16
+  %90 = trunc nuw i64 %26 to i16
   %91 = call fastcc i32 @__call_nexthop_res_bucket_notifiers(ptr noundef %82, i32 noundef %83, i16 noundef zeroext %90, i1 noundef zeroext %.ph9, ptr noundef %87, ptr noundef %89, ptr noundef nonnull %4)
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %104, label %93
@@ -6526,7 +6526,7 @@ define internal fastcc void @nh_res_table_upkeep(ptr noundef %0, i1 noundef zero
   br i1 %124, label %133, label %125
 
 125:                                              ; preds = %119
-  %126 = trunc i64 %26 to i16
+  %126 = trunc nuw i64 %26 to i16
   %127 = call fastcc i32 @nh_fill_res_bucket(ptr noundef nonnull %123, ptr noundef %122, ptr noundef %28, i16 noundef zeroext %126, i32 noundef 0, i32 noundef 0, i32 noundef 256)
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %129, label %130
@@ -7935,7 +7935,7 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single_notify(pt
   br i1 %34, label %35, label %select.unfold
 
 35:                                               ; preds = %28
-  %36 = trunc i64 %30 to i16
+  %36 = trunc nuw i64 %30 to i16
   %37 = tail call fastcc i32 @__call_nexthop_res_bucket_notifiers(ptr noundef %0, i32 noundef %22, i16 noundef zeroext %36, i1 noundef zeroext true, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %.select.unfold_crit_edge, label %39

@@ -3037,7 +3037,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp4Ogre7SubMesh19ConvertToAssimpMeshE
 40:                                               ; preds = %29
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %30, i64 236
-  %43 = trunc nuw i64 %38 to i32
+  %43 = trunc nuw nsw i64 %38 to i32
   store i32 %43, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %45 = load ptr, ptr %41, align 8
@@ -4453,7 +4453,7 @@ _ZNSt3mapItSt6vectorI14aiVertexWeightSaIS1_EESt4lessItESaISt4pairIKtS3_EEE11lowe
 
 627:                                              ; preds = %.noexc389
   %628 = getelementptr inbounds nuw i8, ptr %spec.select.i379, i64 8
-  %629 = trunc nuw i64 %625 to i32
+  %629 = trunc nuw nsw i64 %625 to i32
   store i32 %629, ptr %622, align 4
   %630 = getelementptr inbounds nuw i8, ptr %622, i64 4
   %631 = load ptr, ptr %628, align 8
@@ -4778,7 +4778,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre9Animation24ConvertToA
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = trunc nuw i64 %12 to i32
+  %16 = trunc nuw nsw i64 %12 to i32
   store i32 %16, ptr %2, align 4
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load ptr, ptr %15, align 8
@@ -5420,7 +5420,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre4Bone19ConvertToAssimp
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = trunc nuw i64 %7 to i32
+  %11 = trunc nuw nsw i64 %7 to i32
   store i32 %11, ptr %4, align 4
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load ptr, ptr %10, align 8
@@ -6052,7 +6052,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre10SubMeshXml19ConvertT
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 236
-  %20 = trunc nuw i64 %15 to i32
+  %20 = trunc nuw nsw i64 %15 to i32
   store i32 %20, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 240
   %22 = load ptr, ptr %18, align 8
@@ -6550,7 +6550,7 @@ _ZNSt3mapItSt6vectorI14aiVertexWeightSaIS1_EESt4lessItESaISt4pairIKtS3_EEE11lowe
 
 254:                                              ; preds = %.noexc102
   %255 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
-  %256 = trunc nuw i64 %252 to i32
+  %256 = trunc nuw nsw i64 %252 to i32
   store i32 %256, ptr %249, align 4
   %257 = getelementptr inbounds nuw i8, ptr %249, i64 4
   %258 = load ptr, ptr %255, align 8
@@ -6983,7 +6983,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp4Ogre20VertexAnimationTrack
   br i1 %22, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %23
 
 23:                                               ; preds = %17
-  %24 = trunc nuw i64 %9 to i32
+  %24 = trunc nuw nsw i64 %9 to i32
   store i32 %24, ptr %18, align 4
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %26 = load ptr, ptr %7, align 8
@@ -7080,7 +7080,7 @@ _ZNK6Assimp4Ogre8Skeleton10BoneByNameERKNSt7__cxx1112basic_stringIcSt11char_trai
   store ptr %70, ptr %19, align 8
   %71 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %56) #33
   store ptr %71, ptr %21, align 8
-  %72 = trunc i64 %52 to i32
+  %72 = trunc nuw nsw i64 %52 to i32
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 1028
   store i32 %72, ptr %73, align 4
   %74 = getelementptr inbounds nuw i8, ptr %18, i64 1040

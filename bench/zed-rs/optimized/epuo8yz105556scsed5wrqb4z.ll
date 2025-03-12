@@ -30584,7 +30584,7 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %.body
 
 "_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit": ; preds = %"_ZN85_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61e28b2b08273975E.llvm.9059106379889279541.exit.i.i.i", %"_ZN4core3ptr120drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$call..room..Room..join..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h571869785f00ed44E.exit13", %55
-  %trunc = trunc i8 %32 to i1
+  %trunc = trunc nuw i8 %32 to i1
   br i1 %trunc, label %60, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6eb55556f78358b2E.exit"
 
 60:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit"
@@ -30813,7 +30813,7 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %.body
 
 "_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit": ; preds = %"_ZN85_$LT$futures_channel..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h61e28b2b08273975E.llvm.9059106379889279541.exit.i.i.i", %"_ZN4core3ptr157drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$call..ActiveCall..join_channel..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h745109d56d8b8ad5E.exit13", %55
-  %trunc = trunc i8 %32 to i1
+  %trunc = trunc nuw i8 %32 to i1
   br i1 %trunc, label %60, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6eb55556f78358b2E.exit"
 
 60:                                               ; preds = %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit"

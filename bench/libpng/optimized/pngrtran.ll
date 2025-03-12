@@ -1390,7 +1390,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %445, label %446, label %450
 
 446:                                              ; preds = %432
-  %447 = trunc i32 %441 to i8
+  %447 = trunc nuw i32 %441 to i8
   store i8 %447, ptr %442, align 1, !tbaa !27
   %448 = load ptr, ptr %396, align 8, !tbaa !89
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 %433

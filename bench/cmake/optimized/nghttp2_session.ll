@@ -9293,7 +9293,7 @@ inbound_frame_handle_pad.exit944:                 ; preds = %193
   %244 = load i8, ptr %48, align 1, !tbaa !111
   %245 = and i8 %244, 1
   store i8 %245, ptr %48, align 1, !tbaa !111
-  %.lhs.trunc = trunc i64 %147 to i32
+  %.lhs.trunc = trunc nuw i64 %147 to i32
   %246 = urem i32 %.lhs.trunc, 6
   %247 = udiv i32 %.lhs.trunc, 6
   %.not880 = icmp eq i32 %246, 0
@@ -12667,7 +12667,7 @@ nghttp2_session_enforce_flow_control_limits.exit: ; preds = %31, %.thread.i
   ]
 
 61:                                               ; preds = %51, %51, %51
-  %62 = trunc i64 %60 to i32
+  %62 = trunc nsw i64 %60 to i32
   br label %121
 
 63:                                               ; preds = %51

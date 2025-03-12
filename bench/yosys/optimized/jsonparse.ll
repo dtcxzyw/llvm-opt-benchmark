@@ -17465,7 +17465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %narrow = select i1 %70, i32 0, i32 %69
   %storemerge = sext i32 %narrow to i64
   store i64 %storemerge, ptr %11, align 8, !tbaa !51
-  %72 = trunc nuw i32 %12 to i8
+  %72 = trunc nuw nsw i32 %12 to i8
   %73 = load i64, ptr %7, align 8, !tbaa !43
   %74 = add i64 %73, 1
   %75 = load ptr, ptr %5, align 8, !tbaa !48

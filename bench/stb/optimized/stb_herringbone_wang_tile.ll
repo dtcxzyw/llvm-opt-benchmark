@@ -7051,7 +7051,7 @@ define range(i32 0, 2) i32 @stbhw_make_template(ptr noundef %0, ptr noundef %1, 
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %83, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !58
-  %91 = trunc nuw i32 %.364 to i8
+  %91 = trunc nuw nsw i32 %.364 to i8
   %92 = mul i8 %91, 55
   %93 = xor i8 %90, %92
   store i8 %93, ptr %89, align 1, !tbaa !58

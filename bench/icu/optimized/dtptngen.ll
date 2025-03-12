@@ -6421,7 +6421,7 @@ define linkonce_odr hidden void @_ZN6icu_7724DateTimePatternGenerator19AppendIte
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %16
-  %27 = trunc nuw i64 %indvars.iv26 to i16
+  %27 = trunc nuw nsw i64 %indvars.iv26 to i16
   %28 = or disjoint i16 %27, 48
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   store i16 %28, ptr %4, align 2, !tbaa !79

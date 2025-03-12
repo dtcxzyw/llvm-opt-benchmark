@@ -490,7 +490,7 @@ define hidden i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %or.cond8.i, label %setopt_long.exit, label %141
 
 141:                                              ; preds = %140
-  %142 = trunc nuw i64 %20 to i8
+  %142 = trunc nuw nsw i64 %20 to i8
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 2654
   store i8 %142, ptr %143, align 2, !tbaa !92
   br label %718
@@ -669,7 +669,7 @@ define hidden i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br label %setopt_long.exit
 
 237:                                              ; preds = %234
-  %238 = trunc nuw i64 %20 to i8
+  %238 = trunc nuw nsw i64 %20 to i8
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 2656
   store i8 %238, ptr %239, align 8, !tbaa !100
   br label %718
@@ -730,7 +730,7 @@ define hidden i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %or.cond22.i, label %setopt_long.exit, label %270
 
 270:                                              ; preds = %269
-  %271 = trunc nuw i64 %20 to i8
+  %271 = trunc nuw nsw i64 %20 to i8
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 1714
   store i8 %271, ptr %272, align 2, !tbaa !103
   br label %718
@@ -868,7 +868,7 @@ define hidden i32 @Curl_vsetopt(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   br i1 %or.cond28.i, label %setopt_long.exit, label %350
 
 350:                                              ; preds = %349
-  %351 = trunc nuw i64 %20 to i8
+  %351 = trunc nuw nsw i64 %20 to i8
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 1765
   store i8 %351, ptr %352, align 1, !tbaa !107
   br label %718

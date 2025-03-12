@@ -839,7 +839,7 @@ define dso_local range(i32 0, 2) i32 @intsetValidateIntegrity(ptr noundef readon
   br i1 %.not34, label %._crit_edge, label %17
 
 17:                                               ; preds = %16
-  %18 = trunc i32 %6 to i8
+  %18 = trunc nuw nsw i32 %6 to i8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i8 %18, label %23 [
     i8 8, label %20

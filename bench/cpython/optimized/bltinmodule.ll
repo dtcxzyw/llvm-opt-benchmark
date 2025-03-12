@@ -4287,7 +4287,7 @@ define internal ptr @builtin_chr(ptr readnone captures(none) %0, ptr noundef %1)
 
 17:                                               ; preds = %15, %.thread10, %11
   %.0 = phi i64 [ %14, %11 ], [ %spec.store.select, %.thread10 ], [ -2147483648, %15 ]
-  %18 = trunc i64 %.0 to i32
+  %18 = trunc nsw i64 %.0 to i32
   %19 = call ptr @PyUnicode_FromOrdinal(i32 noundef %18) #9
   br label %20
 

@@ -2482,7 +2482,7 @@ setLastError.exit51.i:                            ; preds = %146, %142
   br label %getAddrInfo.exit
 
 148:                                              ; preds = %131
-  %149 = trunc i64 %.0.ph.i to i32
+  %149 = trunc nuw i64 %.0.ph.i to i32
   %150 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 24

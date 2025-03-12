@@ -17362,7 +17362,7 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
   %137 = zext i8 %.0282331.i to i64
   %138 = getelementptr inbounds nuw [288 x i16], ptr %126, i64 0, i64 %137
   %139 = load i16, ptr %138, align 2, !tbaa !116
-  %140 = trunc nuw i32 %.0272332.i to i16
+  %140 = trunc nuw nsw i32 %.0272332.i to i16
   %141 = add i16 %139, %140
   store i16 %141, ptr %138, align 2, !tbaa !116
   br label %142
@@ -17424,7 +17424,7 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
 
 172:                                              ; preds = %170
   %173 = load i16, ptr %126, align 2, !tbaa !116
-  %174 = trunc nuw i32 %.0266333.i to i16
+  %174 = trunc nuw nsw i32 %.0266333.i to i16
   %175 = add i16 %173, %174
   store i16 %175, ptr %126, align 2, !tbaa !116
   br label %176
@@ -17488,7 +17488,7 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
   %201 = zext i8 %.0282331.i to i64
   %202 = getelementptr inbounds nuw [288 x i16], ptr %126, i64 0, i64 %201
   %203 = load i16, ptr %202, align 2, !tbaa !116
-  %204 = trunc nuw i32 %.0272332.i to i16
+  %204 = trunc nuw nsw i32 %.0272332.i to i16
   %205 = add i16 %203, %204
   store i16 %205, ptr %202, align 2, !tbaa !116
   br label %206
@@ -17572,7 +17572,7 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
   %245 = zext i8 %132 to i64
   %246 = getelementptr inbounds nuw [288 x i16], ptr %126, i64 0, i64 %245
   %247 = load i16, ptr %246, align 2, !tbaa !116
-  %248 = trunc nuw i32 %.3275.i to i16
+  %248 = trunc nuw nsw i32 %.3275.i to i16
   %249 = add i16 %247, %248
   store i16 %249, ptr %246, align 2, !tbaa !116
   br label %250
@@ -17614,7 +17614,7 @@ _ZN12duckdb_minizL28tdefl_optimize_huffman_tableEPNS_16tdefl_compressorEiiii.exi
 
 269:                                              ; preds = %267
   %270 = load i16, ptr %126, align 2, !tbaa !116
-  %271 = trunc nuw i32 %.2268.i to i16
+  %271 = trunc nuw nsw i32 %.2268.i to i16
   %272 = add i16 %270, %271
   store i16 %272, ptr %126, align 2, !tbaa !116
   br label %273

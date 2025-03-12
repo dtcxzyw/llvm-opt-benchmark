@@ -139,7 +139,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_4textIcEENS2_INS1_5fieldI
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %._crit_edge.i29.i.i.i
-  %38 = trunc nuw i32 %.0.lcssa.i31.i.i.i to i8
+  %38 = trunc nuw nsw i32 %.0.lcssa.i31.i.i.i to i8
   %39 = or disjoint i8 %38, 48
   %40 = getelementptr inbounds i8, ptr %.019.lcssa.i30.i.i.i, i64 -1
   store i8 %39, ptr %40, align 1, !tbaa !21
@@ -452,7 +452,7 @@ define linkonce_odr ptr @_ZNK3fmt2v86detail6concatINS1_5fieldIcmLi0EEENS2_INS1_4
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %._crit_edge.i29.i.i
-  %32 = trunc nuw i64 %.0.lcssa.i31.i.i to i8
+  %32 = trunc nuw nsw i64 %.0.lcssa.i31.i.i to i8
   %33 = or disjoint i8 %32, 48
   %34 = getelementptr inbounds i8, ptr %.019.lcssa.i30.i.i, i64 -1
   store i8 %33, ptr %34, align 1, !tbaa !21

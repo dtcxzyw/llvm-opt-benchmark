@@ -1818,7 +1818,7 @@ eval_nodes_set_max_tasks.exit.i63:                ; preds = %380, %378, %369, %3
   %534 = getelementptr inbounds nuw i8, ptr %503, i64 16
   %535 = load i32, ptr %534, align 8
   %.not56.i.i = icmp eq i32 %535, 0
-  %536 = trunc i64 %..i.i to i32
+  %536 = trunc nsw i64 %..i.i to i32
   %537 = and i32 %536, 65535
   br i1 %.not56.i.i, label %539, label %538
 
@@ -2412,7 +2412,7 @@ eval_nodes_set_max_tasks.exit.i80:                ; preds = %662, %660, %651, %6
   %807 = getelementptr inbounds nuw i8, ptr %778, i64 16
   %808 = load i32, ptr %807, align 8
   %.not56.i.i103 = icmp eq i32 %808, 0
-  %809 = trunc i64 %..i.i102 to i32
+  %809 = trunc nsw i64 %..i.i102 to i32
   %810 = and i32 %809, 65535
   br i1 %.not56.i.i103, label %812, label %811
 
@@ -4678,7 +4678,7 @@ define dso_local noundef zeroext i1 @eval_nodes_cpus_to_use(ptr noundef %0, i32 
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %49 = load i32, ptr %48, align 8
   %.not56 = icmp eq i32 %49, 0
-  %50 = trunc i64 %. to i32
+  %50 = trunc nsw i64 %. to i32
   %51 = and i32 %50, 65535
   br i1 %.not56, label %53, label %52
 

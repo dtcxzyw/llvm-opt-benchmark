@@ -578,7 +578,7 @@ _ZN7consoleL18pop_back_utf8_charERNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %155, label %156, label %169
 
 156:                                              ; preds = %153
-  %157 = trunc nuw i32 %95 to i8
+  %157 = trunc nuw nsw i32 %95 to i8
   %158 = add i64 %154, 1
   %159 = load ptr, ptr %0, align 8, !tbaa !49
   %160 = icmp eq ptr %159, %90
@@ -615,7 +615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i.i: ; pr
 
 171:                                              ; preds = %169
   %172 = lshr i32 %95, 6
-  %173 = trunc nuw i32 %172 to i8
+  %173 = trunc nuw nsw i32 %172 to i8
   %174 = or disjoint i8 %173, -64
   %175 = add i64 %154, 1
   %176 = load ptr, ptr %0, align 8, !tbaa !49
@@ -689,7 +689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit28.i.i: ; 
 
 205:                                              ; preds = %203
   %206 = lshr i32 %95, 12
-  %207 = trunc nuw i32 %206 to i8
+  %207 = trunc nuw nsw i32 %206 to i8
   %208 = or disjoint i8 %207, -32
   %209 = add i64 %154, 1
   %210 = load ptr, ptr %0, align 8, !tbaa !49
@@ -800,7 +800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit37.i.i: ; 
 
 257:                                              ; preds = %255
   %258 = lshr i32 %95, 18
-  %259 = trunc nuw i32 %258 to i8
+  %259 = trunc nuw nsw i32 %258 to i8
   %260 = or disjoint i8 %259, -16
   %261 = add i64 %154, 1
   %262 = load ptr, ptr %0, align 8, !tbaa !49

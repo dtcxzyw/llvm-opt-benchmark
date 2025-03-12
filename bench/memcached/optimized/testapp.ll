@@ -5026,13 +5026,13 @@ storage_command.exit:                             ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %11, align 2, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %12, align 4, !tbaa !6
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   %14 = add nsw i32 %13, 16
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5257,13 +5257,13 @@ storage_command.exit:                             ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %11, align 2, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %12, align 4, !tbaa !6
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   %14 = add nsw i32 %13, 16
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5436,13 +5436,13 @@ storage_command.exit:                             ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %11, align 2, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %12, align 4, !tbaa !6
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   %14 = add nsw i32 %13, 16
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5529,11 +5529,11 @@ storage_command.exit17:                           ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 2, ptr %9, align 1, !tbaa !6
-  %55 = trunc i64 %51 to i16
+  %55 = trunc nsw i64 %51 to i16
   %rev.i.i16 = call noundef i16 @llvm.bswap.i16(i16 %55)
   store i16 %rev.i.i16, ptr %11, align 2, !tbaa !6
   store i8 8, ptr %12, align 4, !tbaa !6
-  %56 = trunc i64 %51 to i32
+  %56 = trunc nsw i64 %51 to i32
   %57 = add nsw i32 %56, 16
   %58 = call noundef i32 @llvm.bswap.i32(i32 %57)
   store i32 %58, ptr %16, align 8, !tbaa !6
@@ -5615,11 +5615,11 @@ storage_command.exit29:                           ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %93 = trunc i64 %89 to i16
+  %93 = trunc nsw i64 %89 to i16
   %rev.i.i28 = call noundef i16 @llvm.bswap.i16(i16 %93)
   store i16 %rev.i.i28, ptr %11, align 2, !tbaa !6
   store i8 8, ptr %12, align 4, !tbaa !6
-  %94 = trunc i64 %89 to i32
+  %94 = trunc nsw i64 %89 to i32
   %95 = add nsw i32 %94, 16
   %96 = call noundef i32 @llvm.bswap.i32(i32 %95)
   store i32 %96, ptr %16, align 8, !tbaa !6
@@ -5767,11 +5767,11 @@ raw_command.exit:                                 ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i.i, ptr %11, align 2, !tbaa !6
-  %12 = trunc i64 %5 to i32
+  %12 = trunc nsw i64 %5 to i32
   %13 = tail call noundef i32 @llvm.bswap.i32(i32 %12)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %13, ptr %14, align 8, !tbaa !6
@@ -5851,12 +5851,12 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 2, ptr %9, align 1, !tbaa !6
-  %50 = trunc i64 %46 to i16
+  %50 = trunc nsw i64 %46 to i16
   %rev.i.i14 = call noundef i16 @llvm.bswap.i16(i16 %50)
   store i16 %rev.i.i14, ptr %11, align 2, !tbaa !6
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %51, align 4, !tbaa !6
-  %52 = trunc i64 %46 to i32
+  %52 = trunc nsw i64 %46 to i32
   %53 = add nsw i32 %52, 8
   %54 = call noundef i32 @llvm.bswap.i32(i32 %53)
   store i32 %54, ptr %14, align 8, !tbaa !6
@@ -5938,10 +5938,10 @@ raw_command.exit27:                               ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %90 = trunc i64 %86 to i16
+  %90 = trunc nsw i64 %86 to i16
   %rev.i.i.i25 = call noundef i16 @llvm.bswap.i16(i16 %90)
   store i16 %rev.i.i.i25, ptr %11, align 2, !tbaa !6
-  %91 = trunc i64 %86 to i32
+  %91 = trunc nsw i64 %86 to i32
   %92 = call noundef i32 @llvm.bswap.i32(i32 %91)
   store i32 %92, ptr %14, align 8, !tbaa !6
   store i32 -559038737, ptr %15, align 4, !tbaa !6
@@ -6204,11 +6204,11 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 2, ptr %15, align 1, !tbaa !6
-  %61 = trunc i64 %57 to i16
+  %61 = trunc nsw i64 %57 to i16
   %rev.i.i31 = call noundef i16 @llvm.bswap.i16(i16 %61)
   store i16 %rev.i.i31, ptr %19, align 2, !tbaa !6
   store i8 8, ptr %17, align 4, !tbaa !6
-  %62 = trunc i64 %57 to i32
+  %62 = trunc nsw i64 %57 to i32
   %63 = add nsw i32 %62, 8
   %64 = call noundef i32 @llvm.bswap.i32(i32 %63)
   store i32 %64, ptr %23, align 8, !tbaa !6
@@ -6433,13 +6433,13 @@ storage_command.exit:                             ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 2, ptr %13, align 1, !tbaa !6
-  %14 = trunc i64 %9 to i16
+  %14 = trunc nsw i64 %9 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %14)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %15, align 2, !tbaa !6
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %16, align 4, !tbaa !6
-  %17 = trunc i64 %9 to i32
+  %17 = trunc nsw i64 %9 to i32
   %18 = add nsw i32 %17, 8
   %19 = tail call noundef i32 @llvm.bswap.i32(i32 %18)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6501,7 +6501,7 @@ ext_command.exit:                                 ; preds = %storage_command.exi
   store i8 %28, ptr %29, align 4, !tbaa !6
   store i16 %rev.i.i, ptr %30, align 2, !tbaa !6
   %45 = add nsw i64 %9, %spec.store.select
-  %46 = trunc i64 %45 to i32
+  %46 = trunc nsw i64 %45 to i32
   %47 = tail call noundef i32 @llvm.bswap.i32(i32 %46)
   store i32 %47, ptr %34, align 8, !tbaa !6
   store i32 -559038737, ptr %35, align 4, !tbaa !6
@@ -6629,13 +6629,13 @@ arithmetic_command.exit:                          ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %11, align 2, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 20, ptr %12, align 4, !tbaa !6
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   %14 = add nsw i32 %13, 20
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6805,13 +6805,13 @@ arithmetic_command.exit:                          ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %11, align 2, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 20, ptr %12, align 4, !tbaa !6
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   %14 = add nsw i32 %13, 20
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7042,13 +7042,13 @@ storage_command.exit:                             ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 2, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i, ptr %11, align 2, !tbaa !6
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %12, align 4, !tbaa !6
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   %14 = add nsw i32 %13, 8
   %15 = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7205,10 +7205,10 @@ safe_recv_packet.exit34:                          ; preds = %68, %70
 raw_command.exit:                                 ; preds = %81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
-  %86 = trunc i64 %82 to i16
+  %86 = trunc nsw i64 %82 to i16
   %rev.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %86)
   store i16 %rev.i.i.i, ptr %11, align 2, !tbaa !6
-  %87 = trunc i64 %82 to i32
+  %87 = trunc nsw i64 %82 to i32
   %88 = call noundef i32 @llvm.bswap.i32(i32 %87)
   store i32 %88, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
@@ -7353,11 +7353,11 @@ storage_command.exit56:                           ; preds = %152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 2, ptr %9, align 1, !tbaa !6
-  %158 = trunc i64 %154 to i16
+  %158 = trunc nsw i64 %154 to i16
   %rev.i.i55 = call noundef i16 @llvm.bswap.i16(i16 %158)
   store i16 %rev.i.i55, ptr %11, align 2, !tbaa !6
   store i8 8, ptr %12, align 4, !tbaa !6
-  %159 = trunc i64 %154 to i32
+  %159 = trunc nsw i64 %154 to i32
   %160 = add nsw i32 %159, 8
   %161 = call noundef i32 @llvm.bswap.i32(i32 %160)
   store i32 %161, ptr %16, align 8, !tbaa !6
@@ -7506,10 +7506,10 @@ safe_recv_packet.exit77:                          ; preds = %205, %207
 raw_command.exit80:                               ; preds = %214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
-  %219 = trunc i64 %215 to i16
+  %219 = trunc nsw i64 %215 to i16
   %rev.i.i.i78 = call noundef i16 @llvm.bswap.i16(i16 %219)
   store i16 %rev.i.i.i78, ptr %11, align 2, !tbaa !6
-  %220 = trunc i64 %215 to i32
+  %220 = trunc nsw i64 %215 to i32
   %221 = call noundef i32 @llvm.bswap.i32(i32 %220)
   store i32 %221, ptr %16, align 8, !tbaa !6
   store i32 -559038737, ptr %17, align 4, !tbaa !6
@@ -7597,11 +7597,11 @@ raw_command.exit:                                 ; preds = %2
   store i8 -128, ptr %3, align 8, !tbaa !6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %10 = trunc i64 %5 to i16
+  %10 = trunc nsw i64 %5 to i16
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %10)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %rev.i.i.i, ptr %11, align 2, !tbaa !6
-  %12 = trunc i64 %5 to i32
+  %12 = trunc nsw i64 %5 to i32
   %13 = add nsw i32 %12, 5
   %14 = tail call noundef i32 @llvm.bswap.i32(i32 %13)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7685,12 +7685,12 @@ storage_command.exit:                             ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 2, ptr %9, align 1, !tbaa !6
-  %53 = trunc i64 %49 to i16
+  %53 = trunc nsw i64 %49 to i16
   %rev.i.i46 = call noundef i16 @llvm.bswap.i16(i16 %53)
   store i16 %rev.i.i46, ptr %11, align 2, !tbaa !6
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 8, ptr %54, align 4, !tbaa !6
-  %55 = trunc i64 %49 to i32
+  %55 = trunc nsw i64 %49 to i32
   %56 = add nsw i32 %55, 13
   %57 = call noundef i32 @llvm.bswap.i32(i32 %56)
   store i32 %57, ptr %15, align 8, !tbaa !6
@@ -7774,10 +7774,10 @@ raw_command.exit59:                               ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 %1, ptr %9, align 1, !tbaa !6
-  %94 = trunc i64 %90 to i16
+  %94 = trunc nsw i64 %90 to i16
   %rev.i.i.i57 = call noundef i16 @llvm.bswap.i16(i16 %94)
   store i16 %rev.i.i.i57, ptr %11, align 2, !tbaa !6
-  %95 = trunc i64 %90 to i32
+  %95 = trunc nsw i64 %90 to i32
   %96 = add nsw i32 %95, 5
   %97 = call noundef i32 @llvm.bswap.i32(i32 %96)
   store i32 %97, ptr %15, align 8, !tbaa !6
@@ -7909,10 +7909,10 @@ raw_command.exit82:                               ; preds = %safe_recv_packet.ex
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i8 -128, ptr %3, align 8, !tbaa !6
   store i8 12, ptr %9, align 1, !tbaa !6
-  %152 = trunc i64 %148 to i16
+  %152 = trunc nsw i64 %148 to i16
   %rev.i.i.i80 = call noundef i16 @llvm.bswap.i16(i16 %152)
   store i16 %rev.i.i.i80, ptr %11, align 2, !tbaa !6
-  %153 = trunc i64 %148 to i32
+  %153 = trunc nsw i64 %148 to i32
   %154 = call noundef i32 @llvm.bswap.i32(i32 %153)
   store i32 %154, ptr %15, align 8, !tbaa !6
   store i32 -559038737, ptr %16, align 4, !tbaa !6

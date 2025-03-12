@@ -807,7 +807,7 @@ roseCheckLookaround.exit:                         ; preds = %349, %347
   br label %partial_load_u64a.exit
 
 463:                                              ; preds = %404
-  %464 = trunc i64 %391 to i32
+  %464 = trunc nsw i64 %391 to i32
   %465 = add i32 %.066.i, %464
   switch i32 %465, label %partial_load_u64a.exit1100 [
     i32 -8, label %466
@@ -1200,7 +1200,7 @@ roseCheckMask.exit:                               ; preds = %658, %651, %378
   br i1 %706, label %707, label %copy_upto_64_bytes.exit
 
 707:                                              ; preds = %705
-  %708 = trunc i64 %682 to i32
+  %708 = trunc nsw i64 %682 to i32
   %709 = add nsw i32 %708, 32
   %710 = add i32 %.165.i, %708
   %711 = sub i32 0, %710
@@ -1779,7 +1779,7 @@ getData128.exit1115.thread:                       ; preds = %950
 
 977:                                              ; preds = %975
   %978 = add nsw i64 %942, 16
-  %979 = trunc i64 %942 to i32
+  %979 = trunc nsw i64 %942 to i32
   %980 = add i32 %.165.i1121, %979
   %981 = sub i32 0, %980
   %982 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -2277,7 +2277,7 @@ getData256.exit1179.thread:                       ; preds = %1166
 
 1193:                                             ; preds = %1191
   %1194 = add nsw i64 %1158, 32
-  %1195 = trunc i64 %1158 to i32
+  %1195 = trunc nsw i64 %1158 to i32
   %1196 = add i32 %.165.i.i1164, %1195
   %1197 = sub i32 0, %1196
   %1198 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -2797,7 +2797,7 @@ getData128.exit.thread:                           ; preds = %1398
 
 1425:                                             ; preds = %1423
   %1426 = add nsw i64 %1390, 16
-  %1427 = trunc i64 %1390 to i32
+  %1427 = trunc nsw i64 %1390 to i32
   %1428 = add i32 %.165.i1137, %1427
   %1429 = sub i32 0, %1428
   %1430 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -3297,7 +3297,7 @@ getData256.exit.thread:                           ; preds = %1616
 
 1643:                                             ; preds = %1641
   %1644 = add nsw i64 %1608, 32
-  %1645 = trunc i64 %1608 to i32
+  %1645 = trunc nsw i64 %1608 to i32
   %1646 = add i32 %.165.i.i, %1645
   %1647 = sub i32 0, %1646
   %1648 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -19578,7 +19578,7 @@ getData128.exit.thread:                           ; preds = %25
 
 54:                                               ; preds = %52
   %55 = add nsw i64 %11, 16
-  %56 = trunc i64 %11 to i32
+  %56 = trunc nsw i64 %11 to i32
   %57 = add i32 %.165.i, %56
   %58 = sub i32 0, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -20110,7 +20110,7 @@ getData128.exit.thread:                           ; preds = %25
 
 55:                                               ; preds = %53
   %56 = add nsw i64 %11, 16
-  %57 = trunc i64 %11 to i32
+  %57 = trunc nsw i64 %11 to i32
   %58 = add i32 %.165.i, %57
   %59 = sub i32 0, %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -20645,7 +20645,7 @@ getData128.exit.thread:                           ; preds = %25
 
 55:                                               ; preds = %53
   %56 = add nsw i64 %11, 16
-  %57 = trunc i64 %11 to i32
+  %57 = trunc nsw i64 %11 to i32
   %58 = add i32 %.165.i, %57
   %59 = sub i32 0, %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -21198,7 +21198,7 @@ getData128.exit.thread:                           ; preds = %25
 
 57:                                               ; preds = %55
   %58 = add nsw i64 %11, 16
-  %59 = trunc i64 %11 to i32
+  %59 = trunc nsw i64 %11 to i32
   %60 = add i32 %.165.i, %59
   %61 = sub i32 0, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -21909,7 +21909,7 @@ define hidden range(i64 -1, 1) i64 @roseRunProgram_l(ptr noundef %0, ptr noundef
   br label %partial_load_u64a.exit
 
 162:                                              ; preds = %104
-  %163 = trunc i64 %92 to i32
+  %163 = trunc nsw i64 %92 to i32
   %164 = add i32 %.066.i, %163
   switch i32 %164, label %partial_load_u64a.exit589 [
     i32 -8, label %165
@@ -22291,7 +22291,7 @@ partial_load_u64a.exit591:                        ; preds = %328, %325, %317, %3
   br i1 %398, label %399, label %copy_upto_64_bytes.exit
 
 399:                                              ; preds = %397
-  %400 = trunc i64 %375 to i32
+  %400 = trunc nsw i64 %375 to i32
   %401 = add nsw i32 %400, 32
   %402 = add i32 %.165.i, %400
   %403 = sub i32 0, %402

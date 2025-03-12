@@ -3269,7 +3269,7 @@ define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$core..option..Optio
 4:                                                ; preds = %1
   %5 = add nsw i64 %2, -2
   %6 = icmp ult i64 %5, 227
-  %7 = trunc i64 %5 to i8
+  %7 = trunc nuw i64 %5 to i8
   %trunc.i = select i1 %6, i8 %7, i8 97
   switch i8 %trunc.i, label %8 [
     i8 0, label %"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17haf228614c82c0c49E.exit"
@@ -19199,7 +19199,7 @@ define hidden void @_ZN5proto8envelope7Payload6encode17ha51c79890d5d01c9E(ptr no
   %3 = load i64, ptr %0, align 8, !range !1569, !noundef !14
   %4 = add nsw i64 %3, -2
   %5 = icmp ult i64 %4, 227
-  %6 = trunc i64 %4 to i8
+  %6 = trunc nuw i64 %4 to i8
   %trunc = select i1 %5, i8 %6, i8 97
   switch i8 %trunc, label %7 [
     i8 0, label %8

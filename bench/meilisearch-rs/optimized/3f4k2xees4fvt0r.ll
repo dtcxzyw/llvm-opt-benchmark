@@ -1746,13 +1746,13 @@ _ZN5serde2de7Visitor9visit_f3217hf997214fb547ba68E.exit: ; preds = %74, %80
   br i1 %94, label %104, label %115
 
 95:                                               ; preds = %87
-  %96 = trunc nuw i32 %89 to i8
+  %96 = trunc nuw nsw i32 %89 to i8
   store i8 %96, ptr %.sroa.0.i, align 4, !alias.scope !115, !noalias !112
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 97:                                               ; preds = %91
   %98 = lshr i32 %89, 6
-  %99 = trunc nuw i32 %98 to i8
+  %99 = trunc nuw nsw i32 %98 to i8
   %100 = or disjoint i8 %99, -64
   store i8 %100, ptr %.sroa.0.i, align 4, !alias.scope !115, !noalias !112
   %101 = trunc i32 %89 to i8
@@ -1764,7 +1764,7 @@ _ZN5serde2de7Visitor9visit_f3217hf997214fb547ba68E.exit: ; preds = %74, %80
 
 104:                                              ; preds = %93
   %105 = lshr i32 %89, 12
-  %106 = trunc nuw i32 %105 to i8
+  %106 = trunc nuw nsw i32 %105 to i8
   %107 = or disjoint i8 %106, -32
   store i8 %107, ptr %.sroa.0.i, align 4, !alias.scope !115, !noalias !112
   %108 = lshr i32 %89, 6
@@ -7500,7 +7500,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %23, label %40, label %24
 
 24:                                               ; preds = %21
-  %trunc.i.i = trunc i8 %22 to i1
+  %trunc.i.i = trunc nuw i8 %22 to i1
   br i1 %trunc.i.i, label %36, label %25
 
 25:                                               ; preds = %24
@@ -7584,7 +7584,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_n
   br i1 %13, label %.thread, label %14
 
 14:                                               ; preds = %10
-  %trunc.i.i.i = trunc i8 %12 to i1
+  %trunc.i.i.i = trunc nuw i8 %12 to i1
   br i1 %trunc.i.i.i, label %35, label %15
 
 15:                                               ; preds = %14
@@ -8122,7 +8122,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1655)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1657)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1659)
-  %trunc.i.i.i = trunc i8 %22 to i1
+  %trunc.i.i.i = trunc nuw i8 %22 to i1
   br i1 %trunc.i.i.i, label %34, label %23
 
 23:                                               ; preds = %.lr.ph
@@ -8200,7 +8200,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br i1 %47, label %87, label %48
 
 48:                                               ; preds = %45
-  %trunc.i.i26 = trunc i8 %46 to i1
+  %trunc.i.i26 = trunc nuw i8 %46 to i1
   br i1 %trunc.i.i26, label %82, label %49
 
 49:                                               ; preds = %48
@@ -8245,7 +8245,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br i1 %66, label %.thread70, label %67
 
 67:                                               ; preds = %64
-  %trunc.i.i.i29 = trunc i8 %65 to i1
+  %trunc.i.i.i29 = trunc nuw i8 %65 to i1
   br i1 %trunc.i.i.i29, label %95, label %68
 
 68:                                               ; preds = %67
@@ -8468,7 +8468,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br i1 %18, label %39, label %19
 
 19:                                               ; preds = %16
-  %trunc.i.i = trunc i8 %17 to i1
+  %trunc.i.i = trunc nuw i8 %17 to i1
   br i1 %trunc.i.i, label %35, label %20
 
 20:                                               ; preds = %19
@@ -8544,7 +8544,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br i1 %51, label %.thread68, label %52
 
 52:                                               ; preds = %49
-  %trunc.i.i.i = trunc i8 %50 to i1
+  %trunc.i.i.i = trunc nuw i8 %50 to i1
   br i1 %trunc.i.i.i, label %75, label %53
 
 53:                                               ; preds = %52
@@ -8665,7 +8665,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
   br i1 %101, label %.thread78, label %102
 
 102:                                              ; preds = %99
-  %trunc.i.i.i31 = trunc i8 %100 to i1
+  %trunc.i.i.i31 = trunc nuw i8 %100 to i1
   br i1 %trunc.i.i.i31, label %118, label %103
 
 103:                                              ; preds = %102
@@ -9610,7 +9610,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %18, label %.sink.split.i, label %19
 
 19:                                               ; preds = %15
-  %trunc.i.i.i = trunc i8 %17 to i1
+  %trunc.i.i.i = trunc nuw i8 %17 to i1
   br i1 %trunc.i.i.i, label %37, label %20
 
 20:                                               ; preds = %19
@@ -9672,7 +9672,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %43
-  %trunc.i.i.i16 = trunc i8 %45 to i1
+  %trunc.i.i.i16 = trunc nuw i8 %45 to i1
   br i1 %trunc.i.i.i16, label %75, label %48
 
 48:                                               ; preds = %47
@@ -9769,7 +9769,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %87, label %.thread76, label %88
 
 88:                                               ; preds = %84
-  %trunc.i.i.i21 = trunc i8 %86 to i1
+  %trunc.i.i.i21 = trunc nuw i8 %86 to i1
   br i1 %trunc.i.i.i21, label %133, label %89
 
 89:                                               ; preds = %88
@@ -9827,7 +9827,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %111, label %.thread73, label %112
 
 112:                                              ; preds = %109
-  %trunc.i.i.i27 = trunc i8 %110 to i1
+  %trunc.i.i.i27 = trunc nuw i8 %110 to i1
   br i1 %trunc.i.i.i27, label %128, label %113
 
 113:                                              ; preds = %112
@@ -9918,7 +9918,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %145, label %.thread.i, label %146
 
 146:                                              ; preds = %143
-  %trunc.i.i.i.i = trunc i8 %144 to i1
+  %trunc.i.i.i.i = trunc nuw i8 %144 to i1
   br i1 %trunc.i.i.i.i, label %159, label %147
 
 147:                                              ; preds = %146
@@ -9989,7 +9989,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %169, label %.thread31.i, label %170
 
 170:                                              ; preds = %167
-  %trunc.i.i.i7.i = trunc i8 %168 to i1
+  %trunc.i.i.i7.i = trunc nuw i8 %168 to i1
   br i1 %trunc.i.i.i7.i, label %186, label %171
 
 171:                                              ; preds = %170
@@ -10074,7 +10074,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br i1 %16, label %42, label %17
 
 17:                                               ; preds = %5
-  %trunc.i.i.i = trunc i8 %15 to i1
+  %trunc.i.i.i = trunc nuw i8 %15 to i1
   br i1 %trunc.i.i.i, label %34, label %18
 
 18:                                               ; preds = %17
@@ -10157,7 +10157,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br i1 %48, label %69, label %49
 
 49:                                               ; preds = %45
-  %trunc.i.i26 = trunc i8 %47 to i1
+  %trunc.i.i26 = trunc nuw i8 %47 to i1
   br i1 %trunc.i.i26, label %65, label %50
 
 50:                                               ; preds = %49
@@ -10262,7 +10262,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
   br i1 %93, label %.thread72, label %94
 
 94:                                               ; preds = %91
-  %trunc.i.i.i29 = trunc i8 %92 to i1
+  %trunc.i.i.i29 = trunc nuw i8 %92 to i1
   br i1 %trunc.i.i.i29, label %110, label %95
 
 95:                                               ; preds = %94
@@ -10852,7 +10852,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %9, label %32, label %10
 
 10:                                               ; preds = %1
-  %trunc.i.i.i = trunc i8 %8 to i1
+  %trunc.i.i.i = trunc nuw i8 %8 to i1
   br i1 %trunc.i.i.i, label %27, label %11
 
 11:                                               ; preds = %10
@@ -10923,7 +10923,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %38, label %.sink.split.i, label %39
 
 39:                                               ; preds = %35
-  %trunc.i.i.i10 = trunc i8 %37 to i1
+  %trunc.i.i.i10 = trunc nuw i8 %37 to i1
   br i1 %trunc.i.i.i10, label %64, label %40
 
 40:                                               ; preds = %39
@@ -11006,7 +11006,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %74, label %.thread48, label %75
 
 75:                                               ; preds = %72
-  %trunc.i.i.i15 = trunc i8 %73 to i1
+  %trunc.i.i.i15 = trunc nuw i8 %73 to i1
   br i1 %trunc.i.i.i15, label %91, label %76
 
 76:                                               ; preds = %75
@@ -11450,7 +11450,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
   br i1 %23, label %.thread32, label %24
 
 24:                                               ; preds = %20
-  %trunc.i.i.i = trunc i8 %22 to i1
+  %trunc.i.i.i = trunc nuw i8 %22 to i1
   br i1 %trunc.i.i.i, label %.thread27, label %25
 
 25:                                               ; preds = %24
@@ -11911,7 +11911,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   br i1 %19, label %.thread17, label %20
 
 20:                                               ; preds = %17
-  %trunc.i.i.i = trunc i8 %18 to i1
+  %trunc.i.i.i = trunc nuw i8 %18 to i1
   br i1 %trunc.i.i.i, label %36, label %21
 
 21:                                               ; preds = %20
@@ -12349,7 +12349,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
   br i1 %15, label %35, label %16
 
 16:                                               ; preds = %13
-  %trunc.i.i.i = trunc i8 %14 to i1
+  %trunc.i.i.i = trunc nuw i8 %14 to i1
   br i1 %trunc.i.i.i, label %31, label %17
 
 17:                                               ; preds = %16
@@ -12761,7 +12761,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %18
-  %trunc.i.i.i = trunc i8 %19 to i1
+  %trunc.i.i.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i.i.i, label %37, label %22
 
 22:                                               ; preds = %21
@@ -12825,7 +12825,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br i1 %44, label %.thread30, label %45
 
 45:                                               ; preds = %42
-  %trunc.i.i.i6 = trunc i8 %43 to i1
+  %trunc.i.i.i6 = trunc nuw i8 %43 to i1
   br i1 %trunc.i.i.i6, label %60, label %46
 
 46:                                               ; preds = %45
@@ -13000,7 +13000,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_e
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %16
-  %trunc.i.i.i = trunc i8 %17 to i1
+  %trunc.i.i.i = trunc nuw i8 %17 to i1
   br i1 %trunc.i.i.i, label %40, label %20
 
 20:                                               ; preds = %19
@@ -40929,7 +40929,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %149, label %165, label %150
 
 150:                                              ; preds = %.noexc.i.i
-  %trunc.i.i.i.i.i.i.i = trunc i8 %148 to i1
+  %trunc.i.i.i.i.i.i.i = trunc nuw i8 %148 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %161, label %151
 
 151:                                              ; preds = %150
@@ -41027,7 +41027,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc8.i.i, %.noexc9.i.i
   %183 = phi i8 [ %194, %.noexc9.i.i ], [ %181, %.noexc8.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8000)
-  %trunc.i.i.i.i.i.i.i.i.i.i = trunc i8 %183 to i1
+  %trunc.i.i.i.i.i.i.i.i.i.i = trunc nuw i8 %183 to i1
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i, label %196, label %184
 
 184:                                              ; preds = %.lr.ph.i.i.i.i
@@ -41173,7 +41173,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %224, label %244, label %225
 
 225:                                              ; preds = %.noexc.i.i.i.i
-  %trunc.i.i.i.i.i.i.i.i = trunc i8 %223 to i1
+  %trunc.i.i.i.i.i.i.i.i = trunc nuw i8 %223 to i1
   br i1 %trunc.i.i.i.i.i.i.i.i, label %240, label %226
 
 226:                                              ; preds = %225
@@ -41271,7 +41271,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   %252 = phi i8 [ %266, %.noexc59.i.i.i.i ], [ %250, %.noexc58.i.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8070)
   call void @llvm.experimental.noalias.scope.decl(metadata !8072)
-  %trunc.i.i.i24.i.i.i.i.i = trunc i8 %252 to i1
+  %trunc.i.i.i24.i.i.i.i.i = trunc nuw i8 %252 to i1
   br i1 %trunc.i.i.i24.i.i.i.i.i, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace17h77142a7981dde90fE.exit31.i.i.i.i.i", label %253
 
 253:                                              ; preds = %.lr.ph.i.i.i.i.i
@@ -41519,7 +41519,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %326, label %347, label %327
 
 327:                                              ; preds = %.noexc16.i.i
-  %trunc.i.i.i.i.i.i67.i.i.i.i = trunc i8 %325 to i1
+  %trunc.i.i.i.i.i.i67.i.i.i.i = trunc nuw i8 %325 to i1
   br i1 %trunc.i.i.i.i.i.i67.i.i.i.i, label %342, label %328
 
 328:                                              ; preds = %327
@@ -41614,7 +41614,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc19.i.i, %.noexc20.i.i
   %356 = phi i8 [ %367, %.noexc20.i.i ], [ %354, %.noexc19.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8157)
-  %trunc.i.i.i31.i.i.i.i.i.i.i = trunc i8 %356 to i1
+  %trunc.i.i.i31.i.i.i.i.i.i.i = trunc nuw i8 %356 to i1
   br i1 %trunc.i.i.i31.i.i.i.i.i.i.i, label %369, label %357
 
 357:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -41807,7 +41807,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %398, label %417, label %399
 
 399:                                              ; preds = %.noexc28.i.i
-  %trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %397 to i1
+  %trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i8 %397 to i1
   br i1 %trunc.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %414, label %400
 
 400:                                              ; preds = %399
@@ -41959,7 +41959,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %441, label %476, label %442
 
 442:                                              ; preds = %.noexc37.i.i
-  %trunc.i.i.i88.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %440 to i1
+  %trunc.i.i.i88.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i8 %440 to i1
   br i1 %trunc.i.i.i88.i.i.i.i.i.i.i.i.i.i.i, label %473, label %443
 
 443:                                              ; preds = %442
@@ -42153,7 +42153,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %503, label %520, label %504
 
 504:                                              ; preds = %.noexc43.i.i
-  %trunc.i.i.i101.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %502 to i1
+  %trunc.i.i.i101.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i8 %502 to i1
   br i1 %trunc.i.i.i101.i.i.i.i.i.i.i.i.i.i.i, label %517, label %505
 
 505:                                              ; preds = %504
@@ -42254,7 +42254,7 @@ _ZN3std4path4Path4join17h8019314b1357a39fE.exit:  ; preds = %134
   br i1 %531, label %550, label %532
 
 532:                                              ; preds = %.noexc48.i.i
-  %trunc.i.i.i112.i.i.i.i.i.i.i.i.i.i.i = trunc i8 %530 to i1
+  %trunc.i.i.i112.i.i.i.i.i.i.i.i.i.i.i = trunc nuw i8 %530 to i1
   br i1 %trunc.i.i.i112.i.i.i.i.i.i.i.i.i.i.i, label %547, label %533
 
 533:                                              ; preds = %532
@@ -42456,7 +42456,7 @@ _ZN5serde2de9MapAccess10next_value17hf4edc424ba1b19a4E.exit.i.i.i.i.i: ; preds =
   br i1 %583, label %603, label %584
 
 584:                                              ; preds = %.noexc81.i.i.i.i
-  %trunc.i.i.i.i76.i.i.i.i = trunc i8 %582 to i1
+  %trunc.i.i.i.i76.i.i.i.i = trunc nuw i8 %582 to i1
   br i1 %trunc.i.i.i.i76.i.i.i.i, label %599, label %585
 
 585:                                              ; preds = %584
@@ -42672,7 +42672,7 @@ _ZN5serde2de9MapAccess10next_value17hf4edc424ba1b19a4E.exit.i.i.i.i.i: ; preds =
   br i1 %628, label %647, label %629
 
 629:                                              ; preds = %.noexc62.i.i
-  %trunc.i.i.i.i.i.i = trunc i8 %627 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %627 to i1
   br i1 %trunc.i.i.i.i.i.i, label %640, label %630
 
 630:                                              ; preds = %629
@@ -43970,7 +43970,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !8614, !noalias !8611
   %12 = trunc i32 %1 to i8
@@ -43982,7 +43982,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !8614, !noalias !8611
   %19 = lshr i32 %1, 6
@@ -69598,7 +69598,7 @@ default.unreachable2.i25.i.i.i.i.i:               ; preds = %112
 
 131:                                              ; preds = %128, %102
   %.sroa.12.0.in.i.i.i.i = phi i64 [ %.sroa.236.0.copyload.i.i.i.i.i, %128 ], [ %.sroa.2.0.copyload.i.i.i.i.i, %102 ]
-  %.sroa.12.0.i.i.i.i = trunc i64 %.sroa.12.0.in.i.i.i.i to i16
+  %.sroa.12.0.i.i.i.i = trunc nuw i64 %.sroa.12.0.in.i.i.i.i to i16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12987)
   %132 = load i64, ptr %21, align 8, !alias.scope !12990, !noalias !12991, !noundef !8
   %133 = load i64, ptr %22, align 8, !alias.scope !12990, !noalias !12991, !noundef !8
@@ -69919,7 +69919,7 @@ define internal fastcc noundef align 8 ptr @"_ZN76_$LT$serde_json..read..IoRead$
   br i1 %20, label %37, label %21
 
 21:                                               ; preds = %18
-  %trunc.i.i.i = trunc i8 %19 to i1
+  %trunc.i.i.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i.i.i, label %33, label %22
 
 22:                                               ; preds = %21
@@ -70003,7 +70003,7 @@ define internal fastcc noundef align 8 ptr @"_ZN76_$LT$serde_json..read..IoRead$
   br i1 %52, label %69, label %53
 
 53:                                               ; preds = %50
-  %trunc.i.i.i.i = trunc i8 %51 to i1
+  %trunc.i.i.i.i = trunc nuw i8 %51 to i1
   br i1 %trunc.i.i.i.i, label %65, label %54
 
 54:                                               ; preds = %53
@@ -70132,7 +70132,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   br i1 %20, label %37, label %21
 
 21:                                               ; preds = %18
-  %trunc.i.i.i = trunc i8 %19 to i1
+  %trunc.i.i.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i.i.i, label %33, label %22
 
 22:                                               ; preds = %21
@@ -70275,7 +70275,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   br i1 %40, label %57, label %41
 
 41:                                               ; preds = %38
-  %trunc.i.i.i.i = trunc i8 %39 to i1
+  %trunc.i.i.i.i = trunc nuw i8 %39 to i1
   br i1 %trunc.i.i.i.i, label %53, label %42
 
 42:                                               ; preds = %41
@@ -70388,7 +70388,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   br i1 %83, label %100, label %84
 
 84:                                               ; preds = %81
-  %trunc.i.i.i.i.i = trunc i8 %82 to i1
+  %trunc.i.i.i.i.i = trunc nuw i8 %82 to i1
   br i1 %trunc.i.i.i.i.i, label %96, label %85
 
 85:                                               ; preds = %84
@@ -70639,7 +70639,7 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   br i1 %185, label %204, label %186
 
 186:                                              ; preds = %183
-  %trunc.i.i.i20.i = trunc i8 %184 to i1
+  %trunc.i.i.i20.i = trunc nuw i8 %184 to i1
   br i1 %trunc.i.i.i20.i, label %200, label %187
 
 187:                                              ; preds = %186
@@ -70702,13 +70702,13 @@ define internal fastcc void @"_ZN76_$LT$serde_json..read..IoRead$LT$R$GT$$u20$as
   br i1 %210, label %213, label %220
 
 211:                                              ; preds = %207
-  %212 = trunc nuw i16 %172 to i8
+  %212 = trunc nuw nsw i16 %172 to i8
   store i8 %212, ptr %.sroa.0.i, align 4, !alias.scope !13289, !noalias !13234
   br label %_ZN4core4char7methods15encode_utf8_raw17he8dc2a367b21200bE.exit.i
 
 213:                                              ; preds = %209
   %214 = lshr i16 %172, 6
-  %215 = trunc nuw i16 %214 to i8
+  %215 = trunc nuw nsw i16 %214 to i8
   %216 = or disjoint i8 %215, -64
   store i8 %216, ptr %.sroa.0.i, align 4, !alias.scope !13289, !noalias !13234
   %217 = trunc i16 %172 to i8
@@ -70801,7 +70801,7 @@ _ZN10serde_json4read11peek_or_eof17h59602e756b0ddab0E.exit25.i: ; preds = %199, 
   br i1 %261, label %276, label %262
 
 262:                                              ; preds = %259
-  %trunc.i.i.i14.i = trunc i8 %260 to i1
+  %trunc.i.i.i14.i = trunc nuw i8 %260 to i1
   br i1 %trunc.i.i.i14.i, label %272, label %263
 
 263:                                              ; preds = %262
@@ -72755,13 +72755,13 @@ _ZN4core3ops8function6FnOnce9call_once17h74b5db9b495de5daE.exit.i.i.i: ; preds =
   br i1 %135, label %147, label %159
 
 137:                                              ; preds = %128
-  %138 = trunc nuw i32 %130 to i8
+  %138 = trunc nuw nsw i32 %130 to i8
   store i8 %138, ptr %15, align 4, !alias.scope !13728, !noalias !13725
   br label %_ZN5serde2de7Visitor10visit_char17h8a5b61339144f262E.exit.i.i
 
 139:                                              ; preds = %132
   %140 = lshr i32 %130, 6
-  %141 = trunc nuw i32 %140 to i8
+  %141 = trunc nuw nsw i32 %140 to i8
   %142 = or disjoint i8 %141, -64
   store i8 %142, ptr %15, align 4, !alias.scope !13728, !noalias !13725
   %143 = trunc i32 %130 to i8
@@ -72773,7 +72773,7 @@ _ZN4core3ops8function6FnOnce9call_once17h74b5db9b495de5daE.exit.i.i.i: ; preds =
 
 147:                                              ; preds = %134
   %148 = lshr i32 %130, 12
-  %149 = trunc nuw i32 %148 to i8
+  %149 = trunc nuw nsw i32 %148 to i8
   %150 = or disjoint i8 %149, -32
   store i8 %150, ptr %15, align 4, !alias.scope !13728, !noalias !13725
   %151 = lshr i32 %130, 6
@@ -73466,7 +73466,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %17, label %37, label %18
 
 18:                                               ; preds = %15
-  %trunc.i.i.i.i.i.i = trunc i8 %16 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i8 %16 to i1
   br i1 %trunc.i.i.i.i.i.i, label %33, label %19
 
 19:                                               ; preds = %18
@@ -73681,7 +73681,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   br i1 %25, label %46, label %26
 
 26:                                               ; preds = %23
-  %trunc.i.i.i.i.i = trunc i8 %24 to i1
+  %trunc.i.i.i.i.i = trunc nuw i8 %24 to i1
   br i1 %trunc.i.i.i.i.i, label %41, label %27
 
 27:                                               ; preds = %26
@@ -73872,7 +73872,7 @@ _ZN5serde2de10EnumAccess7variant17h8531939eea3b1d78E.exit.i.i.i: ; preds = %79
   br i1 %91, label %111, label %92
 
 92:                                               ; preds = %89
-  %trunc.i.i.i.i.i.i.i = trunc i8 %90 to i1
+  %trunc.i.i.i.i.i.i.i = trunc nuw i8 %90 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %107, label %93
 
 93:                                               ; preds = %92
@@ -74024,7 +74024,7 @@ _ZN5serde2de10EnumAccess7variant17h8531939eea3b1d78E.exit.i.i.i: ; preds = %79
   br i1 %142, label %163, label %143
 
 143:                                              ; preds = %140
-  %trunc.i.i.i35.i.i = trunc i8 %141 to i1
+  %trunc.i.i.i35.i.i = trunc nuw i8 %141 to i1
   br i1 %trunc.i.i.i35.i.i, label %158, label %144
 
 144:                                              ; preds = %143
@@ -74245,7 +74245,7 @@ default.unreachable2.i.i.i.i:                     ; preds = %34
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17hbdde8f04a6ade946E.exit"
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0.i.i.i = trunc i64 %.sroa.2.0.copyload.i.i.i to i32
+  %.sroa.12.0.i.i.i = trunc nuw i64 %.sroa.2.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !14098
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !14092
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -74335,7 +74335,7 @@ default.unreachable2.i25.i.i.i:                   ; preds = %64
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17hbdde8f04a6ade946E.exit"
 
 81:                                               ; preds = %73, %68
-  %.sroa.12.1.i.i.i = trunc i64 %.sroa.235.0.copyload.i.i.i to i32
+  %.sroa.12.1.i.i.i = trunc nuw i64 %.sroa.235.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !14114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !14092
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4

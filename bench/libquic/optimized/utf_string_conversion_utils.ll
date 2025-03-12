@@ -260,7 +260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 27:                                               ; preds = %22
   %28 = lshr i32 %0, 6
-  %29 = trunc nuw i32 %28 to i8
+  %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
   br label %58
 
@@ -271,7 +271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 
 34:                                               ; preds = %31
   %35 = lshr i32 %0, 12
-  %36 = trunc nuw i32 %35 to i8
+  %36 = trunc nuw nsw i32 %35 to i8
   %37 = or disjoint i8 %36, -32
   %38 = add i64 %24, 1
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 %24

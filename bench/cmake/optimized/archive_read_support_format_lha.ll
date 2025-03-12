@@ -4958,7 +4958,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
   br i1 %.wide, label %.lr.ph250, label %.loopexit.loopexit, !llvm.loop !177
 
 .loopexit.loopexit:                               ; preds = %.lr.ph250
-  %107 = trunc nuw i64 %105 to i32
+  %107 = trunc nuw nsw i64 %105 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %100, %87

@@ -2219,7 +2219,7 @@ define linkonce_odr void @_ZN10open_spiel8quoridor13QuoridorState9SetPlayerENS0_
 _ZNK10open_spiel8quoridor4Move7IsValidEv.exit:    ; preds = %5
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
-  %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
+  %.sroa.2.0.extract.trunc = trunc nuw nsw i64 %.sroa.2.0.extract.shift to i32
   %.sroa.6.8.extract.shift = lshr i64 %2, 32
   %.sroa.6.8.extract.trunc = trunc nuw i64 %.sroa.6.8.extract.shift to i32
   %13 = icmp slt i32 %.sroa.0.0.extract.trunc, %.sroa.6.8.extract.trunc

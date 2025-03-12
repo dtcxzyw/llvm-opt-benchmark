@@ -1724,8 +1724,8 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_eeprom_load(ptr nound
 12:                                               ; preds = %12, %10
   %13 = phi i64 [ 0, %10 ], [ %25, %12 ]
   %14 = phi i16 [ 0, %10 ], [ %24, %12 ]
-  %15 = trunc i64 %13 to i32
-  %16 = trunc i64 %13 to i16
+  %15 = trunc nuw nsw i64 %13 to i32
+  %16 = trunc nuw i64 %13 to i16
   %17 = call fastcc zeroext i16 @e100_eeprom_read(ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %16)
   %18 = getelementptr [256 x i16], ptr %11, i64 0, i64 %13
   store i16 %17, ptr %18, align 2
@@ -5140,8 +5140,8 @@ define internal void @e100_diag_test(ptr noundef %0, ptr noundef captures(none) 
 20:                                               ; preds = %20, %18
   %21 = phi i64 [ 0, %18 ], [ %33, %20 ]
   %22 = phi i16 [ 0, %18 ], [ %32, %20 ]
-  %23 = trunc i64 %21 to i32
-  %24 = trunc i64 %21 to i16
+  %23 = trunc nuw nsw i64 %21 to i32
+  %24 = trunc nuw i64 %21 to i16
   %25 = call fastcc zeroext i16 @e100_eeprom_read(ptr noundef %6, ptr noundef nonnull %4, i16 noundef zeroext %24)
   %26 = getelementptr [256 x i16], ptr %19, i64 0, i64 %21
   store i16 %25, ptr %26, align 2

@@ -25,7 +25,7 @@ define dso_local range(i32 1, 5) i32 @encode_utf8(ptr noundef writeonly captures
 
 8:                                                ; preds = %6
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %0, align 1, !tbaa !7
   %12 = trunc i32 %1 to i8
@@ -42,7 +42,7 @@ define dso_local range(i32 1, 5) i32 @encode_utf8(ptr noundef writeonly captures
 
 19:                                               ; preds = %16
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %0, align 1, !tbaa !7
   %23 = lshr i32 %1, 6

@@ -351,7 +351,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %219, label %220, label %.thread, !prof !16
 
 220:                                              ; preds = %214
-  %221 = trunc i32 %.0202306 to i8
+  %221 = trunc nuw nsw i32 %.0202306 to i8
   %222 = getelementptr inbounds i8, ptr %.0217303, i64 -32
   store i8 %221, ptr %222, align 1, !tbaa !5
   %223 = getelementptr inbounds nuw i8, ptr %.0217303, i64 2
@@ -390,7 +390,7 @@ define dso_local i64 @lzf_compress(ptr noundef %0, i64 noundef %1, ptr noundef %
   br i1 %232, label %233, label %237, !prof !16
 
 233:                                              ; preds = %.lr.ph316
-  %234 = trunc i32 %.5315 to i8
+  %234 = trunc nuw nsw i32 %.5315 to i8
   %235 = getelementptr inbounds i8, ptr %.6223313, i64 -32
   store i8 %234, ptr %235, align 1, !tbaa !5
   %236 = getelementptr inbounds nuw i8, ptr %.6223313, i64 2

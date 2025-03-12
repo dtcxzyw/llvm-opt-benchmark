@@ -74,7 +74,7 @@ define dso_local noundef range(i32 -2, 1) i32 @zlib_deflateInit2(ptr noundef %0,
   %51 = add nsw i32 %38, -1
   %52 = getelementptr inbounds nuw i8, ptr %27, i64 116
   store i32 %51, ptr %52, align 4
-  %53 = trunc nuw i32 %4 to i8
+  %53 = trunc nuw nsw i32 %4 to i8
   %.lhs.trunc = add nuw nsw i8 %53, 9
   %54 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %54 to i32

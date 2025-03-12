@@ -14403,7 +14403,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI6pol
   %230 = add nuw nsw i64 %2, 999999
   %231 = udiv i64 %230, 1000000
   %232 = icmp samesign ult i64 %2, 2147483647000001
-  %233 = trunc nuw i64 %231 to i32
+  %233 = trunc nuw nsw i64 %231 to i32
   %234 = select i1 %232, i32 %233, i32 2147483647
   br label %235
 

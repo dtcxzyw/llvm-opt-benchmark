@@ -2553,7 +2553,7 @@ _.exit130:                                        ; preds = %72, %74
   %85 = phi i32 [ %178, %177 ], [ %83, %.preheader ]
   %indvars.iv297 = phi i64 [ %indvars.iv.next298, %177 ], [ 0, %.preheader ]
   %86 = phi i32 [ %178, %177 ], [ %84, %.preheader ]
-  %indvars299 = trunc i64 %indvars.iv297 to i32
+  %indvars299 = trunc nuw i64 %indvars.iv297 to i32
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #22
   %87 = load i32, ptr %80, align 8, !tbaa !41

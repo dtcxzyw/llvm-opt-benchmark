@@ -9863,7 +9863,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_set_tunnel_key(i64 nound
   %66 = icmp eq i64 %65, 0
   %67 = and i16 %64, 1057
   %68 = select i1 %66, i16 %64, i16 %67
-  %69 = trunc nuw i64 %3 to i16
+  %69 = trunc nuw nsw i64 %3 to i16
   %70 = shl nuw nsw i16 %69, 8
   %71 = and i16 %70, 2048
   %spec.select = or disjoint i16 %68, %71
@@ -17659,7 +17659,7 @@ define internal i32 @sock_addr_convert_ctx_access(i32 noundef %0, ptr noundef re
   %342 = and i8 %341, -16
   %343 = or disjoint i8 %342, %323
   store i32 4, ptr %4, align 4
-  %344 = trunc i32 %304 to i16
+  %344 = trunc nuw nsw i32 %304 to i16
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %346 = load i32, ptr %345, align 4
   store i8 %340, ptr %330, align 4
@@ -17695,7 +17695,7 @@ define internal i32 @sock_addr_convert_ctx_access(i32 noundef %0, ptr noundef re
   %366 = and i8 %365, 15
   %367 = mul nuw i8 %366, 17
   store i32 4, ptr %4, align 4
-  %368 = trunc i32 %304 to i16
+  %368 = trunc nuw nsw i32 %304 to i16
   store i8 %364, ptr %355, align 4
   br label %373
 
@@ -18044,7 +18044,7 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
   %23 = or disjoint i8 %22, 96
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %25 = load i8, ptr %24, align 1
-  %26 = trunc nuw i32 %17 to i16
+  %26 = trunc nuw nsw i32 %17 to i16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4
   store i8 %23, ptr %2, align 4
@@ -18059,7 +18059,7 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
 32:                                               ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %34 = load i8, ptr %33, align 1
-  %35 = trunc nuw i32 %17 to i16
+  %35 = trunc nuw nsw i32 %17 to i16
   store i8 97, ptr %2, align 4
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %34, ptr %36, align 1
@@ -24929,7 +24929,7 @@ thread-pre-split:                                 ; preds = %206
   br i1 %263, label %.thread26, label %264
 
 264:                                              ; preds = %255
-  %265 = trunc i32 %261 to i16
+  %265 = trunc nsw i32 %261 to i16
   %266 = getelementptr inbounds nuw i8, ptr %244, i64 2
   store i16 %265, ptr %266, align 2
   br label %540
@@ -25031,7 +25031,7 @@ thread-pre-split:                                 ; preds = %206
   br i1 %329, label %.thread26, label %330
 
 330:                                              ; preds = %321
-  %331 = trunc i32 %327 to i16
+  %331 = trunc nsw i32 %327 to i16
   %332 = getelementptr inbounds nuw i8, ptr %294, i64 2
   store i16 %331, ptr %332, align 2
   br label %540
@@ -25096,7 +25096,7 @@ thread-pre-split:                                 ; preds = %206
   br i1 %368, label %.thread26, label %369
 
 369:                                              ; preds = %359
-  %370 = trunc i32 %366 to i16
+  %370 = trunc nsw i32 %366 to i16
   %371 = getelementptr inbounds nuw i8, ptr %361, i64 2
   store i16 %370, ptr %371, align 2
   br label %540
@@ -25137,7 +25137,7 @@ thread-pre-split:                                 ; preds = %206
   br i1 %396, label %.thread26, label %397
 
 397:                                              ; preds = %388
-  %398 = trunc i32 %394 to i16
+  %398 = trunc nsw i32 %394 to i16
   %399 = getelementptr inbounds nuw i8, ptr %294, i64 2
   store i16 %398, ptr %399, align 2
   %400 = getelementptr i8, ptr %294, i64 8
@@ -25174,7 +25174,7 @@ thread-pre-split:                                 ; preds = %206
   br i1 %422, label %.thread26, label %423
 
 423:                                              ; preds = %414
-  %424 = trunc i32 %420 to i16
+  %424 = trunc nsw i32 %420 to i16
   %425 = getelementptr i8, ptr %294, i64 10
   store i16 %424, ptr %425, align 2
   br label %540
@@ -27285,7 +27285,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bpf_sol_tcp_setsockopt(ptr
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %26
-  %31 = trunc nuw i64 %27 to i32
+  %31 = trunc nuw nsw i64 %27 to i32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store i32 %31, ptr %32, align 8
   br label %40
@@ -27297,7 +27297,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bpf_sol_tcp_setsockopt(ptr
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %33
-  %38 = trunc nuw i64 %34 to i32
+  %38 = trunc nuw nsw i64 %34 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   store i32 %38, ptr %39, align 4
   br label %40

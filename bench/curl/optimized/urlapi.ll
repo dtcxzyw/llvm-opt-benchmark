@@ -490,8 +490,8 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 
 147:                                              ; preds = %141
   call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
-  %148 = trunc nuw i64 %142 to i32
-  %149 = trunc nuw i64 %145 to i32
+  %148 = trunc nuw nsw i64 %142 to i32
+  %149 = trunc nuw nsw i64 %145 to i32
   %150 = lshr i32 %149, 16
   %151 = lshr i32 %149, 8
   %152 = and i32 %151, 255
@@ -514,9 +514,9 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 
 164:                                              ; preds = %155
   call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
-  %165 = trunc nuw i64 %156 to i32
-  %166 = trunc nuw i64 %159 to i32
-  %167 = trunc nuw i64 %162 to i32
+  %165 = trunc nuw nsw i64 %156 to i32
+  %166 = trunc nuw nsw i64 %159 to i32
+  %167 = trunc nuw nsw i64 %162 to i32
   %168 = lshr i32 %167, 8
   %169 = and i32 %167, 255
   %170 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.18, i32 noundef %165, i32 noundef %166, i32 noundef %168, i32 noundef %169) #10
@@ -541,10 +541,10 @@ Curl_parse_port.exit.thread49:                    ; preds = %99, %79, %76, %Curl
 
 183:                                              ; preds = %171
   call void @Curl_dyn_reset(ptr noundef nonnull %4) #10
-  %184 = trunc nuw i64 %172 to i32
-  %185 = trunc nuw i64 %175 to i32
-  %186 = trunc nuw i64 %178 to i32
-  %187 = trunc nuw i64 %181 to i32
+  %184 = trunc nuw nsw i64 %172 to i32
+  %185 = trunc nuw nsw i64 %175 to i32
+  %186 = trunc nuw nsw i64 %178 to i32
+  %187 = trunc nuw nsw i64 %181 to i32
   %188 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %4, ptr noundef nonnull @.str.18, i32 noundef %184, i32 noundef %185, i32 noundef %186, i32 noundef %187) #10
   br label %189
 

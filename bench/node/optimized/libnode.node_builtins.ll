@@ -3463,7 +3463,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us: ; preds = %for.body.us
   %2 = extractvalue { i64, ptr } %call16.us, 1
-  %conv.i.us = trunc nuw i64 %1 to i32
+  %conv.i.us = trunc nuw nsw i64 %1 to i32
   %call11.i.us = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.us, ptr noundef %2, i32 noundef 0, i32 noundef %conv.i.us) #23
   %cmp.i.i.us = icmp eq ptr %call11.i.us, null
   br i1 %cmp.i.i.us, label %cleanup, label %if.end27.us
@@ -3493,7 +3493,7 @@ _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_tra
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %for.body
   %4 = extractvalue { i64, ptr } %call16, 1
-  %conv.i = trunc nuw i64 %3 to i32
+  %conv.i = trunc nuw nsw i64 %3 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %isolate.addr.0, ptr noundef %4, i32 noundef 0, i32 noundef %conv.i) #23
   %cmp.i.i = icmp eq ptr %call11.i, null
   br i1 %cmp.i.i, label %cleanup, label %if.end27
@@ -3702,7 +3702,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us: ; preds = %for.body.us
   %8 = extractvalue { i64, ptr } %call10.us, 1
-  %conv.i.us = trunc nuw i64 %7 to i32
+  %conv.i.us = trunc nuw nsw i64 %7 to i32
   %call11.i.us = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.us, ptr noundef %8, i32 noundef 0, i32 noundef %conv.i.us) #23
   %9 = load i64, ptr %arr, align 8
   %cmp.not.i22.us = icmp ult i64 %i.044.us, %9
@@ -3737,7 +3737,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %for.body
   %15 = extractvalue { i64, ptr } %call10, 1
-  %conv.i = trunc nuw i64 %14 to i32
+  %conv.i = trunc nuw nsw i64 %14 to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %isolate.addr.0, ptr noundef %15, i32 noundef 0, i32 noundef %conv.i) #23
   %16 = load i64, ptr %arr, align 8
   %cmp.not.i22 = icmp ult i64 %i.044, %16
@@ -3952,7 +3952,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %cmp5.i.us, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.thread, label %_ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us
 
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit.us: ; preds = %for.body.us
-  %conv.i.us = trunc nuw i64 %agg.tmp8.sroa.0.0.copyload.us to i32
+  %conv.i.us = trunc nuw nsw i64 %agg.tmp8.sroa.0.0.copyload.us to i32
   %call11.i.us = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef %call3.i.us, ptr noundef %agg.tmp8.sroa.2.0.copyload.us, i32 noundef 0, i32 noundef %conv.i.us) #23
   %7 = load i64, ptr %arr, align 8
   %cmp.not.i22.us = icmp ult i64 %i.044.us, %7
@@ -3987,7 +3987,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 _ZN4node9ToV8ValueEN2v85LocalINS0_7ContextEEESt17basic_string_viewIcSt11char_traitsIcEEPNS0_7IsolateE.exit: ; preds = %for.body
   %agg.tmp8.sroa.2.0.call9.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %agg.tmp8.sroa.2.0.copyload = load ptr, ptr %agg.tmp8.sroa.2.0.call9.sroa_idx, align 8
-  %conv.i = trunc nuw i64 %agg.tmp8.sroa.0.0.copyload to i32
+  %conv.i = trunc nuw nsw i64 %agg.tmp8.sroa.0.0.copyload to i32
   %call11.i = call ptr @_ZN2v86String11NewFromUtf8EPNS_7IsolateEPKcNS_13NewStringTypeEi(ptr noundef nonnull %isolate.addr.0, ptr noundef %agg.tmp8.sroa.2.0.copyload, i32 noundef 0, i32 noundef %conv.i) #23
   %12 = load i64, ptr %arr, align 8
   %cmp.not.i22 = icmp ult i64 %i.044, %12

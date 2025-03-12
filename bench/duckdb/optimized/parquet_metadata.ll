@@ -27405,7 +27405,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 51:                                               ; preds = %._crit_edge.i
-  %52 = trunc nuw i64 %.0.lcssa.i to i8
+  %52 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -28327,7 +28327,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE13writeVarint32Ej.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %16
   %.08.lcssa.i.i.i = phi i32 [ %2, %16 ], [ %25, %._crit_edge.loopexit.i.i.i ]
   %.0.lcssa.i.i.i = phi i32 [ 0, %16 ], [ %21, %._crit_edge.loopexit.i.i.i ]
-  %27 = trunc nuw i32 %.08.lcssa.i.i.i to i8
+  %27 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %28 = add i32 %.0.lcssa.i.i.i, 1
   %29 = zext i32 %.0.lcssa.i.i.i to i64
   %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %29
@@ -28402,7 +28402,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE13writeVarint32Ej.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %16
   %.08.lcssa.i.i.i = phi i32 [ %2, %16 ], [ %25, %._crit_edge.loopexit.i.i.i ]
   %.0.lcssa.i.i.i = phi i32 [ 0, %16 ], [ %21, %._crit_edge.loopexit.i.i.i ]
-  %27 = trunc nuw i32 %.08.lcssa.i.i.i to i8
+  %27 = trunc nuw nsw i32 %.08.lcssa.i.i.i to i8
   %28 = add i32 %.0.lcssa.i.i.i, 1
   %29 = zext i32 %.0.lcssa.i.i.i to i64
   %30 = getelementptr inbounds nuw [5 x i8], ptr %4, i64 0, i64 %29
@@ -28498,7 +28498,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8writeI16Es.exit: ; preds = %2, %._crit_edge.loopexit.i.i
   %.08.lcssa.i.i = phi i32 [ %7, %2 ], [ %13, %._crit_edge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %9, %._crit_edge.loopexit.i.i ]
-  %15 = trunc nuw i32 %.08.lcssa.i.i to i8
+  %15 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %16 = add i32 %.0.lcssa.i.i, 1
   %17 = zext i32 %.0.lcssa.i.i to i64
   %18 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %17
@@ -28539,7 +28539,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8writeI32Ei.exit: ; preds = %2, %._crit_edge.loopexit.i.i
   %.08.lcssa.i.i = phi i32 [ %6, %2 ], [ %12, %._crit_edge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %8, %._crit_edge.loopexit.i.i ]
-  %14 = trunc nuw i32 %.08.lcssa.i.i to i8
+  %14 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
   %17 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %16
@@ -28580,7 +28580,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol16TVirtualPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8writeI64El.exit: ; preds = %2, %._crit_edge.loopexit.i.i
   %.08.lcssa.i.i = phi i64 [ %6, %2 ], [ %12, %._crit_edge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %2 ], [ %8, %._crit_edge.loopexit.i.i ]
-  %14 = trunc nuw i64 %.08.lcssa.i.i to i8
+  %14 = trunc nuw nsw i64 %.08.lcssa.i.i to i8
   %15 = add i32 %.0.lcssa.i.i, 1
   %16 = zext i32 %.0.lcssa.i.i to i64
   %17 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %16
@@ -29024,7 +29024,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE13writeVarint32Ej.exit: ; preds = %4, %._crit_edge.loopexit.i
   %.08.lcssa.i = phi i32 [ %3, %4 ], [ %18, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i ]
-  %20 = trunc nuw i32 %.08.lcssa.i to i8
+  %20 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %21 = add i32 %.0.lcssa.i, 1
   %22 = zext i32 %.0.lcssa.i to i64
   %23 = getelementptr inbounds nuw [5 x i8], ptr %5, i64 0, i64 %22
@@ -29079,7 +29079,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE13writeVarint32Ej.exit: ; preds = %12, %._crit_edge.loopexit.i
   %.08.lcssa.i = phi i32 [ %3, %12 ], [ %18, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %12 ], [ %14, %._crit_edge.loopexit.i ]
-  %20 = trunc nuw i32 %.08.lcssa.i to i8
+  %20 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %21 = add i32 %.0.lcssa.i, 1
   %22 = zext i32 %.0.lcssa.i to i64
   %23 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %22
@@ -29525,7 +29525,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE8writeI16Es.exit: ; preds = %29, %._crit_edge.loopexit.i.i
   %.08.lcssa.i.i = phi i32 [ %34, %29 ], [ %40, %._crit_edge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i32 [ 0, %29 ], [ %36, %._crit_edge.loopexit.i.i ]
-  %42 = trunc nuw i32 %.08.lcssa.i.i to i8
+  %42 = trunc nuw nsw i32 %.08.lcssa.i.i to i8
   %43 = add i32 %.0.lcssa.i.i, 1
   %44 = zext i32 %.0.lcssa.i.i to i64
   %45 = getelementptr inbounds nuw [5 x i8], ptr %6, i64 0, i64 %44
@@ -29589,7 +29589,7 @@ define linkonce_odr noundef i32 @_ZN13duckdb_apache6thrift8protocol17TCompactPro
 _ZN13duckdb_apache6thrift8protocol17TCompactProtocolTIN6duckdb19ThriftFileTransportEE13writeVarint32Ej.exit: ; preds = %13, %._crit_edge.loopexit.i
   %.08.lcssa.i = phi i32 [ %14, %13 ], [ %20, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ 0, %13 ], [ %16, %._crit_edge.loopexit.i ]
-  %22 = trunc nuw i32 %.08.lcssa.i to i8
+  %22 = trunc nuw nsw i32 %.08.lcssa.i to i8
   %23 = add i32 %.0.lcssa.i, 1
   %24 = zext i32 %.0.lcssa.i to i64
   %25 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %24

@@ -2958,13 +2958,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17haaef70f69992e
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !336
   br label %_ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !336
   %16 = trunc i32 %1 to i8
@@ -2976,7 +2976,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17haaef70f69992e
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !336
   %24 = lshr i32 %1, 6
@@ -6100,7 +6100,7 @@ _ZN4core5slice4sort12choose_pivot17he156a7edb75c1365E.exit: ; preds = %"_ZN4core
   br i1 %.not32.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 117:                                              ; preds = %110
-  %.lhs.trunc.i.i = trunc nuw i64 %113 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %113 to i16
   %118 = udiv i16 %.lhs.trunc.i.i, 96
   %.zext.i.i = zext nneg i16 %118 to i64
   %119 = icmp ult ptr %.0133.i.i, %.0136.i.i
@@ -7210,7 +7210,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !992, !noalias !989
   %12 = trunc i32 %1 to i8
@@ -7222,7 +7222,7 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !992, !noalias !989
   %19 = lshr i32 %1, 6
@@ -7290,7 +7290,7 @@ _ZN4core4char7methods15encode_utf8_raw17hcc9f79890c6a5f3fE.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17hcda1de4fa7de5b06E.exit
 
 .critedge.i:                                      ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !1005, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8412,9 +8412,9 @@ define hidden noundef zeroext i1 @_ZN6chrono6format10formatting13write_rfc333917
   br i1 %60, label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread, label %_ZN6chrono5naive9internals3Mdf7from_of17h7e22eff605a21f09E.exit.thread.thread
 
 _ZN6chrono6format10formatting14write_hundreds17h8ba82699ce7fa78eE.exit219.thread: ; preds = %5
-  %.lhs.trunc = trunc nuw i32 %36 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %36 to i16
   %61 = udiv i16 %.lhs.trunc, 100
-  %62 = trunc nuw i16 %61 to i8
+  %62 = trunc nuw nsw i16 %61 to i8
   %63 = udiv i8 %62, 10
   %64 = or disjoint i8 %63, 48
   %65 = urem i8 %62, 10

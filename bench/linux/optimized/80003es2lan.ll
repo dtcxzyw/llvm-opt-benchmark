@@ -868,7 +868,7 @@ define internal i32 @e1000_init_hw_80003es2lan(ptr noundef %0) #0 align 16 {
   br i1 %51, label %.preheader, label %52, !llvm.loop !14
 
 52:                                               ; preds = %.preheader
-  %53 = trunc i64 %48 to i16
+  %53 = trunc nuw i64 %48 to i16
   br label %54
 
 54:                                               ; preds = %52, %1

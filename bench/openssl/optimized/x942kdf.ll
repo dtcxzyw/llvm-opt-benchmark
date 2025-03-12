@@ -787,7 +787,7 @@ define internal fastcc range(i32 0, 2) i32 @x942_encode_otherinfo(i64 noundef %0
   br i1 %20, label %47, label %21
 
 21:                                               ; preds = %16
-  %.tr = trunc nuw i64 %0 to i32
+  %.tr = trunc nuw nsw i64 %0 to i32
   %22 = shl nuw nsw i32 %.tr, 3
   %23 = call fastcc i32 @der_encode_sharedinfo(ptr noundef %19, ptr noundef null, i64 noundef 0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, i32 noundef %22, ptr noundef null)
   %.not = icmp eq i32 %23, 0

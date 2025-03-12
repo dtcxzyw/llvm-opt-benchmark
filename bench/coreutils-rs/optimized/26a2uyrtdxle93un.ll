@@ -6740,10 +6740,10 @@ define void @_ZN10uu_hashsum15handle_captures17hbd8bbb1231077497E(ptr noalias no
   %.sroa.5.0..sroa_idx10.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %125, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !1532, !noalias !1540
   %139 = load i8, ptr %4, align 1, !range !1486, !noundef !5
-  %140 = icmp ne i8 %139, 2
-  %141 = trunc i8 %139 to i1
-  %.0 = xor i1 %140, %141
-  br i1 %.0, label %142, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4e0bf090b4b6f4caE.exit"
+  %140 = icmp eq i8 %139, 2
+  %141 = trunc nuw i8 %139 to i1
+  %.0.not = select i1 %140, i1 true, i1 %141
+  br i1 %.0.not, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4e0bf090b4b6f4caE.exit", label %142
 
 142:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)

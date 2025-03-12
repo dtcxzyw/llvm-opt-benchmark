@@ -9948,13 +9948,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit379.i: ; preds = %
   %5995 = shl nsw i32 %5994, 4
   %5996 = sext i32 %5995 to i64
   %5997 = getelementptr inbounds i16, ptr %5731, i64 %5996
-  %5998 = trunc i64 %5975 to i32
+  %5998 = trunc nuw nsw i64 %5975 to i32
   %5999 = sub i32 %5998, %5766
   %6000 = trunc i32 %5999 to i16
   br label %6003
 
 6001:                                             ; preds = %6003
-  %6002 = trunc i64 %5975 to i16
+  %6002 = trunc nuw i64 %5975 to i16
   br label %.sink.split.i
 
 6003:                                             ; preds = %6003, %5993

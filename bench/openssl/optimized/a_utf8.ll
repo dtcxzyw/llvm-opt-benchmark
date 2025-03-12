@@ -183,7 +183,7 @@ define range(i32 -2, 5) i32 @UTF8_putc(ptr noundef writeonly captures(address_is
 
 15:                                               ; preds = %13
   %16 = lshr i64 %2, 6
-  %17 = trunc nuw i64 %16 to i8
+  %17 = trunc nuw nsw i64 %16 to i8
   %18 = or disjoint i8 %17, -64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %18, ptr %0, align 1, !tbaa !3
@@ -210,7 +210,7 @@ define range(i32 -2, 5) i32 @UTF8_putc(ptr noundef writeonly captures(address_is
 
 29:                                               ; preds = %27
   %30 = lshr i64 %2, 12
-  %31 = trunc nuw i64 %30 to i8
+  %31 = trunc nuw nsw i64 %30 to i8
   %32 = or disjoint i8 %31, -32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %32, ptr %0, align 1, !tbaa !3
@@ -238,7 +238,7 @@ define range(i32 -2, 5) i32 @UTF8_putc(ptr noundef writeonly captures(address_is
 
 46:                                               ; preds = %44
   %47 = lshr i64 %2, 18
-  %48 = trunc nuw i64 %47 to i8
+  %48 = trunc nuw nsw i64 %47 to i8
   %49 = or disjoint i8 %48, -16
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %49, ptr %0, align 1, !tbaa !3

@@ -1386,7 +1386,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit74.i:             ; preds = %233, %231
   br i1 %237, label %238, label %242
 
 238:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit74.i
-  %239 = trunc nuw i64 %236 to i32
+  %239 = trunc nuw nsw i64 %236 to i32
   %240 = sub nuw nsw i32 40, %239
   %241 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %240) #19
   br label %242

@@ -263,7 +263,7 @@ CountLevels.exit.i:                               ; preds = %67
   br i1 %exitcond.not.i38, label %.preheader53.i, label %.lr.ph.i35, !llvm.loop !14
 
 .preheader.loopexit.i:                            ; preds = %.lr.ph57.i
-  %129 = trunc nsw i64 %indvars.iv.next66.i to i32
+  %129 = trunc nuw nsw i64 %indvars.iv.next66.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %.preheader53.i

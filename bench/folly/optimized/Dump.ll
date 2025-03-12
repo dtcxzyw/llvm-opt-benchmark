@@ -351,7 +351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68
 
 86:                                               ; preds = %84
   store i8 5, ptr %80, align 2, !tbaa !59
-  %87 = trunc nuw i64 %53 to i32
+  %87 = trunc nuw nsw i64 %53 to i32
   store i32 %87, ptr %81, align 4, !tbaa !60
   br label %94
 
@@ -361,13 +361,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68
 
 90:                                               ; preds = %88
   store i8 4, ptr %80, align 2, !tbaa !59
-  %91 = trunc nuw i64 %53 to i16
+  %91 = trunc nuw nsw i64 %53 to i16
   store i16 %91, ptr %81, align 2, !tbaa !62
   br label %94
 
 92:                                               ; preds = %88
   store i8 3, ptr %80, align 2, !tbaa !59
-  %93 = trunc nuw i64 %53 to i8
+  %93 = trunc nuw nsw i64 %53 to i8
   store i8 %93, ptr %81, align 1, !tbaa !59
   br label %94
 
@@ -1501,7 +1501,7 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   %36 = load ptr, ptr %1, align 8, !tbaa !76
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %37, ptr %1, align 8, !tbaa !76
-  %38 = trunc i64 %0 to i16
+  %38 = trunc nsw i64 %0 to i16
   %39 = load ptr, ptr %30, align 8, !tbaa !75
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %37 to i64
@@ -1533,7 +1533,7 @@ _ZN5folly2io13QueueAppender5writeIaEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5v
   %49 = load ptr, ptr %1, align 8, !tbaa !76
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %50, ptr %1, align 8, !tbaa !76
-  %51 = trunc i64 %0 to i32
+  %51 = trunc nsw i64 %0 to i32
   %52 = load ptr, ptr %12, align 8, !tbaa !75
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %50 to i64

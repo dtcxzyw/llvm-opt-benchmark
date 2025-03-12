@@ -208,7 +208,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i: ; preds = %21
 
 _ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendIPKS2_vEEvT_S7_.exit: ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i, %24
   %27 = phi i32 [ 0, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i ], [ %.pre.i, %24 ]
-  %28 = trunc i64 %4 to i32
+  %28 = trunc nuw i64 %4 to i32
   %29 = add i32 %27, %28
   store i32 %29, ptr %17, align 8, !tbaa !42
   %30 = zext i32 %29 to i64

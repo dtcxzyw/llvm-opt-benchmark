@@ -127,14 +127,14 @@ define hidden void @_RINvYNtCseBw3mChBYfU_3hex15BytesToHexCharsNtNtNtNtCs1LoaDTb
 
 14:                                               ; preds = %10
   %15 = lshr i32 %8, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %.sroa.0.i.i.i, align 4, !alias.scope !22, !noalias !19
   br label %_ZN4core4char7methods15encode_utf8_raw17h29cdc5573eb60f23E.exit.i.i.i
 
 18:                                               ; preds = %12
   %19 = lshr i32 %8, 12
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %.sroa.0.i.i.i, align 4, !alias.scope !22, !noalias !19
   %22 = lshr i32 %8, 6

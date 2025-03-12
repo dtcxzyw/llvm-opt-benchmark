@@ -1027,11 +1027,11 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   br i1 %or.cond5, label %113, label %.thread
 
 113:                                              ; preds = %111
-  %.lhs.trunc = trunc nuw i32 %112 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %112 to i16
   %114 = udiv i16 %.lhs.trunc, 188
   %115 = urem i16 %.lhs.trunc, 188
   %.zext116 = trunc nuw i16 %115 to i8
-  %116 = trunc nuw i16 %114 to i8
+  %116 = trunc nuw nsw i16 %114 to i8
   %117 = or disjoint i8 %116, -16
   %118 = load ptr, ptr %6, align 8, !tbaa !37
   store i8 %117, ptr %118, align 1, !tbaa !34
@@ -1690,7 +1690,7 @@ switch.early.test:                                ; preds = %PyUnicode_READ.exit
   br i1 %37, label %.thread230, label %38
 
 38:                                               ; preds = %.thread194
-  %39 = trunc i16 %.0147198 to i8
+  %39 = trunc nuw i16 %.0147198 to i8
   %40 = load ptr, ptr %6, align 8, !tbaa !37
   store i8 %39, ptr %40, align 1, !tbaa !34
   br label %186, !llvm.loop !66

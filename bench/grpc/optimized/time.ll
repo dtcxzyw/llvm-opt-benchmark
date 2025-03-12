@@ -1261,7 +1261,7 @@ _ZNK4absl12lts_202407228TimeZone2AtENS0_4TimeE.exit: ; preds = %14, %11, %16
   br i1 %35, label %switch.lookup, label %36
 
 36:                                               ; preds = %34
-  %37 = trunc i64 %.sroa.0.0 to i32
+  %37 = trunc nsw i64 %.sroa.0.0 to i32
   %38 = add nsw i32 %37, -1900
   br label %switch.lookup
 

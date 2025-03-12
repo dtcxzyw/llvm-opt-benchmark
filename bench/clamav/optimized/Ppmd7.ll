@@ -270,7 +270,7 @@ define internal fastcc void @RestartModel(ptr noundef captures(none) initializes
   %55 = load i16, ptr %54, align 2, !tbaa !45
   %56 = zext i16 %55 to i32
   %57 = udiv i32 %56, %50
-  %58 = trunc nuw i32 %57 to i16
+  %58 = trunc nuw nsw i32 %57 to i16
   %59 = sub nsw i16 16384, %58
   br label %60
 

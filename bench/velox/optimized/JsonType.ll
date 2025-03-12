@@ -4660,7 +4660,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.noexc53.i.i.i.i.i.
   br label %lpad19.body.i.i.i.i.i.i.i.i
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit.i.i.i.i.i.i.i.i: ; preds = %call4.i.noexc.i.i.i.i.i.i.i.i
-  %ref.tmp.sroa.32.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc i64 %retval.0.i.i40.i.i.i.i.i.i.i.i to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.0.i.i40.i.i.i.i.i.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit.i.i.i.i.i.i.i.i
@@ -5677,7 +5677,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i552:                    ; preds = %.noexc53.i.i.i.i.i.
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i
   %retval.0.i.i406467.i.i.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i499, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i ], [ %retval.0.i.i40.i.i.i.i.i.i.i.i547, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i ]
-  %conv.i.i.i.i.i.i.i.i.i.i.i = trunc i64 %retval.0.i.i406467.i.i.i.i.i.i.i.i to i8
+  %conv.i.i.i.i.i.i.i.i.i.i.i = trunc nsw i64 %retval.0.i.i406467.i.i.i.i.i.i.i.i to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i328)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit.i.i.i.i.i.i.i.i
 
@@ -6693,7 +6693,7 @@ lpad.i.i.i.i.i.i.i.i.i.i.i931:                    ; preds = %.noexc53.i.i.i.i.i.
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit.i.i.i.i.i.i.i.i: ; preds = %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i927, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i873
   %retval.0.i.i406467.i.i.i.i.i.i.i.i876 = phi i64 [ %conv.i.i.i.i.i43.i.i.i.i.i.i.i.i875, %invoke.cont5.i.i.i.thread.i.i.i.i.i.i.i.i873 ], [ %retval.0.i.i40.i.i.i.i.i.i.i.i925, %invoke.cont5.i.i.i.i.i.i.i.i.i.i.i927 ]
-  %conv.i.i.i.i.i.i.i.i.i.i.i877 = trunc i64 %retval.0.i.i406467.i.i.i.i.i.i.i.i876 to i16
+  %conv.i.i.i.i.i.i.i.i.i.i.i877 = trunc nsw i64 %retval.0.i.i406467.i.i.i.i.i.i.i.i876 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i.i703)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit.i.i.i.i.i.i.i.i
 
@@ -67118,7 +67118,7 @@ lpad.i.i.i:                                       ; preds = %.noexc53
   br label %lpad17.body
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %call4.i.noexc
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i40 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i40 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -70008,7 +70008,7 @@ lpad.i.i.i:                                       ; preds = %.noexc53
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i406467 = phi i64 [ %conv.i.i.i.i.i43, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i40, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i406467 to i8
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i406467 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -72431,7 +72431,7 @@ lpad.i.i.i:                                       ; preds = %.noexc53
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i406467 = phi i64 [ %conv.i.i.i.i.i43, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i40, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i406467 to i16
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i406467 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -85524,7 +85524,7 @@ if.end.i:                                         ; preds = %if.then
 _ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKN8facebook5velox6BufferEvvvvEEE25computeChunkCountAndScaleEmbb.exit.thread.i: ; preds = %if.end.i
   %mul.i413.i = shl nuw nsw i64 %capacity, 3
   %add.i14.i = add nuw nsw i64 %mul.i413.i, 16
-  %1 = trunc nuw i64 %capacity to i8
+  %1 = trunc nuw nsw i64 %capacity to i8
   br label %3
 
 if.else11.i.i:                                    ; preds = %if.end.i
@@ -88353,7 +88353,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   br label %common.resume975
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i124 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i124 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -88544,7 +88544,7 @@ lpad.i.i.i213:                                    ; preds = %if.end.i.i.i212
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i196954957 = phi i64 [ %conv.i.i.i.i.i199, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i196, %invoke.cont5.i.i.i ]
-  %conv.i.i.i211 = trunc i64 %retval.0.i.i196954957 to i8
+  %conv.i.i.i211 = trunc nsw i64 %retval.0.i.i196954957 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i208)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -88734,7 +88734,7 @@ lpad.i.i.i300:                                    ; preds = %if.end.i.i.i299
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i296.thread, %invoke.cont5.i.i.i296
   %retval.0.i.i282960963 = phi i64 [ %conv.i.i.i.i.i285, %invoke.cont5.i.i.i296.thread ], [ %retval.0.i.i282, %invoke.cont5.i.i.i296 ]
-  %conv.i.i.i298 = trunc i64 %retval.0.i.i282960963 to i16
+  %conv.i.i.i298 = trunc nsw i64 %retval.0.i.i282960963 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i294)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -92344,7 +92344,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   br label %common.resume670
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i93 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i93 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -92478,7 +92478,7 @@ lpad.i.i.i153:                                    ; preds = %if.end.i.i.i152
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i137649652 = phi i64 [ %conv.i.i.i.i.i140, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i137, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i137649652 to i8
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i137649652 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i149)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -92611,7 +92611,7 @@ lpad.i.i.i212:                                    ; preds = %if.end.i.i.i211
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i208.thread, %invoke.cont5.i.i.i208
   %retval.0.i.i194655658 = phi i64 [ %conv.i.i.i.i.i197, %invoke.cont5.i.i.i208.thread ], [ %retval.0.i.i194, %invoke.cont5.i.i.i208 ]
-  %conv.i.i.i210 = trunc i64 %retval.0.i.i194655658 to i16
+  %conv.i.i.i210 = trunc nsw i64 %retval.0.i.i194655658 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i206)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -94626,7 +94626,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   br label %common.resume684
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i94 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i94 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -94762,7 +94762,7 @@ lpad.i.i.i155:                                    ; preds = %if.end.i.i.i154
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i139663666 = phi i64 [ %conv.i.i.i.i.i142, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i139, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i139663666 to i8
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i139663666 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i151)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -94897,7 +94897,7 @@ lpad.i.i.i215:                                    ; preds = %if.end.i.i.i214
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i211.thread, %invoke.cont5.i.i.i211
   %retval.0.i.i197669672 = phi i64 [ %conv.i.i.i.i.i200, %invoke.cont5.i.i.i211.thread ], [ %retval.0.i.i197, %invoke.cont5.i.i.i211 ]
-  %conv.i.i.i213 = trunc i64 %retval.0.i.i197669672 to i16
+  %conv.i.i.i213 = trunc nsw i64 %retval.0.i.i197669672 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i209)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -96825,7 +96825,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   br label %common.resume670
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i93 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i93 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -96961,7 +96961,7 @@ lpad.i.i.i153:                                    ; preds = %if.end.i.i.i152
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i137649652 = phi i64 [ %conv.i.i.i.i.i140, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i137, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i137649652 to i8
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i137649652 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i149)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -97096,7 +97096,7 @@ lpad.i.i.i212:                                    ; preds = %if.end.i.i.i211
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i208.thread, %invoke.cont5.i.i.i208
   %retval.0.i.i194655658 = phi i64 [ %conv.i.i.i.i.i197, %invoke.cont5.i.i.i208.thread ], [ %retval.0.i.i194, %invoke.cont5.i.i.i208 ]
-  %conv.i.i.i210 = trunc i64 %retval.0.i.i194655658 to i16
+  %conv.i.i.i210 = trunc nsw i64 %retval.0.i.i194655658 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i206)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -100182,7 +100182,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   br label %common.resume918
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i122 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i122 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -100359,7 +100359,7 @@ lpad.i.i.i205:                                    ; preds = %if.end.i.i.i204
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i189897900 = phi i64 [ %conv.i.i.i.i.i192, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i189, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i189897900 to i8
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i189897900 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i201)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -100535,7 +100535,7 @@ lpad.i.i.i287:                                    ; preds = %if.end.i.i.i286
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i283.thread, %invoke.cont5.i.i.i283
   %retval.0.i.i269903906 = phi i64 [ %conv.i.i.i.i.i272, %invoke.cont5.i.i.i283.thread ], [ %retval.0.i.i269, %invoke.cont5.i.i.i283 ]
-  %conv.i.i.i285 = trunc i64 %retval.0.i.i269903906 to i16
+  %conv.i.i.i285 = trunc nsw i64 %retval.0.i.i269903906 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i281)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -103075,7 +103075,7 @@ lpad.i.i.i:                                       ; preds = %if.end.i.i.i
   br label %common.resume917
 
 _ZN5folly2toIilEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %ref.tmp.sroa.32.0.extract.trunc.i = trunc i64 %retval.0.i.i121 to i32
+  %ref.tmp.sroa.32.0.extract.trunc.i = trunc nsw i64 %retval.0.i.i121 to i32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIiEET_RKN5folly7dynamicE.exit
@@ -103254,7 +103254,7 @@ lpad.i.i.i204:                                    ; preds = %if.end.i.i.i203
 
 _ZN5folly2toIalEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i.thread, %invoke.cont5.i.i.i
   %retval.0.i.i188896899 = phi i64 [ %conv.i.i.i.i.i191, %invoke.cont5.i.i.i.thread ], [ %retval.0.i.i188, %invoke.cont5.i.i.i ]
-  %conv.i.i.i = trunc i64 %retval.0.i.i188896899 to i8
+  %conv.i.i.i = trunc nsw i64 %retval.0.i.i188896899 to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i200)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIaEET_RKN5folly7dynamicE.exit
 
@@ -103432,7 +103432,7 @@ lpad.i.i.i287:                                    ; preds = %if.end.i.i.i286
 
 _ZN5folly2toIslEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %invoke.cont5.i.i.i283.thread, %invoke.cont5.i.i.i283
   %retval.0.i.i269902905 = phi i64 [ %conv.i.i.i.i.i272, %invoke.cont5.i.i.i283.thread ], [ %retval.0.i.i269, %invoke.cont5.i.i.i283 ]
-  %conv.i.i.i285 = trunc i64 %retval.0.i.i269902905 to i16
+  %conv.i.i.i285 = trunc nsw i64 %retval.0.i.i269902905 to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp2.i281)
   br label %_ZN8facebook5velox12_GLOBAL__N_113castJsonToIntIsEET_RKN5folly7dynamicE.exit
 
@@ -107508,7 +107508,7 @@ if.else.i:                                        ; preds = %if.then.i
 if.else11.i:                                      ; preds = %if.end
   %conv = zext i32 %0 to i64
   %sub.i = add nsw i64 %conv, -1
-  %div.i.lhs.trunc = trunc i64 %sub.i to i32
+  %div.i.lhs.trunc = trunc nuw i64 %sub.i to i32
   %div.i11 = udiv i32 %div.i.lhs.trunc, 10
   %1 = tail call range(i32 3, 33) i32 @llvm.ctlz.i32(i32 %div.i11, i1 true)
   %2 = or disjoint i32 %1, 32

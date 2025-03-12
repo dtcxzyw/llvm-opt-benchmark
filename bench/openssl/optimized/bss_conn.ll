@@ -529,7 +529,7 @@ conn_close_socket.exit:                           ; preds = %7, %10
   br i1 %84, label %176, label %85
 
 85:                                               ; preds = %82
-  %86 = trunc nuw i64 %2 to i32
+  %86 = trunc nuw nsw i64 %2 to i32
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %86, ptr %87, align 8, !tbaa !35
   br label %176

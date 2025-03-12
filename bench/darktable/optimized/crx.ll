@@ -19197,7 +19197,7 @@ define void @_Z19crxConvertPlaneLineP8CrxImageiiiPii(ptr noundef readonly captur
   %167 = tail call i32 @llvm.smin.i32(i32 %165, i32 %127)
   %168 = trunc i32 %167 to i16
   %169 = select i1 %166, i16 0, i16 %168
-  %indvars.iv228.tr = trunc i64 %indvars.iv228 to i32
+  %indvars.iv228.tr = trunc nuw nsw i64 %indvars.iv228 to i32
   %170 = shl nuw nsw i32 %indvars.iv228.tr, 1
   %171 = add i32 %170, %129
   %172 = zext i32 %171 to i64

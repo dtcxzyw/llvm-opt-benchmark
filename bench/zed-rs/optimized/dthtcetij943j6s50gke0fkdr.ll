@@ -1758,7 +1758,7 @@ define hidden void @"_ZN8arrayvec12array_string20ArrayString$LT$_$GT$4from17h41a
 
 6:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
-  %7 = trunc nuw i64 %2 to i32
+  %7 = trunc nuw nsw i64 %2 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   br label %11

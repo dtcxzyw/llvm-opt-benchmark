@@ -240,7 +240,7 @@ define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, pt
 
 .loopexit.loopexit19:                             ; preds = %111, %.split13
   %.ph20.in = phi i64 [ %indvars.iv, %.split13 ], [ %indvars.iv.next, %111 ]
-  %.ph20 = trunc i64 %.ph20.in to i32
+  %.ph20 = trunc nuw nsw i64 %.ph20.in to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %95, %.split13.us, %.loopexit.loopexit19, %81

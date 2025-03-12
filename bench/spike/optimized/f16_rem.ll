@@ -94,7 +94,7 @@ define i16 @f16_rem(i16 %0, i16 %1) local_unnamed_addr #0 {
   br i1 %.not, label %82, label %46
 
 46:                                               ; preds = %43
-  %47 = trunc i64 %40 to i16
+  %47 = trunc nuw i64 %40 to i16
   %48 = sub i16 %44, %47
   br label %82
 

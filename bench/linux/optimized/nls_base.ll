@@ -234,7 +234,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i3
   %44 = and i64 %38, 2095104
   %45 = icmp eq i64 %44, 55296
   %46 = or i1 %43, %45
-  %47 = trunc i64 %38 to i32
+  %47 = trunc nuw nsw i64 %38 to i32
   br i1 %46, label %.thread, label %62
 
 48:                                               ; preds = %24
@@ -261,7 +261,7 @@ define dso_local i32 @utf8s_to_utf16s(ptr noundef readonly captures(none) %0, i3
   %63 = zext nneg i32 %30 to i64
   %64 = getelementptr i8, ptr %14, i64 %63
   %65 = sub nsw i32 %15, %30
-  %66 = icmp ugt i32 %47, 65535
+  %66 = icmp samesign ugt i64 %38, 65535
   br i1 %66, label %67, label %84
 
 67:                                               ; preds = %62

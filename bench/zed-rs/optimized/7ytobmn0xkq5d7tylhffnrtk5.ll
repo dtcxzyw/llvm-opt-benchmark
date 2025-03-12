@@ -12077,7 +12077,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN164_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..Override$LT$T$GT$$GT$..deserialize..__Visitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h396b4f1c780cb26aE.exit.thread.sink.split.i"
 
 139:                                              ; preds = %136
-  %trunc.i.i = trunc i8 %137 to i1
+  %trunc.i.i = trunc nuw i8 %137 to i1
   br i1 %trunc.i.i, label %144, label %142
 
 140:                                              ; preds = %136
@@ -12659,7 +12659,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN164_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..Override$LT$T$GT$$GT$..deserialize..__Visitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h404ba946462d0dccE.exit.thread.sink.split.i"
 
 139:                                              ; preds = %136
-  %trunc.i.i = trunc i8 %137 to i1
+  %trunc.i.i = trunc nuw i8 %137 to i1
   br i1 %trunc.i.i, label %144, label %142
 
 140:                                              ; preds = %136
@@ -13243,7 +13243,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN164_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..Override$LT$T$GT$$GT$..deserialize..__Visitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hfc1f05d0b35bf7d0E.exit.thread.sink.split.i"
 
 139:                                              ; preds = %136
-  %trunc.i.i = trunc i8 %137 to i1
+  %trunc.i.i = trunc nuw i8 %137 to i1
   br i1 %trunc.i.i, label %144, label %142
 
 140:                                              ; preds = %136
@@ -40617,7 +40617,7 @@ define hidden void @_ZN18serde_json_lenient4read11next_or_eof17h62649e0b361320cc
   br i1 %12, label %57, label %13
 
 13:                                               ; preds = %9
-  %trunc.i.i = trunc i8 %11 to i1
+  %trunc.i.i = trunc nuw i8 %11 to i1
   br i1 %trunc.i.i, label %52, label %14
 
 14:                                               ; preds = %13
@@ -41366,7 +41366,7 @@ tailrecurse._crit_edge.i:                         ; preds = %74, %tailrecurse.i
   br i1 %176, label %195, label %177
 
 177:                                              ; preds = %174
-  %trunc.i.i.i18 = trunc i8 %175 to i1
+  %trunc.i.i.i18 = trunc nuw i8 %175 to i1
   br i1 %trunc.i.i.i18, label %191, label %178
 
 178:                                              ; preds = %177
@@ -41430,13 +41430,13 @@ tailrecurse._crit_edge.i:                         ; preds = %74, %tailrecurse.i
   br i1 %203, label %206, label %213
 
 204:                                              ; preds = %200
-  %205 = trunc nuw i16 %163 to i8
+  %205 = trunc nuw nsw i16 %163 to i8
   store i8 %205, ptr %.sroa.0, align 4, !alias.scope !8309
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.9243646390802613332.exit
 
 206:                                              ; preds = %202
   %207 = lshr i16 %163, 6
-  %208 = trunc nuw i16 %207 to i8
+  %208 = trunc nuw nsw i16 %207 to i8
   %209 = or disjoint i8 %208, -64
   store i8 %209, ptr %.sroa.0, align 4, !alias.scope !8309
   %210 = trunc i16 %163 to i8
@@ -41549,7 +41549,7 @@ _ZN18serde_json_lenient4read11peek_or_eof17hd071ab635348569aE.exit21: ; preds = 
   br i1 %264, label %283, label %265
 
 265:                                              ; preds = %"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$u20$serde_json_lenient..read..Read$GT$7discard17h17d4664e4814a81cE.exit16.thread"
-  %trunc.i.i.i = trunc i8 %263 to i1
+  %trunc.i.i.i = trunc nuw i8 %263 to i1
   br i1 %trunc.i.i.i, label %279, label %266
 
 266:                                              ; preds = %265
@@ -45922,7 +45922,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
   br i1 %27, label %54, label %14
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %0 to i8
+  %29 = trunc nuw nsw i32 %0 to i8
   store i8 %29, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc8576a1b43ed328dE.exit"
 
@@ -45935,7 +45935,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %1, align 1
   %37 = trunc i32 %0 to i8
@@ -45947,7 +45947,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 41:                                               ; preds = %24
   %42 = lshr i32 %0, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   store i8 %44, ptr %1, align 1
   %45 = lshr i32 %0, 6
@@ -46492,7 +46492,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !9355
   %12 = trunc i32 %1 to i8
@@ -46504,7 +46504,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !9355
   %19 = lshr i32 %1, 6
@@ -47034,13 +47034,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h76fe642cad502b89
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !9478
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.9243646390802613332.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !9478
   %18 = trunc i32 %1 to i8
@@ -47052,7 +47052,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h76fe642cad502b89
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !9478
   %26 = lshr i32 %1, 6
@@ -47126,13 +47126,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h9c72e3007377409d
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !9485
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.9243646390802613332.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !9485
   %18 = trunc i32 %1 to i8
@@ -47144,7 +47144,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h9c72e3007377409d
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !9485
   %26 = lshr i32 %1, 6
@@ -47218,13 +47218,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hcfa09f3ef45e0ff4
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !9492
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.9243646390802613332.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !9492
   %18 = trunc i32 %1 to i8
@@ -47236,7 +47236,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hcfa09f3ef45e0ff4
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !9492
   %26 = lshr i32 %1, 6
@@ -96069,7 +96069,7 @@ _ZN5serde2de9MapAccess8next_key17hbac5fd9b671e1098E.exit.i: ; preds = %69
   br label %101
 
 76:                                               ; preds = %73
-  %trunc.i = trunc i8 %72 to i1
+  %trunc.i = trunc nuw i8 %72 to i1
   br i1 %trunc.i, label %81, label %79
 
 77:                                               ; preds = %73
@@ -105057,7 +105057,7 @@ _ZN5serde2de9MapAccess8next_key17heb1833a6025fb7d4E.exit.i: ; preds = %69
   br label %101
 
 76:                                               ; preds = %73
-  %trunc.i = trunc i8 %72 to i1
+  %trunc.i = trunc nuw i8 %72 to i1
   br i1 %trunc.i, label %81, label %79
 
 77:                                               ; preds = %73
@@ -114347,7 +114347,7 @@ define hidden void @"_ZN92_$LT$serde_json_lenient..read..IoRead$LT$R$GT$$u20$as$
   br i1 %11, label %30, label %12
 
 12:                                               ; preds = %8
-  %trunc.i = trunc i8 %10 to i1
+  %trunc.i = trunc nuw i8 %10 to i1
   br i1 %trunc.i, label %35, label %13
 
 13:                                               ; preds = %12

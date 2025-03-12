@@ -761,7 +761,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %17, %15, %11, %7, %
   br label %_ZN7testing8internal16DefaultParamNameIN12_GLOBAL__N_110TestParamsEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 
 53:                                               ; preds = %._crit_edge.i.i.i
-  %54 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %54 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %55 = or disjoint i8 %54, 48
   br label %_ZN7testing8internal16DefaultParamNameIN12_GLOBAL__N_110TestParamsEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TestParamInfoIT_EE.exit
 

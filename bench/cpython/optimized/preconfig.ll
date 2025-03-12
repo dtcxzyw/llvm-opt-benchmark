@@ -2290,7 +2290,7 @@ _Py_str_to_int.exit.thread:                       ; preds = %13, %_Py_GetEnv.exi
   br label %19
 
 _Py_str_to_int.exit:                              ; preds = %13
-  %17 = trunc nsw i64 %10 to i32
+  %17 = trunc nuw nsw i64 %10 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   %18 = icmp slt i64 %10, 0
   br i1 %18, label %19, label %20

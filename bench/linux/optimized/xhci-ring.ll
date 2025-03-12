@@ -683,7 +683,7 @@ define internal fastcc void @ring_doorbell_for_active_rings(ptr noundef readonly
   br i1 %84, label %85, label %111
 
 85:                                               ; preds = %76
-  %86 = trunc i64 %69 to i32
+  %86 = trunc nuw i64 %69 to i32
   %87 = shl i32 %86, 16
   %88 = or disjoint i32 %87, %24
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_xhci_ring_ep_doorbell, i64 8), i32 2) #14
@@ -950,7 +950,7 @@ define dso_local void @xhci_hc_died(ptr noundef %0) local_unnamed_addr #2 align 
 
 37:                                               ; preds = %32
   %38 = icmp eq i64 %33, 0
-  %39 = trunc i64 %33 to i32
+  %39 = trunc nuw nsw i64 %33 to i32
   br i1 %38, label %.thread.us, label %.split
 
 .thread.us:                                       ; preds = %37, %.thread.us

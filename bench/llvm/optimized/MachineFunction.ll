@@ -10590,7 +10590,7 @@ define dso_local noundef i32 @_ZN4llvm19MachineConstantPool20getConstantPoolInde
 59:                                               ; preds = %44
   %60 = call noundef zeroext i1 @_ZNK4llvm8Constant28containsUndefOrPoisonElementEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #28
   %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %28) #28
-  %.tr.i = trunc nuw i64 %49 to i32
+  %.tr.i = trunc nuw nsw i64 %49 to i32
   %62 = shl nuw nsw i32 %.tr.i, 3
   %63 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %62) #28
   %64 = load ptr, ptr %32, align 8, !tbaa !589

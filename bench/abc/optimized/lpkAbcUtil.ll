@@ -500,7 +500,7 @@ define i32 @Lpk_SuppToVars(i32 noundef %0, ptr noundef writeonly captures(none) 
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i32 %.078 to i8
+  %7 = trunc nuw nsw i32 %.078 to i8
   %8 = add nsw i32 %.09, 1
   %9 = sext i32 %.09 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 %9

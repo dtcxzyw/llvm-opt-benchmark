@@ -19042,7 +19042,7 @@ common.resume:                                    ; preds = %.body.i, %71
   br label %.body.i
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h353f1a47e12e1e4eE.exit.i": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0a3edc9a6d671909E.llvm.1425447921696267910.exit.i.i"
-  %trunc.i = trunc i8 %92 to i1
+  %trunc.i = trunc nuw i8 %92 to i1
   br i1 %trunc.i, label %107, label %105
 
 105:                                              ; preds = %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h353f1a47e12e1e4eE.exit.i"
@@ -19767,7 +19767,7 @@ common.resume:                                    ; preds = %.body.i, %71
   br label %.body.i
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h353f1a47e12e1e4eE.exit.i": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0a3edc9a6d671909E.llvm.1425447921696267910.exit.i.i"
-  %trunc.i = trunc i8 %92 to i1
+  %trunc.i = trunc nuw i8 %92 to i1
   br i1 %trunc.i, label %107, label %105
 
 105:                                              ; preds = %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h353f1a47e12e1e4eE.exit.i"
@@ -20492,7 +20492,7 @@ common.resume:                                    ; preds = %.body.i, %71
   br label %.body.i
 
 "_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h353f1a47e12e1e4eE.exit.i": ; preds = %"_ZN4core3ptr190drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$17h0a3edc9a6d671909E.llvm.1425447921696267910.exit.i.i"
-  %trunc.i = trunc i8 %92 to i1
+  %trunc.i = trunc nuw i8 %92 to i1
   br i1 %trunc.i, label %107, label %105
 
 105:                                              ; preds = %"_ZN4core3ptr212drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$bool$C$ockam_core..error..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h353f1a47e12e1e4eE.exit.i"
@@ -24685,7 +24685,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 1358:                                             ; preds = %1345, %1341
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %39)
   store i8 1, ptr %1329, align 8, !noalias !3263
-  %1359 = trunc i8 %1332 to i1
+  %1359 = trunc nuw i8 %1332 to i1
   br i1 %1359, label %1378, label %1373
 
 .body.i.i.i.i.i:                                  ; preds = %1356, %1309
@@ -51380,7 +51380,7 @@ common.ret:                                       ; preds = %1646, %1588, %1437,
   br i1 %1411, label %1413, label %1412
 
 1412:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
-  %trunc.i558 = trunc i8 %1396 to i1
+  %trunc.i558 = trunc nuw i8 %1396 to i1
   br i1 %trunc.i558, label %1415, label %1417
 
 1413:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
@@ -64968,7 +64968,7 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   br i1 %.not, label %86, label %84
 
 84:                                               ; preds = %81
-  %85 = trunc i8 %83 to i1
+  %85 = trunc nuw i8 %83 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -66613,7 +66613,7 @@ define hidden noundef zeroext i1 @"_ZN166_$LT$tracing_subscriber..fmt..format..F
   br i1 %.not, label %86, label %84
 
 84:                                               ; preds = %81
-  %85 = trunc i8 %83 to i1
+  %85 = trunc nuw i8 %83 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -70326,7 +70326,7 @@ define hidden noundef zeroext i1 @"_ZN18tracing_subscriber3fmt6format6pretty186_
   br i1 %.not205, label %99, label %97
 
 97:                                               ; preds = %94
-  %98 = trunc i8 %96 to i1
+  %98 = trunc nuw i8 %96 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -71838,7 +71838,7 @@ define hidden noundef zeroext i1 @"_ZN18tracing_subscriber3fmt6format6pretty186_
   br i1 %.not205, label %99, label %97
 
 97:                                               ; preds = %94
-  %98 = trunc i8 %96 to i1
+  %98 = trunc nuw i8 %96 to i1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -95750,7 +95750,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h94e10a971cc665feE.exit"
 
@@ -95763,7 +95763,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -95775,7 +95775,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -97395,7 +97395,7 @@ define hidden void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.417259
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !14783
   %12 = trunc i32 %1 to i8
@@ -97407,7 +97407,7 @@ define hidden void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E.llvm.417259
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !14783
   %19 = lshr i32 %1, 6
@@ -97475,7 +97475,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.4172597797139691
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !14796, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -101107,7 +101107,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !15373
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17ha531132aec1d2709E.exit.thread", label %104
 
 104:                                              ; preds = %102
@@ -103145,9 +103145,9 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %205 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %206 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %207 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %.lhs.trunc.i159 = trunc nuw i32 %200 to i16
+  %.lhs.trunc.i159 = trunc nuw nsw i32 %200 to i16
   %208 = udiv i16 %.lhs.trunc.i159, 100
-  %209 = trunc nuw i16 %208 to i8
+  %209 = trunc nuw nsw i16 %208 to i8
   %210 = udiv i8 %209, 10
   %211 = or disjoint i8 %210, 48
   %212 = zext nneg i8 %211 to i32
@@ -103302,9 +103302,9 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting22DelayedFormat$
   %or.cond.i.i = icmp ult i32 %331, 9000
   %332 = sext i32 %302 to i64
   %.016.i6.i.i = icmp ugt i32 %302, 9999
-  %.lhs.trunc.i.i = trunc nuw i32 %302 to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %302 to i16
   %333 = udiv i16 %.lhs.trunc.i.i, 100
-  %334 = trunc nuw i16 %333 to i8
+  %334 = trunc nuw nsw i16 %333 to i8
   %335 = udiv i8 %334, 10
   %336 = or disjoint i8 %335, 48
   %337 = zext nneg i8 %336 to i32
@@ -103563,10 +103563,10 @@ _ZN4core3ops5range11RangeBounds8contains17he3033e5c0d1607daE.exit.thread.i78.i: 
   br label %.noexc76.invoke
 
 408:                                              ; preds = %.noexc19
-  %.lhs.trunc.i81.i = trunc nuw i32 %405 to i16
+  %.lhs.trunc.i81.i = trunc nuw nsw i32 %405 to i16
   %409 = udiv i16 %.lhs.trunc.i81.i, 100
   %410 = urem i16 %.lhs.trunc.i81.i, 100
-  %411 = trunc nuw i16 %409 to i8
+  %411 = trunc nuw nsw i16 %409 to i8
   %412 = udiv i8 %411, 10
   %413 = urem i8 %411, 10
   %414 = or disjoint i8 %412, 48
@@ -147678,7 +147678,7 @@ common.ret:                                       ; preds = %1524, %1520, %197
           to label %1523 unwind label %1388, !noalias !22570
 
 1402:                                             ; preds = %1390
-  %trunc.i = trunc i8 %.sroa.0103.1.i.i to i1
+  %trunc.i = trunc nuw i8 %.sroa.0103.1.i.i to i1
   br i1 %trunc.i, label %1403, label %1523
 
 1403:                                             ; preds = %1402

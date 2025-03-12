@@ -13694,7 +13694,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIjSaIjE
   %indvars.iv162 = phi i64 [ 0, %.lr.ph153.split.preheader ], [ %indvars.iv.next163, %.lr.ph153.split ]
   %123 = getelementptr inbounds nuw i32, ptr %.val92.val, i64 %indvars.iv162
   %124 = load i32, ptr %123, align 4, !tbaa !119
-  %indvars.iv162.tr = trunc i64 %indvars.iv162 to i32
+  %indvars.iv162.tr = trunc nuw nsw i64 %indvars.iv162 to i32
   %125 = shl nuw i32 %indvars.iv162.tr, 1
   %126 = and i32 %125, 131070
   %127 = add nuw nsw i32 %126, 2
@@ -23014,7 +23014,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %218
 
 ._crit_edge.loopexit:                             ; preds = %288
-  %131 = trunc i64 %299 to i32
+  %131 = trunc nuw i64 %299 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %121
@@ -26453,7 +26453,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %141
 
 ._crit_edge.loopexit:                             ; preds = %235
-  %134 = trunc i64 %246 to i32
+  %134 = trunc nuw i64 %246 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %123
@@ -43865,7 +43865,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIjSaIjE
   %124 = load i32, ptr %123, align 4, !tbaa !119
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds nuw i32, ptr %78, i64 %125
-  %indvars.iv162.tr = trunc i64 %indvars.iv162 to i32
+  %indvars.iv162.tr = trunc nuw nsw i64 %indvars.iv162 to i32
   %127 = shl nuw i32 %indvars.iv162.tr, 1
   %128 = add nuw i32 %127, 2
   store i32 %128, ptr %126, align 4, !tbaa !119
@@ -48562,7 +48562,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %218
 
 ._crit_edge.loopexit:                             ; preds = %288
-  %131 = trunc i64 %299 to i32
+  %131 = trunc nuw i64 %299 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %121
@@ -51351,7 +51351,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %141
 
 ._crit_edge.loopexit:                             ; preds = %235
-  %134 = trunc i64 %246 to i32
+  %134 = trunc nuw i64 %246 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %123

@@ -2008,7 +2008,7 @@ define internal i32 @usbhid_parse(ptr noundef %0) #0 align 16 {
   %101 = load i8, ptr %94, align 2
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %91, i8 0, i64 %90, i1 false)
   %102 = zext i8 %101 to i16
-  %103 = trunc nuw i32 %83 to i16
+  %103 = trunc nuw nsw i32 %83 to i16
   br label %104
 
 104:                                              ; preds = %104, %93

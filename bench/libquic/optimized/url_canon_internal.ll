@@ -190,7 +190,7 @@ _ZN3url11ReadUTFCharEPKtPiiPj.exit.i:             ; preds = %_ZN4base16IsValidCh
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 26:                                               ; preds = %10
-  %27 = trunc nuw i16 %13 to i8
+  %27 = trunc nuw nsw i16 %13 to i8
   %28 = zext nneg i16 %13 to i64
   %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url20kSharedCharTypeTableE, i64 0, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !7
@@ -493,7 +493,7 @@ _ZN3url21AppendUTF8EscapedCharEPKtPiiPNS_12CanonOutputTIcEE.exit.i: ; preds = %_
   %27 = icmp samesign ult i16 %13, 33
   %28 = icmp eq i16 %13, 127
   %or.cond.i = or i1 %27, %28
-  %29 = trunc nuw i16 %13 to i8
+  %29 = trunc nuw nsw i16 %13 to i8
   br i1 %or.cond.i, label %30, label %31
 
 30:                                               ; preds = %26
@@ -669,7 +669,7 @@ _ZN3url11ReadUTFCharEPKcPiiPj.exit:               ; preds = %15
 
 21:                                               ; preds = %_ZN3url11ReadUTFCharEPKcPiiPj.exit
   %22 = lshr i32 %12, 10
-  %23 = trunc nuw i32 %22 to i16
+  %23 = trunc nuw nsw i32 %22 to i16
   %24 = add nuw nsw i16 %23, -10304
   %25 = load i32, ptr %7, align 4, !tbaa !25
   %26 = load i32, ptr %8, align 8, !tbaa !28
@@ -1852,7 +1852,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %15, %4
 
 26:                                               ; preds = %24
   %27 = lshr i32 %0, 6
-  %28 = trunc nuw i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = or disjoint i8 %28, -64
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %31 = load i32, ptr %30, align 4, !tbaa !8
@@ -1947,7 +1947,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i38: ; preds = %58, %_ZN3url18
 
 69:                                               ; preds = %67
   %70 = lshr i32 %0, 12
-  %71 = trunc nuw i32 %70 to i8
+  %71 = trunc nuw nsw i32 %70 to i8
   %72 = or disjoint i8 %71, -32
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load i32, ptr %73, align 4, !tbaa !8
@@ -2088,7 +2088,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i68: ; preds = %121, %_ZN3url1
 
 132:                                              ; preds = %130
   %133 = lshr i32 %0, 18
-  %134 = trunc nuw i32 %133 to i8
+  %134 = trunc nuw nsw i32 %133 to i8
   %135 = or disjoint i8 %134, -16
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %137 = load i32, ptr %136, align 4, !tbaa !8
@@ -2429,7 +2429,7 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %11, ptr noundef %1)
   %12 = trunc i32 %0 to i8
@@ -2443,7 +2443,7 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
 
 17:                                               ; preds = %15
   %18 = lshr i32 %0, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %20, ptr noundef %1)
   %21 = lshr i32 %0, 6
@@ -2462,7 +2462,7 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
 
 30:                                               ; preds = %28
   %31 = lshr i32 %0, 18
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, -16
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %33, ptr noundef %1)
   %34 = lshr i32 %0, 12

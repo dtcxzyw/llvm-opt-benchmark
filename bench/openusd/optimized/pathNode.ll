@@ -594,7 +594,7 @@ define weak_odr i32 @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_Pat
 
 10:                                               ; preds = %4
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %.lhs.trunc.i = trunc nuw i64 %8 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %8 to i32
   %12 = udiv i32 %.lhs.trunc.i, 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %11, i32 noundef %12)
           to label %14 unwind label %16
@@ -642,7 +642,7 @@ define weak_odr i32 @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_Pat
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
-  %.lhs.trunc = trunc nuw i64 %9 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %9 to i32
   %12 = udiv i32 %.lhs.trunc, 24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %.012, i32 noundef %12)
   br label %15
@@ -1386,7 +1386,7 @@ define weak_odr i32 @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_Pat
 
 10:                                               ; preds = %4
   %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %.lhs.trunc.i = trunc nuw i64 %8 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %8 to i32
   %12 = udiv i32 %.lhs.trunc.i, 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %11, i32 noundef %12)
           to label %14 unwind label %16
@@ -1434,7 +1434,7 @@ define weak_odr i32 @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_Pat
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %4
-  %.lhs.trunc = trunc nuw i64 %9 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %9 to i32
   %12 = udiv i32 %.lhs.trunc, 24
   call void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %.012, i32 noundef %12)
   br label %15
@@ -2123,7 +2123,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PrimPartPathNodedlEPv(pt
 
 10:                                               ; preds = %4
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.lhs.trunc.i.i = trunc nuw i64 %8 to i32
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %8 to i32
   %12 = udiv i32 %.lhs.trunc.i.i, 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6HandleC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %11, i32 noundef %12)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE6Handle9GetHandleEPKc.exit unwind label %14
@@ -2226,7 +2226,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_PropPartPathNodedlEPv(pt
 
 10:                                               ; preds = %4
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.lhs.trunc.i.i = trunc nuw i64 %8 to i32
+  %.lhs.trunc.i.i = trunc nuw nsw i64 %8 to i32
   %12 = udiv i32 %.lhs.trunc.i.i, 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6HandleC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef %11, i32 noundef %12)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPropTagELj24ELj8ELj16384EE6Handle9GetHandleEPKc.exit unwind label %14

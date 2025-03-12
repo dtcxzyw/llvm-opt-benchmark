@@ -3372,7 +3372,7 @@ if.then335:                                       ; preds = %if.end325
   br label %cleanup613.thread
 
 if.end338:                                        ; preds = %if.end325
-  %conv340 = trunc nuw i64 %cond to i32
+  %conv340 = trunc nuw nsw i64 %cond to i32
   %call341 = call { i32, i64 } @_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %conv340)
   %134 = extractvalue { i32, i64 } %call341, 0
   %cmp.i310 = icmp eq i32 %134, 0
@@ -5049,7 +5049,7 @@ _ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.ex
   br i1 %cmp.not, label %if.end54, label %if.then44
 
 if.then44:                                        ; preds = %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit
-  %conv45 = trunc nuw i64 %lastIndex.0 to i32
+  %conv45 = trunc nuw nsw i64 %lastIndex.0 to i32
   call void @_ZN6hermes2vm8JSRegExp6searchENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_15StringPrimitiveEEEj(ptr nonnull sret(%"class.hermes::vm::CallResult.172") align 8 %ref.tmp46, ptr nonnull %regexp.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %S.coerce, i32 noundef %conv45) #13
   %hasVal.i.i.i71 = getelementptr inbounds nuw i8, ptr %ref.tmp46, i64 64
   %18 = load i8, ptr %hasVal.i.i.i71, align 8

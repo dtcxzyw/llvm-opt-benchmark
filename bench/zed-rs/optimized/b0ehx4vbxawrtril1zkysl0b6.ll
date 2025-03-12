@@ -12388,7 +12388,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 65:                                               ; preds = %61
   %66 = lshr i32 %58, 6
-  %67 = trunc nuw i32 %66 to i8
+  %67 = trunc nuw nsw i32 %66 to i8
   %68 = or disjoint i8 %67, -64
   store i8 %68, ptr %.sroa.0.i.i, align 4, !alias.scope !3003, !noalias !3002
   %69 = trunc i32 %58 to i8
@@ -12399,7 +12399,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 72:                                               ; preds = %63
   %73 = lshr i32 %58, 12
-  %74 = trunc nuw i32 %73 to i8
+  %74 = trunc nuw nsw i32 %73 to i8
   %75 = or disjoint i8 %74, -32
   store i8 %75, ptr %.sroa.0.i.i, align 4, !alias.scope !3003, !noalias !3002
   %76 = lshr i32 %58, 6
@@ -12678,7 +12678,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 65:                                               ; preds = %61
   %66 = lshr i32 %58, 6
-  %67 = trunc nuw i32 %66 to i8
+  %67 = trunc nuw nsw i32 %66 to i8
   %68 = or disjoint i8 %67, -64
   store i8 %68, ptr %.sroa.0.i.i, align 4, !alias.scope !3045, !noalias !3044
   %69 = trunc i32 %58 to i8
@@ -12689,7 +12689,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 72:                                               ; preds = %63
   %73 = lshr i32 %58, 12
-  %74 = trunc nuw i32 %73 to i8
+  %74 = trunc nuw nsw i32 %73 to i8
   %75 = or disjoint i8 %74, -32
   store i8 %75, ptr %.sroa.0.i.i, align 4, !alias.scope !3045, !noalias !3044
   %76 = lshr i32 %58, 6
@@ -13008,7 +13008,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 80:                                               ; preds = %76
   %81 = lshr i32 %73, 6
-  %82 = trunc nuw i32 %81 to i8
+  %82 = trunc nuw nsw i32 %81 to i8
   %83 = or disjoint i8 %82, -64
   store i8 %83, ptr %.sroa.0.i.i, align 4, !alias.scope !3090, !noalias !3089
   %84 = trunc i32 %73 to i8
@@ -13019,7 +13019,7 @@ define internal fastcc void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 87:                                               ; preds = %78
   %88 = lshr i32 %73, 12
-  %89 = trunc nuw i32 %88 to i8
+  %89 = trunc nuw nsw i32 %88 to i8
   %90 = or disjoint i8 %89, -32
   store i8 %90, ptr %.sroa.0.i.i, align 4, !alias.scope !3090, !noalias !3089
   %91 = lshr i32 %73, 6
@@ -15119,7 +15119,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
   br i1 %27, label %54, label %14
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %0 to i8
+  %29 = trunc nuw nsw i32 %0 to i8
   store i8 %29, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc3e3f46bb92b8dbcE.exit"
 
@@ -15132,7 +15132,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %1, align 1
   %37 = trunc i32 %0 to i8
@@ -15144,7 +15144,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 41:                                               ; preds = %24
   %42 = lshr i32 %0, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   store i8 %44, ptr %1, align 1
   %45 = lshr i32 %0, 6
@@ -21120,7 +21120,7 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.651970
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !5275
   %12 = trunc i32 %1 to i8
@@ -21132,7 +21132,7 @@ define hidden void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E.llvm.651970
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !5275
   %19 = lshr i32 %1, 6
@@ -24405,7 +24405,7 @@ default.unreachable2.i.i.i.i:                     ; preds = %34
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17h1e94379b340f88a2E.exit"
 
 51:                                               ; preds = %43, %38
-  %.sroa.12.0.i.i.i = trunc i64 %.sroa.2.0.copyload.i.i.i to i32
+  %.sroa.12.0.i.i.i = trunc nuw i64 %.sroa.2.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !6069
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !6063
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -24495,7 +24495,7 @@ default.unreachable2.i25.i.i.i:                   ; preds = %64
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u32$GT$11deserialize17h1e94379b340f88a2E.exit"
 
 81:                                               ; preds = %73, %68
-  %.sroa.12.1.i.i.i = trunc i64 %.sroa.235.0.copyload.i.i.i to i32
+  %.sroa.12.1.i.i.i = trunc nuw i64 %.sroa.235.0.copyload.i.i.i to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !6085
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10), !noalias !6063
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4

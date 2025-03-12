@@ -893,7 +893,7 @@ select.unfold:                                    ; preds = %25, %22
   br label %207
 
 32:                                               ; preds = %select.unfold
-  %33 = trunc nuw i32 %18 to i16
+  %33 = trunc nuw nsw i32 %18 to i16
   %34 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !24
   %35 = inttoptr i64 %34 to ptr
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1192
@@ -1314,7 +1314,7 @@ select.unfold:                                    ; preds = %20, %17
   br label %30
 
 27:                                               ; preds = %select.unfold
-  %28 = trunc nuw i32 %13 to i16
+  %28 = trunc nuw nsw i32 %13 to i16
   %29 = call fastcc i64 @do_set_mempolicy(i16 noundef zeroext %28, i16 noundef zeroext %.ph, ptr noundef nonnull %2), !range !23
   br label %30
 
@@ -1368,7 +1368,7 @@ select.unfold:                                    ; preds = %22, %19
   br label %32
 
 29:                                               ; preds = %select.unfold
-  %30 = trunc nuw i32 %15 to i16
+  %30 = trunc nuw nsw i32 %15 to i16
   %31 = call fastcc i64 @do_set_mempolicy(i16 noundef zeroext %30, i16 noundef zeroext %.ph, ptr noundef nonnull %2), !range !23
   br label %32
 

@@ -3077,7 +3077,7 @@ _ZN13CodeHeapState17discard_FreeArrayEP12outputStream.exit1066: ; preds = %912, 
   %917 = phi ptr [ %971, %970 ], [ %.pr1545, %915 ]
   %indvars.iv1312 = phi i64 [ %indvars.iv.next1313, %970 ], [ 0, %915 ]
   %indvars.iv.next1313 = add nuw nsw i64 %indvars.iv1312, 1
-  %indvars = trunc i64 %indvars.iv.next1313 to i32
+  %indvars = trunc nuw i64 %indvars.iv.next1313 to i32
   %918 = getelementptr inbounds nuw %struct.FreeBlk, ptr %917, i64 %indvars.iv.next1313
   %919 = load ptr, ptr %918, align 8
   %920 = getelementptr inbounds nuw %struct.FreeBlk, ptr %917, i64 %indvars.iv1312
@@ -4281,7 +4281,7 @@ _ZN13CodeHeapState12get_heapNameEP8CodeHeap.exit: ; preds = %9, %12
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.135, i64 noundef %55, i32 noundef %58, i32 noundef %57) #12
   %59 = call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef 38) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nuw i64 %indvars.iv.next to i32
   %60 = load ptr, ptr @_ZL9FreeArray, align 8
   %61 = getelementptr inbounds nuw %struct.FreeBlk, ptr %60, i64 %indvars.iv, i32 2
   %62 = load i32, ptr %61, align 4

@@ -520,7 +520,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 53:                                               ; preds = %48
   %54 = lshr i16 %52, 8
-  %55 = trunc nuw i16 %54 to i8
+  %55 = trunc nuw nsw i16 %54 to i8
   %56 = or disjoint i8 %55, -128
   %57 = load ptr, ptr %6, align 8, !tbaa !37
   store i8 %56, ptr %57, align 1, !tbaa !34
@@ -1619,7 +1619,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
   %82 = getelementptr i8, ptr %81, i64 1
   store i8 123, ptr %82, align 1, !tbaa !34
   %83 = lshr i16 %73, 8
-  %84 = trunc nuw i16 %83 to i8
+  %84 = trunc nuw nsw i16 %83 to i8
   %85 = load ptr, ptr %6, align 8, !tbaa !37
   %86 = getelementptr i8, ptr %85, i64 2
   store i8 %84, ptr %86, align 1, !tbaa !34
@@ -1643,7 +1643,7 @@ PyUnicode_READ.exit:                              ; preds = %13, %17, %21
 
 97:                                               ; preds = %95
   %98 = lshr i16 %73, 8
-  %99 = trunc nuw i16 %98 to i8
+  %99 = trunc nuw nsw i16 %98 to i8
   %100 = load ptr, ptr %6, align 8, !tbaa !37
   store i8 %99, ptr %100, align 1, !tbaa !34
   %101 = trunc i16 %73 to i8

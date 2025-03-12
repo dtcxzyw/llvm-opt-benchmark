@@ -39,7 +39,7 @@ define dso_local ptr @_elapsed_time(i64 noundef %0, i64 noundef %1) local_unname
 13:                                               ; preds = %6, %4
   %.030 = phi i64 [ %12, %6 ], [ %1, %4 ]
   %.029 = phi i64 [ %11, %6 ], [ %0, %4 ]
-  %.lhs.trunc = trunc nuw i64 %.030 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %.030 to i32
   %14 = udiv i32 %.lhs.trunc, 1000
   %.zext = zext nneg i32 %14 to i64
   %15 = urem i64 %.029, 60

@@ -5475,7 +5475,7 @@ thread-pre-split105.i:                            ; preds = %173, %.thread-pre-s
 
 183:                                              ; preds = %181
   %184 = lshr i32 %174, 6
-  %185 = trunc nuw i32 %184 to i8
+  %185 = trunc nuw nsw i32 %184 to i8
   %186 = or disjoint i8 %185, -64
   store i8 %186, ptr %.044118.i, align 1, !tbaa !10
   %187 = trunc i32 %174 to i8
@@ -5492,7 +5492,7 @@ thread-pre-split105.i:                            ; preds = %173, %.thread-pre-s
 
 194:                                              ; preds = %191
   %195 = lshr i32 %174, 12
-  %196 = trunc nuw i32 %195 to i8
+  %196 = trunc nuw nsw i32 %195 to i8
   %197 = or disjoint i8 %196, -32
   store i8 %197, ptr %.044118.i, align 1, !tbaa !10
   %198 = lshr i32 %174, 6
@@ -5615,7 +5615,7 @@ write_octet_sequence.exit.i:                      ; preds = %234, %231, %229, %2
 
 245:                                              ; preds = %243
   %246 = lshr i32 %.pr107.i, 6
-  %247 = trunc nuw i32 %246 to i8
+  %247 = trunc nuw nsw i32 %246 to i8
   %248 = or disjoint i8 %247, -64
   store i8 %248, ptr %237, align 1, !tbaa !10
   %249 = trunc i32 %.pr107.i to i8
@@ -5632,7 +5632,7 @@ write_octet_sequence.exit.i:                      ; preds = %234, %231, %229, %2
 
 256:                                              ; preds = %253
   %257 = lshr i32 %.pr107.i, 12
-  %258 = trunc nuw i32 %257 to i8
+  %258 = trunc nuw nsw i32 %257 to i8
   %259 = or disjoint i8 %258, -32
   store i8 %259, ptr %237, align 1, !tbaa !10
   %260 = lshr i32 %.pr107.i, 6
@@ -7924,7 +7924,7 @@ define internal fastcc void @write_s3row_data(ptr noundef readonly captures(none
 
 14:                                               ; preds = %12
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 1, !tbaa !10
   %18 = trunc i32 %1 to i8
@@ -8103,7 +8103,7 @@ thread-pre-split:                                 ; preds = %91
 
 103:                                              ; preds = %101
   %104 = lshr i32 %96, 6
-  %105 = trunc nuw i32 %104 to i8
+  %105 = trunc nuw nsw i32 %104 to i8
   %106 = or disjoint i8 %105, -64
   store i8 %106, ptr %.0.i.sroa.phi, align 1, !tbaa !10
   %107 = trunc i32 %96 to i8
@@ -8118,7 +8118,7 @@ thread-pre-split:                                 ; preds = %91
 
 112:                                              ; preds = %110
   %113 = lshr i32 %96, 12
-  %114 = trunc nuw i32 %113 to i8
+  %114 = trunc nuw nsw i32 %113 to i8
   %115 = or disjoint i8 %114, -32
   store i8 %115, ptr %.0.i.sroa.phi, align 1, !tbaa !10
   %116 = lshr i32 %96, 6

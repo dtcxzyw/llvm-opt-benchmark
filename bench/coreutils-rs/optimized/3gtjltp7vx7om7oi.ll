@@ -134,7 +134,7 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN7uu_echo10parse_code17h6a239
 
 .thread60:                                        ; preds = %56, %62
   %..sroa.5.065.in = phi i32 [ %.0.i, %62 ], [ %54, %56 ]
-  %..sroa.5.065 = trunc i32 %..sroa.5.065.in to i8
+  %..sroa.5.065 = trunc nuw i32 %..sroa.5.065.in to i8
   store i32 1114113, ptr %3, align 8
   %switch.i = icmp eq i8 %1, 8
   %..i36 = select i1 %switch.i, i8 3, i8 2

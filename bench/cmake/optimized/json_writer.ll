@@ -1464,7 +1464,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i106:
 
 _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit109: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i106, %.noexc108
   %276 = phi ptr [ %.pre.i.i.i107, %.noexc108 ], [ %268, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i106 ]
-  %277 = trunc nuw i32 %.0.i to i8
+  %277 = trunc nuw nsw i32 %.0.i to i8
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 %266
   store i8 %277, ptr %278, align 1, !tbaa !4
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit80.sink.split

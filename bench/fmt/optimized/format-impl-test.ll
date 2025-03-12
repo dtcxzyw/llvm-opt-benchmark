@@ -19924,7 +19924,7 @@ define hidden void @_ZN44format_impl_test_utf8_decode_decode_all_Test8TestBodyEv
 
 44:                                               ; preds = %42
   %45 = lshr i32 %storemerge52, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %5, align 8, !tbaa !39
   %48 = lshr i32 %storemerge52, 6
@@ -19944,7 +19944,7 @@ define hidden void @_ZN44format_impl_test_utf8_decode_decode_all_Test8TestBodyEv
 
 57:                                               ; preds = %55
   %58 = lshr i32 %storemerge52, 6
-  %59 = trunc nuw i32 %58 to i8
+  %59 = trunc nuw nsw i32 %58 to i8
   %60 = or disjoint i8 %59, -64
   store i8 %60, ptr %5, align 8, !tbaa !39
   %61 = trunc i32 %storemerge52 to i8
@@ -19954,7 +19954,7 @@ define hidden void @_ZN44format_impl_test_utf8_decode_decode_all_Test8TestBodyEv
   br label %_Z11utf8_encodePcj.exit
 
 64:                                               ; preds = %55
-  %65 = trunc nuw i32 %storemerge52 to i8
+  %65 = trunc nuw nsw i32 %storemerge52 to i8
   store i8 %65, ptr %5, align 8, !tbaa !39
   br label %_Z11utf8_encodePcj.exit
 
@@ -20463,7 +20463,7 @@ _Z11utf8_encodePcj.exit:                          ; preds = %1, %_ZN7testing15As
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #32
   store i64 0, ptr %3, align 8
   %17 = lshr i32 %.01039, 18
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -16
   store i8 %19, ptr %3, align 8, !tbaa !39
   %20 = lshr i32 %.01039, 12
@@ -26232,7 +26232,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_ed
   br label %52
 
 46:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_edge
-  %47 = trunc nuw i32 %.018.lcssa to i8
+  %47 = trunc nuw nsw i32 %.018.lcssa to i8
   %48 = or disjoint i8 %47, 48
   %49 = add i32 %.0.lcssa, -1
   %50 = zext i32 %49 to i64
@@ -26623,7 +26623,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_ed
   br label %51
 
 45:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_edge
-  %46 = trunc nuw i64 %.018.lcssa to i8
+  %46 = trunc nuw nsw i64 %.018.lcssa to i8
   %47 = or disjoint i8 %46, 48
   %48 = add i32 %.0.lcssa, -1
   %49 = zext i32 %48 to i64
@@ -26966,7 +26966,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_ed
   %46 = add i32 %.0.lcssa, -2
   %47 = zext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
-  %49 = trunc nuw i128 %.020.lcssa to i64
+  %49 = trunc nuw nsw i128 %.020.lcssa to i64
   %50 = shl nuw nsw i64 %49, 1
   %51 = getelementptr inbounds nuw [201 x i8], ptr @_ZZN3fmt3v116detail7digits2EmE4data, i64 0, i64 %50
   %52 = load i16, ptr %51, align 2
@@ -26974,7 +26974,7 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_ed
   br label %59
 
 53:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit._crit_edge
-  %54 = trunc nuw i128 %.020.lcssa to i8
+  %54 = trunc nuw nsw i128 %.020.lcssa to i8
   %55 = or disjoint i8 %54, 48
   %56 = add i32 %.0.lcssa, -1
   %57 = zext i32 %56 to i64
@@ -31188,7 +31188,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit35:        ; preds = %34, %41
   br label %170
 
 47:                                               ; preds = %2, %2, %2
-  %48 = trunc i32 %7 to i8
+  %48 = trunc nuw nsw i32 %7 to i8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !73
   %51 = add i64 %50, 1
@@ -34694,7 +34694,7 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit20:        ; preds = %25, %26
   br i1 %33, label %34, label %70
 
 34:                                               ; preds = %32
-  %.lhs.trunc = trunc i32 %.0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.0 to i16
   %35 = udiv i16 %.lhs.trunc, 100
   %36 = urem i16 %.lhs.trunc, 100
   %37 = shl nuw nsw i16 %35, 1
@@ -36387,7 +36387,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN3fmt3v116detail9dragonbox14cache_acc
   br label %.body
 
 7:                                                ; preds = %1
-  %.lhs.trunc = trunc nuw i32 %2 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %2 to i16
   %8 = udiv i16 %.lhs.trunc, 27
   %narrow = mul nuw nsw i16 %8, 27
   %9 = zext nneg i16 %narrow to i32
@@ -45400,7 +45400,7 @@ _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_ge
   unreachable
 
 _ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit.thread45: ; preds = %_ZNK3fmt3v1116basic_format_argINS0_7contextEE5visitINS0_6detail19dynamic_spec_getterEEEDTclfp_Li0EEEOT_.exit
-  %96 = trunc nuw i64 %.0.i to i32
+  %96 = trunc nuw nsw i64 %.0.i to i32
   ret i32 %96
 }
 
@@ -54450,7 +54450,7 @@ _ZNSt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   br i1 %41, label %42, label %86
 
 42:                                               ; preds = %40
-  %.lhs.trunc = trunc i32 %.0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %.0 to i16
   %43 = udiv i16 %.lhs.trunc, 100
   %44 = urem i16 %.lhs.trunc, 100
   %45 = shl nuw nsw i16 %43, 1
@@ -57416,7 +57416,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3fmt3v116detail7to_utf8IwNS0_1
 
 20:                                               ; preds = %18
   %21 = lshr i32 %10, 6
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -64
   %24 = load i64, ptr %6, align 8, !tbaa !73
   %25 = add i64 %24, 1
@@ -57456,7 +57456,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit46: ; preds = %20, %28
 
 43:                                               ; preds = %40
   %44 = lshr i32 %10, 12
-  %45 = trunc nuw i32 %44 to i8
+  %45 = trunc nuw nsw i32 %44 to i8
   %46 = or disjoint i8 %45, -32
   %47 = load i64, ptr %6, align 8, !tbaa !73
   %48 = add i64 %47, 1
@@ -57518,7 +57518,7 @@ _ZN3fmt3v116detail6bufferIcE9push_backERKc.exit58: ; preds = %_ZN3fmt3v116detail
 
 78:                                               ; preds = %76
   %79 = lshr i32 %10, 18
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, -16
   %82 = load i64, ptr %6, align 8, !tbaa !73
   %83 = add i64 %82, 1

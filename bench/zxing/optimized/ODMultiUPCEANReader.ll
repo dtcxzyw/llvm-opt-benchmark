@@ -2543,7 +2543,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %94, %96
-  %97 = trunc i64 %78 to i32
+  %97 = trunc nsw i64 %78 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #19
   %98 = srem i32 %97, 4
   %99 = load i32, ptr %5, align 4, !tbaa !9
@@ -3043,7 +3043,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
   br label %36
 
 33:                                               ; preds = %1
-  %34 = trunc nuw i32 %0 to i8
+  %34 = trunc nuw nsw i32 %0 to i8
   %35 = or disjoint i8 %34, 48
   ret i8 %35
 

@@ -4925,7 +4925,7 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_addop_load_const(ptr nounde
 
 12:                                               ; preds = %7
   %13 = call ptr @_PyCompile_InstrSequence(ptr noundef %0) #10
-  %14 = trunc nuw i64 %8 to i32
+  %14 = trunc nuw nsw i64 %8 to i32
   %15 = call i32 @_PyInstructionSequence_Addop(ptr noundef %13, i32 noundef 91, i32 noundef %14, i64 %1, i64 %2) #10
   %16 = icmp eq i32 %15, -1
   %. = sext i1 %16 to i32
@@ -9348,7 +9348,7 @@ define internal fastcc range(i32 -1, 1) i32 @codegen_function(ptr noundef %0, pt
   br i1 %44, label %45, label %.thread175
 
 45:                                               ; preds = %43
-  %46 = trunc nsw i64 %39 to i32
+  %46 = trunc nuw nsw i64 %39 to i32
   %spec.select = and i32 %46, 1
   %47 = lshr i32 %46, 1
   %.2126 = add nuw nsw i32 %47, %spec.select

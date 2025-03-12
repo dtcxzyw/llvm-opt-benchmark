@@ -4049,7 +4049,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_yenta_registers(ptr
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8
-  %14 = trunc i64 %9 to i32
+  %14 = trunc nuw nsw i64 %9 to i32
   %15 = tail call i32 (ptr, i32, ptr, ...) @sysfs_emit_at(ptr noundef %2, i32 noundef %10, ptr noundef nonnull @.str.45, i32 noundef %14) #11
   %16 = add i32 %15, %10
   br label %17

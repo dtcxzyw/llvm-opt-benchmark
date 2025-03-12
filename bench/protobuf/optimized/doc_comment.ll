@@ -1146,7 +1146,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -3578,11 +3578,11 @@ if.then20:                                        ; preds = %if.else18
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
   %mul.i34 = shl nuw nsw i64 %div6.i, 3
-  %sh_prom.i = trunc nuw i64 %mul.i34 to i32
+  %sh_prom.i = trunc nuw nsw i64 %mul.i34 to i32
   %shl.i35 = shl nuw nsw i32 %conv3.i33, %sh_prom.i
   %or.i36 = or i32 %shl.i35, %conv.i32
   %conv5.i = zext i8 %2 to i32
-  %sub.tr.i = trunc i64 %sub.i31 to i32
+  %sub.tr.i = trunc nuw nsw i64 %sub.i31 to i32
   %sh_prom8.i = shl nuw nsw i32 %sub.tr.i, 3
   %shl9.i = shl nuw nsw i32 %conv5.i, %sh_prom8.i
   %or10.i = or i32 %or.i36, %shl9.i

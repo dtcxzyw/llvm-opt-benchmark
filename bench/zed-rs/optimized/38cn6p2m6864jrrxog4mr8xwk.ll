@@ -16678,7 +16678,7 @@ switch.lookup148:                                 ; preds = %1471
 
 .split449.i:                                      ; preds = %1851, %1850, %1848, %1848
   %.sroa.0145.0.ph.i = phi i8 [ 1, %1850 ], [ 2, %1851 ], [ 0, %1848 ], [ 0, %1848 ]
-  %1854 = trunc i16 %1849 to i8
+  %1854 = trunc nuw nsw i16 %1849 to i8
   %1855 = and i8 %1854, 1
   %1856 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %1857 = load ptr, ptr %1856, align 8, !alias.scope !2342, !noalias !2349, !nonnull !4, !align !5, !noundef !4
@@ -18246,7 +18246,7 @@ switch.lookup148:                                 ; preds = %1471
 2435:                                             ; preds = %2431
   call void @llvm.assume(i1 %2378)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !2481
-  %2436 = trunc nuw i64 %indvars.iv.i.i to i8
+  %2436 = trunc nuw nsw i64 %indvars.iv.i.i to i8
   call fastcc void @"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT$9to_string17h54db297f7c80af2fE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i8 %2436), !noalias !2473
   call fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$u20$as$u20$vte..ansi..Handler$GT$22dynamic_color_sequence17hf91ac3926d0823c4E"(ptr noalias noundef align 8 dereferenceable(1736) %.val3986, ptr noalias noundef align 8 captures(none) dereferenceable(24) %34, i64 noundef %2392, ptr noalias noundef nonnull readonly align 1 %anon.06746a4451b6ea2a415cc45f0e9123e2.355.anon.06746a4451b6ea2a415cc45f0e9123e2.354.i.i, i64 noundef %..i.i73), !noalias !2473
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34), !noalias !2481
@@ -25507,14 +25507,14 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !4951, !noalias !4948
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
   store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !4951, !noalias !4948
   %16 = lshr i32 %1, 6

@@ -528,7 +528,7 @@ define hidden void @"_ZN101_$LT$std..os..unix..net..addr..SocketAddr$u20$as$u20$
 
 7:                                                ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.65, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %8 = trunc i64 %2 to i32
+  %8 = trunc nsw i64 %2 to i32
   %9 = add nsw i32 %8, 3
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %4)
   store i16 1, ptr %4, align 2

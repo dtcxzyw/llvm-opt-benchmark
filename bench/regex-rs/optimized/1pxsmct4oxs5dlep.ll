@@ -5872,13 +5872,13 @@ default.unreachable220:                           ; preds = %2
   br i1 %40, label %50, label %61
 
 41:                                               ; preds = %33
-  %42 = trunc nuw i32 %35 to i8
+  %42 = trunc nuw nsw i32 %35 to i8
   store i8 %42, ptr %.sroa.0.i, align 4, !alias.scope !144, !noalias !143
   br label %_ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit.i
 
 43:                                               ; preds = %37
   %44 = lshr i32 %35, 6
-  %45 = trunc nuw i32 %44 to i8
+  %45 = trunc nuw nsw i32 %44 to i8
   %46 = or disjoint i8 %45, -64
   store i8 %46, ptr %.sroa.0.i, align 4, !alias.scope !144, !noalias !143
   %47 = trunc i32 %35 to i8
@@ -5890,7 +5890,7 @@ default.unreachable220:                           ; preds = %2
 
 50:                                               ; preds = %39
   %51 = lshr i32 %35, 12
-  %52 = trunc nuw i32 %51 to i8
+  %52 = trunc nuw nsw i32 %51 to i8
   %53 = or disjoint i8 %52, -32
   store i8 %53, ptr %.sroa.0.i, align 4, !alias.scope !144, !noalias !143
   %54 = lshr i32 %35, 6

@@ -24601,10 +24601,10 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i: ; preds = %111, %107
   br label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread"
 
 _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i: ; preds = %111
-  %114 = trunc i64 %112 to i32
+  %114 = trunc nsw i64 %112 to i32
   store i32 %114, ptr %91, align 8, !tbaa !288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
-  %115 = icmp slt i32 %114, 0
+  %115 = icmp slt i64 %112, 0
   br i1 %115, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread", label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit"
 
 "_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread": ; preds = %104, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i
@@ -24762,10 +24762,10 @@ _ZN5clang6driver10toolchains11Generic_GCC10GCCVersionC2EOS3_.exit: ; preds = %16
   br label %178
 
 "_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit": ; preds = %173
-  %176 = trunc i64 %174 to i32
+  %176 = trunc nsw i64 %174 to i32
   store i32 %176, ptr %91, align 8, !tbaa !288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
-  %177 = icmp sgt i32 %176, -1
+  %177 = icmp sgt i64 %174, -1
   br i1 %177, label %179, label %178
 
 178:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit.thread", %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit"
@@ -24806,10 +24806,10 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i37: ; preds = %190, %186
   br label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread"
 
 _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i38: ; preds = %190
-  %193 = trunc i64 %191 to i32
+  %193 = trunc nsw i64 %191 to i32
   store i32 %193, ptr %92, align 4, !tbaa !288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
-  %194 = icmp slt i32 %193, 0
+  %194 = icmp slt i64 %191, 0
   br i1 %194, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread", label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40"
 
 "_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit40.thread": ; preds = %183, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i38, %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i37
@@ -24967,10 +24967,10 @@ _ZN5clang6driver10toolchains11Generic_GCC10GCCVersionC2EOS3_.exit48: ; preds = %
   br label %257
 
 "_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit53": ; preds = %252
-  %255 = trunc i64 %253 to i32
+  %255 = trunc nsw i64 %253 to i32
   store i32 %255, ptr %92, align 4, !tbaa !288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
-  %256 = icmp sgt i32 %255, -1
+  %256 = icmp sgt i64 %253, -1
   br i1 %256, label %258, label %257
 
 257:                                              ; preds = %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit53.thread", %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_1clES5_Ri.exit53"
@@ -25013,10 +25013,10 @@ _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.thread.i59: ; preds = %269, %265
   br label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit62"
 
 _ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i60: ; preds = %269
-  %272 = trunc i64 %270 to i32
+  %272 = trunc nsw i64 %270 to i32
   store i32 %272, ptr %93, align 8, !tbaa !288
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %273 = icmp slt i32 %272, 0
+  %273 = icmp slt i64 %270, 0
   br i1 %273, label %"_ZZN5clang6driver10toolchains11Generic_GCC10GCCVersion5ParseEN4llvm9StringRefEENK3$_0clES5_RiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit62", label %274
 
 274:                                              ; preds = %_ZNK4llvm9StringRef12getAsIntegerIiEEbjRT_.exit.i60

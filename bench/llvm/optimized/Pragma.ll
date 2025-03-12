@@ -18806,7 +18806,7 @@ _ZN4llvm12StringSwitchIiiE4CaseENS_13StringLiteralEi.exit199: ; preds = %_ZN4llv
   br label %.thread360
 
 259:                                              ; preds = %255
-  %260 = trunc nuw i64 %256 to i32
+  %260 = trunc nuw nsw i64 %256 to i32
   %261 = add nuw nsw i32 %260, 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
   br label %288

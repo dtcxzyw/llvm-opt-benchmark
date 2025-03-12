@@ -1170,7 +1170,7 @@ qrx_get_cipher_ctx_idx.exit.thread.i.i:           ; preds = %272, %qrx_get_ciphe
 
 305:                                              ; preds = %302
   %306 = load i32, ptr %246, align 4, !tbaa !90
-  %307 = trunc nuw i64 %236 to i32
+  %307 = trunc nuw nsw i64 %236 to i32
   %308 = sub i32 %307, %306
   %309 = call i32 @EVP_CipherUpdate(ptr noundef %276, ptr noundef nonnull %231, ptr noundef nonnull %3, ptr noundef nonnull %234, i32 noundef %308) #11
   %.not61.i.i = icmp eq i32 %309, 1

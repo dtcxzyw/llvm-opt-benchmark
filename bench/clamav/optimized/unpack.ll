@@ -921,7 +921,7 @@ _ZN12SubAllocator10AllocUnitsEi.exit:             ; preds = %88, %96
   %126 = load i16, ptr %125, align 2, !tbaa !73
   %127 = zext i16 %126 to i32
   %128 = udiv i32 %127, %123
-  %129 = trunc nuw i32 %128 to i16
+  %129 = trunc nuw nsw i32 %128 to i16
   %130 = sub nsw i16 16384, %129
   br label %131
 
@@ -2412,7 +2412,7 @@ _ZN14RARPPM_CONTEXT12makeEscFreq2EP8ModelPPMi.exit: ; preds = %9, %49
   store i8 %109, ptr %98, align 1, !tbaa !77
   %110 = zext nneg i8 %99 to i32
   %111 = shl nuw nsw i32 3, %110
-  %112 = trunc i32 %111 to i8
+  %112 = trunc nuw i32 %111 to i8
   store i8 %112, ptr %102, align 1, !tbaa !79
   br label %_ZN19RARPPM_SEE2_CONTEXT6updateEv.exit
 
@@ -6989,7 +6989,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %181, %.prehea
   %221 = zext i32 %.04188 to i64
   %222 = getelementptr inbounds nuw [1028 x i8], ptr %101, i64 0, i64 %221
   %223 = load i8, ptr %222, align 1, !tbaa !27
-  %224 = trunc nuw i16 %.0.in.i to i8
+  %224 = trunc nuw nsw i16 %.0.in.i to i8
   %225 = add i8 %223, %224
   %226 = and i8 %225, 15
   %227 = getelementptr inbounds nuw [1028 x i8], ptr %3, i64 0, i64 %221
@@ -7669,7 +7669,7 @@ define void @_ZN6Unpack16MakeDecodeTablesEPhP11DecodeTablej(ptr nonnull readnone
   %24 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %.07386
   %25 = load i32, ptr %24, align 4, !tbaa !93
   %26 = add i32 %25, %.07087
-  %27 = trunc nuw i64 %.07386 to i32
+  %27 = trunc nuw nsw i64 %.07386 to i32
   %28 = sub nuw nsw i32 16, %27
   %29 = shl i32 %26, %28
   %30 = shl i32 %26, 1
@@ -8204,7 +8204,7 @@ _ZN6Unpack17SafePPMDecodeCharEv.exit158:          ; preds = %182
   br label %.outer.backedge
 
 186:                                              ; preds = %166, %163
-  %187 = trunc i32 %161 to i8
+  %187 = trunc nuw i32 %161 to i8
   %188 = load ptr, ptr %85, align 8, !tbaa !161
   %189 = load i64, ptr %61, align 8, !tbaa !157
   %190 = add i64 %189, 1
@@ -9280,7 +9280,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %146, %.prehea
   %184 = zext nneg i32 %.04290 to i64
   %185 = getelementptr inbounds nuw [404 x i8], ptr %68, i64 0, i64 %184
   %186 = load i8, ptr %185, align 1, !tbaa !27
-  %187 = trunc nuw i16 %.0.in.i to i8
+  %187 = trunc nuw nsw i16 %.0.in.i to i8
   %188 = add i8 %186, %187
   %189 = and i8 %188, 15
   %190 = getelementptr inbounds nuw [404 x i8], ptr %3, i64 0, i64 %184
@@ -9783,7 +9783,7 @@ _ZN5ArrayIhEC2Em.exit:                            ; preds = %.thread68, %27
           to label %36 unwind label %.loopexit.split-lp
 
 _ZN6Unpack17SafePPMDecodeCharEv.exit56:           ; preds = %.noexc
-  %32 = trunc i32 %29 to i8
+  %32 = trunc nuw i32 %29 to i8
   %33 = getelementptr inbounds nuw i8, ptr %malloc.i, i64 %indvars.iv
   store i8 %32, ptr %33, align 1, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -12951,7 +12951,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %168, %.prehea
   br i1 %204, label %205, label %213
 
 205:                                              ; preds = %_ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit
-  %206 = trunc nuw i16 %.0.in.i to i8
+  %206 = trunc nuw nsw i16 %.0.in.i to i8
   %207 = zext nneg i32 %.068115 to i64
   %208 = getelementptr inbounds nuw [430 x i8], ptr %6, i64 0, i64 %207
   store i8 %206, ptr %208, align 1, !tbaa !27

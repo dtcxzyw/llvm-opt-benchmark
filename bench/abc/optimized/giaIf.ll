@@ -13445,7 +13445,7 @@ If_CutTruthW.exit494:                             ; preds = %.lr.ph.i.i483, %.lr
   %418 = sext i32 %390 to i64
   %419 = getelementptr inbounds i64, ptr %341, i64 %418
   %420 = add nsw i64 %indvars.iv618, -6
-  %421 = trunc nsw i64 %420 to i32
+  %421 = trunc nuw nsw i64 %420 to i32
   %422 = shl nuw i32 1, %421
   %.not574 = icmp eq i32 %389, 31
   br i1 %.not574, label %Abc_TtFlip.exit, label %.preheader.lr.ph.i

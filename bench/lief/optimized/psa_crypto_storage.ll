@@ -219,7 +219,7 @@ define hidden i32 @psa_save_persistent_key(ptr noundef readonly captures(none) %
   %31 = load i32, ptr %30, align 4, !tbaa !14
   store i32 %31, ptr %29, align 1
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %33 = trunc nuw i64 %2 to i32
+  %33 = trunc nuw nsw i64 %2 to i32
   store i32 %33, ptr %32, align 1
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr nonnull readonly align 1 %1, i64 %2, i1 false)

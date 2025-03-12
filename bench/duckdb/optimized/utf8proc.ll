@@ -228,7 +228,7 @@ define noundef range(i64 0, 5) i64 @_ZN6duckdb20utf8proc_encode_charEiPh(i32 nou
 
 10:                                               ; preds = %8
   %11 = lshr i32 %0, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %1, align 1, !tbaa !7
   %14 = trunc i32 %0 to i8
@@ -244,7 +244,7 @@ define noundef range(i64 0, 5) i64 @_ZN6duckdb20utf8proc_encode_charEiPh(i32 nou
 
 20:                                               ; preds = %18
   %21 = lshr i32 %0, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %1, align 1, !tbaa !7
   %24 = lshr i32 %0, 6
@@ -266,7 +266,7 @@ define noundef range(i64 0, 5) i64 @_ZN6duckdb20utf8proc_encode_charEiPh(i32 nou
 
 35:                                               ; preds = %33
   %36 = lshr i32 %0, 18
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -16
   store i8 %38, ptr %1, align 1, !tbaa !7
   %39 = lshr i32 %0, 12
@@ -1053,7 +1053,7 @@ define noundef i64 @_ZN6duckdb23utf8proc_decompose_charEiPilNS_17utf8proc_option
 
 16:                                               ; preds = %.lr.ph.preheader
   %17 = icmp sgt i64 %2, 0
-  %.lhs.trunc = trunc nuw i32 %6 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %6 to i16
   br i1 %17, label %18, label %._crit_edge
 
 18:                                               ; preds = %16
@@ -1948,7 +1948,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %or.cond15, label %128, label %.thread180
 
 128:                                              ; preds = %.thread177
-  %.lhs.trunc = trunc nuw i32 %127 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %127 to i16
   %129 = urem i16 %.lhs.trunc, 28
   %130 = icmp ne i16 %129, 0
   %131 = add i32 %104, -4547
@@ -2142,7 +2142,7 @@ define noundef i64 @_ZN6duckdb17utf8proc_reencodeEPilNS_17utf8proc_option_tE(ptr
 
 21:                                               ; preds = %19
   %22 = lshr i32 %9, 6
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, -64
   store i8 %24, ptr %10, align 1, !tbaa !7
   %25 = trunc i32 %9 to i8
@@ -2158,7 +2158,7 @@ define noundef i64 @_ZN6duckdb17utf8proc_reencodeEPilNS_17utf8proc_option_tE(ptr
 
 31:                                               ; preds = %29
   %32 = lshr i32 %9, 12
-  %33 = trunc nuw i32 %32 to i8
+  %33 = trunc nuw nsw i32 %32 to i8
   %34 = or disjoint i8 %33, -32
   store i8 %34, ptr %10, align 1, !tbaa !7
   %35 = lshr i32 %9, 6
@@ -2180,7 +2180,7 @@ define noundef i64 @_ZN6duckdb17utf8proc_reencodeEPilNS_17utf8proc_option_tE(ptr
 
 46:                                               ; preds = %44
   %47 = lshr i32 %9, 18
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -16
   store i8 %49, ptr %10, align 1, !tbaa !7
   %50 = lshr i32 %9, 12
@@ -2233,7 +2233,7 @@ _ZN6duckdbL21charbound_encode_charEiPh.exit:      ; preds = %12, %14, %17, %21, 
 
 76:                                               ; preds = %74
   %77 = lshr i32 %67, 6
-  %78 = trunc nuw i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   %79 = or disjoint i8 %78, -64
   store i8 %79, ptr %68, align 1, !tbaa !7
   %80 = trunc i32 %67 to i8
@@ -2249,7 +2249,7 @@ _ZN6duckdbL21charbound_encode_charEiPh.exit:      ; preds = %12, %14, %17, %21, 
 
 86:                                               ; preds = %84
   %87 = lshr i32 %67, 12
-  %88 = trunc nuw i32 %87 to i8
+  %88 = trunc nuw nsw i32 %87 to i8
   %89 = or disjoint i8 %88, -32
   store i8 %89, ptr %68, align 1, !tbaa !7
   %90 = lshr i32 %67, 6
@@ -2271,7 +2271,7 @@ _ZN6duckdbL21charbound_encode_charEiPh.exit:      ; preds = %12, %14, %17, %21, 
 
 101:                                              ; preds = %99
   %102 = lshr i32 %67, 18
-  %103 = trunc nuw i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   %104 = or disjoint i8 %103, -16
   store i8 %104, ptr %68, align 1, !tbaa !7
   %105 = lshr i32 %67, 12

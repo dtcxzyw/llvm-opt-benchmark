@@ -1405,7 +1405,7 @@ uv__get_surrogate_value.exit:                     ; preds = %.lr.ph, %65, %69
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %76
-  %79 = trunc nuw i32 %.0.i to i8
+  %79 = trunc nuw nsw i32 %.0.i to i8
   %80 = getelementptr inbounds nuw i8, ptr %.189150, i64 1
   store i8 %79, ptr %.189150, align 1
   br label %140
@@ -1416,7 +1416,7 @@ uv__get_surrogate_value.exit:                     ; preds = %.lr.ph, %65, %69
 
 83:                                               ; preds = %81
   %84 = lshr i32 %.0.i, 6
-  %85 = trunc nuw i32 %84 to i8
+  %85 = trunc nuw nsw i32 %84 to i8
   %86 = or disjoint i8 %85, -64
   %87 = getelementptr inbounds nuw i8, ptr %.189150, i64 1
   store i8 %86, ptr %.189150, align 1
@@ -1439,7 +1439,7 @@ uv__get_surrogate_value.exit:                     ; preds = %.lr.ph, %65, %69
 
 98:                                               ; preds = %94
   %99 = lshr i32 %.0.i, 12
-  %100 = trunc nuw i32 %99 to i8
+  %100 = trunc nuw nsw i32 %99 to i8
   %101 = or disjoint i8 %100, -32
   store i8 %101, ptr %.189150, align 1
   br i1 %97, label %uv__get_surrogate_value.exit._crit_edge, label %102

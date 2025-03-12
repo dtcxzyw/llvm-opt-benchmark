@@ -1035,7 +1035,7 @@ _ZN11duckdb_zstdL29ZSTD_compressSubBlock_literalEPKmPKNS_25ZSTD_hufCTablesMetada
 
 122:                                              ; preds = %120
   %123 = lshr i64 %3, 8
-  %124 = trunc nuw i64 %123 to i8
+  %124 = trunc nuw nsw i64 %123 to i8
   %125 = or disjoint i8 %124, -128
   store i8 %125, ptr %109, align 1, !tbaa !68
   %126 = trunc i64 %3 to i8

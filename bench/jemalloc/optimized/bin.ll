@@ -35,7 +35,7 @@ define hidden noundef zeroext i1 @je_bin_update_shard_size(ptr noundef writeonly
   %21 = add nsw i64 %1, -1
   %22 = and i64 %20, %21
   %23 = lshr i64 %22, %19
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 3
   %26 = or disjoint i32 %16, 1
   %27 = add nuw nsw i32 %26, %25
@@ -61,7 +61,7 @@ sz_size2index_compute.exit:                       ; preds = %7, %9
   %41 = add nsw i64 %spec.store.select, -1
   %42 = and i64 %40, %41
   %43 = lshr i64 %42, %39
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = and i32 %44, 3
   %46 = or disjoint i32 %36, 1
   %47 = add nuw nsw i32 %46, %45

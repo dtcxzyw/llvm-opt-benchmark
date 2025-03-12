@@ -31159,7 +31159,7 @@ define hidden void @"_ZN9addr2line16Context$LT$R$GT$11parse_units17h367bf8d00de3
   unreachable
 
 175:                                              ; preds = %155
-  %trunc.i.le = trunc nuw i64 %.sroa.0563.0.ph to i1
+  %trunc.i.le = trunc nuw nsw i64 %.sroa.0563.0.ph to i1
   %.sroa.3.0.i.le = select i1 %trunc.i.le, i64 undef, i64 %.sroa.6564.1.ph
   %176 = invoke { ptr, i64 } @"_ZN75_$LT$gimli..read..abbrev..Attributes$u20$as$u20$core..ops..deref..Deref$GT$5deref17h68fff95f64e09a66E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %156)
           to label %177 unwind label %.loopexit.split-lp1041.loopexit.split-lp.loopexit.loopexit.split-lp

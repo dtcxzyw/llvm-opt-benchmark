@@ -1100,7 +1100,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %161 = getelementptr [0 x %struct.stripe], ptr %151, i64 0, i64 %153
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 28
-  %164 = trunc i64 %153 to i32
+  %164 = trunc nuw i64 %153 to i32
   %165 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %158, i64 noundef %160, ptr noundef nonnull @.str.23, i32 noundef %164, ptr noundef nonnull %163) #10
   br label %166
 
@@ -1118,7 +1118,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %.idx = mul nuw nsw i64 %153, 24
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   %175 = load i64, ptr %gep, align 8
-  %176 = trunc i64 %153 to i32
+  %176 = trunc nuw i64 %153 to i32
   %177 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %172, i64 noundef %174, ptr noundef nonnull @.str.24, i32 noundef %176, i64 noundef %175) #10
   br label %178
 
@@ -1138,7 +1138,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %187 = load volatile i32, ptr %gep21, align 4
   %188 = icmp eq i32 %187, 0
   %189 = select i1 %188, i32 65, i32 68
-  %190 = trunc i64 %153 to i32
+  %190 = trunc nuw i64 %153 to i32
   %191 = tail call i32 (ptr, i64, ptr, ...) @scnprintf(ptr noundef %184, i64 noundef %186, ptr noundef nonnull @.str.25, i32 noundef %190, i32 noundef %189) #10
   br label %192
 

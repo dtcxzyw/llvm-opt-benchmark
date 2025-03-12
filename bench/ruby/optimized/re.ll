@@ -9231,7 +9231,7 @@ rbimpl_size_mul_or_raise.exit:
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %15 = trunc i32 %12 to i8
+  %15 = trunc nuw i32 %12 to i8
   store i8 %15, ptr %11, align 16, !tbaa !7
   %16 = icmp sgt i32 %.val, 1
   br i1 %16, label %.lr.ph.preheader, label %.critedge.thread

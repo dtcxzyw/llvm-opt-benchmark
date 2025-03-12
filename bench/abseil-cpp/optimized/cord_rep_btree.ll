@@ -781,7 +781,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i: ; preds = %.lr.ph.i.
   %89 = zext i8 %.pre.i.i to i64
   %90 = sub nsw i64 %89, %87
   store i8 0, ptr %85, align 1, !tbaa !4
-  %91 = trunc nuw i64 %90 to i8
+  %91 = trunc nuw nsw i64 %90 to i8
   %92 = icmp ult i64 %90, 7
   tail call void @llvm.assume(i1 %92)
   %.not12.i.i.i = icmp eq i8 %.pre.i.i, %86
@@ -939,7 +939,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit.i: ; preds = %.lr.ph.i.
   %60 = zext i8 %.pre.i.i to i64
   %61 = sub nsw i64 %60, %58
   store i8 0, ptr %56, align 1, !tbaa !4
-  %62 = trunc nuw i64 %61 to i8
+  %62 = trunc nuw nsw i64 %61 to i8
   %63 = icmp ult i64 %61, 7
   tail call void @llvm.assume(i1 %63)
   %.not12.i.i.i = icmp eq i8 %.pre.i.i, %57
@@ -1542,11 +1542,11 @@ _ZN4absl13cord_internal12CordRepBtree8AlignEndEv.exit: ; preds = %16, %4, %9
   %.sink5.i.i.i.i = select i1 %35, i64 2, i64 58
   %36 = lshr i64 %31, %.sink6.i.i.i.i
   %37 = add nuw nsw i64 %36, %.sink5.i.i.i.i
-  %38 = trunc i64 %37 to i8
+  %38 = trunc nuw nsw i64 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i8 %38, ptr %39, align 4, !tbaa !25
   %40 = trunc nuw nsw i64 %37 to i32
-  %41 = icmp samesign ult i8 %38, 67
+  %41 = icmp samesign ult i64 %37, 67
   %.sink6.i.i.i = select i1 %41, i32 3, i32 6
   %42 = shl nuw nsw i32 %40, %.sink6.i.i.i
   %43 = select i1 %41, i32 -29, i32 -3725
@@ -1619,11 +1619,11 @@ define dso_local noalias noundef nonnull ptr @_ZN4absl13cord_internal12CordRepBt
   %.sink5.i.i.i.i = select i1 %23, i64 2, i64 58
   %24 = lshr i64 %19, %.sink6.i.i.i.i
   %25 = add nuw nsw i64 %24, %.sink5.i.i.i.i
-  %26 = trunc i64 %25 to i8
+  %26 = trunc nuw nsw i64 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i8 %26, ptr %27, align 4, !tbaa !25
   %28 = trunc nuw nsw i64 %25 to i32
-  %29 = icmp samesign ult i8 %26, 67
+  %29 = icmp samesign ult i64 %25, 67
   %.sink6.i.i.i = select i1 %29, i32 3, i32 6
   %30 = shl nuw nsw i32 %28, %.sink6.i.i.i
   %31 = select i1 %29, i32 -29, i32 -3725
@@ -1991,11 +1991,11 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   %.sink5.i.i.i.i.i = select i1 %161, i64 2, i64 58
   %162 = lshr i64 %158, %.sink6.i.i.i.i.i
   %163 = add nuw nsw i64 %162, %.sink5.i.i.i.i.i
-  %164 = trunc i64 %163 to i8
+  %164 = trunc nuw nsw i64 %163 to i8
   %165 = getelementptr inbounds nuw i8, ptr %159, i64 12
   store i8 %164, ptr %165, align 4, !tbaa !25
   %166 = trunc nuw nsw i64 %163 to i32
-  %167 = icmp samesign ult i8 %164, 67
+  %167 = icmp samesign ult i64 %163, 67
   %.sink6.i.i.i.i = select i1 %167, i32 3, i32 6
   %168 = shl nuw nsw i32 %166, %.sink6.i.i.i.i
   %169 = select i1 %167, i32 -29, i32 -3725
@@ -2108,7 +2108,7 @@ define dso_local { i64, ptr } @_ZN4absl13cord_internal12CordRepBtree7AddDataILNS
   %11 = zext i8 %10 to i64
   %12 = sub nsw i64 %11, %7
   store i8 0, ptr %5, align 2, !tbaa !4
-  %13 = trunc nuw i64 %12 to i8
+  %13 = trunc nuw nsw i64 %12 to i8
   store i8 %13, ptr %9, align 1, !tbaa !4
   %14 = icmp ult i64 %12, 7
   tail call void @llvm.assume(i1 %14)
@@ -2159,11 +2159,11 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   %.sink5.i.i.i.i = select i1 %35, i64 2, i64 58
   %36 = lshr i64 %31, %.sink6.i.i.i.i
   %37 = add nuw nsw i64 %36, %.sink5.i.i.i.i
-  %38 = trunc i64 %37 to i8
+  %38 = trunc nuw nsw i64 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 12
   store i8 %38, ptr %39, align 4, !tbaa !25
   %40 = trunc nuw nsw i64 %37 to i32
-  %41 = icmp samesign ult i8 %38, 67
+  %41 = icmp samesign ult i64 %37, 67
   %.sink6.i.i.i = select i1 %41, i32 3, i32 6
   %42 = shl nuw nsw i32 %40, %.sink6.i.i.i
   %43 = select i1 %41, i32 -29, i32 -3725
@@ -2236,11 +2236,11 @@ _ZN4absl13cord_internal12_GLOBAL__N_17ConsumeILNS0_12CordRepBtree8EdgeTypeE1EEES
   %.sink5.i.i.i.i = select i1 %22, i64 2, i64 58
   %23 = lshr i64 %18, %.sink6.i.i.i.i
   %24 = add nuw nsw i64 %23, %.sink5.i.i.i.i
-  %25 = trunc i64 %24 to i8
+  %25 = trunc nuw nsw i64 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i8 %25, ptr %26, align 4, !tbaa !25
   %27 = trunc nuw nsw i64 %24 to i32
-  %28 = icmp samesign ult i8 %25, 67
+  %28 = icmp samesign ult i64 %24, 67
   %.sink6.i.i.i = select i1 %28, i32 3, i32 6
   %29 = shl nuw nsw i32 %27, %.sink6.i.i.i
   %30 = select i1 %28, i32 -29, i32 -3725
@@ -5870,7 +5870,7 @@ _ZN4absl13cord_internal12CordRepBtree10ToOpResultEb.exit: ; preds = %_ZN4absl13c
   %95 = zext i8 %.pre.i to i64
   %96 = sub nsw i64 %95, %93
   store i8 0, ptr %91, align 1, !tbaa !4
-  %97 = trunc nuw i64 %96 to i8
+  %97 = trunc nuw nsw i64 %96 to i8
   store i8 %97, ptr %.phi.trans.insert.i, align 1, !tbaa !4
   %98 = icmp ult i64 %96, 7
   tail call void @llvm.assume(i1 %98)
@@ -6935,7 +6935,7 @@ define dso_local void @_ZN4absl13cord_internal12CordRepBtree7RebuildEPPS1_S2_b(p
 
 51:                                               ; preds = %50
   store i8 0, ptr %35, align 1, !tbaa !4
-  %52 = trunc nuw i64 %38 to i8
+  %52 = trunc nuw nsw i64 %38 to i8
   %.not12.i.i.i = icmp eq i8 %33, %36
   br i1 %.not12.i.i.i, label %_ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEbPNS0_7CordRepEm.exit, label %.lr.ph.i.i6.i
 
@@ -7067,7 +7067,7 @@ _ZN4absl13cord_internal12CordRepBtree7AddEdgeILNS1_8EdgeTypeE1EEENS1_8OpResultEb
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %94, i64 14
   store i8 0, ptr %117, align 1, !tbaa !4
-  %118 = trunc nuw i64 %102 to i8
+  %118 = trunc nuw nsw i64 %102 to i8
   %.not12.i.i.i61 = icmp eq i8 %97, %100
   br i1 %.not12.i.i.i61, label %_ZN4absl13cord_internal12CordRepBtree3AddILNS1_8EdgeTypeE1EEEvPNS0_7CordRepE.exit.i65, label %.lr.ph.i.i6.i62
 

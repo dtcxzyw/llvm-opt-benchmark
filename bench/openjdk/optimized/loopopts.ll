@@ -9190,7 +9190,7 @@ _ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit:    ; preds = %44, %_ZNK14PhaseIde
 
 _ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit._crit_edge.loopexit: ; preds = %_ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit, %88
   %.040.lcssa.ph.in = phi i64 [ %indvars.iv.next, %88 ], [ %indvars.iv, %_ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit ]
-  %.040.lcssa.ph = trunc i64 %.040.lcssa.ph.in to i32
+  %.040.lcssa.ph = trunc nuw i64 %.040.lcssa.ph.in to i32
   br label %_ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit._crit_edge
 
 _ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit._crit_edge: ; preds = %_ZN14PhaseIdealLoop12ctrl_or_selfEP4Node.exit._crit_edge.loopexit, %.preheader
@@ -14275,7 +14275,7 @@ _ZNK10Node_ArrayixEj.exit293:                     ; preds = %_ZNK10Node_ArrayixE
 
 .critedge.loopexit:                               ; preds = %624, %.critedge3, %_ZNK10Node_ArrayixEj.exit292, %_ZNK10Node_ArrayixEj.exit293
   %.0186.lcssa.ph.in = phi i64 [ %indvars.iv, %_ZNK10Node_ArrayixEj.exit293 ], [ %indvars.iv, %_ZNK10Node_ArrayixEj.exit292 ], [ %indvars.iv.next, %.critedge3 ], [ %indvars.iv, %624 ]
-  %.0186.lcssa.ph = trunc i64 %.0186.lcssa.ph.in to i32
+  %.0186.lcssa.ph = trunc nuw i64 %.0186.lcssa.ph.in to i32
   %.pre = load i32, ptr %567, align 8
   br label %.critedge
 

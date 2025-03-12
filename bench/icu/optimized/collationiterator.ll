@@ -5585,7 +5585,7 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   br i1 %60, label %61, label %107
 
 61:                                               ; preds = %59
-  %62 = trunc nuw i32 %.087.lcssa to i16
+  %62 = trunc nuw nsw i32 %.087.lcssa to i16
   %.lhs.trunc = add nsw i16 %62, -74
   %63 = udiv i16 %.lhs.trunc, 254
   %.zext = zext nneg i16 %63 to i32
@@ -5684,7 +5684,7 @@ _ZN6icu_7717CollationIterator8CEBuffer20ensureAppendCapacityEiR10UErrorCode.exit
   %111 = urem i32 %110, 254
   %112 = add nuw nsw i32 %111, 2
   %113 = udiv i32 %110, 254
-  %.lhs.trunc154 = trunc i32 %113 to i16
+  %.lhs.trunc154 = trunc nuw nsw i32 %113 to i16
   %114 = urem i16 %.lhs.trunc154, 254
   %115 = shl nuw i16 %114, 8
   %116 = zext i16 %115 to i32

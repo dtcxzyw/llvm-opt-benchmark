@@ -3838,7 +3838,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @oom_adj_write(ptr nounde
   br i1 %19, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = trunc i32 %15 to i16
+  %21 = trunc nsw i32 %15 to i16
   %.lhs.trunc = mul nsw i16 %21, 1000
   %22 = sdiv i16 %.lhs.trunc, 17
   %.sext = sext i16 %22 to i32

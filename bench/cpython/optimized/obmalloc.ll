@@ -9213,7 +9213,7 @@ _mi_bitmap_claim.exit:                            ; preds = %59
   br label %mi_arena_add.exit
 
 78:                                               ; preds = %71
-  %79 = trunc nuw i64 %72 to i32
+  %79 = trunc nuw nsw i64 %72 to i32
   %80 = add nuw nsw i32 %79, 1
   store i32 %80, ptr %25, align 8, !tbaa !111
   %81 = getelementptr [112 x ptr], ptr @mi_arenas, i64 0, i64 %72
@@ -9222,7 +9222,7 @@ _mi_bitmap_claim.exit:                            ; preds = %59
   br label %mi_arena_add.exit
 
 83:                                               ; preds = %.thread.i
-  %84 = trunc nuw i64 %74 to i32
+  %84 = trunc nuw nsw i64 %74 to i32
   %85 = add nuw nsw i32 %84, 1
   store i32 %85, ptr %25, align 8, !tbaa !111
   %86 = getelementptr [112 x ptr], ptr @mi_arenas, i64 0, i64 %74
@@ -9670,7 +9670,7 @@ _mi_bitmap_claim.exit.i:                          ; preds = %47
   br label %mi_arena_add.exit.i
 
 63:                                               ; preds = %58
-  %64 = trunc nuw i64 %59 to i32
+  %64 = trunc nuw nsw i64 %59 to i32
   %65 = add nuw nsw i32 %64, 1
   store i32 %65, ptr %20, align 8, !tbaa !111
   %66 = getelementptr [112 x ptr], ptr @mi_arenas, i64 0, i64 %59
@@ -18102,7 +18102,7 @@ define hidden zeroext range(i8 -128, 125) i8 @_mi_bin(i64 noundef %0) local_unna
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %5
-  %8 = trunc nuw i64 %3 to i8
+  %8 = trunc nuw nsw i64 %3 to i8
   %9 = add nuw nsw i8 %8, 1
   %10 = and i8 %9, 30
   br label %mi_bin.exit
@@ -18244,7 +18244,7 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i.i, %.cr
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %44
-  %47 = trunc nuw i64 %37 to i8
+  %47 = trunc nuw nsw i64 %37 to i8
   %48 = add nuw nsw i8 %47, 1
   %49 = and i8 %48, 30
   br label %mi_bin.exit.i
@@ -18257,7 +18257,7 @@ _mi_page_use_delayed_free.exit:                   ; preds = %.critedge.i.i, %.cr
   %55 = sub nsw i64 61, %52
   %56 = and i64 %55, 4294967295
   %57 = lshr i64 %51, %56
-  %58 = trunc i64 %57 to i8
+  %58 = trunc nuw nsw i64 %57 to i8
   %59 = and i8 %58, 3
   %60 = or disjoint i8 %59, %54
   %61 = xor i8 %60, -4
@@ -18284,7 +18284,7 @@ mi_bin.exit.i:                                    ; preds = %50, %46
   br i1 %71, label %72, label %76
 
 72:                                               ; preds = %70
-  %73 = trunc nuw i64 %68 to i8
+  %73 = trunc nuw nsw i64 %68 to i8
   %74 = add nuw nsw i8 %73, 1
   %75 = and i8 %74, 30
   br label %mi_bin.exit34.i
@@ -18513,7 +18513,7 @@ define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = trunc nuw i64 %23 to i8
+  %33 = trunc nuw nsw i64 %23 to i8
   %34 = add nuw nsw i8 %33, 1
   %35 = and i8 %34, 30
   br label %mi_bin.exit.i
@@ -18526,7 +18526,7 @@ define internal fastcc void @mi_page_queue_push(ptr noundef captures(address) %0
   %41 = sub nsw i64 61, %38
   %42 = and i64 %41, 4294967295
   %43 = lshr i64 %37, %42
-  %44 = trunc i64 %43 to i8
+  %44 = trunc nuw nsw i64 %43 to i8
   %45 = and i8 %44, 3
   %46 = or disjoint i8 %45, %40
   %47 = xor i8 %46, -4
@@ -18553,7 +18553,7 @@ mi_bin.exit.i:                                    ; preds = %36, %32
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %56
-  %59 = trunc nuw i64 %54 to i8
+  %59 = trunc nuw nsw i64 %54 to i8
   %60 = add nuw nsw i8 %59, 1
   %61 = and i8 %60, 30
   br label %mi_bin.exit34.i
@@ -19015,7 +19015,7 @@ define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(add
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %36
-  %39 = trunc nuw i64 %29 to i8
+  %39 = trunc nuw nsw i64 %29 to i8
   %40 = add nuw nsw i8 %39, 1
   %41 = and i8 %40, 30
   br label %mi_bin.exit.i
@@ -19028,7 +19028,7 @@ define internal fastcc void @mi_page_queue_enqueue_from(ptr noundef captures(add
   %47 = sub nsw i64 61, %44
   %48 = and i64 %47, 4294967295
   %49 = lshr i64 %43, %48
-  %50 = trunc i64 %49 to i8
+  %50 = trunc nuw nsw i64 %49 to i8
   %51 = and i8 %50, 3
   %52 = or disjoint i8 %51, %46
   %53 = xor i8 %52, -4
@@ -19055,7 +19055,7 @@ mi_bin.exit.i:                                    ; preds = %42, %38
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %62
-  %65 = trunc nuw i64 %60 to i8
+  %65 = trunc nuw nsw i64 %60 to i8
   %66 = add nuw nsw i8 %65, 1
   %67 = and i8 %66, 30
   br label %mi_bin.exit34.i
@@ -19147,7 +19147,7 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %86, %27,
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %107
-  %110 = trunc nuw i64 %100 to i8
+  %110 = trunc nuw nsw i64 %100 to i8
   %111 = add nuw nsw i8 %110, 1
   %112 = and i8 %111, 30
   br label %mi_bin.exit.i38
@@ -19160,7 +19160,7 @@ mi_heap_queue_first_update.exit:                  ; preds = %.lr.ph.i, %86, %27,
   %118 = sub nsw i64 61, %115
   %119 = and i64 %118, 4294967295
   %120 = lshr i64 %114, %119
-  %121 = trunc i64 %120 to i8
+  %121 = trunc nuw nsw i64 %120 to i8
   %122 = and i8 %121, 3
   %123 = or disjoint i8 %122, %117
   %124 = xor i8 %123, -4
@@ -19187,7 +19187,7 @@ mi_bin.exit.i38:                                  ; preds = %113, %109
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %133
-  %136 = trunc nuw i64 %131 to i8
+  %136 = trunc nuw nsw i64 %131 to i8
   %137 = add nuw nsw i8 %136, 1
   %138 = and i8 %137, 30
   br label %mi_bin.exit34.i42
@@ -19400,7 +19400,7 @@ define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) 
   br i1 %35, label %36, label %40
 
 36:                                               ; preds = %34
-  %37 = trunc nuw i64 %27 to i8
+  %37 = trunc nuw nsw i64 %27 to i8
   %38 = add nuw nsw i8 %37, 1
   %39 = and i8 %38, 30
   br label %mi_bin.exit.i
@@ -19413,7 +19413,7 @@ define internal fastcc void @mi_page_queue_remove(ptr noundef captures(address) 
   %45 = sub nsw i64 61, %42
   %46 = and i64 %45, 4294967295
   %47 = lshr i64 %41, %46
-  %48 = trunc i64 %47 to i8
+  %48 = trunc nuw nsw i64 %47 to i8
   %49 = and i8 %48, 3
   %50 = or disjoint i8 %49, %44
   %51 = xor i8 %50, -4
@@ -19440,7 +19440,7 @@ mi_bin.exit.i:                                    ; preds = %40, %36
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
-  %63 = trunc nuw i64 %58 to i8
+  %63 = trunc nuw nsw i64 %58 to i8
   %64 = add nuw nsw i8 %63, 1
   %65 = and i8 %64, 30
   br label %mi_bin.exit34.i
@@ -20090,7 +20090,7 @@ _mi_page_start.exit.i.i.i:                        ; preds = %142, %140, %130
   br i1 %150, label %mi_page_extend_free.exit.i.i, label %151
 
 151:                                              ; preds = %_mi_page_start.exit.i.i.i
-  %.rhs.trunc.i.i.i = trunc nuw i64 %146 to i16
+  %.rhs.trunc.i.i.i = trunc nuw nsw i64 %146 to i16
   %152 = udiv i16 4096, %.rhs.trunc.i.i.i
   %153 = zext nneg i16 %152 to i64
   br label %mi_page_extend_free.exit.i.i
@@ -27148,7 +27148,7 @@ define hidden ptr @_PyObject_Malloc(ptr readnone captures(none) %0, i64 noundef 
   br i1 %or.cond.i, label %44, label %10, !prof !81
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i64 %1 to i32
+  %11 = trunc nuw nsw i64 %1 to i32
   %12 = add nsw i32 %11, -1
   %13 = lshr i32 %12, 4
   %14 = shl nuw nsw i32 %13, 1
@@ -27241,7 +27241,7 @@ define hidden ptr @_PyObject_Calloc(ptr readnone captures(none) %0, i64 noundef 
   br i1 %or.cond.i, label %pymalloc_alloc.exit.thread20, label %12, !prof !81
 
 12:                                               ; preds = %3
-  %13 = trunc nuw i64 %4 to i32
+  %13 = trunc nuw nsw i64 %4 to i32
   %14 = add nsw i32 %13, -1
   %15 = lshr i32 %14, 4
   %16 = shl nuw nsw i32 %15, 1
@@ -27446,7 +27446,7 @@ define hidden ptr @_PyObject_Realloc(ptr readnone captures(none) %0, ptr noundef
   br i1 %or.cond.i.i, label %47, label %13, !prof !81
 
 13:                                               ; preds = %11
-  %14 = trunc nuw i64 %2 to i32
+  %14 = trunc nuw nsw i64 %2 to i32
   %15 = add nsw i32 %14, -1
   %16 = lshr i32 %15, 4
   %17 = shl nuw nsw i32 %16, 1
@@ -27579,7 +27579,7 @@ address_in_range.exit.thread28.i:                 ; preds = %address_in_range.ex
   br i1 %or.cond.i.i.i, label %128, label %94, !prof !81
 
 94:                                               ; preds = %92
-  %95 = trunc nuw i64 %2 to i32
+  %95 = trunc nuw nsw i64 %2 to i32
   %96 = add nsw i32 %95, -1
   %97 = lshr i32 %96, 4
   %98 = shl nuw nsw i32 %97, 1
@@ -30713,7 +30713,7 @@ _mi_page_start.exit.i.i:                          ; preds = %76, %74, %71
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %_mi_page_start.exit.i.i
-  %.rhs.trunc.i.i = trunc nuw i64 %80 to i16
+  %.rhs.trunc.i.i = trunc nuw nsw i64 %80 to i16
   %86 = udiv i16 4096, %.rhs.trunc.i.i
   %87 = zext nneg i16 %86 to i64
   br label %88

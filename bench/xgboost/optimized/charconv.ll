@@ -266,7 +266,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   br label %60
 
 57:                                               ; preds = %42
-  %58 = trunc nuw i32 %.165 to i8
+  %58 = trunc nuw nsw i32 %.165 to i8
   %59 = or disjoint i8 %58, 48
   br label %60
 
@@ -320,7 +320,7 @@ tailrecurse.i71.preheader:                        ; preds = %_ZN7xgboost6detail1
   br label %93
 
 87:                                               ; preds = %77
-  %88 = trunc nuw i32 %.0 to i8
+  %88 = trunc nuw nsw i32 %.0 to i8
   %89 = or disjoint i8 %88, 48
   %90 = add nsw i32 %.2, 1
   %91 = sext i32 %.2 to i64
@@ -384,7 +384,7 @@ _ZN7xgboost6detail4TensEj.exit._crit_edge:        ; preds = %tailrecurse.i19.pre
   br label %31
 
 28:                                               ; preds = %_ZN7xgboost6detail4TensEj.exit._crit_edge
-  %29 = trunc nuw i64 %.0.lcssa to i8
+  %29 = trunc nuw nsw i64 %.0.lcssa to i8
   %30 = or disjoint i8 %29, 48
   br label %31
 
@@ -483,7 +483,7 @@ _ZN7xgboost6detail4TensEj.exit.i._crit_edge:      ; preds = %tailrecurse.i19.pre
   br label %_ZN7xgboost6detail16ItoaUnsignedImplEPcjm.exit
 
 44:                                               ; preds = %_ZN7xgboost6detail4TensEj.exit.i._crit_edge
-  %45 = trunc nuw i64 %.0.i.lcssa to i8
+  %45 = trunc nuw nsw i64 %.0.i.lcssa to i8
   %46 = or disjoint i8 %45, 48
   br label %_ZN7xgboost6detail16ItoaUnsignedImplEPcjm.exit
 

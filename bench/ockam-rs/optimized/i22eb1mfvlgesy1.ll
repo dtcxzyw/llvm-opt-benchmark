@@ -651,7 +651,7 @@ define hidden void @"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..colle
   store ptr %2, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 352
   store ptr %13, ptr %24, align 8, !noalias !133
-  %25 = trunc nuw i64 %21 to i16
+  %25 = trunc nuw nsw i64 %21 to i16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 360
   store i16 %25, ptr %26, align 8, !noalias !133
   ret void
@@ -718,7 +718,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
   %10 = load ptr, ptr %9, align 8, !noalias !144, !nonnull !14, !noundef !14
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
   store ptr %0, ptr %11, align 8, !noalias !151
-  %12 = trunc i64 %.sroa.0.011.i to i16
+  %12 = trunc nuw i64 %.sroa.0.011.i to i16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 360
   store i16 %12, ptr %13, align 8, !noalias !151
   %.not.i.i.i = icmp samesign ugt i64 %spec.select8.i, %4

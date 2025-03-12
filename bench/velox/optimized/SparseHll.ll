@@ -737,7 +737,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %and.i = and i32 %4, 63
   %add = add nsw i32 %and.i, %sub11
   %zeros.0 = select i1 %cmp12.not, i32 %5, i32 %add
-  %6 = trunc i32 %zeros.0 to i8
+  %6 = trunc nsw i32 %zeros.0 to i8
   %conv15 = add nsw i8 %6, 1
   tail call void @_ZN8facebook5velox6common3hll8DenseHll6insertEia(ptr noundef nonnull align 8 dereferenceable(112) %denseHll, i32 noundef %shr, i8 noundef signext %conv15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -832,7 +832,7 @@ if.then.i1.i.i.i:                                 ; preds = %if.end.i.i.i
   unreachable
 
 _ZN8facebook5velox19HashStringAllocator8allocateEi.exit.i.i.i: ; preds = %if.end.i.i.i
-  %n.tr.i.i.i = trunc nuw i64 %cond.i to i32
+  %n.tr.i.i.i = trunc nuw nsw i64 %cond.i to i32
   %conv.i.i.i = shl nuw nsw i32 %n.tr.i.i.i, 2
   %5 = tail call i32 @llvm.umax.i32(i32 %conv.i.i.i, i32 16)
   %call3.i.i.i.i = tail call noundef ptr @_ZN8facebook5velox19HashStringAllocator8allocateEib(ptr noundef nonnull align 8 dereferenceable(37416) %3, i32 noundef %5, i1 noundef zeroext true)

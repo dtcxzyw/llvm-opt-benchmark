@@ -327,7 +327,7 @@ define dso_local void @LogicalTapeWrite(ptr noundef captures(none) %0, ptr nound
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %.051, i64 %spec.select, i1 false)
   store i8 1, ptr %22, align 2
   %50 = load i32, ptr %21, align 8
-  %51 = trunc i64 %spec.select to i32
+  %51 = trunc nuw i64 %spec.select to i32
   %52 = add i32 %50, %51
   store i32 %52, ptr %21, align 8
   %53 = load i32, ptr %23, align 4

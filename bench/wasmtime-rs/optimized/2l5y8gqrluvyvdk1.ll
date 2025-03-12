@@ -281,7 +281,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr writeonly
   br i1 %130, label %133, label %131
 
 131:                                              ; preds = %126
-  %132 = trunc i8 %125 to i1
+  %132 = trunc nuw i8 %125 to i1
   br i1 %132, label %135, label %_ZN14cranelift_isle7overlap6Errors10check_pair17hfd9ba8981b846d2fE.exit.i
 
 133:                                              ; preds = %126

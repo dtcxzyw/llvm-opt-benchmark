@@ -2053,7 +2053,7 @@ push_state.exit.thread.backedge:                  ; preds = %.lr.ph51.i808, %.pr
   br i1 %584, label %push_state.exit816, label %.preheader891.preheader
 
 .preheader891.preheader:                          ; preds = %583
-  %585 = trunc i32 %.15552 to i16
+  %585 = trunc nuw i32 %.15552 to i16
   br label %.preheader891
 
 .preheader891:                                    ; preds = %.preheader891.preheader, %600
@@ -2943,7 +2943,7 @@ re_parse_expect.exit441:                          ; preds = %151
 
 parse_digits.exit447:                             ; preds = %225
   store ptr %226, ptr %13, align 8, !tbaa !7
-  %229 = trunc nuw i64 %223 to i32
+  %229 = trunc nuw nsw i64 %223 to i32
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %231 = load i32, ptr %230, align 8, !tbaa !28
   %.not363 = icmp sgt i32 %231, %229

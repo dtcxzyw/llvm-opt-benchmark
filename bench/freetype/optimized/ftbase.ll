@@ -1687,7 +1687,7 @@ define hidden zeroext range(i8 0, 2) i8 @FT_Matrix_Check(ptr noundef readonly ca
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %18
-  %21 = trunc nuw i64 %16 to i32
+  %21 = trunc nuw nsw i64 %16 to i32
   %22 = tail call range(i32 1, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
   %23 = sub nuw nsw i32 19, %22
   %24 = zext nneg i32 %23 to i64

@@ -4506,16 +4506,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit36.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   br label %832
 
 781:                                              ; preds = %770
-  %782 = and i64 %749, 4294967288
-  %.not76.i = icmp eq i64 %782, 0
-  br i1 %.not76.i, label %_ZN4llvm7isUIntNEjm.exit.i, label %_ZN4llvm7isUIntNEjm.exit.thread.i
+  %782 = icmp samesign ugt i64 %749, 7
+  br i1 %782, label %_ZN4llvm7isUIntNEjm.exit.thread.i, label %_ZN4llvm7isUIntNEjm.exit.i
 
 _ZN4llvm7isUIntNEjm.exit.i:                       ; preds = %781
   %783 = shl nuw nsw i64 %749, 3
   %narrow.i.i = sub nuw nsw i64 64, %783
   %784 = lshr i64 -1, %narrow.i.i
-  %.not77.i = icmp ugt i64 %771, %784
-  br i1 %.not77.i, label %785, label %_ZN4llvm7isUIntNEjm.exit.thread.i
+  %.not76.i = icmp ugt i64 %771, %784
+  br i1 %.not76.i, label %785, label %_ZN4llvm7isUIntNEjm.exit.thread.i
 
 785:                                              ; preds = %_ZN4llvm7isUIntNEjm.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #25
@@ -17758,7 +17757,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_114RISCVAsmParser22parseCSRSystem
   br i1 %9, label %10, label %76
 
 10:                                               ; preds = %6
-  %11 = trunc nuw i64 %8 to i16
+  %11 = trunc nuw nsw i64 %8 to i16
   %12 = tail call { ptr, ptr } @_ZN4llvm11RISCVSysReg22lookupSysRegByEncodingEt(i16 noundef zeroext %11) #25
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1

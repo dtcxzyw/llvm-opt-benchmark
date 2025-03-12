@@ -173,8 +173,8 @@ define dso_local void @_ZN4absl13time_internal4cctz17FixedOffsetToNameB5cxx11ERK
   br label %75
 
 15:                                               ; preds = %10
-  %16 = trunc i64 %5 to i32
-  %17 = icmp slt i32 %16, 0
+  %16 = trunc nsw i64 %5 to i32
+  %17 = icmp slt i64 %5, 0
   %18 = select i1 %17, i8 45, i8 43
   %19 = sdiv i32 %16, 60
   %20 = srem i32 %16, 60
@@ -192,7 +192,7 @@ define dso_local void @_ZN4absl13time_internal4cctz17FixedOffsetToNameB5cxx11ERK
 25:                                               ; preds = %21, %15
   %.029 = phi i32 [ %.130.neg, %21 ], [ %19, %15 ]
   %.028 = phi i32 [ %24, %21 ], [ %20, %15 ]
-  %.lhs.trunc = trunc i32 %.029 to i16
+  %.lhs.trunc = trunc nsw i32 %.029 to i16
   %26 = sdiv i16 %.lhs.trunc, 60
   %27 = srem i16 %.lhs.trunc, 60
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %4) #13
@@ -200,7 +200,7 @@ define dso_local void @_ZN4absl13time_internal4cctz17FixedOffsetToNameB5cxx11ERK
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i8 %18, ptr %28, align 1, !tbaa !13
-  %.lhs.trunc50 = trunc i16 %26 to i8
+  %.lhs.trunc50 = trunc nsw i16 %26 to i8
   %30 = sdiv i8 %.lhs.trunc50, 10
   %31 = sext i8 %30 to i64
   %32 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %31

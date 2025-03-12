@@ -1338,7 +1338,7 @@ _ZN4llvh2cl6parserIiE5parseERNS0_6OptionENS_9StringRefES5_Ri.exit.thread: ; pred
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false.i.i
-  %conv.i.i = trunc i64 %1 to i32
+  %conv.i.i = trunc nsw i64 %1 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %Arg.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -1375,7 +1375,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %cmp.not.i, label %_ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit, label %_ZN4llvhplERKNS_5TwineES2_.exit
 
 _ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit: ; preds = %lor.lhs.false.i
-  %conv.i = trunc i64 %1 to i32
+  %conv.i = trunc nsw i64 %1 to i32
   store i32 %conv.i, ptr %Value, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %LLVal.i)
   br label %return

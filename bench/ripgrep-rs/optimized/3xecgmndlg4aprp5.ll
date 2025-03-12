@@ -447,7 +447,7 @@ _ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E.exit.i: ; preds 
   br i1 %215, label %_ZN10grep_regex6config6Config16is_fixed_strings17hd47ce670904e2bc3E.exit.thread263.thread, label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %211
-  %216 = trunc i8 %63 to i1
+  %216 = trunc nuw i8 %63 to i1
   %217 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %218 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %219 = getelementptr inbounds nuw i8, ptr %19, i64 8

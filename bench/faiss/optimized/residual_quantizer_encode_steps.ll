@@ -1041,28 +1041,28 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117:         ; preds = %214, %.noexc116
 224:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117
   %225 = trunc i64 %32 to i32
   %226 = trunc i64 %215 to i32
-  %227 = trunc i64 %38 to i32
+  %227 = trunc nuw i64 %38 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj3EE7bs_addnEjjPKfjPfPi(i32 noundef %225, i32 noundef %226, ptr noundef %217, i32 noundef %227, ptr noundef %51, ptr noundef %.sroa.0176.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit143 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 228:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117
   %229 = trunc i64 %32 to i32
   %230 = trunc i64 %215 to i32
-  %231 = trunc i64 %38 to i32
+  %231 = trunc nuw i64 %38 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj2EE7bs_addnEjjPKfjPfPi(i32 noundef %229, i32 noundef %230, ptr noundef %217, i32 noundef %231, ptr noundef %51, ptr noundef %.sroa.0176.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit143 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 232:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117
   %233 = trunc i64 %32 to i32
   %234 = trunc i64 %215 to i32
-  %235 = trunc i64 %38 to i32
+  %235 = trunc nuw i64 %38 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16ELj2EE7bs_addnEjjPKfjPfPi(i32 noundef %233, i32 noundef %234, ptr noundef %217, i32 noundef %235, ptr noundef %51, ptr noundef %.sroa.0176.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit143 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 236:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117
   %237 = trunc i64 %32 to i32
   %238 = trunc i64 %215 to i32
-  %239 = trunc i64 %38 to i32
+  %239 = trunc nuw i64 %38 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32ELj2EE7bs_addnEjjPKfjPfPi(i32 noundef %237, i32 noundef %238, ptr noundef %217, i32 noundef %239, ptr noundef %51, ptr noundef %.sroa.0176.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit143 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -4503,7 +4503,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %635 = trunc i64 %633 to i32
   %636 = load i64, ptr %4, align 8, !tbaa !4, !llvm.access.group !93
   %637 = trunc i64 %636 to i32
-  %638 = trunc i64 %621 to i32
+  %638 = trunc nuw i64 %621 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj3EE7bs_addnEjjPKfjPfPi(i32 noundef %635, i32 noundef %637, ptr noundef %.sroa.0400.2, i32 noundef %638, ptr noundef %626, ptr noundef %.sroa.0355.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit unwind label %.loopexit438, !llvm.access.group !93
 
@@ -4511,7 +4511,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %640 = trunc i64 %633 to i32
   %641 = load i64, ptr %4, align 8, !tbaa !4, !llvm.access.group !93
   %642 = trunc i64 %641 to i32
-  %643 = trunc i64 %621 to i32
+  %643 = trunc nuw i64 %621 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj8ELj2EE7bs_addnEjjPKfjPfPi(i32 noundef %640, i32 noundef %642, ptr noundef %.sroa.0400.2, i32 noundef %643, ptr noundef %626, ptr noundef %.sroa.0355.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit unwind label %.loopexit438, !llvm.access.group !93
 
@@ -4519,7 +4519,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %645 = trunc i64 %633 to i32
   %646 = load i64, ptr %4, align 8, !tbaa !4, !llvm.access.group !93
   %647 = trunc i64 %646 to i32
-  %648 = trunc i64 %621 to i32
+  %648 = trunc nuw i64 %621 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj16ELj2EE7bs_addnEjjPKfjPfPi(i32 noundef %645, i32 noundef %647, ptr noundef %.sroa.0400.2, i32 noundef %648, ptr noundef %626, ptr noundef %.sroa.0355.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit unwind label %.loopexit438, !llvm.access.group !93
 
@@ -4527,7 +4527,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %650 = trunc i64 %633 to i32
   %651 = load i64, ptr %4, align 8, !tbaa !4, !llvm.access.group !93
   %652 = trunc i64 %651 to i32
-  %653 = trunc i64 %621 to i32
+  %653 = trunc nuw i64 %621 to i32
   invoke void @_ZN5faiss15HeapWithBucketsINS_4CMaxIfiEELj32ELj2EE7bs_addnEjjPKfjPfPi(i32 noundef %650, i32 noundef %652, ptr noundef %.sroa.0400.2, i32 noundef %653, ptr noundef %626, ptr noundef %.sroa.0355.2)
           to label %_ZN5faiss9heap_addnINS_4CMaxIfiEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit unwind label %.loopexit438, !llvm.access.group !93
 

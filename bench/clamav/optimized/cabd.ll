@@ -2791,7 +2791,7 @@ define internal range(i32 0, 5) i32 @noned_decompress(ptr noundef readonly captu
   %9 = load i32, ptr %3, align 8, !tbaa !133
   %10 = sext i32 %9 to i64
   %11 = tail call i64 @llvm.smin.i64(i64 %.01720, i64 %10)
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nsw i64 %11 to i32
   %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !71

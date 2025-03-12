@@ -1520,7 +1520,7 @@ define hidden void @_ZN7example7Tracker13setFirstFrameEN2cv3MatESt6vectorINS1_6P
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
   store ptr %29, ptr %6, align 8, !tbaa !129
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #20
-  %31 = trunc i64 %26 to i32
+  %31 = trunc nuw nsw i64 %26 to i32
   store i32 %31, ptr %7, align 4, !tbaa !131
   br label %._crit_edge
 

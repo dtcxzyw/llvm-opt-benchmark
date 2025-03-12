@@ -8774,13 +8774,13 @@ _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.thread6.i10.i.i.
   br i1 %291, label %301, label %312
 
 292:                                              ; preds = %282
-  %293 = trunc nuw i32 %.sroa.0.0.i34.i.i.i to i8
+  %293 = trunc nuw nsw i32 %.sroa.0.0.i34.i.i.i to i8
   store i8 %293, ptr %.sroa.0.i.i, align 4, !alias.scope !2355, !noalias !2197
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i.i
 
 294:                                              ; preds = %288
   %295 = lshr i32 %.sroa.0.0.i34.i.i.i, 6
-  %296 = trunc nuw i32 %295 to i8
+  %296 = trunc nuw nsw i32 %295 to i8
   %297 = or disjoint i8 %296, -64
   store i8 %297, ptr %.sroa.0.i.i, align 4, !alias.scope !2355, !noalias !2197
   %298 = trunc i32 %.sroa.0.0.i34.i.i.i to i8
@@ -8791,7 +8791,7 @@ _ZN4core3ops8function6FnOnce9call_once17he030689b95f45f85E.exit.thread6.i10.i.i.
 
 301:                                              ; preds = %290
   %302 = lshr i32 %.sroa.0.0.i34.i.i.i, 12
-  %303 = trunc nuw i32 %302 to i8
+  %303 = trunc nuw nsw i32 %302 to i8
   %304 = or disjoint i8 %303, -32
   store i8 %304, ptr %.sroa.0.i.i, align 4, !alias.scope !2355, !noalias !2197
   %305 = lshr i32 %.sroa.0.0.i34.i.i.i, 6
@@ -24457,7 +24457,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.promoted.i.i.i.i.i = load ptr, ptr %7, align 8, !alias.scope !6244
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %trunc.i.i.i.i.i.i = trunc i64 %4 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i64 %4 to i1
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted17.i.i.i.i.i = load ptr, ptr %8, align 8, !alias.scope !6244
   br i1 %trunc.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i, label %.split.i.i.i.i.i
@@ -24546,7 +24546,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5e1479b05a779328E.exit.i.i: ; preds = %
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.promoted.i.i.i.i1.i = load ptr, ptr %38, align 8, !alias.scope !6286, !noalias !6278
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %trunc.i.i.i.i.i2.i = trunc i64 %35 to i1
+  %trunc.i.i.i.i.i2.i = trunc nuw i64 %35 to i1
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.promoted17.i.i.i.i3.i = load ptr, ptr %39, align 8, !alias.scope !6286, !noalias !6278
   br i1 %trunc.i.i.i.i.i2.i, label %.split.us.preheader.i.i.i.i11.i, label %.split.i.i.i.i4.i
@@ -28245,7 +28245,7 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN106_$LT$core.
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted.i.i.i.i = load ptr, ptr %5, align 8, !alias.scope !7477
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %trunc.i.i.i.i.i = trunc i64 %2 to i1
+  %trunc.i.i.i.i.i = trunc nuw i64 %2 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted17.i.i.i.i = load ptr, ptr %6, align 8, !alias.scope !7477
   br i1 %trunc.i.i.i.i.i, label %.split.us.preheader.i.i.i.i, label %.split.i.i.i.i
@@ -28334,7 +28334,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5e1479b05a779328E.exit.i: ; preds = %.s
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.promoted.i.i.i.i1 = load ptr, ptr %36, align 8, !alias.scope !7519, !noalias !7511
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %trunc.i.i.i.i.i2 = trunc i64 %33 to i1
+  %trunc.i.i.i.i.i2 = trunc nuw i64 %33 to i1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.promoted17.i.i.i.i3 = load ptr, ptr %37, align 8, !alias.scope !7519, !noalias !7511
   br i1 %trunc.i.i.i.i.i2, label %.split.us.preheader.i.i.i.i11, label %.split.i.i.i.i4
@@ -29528,7 +29528,7 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN106_$LT$core.
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted.i.i = load ptr, ptr %5, align 8, !alias.scope !7858
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %trunc.i.i.i = trunc i64 %2 to i1
+  %trunc.i.i.i = trunc nuw i64 %2 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted17.i.i = load ptr, ptr %6, align 8, !alias.scope !7858
   br i1 %trunc.i.i.i, label %.split.us.preheader.i.i, label %.split.i.i
@@ -63277,7 +63277,7 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @_ZN4core4iter8ada
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted.i.i.i = load ptr, ptr %5, align 8, !alias.scope !16474
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %trunc.i.i.i.i = trunc i64 %2 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %2 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.promoted17.i.i.i = load ptr, ptr %6, align 8, !alias.scope !16474
   br i1 %trunc.i.i.i.i, label %.split.us.preheader.i.i.i, label %.split.i.i.i
@@ -65509,7 +65509,7 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN4core6option1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.promoted.i.i.i = load ptr, ptr %8, align 8, !alias.scope !17004
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %trunc.i.i.i.i = trunc i64 %5 to i1
+  %trunc.i.i.i.i = trunc nuw i64 %5 to i1
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted17.i.i.i = load ptr, ptr %9, align 8, !alias.scope !17004
   br i1 %trunc.i.i.i.i, label %.split.us.preheader.i.i.i, label %.split.i.i.i
@@ -75098,7 +75098,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !19363
   %12 = trunc i32 %1 to i8
@@ -75110,7 +75110,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !19363
   %19 = lshr i32 %1, 6
@@ -141751,7 +141751,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
 
 .lr.ph.i:                                         ; preds = %15, %21
   %19 = phi i8 [ %22, %21 ], [ %17, %15 ]
-  %trunc.i = trunc i8 %19 to i1
+  %trunc.i = trunc nuw i8 %19 to i1
   br i1 %trunc.i, label %21, label %20
 
 ._crit_edge.i:                                    ; preds = %21, %15

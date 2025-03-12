@@ -13507,7 +13507,7 @@ if.end:                                           ; preds = %entry
 if.then5:                                         ; preds = %if.end
   %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 0, ptr %arrayidx, align 1
-  %conv = trunc nuw i32 %code_point to i8
+  %conv = trunc nuw nsw i32 %code_point to i8
   br label %if.end49
 
 if.else:                                          ; preds = %if.end
@@ -13523,7 +13523,7 @@ if.then8:                                         ; preds = %if.else
   %conv10 = or disjoint i8 %4, -128
   %arrayidx11 = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv10, ptr %arrayidx11, align 1
-  %5 = trunc nuw i32 %shr.i to i8
+  %5 = trunc nuw nsw i32 %shr.i to i8
   %conv13 = or disjoint i8 %5, -64
   br label %if.end49
 
@@ -13546,7 +13546,7 @@ if.then17:                                        ; preds = %if.else15
   store i8 %conv21, ptr %arrayidx22, align 1
   %arrayidx26 = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv25, ptr %arrayidx26, align 1
-  %10 = trunc nuw i32 %shr.i10 to i8
+  %10 = trunc nuw nsw i32 %shr.i10 to i8
   %conv28 = or disjoint i8 %10, -32
   br label %if.end49
 
@@ -13563,7 +13563,7 @@ if.else30:                                        ; preds = %if.else15
   %conv42 = or disjoint i8 %12, -128
   %arrayidx43 = getelementptr inbounds nuw i8, ptr %str, i64 1
   store i8 %conv42, ptr %arrayidx43, align 1
-  %13 = trunc nuw i32 %shr.i16 to i8
+  %13 = trunc nuw nsw i32 %shr.i16 to i8
   %conv45 = or disjoint i8 %13, -16
   br label %if.end49
 
@@ -35167,7 +35167,7 @@ lpad27.body:                                      ; preds = %lpad.i.i84, %lpad.i
   br i1 %cmp.not.i.i.i155, label %eh.resume, label %eh.resume.sink.split
 
 if.end50:                                         ; preds = %if.end
-  %conv19 = trunc i64 %call to i32
+  %conv19 = trunc nsw i64 %call to i32
   store i32 %conv19, ptr %value, align 4
   br label %return
 
@@ -44640,7 +44640,7 @@ invoke.cont8.thread:                              ; preds = %lor.lhs.false.i, %l
   br label %if.then18
 
 lor.lhs.false10:                                  ; preds = %if.end12.i
-  %conv13.i = trunc i64 %call5.i to i32
+  %conv13.i = trunc nsw i64 %call5.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   %add.ptr.i11 = getelementptr inbounds nuw i8, ptr %2, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i12)
@@ -44676,7 +44676,7 @@ invoke.cont12.thread:                             ; preds = %lor.lhs.false.i14, 
   br label %if.then18
 
 lor.lhs.false14:                                  ; preds = %if.end12.i23
-  %conv13.i28 = trunc i64 %call5.i21 to i32
+  %conv13.i28 = trunc nsw i64 %call5.i21 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i12)
   %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %2, i64 96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i31)
@@ -44712,7 +44712,7 @@ invoke.cont16.thread:                             ; preds = %lor.lhs.false.i33, 
   br label %if.then18
 
 invoke.cont16:                                    ; preds = %if.end12.i42
-  %conv13.i47 = trunc i64 %call5.i40 to i32
+  %conv13.i47 = trunc nsw i64 %call5.i40 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i31)
   %call26 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #53
           to label %invoke.cont25 unwind label %lpad7
@@ -54559,7 +54559,7 @@ sw.default:                                       ; preds = %entry
   br i1 %1, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sw.default
-  %conv = trunc nuw i32 %c to i8
+  %conv = trunc nuw nsw i32 %c to i8
   %call20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext %conv)
   br label %return
 

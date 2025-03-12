@@ -33180,7 +33180,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit: ; preds = %1502
   br i1 %1519, label %1545, label %1520
 
 1520:                                             ; preds = %1518
-  %1521 = trunc i8 %1515 to i1
+  %1521 = trunc nuw i8 %1515 to i1
   %1522 = getelementptr inbounds nuw i8, ptr %0, i64 521
   %1523 = load i8, ptr %1522, align 1, !range !604, !noundef !4
   switch i8 %1523, label %"_ZN4core3ptr98drop_in_place$LT$worktree..BackgroundScanner..forcibly_load_paths..$u7b$$u7b$closure$u7d$$u7d$$GT$17h22215cfcad0ef608E.exit" [

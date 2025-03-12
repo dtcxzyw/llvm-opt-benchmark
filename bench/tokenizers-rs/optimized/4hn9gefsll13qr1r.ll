@@ -24031,13 +24031,13 @@ default.unreachable:                              ; preds = %109
   br i1 %125, label %135, label %146
 
 126:                                              ; preds = %117
-  %127 = trunc nuw i32 %120 to i8
+  %127 = trunc nuw nsw i32 %120 to i8
   store i8 %127, ptr %4, align 4, !alias.scope !4075, !noalias !4066
   br label %161
 
 128:                                              ; preds = %122
   %129 = lshr i32 %120, 6
-  %130 = trunc nuw i32 %129 to i8
+  %130 = trunc nuw nsw i32 %129 to i8
   %131 = or disjoint i8 %130, -64
   store i8 %131, ptr %4, align 4, !alias.scope !4075, !noalias !4066
   %132 = trunc i32 %120 to i8
@@ -24048,7 +24048,7 @@ default.unreachable:                              ; preds = %109
 
 135:                                              ; preds = %124
   %136 = lshr i32 %120, 12
-  %137 = trunc nuw i32 %136 to i8
+  %137 = trunc nuw nsw i32 %136 to i8
   %138 = or disjoint i8 %137, -32
   store i8 %138, ptr %4, align 4, !alias.scope !4075, !noalias !4066
   %139 = lshr i32 %120, 6
@@ -24127,13 +24127,13 @@ default.unreachable:                              ; preds = %109
   br i1 %177, label %187, label %198
 
 178:                                              ; preds = %169
-  %179 = trunc nuw i32 %172 to i8
+  %179 = trunc nuw nsw i32 %172 to i8
   store i8 %179, ptr %5, align 4, !alias.scope !4093, !noalias !4066
   br label %213
 
 180:                                              ; preds = %174
   %181 = lshr i32 %172, 6
-  %182 = trunc nuw i32 %181 to i8
+  %182 = trunc nuw nsw i32 %181 to i8
   %183 = or disjoint i8 %182, -64
   store i8 %183, ptr %5, align 4, !alias.scope !4093, !noalias !4066
   %184 = trunc i32 %172 to i8
@@ -24144,7 +24144,7 @@ default.unreachable:                              ; preds = %109
 
 187:                                              ; preds = %176
   %188 = lshr i32 %172, 12
-  %189 = trunc nuw i32 %188 to i8
+  %189 = trunc nuw nsw i32 %188 to i8
   %190 = or disjoint i8 %189, -32
   store i8 %190, ptr %5, align 4, !alias.scope !4093, !noalias !4066
   %191 = lshr i32 %172, 6

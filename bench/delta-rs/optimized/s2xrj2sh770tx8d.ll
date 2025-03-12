@@ -57859,7 +57859,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
 269:                                              ; preds = %182, %244
   %270 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %271 = add nsw i128 %270, -3
-  %272 = trunc nsw i128 %271 to i64
+  %272 = trunc nuw nsw i128 %271 to i64
   %273 = icmp ult i128 %271, 35
   %274 = icmp eq i64 %272, 30
   %275 = select i1 %273, i1 %274, i1 false
@@ -57879,7 +57879,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
 279:                                              ; preds = %245, %143
   %280 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %281 = add nsw i128 %280, -3
-  %282 = trunc nsw i128 %281 to i64
+  %282 = trunc nuw nsw i128 %281 to i64
   %283 = icmp ult i128 %281, 35
   %284 = icmp eq i64 %282, 30
   %285 = select i1 %283, i1 %284, i1 false
@@ -57902,7 +57902,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
   %.pn195 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i" ], [ %153, %152 ], [ %eh.lpad-body117, %.body116 ], [ %lpad.thr_comm.split-lp287, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i.thread286" ], [ %lpad.loopexit.split-lp235, %.loopexit.split-lp233 ], [ %172, %.body.i129 ]
   %287 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %288 = add nsw i128 %287, -3
-  %289 = trunc nsw i128 %288 to i64
+  %289 = trunc nuw nsw i128 %288 to i64
   %290 = icmp ult i128 %288, 35
   %291 = icmp eq i64 %289, 30
   %292 = select i1 %290, i1 %291, i1 false
@@ -58703,7 +58703,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
 269:                                              ; preds = %182, %244
   %270 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %271 = add nsw i128 %270, -3
-  %272 = trunc nsw i128 %271 to i64
+  %272 = trunc nuw nsw i128 %271 to i64
   %273 = icmp ult i128 %271, 35
   %274 = icmp eq i64 %272, 30
   %275 = select i1 %273, i1 %274, i1 false
@@ -58723,7 +58723,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
 279:                                              ; preds = %245, %143
   %280 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %281 = add nsw i128 %280, -3
-  %282 = trunc nsw i128 %281 to i64
+  %282 = trunc nuw nsw i128 %281 to i64
   %283 = icmp ult i128 %281, 35
   %284 = icmp eq i64 %282, 30
   %285 = select i1 %283, i1 %284, i1 false
@@ -58746,7 +58746,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
   %.pn195 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i" ], [ %153, %152 ], [ %eh.lpad-body117, %.body116 ], [ %lpad.thr_comm.split-lp287, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i.thread286" ], [ %lpad.loopexit.split-lp235, %.loopexit.split-lp233 ], [ %172, %.body.i129 ]
   %287 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %288 = add nsw i128 %287, -3
-  %289 = trunc nsw i128 %288 to i64
+  %289 = trunc nuw nsw i128 %288 to i64
   %290 = icmp ult i128 %288, 35
   %291 = icmp eq i64 %289, 30
   %292 = select i1 %290, i1 %291, i1 false
@@ -59584,7 +59584,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
 279:                                              ; preds = %192, %254
   %280 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %281 = add nsw i128 %280, -3
-  %282 = trunc nsw i128 %281 to i64
+  %282 = trunc nuw nsw i128 %281 to i64
   %283 = icmp ult i128 %281, 35
   %284 = icmp eq i64 %282, 30
   %285 = select i1 %283, i1 %284, i1 false
@@ -59657,7 +59657,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
 310:                                              ; preds = %255, %153
   %311 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %312 = add nsw i128 %311, -3
-  %313 = trunc nsw i128 %312 to i64
+  %313 = trunc nuw nsw i128 %312 to i64
   %314 = icmp ult i128 %312, 35
   %315 = icmp eq i64 %313, 30
   %316 = select i1 %314, i1 %315, i1 false
@@ -59681,7 +59681,7 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
   %.pn218 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i136" ], [ %163, %162 ], [ %eh.lpad-body119, %.body118 ], [ %lpad.thr_comm.split-lp329, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i136.thread328" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %182, %.body.i135 ]
   %319 = load i128, ptr %23, align 16, !range !17166, !noundef !4
   %320 = add nsw i128 %319, -3
-  %321 = trunc nsw i128 %320 to i64
+  %321 = trunc nuw nsw i128 %320 to i64
   %322 = icmp ult i128 %320, 35
   %323 = icmp eq i64 %321, 30
   %324 = select i1 %322, i1 %323, i1 false
@@ -65394,7 +65394,7 @@ define hidden void @"_ZN4core3ptr48drop_in_place$LT$datafusion_expr..expr..Expr$
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = load i128, ptr %0, align 16, !range !17166, !noundef !4
   %7 = add nsw i128 %6, -3
-  %8 = trunc nsw i128 %7 to i64
+  %8 = trunc nuw nsw i128 %7 to i64
   %9 = icmp ult i128 %7, 35
   %10 = select i1 %9, i64 %8, i64 25
   switch i64 %10, label %11 [
@@ -68479,7 +68479,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$datafusion_common..scalar..S
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = load i128, ptr %0, align 16, !range !19383, !noundef !4
   %8 = add nsw i128 %7, -2
-  %9 = trunc nsw i128 %8 to i64
+  %9 = trunc nuw nsw i128 %8 to i64
   %10 = icmp ult i128 %8, 41
   %11 = select i1 %10, i64 %9, i64 5
   switch i64 %11, label %12 [
@@ -82856,7 +82856,7 @@ define hidden void @"_ZN66_$LT$datafusion_expr..expr..Expr$u20$as$u20$core..clon
   %.sroa.0 = alloca { { { { i64, ptr, {} }, i64 } }, { [6 x i64], i64, [2 x i64] } }, align 8
   %86 = load i128, ptr %1, align 16, !range !17166, !noundef !4
   %87 = add nsw i128 %86, -3
-  %88 = trunc nsw i128 %87 to i64
+  %88 = trunc nuw nsw i128 %87 to i64
   %89 = icmp ult i128 %87, 35
   %90 = select i1 %89, i64 %88, i64 25
   switch i64 %90, label %91 [
@@ -83695,7 +83695,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23672)
   %323 = load i128, ptr %315, align 16, !range !1755, !alias.scope !23672, !noalias !23675, !noundef !4
   %324 = add nsw i128 %323, -43
-  %325 = trunc nsw i128 %324 to i64
+  %325 = trunc nuw nsw i128 %324 to i64
   %326 = icmp ult i128 %324, 2
   %327 = add nsw i64 %325, 1
   %328 = select i1 %326, i64 %327, i64 0
@@ -87195,7 +87195,7 @@ define internal fastcc void @"_ZN77_$LT$datafusion_common..scalar..ScalarValue$u
   %.sroa.525 = alloca [2 x i64], align 8
   %8 = load i128, ptr %1, align 16, !range !19383, !noundef !4
   %9 = add nsw i128 %8, -2
-  %10 = trunc nsw i128 %9 to i64
+  %10 = trunc nuw nsw i128 %9 to i64
   %11 = icmp ult i128 %9, 41
   %12 = select i1 %11, i64 %10, i64 5
   switch i64 %12, label %13 [

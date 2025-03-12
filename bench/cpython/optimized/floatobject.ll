@@ -2738,7 +2738,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack2(double noundef %0, ptr noun
   %60 = shl nuw nsw i32 %59, 10
   %61 = select i1 %.038.in, i32 32768, i32 0
   %62 = or i32 %60, %61
-  %63 = trunc i32 %62 to i16
+  %63 = trunc nuw i32 %62 to i16
   %64 = or i16 %.036, %63
   %.not46 = icmp ne i32 %2, 0
   %spec.select.idx = zext i1 %.not46 to i64
@@ -2858,7 +2858,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack4(double noundef %0, ptr noun
   %.057 = phi i32 [ 0, %38 ], [ %37, %33 ]
   %43 = lshr i32 %42, 1
   %44 = or i32 %43, %.060
-  %45 = trunc i32 %44 to i8
+  %45 = trunc nuw i32 %44 to i8
   store i8 %45, ptr %spec.select, align 1, !tbaa !28
   %46 = getelementptr i8, ptr %spec.select, i64 %spec.select70
   %47 = shl nuw nsw i32 %42, 7
@@ -3024,7 +3024,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack8(double noundef %0, ptr noun
   %.068 = phi i32 [ 0, %45 ], [ 0, %43 ], [ %42, %34 ]
   %50 = lshr i32 %49, 4
   %51 = or i32 %50, %.071
-  %52 = trunc i32 %51 to i8
+  %52 = trunc nuw i32 %51 to i8
   store i8 %52, ptr %spec.select, align 1, !tbaa !28
   %53 = getelementptr i8, ptr %spec.select, i64 %spec.select83
   %54 = shl nuw nsw i32 %49, 4

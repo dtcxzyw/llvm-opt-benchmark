@@ -1881,7 +1881,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7AdvanceIPKtEEbPT_t
   br i1 %266, label %267, label %273
 
 267:                                              ; preds = %263
-  %268 = trunc nuw i16 %264 to i8
+  %268 = trunc nuw nsw i16 %264 to i8
   %269 = add nsw i32 %.0157376, 1
   %270 = sext i32 %.0157376 to i64
   %271 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %270
@@ -2054,7 +2054,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL7isDigitEii.exit.th
   br i1 %346, label %347, label %354
 
 347:                                              ; preds = %343
-  %348 = trunc nuw i16 %344 to i8
+  %348 = trunc nuw nsw i16 %344 to i8
   %349 = add nsw i32 %.4161395, 1
   %350 = sext i32 %.4161395 to i64
   %351 = getelementptr inbounds [782 x i8], ptr %8, i64 0, i64 %350

@@ -3913,7 +3913,7 @@ thread-pre-split252:                              ; preds = %149, %146
   %207 = sext i32 %.3271 to i64
   %208 = getelementptr inbounds [404 x i8], ptr %192, i64 0, i64 %207
   %209 = load i8, ptr %208, align 1, !tbaa !31
-  %210 = trunc nuw i32 %198 to i8
+  %210 = trunc nuw nsw i32 %198 to i8
   %211 = add i8 %209, %210
   %212 = and i8 %211, 15
   store i8 %212, ptr %208, align 1, !tbaa !31

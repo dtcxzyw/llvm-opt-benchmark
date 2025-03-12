@@ -92,7 +92,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
   br i1 %7, label %22, label %34
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %0 to i8
+  %10 = trunc nuw nsw i32 %0 to i8
   store i8 %10, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9843fabd55c266f7E.exit"
 
@@ -104,7 +104,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
 
 14:                                               ; preds = %4
   %15 = lshr i32 %0, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %1, align 1
   %18 = trunc i32 %0 to i8
@@ -116,7 +116,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h01
 
 22:                                               ; preds = %6
   %23 = lshr i32 %0, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %1, align 1
   %26 = lshr i32 %0, 6

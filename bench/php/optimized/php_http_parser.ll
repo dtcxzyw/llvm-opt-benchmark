@@ -2572,7 +2572,7 @@ php_http_should_keep_alive.exit:                  ; preds = %941, %943
   br i1 %.not1147, label %1096, label %1104
 
 1096:                                             ; preds = %1088, %1091, %1087
-  %1097 = trunc i32 %.4 to i8
+  %1097 = trunc nuw nsw i32 %.4 to i8
   store i8 %1097, ptr %5, align 1, !tbaa !4
   %1098 = trunc i32 %.11021 to i8
   store i8 %1098, ptr %7, align 2, !tbaa !16

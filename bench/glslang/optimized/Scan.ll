@@ -3735,7 +3735,7 @@ _ZN7glslang13TInputScanner3getEv.exit250:         ; preds = %795, %787, %822
   ]
 
 823:                                              ; preds = %.preheader
-  %824 = trunc i32 %.2427 to i8
+  %824 = trunc nuw i32 %.2427 to i8
   %825 = getelementptr inbounds nuw [13 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 %824, ptr %825, align 1
   %826 = load i32, ptr %6, align 8
@@ -11170,7 +11170,7 @@ _ZNSt8__detail14__to_chars_lenIyEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 
 52:                                               ; preds = %._crit_edge.i
-  %53 = trunc nuw i64 %.0.lcssa.i to i8
+  %53 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %54 = or disjoint i8 %53, 48
   br label %_ZNSt8__detail18__to_chars_10_implIyEEvPcjT_.exit
 

@@ -31979,7 +31979,7 @@ default.unreachable43:                            ; preds = %4
   br i1 %119, label %"_ZN6hir_ty5infer7closure49_$LT$impl$u20$hir_ty..infer..InferenceContext$GT$8walk_pat28_$u7b$$u7b$closure$u7d$$u7d$17h44144b8568199169E.exit20", label %"_ZN6hir_ty5infer7closure49_$LT$impl$u20$hir_ty..infer..InferenceContext$GT$8walk_pat28_$u7b$$u7b$closure$u7d$$u7d$17h44144b8568199169E.exit17"
 
 121:                                              ; preds = %94
-  %trunc = trunc i8 %98 to i1
+  %trunc = trunc nuw i8 %98 to i1
   %.val8 = load ptr, ptr %2, align 8, !nonnull !9, !align !30, !noundef !9
   br i1 %trunc, label %"_ZN6hir_ty5infer7closure49_$LT$impl$u20$hir_ty..infer..InferenceContext$GT$8walk_pat28_$u7b$$u7b$closure$u7d$$u7d$17h44144b8568199169E.exit23", label %123
 
@@ -32355,8 +32355,8 @@ define internal fastcc noundef zeroext i1 @"_ZN6hir_ty5infer7closure49_$LT$impl$
 .thread:                                          ; preds = %27, %7, %54
   %.05 = phi i8 [ %59, %54 ], [ 2, %7 ], [ 2, %27 ]
   %60 = icmp eq i8 %.05, 2
-  %61 = trunc i8 %.05 to i1
-  %.0 = or i1 %60, %61
+  %61 = trunc nuw i8 %.05 to i1
+  %.0 = select i1 %60, i1 true, i1 %61
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8321)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8324)
   %62 = load atomic i64, ptr %1 acquire, align 8, !noalias !8327
@@ -33255,7 +33255,7 @@ default.unreachable417:                           ; preds = %97
   br label %.critedge
 
 380:                                              ; preds = %163
-  %trunc114 = trunc i8 %167 to i1
+  %trunc114 = trunc nuw i8 %167 to i1
   %. = select i1 %trunc114, i8 3, i8 0
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)

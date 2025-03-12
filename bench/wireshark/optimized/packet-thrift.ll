@@ -2132,7 +2132,7 @@ thrift_get_varint_enc.exit.thread145:             ; preds = %41
   br label %.thread
 
 51:                                               ; preds = %44
-  %52 = trunc nuw i64 %45 to i32
+  %52 = trunc nuw nsw i64 %45 to i32
   %53 = add i32 %40, %.0124
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %55 = load i32, ptr %54, align 8
@@ -4045,7 +4045,7 @@ proto_item_set_generated.exit:                    ; preds = %159, %156, %150, %1
 
 194:                                              ; preds = %182
   %195 = load i32, ptr @hf_thrift_fid, align 4
-  %196 = trunc i64 %183 to i32
+  %196 = trunc nsw i64 %183 to i32
   %197 = call ptr @proto_tree_add_int(ptr noundef %167, i32 noundef %195, ptr noundef %0, i32 noundef %186, i32 noundef %188, i32 noundef %196)
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %197, ptr %198, align 8
@@ -4139,7 +4139,7 @@ proto_item_set_generated.exit202:                 ; preds = %204, %201, %199, %1
 
 248:                                              ; preds = %239
   %249 = load i32, ptr @hf_thrift_fid, align 4
-  %250 = trunc i64 %107 to i32
+  %250 = trunc nsw i64 %107 to i32
   %251 = tail call ptr @proto_tree_add_int(ptr noundef %242, i32 noundef %249, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef %250)
   %252 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %251, ptr %252, align 8

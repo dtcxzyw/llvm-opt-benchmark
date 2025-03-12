@@ -1671,10 +1671,10 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %86
 
 86:                                               ; preds = %85, %83
-  %87 = trunc i64 %64 to i32
+  %87 = trunc nsw i64 %64 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
-  %88 = icmp eq i32 %87, 0
-  %89 = icmp slt i32 %87, -1
+  %88 = icmp eq i64 %64, 0
+  %89 = icmp slt i64 %64, -1
   %or.cond = or i1 %88, %89
   br i1 %or.cond, label %100, label %105
 

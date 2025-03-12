@@ -282,12 +282,12 @@ pgrs_estimates.exit39.i.i:                        ; preds = %112, %110, %107, %9
   br i1 %122, label %123, label %129
 
 123:                                              ; preds = %121
-  %.lhs.trunc.i.i.i = trunc nuw i64 %118 to i32
+  %.lhs.trunc.i.i.i = trunc nuw nsw i64 %118 to i32
   %124 = udiv i32 %.lhs.trunc.i.i.i, 3600
   %.zext.i.i.i = zext nneg i32 %124 to i64
   %.neg23.i.i.i = mul nsw i64 %.zext.i.i.i, -3600
   %125 = add nsw i64 %.neg23.i.i.i, %118
-  %.lhs.trunc25.i.i.i = trunc i64 %125 to i32
+  %.lhs.trunc25.i.i.i = trunc nsw i64 %125 to i32
   %126 = sdiv i32 %.lhs.trunc25.i.i.i, 60
   %.sext.i.i.i = sext i32 %126 to i64
   %.neg24.i.i.i = mul nsw i64 %.sext.i.i.i, -60
@@ -324,12 +324,12 @@ time2str.exit.i.i:                                ; preds = %136, %132, %123, %1
   br i1 %141, label %142, label %148
 
 142:                                              ; preds = %140
-  %.lhs.trunc.i41.i.i = trunc nuw i64 %115 to i32
+  %.lhs.trunc.i41.i.i = trunc nuw nsw i64 %115 to i32
   %143 = udiv i32 %.lhs.trunc.i41.i.i, 3600
   %.zext.i42.i.i = zext nneg i32 %143 to i64
   %.neg23.i43.i.i = mul nsw i64 %.zext.i42.i.i, -3600
   %144 = add nsw i64 %.neg23.i43.i.i, %115
-  %.lhs.trunc25.i44.i.i = trunc i64 %144 to i32
+  %.lhs.trunc25.i44.i.i = trunc nsw i64 %144 to i32
   %145 = sdiv i32 %.lhs.trunc25.i44.i.i, 60
   %.sext.i45.i.i = sext i32 %145 to i64
   %.neg24.i46.i.i = mul nsw i64 %.sext.i45.i.i, -60
@@ -366,12 +366,12 @@ time2str.exit47.i.i:                              ; preds = %155, %151, %142, %1
   br i1 %160, label %161, label %167
 
 161:                                              ; preds = %159
-  %.lhs.trunc.i49.i.i = trunc nuw i64 %57 to i32
+  %.lhs.trunc.i49.i.i = trunc nuw nsw i64 %57 to i32
   %162 = udiv i32 %.lhs.trunc.i49.i.i, 3600
   %.zext.i50.i.i = zext nneg i32 %162 to i64
   %.neg23.i51.i.i = mul nsw i64 %.zext.i50.i.i, -3600
   %163 = add nsw i64 %.neg23.i51.i.i, %57
-  %.lhs.trunc25.i52.i.i = trunc i64 %163 to i32
+  %.lhs.trunc25.i52.i.i = trunc nsw i64 %163 to i32
   %164 = sdiv i32 %.lhs.trunc25.i52.i.i, 60
   %.sext.i53.i.i = sext i32 %164 to i64
   %.neg24.i54.i.i = mul nsw i64 %.sext.i53.i.i, -60
@@ -1048,7 +1048,7 @@ define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef
 
 13:                                               ; preds = %11
   %14 = lshr i64 %0, 20
-  %15 = trunc nuw i64 %0 to i32
+  %15 = trunc nuw nsw i64 %0 to i32
   %.lhs.trunc = and i32 %15, 1048575
   %16 = udiv i32 %.lhs.trunc, 104857
   %.zext = zext nneg i32 %16 to i64

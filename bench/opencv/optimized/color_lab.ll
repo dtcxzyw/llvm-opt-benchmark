@@ -4061,7 +4061,7 @@ _ZN2cv9softfloataSERKS0_.exit110:                 ; preds = %_ZN2cv9softfloataSE
 333:                                              ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %200) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %201) #22
-  %334 = trunc nuw i64 %indvars.iv160 to i32
+  %334 = trunc nuw nsw i64 %indvars.iv160 to i32
   %335 = mul nuw nsw i32 %334, 2949120
   call void @_ZN2cv9softfloatC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %201, i32 noundef %335)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %202) #22
@@ -4083,7 +4083,7 @@ _ZN2cv9softfloataSERKS0_.exit110:                 ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %206, ptr noundef nonnull align 4 dereferenceable(4) %207, ptr noundef nonnull align 4 dereferenceable(4) %208)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %209) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %210) #22
-  %337 = trunc nuw i64 %indvars.iv160 to i32
+  %337 = trunc nuw nsw i64 %indvars.iv160 to i32
   %338 = mul nuw nsw i32 %337, 5
   call void @_ZN2cv9softfloatC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %210, i32 noundef %338)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %211) #22

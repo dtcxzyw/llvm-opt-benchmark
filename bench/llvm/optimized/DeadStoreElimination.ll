@@ -9554,7 +9554,7 @@ _ZN12_GLOBAL__N_18DSEState11pushMemUsesEPN4llvm12MemoryAccessERNS1_15SmallVector
   %.3200.i = phi i32 [ %670, %.thread478.i.i ], [ %.0197388.i, %_ZN12_GLOBAL__N_18DSEState11pushMemUsesEPN4llvm12MemoryAccessERNS1_15SmallVectorImplIS3_EERNS1_15SmallPtrSetImplIS3_EE.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.thread478.i.i ], [ 0, %_ZN12_GLOBAL__N_18DSEState11pushMemUsesEPN4llvm12MemoryAccessERNS1_15SmallVectorImplIS3_EERNS1_15SmallPtrSetImplIS3_EE.exit.i.i ]
   %664 = phi i32 [ %938, %.thread478.i.i ], [ %.pre638.i.i, %_ZN12_GLOBAL__N_18DSEState11pushMemUsesEPN4llvm12MemoryAccessERNS1_15SmallVectorImplIS3_EERNS1_15SmallPtrSetImplIS3_EE.exit.i.i ]
-  %indvars634.i.i = trunc i64 %indvars.iv.i.i to i32
+  %indvars634.i.i = trunc nuw i64 %indvars.iv.i.i to i32
   %665 = load ptr, ptr %58, align 8, !tbaa !32
   %666 = getelementptr inbounds nuw ptr, ptr %665, i64 %indvars.iv.i.i
   %667 = load ptr, ptr %666, align 8, !tbaa !177

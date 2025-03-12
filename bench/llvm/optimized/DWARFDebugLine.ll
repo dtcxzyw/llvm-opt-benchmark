@@ -6453,9 +6453,9 @@ _ZN4llvm5ErrorD2Ev.exit113:                       ; preds = %498, %_ZN4llvm17cre
   br label %513
 
 502:                                              ; preds = %483, %483, %483, %483
-  %503 = trunc nuw i64 %461 to i8
+  %503 = trunc nuw nsw i64 %461 to i8
   store i8 %503, ptr %216, align 1, !tbaa !195
-  %504 = trunc i64 %461 to i32
+  %504 = trunc nuw nsw i64 %461 to i32
   %505 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %45, i32 noundef %504, ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull %321, ptr noundef nonnull %282) #26
   store i64 %505, ptr %291, align 8, !tbaa !427
   store i8 0, ptr %294, align 1, !tbaa !538

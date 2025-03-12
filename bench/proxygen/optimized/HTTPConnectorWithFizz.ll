@@ -9649,7 +9649,7 @@ if.then.i.i.i53:                                  ; preds = %if.end55
 
 invoke.cont57:                                    ; preds = %if.end55
   %30 = load i32, ptr %earlyDataState_, align 8
-  %31 = trunc i64 %call13 to i32
+  %31 = trunc nuw i64 %call13 to i32
   %conv61 = sub i32 %30, %31
   store i32 %conv61, ptr %earlyDataState_, align 8
   %fizzClient_ = getelementptr inbounds nuw i8, ptr %this, i64 1824
@@ -18299,7 +18299,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %2 = trunc nuw i64 %add to i8
+  %2 = trunc nuw nsw i64 %add to i8
   %conv.i9 = sub nuw nsw i8 23, %2
   store i8 %conv.i9, ptr %arrayidx.i, align 1
   %arrayidx2.i = getelementptr inbounds nuw [24 x i8], ptr %this, i64 0, i64 %add
@@ -19149,7 +19149,7 @@ if.then7.i.i:                                     ; preds = %if.else.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %if.then7.i.i, %if.else.i.i, %sw.bb4.i.i, %if.then.i.i
-  %5 = trunc nuw i64 %call.i.i to i8
+  %5 = trunc nuw nsw i64 %call.i.i to i8
   %conv.i.i.i = sub nuw nsw i8 23, %5
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   store i8 %conv.i.i.i, ptr %arrayidx.i.i.i, align 1

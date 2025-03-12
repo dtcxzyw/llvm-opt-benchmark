@@ -956,7 +956,7 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
   br i1 %or.cond.not, label %21, label %16, !prof !59
 
 16:                                               ; preds = %11
-  %17 = trunc nuw i64 %14 to i8
+  %17 = trunc nuw nsw i64 %14 to i8
   %18 = sub nuw nsw i8 23, %17
   store i8 %18, ptr %7, align 1, !tbaa !34
   %19 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 0, i64 %14
@@ -2370,7 +2370,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   br i1 %143, label %144, label %148
 
 144:                                              ; preds = %._crit_edge.i.i
-  %145 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %145 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %146 = or disjoint i8 %145, 48
   %147 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %146, ptr %147, align 1, !tbaa !34
@@ -3112,7 +3112,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i143: ; preds = %_ZNKSt7__cxx111
   br i1 %527, label %528, label %532
 
 528:                                              ; preds = %._crit_edge.i.i148
-  %529 = trunc nuw i32 %.0.lcssa.i.i150 to i8
+  %529 = trunc nuw nsw i32 %.0.lcssa.i.i150 to i8
   %530 = or disjoint i8 %529, 48
   %531 = getelementptr inbounds i8, ptr %.019.lcssa.i.i149, i64 -1
   store i8 %530, ptr %531, align 1, !tbaa !34
@@ -3820,7 +3820,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS
 
 36:                                               ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %.0.i22 = phi i64 [ %9, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt2v816visit_format_argINS0_6detail13width_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %37 = trunc nuw i64 %.0.i22 to i32
+  %37 = trunc nuw nsw i64 %.0.i22 to i32
   ret i32 %37
 }
 
@@ -3947,7 +3947,7 @@ _ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerE
 
 36:                                               ; preds = %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit
   %.0.i22 = phi i64 [ %9, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit.thread ], [ %.0.i, %_ZN3fmt2v816visit_format_argINS0_6detail17precision_checkerINS2_13error_handlerEEENS0_20basic_format_contextISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcEEEEDTclfp_Li0EEEOT_RKNS0_16basic_format_argIT0_EE.exit ]
-  %37 = trunc nuw i64 %.0.i22 to i32
+  %37 = trunc nuw nsw i64 %.0.i22 to i32
   ret i32 %37
 }
 
@@ -4248,7 +4248,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail19write_int_localizedISt20back_insert_
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %._crit_edge.i
-  %33 = trunc nuw i64 %.0.lcssa.i to i8
+  %33 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %34 = or disjoint i8 %33, 48
   %35 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -1
   store i8 %34, ptr %35, align 1, !tbaa !34
@@ -4773,7 +4773,7 @@ define linkonce_odr ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ESt20
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %._crit_edge.i.i.i
-  %55 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %55 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %56 = or disjoint i8 %55, 48
   %57 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %56, ptr %57, align 1, !tbaa !34
@@ -5202,7 +5202,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i: ; preds = %_ZNKSt7__cxx1112ba
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %._crit_edge.i.i
-  %139 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %139 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %140 = or disjoint i8 %139, 48
   %141 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %140, ptr %141, align 1, !tbaa !34
@@ -5926,7 +5926,7 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit11.i113: ; preds = %_ZNKSt7__cxx111
   br i1 %515, label %516, label %520
 
 516:                                              ; preds = %._crit_edge.i.i118
-  %517 = trunc nuw i32 %.0.lcssa.i.i120 to i8
+  %517 = trunc nuw nsw i32 %.0.lcssa.i.i120 to i8
   %518 = or disjoint i8 %517, 48
   %519 = getelementptr inbounds i8, ptr %.019.lcssa.i.i119, i64 -1
   store i8 %518, ptr %519, align 1, !tbaa !34

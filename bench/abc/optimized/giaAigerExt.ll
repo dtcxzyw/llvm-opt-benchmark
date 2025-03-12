@@ -255,7 +255,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %21, %9, %Gia_ObjIsH
 Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %39, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i32 [ %.0118, %39 ], [ %51, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %45, %39 ], [ %50, %._crit_edge.loopexit.i ]
-  %52 = trunc nuw i32 %.0.lcssa.i to i8
+  %52 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %53 = add nsw i32 %.010.lcssa.i, 1
   %54 = sext i32 %.010.lcssa.i to i64
   %55 = getelementptr inbounds i8, ptr %30, i64 %54
@@ -322,7 +322,7 @@ Gia_ObjIsHead.exit81:                             ; preds = %58
 .lr.ph128.preheader:                              ; preds = %._crit_edge.loopexit.i89, %66
   %.010.lcssa.i90 = phi i32 [ %.2132, %66 ], [ %76, %._crit_edge.loopexit.i89 ]
   %.0.lcssa.i91 = phi i32 [ %70, %66 ], [ %75, %._crit_edge.loopexit.i89 ]
-  %77 = trunc nuw i32 %.0.lcssa.i91 to i8
+  %77 = trunc nuw nsw i32 %.0.lcssa.i91 to i8
   %78 = sext i32 %.010.lcssa.i90 to i64
   %79 = getelementptr inbounds i8, ptr %30, i64 %78
   store i8 %77, ptr %79, align 1, !tbaa !8
@@ -367,7 +367,7 @@ Gia_ObjIsHead.exit81:                             ; preds = %58
 Gia_AigerWriteUnsignedBuffer.exit103:             ; preds = %.lr.ph128, %._crit_edge.loopexit.i100
   %.010.lcssa.i101 = phi i32 [ %.3126, %.lr.ph128 ], [ %93, %._crit_edge.loopexit.i100 ]
   %.0.lcssa.i102 = phi i32 [ %87, %.lr.ph128 ], [ %92, %._crit_edge.loopexit.i100 ]
-  %94 = trunc nuw i32 %.0.lcssa.i102 to i8
+  %94 = trunc nuw nsw i32 %.0.lcssa.i102 to i8
   %95 = sext i32 %.010.lcssa.i101 to i64
   %96 = getelementptr inbounds i8, ptr %30, i64 %95
   store i8 %94, ptr %96, align 1, !tbaa !8
@@ -672,7 +672,7 @@ define noalias ptr @Gia_AigerWriteMappingInt(ptr noundef readonly captures(none)
 Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.loopexit.i
   %.010.lcssa.i = phi i32 [ %.093, %28 ], [ %37, %._crit_edge.loopexit.i ]
   %.0.lcssa.i = phi i32 [ %31, %28 ], [ %36, %._crit_edge.loopexit.i ]
-  %38 = trunc nuw i32 %.0.lcssa.i to i8
+  %38 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %39 = sext i32 %.010.lcssa.i to i64
   %40 = getelementptr inbounds i8, ptr %21, i64 %39
   store i8 %38, ptr %40, align 1, !tbaa !8
@@ -750,7 +750,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %28, %._crit_edge.lo
 Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.loopexit.i.i, %57, %._crit_edge.loopexit.i20.i
   %.0.lcssa.i22.sink.i = phi i32 [ %50, %47 ], [ %55, %._crit_edge.loopexit.i.i ], [ %59, %57 ], [ %64, %._crit_edge.loopexit.i20.i ]
   %.010.lcssa.i21.sink.i = phi i32 [ %.187, %47 ], [ %56, %._crit_edge.loopexit.i.i ], [ %.187, %57 ], [ %65, %._crit_edge.loopexit.i20.i ]
-  %66 = trunc nuw i32 %.0.lcssa.i22.sink.i to i8
+  %66 = trunc nuw nsw i32 %.0.lcssa.i22.sink.i to i8
   %67 = sext i32 %.010.lcssa.i21.sink.i to i64
   %68 = getelementptr inbounds i8, ptr %21, i64 %67
   store i8 %66, ptr %68, align 1, !tbaa !8
@@ -823,7 +823,7 @@ Gia_AigerWriteDiffValue.exit:                     ; preds = %47, %._crit_edge.lo
 Gia_AigerWriteDiffValue.exit74:                   ; preds = %72, %._crit_edge.loopexit.i.i73, %82, %._crit_edge.loopexit.i20.i62
   %.0.lcssa.i22.sink.i63 = phi i32 [ %75, %72 ], [ %80, %._crit_edge.loopexit.i.i73 ], [ %84, %82 ], [ %89, %._crit_edge.loopexit.i20.i62 ]
   %.010.lcssa.i21.sink.i64 = phi i32 [ %.1.lcssa, %72 ], [ %81, %._crit_edge.loopexit.i.i73 ], [ %.1.lcssa, %82 ], [ %90, %._crit_edge.loopexit.i20.i62 ]
-  %91 = trunc nuw i32 %.0.lcssa.i22.sink.i63 to i8
+  %91 = trunc nuw nsw i32 %.0.lcssa.i22.sink.i63 to i8
   %92 = sext i32 %.010.lcssa.i21.sink.i64 to i64
   %93 = getelementptr inbounds i8, ptr %21, i64 %92
   store i8 %91, ptr %93, align 1, !tbaa !8

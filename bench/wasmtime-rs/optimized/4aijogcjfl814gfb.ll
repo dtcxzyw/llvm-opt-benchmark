@@ -35863,7 +35863,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h89c6d01bf8ed98b6E.exit.thread.
 
 659:                                              ; preds = %656, %652
   %.val.i = phi i64 [ %653, %656 ], [ %654, %652 ]
-  %660 = trunc i64 %.val.i to i32
+  %660 = trunc nuw i64 %.val.i to i32
   %.not.i137 = icmp ult i32 %631, %660
   %661 = sub i32 %631, %660
   br i1 %.not.i137, label %662, label %663

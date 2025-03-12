@@ -478,7 +478,7 @@ land.rhs12.i:                                     ; preds = %while.body.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %land.rhs12.i
-  %conv.i19.i = trunc nuw i16 %0 to i8
+  %conv.i19.i = trunc nuw nsw i16 %0 to i8
   %incdec.ptr.i20.i = getelementptr inbounds nuw i8, ptr %pDest.addr.077.i, i64 1
   store i8 %conv.i19.i, ptr %pDest.addr.077.i, align 1
   br label %land.end14.i
@@ -494,7 +494,7 @@ if.then2.i.i:                                     ; preds = %if.else.i.i
 
 if.then4.i.i:                                     ; preds = %if.then2.i.i
   %shr.i.i = lshr i16 %0, 6
-  %1 = trunc nuw i16 %shr.i.i to i8
+  %1 = trunc nuw nsw i16 %shr.i.i to i8
   %conv5.i.i = or disjoint i8 %1, -64
   %incdec.ptr6.i.i = getelementptr inbounds nuw i8, ptr %pDest.addr.077.i, i64 1
   store i8 %conv5.i.i, ptr %pDest.addr.077.i, align 1
@@ -615,7 +615,7 @@ if.then2.i:                                       ; preds = %if.else.i
 
 if.then4.i:                                       ; preds = %if.then2.i
   %shr.i = lshr i32 %0, 6
-  %1 = trunc nuw i32 %shr.i to i8
+  %1 = trunc nuw nsw i32 %shr.i to i8
   %conv5.i = or disjoint i8 %1, -64
   %incdec.ptr6.i = getelementptr inbounds nuw i8, ptr %pDest.addr.076, i64 1
   store i8 %conv5.i, ptr %pDest.addr.076, align 1
@@ -636,7 +636,7 @@ if.then12.i:                                      ; preds = %if.else10.i
 
 if.then15.i:                                      ; preds = %if.then12.i
   %shr17.i = lshr i32 %0, 12
-  %4 = trunc nuw i32 %shr17.i to i8
+  %4 = trunc nuw nsw i32 %shr17.i to i8
   %conv19.i = or disjoint i8 %4, -32
   %incdec.ptr20.i = getelementptr inbounds nuw i8, ptr %pDest.addr.076, i64 1
   store i8 %conv19.i, ptr %pDest.addr.076, align 1
@@ -663,7 +663,7 @@ if.then33.i:                                      ; preds = %if.else31.i
 
 if.then36.i:                                      ; preds = %if.then33.i
   %shr38.i = lshr i32 %0, 18
-  %9 = trunc nuw i32 %shr38.i to i8
+  %9 = trunc nuw nsw i32 %shr38.i to i8
   %conv40.i = or disjoint i8 %9, -16
   %incdec.ptr41.i = getelementptr inbounds nuw i8, ptr %pDest.addr.076, i64 1
   store i8 %conv40.i, ptr %pDest.addr.076, align 1
@@ -1141,7 +1141,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %cmp4, label %if.then5, label %if.end89
 
 if.then5:                                         ; preds = %land.lhs.true
-  %conv6 = trunc nuw i16 %0 to i8
+  %conv6 = trunc nuw nsw i16 %0 to i8
   %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %pDest.addr.053, i64 1
   store i8 %conv6, ptr %pDest.addr.053, align 1
   br label %if.end89
@@ -1161,7 +1161,7 @@ land.lhs.true13:                                  ; preds = %if.then11
 
 if.then16:                                        ; preds = %land.lhs.true13
   %shr = lshr i16 %0, 6
-  %1 = trunc nuw i16 %shr to i8
+  %1 = trunc nuw nsw i16 %shr to i8
   %conv17 = or disjoint i8 %1, -64
   %incdec.ptr18 = getelementptr inbounds nuw i8, ptr %pDest.addr.053, i64 1
   store i8 %conv17, ptr %pDest.addr.053, align 1
@@ -1278,7 +1278,7 @@ land.lhs.true12:                                  ; preds = %if.then10
 
 if.then15:                                        ; preds = %land.lhs.true12
   %shr = lshr i32 %0, 6
-  %1 = trunc nuw i32 %shr to i8
+  %1 = trunc nuw nsw i32 %shr to i8
   %conv16 = or disjoint i8 %1, -64
   %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %pDest.addr.053, i64 1
   store i8 %conv16, ptr %pDest.addr.053, align 1
@@ -1304,7 +1304,7 @@ land.lhs.true27:                                  ; preds = %if.then25
 
 if.then30:                                        ; preds = %land.lhs.true27
   %shr31 = lshr i32 %0, 12
-  %4 = trunc nuw i32 %shr31 to i8
+  %4 = trunc nuw nsw i32 %shr31 to i8
   %conv33 = or disjoint i8 %4, -32
   %incdec.ptr34 = getelementptr inbounds nuw i8, ptr %pDest.addr.053, i64 1
   store i8 %conv33, ptr %pDest.addr.053, align 1
@@ -1336,7 +1336,7 @@ land.lhs.true50:                                  ; preds = %if.then48
 
 if.then53:                                        ; preds = %land.lhs.true50
   %shr54 = lshr i32 %0, 18
-  %9 = trunc nuw i32 %shr54 to i8
+  %9 = trunc nuw nsw i32 %shr54 to i8
   %conv56 = or disjoint i8 %9, -16
   %incdec.ptr57 = getelementptr inbounds nuw i8, ptr %pDest.addr.053, i64 1
   store i8 %conv56, ptr %pDest.addr.053, align 1
@@ -2739,7 +2739,7 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   br i1 %cmp4.i, label %if.then5.i, label %if.end89.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %conv6.i = trunc nuw i16 %12 to i8
+  %conv6.i = trunc nuw nsw i16 %12 to i8
   %incdec.ptr7.i = getelementptr inbounds nuw i8, ptr %pDest.addr.053.i, i64 1
   store i8 %conv6.i, ptr %pDest.addr.053.i, align 1
   br label %if.end89.i
@@ -2759,7 +2759,7 @@ land.lhs.true13.i:                                ; preds = %if.then11.i
 
 if.then16.i:                                      ; preds = %land.lhs.true13.i
   %shr.i = lshr i16 %12, 6
-  %13 = trunc nuw i16 %shr.i to i8
+  %13 = trunc nuw nsw i16 %shr.i to i8
   %conv17.i = or disjoint i8 %13, -64
   %incdec.ptr18.i = getelementptr inbounds nuw i8, ptr %pDest.addr.053.i, i64 1
   store i8 %conv17.i, ptr %pDest.addr.053.i, align 1
@@ -10176,7 +10176,7 @@ while.end:                                        ; preds = %while.body, %_ZN2EA
 if.then:                                          ; preds = %while.end.thread, %while.end
   %nValue.addr.0.lcssa40 = phi i64 [ %nValue, %while.end.thread ], [ %nValue.addr.0.lcssa, %while.end ]
   %next.0.lcssa39 = phi i32 [ 0, %while.end.thread ], [ %next.0.lcssa, %while.end ]
-  %conv = trunc nuw i64 %nValue.addr.0.lcssa40 to i8
+  %conv = trunc nuw nsw i64 %nValue.addr.0.lcssa40 to i8
   %add10 = or disjoint i8 %conv, 48
   br label %if.end
 
@@ -10346,7 +10346,7 @@ while.end.i:                                      ; preds = %while.body.i, %_ZN2
 if.then.i:                                        ; preds = %while.end.i, %while.end.thread.i
   %nValue.addr.0.lcssa40.i = phi i64 [ %nValue, %while.end.thread.i ], [ %nValue.addr.0.lcssa.i, %while.end.i ]
   %next.0.lcssa39.i = phi i32 [ 0, %while.end.thread.i ], [ %next.0.lcssa.i, %while.end.i ]
-  %conv.i = trunc nuw i64 %nValue.addr.0.lcssa40.i to i8
+  %conv.i = trunc nuw nsw i64 %nValue.addr.0.lcssa40.i to i8
   %add10.i = or disjoint i8 %conv.i, 48
   br label %_ZN2EA4StdC14X64toaCommon10EmPc.exit
 
@@ -12254,7 +12254,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 if.then.i.i:                                      ; preds = %while.end.i.i, %while.end.thread.i.i
   %nValue.addr.0.lcssa40.i.i = phi i64 [ %conv.i, %while.end.thread.i.i ], [ %div.i.i, %while.end.i.i ]
   %next.0.lcssa39.i.i = phi i32 [ 0, %while.end.thread.i.i ], [ %sub8.i.i, %while.end.i.i ]
-  %conv.i.i = trunc nuw i64 %nValue.addr.0.lcssa40.i.i to i8
+  %conv.i.i = trunc nuw nsw i64 %nValue.addr.0.lcssa40.i.i to i8
   %add10.i.i = or disjoint i8 %conv.i.i, 48
   br label %_ZN2EA4StdCL12X64toaCommonEmPcib.exit
 

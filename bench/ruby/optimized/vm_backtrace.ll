@@ -3852,7 +3852,7 @@ rb_profile_frame_qualified_method_name.exit:      ; preds = %rb_profile_frame_si
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %90
-  %100 = trunc i64 %97 to i32
+  %100 = trunc nsw i64 %97 to i32
   %101 = load i64, ptr %91, align 8, !tbaa !43, !noalias !186
   %102 = and i64 %101, 8192
   %.not.i.i35 = icmp eq i64 %102, 0

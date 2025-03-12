@@ -8443,7 +8443,7 @@ define internal fastcc void @intel_psr_status(ptr noundef %0, ptr noundef %1) un
   %222 = load i32, ptr %219, align 4
   %223 = getelementptr inbounds nuw i8, ptr %218, i64 32
   %224 = load i32, ptr %223, align 4
-  %.lhs.trunc = trunc i64 %217 to i8
+  %.lhs.trunc = trunc nuw nsw i64 %217 to i8
   %225 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %225 to i64
   %226 = zext nneg i8 %225 to i32

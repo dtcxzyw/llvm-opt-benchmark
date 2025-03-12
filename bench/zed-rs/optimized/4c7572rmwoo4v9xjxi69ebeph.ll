@@ -30405,7 +30405,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h4a6d312ce670705cE.exit.i.i:
 
 93:                                               ; preds = %87
   %.sroa.0.0.i31.pn81.i.i = trunc i64 %.sroa.0.0.i31.pn81.in.i.i to i32
-  %94 = trunc i64 %91 to i32
+  %94 = trunc nuw i64 %91 to i32
   %95 = sub i32 %.sroa.0.0.i31.pn81.i.i, %94
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !4410
   invoke void @"_ZN166_$LT$wasmtime..runtime..vm..instance..allocator..on_demand..OnDemandInstanceAllocator$u20$as$u20$wasmtime..runtime..vm..instance..allocator..InstanceAllocatorImpl$GT$15allocate_memory17h731e2b5a21286dc2E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.2.0.i30.pn82.i.i, i32 noundef %95)
@@ -30550,7 +30550,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h5b78dd4d6aabd994E.exit.i.i:
 
 146:                                              ; preds = %140
   %.sroa.0.0.i31.pn80.i.i = trunc i64 %.sroa.0.0.i31.pn80.in.i.i to i32
-  %147 = trunc i64 %144 to i32
+  %147 = trunc nuw i64 %144 to i32
   %148 = sub i32 %.sroa.0.0.i31.pn80.i.i, %147
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !4434
   invoke void @"_ZN166_$LT$wasmtime..runtime..vm..instance..allocator..on_demand..OnDemandInstanceAllocator$u20$as$u20$wasmtime..runtime..vm..instance..allocator..InstanceAllocatorImpl$GT$14allocate_table17hd055a9318958f933E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %.sroa.2.0.i30.pn81.i.i, i32 noundef %148)

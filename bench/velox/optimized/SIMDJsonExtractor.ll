@@ -990,7 +990,7 @@ if.end.i859:                                      ; preds = %if.end15.i642
 
 if.then2.i:                                       ; preds = %if.end.i859
   %shr.i861 = lshr i32 %code_point.i.0, 6
-  %59 = trunc nuw i32 %shr.i861 to i8
+  %59 = trunc nuw nsw i32 %shr.i861 to i8
   %conv3.i = or disjoint i8 %59, -64
   store i8 %conv3.i, ptr %add.ptr10.i, align 1
   %60 = trunc i32 %code_point.i.0 to i8
@@ -1006,7 +1006,7 @@ if.else.i860:                                     ; preds = %if.end.i859
 
 if.then9.i:                                       ; preds = %if.else.i860
   %shr10.i = lshr i32 %code_point.i.0, 12
-  %62 = trunc nuw i32 %shr10.i to i8
+  %62 = trunc nuw nsw i32 %shr10.i to i8
   %conv12.i = or disjoint i8 %62, -32
   store i8 %conv12.i, ptr %add.ptr10.i, align 1
   %shr14.i = lshr i32 %code_point.i.0, 6
@@ -1028,7 +1028,7 @@ if.else23.i:                                      ; preds = %if.else.i860
 
 if.then25.i:                                      ; preds = %if.else23.i
   %shr26.i = lshr i32 %code_point.i.0, 18
-  %67 = trunc nuw i32 %shr26.i to i8
+  %67 = trunc nuw nsw i32 %shr26.i to i8
   %conv28.i = or disjoint i8 %67, -16
   store i8 %conv28.i, ptr %add.ptr10.i, align 1
   %shr30.i = lshr i32 %code_point.i.0, 12

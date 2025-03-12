@@ -240,7 +240,7 @@ do_getc.exit64.thread.i:                          ; preds = %do_getc.exit64.thre
 87:                                               ; preds = %83, %.critedge.i
   %88 = phi i64 [ %.pre100.i, %83 ], [ %81, %.critedge.i ]
   %89 = phi ptr [ %86, %83 ], [ %.pre99.i, %.critedge.i ]
-  %90 = trunc i32 %.1.i to i8
+  %90 = trunc nuw nsw i32 %.1.i to i8
   %91 = add i64 %88, 1
   store i64 %91, ptr @subst_from_stdin.buflen, align 8, !tbaa !21
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %88

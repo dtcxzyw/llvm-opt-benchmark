@@ -3430,7 +3430,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
   br label %.lr.ph.i.i.i.i.preheader
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj8EE12_InitStorageEm.exit.i: ; preds = %2
-  %.pre.i.i = trunc nuw i64 %5 to i32
+  %.pre.i.i = trunc nuw nsw i64 %5 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 %.pre.i.i, ptr %14, align 8
   %.not13.i.i.i.i = icmp eq i64 %5, 0

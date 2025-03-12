@@ -354,7 +354,7 @@ _ZN5ZXing8BitArray10appendBitsEii.exit.i:         ; preds = %.noexc85
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %51) #19
   %104 = add nsw i32 %.05.i13.i, -1
   %105 = lshr i32 %97, %104
-  %106 = trunc nuw i32 %105 to i8
+  %106 = trunc nuw nsw i32 %105 to i8
   %107 = and i8 %106, 1
   store i8 %107, ptr %51, align 1, !tbaa !12
   %108 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt6vectorIhSaIhEE12emplace_backIJhEEERhDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 1 dereferenceable(1) %51) #20
@@ -3683,7 +3683,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   br label %37
 
 34:                                               ; preds = %._crit_edge
-  %35 = trunc nuw i32 %.0.lcssa to i8
+  %35 = trunc nuw nsw i32 %.0.lcssa to i8
   %36 = or disjoint i8 %35, 48
   br label %37
 

@@ -645,7 +645,7 @@ define linkonce_odr dso_local void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engine
   %35 = add nuw nsw i8 %34, 4
   %36 = tail call noundef i32 @_ZN10pcg_extras10unxorshiftIjEET_S1_hh(i32 noundef %32, i8 noundef zeroext 32, i8 noundef zeroext %35)
   %37 = mul i32 %36, 747796405
-  %.tr.i10 = trunc nuw i64 %29 to i32
+  %.tr.i10 = trunc nuw nsw i64 %29 to i32
   %38 = shl nuw nsw i32 %.tr.i10, 1
   %39 = add nuw nsw i32 %38, -1403630843
   %40 = add i32 %39, %37

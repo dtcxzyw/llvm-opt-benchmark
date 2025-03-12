@@ -1025,7 +1025,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit43.i: ; preds = %
           to label %.preheader.i unwind label %646
 
 .preheader.i:                                     ; preds = %393
-  %394 = trunc nuw i32 %.018128.i to i8
+  %394 = trunc nuw nsw i32 %.018128.i to i8
   %395 = or disjoint i8 %394, 48
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
@@ -1155,7 +1155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i57.i:
   br label %_ZNSt7__cxx119to_stringEi.exit65.i
 
 445:                                              ; preds = %._crit_edge.i.i58.i
-  %446 = trunc nuw i32 %.0.lcssa.i.i59.i to i8
+  %446 = trunc nuw nsw i32 %.0.lcssa.i.i59.i to i8
   %447 = or disjoint i8 %446, 48
   br label %_ZNSt7__cxx119to_stringEi.exit65.i
 
@@ -2818,7 +2818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

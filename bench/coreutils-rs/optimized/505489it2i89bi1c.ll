@@ -712,7 +712,7 @@ define hidden range(i40 0, 21474836480) i40 @_ZN5uu_wc4utf810Incomplete3new17h7d
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0, ptr nonnull readonly align 1 %0, i64 %1, i1 false), !alias.scope !92, !noalias !96
   %.sroa.0.0..sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0)
-  %5 = trunc nuw i64 %1 to i40
+  %5 = trunc nuw nsw i64 %1 to i40
   %.sroa.2.0.insert.ext = shl nuw nsw i40 %5, 32
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0..sroa.0.0..sroa.0.0. to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.2.0.insert.ext, %.sroa.0.0.insert.ext

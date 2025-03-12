@@ -1927,7 +1927,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %._crit_edge, %49
   br i1 %74, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %75
 
 75:                                               ; preds = %72
-  %76 = trunc nuw i64 %73 to i32
+  %76 = trunc nuw nsw i64 %73 to i32
   store i32 %76, ptr %30, align 4
   %77 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %78 = load ptr, ptr %21, align 8
@@ -3312,7 +3312,7 @@ _ZNSt6vectorIP18aiMaterialPropertySaIS1_EE9push_backERKS1_.exit57: ; preds = %_Z
   br i1 %152, label %153, label %._crit_edge170
 
 ._crit_edge170:                                   ; preds = %144
-  %.pre171 = trunc i64 %148 to i32
+  %.pre171 = trunc nuw i64 %148 to i32
   br label %163
 
 153:                                              ; preds = %144
@@ -4201,7 +4201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 397:                                              ; preds = %.loopexit194
   %398 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %399 = trunc nuw i64 %395 to i32
+  %399 = trunc nuw nsw i64 %395 to i32
   store i32 %399, ptr %2, align 4
   %400 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %401 = load ptr, ptr %398, align 8
@@ -5320,7 +5320,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %3
   %322 = load ptr, ptr %52, align 8
   %323 = getelementptr inbounds i8, ptr %322, i64 -8
   %324 = load ptr, ptr %323, align 8
-  %325 = trunc nuw i64 %319 to i32
+  %325 = trunc nuw nsw i64 %319 to i32
   store i32 %325, ptr %324, align 4
   %326 = getelementptr inbounds nuw i8, ptr %324, i64 4
   %327 = load ptr, ptr %19, align 8
@@ -5338,7 +5338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %3
   %333 = load ptr, ptr %50, align 8
   %334 = getelementptr inbounds i8, ptr %333, i64 -8
   %335 = load ptr, ptr %334, align 8
-  %336 = trunc nuw i64 %330 to i32
+  %336 = trunc nuw nsw i64 %330 to i32
   store i32 %336, ptr %335, align 4
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 4
   %338 = load ptr, ptr %19, align 8
@@ -7508,7 +7508,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit78:         ; preds = %_ZNK4pugi13xml_attr
 
 138:                                              ; preds = %123
   %139 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %140 = trunc nuw i64 %136 to i32
+  %140 = trunc nuw nsw i64 %136 to i32
   store i32 %140, ptr %124, align 4
   %141 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %142 = load ptr, ptr %139, align 8
@@ -7650,7 +7650,7 @@ _ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit88:         ; preds = %_ZNK4pugi13xml_attr
 
 204:                                              ; preds = %193
   %205 = getelementptr inbounds nuw i8, ptr %192, i64 40
-  %206 = trunc nuw i64 %202 to i32
+  %206 = trunc nuw nsw i64 %202 to i32
   store i32 %206, ptr %194, align 4
   %207 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %208 = load ptr, ptr %205, align 8
@@ -12109,7 +12109,7 @@ _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
 
 81:                                               ; preds = %79
   %82 = lshr i32 %73, 6
-  %83 = trunc nuw i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   %84 = or disjoint i8 %83, -64
   store i8 %84, ptr %.01119.i19.i, align 1
   %85 = trunc i32 %73 to i8
@@ -12121,7 +12121,7 @@ _ZN4pugi4impl13utf32_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
 
 89:                                               ; preds = %79
   %90 = lshr i32 %73, 12
-  %91 = trunc nuw i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or disjoint i8 %91, -32
   store i8 %92, ptr %.01119.i19.i, align 1
   %93 = lshr i32 %73, 6
@@ -12236,7 +12236,7 @@ _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10v
 
 142:                                              ; preds = %140
   %143 = lshr i32 %134, 6
-  %144 = trunc nuw i32 %143 to i8
+  %144 = trunc nuw nsw i32 %143 to i8
   %145 = or disjoint i8 %144, -64
   store i8 %145, ptr %.01119.i19.i62, align 1
   %146 = trunc i32 %134 to i8
@@ -12248,7 +12248,7 @@ _ZN4pugi4impl13utf32_decoderINS0_8opt_trueEE7processINS0_12utf8_counterEEENT_10v
 
 150:                                              ; preds = %140
   %151 = lshr i32 %134, 12
-  %152 = trunc nuw i32 %151 to i8
+  %152 = trunc nuw nsw i32 %151 to i8
   %153 = or disjoint i8 %152, -32
   store i8 %153, ptr %.01119.i19.i62, align 1
   %154 = lshr i32 %134, 6
@@ -13100,7 +13100,7 @@ _ZN4pugi4impl13utf16_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = trunc nuw i16 %39 to i8
+  %45 = trunc nuw nsw i16 %39 to i8
   store i8 %45, ptr %.02937.i20, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit.i
 
@@ -13110,7 +13110,7 @@ _ZN4pugi4impl13utf16_decoderINS0_9opt_falseEE7processINS0_12utf8_counterEEENT_10
 
 48:                                               ; preds = %46
   %49 = lshr i16 %39, 6
-  %50 = trunc nuw i16 %49 to i8
+  %50 = trunc nuw nsw i16 %49 to i8
   %51 = or disjoint i8 %50, -64
   store i8 %51, ptr %.02937.i20, align 1
   %52 = trunc i16 %39 to i8
@@ -13266,7 +13266,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13utf16_decoderINS0_8opt_tr
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i16 %rev.i to i8
+  %10 = trunc nuw nsw i16 %rev.i to i8
   store i8 %10, ptr %.02938, align 1
   br label %_ZN4pugi4impl11utf8_writer3lowEPhj.exit
 
@@ -13276,7 +13276,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl13utf16_decoderINS0_8opt_tr
 
 13:                                               ; preds = %11
   %14 = lshr i16 %rev.i, 6
-  %15 = trunc nuw i16 %14 to i8
+  %15 = trunc nuw nsw i16 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %.02938, align 1
   %17 = trunc i16 %rev.i to i8
@@ -16946,7 +16946,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3ga
 
 51:                                               ; preds = %49
   %52 = lshr i32 %.3, 6
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -64
   store i8 %54, ptr %0, align 1
   %55 = trunc i32 %.3 to i8
@@ -16957,7 +16957,7 @@ define linkonce_odr hidden noundef ptr @_ZN4pugi4impl14strconv_escapeEPcRNS0_3ga
 
 58:                                               ; preds = %49
   %59 = lshr i32 %.3, 12
-  %60 = trunc nuw i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = or disjoint i8 %60, -32
   store i8 %61, ptr %0, align 1
   %62 = lshr i32 %.3, 6

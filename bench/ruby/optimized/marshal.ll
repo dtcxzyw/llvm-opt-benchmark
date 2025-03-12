@@ -246,7 +246,7 @@ define hidden range(i32 1, 0) i32 @ruby_marshal_write_long(i64 noundef %0, ptr n
   br i1 %or.cond, label %8, label %11
 
 8:                                                ; preds = %7
-  %9 = trunc nuw i64 %0 to i8
+  %9 = trunc nuw nsw i64 %0 to i8
   %10 = add nuw nsw i8 %9, 5
   store i8 %10, ptr %1, align 1, !tbaa !17
   br label %.loopexit
@@ -256,7 +256,7 @@ define hidden range(i32 1, 0) i32 @ruby_marshal_write_long(i64 noundef %0, ptr n
   br i1 %or.cond3, label %12, label %.preheader
 
 12:                                               ; preds = %11
-  %13 = trunc i64 %0 to i8
+  %13 = trunc nsw i64 %0 to i8
   %14 = add nsw i8 %13, -5
   store i8 %14, ptr %1, align 1, !tbaa !17
   br label %.loopexit
@@ -2573,7 +2573,7 @@ define internal fastcc void @w_long(i64 noundef %0, ptr noundef readonly capture
   br i1 %or.cond.i, label %8, label %11
 
 8:                                                ; preds = %7
-  %9 = trunc nuw i64 %0 to i8
+  %9 = trunc nuw nsw i64 %0 to i8
   %10 = add nuw nsw i8 %9, 5
   br label %ruby_marshal_write_long.exit.thread.sink.split
 
@@ -2582,7 +2582,7 @@ define internal fastcc void @w_long(i64 noundef %0, ptr noundef readonly capture
   br i1 %or.cond3.i, label %12, label %.preheader.i
 
 12:                                               ; preds = %11
-  %13 = trunc i64 %0 to i8
+  %13 = trunc nsw i64 %0 to i8
   %14 = add nsw i8 %13, -5
   br label %ruby_marshal_write_long.exit.thread.sink.split
 

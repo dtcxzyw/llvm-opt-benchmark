@@ -979,7 +979,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %26
 
 .critedge.preheader.loopexit:                     ; preds = %26
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %Vec_IntStartFull.exit

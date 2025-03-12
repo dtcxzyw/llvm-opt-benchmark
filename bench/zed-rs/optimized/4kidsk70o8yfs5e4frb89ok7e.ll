@@ -38535,14 +38535,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !10078, !noalias !10075
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
   store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !10078, !noalias !10075
   %16 = lshr i32 %1, 6
@@ -69844,7 +69844,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr95drop
   br i1 %35, label %39, label %.thread
 
 36:                                               ; preds = %"_ZN4core3ptr173drop_in_place$LT$futures_util..sink..send..Send$LT$futures_channel..mpsc..Sender$LT$runtimelib..messaging..JupyterMessage$GT$$C$runtimelib..messaging..JupyterMessage$GT$$GT$17h6e25384df8678463E.exit"
-  %37 = trunc i8 %15 to i1
+  %37 = trunc nuw i8 %15 to i1
   %38 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17heea1bf1c03d29e7aE"(i1 noundef zeroext %37)
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hce9b33e2fa83cf2bE.exit" unwind label %29
 

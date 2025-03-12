@@ -1021,7 +1021,7 @@ if.else:                                          ; preds = %land.lhs.true2, %en
 
 if.then10:                                        ; preds = %if.else
   %call11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext 91)
-  %2 = trunc nuw i32 %r to i8
+  %2 = trunc nuw nsw i32 %r to i8
   %conv12 = add nsw i8 %2, -32
   %call13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext %conv12)
   %call18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef 1, i8 noundef signext %2)

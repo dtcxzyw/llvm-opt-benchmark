@@ -4223,7 +4223,7 @@ _ZNSt6vectorIdSaIdEE13_M_assign_auxIPKdEEvT_S5_St20forward_iterator_tag.exit40: 
   br label %215
 
 160:                                              ; preds = %61
-  %161 = trunc i64 %1 to i32
+  %161 = trunc nuw nsw i64 %1 to i32
   %162 = add nsw i32 %161, -2
   store i32 %162, ptr %15, align 4
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 64

@@ -701,7 +701,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %44, %46
   br i1 %70, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %71
 
 71:                                               ; preds = %66
-  %72 = trunc nuw i64 %69 to i32
+  %72 = trunc nuw nsw i64 %69 to i32
   store i32 %72, ptr %64, align 4
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %74 = load ptr, ptr %1, align 8
@@ -2933,7 +2933,7 @@ define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleNameNodeEPN10ODDL
   br i1 %57, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %58
 
 58:                                               ; preds = %55
-  %59 = trunc nuw i64 %56 to i32
+  %59 = trunc nuw nsw i64 %56 to i32
   store i32 %59, ptr %6, align 4
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %61 = load ptr, ptr %5, align 8
@@ -4034,7 +4034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   br i1 %or.cond, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %62
 
 62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
-  %63 = trunc nuw i64 %60 to i32
+  %63 = trunc nuw nsw i64 %60 to i32
   store i32 %63, ptr %9, align 4
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %65 = load ptr, ptr %6, align 8

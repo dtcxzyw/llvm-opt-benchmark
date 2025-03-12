@@ -2580,7 +2580,7 @@ define internal void @parse_fd_array(ptr noundef captures(none) %0, ptr noundef 
   br i1 %.not34, label %20, label %.loopexit
 
 20:                                               ; preds = %17
-  %21 = trunc nuw i64 %spec.select to i32
+  %21 = trunc nuw nsw i64 %spec.select to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store i32 %21, ptr %22, align 8, !tbaa !95
   %.not36 = icmp eq i64 %spec.select, 0

@@ -264,7 +264,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_copy(ptr noundef captures(none) %0, pt
   %16 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %15
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %16
-  %17 = trunc i64 %.425.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.425.i.i.i to i32
   %18 = lshr i32 %17, 1
   %19 = and i32 %18, 1
   %.5.i.i.i = add nuw nsw i32 %19, %.4.i.i.i
@@ -631,7 +631,7 @@ hwloc_bitmap_fill.exit:                           ; preds = %hwloc_bitmap_reset_
   %45 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %44
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %45
-  %46 = trunc i64 %.425.i.i.i to i32
+  %46 = trunc nuw nsw i64 %.425.i.i.i to i32
   %47 = lshr i32 %46, 1
   %48 = and i32 %47, 1
   %.5.i.i.i = add nuw nsw i32 %48, %.4.i.i.i
@@ -2056,7 +2056,7 @@ hwloc_bitmap_zero.exit:                           ; preds = %hwloc_bitmap_reset_
   %68 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %67
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %68
-  %69 = trunc i64 %.425.i.i.i to i32
+  %69 = trunc nuw nsw i64 %.425.i.i.i to i32
   %70 = lshr i32 %69, 1
   %71 = and i32 %70, 1
   %.5.i.i.i = add nuw nsw i32 %71, %.4.i.i.i
@@ -2278,7 +2278,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_from_ith_ulong(ptr noundef captures(no
   %17 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %16
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %17
-  %18 = trunc i64 %.425.i.i.i to i32
+  %18 = trunc nuw nsw i64 %.425.i.i.i to i32
   %19 = lshr i32 %18, 1
   %20 = and i32 %19, 1
   %.5.i.i.i = add nuw nsw i32 %20, %.4.i.i.i
@@ -2363,7 +2363,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_from_ulongs(ptr noundef captures(none)
   %16 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %15
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %16
-  %17 = trunc i64 %.425.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.425.i.i.i to i32
   %18 = lshr i32 %17, 1
   %19 = and i32 %18, 1
   %.5.i.i.i = add nuw nsw i32 %19, %.4.i.i.i
@@ -2551,7 +2551,7 @@ define range(i32 -1, 67108864) i32 @hwloc_bitmap_nr_ulongs(ptr noundef readonly 
   %26 = add nuw nsw i32 %.3.i.i, 2
   %.425.i.i = select i1 %.not32.i.i, i64 %.324.i.i, i64 %25
   %.4.i.i = select i1 %.not32.i.i, i32 %.3.i.i, i32 %26
-  %27 = trunc i64 %.425.i.i to i32
+  %27 = trunc nuw nsw i64 %.425.i.i to i32
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 1
   %30 = shl nsw i32 %16, 6
@@ -2620,7 +2620,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last(ptr noundef readonly ca
   %26 = add nuw nsw i32 %.3.i, 2
   %.425.i = select i1 %.not32.i, i64 %.324.i, i64 %25
   %.4.i = select i1 %.not32.i, i32 %.3.i, i32 %26
-  %27 = trunc i64 %.425.i to i32
+  %27 = trunc nuw nsw i64 %.425.i to i32
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 1
   %30 = shl nsw i32 %16, 6
@@ -2828,7 +2828,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_bitmap_realloc_by_ulongs(ptr 
   %15 = or disjoint i32 %.3.i.i, 2
   %.425.i.i = select i1 %.not32.i.i, i64 %.324.i.i, i64 %14
   %.4.i.i = select i1 %.not32.i.i, i32 %.3.i.i, i32 %15
-  %16 = trunc i64 %.425.i.i to i32
+  %16 = trunc nuw nsw i64 %.425.i.i to i32
   %17 = lshr i32 %16, 1
   %18 = and i32 %17, 1
   %.5.i.i = add nuw nsw i32 %18, %.4.i.i
@@ -3565,7 +3565,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_or(ptr noundef captures(none) %0, ptr 
   %20 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc i64 %.425.i.i.i to i32
+  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 1
   %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
@@ -3752,7 +3752,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_and(ptr noundef captures(none) %0, ptr
   %20 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc i64 %.425.i.i.i to i32
+  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 1
   %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
@@ -3939,7 +3939,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_andnot(ptr noundef captures(none) %0, 
   %20 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc i64 %.425.i.i.i to i32
+  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 1
   %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
@@ -4128,7 +4128,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_xor(ptr noundef captures(none) %0, ptr
   %20 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %19
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %20
-  %21 = trunc i64 %.425.i.i.i to i32
+  %21 = trunc nuw nsw i64 %.425.i.i.i to i32
   %22 = lshr i32 %21, 1
   %23 = and i32 %22, 1
   %.5.i.i.i = add nuw nsw i32 %23, %.4.i.i.i
@@ -4300,7 +4300,7 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_not(ptr noundef captures(none) %0, ptr
   %16 = add nuw nsw i32 %.3.i.i.i, 2
   %.425.i.i.i = select i1 %.not32.i.i.i, i64 %.324.i.i.i, i64 %15
   %.4.i.i.i = select i1 %.not32.i.i.i, i32 %.3.i.i.i, i32 %16
-  %17 = trunc i64 %.425.i.i.i to i32
+  %17 = trunc nuw nsw i64 %.425.i.i.i to i32
   %18 = lshr i32 %17, 1
   %19 = and i32 %18, 1
   %.5.i.i.i = add nuw nsw i32 %19, %.4.i.i.i
@@ -4514,7 +4514,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_last_unset(ptr noundef reado
   %27 = add nuw nsw i32 %.3.i, 2
   %.425.i = select i1 %.not32.i, i64 %.324.i, i64 %26
   %.4.i = select i1 %.not32.i, i32 %.3.i, i32 %27
-  %28 = trunc i64 %.425.i to i32
+  %28 = trunc nuw nsw i64 %.425.i to i32
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 1
   %31 = shl nsw i32 %16, 6

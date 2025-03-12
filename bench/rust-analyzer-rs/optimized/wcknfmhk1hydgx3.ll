@@ -10887,7 +10887,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !3318
   %12 = trunc i32 %1 to i8
@@ -10899,7 +10899,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !3318
   %19 = lshr i32 %1, 6
@@ -10970,7 +10970,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %70
 
 .critedge:                                        ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !3331, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !3331, !noundef !4
@@ -67296,7 +67296,7 @@ define hidden noundef nonnull ptr @_ZN11ide_assists8handlers25replace_if_let_wit
   br i1 %37, label %.invoke87, label %38
 
 38:                                               ; preds = %36
-  %39 = trunc i8 %30 to i1
+  %39 = trunc nuw i8 %30 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %40 = invoke { i64, ptr } @_ZN6ide_db9ty_filter7TryEnum11sad_pattern17h58859ea97a30b1feE(i1 noundef zeroext %39)
           to label %41 unwind label %19
@@ -70602,7 +70602,7 @@ common.resume:                                    ; preds = %29, %"_ZN4core3ptr6
   br i1 %21, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdea545e54cbd2a4bE.exit", label %22
 
 22:                                               ; preds = %20
-  %23 = trunc i8 %15 to i1
+  %23 = trunc nuw i8 %15 to i1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !20182
   %24 = call { i64, ptr } @_ZN6ide_db9ty_filter7TryEnum11sad_pattern17h58859ea97a30b1feE(i1 noundef zeroext %23), !noalias !20182
   %25 = extractvalue { i64, ptr } %24, 0

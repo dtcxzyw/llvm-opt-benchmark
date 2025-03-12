@@ -13515,7 +13515,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_link_descr
 
 13:                                               ; preds = %11
   %14 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1838)
-  %15 = trunc nuw i32 %.0118181 to i16
+  %15 = trunc nuw nsw i32 %.0118181 to i16
   %16 = add i16 %.0117182, %15
   br label %.loopexit
 
@@ -13694,7 +13694,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_link_descr
   %131 = add nuw nsw i32 %130, 4
   %132 = sub nsw i32 %.0118181, %131
   %133 = add i32 %131, %.0116183
-  %134 = trunc nuw i32 %131 to i16
+  %134 = trunc nuw nsw i32 %131 to i16
   %135 = add i16 %.0117182, %134
   %136 = icmp sgt i32 %132, 0
   br i1 %136, label %11, label %.loopexit, !llvm.loop !73
@@ -13727,7 +13727,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_prefix_des
 
 14:                                               ; preds = %12
   %15 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1838)
-  %16 = trunc nuw i32 %.085115 to i16
+  %16 = trunc nuw nsw i32 %.085115 to i16
   %17 = add i16 %.084116, %16
   br label %.loopexit
 
@@ -13879,7 +13879,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_srv6_sid_d
 
 13:                                               ; preds = %11
   %14 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %1, ptr noundef nonnull @ei_bgp_ls_error, ptr noundef nonnull @.str.1840)
-  %15 = trunc nuw i32 %.06790 to i16
+  %15 = trunc nuw nsw i32 %.06790 to i16
   %16 = add i16 %.06691, %15
   br label %.loopexit
 
@@ -13959,7 +13959,7 @@ define internal fastcc range(i32 -1, 65536) i32 @decode_bgp_link_nlri_srv6_sid_d
   %64 = add nuw nsw i32 %63, 4
   %65 = sub nsw i32 %.06790, %64
   %66 = add i32 %64, %.06592
-  %67 = trunc nuw i32 %64 to i16
+  %67 = trunc nuw nsw i32 %64 to i16
   %68 = add i16 %.06691, %67
   %69 = icmp sgt i32 %65, 0
   br i1 %69, label %11, label %.loopexit, !llvm.loop !75

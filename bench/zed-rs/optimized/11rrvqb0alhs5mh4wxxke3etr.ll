@@ -3739,15 +3739,15 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit: ; preds = %.noexc45
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %21)
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 1208
   %80 = load i8, ptr %79, align 8, !range !579, !noundef !7
-  %81 = icmp ne i8 %80, 2
-  %82 = trunc i8 %80 to i1
-  %.sroa.07.0 = xor i1 %81, %82
+  %81 = icmp eq i8 %80, 2
+  %82 = trunc nuw i8 %80 to i1
+  %.sroa.07.0.not = select i1 %81, i1 true, i1 %82
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 1211
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 1210
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 1212
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 1188
-  br i1 %.sroa.07.0, label %89, label %88
+  br i1 %.sroa.07.0.not, label %88, label %89
 
 88:                                               ; preds = %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %23, ptr noundef nonnull align 8 dereferenceable(720) %22, i64 720, i1 false)

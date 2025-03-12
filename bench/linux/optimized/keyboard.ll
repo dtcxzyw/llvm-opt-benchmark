@@ -1573,7 +1573,7 @@ define dso_local i32 @vt_do_kdskled(i32 noundef %0, i32 noundef %1, i64 noundef 
 
 29:                                               ; preds = %26
   %30 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @led_lock) #19
-  %31 = trunc nuw i64 %2 to i8
+  %31 = trunc nuw nsw i64 %2 to i8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %33 = load i8, ptr %32, align 1
   %34 = shl nuw i8 %31, 1

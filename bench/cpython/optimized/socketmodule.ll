@@ -10123,7 +10123,7 @@ Py_INCREF.exit:                                   ; preds = %57, %54, %51
 
 .thread:                                          ; preds = %72, %65, %80
   %.sink320 = phi i32 [ 3, %80 ], [ 2, %65 ], [ 2, %72 ]
-  %83 = trunc nuw i64 %67 to i32
+  %83 = trunc nuw nsw i64 %67 to i32
   %84 = add nuw nsw i32 %.sink320, %83
   store i32 %84, ptr %3, align 4, !tbaa !35
   %85 = load i32, ptr %45, align 4, !tbaa !86

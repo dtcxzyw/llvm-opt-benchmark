@@ -411,7 +411,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %.not84 = icmp eq i32 %44, 0
   %45 = shl nuw nsw i32 %.06096, 1
   %46 = shl nuw nsw i32 1, %45
-  %47 = trunc nuw i32 %46 to i16
+  %47 = trunc nuw nsw i32 %46 to i16
   %.267 = select i1 %.not84, i1 %.16694, i1 false
   %48 = select i1 %.not84, i16 0, i16 %47
   %.1 = or i16 %48, %.06195

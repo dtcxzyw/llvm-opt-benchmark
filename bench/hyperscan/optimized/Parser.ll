@@ -19889,7 +19889,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   resume { ptr, i32 } %.pn14
 
 _ZN3ue210verify_u32IyEEjT_.exit:                  ; preds = %2
-  %28 = trunc nuw i64 %11 to i32
+  %28 = trunc nuw nsw i64 %11 to i32
   store i32 %28, ptr %0, align 4
   ret void
 
@@ -19963,7 +19963,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   resume { ptr, i32 } %.pn14
 
 _ZN3ue210verify_u32IyEEjT_.exit:                  ; preds = %2
-  %28 = trunc nuw i64 %11 to i32
+  %28 = trunc nuw nsw i64 %11 to i32
   store i32 %28, ptr %0, align 4
   ret void
 

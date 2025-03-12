@@ -324,7 +324,7 @@ define range(i32 -2, 1) i32 @CRYPTO_gcm128_aad(ptr noundef %0, ptr noundef %1, i
   br i1 %exitcond.not, label %.loopexit.loopexit, label %49, !llvm.loop !30
 
 .loopexit.loopexit:                               ; preds = %49
-  %56 = trunc i64 %.248 to i32
+  %56 = trunc nuw nsw i64 %.248 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %.loopexit.loopexit, %._crit_edge, %.preheader

@@ -1668,7 +1668,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %16, %2, %6, %10, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 55:                                               ; preds = %._crit_edge.i
-  %56 = trunc nuw i32 %.0.lcssa.i to i8
+  %56 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %57 = or disjoint i8 %56, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -2814,7 +2814,7 @@ _ZNSt8functionIFbN3spv2OpEjEED2Ev.exit:           ; preds = %_ZNSt8functionIFvRj
   %53 = phi ptr [ %42, %.lr.ph66 ], [ %151, %149 ]
   %.pr = phi i32 [ 0, %.lr.ph66 ], [ %.pr72, %149 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %149 ]
-  %indvars69 = trunc i64 %indvars.iv to i32
+  %indvars69 = trunc nuw i64 %indvars.iv to i32
   %54 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %55 to i64

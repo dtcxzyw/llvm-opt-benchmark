@@ -837,7 +837,7 @@ define void @usearch_setAttribute_77(ptr noundef readonly captures(address_is_nu
   br i1 %or.cond3, label %.thread, label %24
 
 .thread:                                          ; preds = %19
-  %21 = trunc nuw i32 %2 to i16
+  %21 = trunc nuw nsw i32 %2 to i16
   %22 = load ptr, ptr %0, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 14
   store i16 %21, ptr %23, align 2, !tbaa !48

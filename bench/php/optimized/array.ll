@@ -9831,7 +9831,7 @@ zend_parse_arg_long_ex.exit105:                   ; preds = %15
   br i1 %.not102, label %.loopexit, label %70
 
 77:                                               ; preds = %38
-  %78 = trunc nuw i64 %23 to i32
+  %78 = trunc nuw nsw i64 %23 to i32
   %79 = call ptr @_zend_new_array(i32 noundef %78) #21
   store ptr %79, ptr %1, align 8, !tbaa !8
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10780,7 +10780,7 @@ zend_dval_to_lval.exit:                           ; preds = %55, %57
   br i1 %346, label %347, label %363
 
 347:                                              ; preds = %344
-  %348 = trunc nuw i64 %345 to i32
+  %348 = trunc nuw nsw i64 %345 to i32
   %349 = add nuw nsw i32 %348, 1
   %350 = call ptr @_zend_new_array(i32 noundef %349) #21
   store ptr %350, ptr %1, align 8, !tbaa !8
@@ -10859,7 +10859,7 @@ zend_dval_to_lval.exit:                           ; preds = %55, %57
   br i1 %392, label %393, label %409
 
 393:                                              ; preds = %390
-  %394 = trunc nuw i64 %391 to i32
+  %394 = trunc nuw nsw i64 %391 to i32
   %395 = add nuw nsw i32 %394, 1
   %396 = call ptr @_zend_new_array(i32 noundef %395) #21
   store ptr %396, ptr %1, align 8, !tbaa !8
@@ -11315,12 +11315,12 @@ zend_string_release.exit:                         ; preds = %25, %29, %36, %37
   br i1 %.not.i170, label %.zend_hash_iterators_update.exit_crit_edge, label %117, !prof !10
 
 .zend_hash_iterators_update.exit_crit_edge:       ; preds = %115
-  %.pre204 = trunc i64 %.1138183 to i32
+  %.pre204 = trunc nuw i64 %.1138183 to i32
   br label %zend_hash_iterators_update.exit
 
 117:                                              ; preds = %115
   %118 = trunc i64 %.2181 to i32
-  %119 = trunc i64 %.1138183 to i32
+  %119 = trunc nuw i64 %.1138183 to i32
   tail call void @_zend_hash_iterators_update(ptr noundef nonnull %4, i32 noundef %119, i32 noundef %118) #21
   br label %zend_hash_iterators_update.exit
 
@@ -12823,7 +12823,7 @@ zend_parse_arg_array.exit.thread:                 ; preds = %18, %zend_gc_try_de
   br label %130
 
 124:                                              ; preds = %119
-  %125 = trunc i64 %.0.i135 to i32
+  %125 = trunc nuw i64 %.0.i135 to i32
   %126 = trunc i64 %105 to i32
   %127 = add i32 %125, %126
   %128 = icmp ugt i32 %127, %112
@@ -12923,7 +12923,7 @@ zend_hash_iterators_update.exit319.i:             ; preds = %166, %164, %163
   br i1 %174, label %150, label %.critedge.loopexit.split.loop.exit.i
 
 .critedge.loopexit.split.loop.exit.i:             ; preds = %172
-  %indvars.le.i = trunc i64 %indvars.iv.next.i to i32
+  %indvars.le.i = trunc nuw i64 %indvars.iv.next.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %150, %.critedge.loopexit.split.loop.exit.i, %148

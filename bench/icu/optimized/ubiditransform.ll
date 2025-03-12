@@ -715,7 +715,7 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL13action_mirrorP14UBiDiTra
 
 52:                                               ; preds = %43
   %53 = lshr i32 %.1, 10
-  %54 = trunc i32 %53 to i16
+  %54 = trunc nuw nsw i32 %53 to i16
   %55 = add nsw i16 %54, -10304
   %56 = load ptr, ptr %14, align 8, !tbaa !29
   %57 = zext i32 %.040 to i64

@@ -1633,7 +1633,7 @@ define dso_local i32 @inet_shutdown(ptr noundef captures(none) %0, i32 noundef %
   %23 = phi i32 [ 0, %18 ], [ -107, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 620
   %25 = load i8, ptr %24, align 4
-  %26 = trunc nuw i32 %5 to i8
+  %26 = trunc nuw nsw i32 %5 to i8
   %27 = or i8 %25, %26
   store volatile i8 %27, ptr %24, align 4
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40

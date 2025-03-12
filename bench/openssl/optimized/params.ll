@@ -962,7 +962,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_int64(ptr noundef captures(address_is
 
 21:                                               ; preds = %19
   store i64 4, ptr %7, align 8, !tbaa !13
-  %22 = trunc i64 %1 to i32
+  %22 = trunc nsw i64 %1 to i32
   store i32 %22, ptr %13, align 4, !tbaa !18
   br label %64
 
@@ -1347,7 +1347,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_set_uint64(ptr noundef captures(address_i
 
 36:                                               ; preds = %34
   store i64 4, ptr %7, align 8, !tbaa !13
-  %37 = trunc nuw i64 %1 to i32
+  %37 = trunc nuw nsw i64 %1 to i32
   store i32 %37, ptr %28, align 4, !tbaa !18
   br label %57
 

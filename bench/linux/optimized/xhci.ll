@@ -11054,7 +11054,7 @@ default.unreachable7:                             ; preds = %27
   br i1 %140, label %.thread4, label %.thread6
 
 141:                                              ; preds = %127
-  %.lhs.trunc = trunc nuw i64 %129 to i32
+  %.lhs.trunc = trunc nuw nsw i64 %129 to i32
   %142 = udiv i32 %.lhs.trunc, 256000
   %143 = trunc nuw nsw i32 %142 to i16
   %144 = icmp samesign ult i64 %129, 256000

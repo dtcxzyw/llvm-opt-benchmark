@@ -5230,7 +5230,7 @@ _ZN5ockam13relay_service7options19RelayServiceOptions28setup_flow_control_for_re
 944:                                              ; preds = %931, %927
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   store i8 1, ptr %915, align 8, !noalias !997
-  %945 = trunc i8 %918 to i1
+  %945 = trunc nuw i8 %918 to i1
   br i1 %945, label %982, label %960
 
 .body.i.i.i.i.i:                                  ; preds = %942, %893

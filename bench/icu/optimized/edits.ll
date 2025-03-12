@@ -900,7 +900,7 @@ _ZNK6icu_775Edits8lastUnitEv.exit:                ; preds = %10
   br label %_ZNK6icu_775Edits8lastUnitEv.exit.thread
 
 23:                                               ; preds = %20
-  %24 = trunc i32 %1 to i16
+  %24 = trunc nuw nsw i32 %1 to i16
   %25 = add nuw nsw i16 %18, %24
   store i16 %25, ptr %17, align 2, !tbaa !23
   br label %_ZN6icu_775Edits6appendEi.exit29
@@ -1093,7 +1093,7 @@ _ZN6icu_775Edits9growArrayEv.exit.i27:            ; preds = %._ZN6icu_775Edits9g
 100:                                              ; preds = %_ZN6icu_775Edits9growArrayEv.exit.i27, %68
   %101 = phi i32 [ %.pre3.i28, %_ZN6icu_775Edits9growArrayEv.exit.i27 ], [ %69, %68 ]
   %102 = phi ptr [ %88, %_ZN6icu_775Edits9growArrayEv.exit.i27 ], [ %.pre.i20, %68 ]
-  %103 = trunc i32 %.2.lcssa to i16
+  %103 = trunc nuw nsw i32 %.2.lcssa to i16
   %104 = add nsw i16 %103, -1
   %105 = add nsw i32 %101, 1
   store i32 %105, ptr %11, align 4, !tbaa !21
@@ -1301,7 +1301,7 @@ _ZNK6icu_775Edits8lastUnitEv.exit:                ; preds = %37, %42
   br i1 %or.cond86, label %61, label %54
 
 54:                                               ; preds = %_ZNK6icu_775Edits8lastUnitEv.exit
-  %55 = trunc nuw i32 %49 to i16
+  %55 = trunc nuw nsw i32 %49 to i16
   %56 = add nuw nsw i16 %55, 1
   %57 = load ptr, ptr %0, align 8, !tbaa !15
   %58 = sext i32 %36 to i64
@@ -1526,7 +1526,7 @@ _ZN6icu_775Edits9growArrayEv.exit.i94:            ; preds = %._ZN6icu_775Edits9g
   br i1 %157, label %158, label %165
 
 158:                                              ; preds = %156
-  %159 = trunc nuw i32 %1 to i16
+  %159 = trunc nuw nsw i32 %1 to i16
   %160 = or disjoint i16 %159, -32768
   %161 = load ptr, ptr %0, align 8, !tbaa !15
   %162 = add nsw i32 %151, 2
@@ -1569,7 +1569,7 @@ _ZN6icu_775Edits9growArrayEv.exit.i94:            ; preds = %._ZN6icu_775Edits9g
   br i1 %183, label %184, label %191
 
 184:                                              ; preds = %182
-  %185 = trunc nuw i32 %2 to i16
+  %185 = trunc nuw nsw i32 %2 to i16
   %186 = or disjoint i16 %185, -32768
   %187 = load ptr, ptr %0, align 8, !tbaa !15
   %188 = add nsw i32 %.0, 1

@@ -32665,7 +32665,7 @@ _ZNK4llvm14ConstantSDNode12getSExtValueEv.exit:   ; preds = %26, %33
   br i1 %or.cond, label %.thread, label %38
 
 38:                                               ; preds = %_ZNK4llvm14ConstantSDNode12getSExtValueEv.exit
-  %.lhs.trunc = trunc i64 %.0.i.i.i36 to i8
+  %.lhs.trunc = trunc nuw nsw i64 %.0.i.i.i36 to i8
   %.rhs.trunc = trunc nuw nsw i32 %6 to i8
   %39 = urem i8 %.lhs.trunc, %.rhs.trunc
   %40 = udiv i8 %.lhs.trunc, %.rhs.trunc
@@ -34227,7 +34227,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   br i1 %13, label %14, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit
 
 14:                                               ; preds = %5
-  %15 = trunc nuw i64 %.0.i.i.i12 to i32
+  %15 = trunc nuw nsw i64 %.0.i.i.i12 to i32
   %16 = add nuw nsw i32 %15, 311
   %17 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %.64.val, i32 %16, i16 1, ptr null) #23
   %.fca.0.extract = extractvalue { ptr, i32 } %17, 0
@@ -34572,7 +34572,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   br i1 %13, label %14, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit
 
 14:                                               ; preds = %5
-  %15 = trunc nuw i64 %.0.i.i.i12 to i32
+  %15 = trunc nuw nsw i64 %.0.i.i.i12 to i32
   %16 = add nuw nsw i32 %15, 309
   %17 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %.64.val, i32 %16, i16 1, ptr null) #23
   %.fca.0.extract = extractvalue { ptr, i32 } %17, 0
@@ -35558,7 +35558,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   br i1 %13, label %14, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit
 
 14:                                               ; preds = %5
-  %15 = trunc nuw i64 %.0.i.i.i12 to i32
+  %15 = trunc nuw nsw i64 %.0.i.i.i12 to i32
   %16 = add nuw nsw i32 %15, 327
   %17 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %.64.val, i32 %16, i16 1, ptr null) #23
   %.fca.0.extract = extractvalue { ptr, i32 } %17, 0
@@ -35596,7 +35596,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119AArch64DAGToDAGISe
   br i1 %13, label %14, label %_ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit
 
 14:                                               ; preds = %5
-  %15 = trunc nuw i64 %.0.i.i.i12 to i32
+  %15 = trunc nuw nsw i64 %.0.i.i.i12 to i32
   %16 = add nuw nsw i32 %15, 301
   %17 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterENS_8RegisterENS_3EVTE(ptr noundef nonnull align 8 dereferenceable(952) %.64.val, i32 %16, i16 1, ptr null) #23
   %.fca.0.extract = extractvalue { ptr, i32 } %17, 0

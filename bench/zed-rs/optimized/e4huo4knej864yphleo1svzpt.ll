@@ -6297,7 +6297,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %57
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hcfc1087c30ec68ddE.exit: ; preds = %._crit_edge30, %42
-  %56 = trunc i64 %22 to i32
+  %56 = trunc nuw i64 %22 to i32
   br label %57
 
 57:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17hcfc1087c30ec68ddE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha345bca129ef94fcE.exit15"
@@ -6454,7 +6454,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %65
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit: ; preds = %._crit_edge53, %._crit_edge54
-  %64 = trunc i64 %22 to i32
+  %64 = trunc nuw i64 %22 to i32
   br label %65
 
 65:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h612fed686c264b3dE.exit15"
@@ -6678,7 +6678,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17h
   br label %99
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit: ; preds = %82, %.preheader, %._crit_edge
-  %98 = trunc i64 %22 to i32
+  %98 = trunc nuw i64 %22 to i32
   br label %99
 
 99:                                               ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h612fed686c264b3dE.exit15"
@@ -6837,9 +6837,9 @@ thread-pre-split.preheader:                       ; preds = %20, %9
   br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit"
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit: ; preds = %48
-  %60 = trunc i64 %46 to i32
+  %60 = trunc nuw i64 %46 to i32
   store i32 %60, ptr %0, align 8, !alias.scope !2024, !noalias !2029
-  %61 = icmp eq i32 %60, 0
+  %61 = icmp eq i64 %46, 0
   br i1 %61, label %.loopexit, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h612fed686c264b3dE.exit29"
@@ -7092,9 +7092,9 @@ thread-pre-split.preheader:                       ; preds = %20, %9
   br i1 %59, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd854589c8ba820baE.exit"
 
 _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit: ; preds = %48
-  %60 = trunc i64 %46 to i32
+  %60 = trunc nuw i64 %46 to i32
   store i32 %60, ptr %0, align 8, !alias.scope !2108, !noalias !2113
-  %61 = icmp eq i32 %60, 0
+  %61 = icmp eq i64 %46, 0
   br i1 %61, label %.loopexit, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %_ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h438f24d3adf8866cE.exit, %thread-pre-split.backedge

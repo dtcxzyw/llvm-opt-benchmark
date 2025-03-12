@@ -998,7 +998,7 @@ define dso_local range(i32 -3, 1) i32 @BZ2_bzDecompressInit(ptr noundef %0, i32 
   store i32 0, ptr %29, align 4, !tbaa !36
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %30, align 8, !tbaa !37
-  %31 = trunc nuw i32 %2 to i8
+  %31 = trunc nuw nsw i32 %2 to i8
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 44
   store i8 %31, ptr %32, align 4, !tbaa !58
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 3152
@@ -4075,7 +4075,7 @@ define dso_local range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0,
   store i32 0, ptr %27, align 4, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 0, ptr %28, align 8, !tbaa !37
-  %29 = trunc nuw i32 %4 to i8
+  %29 = trunc nuw nsw i32 %4 to i8
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 44
   store i8 %29, ptr %30, align 4, !tbaa !58
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 3152

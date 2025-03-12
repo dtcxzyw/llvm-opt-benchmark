@@ -6311,7 +6311,7 @@ define internal fastcc range(i32 -4095, 1) i32 @compress_page(ptr noundef nonnul
   br i1 %57, label %.loopexit.loopexit, label %59
 
 .loopexit.loopexit:                               ; preds = %44
-  %58 = trunc i64 %42 to i32
+  %58 = trunc nsw i64 %42 to i32
   br label %.loopexit10
 
 59:                                               ; preds = %44

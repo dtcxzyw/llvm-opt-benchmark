@@ -358,7 +358,7 @@ map_add_var.exit:                                 ; preds = %map_add_var.exit.lo
   %115 = and i16 %114, 255
   %116 = zext nneg i16 %115 to i32
   %117 = tail call ptr @mtrr_attrib_to_str(i32 noundef %116) #17
-  %118 = trunc i64 %106 to i32
+  %118 = trunc nuw i64 %106 to i32
   %119 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %118, i64 noundef %109, i64 noundef %112, ptr noundef %117) #18
   %120 = add nuw nsw i64 %106, 1
   %121 = load i32, ptr @cache_map_n, align 4
@@ -967,7 +967,7 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
 .preheader:                                       ; preds = %7, %36
   %13 = phi i64 [ %42, %36 ], [ 0, %7 ]
   %14 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %13
-  %15 = trunc i64 %13 to i32
+  %15 = trunc nuw i64 %13 to i32
   %16 = shl i32 %15, 1
   %17 = add i32 %16, 512
   %18 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %17) #17, !srcloc !22
@@ -1162,12 +1162,12 @@ define internal fastcc void @print_mtrr_state() unnamed_addr #2 section ".init.t
   %46 = lshr i32 %36, 12
   %47 = and i32 %42, 255
   %48 = tail call ptr @mtrr_attrib_to_str(i32 noundef %47) #17
-  %49 = trunc i64 %33 to i32
+  %49 = trunc nuw i64 %33 to i32
   %50 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.24, i32 noundef %49, i32 noundef %.sext, i32 noundef %41, i32 noundef %43, i32 noundef %.sext, i32 noundef %45, i32 noundef %46, ptr noundef %48) #18
   br label %54
 
 51:                                               ; preds = %.preheader
-  %52 = trunc i64 %33 to i32
+  %52 = trunc nuw i64 %33 to i32
   %53 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %52) #18
   br label %54
 
@@ -1390,7 +1390,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %3 = phi i64 [ %88, %86 ], [ 0, %0 ]
   %4 = phi i64 [ %87, %86 ], [ 0, %0 ]
   %5 = getelementptr [256 x %struct.mtrr_var_range], ptr @mtrr_state, i64 0, i64 %3
-  %6 = trunc i64 %3 to i32
+  %6 = trunc nuw i64 %3 to i32
   %7 = shl i32 %6, 1
   %8 = add i32 %7, 512
   %9 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %8) #17, !srcloc !22

@@ -9604,9 +9604,9 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %413
 
 413:                                              ; preds = %412, %410
-  %414 = trunc i64 %394 to i32
+  %414 = trunc nsw i64 %394 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #31
-  %.not187 = icmp eq i32 %414, 1
+  %.not187 = icmp eq i64 %394, 1
   br i1 %.not187, label %455, label %415
 
 415:                                              ; preds = %413
@@ -9784,9 +9784,9 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %482
 
 482:                                              ; preds = %481, %479
-  %483 = trunc i64 %463 to i32
+  %483 = trunc nsw i64 %463 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #31
-  %484 = icmp sgt i32 %483, 0
+  %484 = icmp sgt i64 %463, 0
   br i1 %484, label %486, label %485
 
 485:                                              ; preds = %482
@@ -9856,9 +9856,9 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %510
 
 510:                                              ; preds = %509, %507
-  %511 = trunc i64 %491 to i32
+  %511 = trunc nsw i64 %491 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #31
-  %512 = icmp sgt i32 %511, 0
+  %512 = icmp sgt i64 %491, 0
   br i1 %512, label %549, label %513
 
 513:                                              ; preds = %510

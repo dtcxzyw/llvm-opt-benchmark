@@ -249,7 +249,7 @@ if.then15.i:                                      ; preds = %if.end.i
   %2 = getelementptr inbounds nuw i32, ptr %data, i64 %div.i19
   %arrayidx16.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i32, ptr %arrayidx16.i, align 4
-  %4 = trunc i64 %sub11.i to i32
+  %4 = trunc nuw nsw i64 %sub11.i to i32
   %sh_prom.i = and i32 %4, 31
   %5 = shl nuw i32 1, %sh_prom.i
   %6 = and i32 %3, %5
@@ -388,7 +388,7 @@ lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i.invok
   br label %ehcleanup145
 
 _ZNSt8optionalIsEaSIRiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIsES5_IsNSt5decayIS8_E4typeEEEEESt16is_constructibleIsJS8_EESt13is_assignableIRsS8_EEERS0_E4typeEOS8_.exit: ; preds = %if.then
-  %conv.i.i.i.sink.i = trunc i32 %0 to i16
+  %conv.i.i.i.sink.i = trunc nsw i32 %0 to i16
   br label %for.inc56
 
 if.end7:                                          ; preds = %for.body

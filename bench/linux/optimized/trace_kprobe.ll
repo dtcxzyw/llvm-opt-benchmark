@@ -776,7 +776,7 @@ define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, 
   br i1 %201, label %.preheader, label %202, !llvm.loop !15
 
 202:                                              ; preds = %.preheader
-  %203 = trunc i64 %195 to i32
+  %203 = trunc nuw nsw i64 %195 to i32
   %204 = icmp slt i32 %194, 0
   %205 = select i1 %204, i32 %194, i32 %203
   br label %206

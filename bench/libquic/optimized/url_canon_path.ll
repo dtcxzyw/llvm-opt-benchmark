@@ -1137,7 +1137,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoPartialPathI
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit95
 
 24:                                               ; preds = %12
-  %25 = trunc nuw i16 %15 to i8
+  %25 = trunc nuw nsw i16 %15 to i8
   %26 = zext nneg i16 %15 to i64
   %27 = getelementptr inbounds nuw [256 x i8], ptr @_ZN3url12_GLOBAL__N_115kPathCharLookupE, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !13
@@ -1539,7 +1539,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit107:     ; preds = %select.unfold.i.i10
   br i1 %224, label %_ZN3url12CanonOutputTIcE9push_backEc.exit95, label %225
 
 225:                                              ; preds = %220
-  %226 = trunc nuw i16 %223 to i8
+  %226 = trunc nuw nsw i16 %223 to i8
   %227 = load i32, ptr %9, align 8, !tbaa !14
   %228 = icmp slt i32 %206, %227
   br i1 %228, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
@@ -2116,7 +2116,7 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
 
 8:                                                ; preds = %6
   %9 = lshr i32 %0, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %11, ptr noundef %1)
   %12 = trunc i32 %0 to i8
@@ -2130,7 +2130,7 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
 
 17:                                               ; preds = %15
   %18 = lshr i32 %0, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %20, ptr noundef %1)
   %21 = lshr i32 %0, 6
@@ -2149,7 +2149,7 @@ define linkonce_odr void @_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EX
 
 30:                                               ; preds = %28
   %31 = lshr i32 %0, 18
-  %32 = trunc nuw i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = or disjoint i8 %32, -16
   tail call void @_ZN3url17AppendEscapedCharIhcEEvT_PNS_12CanonOutputTIT0_EE(i8 noundef zeroext %33, ptr noundef %1)
   %34 = lshr i32 %0, 12

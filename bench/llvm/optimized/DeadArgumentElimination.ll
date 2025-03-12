@@ -559,7 +559,7 @@ _ZNSt6vectorIPN4llvm4TypeESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt6v
   %69 = load ptr, ptr %68, align 8, !tbaa !75
   %70 = lshr exact i64 %gepdiff, 3
   %71 = tail call noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(ptr noundef %69, ptr %.sroa.0229.0, i64 %70, i1 noundef zeroext false) #18
-  %72 = trunc i64 %70 to i32
+  %72 = trunc nuw i64 %70 to i32
   %73 = load i32, ptr %17, align 8
   %74 = and i32 %73, 15
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -606,7 +606,7 @@ _ZNSt6vectorIPN4llvm4TypeESaIS2_EEC2IPKS2_vEET_S8_RKS3_.exit: ; preds = %_ZNSt6v
   %97 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %98 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %99 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %.not298 = icmp eq i32 %72, 0
+  %.not298 = icmp eq i64 %gepdiff, 0
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -4540,7 +4540,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i.i: ; preds = %395, %_ZNK4llvm25O
   br label %_ZNSt7__cxx119to_stringEj.exit.i.i
 
 433:                                              ; preds = %._crit_edge.i.i.i.i
-  %434 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %434 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   %435 = or disjoint i8 %434, 48
   br label %_ZNSt7__cxx119to_stringEj.exit.i.i
 

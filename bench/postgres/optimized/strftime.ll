@@ -1001,7 +1001,7 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
 
 331:                                              ; preds = %330
   %332 = sub nsw i32 %.0219, %322
-  %.lhs.trunc522 = trunc i32 %332 to i16
+  %.lhs.trunc522 = trunc nsw i32 %332 to i16
   %333 = sdiv i16 %.lhs.trunc522, 7
   %narrow = add nsw i16 %333, 1
   %334 = zext nneg i16 %narrow to i32

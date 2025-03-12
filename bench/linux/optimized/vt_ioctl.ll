@@ -525,7 +525,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %149 = load ptr, ptr %148, align 8
   %150 = tail call fastcc ptr @get_pid(ptr noundef %149)
   store ptr %149, ptr getelementptr inbounds nuw (i8, ptr @vt_spawn_con, i64 8), align 8
-  %151 = trunc nuw i64 %2 to i32
+  %151 = trunc nuw nsw i64 %2 to i32
   store i32 %151, ptr getelementptr inbounds nuw (i8, ptr @vt_spawn_con, i64 16), align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @vt_spawn_con) #7
   br label %165
@@ -879,7 +879,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %330 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 63, i64 %329) #7, !srcloc !26
   %331 = and i64 %330, %329
   tail call void @console_lock() #7
-  %332 = trunc i64 %331 to i32
+  %332 = trunc nuw nsw i64 %331 to i32
   %333 = tail call i32 @vc_allocate(i32 noundef %332) #7
   tail call void @console_unlock() #7
   %334 = icmp eq i32 %333, 0
@@ -905,7 +905,7 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   br i1 %343, label %.thread19, label %344
 
 344:                                              ; preds = %341
-  %345 = trunc nuw i64 %2 to i32
+  %345 = trunc nuw nsw i64 %2 to i32
   %346 = tail call i32 @vt_waitactive(i32 noundef %345), !range !27
   br label %.thread19
 
@@ -2133,7 +2133,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vt_kdsetmode(ptr noundef c
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %4
-  %11 = trunc i64 %5 to i8
+  %11 = trunc nuw nsw i64 %5 to i8
   store i8 %11, ptr %6, align 4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %13 = load i16, ptr %12, align 8

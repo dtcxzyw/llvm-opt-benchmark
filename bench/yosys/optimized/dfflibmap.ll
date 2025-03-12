@@ -19111,7 +19111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit206: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %35, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %36) #29
   %487 = load ptr, ptr %33, align 8, !tbaa !71
-  %488 = trunc nuw i32 %.0392 to i8
+  %488 = trunc nuw nsw i32 %.0392 to i8
   %489 = and i8 %488, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   store ptr %469, ptr %36, align 8, !tbaa !72, !alias.scope !400

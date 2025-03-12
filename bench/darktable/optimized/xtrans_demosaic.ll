@@ -857,7 +857,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %452 = zext i16 %451 to i32
   %.1042.us = tail call i32 @llvm.smin.i32(i32 %450, i32 %452)
   %453 = tail call i32 @llvm.smax.i32(i32 %.1042.us, i32 %447)
-  %454 = trunc i32 %453 to i16
+  %454 = trunc nuw i32 %453 to i16
   %indvars.iv1419.masked = and i64 %indvars.iv1419, 4294967295
   %455 = xor i64 %indvars.iv1419.masked, %370
   %456 = getelementptr inbounds nuw [512 x [512 x [3 x i16]]], ptr %302, i64 %455, i64 %371, i64 %494, i64 1
@@ -1074,7 +1074,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %605 = zext i16 %604 to i32
   %.1043.us = tail call i32 @llvm.smin.i32(i32 %603, i32 %605)
   %606 = tail call i32 @llvm.smax.i32(i32 %.1043.us, i32 %602)
-  %607 = trunc i32 %606 to i16
+  %607 = trunc nuw i32 %606 to i16
   %608 = getelementptr inbounds nuw i8, ptr %577, i64 2
   store i16 %607, ptr %608, align 2, !tbaa !82
   %indvars.iv.next1430 = add nuw nsw i64 %indvars.iv1429, 1
@@ -1205,7 +1205,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %brmerge1068.us = icmp ult i32 %689, -131071
   %.mux1069.us = sext i1 %688 to i16
   %690 = sdiv i32 %687, 2
-  %691 = trunc i32 %690 to i16
+  %691 = trunc nuw i32 %690 to i16
   %692 = select i1 %brmerge1068.us, i16 %.mux1069.us, i16 %691
   %693 = getelementptr inbounds [3 x i16], ptr %.29461254.us, i64 0, i64 %634
   store i16 %692, ptr %693, align 2, !tbaa !82
@@ -1362,7 +1362,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %brmerge = icmp ult i32 %780, -131071
   %.mux = sext i1 %779 to i16
   %781 = sdiv i32 %778, 2
-  %782 = trunc i32 %781 to i16
+  %782 = trunc nuw i32 %781 to i16
   %783 = select i1 %brmerge, i16 %.mux, i16 %782
   %784 = getelementptr inbounds nuw [3 x i16], ptr %.09441241, i64 0, i64 %indvars.iv1446
   store i16 %783, ptr %784, align 2, !tbaa !82
@@ -1483,7 +1483,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %brmerge1071 = icmp ult i32 %849, -196607
   %.mux1072 = sext i1 %848 to i16
   %850 = sdiv i32 %847, 3
-  %851 = trunc i32 %850 to i16
+  %851 = trunc nuw i32 %850 to i16
   %852 = select i1 %brmerge1071, i16 %.mux1072, i16 %851
   %853 = getelementptr inbounds nuw [3 x i16], ptr %.39471266, i64 0, i64 %indvars.iv1470
   store i16 %852, ptr %853, align 2, !tbaa !82
@@ -1515,7 +1515,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %brmerge1074 = icmp ult i32 %873, -131071
   %.mux1075 = sext i1 %872 to i16
   %874 = sdiv i32 %871, 2
-  %875 = trunc i32 %874 to i16
+  %875 = trunc nuw i32 %874 to i16
   %876 = select i1 %brmerge1074, i16 %.mux1075, i16 %875
   %877 = getelementptr inbounds nuw [3 x i16], ptr %.39471266, i64 0, i64 %indvars.iv1473
   store i16 %876, ptr %877, align 2, !tbaa !82

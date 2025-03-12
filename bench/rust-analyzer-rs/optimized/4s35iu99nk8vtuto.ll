@@ -5276,7 +5276,7 @@ _ZN6syntax10validation19validate_visibility17h630a2de020659375E.exit: ; preds = 
 
 1013:                                             ; preds = %1006, %1001
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1421
-  %1014 = trunc i8 %999 to i1
+  %1014 = trunc nuw i8 %999 to i1
   br i1 %1014, label %1015, label %"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..Expr$GT$$GT$17hfffdd42a8286aa4cE.exit.i"
 
 1015:                                             ; preds = %1013

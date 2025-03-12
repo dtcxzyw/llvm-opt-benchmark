@@ -394,7 +394,7 @@ define hidden void @_ZN10Relocation23pd_set_call_destinationEPh(ptr noundef nonn
   unreachable
 
 _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %9
-  %18 = trunc i64 %13 to i32
+  %18 = trunc nsw i64 %13 to i32
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i32 %18, ptr %19, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef 1) #6

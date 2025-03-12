@@ -144,7 +144,7 @@ define void @_ZN6LibRaw18process_Hassy_LensEi(ptr noundef nonnull align 8 derefe
   %15 = phi i64 [ %spec.select, %10 ], [ 1600000000, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store i16 %.sink, ptr %16, align 8, !tbaa !17
-  %17 = trunc i32 %1 to i16
+  %17 = trunc nuw nsw i32 %1 to i16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1338
   store i16 %17, ptr %19, align 2, !tbaa !77

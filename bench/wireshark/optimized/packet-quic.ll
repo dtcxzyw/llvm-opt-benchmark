@@ -7688,7 +7688,7 @@ quic_add_stateless_reset_token.exit.i:            ; preds = %quic_connection_equ
   br i1 %1170, label %1171, label %1181
 
 1171:                                             ; preds = %1166
-  %1172 = trunc nuw i64 %1169 to i32
+  %1172 = trunc nuw nsw i64 %1169 to i32
   %1173 = and i32 %1172, 255
   %1174 = call ptr @try_val_to_str(i32 noundef %1173, ptr noundef nonnull @ssl_31_alert_description)
   %.not.i50 = icmp eq ptr %1174, null

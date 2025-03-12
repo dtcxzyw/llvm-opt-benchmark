@@ -6979,7 +6979,7 @@ default.unreachable22:                            ; preds = %747, %736, %720, %4
 829:                                              ; preds = %816, %812
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   store i8 1, ptr %800, align 8, !noalias !901
-  %830 = trunc i8 %803 to i1
+  %830 = trunc nuw i8 %803 to i1
   br i1 %830, label %844, label %839
 
 .body.i.i.i:                                      ; preds = %827, %790
@@ -14993,7 +14993,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit13:  ; preds = %115
   br label %_ZN14kafka_protocol7records18RecordBatchEncoder16encode_new_batch17h12a92effb16372adE.exit
 
 162:                                              ; preds = %115
-  %163 = trunc nuw i64 %116 to i32
+  %163 = trunc nuw nsw i64 %116 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12), !noalias !2644
   %164 = call i32 @llvm.bswap.i32(i32 %163)
   store i32 %164, ptr %12, align 4, !noalias !2644
@@ -16921,7 +16921,7 @@ define hidden noundef ptr @_ZN14kafka_protocol7records6Record10encode_new17h55ae
   br i1 %58, label %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit, label %59
 
 59:                                               ; preds = %57
-  %60 = trunc i64 %.cast to i32
+  %60 = trunc nuw nsw i64 %.cast to i32
   %61 = tail call i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 1)
   %62 = icmp ugt i32 %61, 127
   br i1 %62, label %.lr.ph.i.i, label %.loopexit166
@@ -17105,7 +17105,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %57
 
 124:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %37)
-  %125 = trunc nuw i64 %119 to i32
+  %125 = trunc nuw nsw i64 %119 to i32
   store i32 %125, ptr %37, align 4
   %126 = call noundef ptr @"_ZN106_$LT$kafka_protocol..protocol..types..VarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17hf76a68e7d2690b8cE"(ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.21.llvm.12634899616595775615, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %37)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %37)
@@ -17164,7 +17164,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %57
 
 149:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
-  %150 = trunc nuw i64 %144 to i32
+  %150 = trunc nuw nsw i64 %144 to i32
   store i32 %150, ptr %32, align 4
   %151 = call noundef ptr @"_ZN106_$LT$kafka_protocol..protocol..types..VarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17hf76a68e7d2690b8cE"(ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.21.llvm.12634899616595775615, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %32)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32)
@@ -17209,7 +17209,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %57
 
 167:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
-  %168 = trunc nuw i64 %165 to i32
+  %168 = trunc nuw nsw i64 %165 to i32
   store i32 %168, ptr %27, align 4
   %169 = call noundef ptr @"_ZN106_$LT$kafka_protocol..protocol..types..VarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17hf76a68e7d2690b8cE"(ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.21.llvm.12634899616595775615, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %27)
@@ -17323,7 +17323,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %57
 
 216:                                              ; preds = %209
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  %217 = trunc nuw i64 %211 to i32
+  %217 = trunc nuw nsw i64 %211 to i32
   store i32 %217, ptr %17, align 4
   %218 = call noundef ptr @"_ZN106_$LT$kafka_protocol..protocol..types..VarInt$u20$as$u20$kafka_protocol..protocol..Encoder$LT$$RF$T$GT$$GT$6encode17hf76a68e7d2690b8cE"(ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.21.llvm.12634899616595775615, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
@@ -22884,7 +22884,7 @@ common.ret:                                       ; preds = %1668, %1610, %1459,
   br i1 %1433, label %1435, label %1434
 
 1434:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
-  %trunc.i560 = trunc i8 %1418 to i1
+  %trunc.i560 = trunc nuw i8 %1418 to i1
   br i1 %trunc.i560, label %1437, label %1439
 
 1435:                                             ; preds = %"_ZN4core3ptr104drop_in_place$LT$tokio..time..timeout..Timeout$LT$tokio..sync..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17h29a374805a545b51E.exit.i"
@@ -74253,7 +74253,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h94e10a971cc665feE.exit"
 
@@ -74266,7 +74266,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -74278,7 +74278,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb9
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -77282,7 +77282,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !12688
   %12 = trunc i32 %1 to i8
@@ -77294,7 +77294,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17hd55aa8b09ff6dfb4E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !12688
   %19 = lshr i32 %1, 6
@@ -77362,7 +77362,7 @@ _ZN4core4char7methods15encode_utf8_raw17h8e8ce516cb970343E.llvm.1263489961659577
   br label %67
 
 .critedge:                                        ; preds = %2
-  %55 = trunc nuw i32 %1 to i8
+  %55 = trunc nuw nsw i32 %1 to i8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8, !alias.scope !12701, !noundef !4
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -78010,7 +78010,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !12778
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17ha531132aec1d2709E.exit.thread", label %104
 
 104:                                              ; preds = %102

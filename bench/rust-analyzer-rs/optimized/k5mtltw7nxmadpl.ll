@@ -17279,13 +17279,13 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h214a315a62a
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !3143
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !3143
   %15 = trunc i32 %1 to i8
@@ -17297,7 +17297,7 @@ define internal noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h214a315a62a
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !3143
   %23 = lshr i32 %1, 6
@@ -24236,7 +24236,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !4717, !noalias !4714
   %12 = trunc i32 %1 to i8
@@ -24248,7 +24248,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0.i, align 4, !alias.scope !4717, !noalias !4714
   %19 = lshr i32 %1, 6
@@ -24319,7 +24319,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %26
   br label %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit
 
 .critedge.i:                                      ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !4730, !noundef !4
   %61 = load i64, ptr %0, align 8, !alias.scope !4730, !noundef !4
@@ -38281,7 +38281,7 @@ define void @_ZN13rust_analyzer4caps19server_capabilities17h89e1162e5d8f0f94E(pt
   br label %108
 
 102:                                              ; preds = %2
-  %trunc = trunc i8 %99 to i1
+  %trunc = trunc nuw i8 %99 to i1
   br i1 %trunc, label %104, label %103
 
 103:                                              ; preds = %102
@@ -70204,7 +70204,7 @@ define void @"_ZN153_$LT$rust_analyzer..lsp..semantic_tokens..ModifierSet$u20$as
 14:                                               ; preds = %"_ZN153_$LT$rust_analyzer..lsp..semantic_tokens..ModifierSet$u20$as$u20$core..ops..bit..BitOrAssign$LT$lsp_types..semantic_tokens..SemanticTokenModifier$GT$$GT$12bitor_assign28_$u7b$$u7b$closure$u7d$$u7d$17h5ebc40653bd0bf26E.exit.i"
   %15 = icmp samesign ult i64 %.013.i, 22
   tail call void @llvm.assume(i1 %15)
-  %16 = trunc nuw i64 %.013.i to i32
+  %16 = trunc nuw nsw i64 %.013.i to i32
   %17 = shl nuw nsw i32 1, %16
   %18 = load i32, ptr %0, align 4, !noundef !4
   %19 = or i32 %18, %17
@@ -70690,7 +70690,7 @@ define hidden noundef range(i32 0, 56) i32 @_ZN13rust_analyzer3lsp15semantic_tok
   br label %"_ZN4core3ptr66drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokenType$GT$17hce9d9d051165b0eeE.exit"
 
 "_ZN4core3ptr66drop_in_place$LT$lsp_types..semantic_tokens..SemanticTokenType$GT$17hce9d9d051165b0eeE.exit": ; preds = %13, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit.i.i"
-  %26 = trunc nuw i64 %.013.i to i32
+  %26 = trunc nuw nsw i64 %.013.i to i32
   ret i32 %26
 
 27:                                               ; preds = %12

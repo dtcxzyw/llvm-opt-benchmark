@@ -2130,7 +2130,7 @@ define hidden i32 @_PyComplex_FormatAdvancedWriter(ptr noundef %0, ptr noundef %
   %75 = icmp slt i32 %41, 0
   %.0134.i = select i1 %75, i32 %.0133188205.i, i32 %41
   %.1132.i = select i1 %75, i32 %73, i32 %74
-  %76 = trunc i32 %.1132.i to i8
+  %76 = trunc nuw nsw i32 %.1132.i to i8
   %77 = call ptr @PyOS_double_to_string(double noundef %53, i8 noundef signext %76, i32 noundef %.0134.i, i32 noundef %.1.i, ptr noundef nonnull %14) #12
   %78 = icmp eq ptr %77, null
   br i1 %78, label %197, label %79

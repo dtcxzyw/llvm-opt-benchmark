@@ -1722,7 +1722,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   br label %96
 
 96:                                               ; preds = %95, %93
-  %97 = trunc i64 %77 to i32
+  %97 = trunc nsw i64 %77 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   store i32 %97, ptr %16, align 4
   %98 = load ptr, ptr %73, align 8

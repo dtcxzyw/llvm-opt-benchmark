@@ -1871,7 +1871,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   br label %110
 
 68:                                               ; preds = %61
-  %69 = trunc i64 %1 to i32
+  %69 = trunc nuw nsw i64 %1 to i32
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 %69, ptr %70, align 4
   store i8 0, ptr %43, align 8
@@ -1946,7 +1946,7 @@ _ZNKSt5arrayIiLm3EE2atEm.exit11:                  ; preds = %95
   %105 = add nsw i32 %102, %104
   %106 = srem i32 %105, %104
   store i32 %106, ptr %98, align 4
-  %107 = trunc nuw i64 %1 to i32
+  %107 = trunc nuw nsw i64 %1 to i32
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %107, ptr %108, align 4
   br label %109
@@ -2458,7 +2458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

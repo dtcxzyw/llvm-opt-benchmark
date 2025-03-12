@@ -2232,7 +2232,7 @@ kdf.exit:                                         ; preds = %24
   %70 = and i16 %.034.i.i.i, %69
   %71 = sub nsw i32 %.038.i.i.i, %.141.i.i.i
   %72 = lshr i32 %40, %.141.i.i.i
-  %73 = trunc nuw i32 %72 to i16
+  %73 = trunc nuw nsw i32 %72 to i16
   br label %74
 
 74:                                               ; preds = %68, %57, %51
@@ -2404,7 +2404,7 @@ vector_decode_decompress_ntt.exit.i:              ; preds = %scalar_ntt.exit.i.i
   %158 = and i16 %.034.i.i, %157
   %159 = sub nsw i32 %.038.i.i, %.141.i.i
   %160 = lshr i32 %132, %.141.i.i
-  %161 = trunc nuw i32 %160 to i16
+  %161 = trunc nuw nsw i32 %160 to i16
   br label %162
 
 162:                                              ; preds = %156, %145, %139

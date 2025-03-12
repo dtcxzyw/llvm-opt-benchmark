@@ -9799,7 +9799,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 
 35:                                               ; preds = %33
   %36 = lshr i32 %0, 6
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -9947,7 +9947,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
 
 100:                                              ; preds = %94
   %101 = lshr i32 %0, 12
-  %102 = trunc nuw i32 %101 to i8
+  %102 = trunc nuw nsw i32 %101 to i8
   %103 = or disjoint i8 %102, -32
   br i1 %.not.i.i.i34, label %107, label %104
 
@@ -10509,7 +10509,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 
 35:                                               ; preds = %33
   %36 = lshr i32 %0, 6
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
@@ -10657,7 +10657,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 
 100:                                              ; preds = %94
   %101 = lshr i32 %0, 12
-  %102 = trunc nuw i32 %101 to i8
+  %102 = trunc nuw nsw i32 %101 to i8
   %103 = or disjoint i8 %102, -32
   br i1 %.not.i.i.i34, label %107, label %104
 

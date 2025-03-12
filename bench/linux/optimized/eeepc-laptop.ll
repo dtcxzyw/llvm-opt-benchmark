@@ -1686,10 +1686,10 @@ define internal noundef i64 @pwm1_store(ptr readnone captures(none) %0, ptr read
 
 11:                                               ; preds = %8
   %12 = call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %13 = trunc i32 %12 to i16
+  %13 = trunc nuw nsw i32 %12 to i16
   %.lhs.trunc = mul nuw nsw i16 %13, 100
   %14 = udiv i16 %.lhs.trunc, 255
-  %15 = trunc nuw i16 %14 to i8
+  %15 = trunc nuw nsw i16 %14 to i8
   br label %16
 
 16:                                               ; preds = %11, %8

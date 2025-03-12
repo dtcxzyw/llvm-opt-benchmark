@@ -3557,7 +3557,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0
   br i1 %66, label %398, label %67
 
 67:                                               ; preds = %61
-  %.lhs.trunc.i.i.i = trunc nuw i64 %65 to i16
+  %.lhs.trunc.i.i.i = trunc nuw nsw i64 %65 to i16
   %68 = udiv i16 %.lhs.trunc.i.i.i, 3
   %.zext.i.i.i = zext nneg i16 %68 to i64
   %69 = invoke noundef i8 @_ZN3gif7encoder9flag_size17h0777b89bd87e4093E(i64 noundef %.zext.i.i.i)

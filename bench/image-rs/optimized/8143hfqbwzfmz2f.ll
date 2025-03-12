@@ -28367,7 +28367,7 @@ define internal fastcc void @_ZN5image6codecs3dxt17decode_dxt_colors17h47d8c1f2a
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hdfea2586a1465bd1E.exit": ; preds = %75
   %79 = add nuw nsw i64 %.sroa.09.045, 1
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 %76
-  %.sroa.613.1.tr = trunc nuw i64 %.sroa.09.045 to i32
+  %.sroa.613.1.tr = trunc nuw nsw i64 %.sroa.09.045 to i32
   %81 = shl nuw nsw i32 %.sroa.613.1.tr, 1
   %82 = lshr i32 %22, %81
   %83 = and i32 %82, 3
@@ -29603,7 +29603,7 @@ _ZN4core4iter6traits8iterator8Iterator10max_by_key17h5aa12293d676241dE.exit: ; p
   %.sroa.0106.0373 = phi i64 [ 0, %401 ], [ %413, %412 ]
   %413 = add nuw nsw i64 %.sroa.0106.0373, 1
   %414 = or disjoint i64 %.sroa.0106.0373, 4
-  %.sroa.6110.1.tr = trunc nuw i64 %.sroa.0106.0373 to i32
+  %.sroa.6110.1.tr = trunc nuw nsw i64 %.sroa.0106.0373 to i32
   %415 = shl nuw nsw i32 %.sroa.6110.1.tr, 3
   %416 = lshr i32 %.1131, %415
   %417 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %414

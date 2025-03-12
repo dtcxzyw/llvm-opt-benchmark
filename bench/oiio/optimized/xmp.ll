@@ -6621,7 +6621,7 @@ _ZN11OpenImageIO6v3_1_04pugi4impl13utf32_decoderINS2_9opt_falseEE7processINS2_12
 
 81:                                               ; preds = %79
   %82 = lshr i32 %73, 6
-  %83 = trunc nuw i32 %82 to i8
+  %83 = trunc nuw nsw i32 %82 to i8
   %84 = or disjoint i8 %83, -64
   store i8 %84, ptr %.01119.i19.i, align 1, !tbaa !69
   %85 = trunc i32 %73 to i8
@@ -6633,7 +6633,7 @@ _ZN11OpenImageIO6v3_1_04pugi4impl13utf32_decoderINS2_9opt_falseEE7processINS2_12
 
 89:                                               ; preds = %79
   %90 = lshr i32 %73, 12
-  %91 = trunc nuw i32 %90 to i8
+  %91 = trunc nuw nsw i32 %90 to i8
   %92 = or disjoint i8 %91, -32
   store i8 %92, ptr %.01119.i19.i, align 1, !tbaa !69
   %93 = lshr i32 %73, 6
@@ -6748,7 +6748,7 @@ _ZN11OpenImageIO6v3_1_04pugi4impl13utf32_decoderINS2_8opt_trueEE7processINS2_12u
 
 142:                                              ; preds = %140
   %143 = lshr i32 %134, 6
-  %144 = trunc nuw i32 %143 to i8
+  %144 = trunc nuw nsw i32 %143 to i8
   %145 = or disjoint i8 %144, -64
   store i8 %145, ptr %.01119.i19.i62, align 1, !tbaa !69
   %146 = trunc i32 %134 to i8
@@ -6760,7 +6760,7 @@ _ZN11OpenImageIO6v3_1_04pugi4impl13utf32_decoderINS2_8opt_trueEE7processINS2_12u
 
 150:                                              ; preds = %140
   %151 = lshr i32 %134, 12
-  %152 = trunc nuw i32 %151 to i8
+  %152 = trunc nuw nsw i32 %151 to i8
   %153 = or disjoint i8 %152, -32
   store i8 %153, ptr %.01119.i19.i62, align 1, !tbaa !69
   %154 = lshr i32 %134, 6
@@ -7612,7 +7612,7 @@ _ZN11OpenImageIO6v3_1_04pugi4impl13utf16_decoderINS2_9opt_falseEE7processINS2_12
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = trunc nuw i16 %39 to i8
+  %45 = trunc nuw nsw i16 %39 to i8
   store i8 %45, ptr %.02937.i20, align 1, !tbaa !69
   br label %_ZN11OpenImageIO6v3_1_04pugi4impl11utf8_writer3lowEPhj.exit.i
 
@@ -7622,7 +7622,7 @@ _ZN11OpenImageIO6v3_1_04pugi4impl13utf16_decoderINS2_9opt_falseEE7processINS2_12
 
 48:                                               ; preds = %46
   %49 = lshr i16 %39, 6
-  %50 = trunc nuw i16 %49 to i8
+  %50 = trunc nuw nsw i16 %49 to i8
   %51 = or disjoint i8 %50, -64
   store i8 %51, ptr %.02937.i20, align 1, !tbaa !69
   %52 = trunc i16 %39 to i8
@@ -7778,7 +7778,7 @@ define linkonce_odr hidden noundef ptr @_ZN11OpenImageIO6v3_1_04pugi4impl13utf16
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i16 %rev.i to i8
+  %10 = trunc nuw nsw i16 %rev.i to i8
   store i8 %10, ptr %.02938, align 1, !tbaa !69
   br label %_ZN11OpenImageIO6v3_1_04pugi4impl11utf8_writer3lowEPhj.exit
 
@@ -7788,7 +7788,7 @@ define linkonce_odr hidden noundef ptr @_ZN11OpenImageIO6v3_1_04pugi4impl13utf16
 
 13:                                               ; preds = %11
   %14 = lshr i16 %rev.i, 6
-  %15 = trunc nuw i16 %14 to i8
+  %15 = trunc nuw nsw i16 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %.02938, align 1, !tbaa !69
   %17 = trunc i16 %rev.i to i8
@@ -11453,7 +11453,7 @@ define linkonce_odr hidden noundef ptr @_ZN11OpenImageIO6v3_1_04pugi4impl14strco
 
 51:                                               ; preds = %49
   %52 = lshr i32 %.3, 6
-  %53 = trunc nuw i32 %52 to i8
+  %53 = trunc nuw nsw i32 %52 to i8
   %54 = or disjoint i8 %53, -64
   store i8 %54, ptr %0, align 1, !tbaa !69
   %55 = trunc i32 %.3 to i8
@@ -11464,7 +11464,7 @@ define linkonce_odr hidden noundef ptr @_ZN11OpenImageIO6v3_1_04pugi4impl14strco
 
 58:                                               ; preds = %49
   %59 = lshr i32 %.3, 12
-  %60 = trunc nuw i32 %59 to i8
+  %60 = trunc nuw nsw i32 %59 to i8
   %61 = or disjoint i8 %60, -32
   store i8 %61, ptr %0, align 1, !tbaa !69
   %62 = lshr i32 %.3, 6
@@ -17523,7 +17523,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %._crit_edge.i.i
-  %35 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %35 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %36 = or disjoint i8 %35, 48
   %37 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %36, ptr %37, align 1, !tbaa !69
@@ -17565,7 +17565,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %._crit_edge.i.i.i
-  %56 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %56 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %57 = or disjoint i8 %56, 48
   %58 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %57, ptr %58, align 1, !tbaa !69
@@ -17819,7 +17819,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %._crit_edge.i
-  %41 = trunc nuw i32 %.0.lcssa.i to i8
+  %41 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %42 = or disjoint i8 %41, 48
   %43 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -1
   store i8 %42, ptr %43, align 1, !tbaa !69
@@ -17888,7 +17888,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %51
   br i1 %72, label %73, label %77
 
 73:                                               ; preds = %._crit_edge.i.i
-  %74 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %74 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %75 = or disjoint i8 %74, 48
   %76 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %75, ptr %76, align 1, !tbaa !69
@@ -18042,7 +18042,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %._crit_edge.i
-  %40 = trunc nuw i64 %.0.lcssa.i to i8
+  %40 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %41 = or disjoint i8 %40, 48
   %42 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -1
   store i8 %41, ptr %42, align 1, !tbaa !69
@@ -18109,7 +18109,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %49
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %._crit_edge.i.i
-  %71 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %71 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %72 = or disjoint i8 %71, 48
   %73 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %72, ptr %73, align 1, !tbaa !69
@@ -18191,7 +18191,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %._crit_edge.i
-  %35 = trunc nuw i64 %.0.lcssa.i to i8
+  %35 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %36 = or disjoint i8 %35, 48
   %37 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -1
   store i8 %36, ptr %37, align 1, !tbaa !69
@@ -18231,7 +18231,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %._crit_edge.i.i
-  %54 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %54 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %55 = or disjoint i8 %54, 48
   %56 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %55, ptr %56, align 1, !tbaa !69
@@ -18372,7 +18372,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %._crit_edge.i
-  %51 = trunc nuw i128 %.022.lcssa.i to i8
+  %51 = trunc nuw nsw i128 %.022.lcssa.i to i8
   %52 = or disjoint i8 %51, 48
   %53 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 -1
   store i8 %52, ptr %53, align 1, !tbaa !69
@@ -18443,7 +18443,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %61
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %._crit_edge.i.i
-  %84 = trunc nuw i128 %.022.lcssa.i.i to i8
+  %84 = trunc nuw nsw i128 %.022.lcssa.i.i to i8
   %85 = or disjoint i8 %84, 48
   %86 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 -1
   store i8 %85, ptr %86, align 1, !tbaa !69
@@ -18557,7 +18557,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %._crit_edge.i
-  %44 = trunc nuw i128 %.022.lcssa.i to i8
+  %44 = trunc nuw nsw i128 %.022.lcssa.i to i8
   %45 = or disjoint i8 %44, 48
   %46 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 -1
   store i8 %45, ptr %46, align 1, !tbaa !69
@@ -18601,7 +18601,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %._crit_edge.i.i
-  %65 = trunc nuw i128 %.022.lcssa.i.i to i8
+  %65 = trunc nuw nsw i128 %.022.lcssa.i.i to i8
   %66 = or disjoint i8 %65, 48
   %67 = getelementptr inbounds i8, ptr %.0.lcssa.i.i, i64 -1
   store i8 %66, ptr %67, align 1, !tbaa !69
@@ -18923,7 +18923,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %67
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %._crit_edge.i.i.i
-  %93 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %93 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %94 = or disjoint i8 %93, 48
   %95 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %94, ptr %95, align 1, !tbaa !69
@@ -20213,7 +20213,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail19write_int_localizedINS0_8appe
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %._crit_edge.i
-  %30 = trunc nuw i64 %.0.lcssa.i to i8
+  %30 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %31 = or disjoint i8 %30, 48
   %32 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -1
   store i8 %31, ptr %32, align 1, !tbaa !69
@@ -20991,7 +20991,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i: ; preds = %_ZNS
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %._crit_edge.i.i.i.i
-  %63 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %63 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   %65 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i.i, i64 -1
   store i8 %64, ptr %65, align 1, !tbaa !69
@@ -22423,7 +22423,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %5,
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %._crit_edge.i.i.i
-  %43 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %43 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %44 = or disjoint i8 %43, 48
   %45 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %44, ptr %45, align 1, !tbaa !69
@@ -22509,7 +22509,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %5,
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %._crit_edge.i34.i.i
-  %86 = trunc nuw i32 %.0.lcssa.i36.i.i to i8
+  %86 = trunc nuw nsw i32 %.0.lcssa.i36.i.i to i8
   %87 = or disjoint i8 %86, 48
   %88 = getelementptr inbounds i8, ptr %.019.lcssa.i35.i.i, i64 -1
   store i8 %87, ptr %88, align 1, !tbaa !69
@@ -22950,7 +22950,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appen
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %._crit_edge.i.i.i
-  %25 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %25 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %26 = or disjoint i8 %25, 48
   %27 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %26, ptr %27, align 1, !tbaa !69
@@ -23041,7 +23041,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i: ; preds = 
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %._crit_edge.i.i.i18
-  %69 = trunc nuw i32 %.0.lcssa.i.i.i20 to i8
+  %69 = trunc nuw nsw i32 %.0.lcssa.i.i.i20 to i8
   %70 = or disjoint i8 %69, 48
   %71 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i19, i64 -1
   store i8 %70, ptr %71, align 1, !tbaa !69
@@ -23318,7 +23318,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8append
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %._crit_edge.i.i.i
-  %27 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %27 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %28 = or disjoint i8 %27, 48
   %29 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %28, ptr %29, align 1, !tbaa !69
@@ -23404,7 +23404,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8append
   br i1 %68, label %69, label %73
 
 69:                                               ; preds = %._crit_edge.i34.i.i
-  %70 = trunc nuw i32 %.0.lcssa.i36.i.i to i8
+  %70 = trunc nuw nsw i32 %.0.lcssa.i36.i.i to i8
   %71 = or disjoint i8 %70, 48
   %72 = getelementptr inbounds i8, ptr %.019.lcssa.i35.i.i, i64 -1
   store i8 %71, ptr %72, align 1, !tbaa !69
@@ -23466,7 +23466,7 @@ _ZN3fmt2v86detail17write_significandINS0_8appenderEjcTnNSt9enable_ifIXntsr3std10
   br i1 %97, label %98, label %102
 
 98:                                               ; preds = %._crit_edge.i.i.i38
-  %99 = trunc nuw i32 %.0.lcssa.i.i.i40 to i8
+  %99 = trunc nuw nsw i32 %.0.lcssa.i.i.i40 to i8
   %100 = or disjoint i8 %99, 48
   %101 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i39, i64 -1
   store i8 %100, ptr %101, align 1, !tbaa !69
@@ -23552,7 +23552,7 @@ _ZN3fmt2v86detail17write_significandINS0_8appenderEjcTnNSt9enable_ifIXntsr3std10
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %._crit_edge.i34.i.i26
-  %142 = trunc nuw i32 %.0.lcssa.i36.i.i28 to i8
+  %142 = trunc nuw nsw i32 %.0.lcssa.i36.i.i28 to i8
   %143 = or disjoint i8 %142, 48
   %144 = getelementptr inbounds i8, ptr %.019.lcssa.i35.i.i27, i64 -1
   store i8 %143, ptr %144, align 1, !tbaa !69
@@ -23789,7 +23789,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEicEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt2
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %._crit_edge.i.i.i
-  %94 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %94 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %95 = or disjoint i8 %94, 48
   %96 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %95, ptr %96, align 1, !tbaa !69
@@ -25306,7 +25306,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %5,
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %._crit_edge.i.i.i
-  %42 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %42 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %43 = or disjoint i8 %42, 48
   %44 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %43, ptr %44, align 1, !tbaa !69
@@ -25389,7 +25389,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %5,
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %._crit_edge.i34.i.i
-  %82 = trunc nuw i64 %.0.lcssa.i36.i.i to i8
+  %82 = trunc nuw nsw i64 %.0.lcssa.i36.i.i to i8
   %83 = or disjoint i8 %82, 48
   %84 = getelementptr inbounds i8, ptr %.019.lcssa.i35.i.i, i64 -1
   store i8 %83, ptr %84, align 1, !tbaa !69
@@ -25647,7 +25647,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandIcNS0_8appen
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %._crit_edge.i.i.i
-  %24 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %24 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %25 = or disjoint i8 %24, 48
   %26 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %25, ptr %26, align 1, !tbaa !69
@@ -25736,7 +25736,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSERKc.exit.i: ; preds = 
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %._crit_edge.i.i.i18
-  %66 = trunc nuw i64 %.0.lcssa.i.i.i20 to i8
+  %66 = trunc nuw nsw i64 %.0.lcssa.i.i.i20 to i8
   %67 = or disjoint i8 %66, 48
   %68 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i19, i64 -1
   store i8 %67, ptr %68, align 1, !tbaa !69
@@ -26011,7 +26011,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8append
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %._crit_edge.i.i.i
-  %26 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %26 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %27 = or disjoint i8 %26, 48
   %28 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %27, ptr %28, align 1, !tbaa !69
@@ -26094,7 +26094,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail17write_significandINS0_8append
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %._crit_edge.i34.i.i
-  %66 = trunc nuw i64 %.0.lcssa.i36.i.i to i8
+  %66 = trunc nuw nsw i64 %.0.lcssa.i36.i.i to i8
   %67 = or disjoint i8 %66, 48
   %68 = getelementptr inbounds i8, ptr %.019.lcssa.i35.i.i, i64 -1
   store i8 %67, ptr %68, align 1, !tbaa !69
@@ -26154,7 +26154,7 @@ _ZN3fmt2v86detail17write_significandINS0_8appenderEmcTnNSt9enable_ifIXntsr3std10
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %._crit_edge.i.i.i38
-  %93 = trunc nuw i64 %.0.lcssa.i.i.i40 to i8
+  %93 = trunc nuw nsw i64 %.0.lcssa.i.i.i40 to i8
   %94 = or disjoint i8 %93, 48
   %95 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i39, i64 -1
   store i8 %94, ptr %95, align 1, !tbaa !69
@@ -26237,7 +26237,7 @@ _ZN3fmt2v86detail17write_significandINS0_8appenderEmcTnNSt9enable_ifIXntsr3std10
   br i1 %131, label %132, label %136
 
 132:                                              ; preds = %._crit_edge.i34.i.i26
-  %133 = trunc nuw i64 %.0.lcssa.i36.i.i28 to i8
+  %133 = trunc nuw nsw i64 %.0.lcssa.i36.i.i28 to i8
   %134 = or disjoint i8 %133, 48
   %135 = getelementptr inbounds i8, ptr %.019.lcssa.i35.i.i27, i64 -1
   store i8 %134, ptr %135, align 1, !tbaa !69
@@ -26472,7 +26472,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEicEET_S4_T0_RKT1_.exit: ; preds = %_ZNSt2
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %._crit_edge.i.i.i
-  %93 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %93 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %94 = or disjoint i8 %93, 48
   %95 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %94, ptr %95, align 1, !tbaa !69
@@ -27417,7 +27417,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %._crit_edge.i.i
-  %81 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %81 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %82 = or disjoint i8 %81, 48
   %83 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %82, ptr %83, align 1, !tbaa !69
@@ -27459,7 +27459,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %._crit_edge.i.i.i
-  %102 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %102 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %103 = or disjoint i8 %102, 48
   %104 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %103, ptr %104, align 1, !tbaa !69
@@ -27641,7 +27641,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %._crit_edge.i
-  %35 = trunc nuw i64 %.0.lcssa.i to i8
+  %35 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %36 = or disjoint i8 %35, 48
   %37 = getelementptr inbounds i8, ptr %.019.lcssa.i, i64 -1
   store i8 %36, ptr %37, align 1, !tbaa !69
@@ -27681,7 +27681,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %._crit_edge.i.i
-  %54 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %54 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %55 = or disjoint i8 %54, 48
   %56 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %55, ptr %56, align 1, !tbaa !69
@@ -36021,7 +36021,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %68
   br i1 %91, label %92, label %96
 
 92:                                               ; preds = %._crit_edge.i.i.i
-  %93 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %93 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %94 = or disjoint i8 %93, 48
   %95 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %94, ptr %95, align 1, !tbaa !69
@@ -37142,7 +37142,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i: ; preds = %_ZNS
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %._crit_edge.i.i.i.i
-  %62 = trunc nuw i64 %.0.lcssa.i.i.i.i to i8
+  %62 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i to i8
   %63 = or disjoint i8 %62, 48
   %64 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i.i, i64 -1
   store i8 %63, ptr %64, align 1, !tbaa !69
@@ -37567,7 +37567,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit: ; preds = %72
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %._crit_edge.i.i.i
-  %98 = trunc nuw i128 %.022.lcssa.i.i.i to i8
+  %98 = trunc nuw nsw i128 %.022.lcssa.i.i.i to i8
   %99 = or disjoint i8 %98, 48
   %100 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -1
   store i8 %99, ptr %100, align 1, !tbaa !69
@@ -38660,7 +38660,7 @@ _ZN3fmt2v86detail12count_digitsEo.exit:           ; preds = %21, %11, %15, %19
   %.022.lcssa.i = phi i128 [ %.sroa.0.0.insert.insert.i.i, %_ZN3fmt2v86detail12count_digitsEo.exit ], [ %29, %.lr.ph.i ]
   %.0.lcssa.i = phi ptr [ %26, %_ZN3fmt2v86detail12count_digitsEo.exit ], [ %28, %.lr.ph.i ]
   %36 = icmp samesign ult i128 %.022.lcssa.i, 10
-  %extract.t29 = trunc i128 %.022.lcssa.i to i8
+  %extract.t29 = trunc nuw nsw i128 %.022.lcssa.i to i8
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %._crit_edge.i.thread, %._crit_edge.i
@@ -38916,7 +38916,7 @@ _ZN3fmt2v86detail6fill_nINS0_8appenderEmcEET_S4_T0_RKT1_.exit.i: ; preds = %_ZNS
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %._crit_edge.i.i.i.i
-  %63 = trunc nuw i128 %.022.lcssa.i.i.i.i to i8
+  %63 = trunc nuw nsw i128 %.022.lcssa.i.i.i.i to i8
   %64 = or disjoint i8 %63, 48
   %65 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 -1
   store i8 %64, ptr %65, align 1, !tbaa !69
@@ -40120,7 +40120,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %80, label %81, label %85
 
 81:                                               ; preds = %._crit_edge.i.i
-  %82 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %82 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %83 = or disjoint i8 %82, 48
   %84 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 -1
   store i8 %83, ptr %84, align 1, !tbaa !69
@@ -40162,7 +40162,7 @@ _ZN3fmt2v86detail10to_pointerIcEEPT_NSt11conditionalIXsr3std7is_sameIS3_cEE5valu
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %._crit_edge.i.i.i
-  %103 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %103 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %104 = or disjoint i8 %103, 48
   %105 = getelementptr inbounds i8, ptr %.019.lcssa.i.i.i, i64 -1
   store i8 %104, ptr %105, align 1, !tbaa !69

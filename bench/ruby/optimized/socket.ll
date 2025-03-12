@@ -790,7 +790,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %12
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %17 = trunc i64 %14 to i32
+  %17 = trunc nsw i64 %14 to i32
   %18 = call i32 @rsock_connect(i64 noundef %0, ptr noundef %.sroa.2.0.i, i32 noundef %17, i32 noundef 0, i64 noundef 4) #16
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %20, label %23
@@ -854,7 +854,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %20
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %25 = trunc i64 %22 to i32
+  %25 = trunc nsw i64 %22 to i32
   %26 = call i32 @connect(i32 noundef %14, ptr %.sroa.2.0.i, i32 noundef %25) #16
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %43
@@ -940,7 +940,7 @@ RSTRING_PTR.exit:                                 ; preds = %2, %17
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %22 = trunc i64 %19 to i32
+  %22 = trunc nsw i64 %19 to i32
   %23 = call i32 @bind(i32 noundef %11, ptr %.sroa.2.0.i, i32 noundef %22) #16
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %25, label %28
@@ -1188,7 +1188,7 @@ RSTRING_PTR.exit:                                 ; preds = %23, %27
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %32 = trunc i64 %29 to i32
+  %32 = trunc nsw i64 %29 to i32
   %33 = call ptr @gethostbyaddr(ptr noundef %.sroa.2.0.i, i32 noundef %32, i32 noundef %.0) #16
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %37
@@ -1934,7 +1934,7 @@ RARRAY_AREF.exit79:                               ; preds = %RARRAY_AREF.exit76,
   br i1 %.not47, label %115, label %.thread109
 
 .thread92:                                        ; preds = %39, %RSTRING_PTR.exit
-  %111 = trunc nuw i64 %30 to i32
+  %111 = trunc nuw nsw i64 %30 to i32
   %112 = call i32 @rb_getnameinfo(ptr noundef nonnull %7, i32 noundef %111, ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull %5, i64 noundef 1024, i32 noundef %.041) #16
   %.not4796 = icmp eq i32 %112, 0
   br i1 %.not4796, label %.thread99, label %.thread104
@@ -2075,7 +2075,7 @@ define internal i64 @sock_s_unpack_sockaddr_in(i64 %0, i64 noundef %1) #0 {
 
 RSTRING_LENINT.exit:                              ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %19 = trunc nuw i64 %8 to i32
+  %19 = trunc nuw nsw i64 %8 to i32
   %20 = call i64 @rsock_make_ipaddr(ptr noundef nonnull %4, i32 noundef %19) #16
   %21 = load i16, ptr %18, align 2, !tbaa !96
   %rev.i = call noundef i16 @llvm.bswap.i16(i16 %21)
@@ -2174,7 +2174,7 @@ define internal i64 @sock_s_unpack_sockaddr_un(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %16
-  %20 = trunc nuw i64 %8 to i32
+  %20 = trunc nuw nsw i64 %8 to i32
   %21 = call i64 @rsock_unixpath_str(ptr noundef nonnull %4, i32 noundef %20) #16
   ret i64 %21
 }

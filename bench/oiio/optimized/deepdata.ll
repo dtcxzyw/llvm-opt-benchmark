@@ -4866,7 +4866,7 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit: ; preds = %7
   %53 = add nsw i32 %49, -94
   %54 = shl i32 %52, %53
   %55 = lshr i32 %52, %50
-  %56 = trunc nuw i32 %55 to i16
+  %56 = trunc nuw nsw i32 %55 to i16
   %57 = icmp ugt i32 %54, -2147483648
   br i1 %57, label %61, label %58
 

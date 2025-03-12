@@ -4779,7 +4779,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.pre115119 = phi ptr [ %61, %.thread117 ], [ %.pre115.pre, %64 ]
   %76 = phi ptr [ %60, %.thread117 ], [ %66, %64 ]
   %77 = phi ptr [ %59, %.thread117 ], [ %65, %64 ]
-  %78 = trunc nuw i64 %75 to i32
+  %78 = trunc nuw nsw i64 %75 to i32
   store i32 %78, ptr %77, align 4
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %79, ptr align 1 %.pre115119, i64 %75, i1 false)
@@ -4968,7 +4968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit66.us: ; preds
   br i1 %142, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69.us, label %143
 
 143:                                              ; preds = %140
-  %144 = trunc nuw i64 %141 to i32
+  %144 = trunc nuw nsw i64 %141 to i32
   store i32 %144, ptr %108, align 4
   %145 = getelementptr inbounds nuw i8, ptr %103, i64 20
   %146 = load ptr, ptr %8, align 8
@@ -5062,7 +5062,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP16ai
 
 174:                                              ; preds = %169
   %175 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %176 = trunc nuw i64 %172 to i32
+  %176 = trunc nuw nsw i64 %172 to i32
   store i32 %176, ptr %175, align 4
   %177 = getelementptr inbounds nuw i8, ptr %167, i64 20
   %178 = load ptr, ptr %.sroa.079.0106, align 8

@@ -1724,7 +1724,7 @@ decode_hex4.exit39.i.i:                           ; preds = %96
 
 122:                                              ; preds = %120
   %123 = lshr i32 %74, 6
-  %124 = trunc nuw i32 %123 to i8
+  %124 = trunc nuw nsw i32 %123 to i8
   %125 = or disjoint i8 %124, -64
   store i8 %125, ptr %.sroa.0.i.i, align 4, !tbaa !25
   %126 = trunc i32 %74 to i8
@@ -1739,7 +1739,7 @@ decode_hex4.exit39.i.i:                           ; preds = %96
 
 131:                                              ; preds = %129
   %132 = lshr i32 %74, 12
-  %133 = trunc nuw i32 %132 to i8
+  %133 = trunc nuw nsw i32 %132 to i8
   %134 = or disjoint i8 %133, -32
   store i8 %134, ptr %.sroa.0.i.i, align 4, !tbaa !25
   %135 = lshr i32 %74, 6
@@ -1761,7 +1761,7 @@ decode_hex4.exit39.i.i:                           ; preds = %96
   %.02355626672.i.i = phi i32 [ %115, %.thread68.i.i ], [ %74, %142 ]
   %.057616771.i.i = phi i64 [ 12, %.thread68.i.i ], [ 6, %142 ]
   %145 = lshr i32 %.02355626672.i.i, 18
-  %146 = trunc nuw i32 %145 to i8
+  %146 = trunc nuw nsw i32 %145 to i8
   %147 = or disjoint i8 %146, -16
   store i8 %147, ptr %.sroa.0.i.i, align 4, !tbaa !25
   %148 = lshr i32 %.02355626672.i.i, 12

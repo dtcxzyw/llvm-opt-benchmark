@@ -7232,7 +7232,7 @@ _ZNK4llvm15BitstreamWriter20GetNumOfFlushedBytesEv.exit.thread: ; preds = %3, %9
   %37 = and i8 %.sroa.0.0.copyload.i, %36
   %38 = sub nuw nsw i32 8, %34
   %notmask29.i = shl nsw i32 -1, %38
-  %39 = trunc i32 %notmask29.i to i8
+  %39 = trunc nsw i32 %notmask29.i to i8
   %40 = xor i8 %39, -1
   %41 = and i8 %2, %40
   %42 = zext nneg i8 %41 to i32
@@ -7319,7 +7319,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %83 = and i8 %.sroa.0.0.copyload.i51, %82
   %84 = sub nuw nsw i32 8, %80
   %notmask29.i55 = shl nsw i32 -1, %84
-  %85 = trunc i32 %notmask29.i55 to i8
+  %85 = trunc nsw i32 %notmask29.i55 to i8
   %86 = xor i8 %85, -1
   %87 = and i8 %2, %86
   %88 = zext nneg i8 %87 to i32

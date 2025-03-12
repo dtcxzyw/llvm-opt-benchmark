@@ -112286,7 +112286,7 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %115, %121
 
 167:                                              ; preds = %155
   %168 = and i32 %162, -268427265
-  %indvars.iv.tr = trunc nuw i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %169 = shl nuw nsw i32 %indvars.iv.tr, 20
   %170 = or disjoint i32 %168, %169
   store i32 %170, ptr %161, align 8

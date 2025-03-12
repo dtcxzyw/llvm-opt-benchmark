@@ -16746,7 +16746,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %69, %71
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 87:                                               ; preds = %._crit_edge
-  %88 = trunc nuw i32 %.pre51 to i8
+  %88 = trunc nuw nsw i32 %.pre51 to i8
   %89 = load i8, ptr %10, align 8
   %90 = and i8 %89, -64
   %91 = or disjoint i8 %90, %88

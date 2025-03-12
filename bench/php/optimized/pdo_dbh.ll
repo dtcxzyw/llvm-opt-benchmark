@@ -1602,7 +1602,7 @@ thread-pre-split:                                 ; preds = %14
   br i1 %switch, label %21, label %24
 
 21:                                               ; preds = %19
-  %22 = trunc nuw i64 %20 to i32
+  %22 = trunc nuw nsw i64 %20 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %22, ptr %23, align 8, !tbaa !54
   br label %212
@@ -1655,7 +1655,7 @@ thread-pre-split116:                              ; preds = %33
   br i1 %switch101, label %40, label %43
 
 40:                                               ; preds = %38
-  %41 = trunc nuw i64 %39 to i32
+  %41 = trunc nuw nsw i64 %39 to i32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %41, ptr %42, align 8, !tbaa !113
   br label %212

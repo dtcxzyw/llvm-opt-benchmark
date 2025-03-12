@@ -322,7 +322,7 @@ define hidden void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noun
   br i1 %or.cond.i.i.i, label %_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams.exit.i, label %28
 
 28:                                               ; preds = %10
-  %.rhs.trunc.i.i.i = trunc nuw i64 %26 to i16
+  %.rhs.trunc.i.i.i = trunc nuw nsw i64 %26 to i16
   %29 = udiv i16 1000, %.rhs.trunc.i.i.i
   %.zext.i.i.i = zext nneg i16 %29 to i64
   br label %_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams.exit.i
@@ -405,7 +405,7 @@ define hidden noundef ptr @_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParam
   br i1 %or.cond.i.i, label %_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams.exit, label %25
 
 25:                                               ; preds = %7
-  %.rhs.trunc.i.i = trunc nuw i64 %23 to i16
+  %.rhs.trunc.i.i = trunc nuw nsw i64 %23 to i16
   %26 = udiv i16 1000, %.rhs.trunc.i.i
   %.zext.i.i = zext nneg i16 %26 to i64
   br label %_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams.exit
@@ -465,7 +465,7 @@ define hidden void @_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams(ptr n
   br i1 %or.cond.i, label %_Z36compute_accumulated_debt_carry_limitRK16JfrSamplerParams.exit, label %14
 
 14:                                               ; preds = %2
-  %.rhs.trunc.i = trunc nuw i64 %12 to i16
+  %.rhs.trunc.i = trunc nuw nsw i64 %12 to i16
   %15 = udiv i16 1000, %.rhs.trunc.i
   %.zext.i = zext nneg i16 %15 to i64
   br label %_Z36compute_accumulated_debt_carry_limitRK16JfrSamplerParams.exit

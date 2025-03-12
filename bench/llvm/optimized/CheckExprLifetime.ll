@@ -2607,7 +2607,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang4sema12_GLOBAL__N_122IndirectLocalPathE
 
 .critedge6.loopexit:                              ; preds = %217, %.lr.ph
   %.0194.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next, %217 ]
-  %.0194.lcssa.ph = trunc i64 %.0194.lcssa.ph.in to i32
+  %.0194.lcssa.ph = trunc nuw i64 %.0194.lcssa.ph.in to i32
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %.critedge

@@ -651,7 +651,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayIdE16print_summary_onEP12o
 
 .critedge:                                        ; preds = %.lr.ph, %13
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
+  %.0.lcssa.ph = trunc nuw i64 %.0.lcssa.ph.in to i32
   %16 = icmp ugt i32 %.pre.pre, %.0.lcssa.ph
   br i1 %16, label %.lr.ph50.preheader, label %.critedge.thread
 
@@ -739,7 +739,7 @@ define linkonce_odr hidden void @_ZNK15WorkerDataArrayImE16print_summary_onEP12o
 
 .critedge:                                        ; preds = %.lr.ph, %13
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %.0.lcssa.ph = trunc i64 %.0.lcssa.ph.in to i32
+  %.0.lcssa.ph = trunc nuw i64 %.0.lcssa.ph.in to i32
   %16 = icmp ugt i32 %.pre.pre, %.0.lcssa.ph
   br i1 %16, label %.lr.ph50.preheader, label %.critedge.thread
 

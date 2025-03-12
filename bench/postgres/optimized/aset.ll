@@ -332,7 +332,7 @@ define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 10:                                               ; preds = %3
   %11 = icmp samesign ugt i64 %1, 8
-  %12 = trunc i64 %1 to i32
+  %12 = trunc nuw i64 %1 to i32
   %13 = add i32 %12, -1
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %15 = sub nsw i32 29, %14
@@ -849,7 +849,7 @@ MemoryContextCheckSize.exit:                      ; preds = %20, %22
 
 72:                                               ; preds = %65
   %73 = icmp samesign ugt i64 %1, 8
-  %74 = trunc i64 %1 to i32
+  %74 = trunc nuw i64 %1 to i32
   %75 = add i32 %74, -1
   %76 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %75, i1 true)
   %77 = sub nsw i32 29, %76

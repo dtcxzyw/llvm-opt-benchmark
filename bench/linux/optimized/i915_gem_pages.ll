@@ -1520,7 +1520,7 @@ define dso_local ptr @__i915_gem_object_page_iter_get_sg(ptr noundef %0, ptr nou
 .loopexit:                                        ; preds = %110, %97
   %118 = phi i32 [ %92, %97 ], [ %101, %110 ]
   %119 = phi ptr [ %93, %97 ], [ %111, %110 ]
-  %120 = trunc i64 %2 to i32
+  %120 = trunc nuw i64 %2 to i32
   %121 = sub i32 %120, %118
   store i32 %121, ptr %3, align 4
   br label %135

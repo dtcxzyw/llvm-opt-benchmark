@@ -4182,7 +4182,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
 
 29:                                               ; preds = %26
   %30 = lshr i32 %2, 12
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -32
   %33 = lshr i32 %2, 6
   br label %44
@@ -4222,7 +4222,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
 
 .thread.i:                                        ; preds = %21
   %49 = lshr i32 %2, 6
-  %50 = trunc nuw i32 %49 to i8
+  %50 = trunc nuw nsw i32 %49 to i8
   %51 = or disjoint i8 %50, -64
   store i8 %51, ptr %9, align 4, !alias.scope !2079, !noalias !2076
   %52 = trunc i32 %2 to i8
@@ -4837,13 +4837,13 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %304, %300, %"_ZN55_
   br i1 %315, label %325, label %336
 
 316:                                              ; preds = %.thread19, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hbd08afcff9d24bd4E.exit.thread"
-  %317 = trunc nuw i32 %2 to i8
+  %317 = trunc nuw nsw i32 %2 to i8
   store i8 %317, ptr %.sroa.0.i, align 4, !alias.scope !2180, !noalias !2178
   br label %"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.exit"
 
 318:                                              ; preds = %312
   %319 = lshr i32 %2, 6
-  %320 = trunc nuw i32 %319 to i8
+  %320 = trunc nuw nsw i32 %319 to i8
   %321 = or disjoint i8 %320, -64
   store i8 %321, ptr %.sroa.0.i, align 4, !alias.scope !2180, !noalias !2178
   %322 = trunc i32 %2 to i8
@@ -4855,7 +4855,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %304, %300, %"_ZN55_
 
 325:                                              ; preds = %314
   %326 = lshr i32 %2, 12
-  %327 = trunc nuw i32 %326 to i8
+  %327 = trunc nuw nsw i32 %326 to i8
   %328 = or disjoint i8 %327, -32
   store i8 %328, ptr %.sroa.0.i, align 4, !alias.scope !2180, !noalias !2178
   %329 = lshr i32 %2, 6

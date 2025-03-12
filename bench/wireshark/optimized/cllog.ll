@@ -1363,7 +1363,7 @@ define internal noundef zeroext i1 @parseFieldLength(ptr readnone captures(none)
   br label %18
 
 15:                                               ; preds = %10
-  %16 = trunc nuw i32 %11 to i8
+  %16 = trunc nuw nsw i32 %11 to i8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 %16, ptr %17, align 4
   br label %18

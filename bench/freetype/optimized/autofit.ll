@@ -6374,7 +6374,7 @@ define internal fastcc void @af_latin_hints_link_segments(ptr noundef readonly c
 
 112:                                              ; preds = %110
   %113 = mul nuw nsw i64 %108, %108
-  %.lhs.trunc.us = trunc i64 %113 to i32
+  %.lhs.trunc.us = trunc nuw nsw i64 %113 to i32
   %114 = udiv i32 %.lhs.trunc.us, 3000
   %.zext.us = zext nneg i32 %114 to i64
   br label %115

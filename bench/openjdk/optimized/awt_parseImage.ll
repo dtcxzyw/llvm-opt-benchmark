@@ -1885,7 +1885,7 @@ define hidden range(i32 -1, 2) i32 @awt_getPixels(ptr noundef %0, ptr noundef re
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
-  %.rhs.trunc = trunc nuw i32 %21 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %21 to i16
   %24 = udiv i16 10240, %.rhs.trunc
   %.zext = zext nneg i16 %24 to i32
   br label %25
@@ -2096,7 +2096,7 @@ define hidden range(i32 -1, 2) i32 @awt_setPixels(ptr noundef %0, ptr noundef re
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %20
-  %.rhs.trunc = trunc nuw i32 %21 to i16
+  %.rhs.trunc = trunc nuw nsw i32 %21 to i16
   %24 = udiv i16 10240, %.rhs.trunc
   %.zext = zext nneg i16 %24 to i32
   br label %25

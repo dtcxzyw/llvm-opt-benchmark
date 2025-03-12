@@ -1110,7 +1110,7 @@ define noundef range(i32 0, 6) i32 @_ZN8triggers17mcontrol_common_t14legalize_ma
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %3, %2, %2, %2, %2, %2
-  %6 = trunc i64 %0 to i32
+  %6 = trunc nuw nsw i64 %0 to i32
   br label %7
 
 7:                                                ; preds = %2, %3, %5

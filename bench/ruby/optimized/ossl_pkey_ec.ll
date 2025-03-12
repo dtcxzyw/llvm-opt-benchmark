@@ -149,149 +149,149 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 define void @Init_ossl_ec() local_unnamed_addr #0 {
   %1 = load i64, ptr @mPKey, align 8, !tbaa !6
   %2 = load i64, ptr @ePKeyError, align 8, !tbaa !6
-  %3 = tail call i64 @rb_define_class_under(i64 noundef %1, ptr noundef nonnull @.str, i64 noundef %2) #7
+  %3 = tail call i64 @rb_define_class_under(i64 noundef %1, ptr noundef nonnull @.str, i64 noundef %2) #8
   store i64 %3, ptr @eECError, align 8, !tbaa !6
   %4 = load i64, ptr @mPKey, align 8, !tbaa !6
   %5 = load i64, ptr @cPKey, align 8, !tbaa !6
-  %6 = tail call i64 @rb_define_class_under(i64 noundef %4, ptr noundef nonnull @.str.1, i64 noundef %5) #7
+  %6 = tail call i64 @rb_define_class_under(i64 noundef %4, ptr noundef nonnull @.str.1, i64 noundef %5) #8
   store i64 %6, ptr @cEC, align 8, !tbaa !6
   %7 = load i64, ptr @rb_cObject, align 8, !tbaa !6
-  %8 = tail call i64 @rb_define_class_under(i64 noundef %6, ptr noundef nonnull @.str.2, i64 noundef %7) #7
+  %8 = tail call i64 @rb_define_class_under(i64 noundef %6, ptr noundef nonnull @.str.2, i64 noundef %7) #8
   store i64 %8, ptr @cEC_GROUP, align 8, !tbaa !6
   %9 = load i64, ptr @cEC, align 8, !tbaa !6
   %10 = load i64, ptr @rb_cObject, align 8, !tbaa !6
-  %11 = tail call i64 @rb_define_class_under(i64 noundef %9, ptr noundef nonnull @.str.3, i64 noundef %10) #7
+  %11 = tail call i64 @rb_define_class_under(i64 noundef %9, ptr noundef nonnull @.str.3, i64 noundef %10) #8
   store i64 %11, ptr @cEC_POINT, align 8, !tbaa !6
   %12 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
   %13 = load i64, ptr @eOSSLError, align 8, !tbaa !6
-  %14 = tail call i64 @rb_define_class_under(i64 noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13) #7
+  %14 = tail call i64 @rb_define_class_under(i64 noundef %12, ptr noundef nonnull @.str.4, i64 noundef %13) #8
   store i64 %14, ptr @eEC_GROUP, align 8, !tbaa !6
   %15 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
   %16 = load i64, ptr @eOSSLError, align 8, !tbaa !6
-  %17 = tail call i64 @rb_define_class_under(i64 noundef %15, ptr noundef nonnull @.str.4, i64 noundef %16) #7
+  %17 = tail call i64 @rb_define_class_under(i64 noundef %15, ptr noundef nonnull @.str.4, i64 noundef %16) #8
   store i64 %17, ptr @eEC_POINT, align 8, !tbaa !6
-  %18 = tail call i64 @rb_intern(ptr noundef nonnull @.str.5) #7
+  %18 = tail call i64 @rb_intern(ptr noundef nonnull @.str.5) #8
   store i64 %18, ptr @s_GFp, align 8, !tbaa !6
-  %19 = tail call i64 @rb_intern(ptr noundef nonnull @.str.6) #7
+  %19 = tail call i64 @rb_intern(ptr noundef nonnull @.str.6) #8
   store i64 %19, ptr @s_GF2m, align 8, !tbaa !6
-  %20 = tail call i64 @rb_intern(ptr noundef nonnull @.str.7) #7
+  %20 = tail call i64 @rb_intern(ptr noundef nonnull @.str.7) #8
   store i64 %20, ptr @ID_uncompressed, align 8, !tbaa !6
-  %21 = tail call i64 @rb_intern(ptr noundef nonnull @.str.8) #7
+  %21 = tail call i64 @rb_intern(ptr noundef nonnull @.str.8) #8
   store i64 %21, ptr @ID_compressed, align 8, !tbaa !6
-  %22 = tail call i64 @rb_intern(ptr noundef nonnull @.str.9) #7
+  %22 = tail call i64 @rb_intern(ptr noundef nonnull @.str.9) #8
   store i64 %22, ptr @ID_hybrid, align 8, !tbaa !6
   %23 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_const(i64 noundef %23, ptr noundef nonnull @.str.10, i64 noundef 3) #7
+  tail call void @rb_define_const(i64 noundef %23, ptr noundef nonnull @.str.10, i64 noundef 3) #8
   %24 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_const(i64 noundef %24, ptr noundef nonnull @.str.11, i64 noundef 1) #7
+  tail call void @rb_define_const(i64 noundef %24, ptr noundef nonnull @.str.11, i64 noundef 1) #8
   %25 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %25, ptr noundef nonnull @.str.12, ptr noundef nonnull @ossl_s_builtin_curves, i32 noundef 0) #7
+  tail call void @rb_define_singleton_method(i64 noundef %25, ptr noundef nonnull @.str.12, ptr noundef nonnull @ossl_s_builtin_curves, i32 noundef 0) #8
   %26 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_singleton_method(i64 noundef %26, ptr noundef nonnull @.str.13, ptr noundef nonnull @ossl_ec_key_s_generate, i32 noundef 1) #7
+  tail call void @rb_define_singleton_method(i64 noundef %26, ptr noundef nonnull @.str.13, ptr noundef nonnull @ossl_ec_key_s_generate, i32 noundef 1) #8
   %27 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @ossl_ec_key_initialize, i32 noundef -1) #7
+  tail call void @rb_define_method(i64 noundef %27, ptr noundef nonnull @.str.14, ptr noundef nonnull @ossl_ec_key_initialize, i32 noundef -1) #8
   %28 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.15, ptr noundef nonnull @ossl_ec_key_get_group, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %28, ptr noundef nonnull @.str.15, ptr noundef nonnull @ossl_ec_key_get_group, i32 noundef 0) #8
   %29 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.16, ptr noundef nonnull @ossl_ec_key_set_group, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %29, ptr noundef nonnull @.str.16, ptr noundef nonnull @ossl_ec_key_set_group, i32 noundef 1) #8
   %30 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.17, ptr noundef nonnull @ossl_ec_key_get_private_key, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %30, ptr noundef nonnull @.str.17, ptr noundef nonnull @ossl_ec_key_get_private_key, i32 noundef 0) #8
   %31 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.18, ptr noundef nonnull @ossl_ec_key_set_private_key, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %31, ptr noundef nonnull @.str.18, ptr noundef nonnull @ossl_ec_key_set_private_key, i32 noundef 1) #8
   %32 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.19, ptr noundef nonnull @ossl_ec_key_get_public_key, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %32, ptr noundef nonnull @.str.19, ptr noundef nonnull @ossl_ec_key_get_public_key, i32 noundef 0) #8
   %33 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.20, ptr noundef nonnull @ossl_ec_key_set_public_key, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %33, ptr noundef nonnull @.str.20, ptr noundef nonnull @ossl_ec_key_set_public_key, i32 noundef 1) #8
   %34 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.21, ptr noundef nonnull @ossl_ec_key_is_private, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %34, ptr noundef nonnull @.str.21, ptr noundef nonnull @ossl_ec_key_is_private, i32 noundef 0) #8
   %35 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.22, ptr noundef nonnull @ossl_ec_key_is_public, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %35, ptr noundef nonnull @.str.22, ptr noundef nonnull @ossl_ec_key_is_public, i32 noundef 0) #8
   %36 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %36, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #7
+  tail call void @rb_define_alias(i64 noundef %36, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21) #8
   %37 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %37, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.22) #7
+  tail call void @rb_define_alias(i64 noundef %37, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.22) #8
   %38 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.25, ptr noundef nonnull @ossl_ec_key_generate_key, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %38, ptr noundef nonnull @.str.25, ptr noundef nonnull @ossl_ec_key_generate_key, i32 noundef 0) #8
   %39 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %39, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25) #7
+  tail call void @rb_define_alias(i64 noundef %39, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.25) #8
   %40 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.27, ptr noundef nonnull @ossl_ec_key_check_key, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %40, ptr noundef nonnull @.str.27, ptr noundef nonnull @ossl_ec_key_check_key, i32 noundef 0) #8
   %41 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.28, ptr noundef nonnull @ossl_ec_key_export, i32 noundef -1) #7
+  tail call void @rb_define_method(i64 noundef %41, ptr noundef nonnull @.str.28, ptr noundef nonnull @ossl_ec_key_export, i32 noundef -1) #8
   %42 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %42, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.28) #7
+  tail call void @rb_define_alias(i64 noundef %42, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.28) #8
   %43 = load i64, ptr @cEC, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.30, ptr noundef nonnull @ossl_ec_key_to_der, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %43, ptr noundef nonnull @.str.30, ptr noundef nonnull @ossl_ec_key_to_der, i32 noundef 0) #8
   %44 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_alloc_func(i64 noundef %44, ptr noundef nonnull @ossl_ec_group_alloc) #7
+  tail call void @rb_define_alloc_func(i64 noundef %44, ptr noundef nonnull @ossl_ec_group_alloc) #8
   %45 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.14, ptr noundef nonnull @ossl_ec_group_initialize, i32 noundef -1) #7
+  tail call void @rb_define_method(i64 noundef %45, ptr noundef nonnull @.str.14, ptr noundef nonnull @ossl_ec_group_initialize, i32 noundef -1) #8
   %46 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.31, ptr noundef nonnull @ossl_ec_group_initialize_copy, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %46, ptr noundef nonnull @.str.31, ptr noundef nonnull @ossl_ec_group_initialize_copy, i32 noundef 1) #8
   %47 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.32, ptr noundef nonnull @ossl_ec_group_eql, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %47, ptr noundef nonnull @.str.32, ptr noundef nonnull @ossl_ec_group_eql, i32 noundef 1) #8
   %48 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %48, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32) #7
+  tail call void @rb_define_alias(i64 noundef %48, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32) #8
   %49 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.34, ptr noundef nonnull @ossl_ec_group_get_generator, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %49, ptr noundef nonnull @.str.34, ptr noundef nonnull @ossl_ec_group_get_generator, i32 noundef 0) #8
   %50 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.35, ptr noundef nonnull @ossl_ec_group_set_generator, i32 noundef 3) #7
+  tail call void @rb_define_method(i64 noundef %50, ptr noundef nonnull @.str.35, ptr noundef nonnull @ossl_ec_group_set_generator, i32 noundef 3) #8
   %51 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.36, ptr noundef nonnull @ossl_ec_group_get_order, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %51, ptr noundef nonnull @.str.36, ptr noundef nonnull @ossl_ec_group_get_order, i32 noundef 0) #8
   %52 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.37, ptr noundef nonnull @ossl_ec_group_get_cofactor, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %52, ptr noundef nonnull @.str.37, ptr noundef nonnull @ossl_ec_group_get_cofactor, i32 noundef 0) #8
   %53 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.38, ptr noundef nonnull @ossl_ec_group_get_curve_name, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %53, ptr noundef nonnull @.str.38, ptr noundef nonnull @ossl_ec_group_get_curve_name, i32 noundef 0) #8
   %54 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.39, ptr noundef nonnull @ossl_ec_group_get_asn1_flag, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %54, ptr noundef nonnull @.str.39, ptr noundef nonnull @ossl_ec_group_get_asn1_flag, i32 noundef 0) #8
   %55 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.40, ptr noundef nonnull @ossl_ec_group_set_asn1_flag, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %55, ptr noundef nonnull @.str.40, ptr noundef nonnull @ossl_ec_group_set_asn1_flag, i32 noundef 1) #8
   %56 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.41, ptr noundef nonnull @ossl_ec_group_get_point_conversion_form, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %56, ptr noundef nonnull @.str.41, ptr noundef nonnull @ossl_ec_group_get_point_conversion_form, i32 noundef 0) #8
   %57 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.42, ptr noundef nonnull @ossl_ec_group_set_point_conversion_form, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %57, ptr noundef nonnull @.str.42, ptr noundef nonnull @ossl_ec_group_set_point_conversion_form, i32 noundef 1) #8
   %58 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.43, ptr noundef nonnull @ossl_ec_group_get_seed, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %58, ptr noundef nonnull @.str.43, ptr noundef nonnull @ossl_ec_group_get_seed, i32 noundef 0) #8
   %59 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.44, ptr noundef nonnull @ossl_ec_group_set_seed, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %59, ptr noundef nonnull @.str.44, ptr noundef nonnull @ossl_ec_group_set_seed, i32 noundef 1) #8
   %60 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.45, ptr noundef nonnull @ossl_ec_group_get_degree, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %60, ptr noundef nonnull @.str.45, ptr noundef nonnull @ossl_ec_group_get_degree, i32 noundef 0) #8
   %61 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.29, ptr noundef nonnull @ossl_ec_group_to_pem, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %61, ptr noundef nonnull @.str.29, ptr noundef nonnull @ossl_ec_group_to_pem, i32 noundef 0) #8
   %62 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %62, ptr noundef nonnull @.str.30, ptr noundef nonnull @ossl_ec_group_to_der, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %62, ptr noundef nonnull @.str.30, ptr noundef nonnull @ossl_ec_group_to_der, i32 noundef 0) #8
   %63 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %63, ptr noundef nonnull @.str.46, ptr noundef nonnull @ossl_ec_group_to_text, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %63, ptr noundef nonnull @.str.46, ptr noundef nonnull @ossl_ec_group_to_text, i32 noundef 0) #8
   %64 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_alloc_func(i64 noundef %64, ptr noundef nonnull @ossl_ec_point_alloc) #7
+  tail call void @rb_define_alloc_func(i64 noundef %64, ptr noundef nonnull @ossl_ec_point_alloc) #8
   %65 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %65, ptr noundef nonnull @.str.14, ptr noundef nonnull @ossl_ec_point_initialize, i32 noundef -1) #7
+  tail call void @rb_define_method(i64 noundef %65, ptr noundef nonnull @.str.14, ptr noundef nonnull @ossl_ec_point_initialize, i32 noundef -1) #8
   %66 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %66, ptr noundef nonnull @.str.31, ptr noundef nonnull @ossl_ec_point_initialize_copy, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %66, ptr noundef nonnull @.str.31, ptr noundef nonnull @ossl_ec_point_initialize_copy, i32 noundef 1) #8
   %67 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  %68 = tail call i64 @rb_intern(ptr noundef nonnull @.str.15) #7
-  tail call void @rb_attr(i64 noundef %67, i64 noundef %68, i32 noundef 1, i32 noundef 0, i32 noundef 0) #7
+  %68 = tail call i64 @rb_intern(ptr noundef nonnull @.str.15) #8
+  tail call void @rb_attr(i64 noundef %67, i64 noundef %68, i32 noundef 1, i32 noundef 0, i32 noundef 0) #8
   %69 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %69, ptr noundef nonnull @.str.32, ptr noundef nonnull @ossl_ec_point_eql, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %69, ptr noundef nonnull @.str.32, ptr noundef nonnull @ossl_ec_point_eql, i32 noundef 1) #8
   %70 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_alias(i64 noundef %70, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32) #7
+  tail call void @rb_define_alias(i64 noundef %70, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32) #8
   %71 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %71, ptr noundef nonnull @.str.47, ptr noundef nonnull @ossl_ec_point_is_at_infinity, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %71, ptr noundef nonnull @.str.47, ptr noundef nonnull @ossl_ec_point_is_at_infinity, i32 noundef 0) #8
   %72 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %72, ptr noundef nonnull @.str.48, ptr noundef nonnull @ossl_ec_point_is_on_curve, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %72, ptr noundef nonnull @.str.48, ptr noundef nonnull @ossl_ec_point_is_on_curve, i32 noundef 0) #8
   %73 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %73, ptr noundef nonnull @.str.49, ptr noundef nonnull @ossl_ec_point_make_affine, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %73, ptr noundef nonnull @.str.49, ptr noundef nonnull @ossl_ec_point_make_affine, i32 noundef 0) #8
   %74 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %74, ptr noundef nonnull @.str.50, ptr noundef nonnull @ossl_ec_point_invert, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %74, ptr noundef nonnull @.str.50, ptr noundef nonnull @ossl_ec_point_invert, i32 noundef 0) #8
   %75 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %75, ptr noundef nonnull @.str.51, ptr noundef nonnull @ossl_ec_point_set_to_infinity, i32 noundef 0) #7
+  tail call void @rb_define_method(i64 noundef %75, ptr noundef nonnull @.str.51, ptr noundef nonnull @ossl_ec_point_set_to_infinity, i32 noundef 0) #8
   %76 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %76, ptr noundef nonnull @.str.52, ptr noundef nonnull @ossl_ec_point_to_octet_string, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %76, ptr noundef nonnull @.str.52, ptr noundef nonnull @ossl_ec_point_to_octet_string, i32 noundef 1) #8
   %77 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %77, ptr noundef nonnull @.str.53, ptr noundef nonnull @ossl_ec_point_add, i32 noundef 1) #7
+  tail call void @rb_define_method(i64 noundef %77, ptr noundef nonnull @.str.53, ptr noundef nonnull @ossl_ec_point_add, i32 noundef 1) #8
   %78 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  tail call void @rb_define_method(i64 noundef %78, ptr noundef nonnull @.str.54, ptr noundef nonnull @ossl_ec_point_mul, i32 noundef -1) #7
-  %79 = tail call i64 @rb_intern(ptr noundef nonnull @.str.55) #7
+  tail call void @rb_define_method(i64 noundef %78, ptr noundef nonnull @.str.54, ptr noundef nonnull @ossl_ec_point_mul, i32 noundef -1) #8
+  %79 = tail call i64 @rb_intern(ptr noundef nonnull @.str.55) #8
   store i64 %79, ptr @id_i_group, align 8, !tbaa !6
   ret void
 }
@@ -306,106 +306,107 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_s_builtin_curves(i64 %0) #0 {
-  %2 = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef 0) #7
+  %2 = tail call i64 @EC_get_builtin_curves(ptr noundef null, i64 noundef 0) #8
   %3 = add i64 %2, 2147483648
   %.not.i = icmp ult i64 %3, 4294967296
   br i1 %.not.i, label %rb_long2int_inline.exit, label %4
 
 4:                                                ; preds = %1
-  tail call void @rb_out_of_int(i64 noundef %2) #8
+  tail call void @rb_out_of_int(i64 noundef %2) #9
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %1
-  %5 = trunc i64 %2 to i32
+  %5 = trunc nsw i64 %2 to i32
   %6 = icmp ugt i64 %2, 1152921504606846975
   br i1 %6, label %7, label %rbimpl_size_mul_or_raise.exit, !prof !10
 
 7:                                                ; preds = %rb_long2int_inline.exit
-  tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %2) #9
+  tail call void @ruby_malloc_size_overflow(i64 noundef 16, i64 noundef range(i64 -2147483648, 2147483648) %2) #10
   unreachable
 
 rbimpl_size_mul_or_raise.exit:                    ; preds = %rb_long2int_inline.exit
   %8 = shl nuw i64 %2, 4
   %9 = and i64 %8, 68719476720
   %10 = alloca i8, i64 %9, align 16
-  %11 = call i64 @EC_get_builtin_curves(ptr noundef nonnull %10, i64 noundef %2) #7
+  %11 = call i64 @EC_get_builtin_curves(ptr noundef nonnull %10, i64 noundef %2) #8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %rbimpl_size_mul_or_raise.exit
   %13 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.56) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.56) #10
   unreachable
 
 14:                                               ; preds = %rbimpl_size_mul_or_raise.exit
-  %15 = call i64 @rb_ary_new_capa(i64 noundef %2) #7
-  %16 = icmp sgt i32 %5, 0
-  br i1 %16, label %.lr.ph.preheader, label %._crit_edge
+  %15 = call i64 @rb_ary_new_capa(i64 noundef %2) #8
+  %.not25 = icmp eq i64 %2, 0
+  br i1 %.not25, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %14
-  %wide.trip.count = and i64 %2, 2147483647
+  %smax = call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %17 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %10, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 16, !tbaa !11
-  %19 = call ptr @OBJ_nid2sn(i32 noundef %18) #7
-  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !16
-  %22 = call i64 @rb_ary_new_capa(i64 noundef 2) #7
-  %23 = call i64 @rb_str_new_cstr(ptr noundef %19) #7
-  %24 = call i64 @rb_ary_push(i64 noundef %22, i64 noundef %23) #7
-  %.not22 = icmp eq ptr %21, null
-  br i1 %.not22, label %27, label %25
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
+  %16 = getelementptr inbounds nuw %struct.EC_builtin_curve, ptr %10, i64 %indvars.iv
+  %17 = load i32, ptr %16, align 16, !tbaa !11
+  %18 = call ptr @OBJ_nid2sn(i32 noundef %17) #8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !16
+  %21 = call i64 @rb_ary_new_capa(i64 noundef 2) #8
+  %22 = call i64 @rb_str_new_cstr(ptr noundef %18) #8
+  %23 = call i64 @rb_ary_push(i64 noundef %21, i64 noundef %22) #8
+  %.not22 = icmp eq ptr %20, null
+  br i1 %.not22, label %26, label %24
 
-25:                                               ; preds = %.lr.ph
-  %26 = call i64 @rb_str_new_cstr(ptr noundef nonnull %21) #7
-  br label %27
+24:                                               ; preds = %.lr.ph
+  %25 = call i64 @rb_str_new_cstr(ptr noundef nonnull %20) #8
+  br label %26
 
-27:                                               ; preds = %.lr.ph, %25
-  %28 = phi i64 [ %26, %25 ], [ 4, %.lr.ph ]
-  %29 = call i64 @rb_ary_push(i64 noundef %22, i64 noundef %28) #7
-  %30 = call i64 @rb_ary_push(i64 noundef %15, i64 noundef %22) #7
+26:                                               ; preds = %.lr.ph, %24
+  %27 = phi i64 [ %25, %24 ], [ 4, %.lr.ph ]
+  %28 = call i64 @rb_ary_push(i64 noundef %21, i64 noundef %27) #8
+  %29 = call i64 @rb_ary_push(i64 noundef %15, i64 noundef %21) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %27, %14
+._crit_edge:                                      ; preds = %26, %14
   ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_key_s_generate(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call i64 @rb_obj_alloc(i64 noundef %0) #7
+  %3 = tail call i64 @rb_obj_alloc(i64 noundef %0) #8
   %4 = tail call fastcc ptr @ec_key_new_from_group(i64 noundef %1)
-  %5 = tail call ptr @EVP_PKEY_new() #7
+  %5 = tail call ptr @EVP_PKEY_new() #8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %5, i32 noundef 408, ptr noundef nonnull %4) #7
+  %7 = tail call i32 @EVP_PKEY_assign(ptr noundef nonnull %5, i32 noundef 408, ptr noundef nonnull %4) #8
   %.not10 = icmp eq i32 %7, 1
   br i1 %.not10, label %10, label %8
 
 8:                                                ; preds = %6, %2
-  tail call void @EVP_PKEY_free(ptr noundef %5) #7
-  tail call void @EC_KEY_free(ptr noundef nonnull %4) #7
+  tail call void @EVP_PKEY_free(ptr noundef %5) #8
+  tail call void @EC_KEY_free(ptr noundef nonnull %4) #8
   %9 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.57) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.57) #10
   unreachable
 
 10:                                               ; preds = %6
   %11 = inttoptr i64 %3 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %5, ptr %12, align 8, !tbaa !19
-  %13 = tail call i32 @EC_KEY_generate_key(ptr noundef nonnull %4) #7
+  %13 = tail call i32 @EC_KEY_generate_key(ptr noundef nonnull %4) #8
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %14, label %16
 
 14:                                               ; preds = %10
   %15 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef nonnull @.str.58) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef nonnull @.str.58) #10
   unreachable
 
 16:                                               ; preds = %10
@@ -419,15 +420,15 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [2 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %3
   %9 = load i64, ptr @rb_eTypeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.62) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.62) #10
   unreachable
 
 10:                                               ; preds = %3
@@ -478,7 +479,7 @@ define internal noundef i64 @ossl_ec_key_initialize(i32 noundef %0, ptr noundef 
   br i1 %27, label %rb_scan_args_set.exit, label %28
 
 28:                                               ; preds = %26, %10
-  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #9
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 0, i32 noundef 2) #10
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %26
@@ -487,49 +488,49 @@ rb_scan_args_set.exit:                            ; preds = %26
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %rb_scan_args_set.exit
-  %32 = call ptr @EC_KEY_new() #7
+  %32 = call ptr @EC_KEY_new() #8
   %.not29 = icmp eq ptr %32, null
   br i1 %.not29, label %33, label %55
 
 33:                                               ; preds = %31
   %34 = load i64, ptr @eECError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str.64) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %34, ptr noundef nonnull @.str.64) #10
   unreachable
 
 35:                                               ; preds = %rb_scan_args_set.exit
   %36 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  %37 = call i64 @rb_obj_is_kind_of(i64 noundef %29, i64 noundef %36) #7
+  %37 = call i64 @rb_obj_is_kind_of(i64 noundef %29, i64 noundef %36) #8
   %.not26 = icmp eq i64 %37, 0
   br i1 %.not26, label %38, label %.sink.split
 
 38:                                               ; preds = %35
   %39 = load i64, ptr %5, align 8, !tbaa !6
-  %40 = call i64 @ossl_pem_passwd_value(i64 noundef %39) #7
+  %40 = call i64 @ossl_pem_passwd_value(i64 noundef %39) #8
   store i64 %40, ptr %5, align 8, !tbaa !6
   %41 = load i64, ptr %4, align 8, !tbaa !6
-  %42 = call i64 @ossl_to_der_if_possible(i64 noundef %41) #7
+  %42 = call i64 @ossl_to_der_if_possible(i64 noundef %41) #8
   store i64 %42, ptr %4, align 8, !tbaa !6
-  %43 = call ptr @ossl_obj2bio(ptr noundef nonnull %4) #7
+  %43 = call ptr @ossl_obj2bio(ptr noundef nonnull %4) #8
   %44 = load i64, ptr %5, align 8, !tbaa !6
-  %45 = call ptr @ossl_pkey_read_generic(ptr noundef %43, i64 noundef %44) #7
-  %46 = call i32 @BIO_free(ptr noundef %43) #7
+  %45 = call ptr @ossl_pkey_read_generic(ptr noundef %43, i64 noundef %44) #8
+  %46 = call i32 @BIO_free(ptr noundef %43) #8
   %.not27 = icmp eq ptr %45, null
   br i1 %.not27, label %47, label %48
 
 47:                                               ; preds = %38
-  call void @ossl_clear_error() #7
+  call void @ossl_clear_error() #8
   br label %.sink.split
 
 48:                                               ; preds = %38
-  %49 = call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %45) #7
+  %49 = call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %45) #8
   %.not28 = icmp eq i32 %49, 408
   br i1 %.not28, label %61, label %50
 
 50:                                               ; preds = %48
-  call void @EVP_PKEY_free(ptr noundef nonnull %45) #7
+  call void @EVP_PKEY_free(ptr noundef nonnull %45) #8
   %51 = load i64, ptr @eECError, align 8, !tbaa !6
-  %52 = call ptr @OBJ_nid2sn(i32 noundef %49) #7
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.65, ptr noundef %52) #9
+  %52 = call ptr @OBJ_nid2sn(i32 noundef %49) #8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %51, ptr noundef nonnull @.str.65, ptr noundef %52) #10
   unreachable
 
 .sink.split:                                      ; preds = %35, %47
@@ -539,20 +540,20 @@ rb_scan_args_set.exit:                            ; preds = %26
 
 55:                                               ; preds = %.sink.split, %31
   %.022 = phi ptr [ %32, %31 ], [ %54, %.sink.split ]
-  %56 = call ptr @EVP_PKEY_new() #7
+  %56 = call ptr @EVP_PKEY_new() #8
   %.not30 = icmp eq ptr %56, null
   br i1 %.not30, label %59, label %57
 
 57:                                               ; preds = %55
-  %58 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %56, i32 noundef 408, ptr noundef nonnull %.022) #7
+  %58 = call i32 @EVP_PKEY_assign(ptr noundef nonnull %56, i32 noundef 408, ptr noundef nonnull %.022) #8
   %.not31 = icmp eq i32 %58, 1
   br i1 %.not31, label %61, label %59
 
 59:                                               ; preds = %57, %55
-  call void @EVP_PKEY_free(ptr noundef %56) #7
-  call void @EC_KEY_free(ptr noundef nonnull %.022) #7
+  call void @EVP_PKEY_free(ptr noundef %56) #8
+  call void @EC_KEY_free(ptr noundef nonnull %.022) #8
   %60 = load i64, ptr @eECError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %60, ptr noundef nonnull @.str.57) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %60, ptr noundef nonnull @.str.57) #10
   unreachable
 
 61:                                               ; preds = %57, %48
@@ -560,48 +561,48 @@ rb_scan_args_set.exit:                            ; preds = %26
   %62 = inttoptr i64 %2 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %.sink, ptr %63, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_key_get_group(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #7
+  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #8
   %.not9 = icmp eq i32 %6, 408
   br i1 %.not9, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #7
-  %11 = tail call ptr @EC_KEY_get0_group(ptr noundef %10) #7
+  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #8
+  %11 = tail call ptr @EC_KEY_get0_group(ptr noundef %10) #8
   %.not10 = icmp eq ptr %11, null
   br i1 %.not10, label %20, label %12
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  %14 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %13, ptr noundef null, ptr noundef nonnull @ossl_ec_group_type) #7
-  %15 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %11) #7
+  %14 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %13, ptr noundef null, ptr noundef nonnull @ossl_ec_group_type) #8
+  %15 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %11) #8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %ec_group_new.exit
 
 16:                                               ; preds = %12
   %17 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.68) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.68) #10
   unreachable
 
 ec_group_new.exit:                                ; preds = %12
@@ -618,39 +619,39 @@ ec_group_new.exit:                                ; preds = %12
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_key_set_group(i64 %0, i64 %1) #2 {
   %3 = load i64, ptr @ePKeyError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef nonnull @.str.69) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef nonnull @.str.69) #10
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_key_get_private_key(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #7
+  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #8
   %.not8 = icmp eq i32 %6, 408
   br i1 %.not8, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #7
-  %11 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %10) #7
+  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #8
+  %11 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %10) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i64 @ossl_bn_new(ptr noundef nonnull %11) #7
+  %14 = tail call i64 @ossl_bn_new(ptr noundef nonnull %11) #8
   br label %15
 
 15:                                               ; preds = %9, %13
@@ -661,39 +662,39 @@ define internal i64 @ossl_ec_key_get_private_key(i64 noundef %0) #0 {
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_key_set_private_key(i64 %0, i64 %1) #2 {
   %3 = load i64, ptr @ePKeyError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef nonnull @.str.69) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef nonnull @.str.69) #10
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_key_get_public_key(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #7
+  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #8
   %.not9 = icmp eq i32 %6, 408
   br i1 %.not9, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #7
-  %11 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %10) #7
+  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #8
+  %11 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %10) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @EC_KEY_get0_group(ptr noundef %10) #7
+  %14 = tail call ptr @EC_KEY_get0_group(ptr noundef %10) #8
   %15 = tail call fastcc i64 @ec_point_new(ptr noundef %11, ptr noundef %14)
   br label %16
 
@@ -705,34 +706,34 @@ define internal i64 @ossl_ec_key_get_public_key(i64 noundef %0) #0 {
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_key_set_public_key(i64 %0, i64 %1) #2 {
   %3 = load i64, ptr @ePKeyError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef nonnull @.str.69) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %3, ptr noundef nonnull @.str.69) #10
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ec_key_is_private(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #7
+  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #8
   %.not4 = icmp eq i32 %6, 408
   br i1 %.not4, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #7
-  %11 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %10) #7
+  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #8
+  %11 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %10) #8
   %.not5 = icmp eq ptr %11, null
   %12 = select i1 %.not5, i64 0, i64 20
   ret i64 %12
@@ -740,28 +741,28 @@ define internal range(i64 0, 21) i64 @ossl_ec_key_is_private(i64 noundef %0) #0 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ec_key_is_public(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #7
+  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #8
   %.not4 = icmp eq i32 %6, 408
   br i1 %.not4, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #7
-  %11 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %10) #7
+  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #8
+  %11 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %10) #8
   %.not5 = icmp eq ptr %11, null
   %12 = select i1 %.not5, i64 0, i64 20
   ret i64 %12
@@ -772,127 +773,127 @@ declare void @rb_define_alias(i64 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_key_generate_key(i64 %0) #2 {
   %2 = load i64, ptr @ePKeyError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.69) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %2, ptr noundef nonnull @.str.69) #10
   unreachable
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_key_check_key(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not15 = icmp eq ptr %6, null
   br i1 %.not15, label %7, label %9
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %8, ptr noundef nonnull @.str.66) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %6) #7
+  %10 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %6) #8
   %.not16 = icmp eq i32 %10, 408
   br i1 %.not16, label %13, label %11
 
 11:                                               ; preds = %9
   %12 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.67) #10
   unreachable
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %6) #7
-  %15 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %2, ptr noundef null) #7
+  %14 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %6) #8
+  %15 = tail call ptr @EVP_PKEY_CTX_new(ptr noundef nonnull %2, ptr noundef null) #8
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %16, label %18
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.71) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.71) #10
   unreachable
 
 18:                                               ; preds = %13
-  %19 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %14) #7
+  %19 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %14) #8
   %.not18 = icmp eq ptr %19, null
   br i1 %.not18, label %24, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i32 @EVP_PKEY_check(ptr noundef nonnull %15) #7
+  %21 = tail call i32 @EVP_PKEY_check(ptr noundef nonnull %15) #8
   %.not20 = icmp eq i32 %21, 1
   br i1 %.not20, label %28, label %22
 
 22:                                               ; preds = %20
-  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #7
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
   %23 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.72) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.72) #10
   unreachable
 
 24:                                               ; preds = %18
-  %25 = tail call i32 @EVP_PKEY_public_check(ptr noundef nonnull %15) #7
+  %25 = tail call i32 @EVP_PKEY_public_check(ptr noundef nonnull %15) #8
   %.not19 = icmp eq i32 %25, 1
   br i1 %.not19, label %28, label %26
 
 26:                                               ; preds = %24
-  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #7
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
   %27 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.73) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.73) #10
   unreachable
 
 28:                                               ; preds = %24, %20
-  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #7
+  tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %15) #8
   ret i64 20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_key_export(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0 {
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %6, ptr noundef nonnull @.str.66) #10
   unreachable
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %4) #7
+  %8 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %4) #8
   %.not11 = icmp eq i32 %8, 408
   br i1 %.not11, label %11, label %9
 
 9:                                                ; preds = %7
   %10 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.67) #10
   unreachable
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %4) #7
-  %13 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %12) #7
+  %12 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %4) #8
+  %13 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %12) #8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
   %16 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.74) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.74) #10
   unreachable
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %12) #7
+  %18 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %12) #8
   %.not12 = icmp eq ptr %18, null
   br i1 %.not12, label %21, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i64 @ossl_pkey_export_traditional(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0) #7
+  %20 = tail call i64 @ossl_pkey_export_traditional(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0) #8
   br label %23
 
 21:                                               ; preds = %17
-  %22 = tail call i64 @ossl_pkey_export_spki(i64 noundef %2, i32 noundef 0) #7
+  %22 = tail call i64 @ossl_pkey_export_spki(i64 noundef %2, i32 noundef 0) #8
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -902,47 +903,47 @@ define internal i64 @ossl_ec_key_export(i32 noundef %0, ptr noundef %1, i64 noun
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_key_to_der(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_evp_pkey_type) #8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5
 
 3:                                                ; preds = %1
   %4 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %4, ptr noundef nonnull @.str.66) #10
   unreachable
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #7
+  %6 = tail call i32 @EVP_PKEY_get_base_id(ptr noundef nonnull %2) #8
   %.not9 = icmp eq i32 %6, 408
   br i1 %.not9, label %9, label %7
 
 7:                                                ; preds = %5
   %8 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %8, ptr noundef nonnull @.str.67) #10
   unreachable
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #7
-  %11 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %10) #7
+  %10 = tail call ptr @EVP_PKEY_get0_EC_KEY(ptr noundef nonnull %2) #8
+  %11 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %10) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
   %14 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.74) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.74) #10
   unreachable
 
 15:                                               ; preds = %9
-  %16 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %10) #7
+  %16 = tail call ptr @EC_KEY_get0_private_key(ptr noundef %10) #8
   %.not10 = icmp eq ptr %16, null
   br i1 %.not10, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i64 @ossl_pkey_export_traditional(i32 noundef 0, ptr noundef null, i64 noundef %0, i32 noundef 1) #7
+  %18 = tail call i64 @ossl_pkey_export_traditional(i32 noundef 0, ptr noundef null, i64 noundef %0, i32 noundef 1) #8
   br label %21
 
 19:                                               ; preds = %15
-  %20 = tail call i64 @ossl_pkey_export_spki(i64 noundef %0, i32 noundef 1) #7
+  %20 = tail call i64 @ossl_pkey_export_spki(i64 noundef %0, i32 noundef 1) #8
   br label %21
 
 21:                                               ; preds = %19, %17
@@ -954,7 +955,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @ossl_ec_group_type) #8
   ret i64 %2
 }
 
@@ -965,17 +966,17 @@ define internal noundef i64 @ossl_ec_group_initialize(i32 noundef %0, ptr nounde
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [4 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_group_type) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_group_type) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %3
   %11 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.75) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.75) #10
   unreachable
 
 12:                                               ; preds = %3
@@ -1034,7 +1035,7 @@ define internal noundef i64 @ossl_ec_group_initialize(i32 noundef %0, ptr nounde
   br i1 %33, label %rb_scan_args_set.exit, label %34
 
 34:                                               ; preds = %32, %12
-  call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 4) #9
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 4) #10
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %32
@@ -1046,76 +1047,76 @@ rb_scan_args_set.exit:                            ; preds = %32
 35:                                               ; preds = %rb_scan_args_set.exit
   %36 = load i64, ptr %4, align 8, !tbaa !6
   %37 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  %38 = call i64 @rb_obj_is_kind_of(i64 noundef %36, i64 noundef %37) #7
+  %38 = call i64 @rb_obj_is_kind_of(i64 noundef %36, i64 noundef %37) #8
   %.not35 = icmp eq i64 %38, 0
   br i1 %.not35, label %50, label %39
 
 39:                                               ; preds = %35
   %40 = load i64, ptr %4, align 8, !tbaa !6
-  %41 = call ptr @rb_check_typeddata(i64 noundef %40, ptr noundef nonnull @ossl_ec_group_type) #7
+  %41 = call ptr @rb_check_typeddata(i64 noundef %40, ptr noundef nonnull @ossl_ec_group_type) #8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %39
   %44 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %44, ptr noundef nonnull @.str.59) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %44, ptr noundef nonnull @.str.59) #10
   unreachable
 
 45:                                               ; preds = %39
-  %46 = call ptr @EC_GROUP_dup(ptr noundef nonnull %41) #7
+  %46 = call ptr @EC_GROUP_dup(ptr noundef nonnull %41) #8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %105
 
 48:                                               ; preds = %45
   %49 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %49, ptr noundef nonnull @.str.68) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %49, ptr noundef nonnull @.str.68) #10
   unreachable
 
 50:                                               ; preds = %35
-  %51 = call ptr @ossl_obj2bio(ptr noundef nonnull %4) #7
-  %52 = call ptr @PEM_read_bio_ECPKParameters(ptr noundef %51, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %51 = call ptr @ossl_obj2bio(ptr noundef nonnull %4) #8
+  %52 = call ptr @PEM_read_bio_ECPKParameters(ptr noundef %51, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %.not36 = icmp eq ptr %52, null
   br i1 %.not36, label %54, label %.thread
 
 .thread:                                          ; preds = %50
-  %53 = call i32 @BIO_free(ptr noundef %51) #7
+  %53 = call i32 @BIO_free(ptr noundef %51) #8
   br label %105
 
 54:                                               ; preds = %50
-  %55 = call i64 @BIO_ctrl(ptr noundef %51, i32 noundef 1, i64 noundef 0, ptr noundef null) #7
-  call void @ossl_clear_error() #7
-  %56 = call ptr @ASN1_d2i_bio(ptr noundef null, ptr noundef nonnull @d2i_ECPKParameters, ptr noundef %51, ptr noundef null) #7
-  %57 = call i32 @BIO_free(ptr noundef %51) #7
+  %55 = call i64 @BIO_ctrl(ptr noundef %51, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
+  call void @ossl_clear_error() #8
+  %56 = call ptr @ASN1_d2i_bio(ptr noundef null, ptr noundef nonnull @d2i_ECPKParameters, ptr noundef %51, ptr noundef null) #8
+  %57 = call i32 @BIO_free(ptr noundef %51) #8
   %.not37 = icmp eq ptr %56, null
   br i1 %.not37, label %58, label %105
 
 58:                                               ; preds = %54
-  %59 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #7
-  %60 = call i32 @OBJ_sn2nid(ptr noundef %59) #7
-  call void @ossl_clear_error() #7
+  %59 = call ptr @rb_string_value_cstr(ptr noundef nonnull %4) #8
+  %60 = call i32 @OBJ_sn2nid(ptr noundef %59) #8
+  call void @ossl_clear_error() #8
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %58
   %63 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
   %64 = load i64, ptr %4, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %63, ptr noundef nonnull @.str.77, i64 noundef %64) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %63, ptr noundef nonnull @.str.77, i64 noundef %64) #10
   unreachable
 
 65:                                               ; preds = %58
-  %66 = call ptr @EC_GROUP_new_by_curve_name(i32 noundef %60) #7
+  %66 = call ptr @EC_GROUP_new_by_curve_name(i32 noundef %60) #8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %65
   %69 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
   %70 = load i64, ptr %4, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %69, ptr noundef nonnull @.str.78, i64 noundef %70) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %69, ptr noundef nonnull @.str.78, i64 noundef %70) #10
   unreachable
 
 71:                                               ; preds = %65
-  call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %66, i32 noundef 1) #7
-  call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %66, i32 noundef 4) #7
+  call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %66, i32 noundef 1) #8
+  call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %66, i32 noundef 4) #8
   br label %105
 
 72:                                               ; preds = %rb_scan_args_set.exit
@@ -1139,10 +1140,10 @@ RB_SYMBOL_P.exit:                                 ; preds = %76
   br i1 %84, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread40
 
 RB_SYMBOL_P.exit.thread:                          ; preds = %72, %RB_SYMBOL_P.exit
-  %85 = call i64 @rb_sym2id(i64 noundef %73) #7
-  %86 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %5) #7
-  %87 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %6) #7
-  %88 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %7) #7
+  %85 = call i64 @rb_sym2id(i64 noundef %73) #8
+  %86 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %5) #8
+  %87 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %6) #8
+  %88 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %7) #8
   %89 = load i64, ptr @s_GFp, align 8, !tbaa !6
   %90 = icmp eq i64 %85, %89
   br i1 %90, label %96, label %91
@@ -1154,29 +1155,29 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %72, %RB_SYMBOL_P.ex
 
 94:                                               ; preds = %91
   %95 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %95, ptr noundef nonnull @.str.79) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %95, ptr noundef nonnull @.str.79) #10
   unreachable
 
 96:                                               ; preds = %91, %RB_SYMBOL_P.exit.thread
   %.027 = phi ptr [ @EC_GROUP_new_curve_GFp, %RB_SYMBOL_P.exit.thread ], [ @EC_GROUP_new_curve_GF2m, %91 ]
-  %97 = call ptr @ossl_bn_ctx_get() #7
-  %98 = call ptr %.027(ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %97) #7, !callees !27
+  %97 = call ptr @ossl_bn_ctx_get() #8
+  %98 = call ptr %.027(ptr noundef %86, ptr noundef %87, ptr noundef %88, ptr noundef %97) #8, !callees !27
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %96
   %101 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %101, ptr noundef nonnull @.str.80) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %101, ptr noundef nonnull @.str.80) #10
   unreachable
 
 RB_SYMBOL_P.exit.thread40:                        ; preds = %76, %RB_SYMBOL_P.exit
   %102 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %102, ptr noundef nonnull @.str.81) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %102, ptr noundef nonnull @.str.81) #10
   unreachable
 
 103:                                              ; preds = %rb_scan_args_set.exit
   %104 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %104, ptr noundef nonnull @.str.82) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %104, ptr noundef nonnull @.str.82) #10
   unreachable
 
 105:                                              ; preds = %.thread, %96, %54, %71, %45
@@ -1184,42 +1185,42 @@ RB_SYMBOL_P.exit.thread40:                        ; preds = %76, %RB_SYMBOL_P.ex
   %106 = inttoptr i64 %2 to ptr
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %.2, ptr %107, align 8, !tbaa !19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_group_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.83) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.83) #10
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_group_type) #7
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_group_type) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.59) #10
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %7) #7
+  %12 = tail call ptr @EC_GROUP_dup(ptr noundef nonnull %7) #8
   %.not9 = icmp eq ptr %12, null
   br i1 %.not9, label %13, label %15
 
 13:                                               ; preds = %11
   %14 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.68) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.68) #10
   unreachable
 
 15:                                               ; preds = %11
@@ -1231,28 +1232,28 @@ define internal noundef i64 @ossl_ec_group_initialize_copy(i64 noundef returned 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ec_group_eql(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #10
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_group_type) #7
+  %8 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_group_type) #8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.59) #10
   unreachable
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @ossl_bn_ctx_get() #7
-  %14 = tail call i32 @EC_GROUP_cmp(ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef %13) #7
+  %13 = tail call ptr @ossl_bn_ctx_get() #8
+  %14 = tail call i32 @EC_GROUP_cmp(ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef %13) #8
   switch i32 %14, label %16 [
     i32 0, label %18
     i32 1, label %15
@@ -1263,7 +1264,7 @@ define internal range(i64 0, 21) i64 @ossl_ec_group_eql(i64 noundef %0, i64 noun
 
 16:                                               ; preds = %12
   %17 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.84) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.84) #10
   unreachable
 
 18:                                               ; preds = %12, %15
@@ -1273,17 +1274,17 @@ define internal range(i64 0, 21) i64 @ossl_ec_group_eql(i64 noundef %0, i64 noun
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_generator(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %2) #7
+  %7 = tail call ptr @EC_GROUP_get0_generator(ptr noundef nonnull %2) #8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -1302,35 +1303,35 @@ define internal noundef i64 @ossl_ec_group_set_generator(i64 noundef returned %0
   %6 = alloca i64, align 8
   store i64 %2, ptr %5, align 8, !tbaa !6
   store i64 %3, ptr %6, align 8, !tbaa !6
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %4
   %10 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.59) #10
   unreachable
 
 11:                                               ; preds = %4
-  %12 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #7
+  %12 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
   %15 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef nonnull @.str.85) #10
   unreachable
 
 16:                                               ; preds = %11
-  %17 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %5) #7
-  %18 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %6) #7
-  %19 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef %17, ptr noundef %18) #7
+  %17 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %5) #8
+  %18 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %6) #8
+  %19 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef %17, ptr noundef %18) #8
   %.not = icmp eq i32 %19, 1
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %16
   %21 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %21, ptr noundef nonnull @.str.86) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %21, ptr noundef nonnull @.str.86) #10
   unreachable
 
 22:                                               ; preds = %16
@@ -1340,100 +1341,100 @@ define internal noundef i64 @ossl_ec_group_set_generator(i64 noundef returned %0
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_order(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #10
   unreachable
 
 7:                                                ; preds = %1
-  %8 = tail call i64 @ossl_bn_new(ptr noundef null) #7
+  %8 = tail call i64 @ossl_bn_new(ptr noundef null) #8
   store i64 %8, ptr %2, align 8, !tbaa !6
-  %9 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %2) #7
-  %10 = call ptr @ossl_bn_ctx_get() #7
-  %11 = call i32 @EC_GROUP_get_order(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %10) #7
+  %9 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %2) #8
+  %10 = call ptr @ossl_bn_ctx_get() #8
+  %11 = call i32 @EC_GROUP_get_order(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %10) #8
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %7
   %13 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.88) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.88) #10
   unreachable
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %2, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_cofactor(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #8
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
   %6 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #10
   unreachable
 
 7:                                                ; preds = %1
-  %8 = tail call i64 @ossl_bn_new(ptr noundef null) #7
+  %8 = tail call i64 @ossl_bn_new(ptr noundef null) #8
   store i64 %8, ptr %2, align 8, !tbaa !6
-  %9 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %2) #7
-  %10 = call ptr @ossl_bn_ctx_get() #7
-  %11 = call i32 @EC_GROUP_get_cofactor(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %10) #7
+  %9 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %2) #8
+  %10 = call ptr @ossl_bn_ctx_get() #8
+  %11 = call i32 @EC_GROUP_get_cofactor(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %10) #8
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %7
   %13 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.89) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.89) #10
   unreachable
 
 14:                                               ; preds = %7
   %15 = load i64, ptr %2, align 8, !tbaa !6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #8
   ret i64 %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_curve_name(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %2) #7
-  %8 = tail call ptr @OBJ_nid2sn(i32 noundef %7) #7
-  %9 = tail call i64 @rb_str_new_cstr(ptr noundef %8) #7
+  %7 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef nonnull %2) #8
+  %8 = tail call ptr @OBJ_nid2sn(i32 noundef %7) #8
+  %9 = tail call i64 @rb_str_new_cstr(ptr noundef %8) #8
   ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @ossl_ec_group_get_asn1_flag(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %2) #7
+  %7 = tail call i32 @EC_GROUP_get_asn1_flag(ptr noundef nonnull %2) #8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 1
   %10 = or disjoint i64 %9, 1
@@ -1442,13 +1443,13 @@ define internal range(i64 1, 0) i64 @ossl_ec_group_get_asn1_flag(i64 noundef %0)
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_group_set_asn1_flag(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #10
   unreachable
 
 7:                                                ; preds = %2
@@ -1457,33 +1458,33 @@ define internal noundef i64 @ossl_ec_group_set_asn1_flag(i64 noundef %0, i64 nou
   br i1 %.not.i, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i64 @rb_fix2int(i64 noundef %1) #7
+  %10 = tail call i64 @rb_fix2int(i64 noundef %1) #8
   br label %rb_num2int_inline.exit
 
 11:                                               ; preds = %7
-  %12 = tail call i64 @rb_num2int(i64 noundef %1) #7
+  %12 = tail call i64 @rb_num2int(i64 noundef %1) #8
   br label %rb_num2int_inline.exit
 
 rb_num2int_inline.exit:                           ; preds = %9, %11
   %.0.i = phi i64 [ %10, %9 ], [ %12, %11 ]
   %13 = trunc i64 %.0.i to i32
-  tail call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %3, i32 noundef %13) #7
+  tail call void @EC_GROUP_set_asn1_flag(ptr noundef nonnull %3, i32 noundef %13) #8
   ret i64 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_point_conversion_form(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @EC_GROUP_get_point_conversion_form(ptr noundef nonnull %2) #7
+  %7 = tail call i32 @EC_GROUP_get_point_conversion_form(ptr noundef nonnull %2) #8
   switch i32 %7, label %10 [
     i32 4, label %12
     i32 2, label %8
@@ -1498,29 +1499,29 @@ define internal i64 @ossl_ec_group_get_point_conversion_form(i64 noundef %0) #0 
 
 10:                                               ; preds = %6
   %11 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.90, i32 noundef %7) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.90, i32 noundef %7) #10
   unreachable
 
 12:                                               ; preds = %6, %9, %8
   %.0.in = phi ptr [ @ID_hybrid, %9 ], [ @ID_compressed, %8 ], [ @ID_uncompressed, %6 ]
   %.0 = load i64, ptr %.0.in, align 8, !tbaa !6
-  %13 = tail call i64 @rb_id2sym(i64 noundef %.0) #7
+  %13 = tail call i64 @rb_id2sym(i64 noundef %.0) #8
   ret i64 %13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_group_set_point_conversion_form(i64 noundef %0, i64 noundef returned %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #10
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call i64 @rb_sym2id(i64 noundef %1) #7
+  %8 = tail call i64 @rb_sym2id(i64 noundef %1) #8
   %9 = load i64, ptr @ID_uncompressed, align 8, !tbaa !6
   %10 = icmp eq i64 %8, %9
   br i1 %10, label %parse_point_conversion_form_symbol.exit, label %11
@@ -1537,34 +1538,34 @@ define internal noundef i64 @ossl_ec_group_set_point_conversion_form(i64 noundef
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.91, i64 noundef %1) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.91, i64 noundef %1) #10
   unreachable
 
 parse_point_conversion_form_symbol.exit:          ; preds = %7, %11, %14
   %.0.i = phi i32 [ 4, %7 ], [ 2, %11 ], [ 6, %14 ]
-  tail call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %3, i32 noundef %.0.i) #7
+  tail call void @EC_GROUP_set_point_conversion_form(ptr noundef nonnull %3, i32 noundef %.0.i) #8
   ret i64 %1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_get_seed(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i64 @EC_GROUP_get_seed_len(ptr noundef nonnull %2) #7
+  %7 = tail call i64 @EC_GROUP_get_seed_len(ptr noundef nonnull %2) #8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @EC_GROUP_get0_seed(ptr noundef nonnull %2) #7
-  %11 = tail call i64 @rb_str_new(ptr noundef %10, i64 noundef %7) #7
+  %10 = tail call ptr @EC_GROUP_get0_seed(ptr noundef nonnull %2) #8
+  %11 = tail call i64 @rb_str_new(ptr noundef %10, i64 noundef %7) #8
   br label %12
 
 12:                                               ; preds = %6, %9
@@ -1576,17 +1577,17 @@ define internal i64 @ossl_ec_group_get_seed(i64 noundef %0) #0 {
 define internal i64 @ossl_ec_group_set_seed(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !6
-  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %7, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %7, ptr noundef nonnull @.str.59) #10
   unreachable
 
 8:                                                ; preds = %2
-  %9 = call i64 @rb_string_value(ptr noundef nonnull %3) #7
+  %9 = call i64 @rb_string_value(ptr noundef nonnull %3) #8
   %10 = load i64, ptr %3, align 8, !tbaa !6
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8, !tbaa !26, !noalias !28
@@ -1603,7 +1604,7 @@ RSTRING_PTR.exit:                                 ; preds = %8, %15
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %15 ], [ %14, %8 ]
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !31
-  %18 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %4, ptr noundef %.sroa.2.0.i, i64 noundef %17) #7
+  %18 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %4, ptr noundef %.sroa.2.0.i, i64 noundef %17) #8
   %19 = load i64, ptr %3, align 8, !tbaa !6
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1613,7 +1614,7 @@ RSTRING_PTR.exit:                                 ; preds = %8, %15
 
 23:                                               ; preds = %RSTRING_PTR.exit
   %24 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.92) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %24, ptr noundef nonnull @.str.92) #10
   unreachable
 
 25:                                               ; preds = %RSTRING_PTR.exit
@@ -1622,17 +1623,17 @@ RSTRING_PTR.exit:                                 ; preds = %8, %15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 0) i64 @ossl_ec_group_get_degree(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @EC_GROUP_get_degree(ptr noundef nonnull %2) #7
+  %7 = tail call i32 @EC_GROUP_get_degree(ptr noundef nonnull %2) #8
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 1
   %10 = or disjoint i64 %9, 1
@@ -1653,59 +1654,59 @@ define internal i64 @ossl_ec_group_to_der(i64 noundef %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_group_to_text(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.59) #10
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @BIO_s_mem() #7
-  %8 = tail call ptr @BIO_new(ptr noundef %7) #7
+  %7 = tail call ptr @BIO_s_mem() #8
+  %8 = tail call ptr @BIO_new(ptr noundef %7) #8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.93) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.93) #10
   unreachable
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @ECPKParameters_print(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef 0) #7
+  %12 = tail call i32 @ECPKParameters_print(ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef 0) #8
   %.not7 = icmp eq i32 %12, 0
   br i1 %.not7, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @BIO_free(ptr noundef nonnull %8) #7
+  %14 = tail call i32 @BIO_free(ptr noundef nonnull %8) #8
   %15 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef null) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %15, ptr noundef null) #10
   unreachable
 
 16:                                               ; preds = %11
-  %17 = tail call i64 @ossl_membio2str(ptr noundef nonnull %8) #7
+  %17 = tail call i64 @ossl_membio2str(ptr noundef nonnull %8) #8
   ret i64 %17
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_point_alloc(i64 noundef %0) #0 {
-  %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @ossl_ec_point_type) #7
+  %2 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %0, ptr noundef null, ptr noundef nonnull @ossl_ec_point_type) #8
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_initialize(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
-  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_point_type) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
+  %5 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_point_type) #8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.95) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.95) #10
   unreachable
 
 8:                                                ; preds = %3
@@ -1730,12 +1731,12 @@ define internal noundef i64 @ossl_ec_point_initialize(i32 noundef %0, ptr nounde
   br i1 %15, label %rb_scan_args_set.exit, label %16
 
 16:                                               ; preds = %14, %8
-  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #9
+  tail call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 2) #10
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %14
   %17 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  %18 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %17) #7
+  %18 = tail call i64 @rb_obj_is_kind_of(i64 noundef %10, i64 noundef %17) #8
   %.not26 = icmp eq i64 %18, 0
   br i1 %.not26, label %24, label %19
 
@@ -1744,7 +1745,7 @@ rb_scan_args_set.exit:                            ; preds = %14
 
 20:                                               ; preds = %19
   %21 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.97) #9
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %21, ptr noundef nonnull @.str.97) #10
   unreachable
 
 22:                                               ; preds = %19
@@ -1752,55 +1753,55 @@ rb_scan_args_set.exit:                            ; preds = %14
   br label %66
 
 24:                                               ; preds = %rb_scan_args_set.exit
-  %25 = tail call ptr @rb_check_typeddata(i64 noundef %10, ptr noundef nonnull @ossl_ec_group_type) #7
+  %25 = tail call ptr @rb_check_typeddata(i64 noundef %10, ptr noundef nonnull @ossl_ec_group_type) #8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %24
   %28 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str.59) #10
   unreachable
 
 29:                                               ; preds = %24
   br i1 %.not38, label %30, label %34
 
 30:                                               ; preds = %29
-  %31 = tail call ptr @EC_POINT_new(ptr noundef nonnull %25) #7
+  %31 = tail call ptr @EC_POINT_new(ptr noundef nonnull %25) #8
   %.not31 = icmp eq ptr %31, null
   br i1 %.not31, label %32, label %61
 
 32:                                               ; preds = %30
   %33 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %33, ptr noundef nonnull @.str.98) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %33, ptr noundef nonnull @.str.98) #10
   unreachable
 
 34:                                               ; preds = %29
   %35 = load i64, ptr @cBN, align 8, !tbaa !6
-  %36 = tail call i64 @rb_obj_is_kind_of(i64 noundef %.sink, i64 noundef %35) #7
+  %36 = tail call i64 @rb_obj_is_kind_of(i64 noundef %.sink, i64 noundef %35) #8
   %.not27 = icmp eq i64 %36, 0
   br i1 %.not27, label %43, label %37
 
 37:                                               ; preds = %34
-  %38 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %4) #7
-  %39 = call ptr @ossl_bn_ctx_get() #7
-  %40 = call ptr @EC_POINT_bn2point(ptr noundef nonnull %25, ptr noundef %38, ptr noundef null, ptr noundef %39) #7
+  %38 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %4) #8
+  %39 = call ptr @ossl_bn_ctx_get() #8
+  %40 = call ptr @EC_POINT_bn2point(ptr noundef nonnull %25, ptr noundef %38, ptr noundef null, ptr noundef %39) #8
   %.not30 = icmp eq ptr %40, null
   br i1 %.not30, label %41, label %61
 
 41:                                               ; preds = %37
   %42 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %42, ptr noundef nonnull @.str.99) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %42, ptr noundef nonnull @.str.99) #10
   unreachable
 
 43:                                               ; preds = %34
-  %44 = call i64 @rb_string_value(ptr noundef nonnull %4) #7
-  %45 = call ptr @EC_POINT_new(ptr noundef nonnull %25) #7
+  %44 = call i64 @rb_string_value(ptr noundef nonnull %4) #8
+  %45 = call ptr @EC_POINT_new(ptr noundef nonnull %25) #8
   %.not28 = icmp eq ptr %45, null
   br i1 %.not28, label %46, label %48
 
 46:                                               ; preds = %43
   %47 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %47, ptr noundef nonnull @.str.98) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %47, ptr noundef nonnull @.str.98) #10
   unreachable
 
 48:                                               ; preds = %43
@@ -1820,15 +1821,15 @@ RSTRING_PTR.exit:                                 ; preds = %48, %54
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %54 ], [ %53, %48 ]
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %56 = load i64, ptr %55, align 8, !tbaa !31
-  %57 = call ptr @ossl_bn_ctx_get() #7
-  %58 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %25, ptr noundef nonnull %45, ptr noundef %.sroa.2.0.i, i64 noundef %56, ptr noundef %57) #7
+  %57 = call ptr @ossl_bn_ctx_get() #8
+  %58 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %25, ptr noundef nonnull %45, ptr noundef %.sroa.2.0.i, i64 noundef %56, ptr noundef %57) #8
   %.not29 = icmp eq i32 %58, 0
   br i1 %.not29, label %59, label %61
 
 59:                                               ; preds = %RSTRING_PTR.exit
-  call void @EC_POINT_free(ptr noundef nonnull %45) #7
+  call void @EC_POINT_free(ptr noundef nonnull %45) #8
   %60 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %60, ptr noundef nonnull @.str.100) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %60, ptr noundef nonnull @.str.100) #10
   unreachable
 
 61:                                               ; preds = %37, %RSTRING_PTR.exit, %30
@@ -1837,56 +1838,56 @@ RSTRING_PTR.exit:                                 ; preds = %48, %54
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   store ptr %.021, ptr %63, align 8, !tbaa !19
   %64 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %65 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %64, i64 noundef %10) #7
+  %65 = call i64 @rb_ivar_set(i64 noundef %2, i64 noundef %64, i64 noundef %10) #8
   br label %66
 
 66:                                               ; preds = %61, %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i64 %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_initialize_copy(i64 noundef returned %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %2
   %5 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.101) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.101) #10
   unreachable
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #7
+  %7 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %10, ptr noundef nonnull @.str.85) #10
   unreachable
 
 11:                                               ; preds = %6
   %12 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %13 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef %12) #7
-  %14 = tail call i64 @rb_obj_dup(i64 noundef %13) #7
-  %15 = tail call ptr @rb_check_typeddata(i64 noundef %14, ptr noundef nonnull @ossl_ec_group_type) #7
+  %13 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef %12) #8
+  %14 = tail call i64 @rb_obj_dup(i64 noundef %13) #8
+  %15 = tail call ptr @rb_check_typeddata(i64 noundef %14, ptr noundef nonnull @ossl_ec_group_type) #8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %11
   %18 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.59) #10
   unreachable
 
 19:                                               ; preds = %11
-  %20 = tail call ptr @EC_POINT_dup(ptr noundef nonnull %7, ptr noundef nonnull %15) #7
+  %20 = tail call ptr @EC_POINT_dup(ptr noundef nonnull %7, ptr noundef nonnull %15) #8
   %.not16 = icmp eq ptr %20, null
   br i1 %.not16, label %21, label %23
 
 21:                                               ; preds = %19
   %22 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.70) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %22, ptr noundef nonnull @.str.70) #10
   unreachable
 
 23:                                               ; preds = %19
@@ -1894,7 +1895,7 @@ define internal noundef i64 @ossl_ec_point_initialize_copy(i64 noundef returned 
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store ptr %20, ptr %25, align 8, !tbaa !19
   %26 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %27 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %26, i64 noundef %14) #7
+  %27 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %26, i64 noundef %14) #8
   ret i64 %0
 }
 
@@ -1903,46 +1904,46 @@ declare void @rb_attr(i64 noundef, i64 noundef, i32 noundef, i32 noundef, i32 no
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ec_point_eql(i64 noundef %0, i64 noundef %1) #0 {
   %3 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #7
+  %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #8
   %5 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %6 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef %5) #7
+  %6 = tail call i64 @rb_attr_get(i64 noundef %1, i64 noundef %5) #8
   %7 = tail call i64 @ossl_ec_group_eql(i64 noundef %4, i64 noundef %6)
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %30, label %9
 
 9:                                                ; preds = %2
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %10 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
   %13 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.85) #10
   unreachable
 
 14:                                               ; preds = %9
-  %15 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #7
+  %15 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
   %18 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.85) #10
   unreachable
 
 19:                                               ; preds = %14
-  %20 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @ossl_ec_group_type) #7
+  %20 = tail call ptr @rb_check_typeddata(i64 noundef %4, ptr noundef nonnull @ossl_ec_group_type) #8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
   %23 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.59) #10
   unreachable
 
 24:                                               ; preds = %19
-  %25 = tail call ptr @ossl_bn_ctx_get() #7
-  %26 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %20, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %25) #7
+  %25 = tail call ptr @ossl_bn_ctx_get() #8
+  %26 = tail call i32 @EC_POINT_cmp(ptr noundef nonnull %20, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %25) #8
   switch i32 %26, label %28 [
     i32 0, label %30
     i32 1, label %27
@@ -1953,7 +1954,7 @@ define internal range(i64 0, 21) i64 @ossl_ec_point_eql(i64 noundef %0, i64 noun
 
 28:                                               ; preds = %24
   %29 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.102) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.102) #10
   unreachable
 
 30:                                               ; preds = %24, %2, %27
@@ -1963,29 +1964,29 @@ define internal range(i64 0, 21) i64 @ossl_ec_point_eql(i64 noundef %0, i64 noun
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ec_point_is_at_infinity(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #10
   unreachable
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #7
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #7
+  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #8
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #10
   unreachable
 
 13:                                               ; preds = %6
-  %14 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %9, ptr noundef nonnull %2) #7
+  %14 = tail call i32 @EC_POINT_is_at_infinity(ptr noundef nonnull %9, ptr noundef nonnull %2) #8
   switch i32 %14, label %16 [
     i32 1, label %18
     i32 0, label %15
@@ -1996,7 +1997,7 @@ define internal range(i64 0, 21) i64 @ossl_ec_point_is_at_infinity(i64 noundef %
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.103) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.103) #10
   unreachable
 
 18:                                               ; preds = %13, %15
@@ -2006,30 +2007,30 @@ define internal range(i64 0, 21) i64 @ossl_ec_point_is_at_infinity(i64 noundef %
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @ossl_ec_point_is_on_curve(i64 noundef %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #10
   unreachable
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #7
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #7
+  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #8
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #10
   unreachable
 
 13:                                               ; preds = %6
-  %14 = tail call ptr @ossl_bn_ctx_get() #7
-  %15 = tail call i32 @EC_POINT_is_on_curve(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef %14) #7
+  %14 = tail call ptr @ossl_bn_ctx_get() #8
+  %15 = tail call i32 @EC_POINT_is_on_curve(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef %14) #8
   switch i32 %15, label %17 [
     i32 1, label %19
     i32 0, label %16
@@ -2040,7 +2041,7 @@ define internal range(i64 0, 21) i64 @ossl_ec_point_is_on_curve(i64 noundef %0) 
 
 17:                                               ; preds = %13
   %18 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.104) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %18, ptr noundef nonnull @.str.104) #10
   unreachable
 
 19:                                               ; preds = %13, %16
@@ -2050,64 +2051,64 @@ define internal range(i64 0, 21) i64 @ossl_ec_point_is_on_curve(i64 noundef %0) 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_make_affine(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #10
   unreachable
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #7
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #7
+  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #8
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #10
   unreachable
 
 13:                                               ; preds = %6
-  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.105) #10
+  tail call void (ptr, ...) @rb_warn(ptr noundef nonnull @.str.105) #11
   ret i64 %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_invert(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #10
   unreachable
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #7
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #7
+  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #8
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #10
   unreachable
 
 13:                                               ; preds = %6
-  %14 = tail call ptr @ossl_bn_ctx_get() #7
-  %15 = tail call i32 @EC_POINT_invert(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef %14) #7
+  %14 = tail call ptr @ossl_bn_ctx_get() #8
+  %15 = tail call i32 @EC_POINT_invert(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef %14) #8
   %.not = icmp eq i32 %15, 1
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.106) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef nonnull @.str.106) #10
   unreachable
 
 18:                                               ; preds = %13
@@ -2116,35 +2117,35 @@ define internal noundef i64 @ossl_ec_point_invert(i64 noundef returned %0) #0 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_set_to_infinity(i64 noundef returned %0) #0 {
-  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %2 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %1
   %5 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %5, ptr noundef nonnull @.str.85) #10
   unreachable
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #7
-  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #7
+  %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #8
+  %9 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @ossl_ec_group_type) #8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %6
   %12 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %12, ptr noundef nonnull @.str.59) #10
   unreachable
 
 13:                                               ; preds = %6
-  %14 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %9, ptr noundef nonnull %2) #7
+  %14 = tail call i32 @EC_POINT_set_to_infinity(ptr noundef nonnull %9, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %14, 1
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %13
   %16 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.107) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.107) #10
   unreachable
 
 17:                                               ; preds = %13
@@ -2153,29 +2154,29 @@ define internal noundef i64 @ossl_ec_point_set_to_infinity(i64 noundef returned 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ossl_ec_point_to_octet_string(i64 noundef %0, i64 noundef %1) #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.85) #10
   unreachable
 
 7:                                                ; preds = %2
   %8 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %9 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %8) #7
-  %10 = tail call ptr @rb_check_typeddata(i64 noundef %9, ptr noundef nonnull @ossl_ec_group_type) #7
+  %9 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %8) #8
+  %10 = tail call ptr @rb_check_typeddata(i64 noundef %9, ptr noundef nonnull @ossl_ec_group_type) #8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
   %13 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef nonnull @.str.59) #10
   unreachable
 
 14:                                               ; preds = %7
-  %15 = tail call i64 @rb_sym2id(i64 noundef %1) #7
+  %15 = tail call i64 @rb_sym2id(i64 noundef %1) #8
   %16 = load i64, ptr @ID_uncompressed, align 8, !tbaa !6
   %17 = icmp eq i64 %15, %16
   br i1 %17, label %parse_point_conversion_form_symbol.exit, label %18
@@ -2192,23 +2193,23 @@ define internal i64 @ossl_ec_point_to_octet_string(i64 noundef %0, i64 noundef %
 
 24:                                               ; preds = %21
   %25 = load i64, ptr @rb_eArgError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %25, ptr noundef nonnull @.str.91, i64 noundef %1) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %25, ptr noundef nonnull @.str.91, i64 noundef %1) #10
   unreachable
 
 parse_point_conversion_form_symbol.exit:          ; preds = %14, %18, %21
   %.0.i = phi i32 [ 4, %14 ], [ 2, %18 ], [ 6, %21 ]
-  %26 = tail call ptr @ossl_bn_ctx_get() #7
-  %27 = tail call i64 @EC_POINT_point2oct(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef %.0.i, ptr noundef null, i64 noundef 0, ptr noundef %26) #7
+  %26 = tail call ptr @ossl_bn_ctx_get() #8
+  %27 = tail call i64 @EC_POINT_point2oct(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef %.0.i, ptr noundef null, i64 noundef 0, ptr noundef %26) #8
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %28, label %30
 
 28:                                               ; preds = %parse_point_conversion_form_symbol.exit
   %29 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.108) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str.108) #10
   unreachable
 
 30:                                               ; preds = %parse_point_conversion_form_symbol.exit
-  %31 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %27) #7, !callees !36
+  %31 = tail call i64 @rb_str_new(ptr noundef null, i64 noundef %27) #8, !callees !36
   %32 = inttoptr i64 %31 to ptr
   %33 = load i64, ptr %32, align 8, !tbaa !26, !noalias !37
   %34 = and i64 %33, 8192
@@ -2222,14 +2223,14 @@ parse_point_conversion_form_symbol.exit:          ; preds = %14, %18, %21
 
 RSTRING_PTR.exit:                                 ; preds = %30, %36
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %36 ], [ %35, %30 ]
-  %37 = tail call ptr @ossl_bn_ctx_get() #7
-  %38 = tail call i64 @EC_POINT_point2oct(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef %.0.i, ptr noundef %.sroa.2.0.i, i64 noundef %27, ptr noundef %37) #7
+  %37 = tail call ptr @ossl_bn_ctx_get() #8
+  %38 = tail call i64 @EC_POINT_point2oct(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef %.0.i, ptr noundef %.sroa.2.0.i, i64 noundef %27, ptr noundef %37) #8
   %.not19 = icmp eq i64 %38, 0
   br i1 %.not19, label %39, label %41
 
 39:                                               ; preds = %RSTRING_PTR.exit
   %40 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %40, ptr noundef nonnull @.str.108) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %40, ptr noundef nonnull @.str.108) #10
   unreachable
 
 41:                                               ; preds = %RSTRING_PTR.exit
@@ -2239,65 +2240,65 @@ RSTRING_PTR.exit:                                 ; preds = %30, %36
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @ossl_ec_point_add(i64 noundef %0, i64 noundef %1) #0 {
   %3 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %4 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %5 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %4) #7
+  %5 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %4) #8
   store i64 %5, ptr %3, align 8, !tbaa !6
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #7
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_point_type) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
   %9 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.85) #10
   unreachable
 
 10:                                               ; preds = %2
-  %11 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #7
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @ossl_ec_point_type) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
   %14 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.85) #10
   unreachable
 
 15:                                               ; preds = %10
-  %16 = tail call ptr @rb_check_typeddata(i64 noundef %5, ptr noundef nonnull @ossl_ec_group_type) #7
+  %16 = tail call ptr @rb_check_typeddata(i64 noundef %5, ptr noundef nonnull @ossl_ec_group_type) #8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
   %19 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.59) #10
   unreachable
 
 20:                                               ; preds = %15
   %21 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  %22 = tail call i64 @rb_obj_alloc(i64 noundef %21) #7
+  %22 = tail call i64 @rb_obj_alloc(i64 noundef %21) #8
   %23 = call i64 @ossl_ec_point_initialize(i32 noundef 1, ptr noundef nonnull %3, i64 noundef %22)
-  %24 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @ossl_ec_point_type) #7
+  %24 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @ossl_ec_point_type) #8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20
   %27 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.85) #10
   unreachable
 
 28:                                               ; preds = %20
-  %29 = tail call ptr @ossl_bn_ctx_get() #7
-  %30 = tail call i32 @EC_POINT_add(ptr noundef nonnull %16, ptr noundef nonnull %24, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef %29) #7
+  %29 = tail call ptr @ossl_bn_ctx_get() #8
+  %30 = tail call i32 @EC_POINT_add(ptr noundef nonnull %16, ptr noundef nonnull %24, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef %29) #8
   %.not = icmp eq i32 %30, 1
   br i1 %.not, label %33, label %31
 
 31:                                               ; preds = %28
   %32 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %32, ptr noundef nonnull @.str.109) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %32, ptr noundef nonnull @.str.109) #10
   unreachable
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret i64 %22
 }
 
@@ -2308,43 +2309,43 @@ define internal noundef i64 @ossl_ec_point_mul(i32 noundef %0, ptr noundef reado
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca [3 x ptr], align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %9 = load i64, ptr @id_i_group, align 8, !tbaa !6
-  %10 = tail call i64 @rb_attr_get(i64 noundef %2, i64 noundef %9) #7
+  %10 = tail call i64 @rb_attr_get(i64 noundef %2, i64 noundef %9) #8
   store i64 %10, ptr %4, align 8, !tbaa !6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_point_type) #7
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
+  %11 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @ossl_ec_point_type) #8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %3
   %14 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %14, ptr noundef nonnull @.str.85) #10
   unreachable
 
 15:                                               ; preds = %3
-  %16 = tail call ptr @rb_check_typeddata(i64 noundef %10, ptr noundef nonnull @ossl_ec_group_type) #7
+  %16 = tail call ptr @rb_check_typeddata(i64 noundef %10, ptr noundef nonnull @ossl_ec_group_type) #8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %15
   %19 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %19, ptr noundef nonnull @.str.59) #10
   unreachable
 
 20:                                               ; preds = %15
   %21 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  %22 = tail call i64 @rb_obj_alloc(i64 noundef %21) #7
+  %22 = tail call i64 @rb_obj_alloc(i64 noundef %21) #8
   %23 = call i64 @ossl_ec_point_initialize(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %22)
-  %24 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @ossl_ec_point_type) #7
+  %24 = tail call ptr @rb_check_typeddata(i64 noundef %22, ptr noundef nonnull @ossl_ec_point_type) #8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %20
   %27 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.85) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef nonnull @.str.85) #10
   unreachable
 
 28:                                               ; preds = %20
@@ -2401,7 +2402,7 @@ define internal noundef i64 @ossl_ec_point_mul(i32 noundef %0, ptr noundef reado
   br i1 %49, label %rb_scan_args_set.exit, label %50
 
 50:                                               ; preds = %48, %28
-  call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 3) #9
+  call void @rb_error_arity(i32 noundef %0, i32 noundef 1, i32 noundef 3) #10
   unreachable
 
 rb_scan_args_set.exit:                            ; preds = %48
@@ -2427,36 +2428,36 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %rb_scan_args_set.ex
 
 62:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
   %63 = load i64, ptr @rb_eNotImpError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %63, ptr noundef nonnull @.str.111) #9
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %63, ptr noundef nonnull @.str.111) #10
   unreachable
 
 64:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
-  %65 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %5) #7
+  %65 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %5) #8
   %66 = load i64, ptr %6, align 8, !tbaa !6
   %67 = icmp eq i64 %66, 4
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %64
-  %69 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %6) #7
+  %69 = call ptr @ossl_bn_value_ptr(ptr noundef nonnull %6) #8
   br label %70
 
 70:                                               ; preds = %68, %64
   %.0 = phi ptr [ null, %64 ], [ %69, %68 ]
-  %71 = call ptr @ossl_bn_ctx_get() #7
-  %72 = call i32 @EC_POINT_mul(ptr noundef nonnull %16, ptr noundef nonnull %24, ptr noundef %.0, ptr noundef nonnull %11, ptr noundef %65, ptr noundef %71) #7
+  %71 = call ptr @ossl_bn_ctx_get() #8
+  %72 = call i32 @EC_POINT_mul(ptr noundef nonnull %16, ptr noundef nonnull %24, ptr noundef %.0, ptr noundef nonnull %11, ptr noundef %65, ptr noundef %71) #8
   %.not = icmp eq i32 %72, 1
   br i1 %.not, label %75, label %73
 
 73:                                               ; preds = %70
   %74 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %74, ptr noundef null) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %74, ptr noundef null) #10
   unreachable
 
 75:                                               ; preds = %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   ret i64 %22
 }
 
@@ -2492,65 +2493,65 @@ define internal fastcc nonnull ptr @ec_key_new_from_group(i64 noundef %0) unname
   %2 = alloca i64, align 8
   store i64 %0, ptr %2, align 8, !tbaa !6
   %3 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %3) #7
+  %4 = tail call i64 @rb_obj_is_kind_of(i64 noundef %0, i64 noundef %3) #8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %5
   %9 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %9, ptr noundef nonnull @.str.59) #10
   unreachable
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @EC_KEY_new() #7
+  %11 = tail call ptr @EC_KEY_new() #8
   %.not13 = icmp eq ptr %11, null
   br i1 %.not13, label %12, label %14
 
 12:                                               ; preds = %10
   %13 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef null) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef null) #10
   unreachable
 
 14:                                               ; preds = %10
-  %15 = tail call i32 @EC_KEY_set_group(ptr noundef nonnull %11, ptr noundef nonnull %6) #7
+  %15 = tail call i32 @EC_KEY_set_group(ptr noundef nonnull %11, ptr noundef nonnull %6) #8
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %16, label %29
 
 16:                                               ; preds = %14
-  tail call void @EC_KEY_free(ptr noundef nonnull %11) #7
+  tail call void @EC_KEY_free(ptr noundef nonnull %11) #8
   %17 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef null) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %17, ptr noundef null) #10
   unreachable
 
 18:                                               ; preds = %1
-  %19 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #7
-  %20 = call i32 @OBJ_sn2nid(ptr noundef %19) #7
+  %19 = call ptr @rb_string_value_cstr(ptr noundef nonnull %2) #8
+  %20 = call i32 @OBJ_sn2nid(ptr noundef %19) #8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
   %23 = load i64, ptr @eECError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.60) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %23, ptr noundef nonnull @.str.60) #10
   unreachable
 
 24:                                               ; preds = %18
-  %25 = call ptr @EC_KEY_new_by_curve_name(i32 noundef %20) #7
+  %25 = call ptr @EC_KEY_new_by_curve_name(i32 noundef %20) #8
   %.not12 = icmp eq ptr %25, null
   br i1 %.not12, label %26, label %28
 
 26:                                               ; preds = %24
   %27 = load i64, ptr @eECError, align 8, !tbaa !6
-  call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef null) #9
+  call void (i64, ptr, ...) @ossl_raise(i64 noundef %27, ptr noundef null) #10
   unreachable
 
 28:                                               ; preds = %24
-  call void @EC_KEY_set_asn1_flag(ptr noundef nonnull %25, i32 noundef 1) #7
-  call void @EC_KEY_set_conv_form(ptr noundef nonnull %25, i32 noundef 4) #7
+  call void @EC_KEY_set_asn1_flag(ptr noundef nonnull %25, i32 noundef 1) #8
+  call void @EC_KEY_set_conv_form(ptr noundef nonnull %25, i32 noundef 4) #8
   br label %29
 
 29:                                               ; preds = %14, %28
@@ -2588,7 +2589,7 @@ declare void @EC_KEY_set_conv_form(ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_ec_group_free(ptr noundef %0) #0 {
-  tail call void @EC_GROUP_free(ptr noundef %0) #7
+  tail call void @EC_GROUP_free(ptr noundef %0) #8
   ret void
 }
 
@@ -2629,14 +2630,14 @@ declare ptr @EC_KEY_get0_public_key(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @ec_point_new(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @cEC_POINT, align 8, !tbaa !6
-  %4 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %3, ptr noundef null, ptr noundef nonnull @ossl_ec_point_type) #7
-  %5 = tail call ptr @EC_POINT_dup(ptr noundef nonnull %0, ptr noundef %1) #7
+  %4 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %3, ptr noundef null, ptr noundef nonnull @ossl_ec_point_type) #8
+  %5 = tail call ptr @EC_POINT_dup(ptr noundef nonnull %0, ptr noundef %1) #8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %2
   %7 = load i64, ptr @eEC_POINT, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %7, ptr noundef nonnull @.str.70) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %7, ptr noundef nonnull @.str.70) #10
   unreachable
 
 8:                                                ; preds = %2
@@ -2645,21 +2646,21 @@ define internal fastcc i64 @ec_point_new(ptr noundef nonnull %0, ptr noundef %1)
   store ptr %5, ptr %10, align 8, !tbaa !19
   %11 = load i64, ptr @id_i_group, align 8, !tbaa !6
   %12 = load i64, ptr @cEC_GROUP, align 8, !tbaa !6
-  %13 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %12, ptr noundef null, ptr noundef nonnull @ossl_ec_group_type) #7
-  %14 = tail call ptr @EC_GROUP_dup(ptr noundef %1) #7
+  %13 = tail call i64 @rb_data_typed_object_wrap(i64 noundef %12, ptr noundef null, ptr noundef nonnull @ossl_ec_group_type) #8
+  %14 = tail call ptr @EC_GROUP_dup(ptr noundef %1) #8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %15, label %ec_group_new.exit
 
 15:                                               ; preds = %8
   %16 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.68) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %16, ptr noundef nonnull @.str.68) #10
   unreachable
 
 ec_group_new.exit:                                ; preds = %8
   %17 = inttoptr i64 %13 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %14, ptr %18, align 8, !tbaa !19
-  %19 = tail call i64 @rb_ivar_set(i64 noundef %4, i64 noundef %11, i64 noundef %13) #7
+  %19 = tail call i64 @rb_ivar_set(i64 noundef %4, i64 noundef %11, i64 noundef %13) #8
   ret i64 %4
 }
 
@@ -2713,7 +2714,7 @@ declare i32 @EC_GROUP_set_generator(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @ossl_ec_point_free(ptr noundef %0) #0 {
-  tail call void @EC_POINT_clear_free(ptr noundef %0) #7
+  tail call void @EC_POINT_clear_free(ptr noundef %0) #8
   ret void
 }
 
@@ -2749,24 +2750,24 @@ declare i32 @EC_GROUP_get_degree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
-  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #7
+  %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ossl_ec_group_type) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %6, ptr noundef nonnull @.str.59) #10
   unreachable
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @BIO_s_mem() #7
-  %9 = tail call ptr @BIO_new(ptr noundef %8) #7
+  %8 = tail call ptr @BIO_s_mem() #8
+  %9 = tail call ptr @BIO_new(ptr noundef %8) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %12
 
 10:                                               ; preds = %7
   %11 = load i64, ptr @eEC_GROUP, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.93) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %11, ptr noundef nonnull @.str.93) #10
   unreachable
 
 12:                                               ; preds = %7
@@ -2774,11 +2775,11 @@ define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef 
   br i1 %trunc, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @PEM_write_bio_ECPKParameters(ptr noundef nonnull %9, ptr noundef nonnull %3) #7
+  %14 = tail call i32 @PEM_write_bio_ECPKParameters(ptr noundef nonnull %9, ptr noundef nonnull %3) #8
   br label %17
 
 15:                                               ; preds = %12
-  %16 = tail call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_ECPKParameters, ptr noundef nonnull %9, ptr noundef nonnull %3) #7
+  %16 = tail call i32 @ASN1_i2d_bio(ptr noundef nonnull @i2d_ECPKParameters, ptr noundef nonnull %9, ptr noundef nonnull %3) #8
   br label %17
 
 17:                                               ; preds = %15, %13
@@ -2787,13 +2788,13 @@ define internal fastcc i64 @ossl_ec_group_to_string(i64 noundef %0, i32 noundef 
   br i1 %.not13, label %21, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call i32 @BIO_free(ptr noundef nonnull %9) #7
+  %19 = tail call i32 @BIO_free(ptr noundef nonnull %9) #8
   %20 = load i64, ptr @eECError, align 8, !tbaa !6
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %20, ptr noundef null) #9
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %20, ptr noundef null) #10
   unreachable
 
 21:                                               ; preds = %17
-  %22 = tail call i64 @ossl_membio2str(ptr noundef nonnull %9) #7
+  %22 = tail call i64 @ossl_membio2str(ptr noundef nonnull %9) #8
   ret i64 %22
 }
 
@@ -2842,6 +2843,9 @@ declare i32 @EC_POINT_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 
 declare i32 @EC_POINT_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #7
+
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2849,10 +2853,11 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #4 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind }
-attributes #8 = { cold noreturn nounwind }
-attributes #9 = { noreturn nounwind }
-attributes #10 = { cold nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { cold noreturn nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

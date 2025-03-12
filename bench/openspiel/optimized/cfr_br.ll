@@ -2131,7 +2131,7 @@ define void @_ZN10open_spiel10algorithms22DeserializeCFRBRSolverERKNSt7__cxx1112
   br label %49
 
 49:                                               ; preds = %48, %46
-  %50 = trunc i64 %30 to i32
+  %50 = trunc nsw i64 %30 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   store i32 %50, ptr %10, align 4
   invoke void @_ZSt11make_uniqueIN10open_spiel10algorithms11CFRBRSolverEJRSt10shared_ptrIKNS0_4GameEEiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.119") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(4) %10)

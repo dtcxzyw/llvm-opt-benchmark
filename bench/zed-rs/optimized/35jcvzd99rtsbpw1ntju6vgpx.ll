@@ -1682,7 +1682,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN164_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..Override$LT$T$GT$$GT$..deserialize..__Visitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h37f49e3580bdd027E.exit.thread.sink.split.i"
 
 139:                                              ; preds = %136
-  %trunc.i.i = trunc i8 %137 to i1
+  %trunc.i.i = trunc nuw i8 %137 to i1
   br i1 %trunc.i.i, label %144, label %142
 
 140:                                              ; preds = %136
@@ -2266,7 +2266,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN164_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..Override$LT$T$GT$$GT$..deserialize..__Visitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hebdca54ca1190f0fE.exit.thread.sink.split.i"
 
 139:                                              ; preds = %136
-  %trunc.i.i = trunc i8 %137 to i1
+  %trunc.i.i = trunc nuw i8 %137 to i1
   br i1 %trunc.i.i, label %144, label %142
 
 140:                                              ; preds = %136
@@ -2888,7 +2888,7 @@ default.unreachable11:                            ; preds = %2
   br label %"_ZN164_$LT$language.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$language..Override$LT$T$GT$$GT$..deserialize..__Visitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hc6570e7bdf3a9752E.exit.thread.sink.split.i"
 
 139:                                              ; preds = %136
-  %trunc.i.i = trunc i8 %137 to i1
+  %trunc.i.i = trunc nuw i8 %137 to i1
   br i1 %trunc.i.i, label %144, label %142
 
 140:                                              ; preds = %136
@@ -15369,13 +15369,13 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12strip_prefix17
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %3
-  %11 = trunc nuw i32 %2 to i8
+  %11 = trunc nuw nsw i32 %2 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !3633, !noalias !3630
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %2, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !3633, !noalias !3630
   %16 = trunc i32 %2 to i8
@@ -15387,7 +15387,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12strip_prefix17
 
 20:                                               ; preds = %8
   %21 = lshr i32 %2, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !3633, !noalias !3630
   %24 = lshr i32 %2, 6
@@ -16633,7 +16633,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
   br i1 %27, label %54, label %14
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %0 to i8
+  %29 = trunc nuw nsw i32 %0 to i8
   store i8 %29, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h27dbbaa5299e8666E.exit"
 
@@ -16646,7 +16646,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 33:                                               ; preds = %22
   %34 = lshr i32 %0, 6
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -64
   store i8 %36, ptr %1, align 1
   %37 = trunc i32 %0 to i8
@@ -16658,7 +16658,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09
 
 41:                                               ; preds = %24
   %42 = lshr i32 %0, 12
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
   store i8 %44, ptr %1, align 1
   %45 = lshr i32 %0, 6
@@ -16895,13 +16895,13 @@ define hidden { ptr, i64 } @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Patte
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %3
-  %11 = trunc nuw i32 %0 to i8
+  %11 = trunc nuw nsw i32 %0 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !3772
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %0, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !3772
   %16 = trunc i32 %0 to i8
@@ -16913,7 +16913,7 @@ define hidden { ptr, i64 } @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Patte
 
 20:                                               ; preds = %8
   %21 = lshr i32 %0, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !3772
   %24 = lshr i32 %0, 6
@@ -17063,13 +17063,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h3fae4dee00a04fdb
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !3806
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !3806
   %18 = trunc i32 %1 to i8
@@ -17081,7 +17081,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h3fae4dee00a04fdb
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !3806
   %26 = lshr i32 %1, 6
@@ -17155,13 +17155,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h53d760db5a133fcb
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !3813
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !3813
   %18 = trunc i32 %1 to i8
@@ -17173,7 +17173,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17h53d760db5a133fcb
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !3813
   %26 = lshr i32 %1, 6
@@ -17247,13 +17247,13 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hec239f5b39e560b6
   br i1 %10, label %22, label %34
 
 12:                                               ; preds = %2
-  %13 = trunc nuw i32 %1 to i8
+  %13 = trunc nuw nsw i32 %1 to i8
   store i8 %13, ptr %5, align 4, !alias.scope !3820
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.llvm.15863119600476612186.exit
 
 14:                                               ; preds = %7
   %15 = lshr i32 %1, 6
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -64
   store i8 %17, ptr %5, align 4, !alias.scope !3820
   %18 = trunc i32 %1 to i8
@@ -17265,7 +17265,7 @@ define internal fastcc void @_ZN5serde2de7Visitor10visit_char17hec239f5b39e560b6
 
 22:                                               ; preds = %9
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %5, align 4, !alias.scope !3820
   %26 = lshr i32 %1, 6
@@ -56963,7 +56963,7 @@ _ZN5serde2de9MapAccess10next_value17h30a6e74916f4845dE.exit287.i: ; preds = %431
   %.sroa.0159.5419.i = phi i1 [ %.sroa.0159.5.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit293.i" ], [ %.sroa.0159.5418.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit293.thread.i" ], [ %.sroa.0159.5418.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5062695954853193952.exit.i.i1.i.i303.i" ]
   %.sroa.0157.5417.i = phi i1 [ %.sroa.0157.5.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit293.i" ], [ %.sroa.0157.5416.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit293.thread.i" ], [ %.sroa.0157.5416.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5062695954853193952.exit.i.i1.i.i303.i" ]
   %.sroa.0155.5415.i = phi i8 [ %.sroa.0155.5.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit293.i" ], [ %.sroa.0155.5414.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit293.thread.i" ], [ %.sroa.0155.5414.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5062695954853193952.exit.i.i1.i.i303.i" ]
-  %475 = trunc i8 %.sroa.0155.5415.i to i1
+  %475 = trunc nuw i8 %.sroa.0155.5415.i to i1
   br i1 %475, label %switch.early.test2089.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit306.i"
 
 switch.early.test2089.i:                          ; preds = %_ZN5serde2de9MapAccess10next_value17h30a6e74916f4845dE.exit287.i, %_ZN5serde2de9MapAccess10next_value17h30a6e74916f4845dE.exit287.thread.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit304.i"

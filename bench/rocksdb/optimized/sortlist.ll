@@ -307,7 +307,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %77, %75, %71, %67, 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 118:                                              ; preds = %._crit_edge.i.i
-  %119 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %119 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %120 = or disjoint i8 %119, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -447,7 +447,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i24:  ; preds = %150, %148, %144, %1
   br label %_ZNSt7__cxx119to_stringEi.exit34
 
 190:                                              ; preds = %._crit_edge.i.i27
-  %191 = trunc nuw i32 %.0.lcssa.i.i28 to i8
+  %191 = trunc nuw nsw i32 %.0.lcssa.i.i28 to i8
   %192 = or disjoint i8 %191, 48
   br label %_ZNSt7__cxx119to_stringEi.exit34
 
@@ -750,7 +750,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %53
 
 53:                                               ; preds = %52, %50
-  %54 = trunc i64 %34 to i32
+  %54 = trunc nsw i64 %34 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   %55 = load ptr, ptr %10, align 8, !tbaa !18
   %56 = load ptr, ptr %11, align 8, !tbaa !19
@@ -1533,7 +1533,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %52, %50, %46, %42, 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 93:                                               ; preds = %._crit_edge.i.i
-  %94 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %94 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %95 = or disjoint i8 %94, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -1683,7 +1683,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i18:  ; preds = %128, %126, %122, %1
   br label %_ZNSt7__cxx119to_stringEi.exit28
 
 168:                                              ; preds = %._crit_edge.i.i21
-  %169 = trunc nuw i32 %.0.lcssa.i.i22 to i8
+  %169 = trunc nuw nsw i32 %.0.lcssa.i.i22 to i8
   %170 = or disjoint i8 %169, 48
   br label %_ZNSt7__cxx119to_stringEi.exit28
 

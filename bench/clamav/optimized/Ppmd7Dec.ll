@@ -507,7 +507,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   store i8 %228, ptr %217, align 2, !tbaa !47
   %229 = zext nneg i8 %218 to i32
   %230 = shl nuw nsw i32 3, %229
-  %231 = trunc i32 %230 to i8
+  %231 = trunc nuw i32 %230 to i8
   store i8 %231, ptr %221, align 1, !tbaa !48
   br label %232
 

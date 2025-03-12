@@ -325,7 +325,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %101
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %101 ], [ %92, %.lr.ph ]
   %94 = phi i64 [ %107, %101 ], [ %87, %.lr.ph ]
-  %95 = trunc i64 %94 to i8
+  %95 = trunc nuw i64 %94 to i8
   %96 = getelementptr inbounds [12 x i8], ptr %5, i64 0, i64 %indvars.iv195
   store i8 %95, ptr %96, align 1, !tbaa !4
   %97 = load i32, ptr %0, align 8, !tbaa !29
@@ -358,7 +358,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %112 = phi i64 [ %143, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121 ], [ %87, %.lr.ph.split.preheader ]
   %.1132 = phi i8 [ 1, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121 ], [ %93, %.lr.ph.split.preheader ]
   %.184131 = phi ptr [ %122, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121 ], [ %.083, %.lr.ph.split.preheader ]
-  %113 = trunc i64 %112 to i8
+  %113 = trunc nuw i64 %112 to i8
   %114 = getelementptr inbounds [12 x i8], ptr %5, i64 0, i64 %indvars.iv
   store i8 %113, ptr %114, align 1, !tbaa !4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

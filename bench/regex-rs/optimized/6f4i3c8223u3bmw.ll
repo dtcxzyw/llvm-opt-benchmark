@@ -5864,7 +5864,7 @@ define void @"_ZN98_$LT$regex_automata..util..primitives..SmallIndex$u20$as$u20$
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i64 %1 to i32
+  %5 = trunc nuw nsw i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %5, ptr %6, align 4
   br label %9
@@ -7187,7 +7187,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA5state17he41afc9d81615eb8E.exit: ; preds
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit: ; preds = %.lr.ph.i.i.i.i, %43
   %.0.lcssa.i.i.i.i = phi i32 [ %spec.select.i.i.i, %43 ], [ %50, %.lr.ph.i.i.i.i ]
-  %52 = trunc nuw i32 %.0.lcssa.i.i.i.i to i8
+  %52 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %52), !noalias !933
   store i32 %33, ptr %17, align 8, !alias.scope !928, !noalias !931
   br label %95
@@ -7213,7 +7213,7 @@ _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit16: ; preds = %.lr.ph.i.i.i.i14, %53
   %.0.lcssa.i.i.i.i13 = phi i32 [ %spec.select.i.i.i12, %53 ], [ %60, %.lr.ph.i.i.i.i14 ]
-  %62 = trunc nuw i32 %.0.lcssa.i.i.i.i13 to i8
+  %62 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i13 to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %62), !noalias !942
   store i32 %33, ptr %17, align 8, !alias.scope !937, !noalias !940
   br label %95
@@ -7239,7 +7239,7 @@ _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit22: ; preds = %.lr.ph.i.i.i.i20, %63
   %.0.lcssa.i.i.i.i19 = phi i32 [ %spec.select.i.i.i18, %63 ], [ %70, %.lr.ph.i.i.i.i20 ]
-  %72 = trunc nuw i32 %.0.lcssa.i.i.i.i19 to i8
+  %72 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i19 to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %72), !noalias !951
   store i32 %33, ptr %17, align 8, !alias.scope !946, !noalias !949
   br label %95
@@ -7269,7 +7269,7 @@ _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit28: ; preds = %.lr.ph.i.i.i.i26, %73
   %.0.lcssa.i.i.i.i25 = phi i32 [ %spec.select.i.i.i24, %73 ], [ %82, %.lr.ph.i.i.i.i26 ]
-  %84 = trunc nuw i32 %.0.lcssa.i.i.i.i25 to i8
+  %84 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i25 to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %84), !noalias !960
   store i32 %33, ptr %17, align 8, !alias.scope !955, !noalias !958
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !961
@@ -7300,7 +7300,7 @@ _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit34: ; preds = %.lr.ph.i.i.i.i32, %85
   %.0.lcssa.i.i.i.i31 = phi i32 [ %spec.select.i.i.i30, %85 ], [ %92, %.lr.ph.i.i.i.i32 ]
-  %94 = trunc nuw i32 %.0.lcssa.i.i.i.i31 to i8
+  %94 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i31 to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %94), !noalias !973
   store i32 %33, ptr %17, align 8, !alias.scope !968, !noalias !971
   br label %95
@@ -7330,7 +7330,7 @@ _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit40: ; preds = %.lr.ph.i.i.i.i38, %97
   %.0.lcssa.i.i.i.i37 = phi i32 [ %spec.select.i.i.i36, %97 ], [ %104, %.lr.ph.i.i.i.i38 ]
-  %106 = trunc nuw i32 %.0.lcssa.i.i.i.i37 to i8
+  %106 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i37 to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %106), !noalias !982
   store i32 %33, ptr %17, align 8, !alias.scope !977, !noalias !980
   br label %95
@@ -7356,7 +7356,7 @@ _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17
 
 _ZN14regex_automata4util11determinize5state15StateBuilderNFA16add_nfa_state_id17h202658bd53c1055eE.exit46: ; preds = %.lr.ph.i.i.i.i44, %107
   %.0.lcssa.i.i.i.i43 = phi i32 [ %spec.select.i.i.i42, %107 ], [ %114, %.lr.ph.i.i.i.i44 ]
-  %116 = trunc nuw i32 %.0.lcssa.i.i.i.i43 to i8
+  %116 = trunc nuw nsw i32 %.0.lcssa.i.i.i.i43 to i8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he19bab934a8dcd9fE.llvm.7032729871794229628"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2, i8 noundef %116), !noalias !991
   store i32 %33, ptr %17, align 8, !alias.scope !986, !noalias !989
   br label %95
@@ -8571,7 +8571,7 @@ define void @"_ZN97_$LT$regex_automata..util..primitives..PatternID$u20$as$u20$c
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i64 %1 to i32
+  %5 = trunc nuw nsw i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %5, ptr %6, align 4, !alias.scope !1230, !noalias !1233
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h591bb3a2df039720E.exit"
@@ -8790,7 +8790,7 @@ define void @"_ZN95_$LT$regex_automata..util..primitives..StateID$u20$as$u20$cor
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i64 %1 to i32
+  %5 = trunc nuw nsw i64 %1 to i32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %5, ptr %6, align 4, !alias.scope !1279, !noalias !1282
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h296f1769d031bdb6E.llvm.4452766663292099101.exit"

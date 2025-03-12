@@ -6697,7 +6697,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %23 = xor i64 %12, 2147483647
   %24 = and i64 %23, %16
   %.0.in.i = select i1 %22, i64 %24, i64 %21
-  %.0.i = trunc i64 %.0.in.i to i32
+  %.0.i = trunc nuw nsw i64 %.0.in.i to i32
   tail call void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 noundef %2, i32 noundef %.0.i, ptr noundef %3) #26
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -10129,7 +10129,7 @@ define hidden void @_ZN13InstanceKlass28update_methods_jmethod_cacheEv(ptr nound
   br i1 %.not2223, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %10
-  %15 = trunc i64 %9 to i32
+  %15 = trunc nuw nsw i64 %9 to i32
   %16 = tail call i32 @llvm.umax.i32(i32 %15, i32 1)
   %17 = add nuw nsw i32 %16, 1
   %wide.trip.count = zext nneg i32 %17 to i64

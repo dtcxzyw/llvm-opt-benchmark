@@ -468,7 +468,7 @@ define dso_local void @_ZN4absl19substitute_internal3ArgC2ENS_3DecE(ptr noundef 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.028.lcssa = phi i64 [ %1, %3 ], [ %15, %.lr.ph ]
   %.027.lcssa = phi ptr [ %4, %3 ], [ %14, %.lr.ph ]
-  %17 = trunc nuw i64 %.028.lcssa to i8
+  %17 = trunc nuw nsw i64 %.028.lcssa to i8
   %18 = or disjoint i8 %17, 48
   %19 = getelementptr inbounds i8, ptr %.027.lcssa, i64 -1
   store i8 %18, ptr %19, align 1, !tbaa !4

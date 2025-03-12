@@ -37262,7 +37262,7 @@ _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %111, label %115, label %112
 
 112:                                              ; preds = %_ZN11colvarvalueD2Ev.exit
-  %113 = trunc nuw i64 %110 to i32
+  %113 = trunc nuw nsw i64 %110 to i32
   %.rhs.trunc = add nuw nsw i32 %113, 1
   %114 = udiv i32 1000000, %.rhs.trunc
   %.zext = zext nneg i32 %114 to i64

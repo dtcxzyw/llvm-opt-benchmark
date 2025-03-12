@@ -1392,7 +1392,7 @@ _ZN8rawspeed15BitStreamerJPEGCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSeque
   unreachable
 
 66:                                               ; preds = %56
-  %67 = trunc nuw i32 %63 to i16
+  %67 = trunc nuw nsw i32 %63 to i16
   %68 = icmp sgt i32 %.248, -1
   call void @llvm.assume(i1 %68)
   %69 = icmp samesign ult i32 %.248, %.fr247
@@ -1502,7 +1502,7 @@ _ZN8rawspeed15BitStreamerJPEGCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSeque
   br i1 %exitcond266.not, label %.loopexit.split.us239.us.us, label %113, !llvm.loop !166
 
 .loopexit.split.us239.us.us:                      ; preds = %113
-  %126 = trunc nuw i64 %indvars.iv.next264 to i32
+  %126 = trunc nuw nsw i64 %indvars.iv.next264 to i32
   %127 = icmp samesign ult i64 %indvars.iv263, 2671
   br i1 %127, label %.split.us241.us.us, label %._crit_edge.split.us.us.us, !llvm.loop !167
 

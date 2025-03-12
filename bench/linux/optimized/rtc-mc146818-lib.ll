@@ -334,7 +334,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr noundef re
   br i1 %20, label %.thread, label %24
 
 .thread:                                          ; preds = %15
-  %21 = trunc nuw i32 %3 to i16
+  %21 = trunc nuw nsw i32 %3 to i16
   %.lhs.trunc = add nuw nsw i16 %21, 1900
   %22 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %22 to i32

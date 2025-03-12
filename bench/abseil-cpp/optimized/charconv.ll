@@ -117,7 +117,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   %60 = xor i64 %59, -1
   %.sroa.0.0.extract.trunc.i83.i.i.i = and i64 %39, %60
   %61 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i.i, %55
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %61 to i64
+  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw nsw i128 %61 to i64
   %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i.i to i128
   %62 = icmp samesign ult i128 %58, %.sroa.0.0.insert.ext.i.i.i.i.i
   br i1 %62, label %63, label %64
@@ -288,7 +288,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIdEEbRKNS_16strings_internal11ParsedFloatE
   %139 = xor i64 %138, -1
   %.sroa.0.0.extract.trunc.i83.i.i79.i = and i64 %117, %139
   %140 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i78.i, %134
-  %.sroa.0.0.extract.trunc.i.i.i.i80.i = trunc nuw i128 %140 to i64
+  %.sroa.0.0.extract.trunc.i.i.i.i80.i = trunc nuw nsw i128 %140 to i64
   %.sroa.0.0.insert.ext.i.i.i.i81.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i79.i to i128
   %141 = icmp samesign ult i128 %137, %.sroa.0.0.insert.ext.i.i.i.i81.i
   br i1 %141, label %142, label %143
@@ -895,7 +895,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   %60 = xor i64 %59, -1
   %.sroa.0.0.extract.trunc.i83.i.i.i = and i64 %39, %60
   %61 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i.i, %55
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw i128 %61 to i64
+  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc nuw nsw i128 %61 to i64
   %.sroa.0.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i.i to i128
   %62 = icmp samesign ult i128 %58, %.sroa.0.0.insert.ext.i.i.i.i.i
   br i1 %62, label %63, label %64
@@ -1066,7 +1066,7 @@ _ZN4absl12_GLOBAL__N_114HandleEdgeCaseIfEEbRKNS_16strings_internal11ParsedFloatE
   %139 = xor i64 %138, -1
   %.sroa.0.0.extract.trunc.i83.i.i79.i = and i64 %117, %139
   %140 = lshr i128 %.sroa.03.0.insert.ext.i77.i.i78.i, %134
-  %.sroa.0.0.extract.trunc.i.i.i.i80.i = trunc nuw i128 %140 to i64
+  %.sroa.0.0.extract.trunc.i.i.i.i80.i = trunc nuw nsw i128 %140 to i64
   %.sroa.0.0.insert.ext.i.i.i.i81.i = zext i64 %.sroa.0.0.extract.trunc.i83.i.i79.i to i128
   %141 = icmp samesign ult i128 %137, %.sroa.0.0.insert.ext.i.i.i.i81.i
   br i1 %141, label %142, label %143

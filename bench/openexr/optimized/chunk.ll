@@ -1496,7 +1496,7 @@ define i32 @exr_read_scanline_chunk_info(ptr noundef %0, i32 noundef %1, i32 nou
 
 65:                                               ; preds = %58
   store i32 %.0197, ptr %3, align 8, !tbaa !52
-  %66 = trunc i32 %37 to i8
+  %66 = trunc nuw nsw i32 %37 to i8
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 22
   store i8 %66, ptr %67, align 2, !tbaa !54
   %68 = getelementptr inbounds nuw i8, ptr %30, i64 176

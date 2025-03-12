@@ -10742,7 +10742,7 @@ define internal fastcc void @dissect_docsis_cm_cap(ptr noundef readonly captures
 50:                                               ; preds = %50, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
   store i32 0, ptr %39, align 1
-  %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
+  %indvars.iv.tr.i = trunc nuw nsw i64 %indvars.iv.i to i32
   %51 = shl nuw nsw i32 %indvars.iv.tr.i, 1
   %52 = add i32 %49, %51
   %53 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %39, i32 noundef %52, i64 noundef 2)

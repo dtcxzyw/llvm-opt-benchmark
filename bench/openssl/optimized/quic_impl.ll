@@ -5859,7 +5859,7 @@ define range(i32 0, 2) i32 @ossl_quic_set_value_uint(ptr noundef %0, i32 noundef
 17:                                               ; preds = %15
   %18 = load ptr, ptr %6, align 8, !tbaa !157
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %20 = trunc nuw i64 %3 to i8
+  %20 = trunc nuw nsw i64 %3 to i8
   %21 = load i8, ptr %19, align 8
   %22 = shl nuw nsw i8 %20, 5
   %23 = and i8 %21, -97
@@ -8879,7 +8879,7 @@ define internal fastcc range(i32 0, 2) i32 @expect_quic_as(ptr noundef %0, ptr n
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = trunc nuw i32 %spec.select to i8
+  %24 = trunc nuw nsw i32 %spec.select to i8
   %trunc.i = and i8 %24, 7
   %switch.tableidx = add nsw i8 %trunc.i, -1
   %25 = icmp ult i8 %switch.tableidx, 4

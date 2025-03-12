@@ -55765,7 +55765,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i440: ; preds = %
   br label %2568
 
 2561:                                             ; preds = %2549
-  %.rhs.trunc.i = trunc i64 %2556 to i32
+  %.rhs.trunc.i = trunc nuw i64 %2556 to i32
   %2562 = udiv i32 %2525, %.rhs.trunc.i
   br label %2568
 

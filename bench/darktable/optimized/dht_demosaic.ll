@@ -109,7 +109,7 @@ define void @_ZN3DHTC2ER6LibRaw(ptr noundef nonnull align 8 captures(none) deref
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #12
   %50 = trunc nuw nsw i64 %indvars.iv69 to i32
   %51 = lshr i32 %50, 1
-  %indvars.iv69.tr = trunc i64 %indvars.iv69 to i32
+  %indvars.iv69.tr = trunc nuw nsw i64 %indvars.iv69 to i32
   %52 = shl nuw nsw i32 %indvars.iv69.tr, 1
   %53 = and i32 %52, 14
   %54 = getelementptr inbounds nuw i8, ptr %.pre75, i64 544
@@ -1043,7 +1043,7 @@ define void @_ZN3DHT12restore_hotsEv(ptr noundef nonnull readonly align 8 captur
   %indvars.iv28 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next29, %._crit_edge.us ]
   %13 = trunc nuw nsw i64 %indvars.iv28 to i32
   %14 = lshr i32 %13, 1
-  %indvars.iv28.tr = trunc i64 %indvars.iv28 to i32
+  %indvars.iv28.tr = trunc nuw nsw i64 %indvars.iv28 to i32
   %15 = shl nuw nsw i32 %indvars.iv28.tr, 1
   %16 = and i32 %15, 14
   %17 = mul nuw nsw i64 %indvars.iv28, %11
@@ -3682,7 +3682,7 @@ define void @_ZN3DHT13copy_to_imageEv(ptr noundef nonnull readonly align 8 captu
 
 .preheader.us:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %._crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %15 = trunc i64 %indvars.iv31 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv31 to i32
   %16 = add nuw nsw i32 %15, 4
   %17 = mul i32 %16, %11
   %invariant.op.us = add i32 %17, 4
@@ -3887,7 +3887,7 @@ _ZN3DHT7make_rbEv.exit:                           ; preds = %.noexc15, %8, %_ZN3
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.split.us.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.split.us.i ]
-  %60 = trunc i64 %indvars.iv31.i to i32
+  %60 = trunc nuw nsw i64 %indvars.iv31.i to i32
   %61 = add nuw nsw i32 %60, 4
   %62 = mul i32 %61, %56
   %invariant.op.us.i = add i32 %62, 4

@@ -6153,7 +6153,7 @@ if.end.i24:                                       ; preds = %if.else.i23
   br i1 %cmp20.i, label %for.inc.i, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end.i24
-  %conv26.i = trunc i64 %70 to i32
+  %conv26.i = trunc nuw nsw i64 %70 to i32
   %74 = load i32, ptr %partitionOffset_.i, align 8
   %75 = trunc nuw nsw i64 %indvars.iv.i to i32
   %add.i = add nsw i32 %74, %75
@@ -10576,7 +10576,7 @@ if.end.i24:                                       ; preds = %if.else.i23
   br i1 %cmp20.i, label %for.inc.i, label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end.i24
-  %conv26.i = trunc i64 %70 to i32
+  %conv26.i = trunc nuw nsw i64 %70 to i32
   %74 = load i32, ptr %partitionOffset_.i, align 8
   %75 = trunc i64 %indvars.iv.i to i32
   %76 = add i32 %75, 1

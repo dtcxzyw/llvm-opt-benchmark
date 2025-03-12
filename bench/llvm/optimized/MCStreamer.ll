@@ -10093,7 +10093,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit24:                ; preds = %20
 
 32:                                               ; preds = %20, %3
   %33 = phi i64 [ %21, %20 ], [ 0, %3 ]
-  %34 = trunc nuw i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = load ptr, ptr %0, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 176
   %37 = load ptr, ptr %36, align 8

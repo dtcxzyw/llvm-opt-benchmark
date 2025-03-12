@@ -2688,7 +2688,7 @@ thread-pre-split9:                                ; preds = %218
   br i1 %239, label %240, label %243
 
 240:                                              ; preds = %236
-  %241 = trunc i32 %232 to i8
+  %241 = trunc nuw nsw i32 %232 to i8
   %242 = getelementptr inbounds nuw i8, ptr %22, i64 1220
   store volatile i8 %241, ptr %242, align 4
   br label %243

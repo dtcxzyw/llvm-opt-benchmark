@@ -3415,7 +3415,7 @@ define internal range(i32 -1, 1) i32 @archive_string_normalize_D(ptr noundef cap
   br i1 %or.cond3, label %94, label %193
 
 94:                                               ; preds = %.lr.ph757
-  %.lhs.trunc = trunc nuw i32 %93 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %93 to i16
   %95 = udiv i16 %.lhs.trunc, 588
   %96 = or disjoint i16 %95, 4352
   %97 = zext nneg i16 %96 to i32
@@ -6656,7 +6656,7 @@ cesu8_to_unicode.exit:                            ; preds = %161, %157, %.thread
 
 175:                                              ; preds = %173
   %176 = lshr i32 %spec.store.select.i, 6
-  %177 = trunc nuw i32 %176 to i8
+  %177 = trunc nuw nsw i32 %176 to i8
   %178 = or disjoint i8 %177, -64
   store i8 %178, ptr %7, align 1, !tbaa !12
   %179 = trunc i32 %spec.store.select.i to i8
@@ -6671,7 +6671,7 @@ cesu8_to_unicode.exit:                            ; preds = %161, %157, %.thread
 
 184:                                              ; preds = %182
   %185 = lshr i32 %spec.store.select.i, 12
-  %186 = trunc nuw i32 %185 to i8
+  %186 = trunc nuw nsw i32 %185 to i8
   %187 = or disjoint i8 %186, -32
   store i8 %187, ptr %7, align 1, !tbaa !12
   %188 = lshr i32 %spec.store.select.i, 6
@@ -7244,7 +7244,7 @@ define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef
 
 15:                                               ; preds = %13
   %16 = lshr i32 %spec.store.select, 6
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %18, ptr %0, align 1, !tbaa !12
@@ -7265,7 +7265,7 @@ define internal i64 @unicode_to_utf8(ptr noundef %0, i64 noundef %1, i32 noundef
 
 28:                                               ; preds = %26
   %29 = lshr i32 %spec.store.select, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %31, ptr %0, align 1, !tbaa !12

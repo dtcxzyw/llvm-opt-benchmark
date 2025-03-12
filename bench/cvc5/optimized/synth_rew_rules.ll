@@ -2662,7 +2662,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit: ; preds = 
   br i1 %890, label %891, label %904
 
 891:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit
-  %892 = trunc nuw i64 %.23603813 to i8
+  %892 = trunc nuw nsw i64 %.23603813 to i8
   %893 = add nuw nsw i8 %892, 65
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %46)
   store i8 %893, ptr %46, align 1, !tbaa !12

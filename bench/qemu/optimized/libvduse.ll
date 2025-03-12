@@ -1386,7 +1386,7 @@ define internal fastcc void @vduse_queue_enable(ptr noundef %0) unnamed_addr #2 
   br i1 %.not51.i, label %133, label %117
 
 117:                                              ; preds = %.lr.ph54.i
-  %118 = trunc i64 %indvars.iv59.i to i16
+  %118 = trunc nuw i64 %indvars.iv59.i to i16
   %119 = load ptr, ptr %67, align 8
   %120 = load i16, ptr %66, align 8
   %121 = zext i16 %120 to i64

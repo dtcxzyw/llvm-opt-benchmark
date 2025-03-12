@@ -599,7 +599,7 @@ decimalLength.exit.i:                             ; preds = %228, %226, %224, %2
   br label %344
 
 339:                                              ; preds = %324
-  %340 = trunc nuw i32 %.1114.i.i to i8
+  %340 = trunc nuw nsw i32 %.1114.i.i to i8
   %341 = or disjoint i8 %340, 48
   %342 = zext nneg i32 %.0.i144.i to i64
   %343 = getelementptr inbounds nuw i8, ptr %237, i64 %342
@@ -846,7 +846,7 @@ to_chars_df.exit.i:                               ; preds = %378, %374
   br label %489
 
 486:                                              ; preds = %471
-  %487 = trunc nuw i32 %.1135.i to i8
+  %487 = trunc nuw nsw i32 %.1135.i to i8
   %488 = or disjoint i8 %487, 48
   br label %489
 

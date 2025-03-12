@@ -9109,7 +9109,7 @@ common.resume:                                    ; preds = %104, %39, %48
 _ZN5tokio7runtime4coop12poll_proceed17ha85b55a62d82082bE.exit.i: ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 1
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %43), !noalias !1412
-  %extract.t.i = trunc i8 %.sroa.0.0.i.i.i to i1
+  %extract.t.i = trunc nuw i8 %.sroa.0.0.i.i.i to i1
   %extract.t49.i = trunc i16 %.sroa.3.0.i.i.i to i8
   %extract52.i = lshr i16 %.sroa.3.0.i.i.i, 8
   %extract.t53.i = trunc nuw i16 %extract52.i to i8

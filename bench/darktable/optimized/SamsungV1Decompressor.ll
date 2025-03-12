@@ -519,7 +519,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %124 = sub nuw nsw i32 64, %120
   %125 = zext nneg i32 %124 to i64
   %126 = lshr i64 %115, %125
-  %127 = trunc i64 %126 to i32
+  %127 = trunc nuw i64 %126 to i32
   %128 = sub nsw i32 %113, %120
   %129 = zext nneg i8 %117 to i64
   %130 = shl i64 %115, %129
@@ -545,7 +545,7 @@ _ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vecto
 138:                                              ; preds = %_ZN8rawspeed21SamsungV1Decompressor11samsungDiffERNS_14BitStreamerMSBERKSt6vectorINS0_12encTableItemESaIS4_EE.exit.us
   tail call void @llvm.assume(i1 %80)
   %139 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv
-  %140 = trunc nuw i32 %136 to i16
+  %140 = trunc nuw nsw i32 %136 to i16
   store i16 %140, ptr %139, align 2, !tbaa !116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond228.not = icmp eq i64 %indvars.iv.next, %63

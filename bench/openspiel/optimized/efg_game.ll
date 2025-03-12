@@ -13321,11 +13321,11 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
   %119 = zext i8 %112 to i32
   %120 = zext i8 %115 to i32
   %121 = shl nuw nsw i64 %113, 3
-  %122 = trunc nuw i64 %121 to i32
+  %122 = trunc nuw nsw i64 %121 to i32
   %123 = shl nuw nsw i32 %120, %122
   %124 = or i32 %123, %119
   %125 = zext i8 %118 to i32
-  %.tr.i.i = trunc i64 %116 to i32
+  %.tr.i.i = trunc nuw nsw i64 %116 to i32
   %126 = shl nuw nsw i32 %.tr.i.i, 3
   %127 = shl nuw nsw i32 %125, %126
   %128 = or i32 %124, %127
@@ -16507,11 +16507,11 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
   %47 = shl nuw nsw i64 %39, 3
-  %48 = trunc nuw i64 %47 to i32
+  %48 = trunc nuw nsw i64 %47 to i32
   %49 = shl nuw nsw i32 %46, %48
   %50 = or i32 %49, %45
   %51 = zext i8 %44 to i32
-  %.tr.i = trunc i64 %42 to i32
+  %.tr.i = trunc nuw nsw i64 %42 to i32
   %52 = shl nuw nsw i32 %.tr.i, 3
   %53 = shl nuw nsw i32 %51, %52
   %54 = or i32 %50, %53

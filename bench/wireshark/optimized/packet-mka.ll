@@ -1302,7 +1302,7 @@ define internal i32 @ckn_key_hash_func(ptr noundef readonly captures(none) %0) #
   %6 = getelementptr i8, ptr %2, i64 %.011
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %.0.tr = trunc i64 %.011 to i32
+  %.0.tr = trunc nuw i64 %.011 to i32
   %9 = shl i32 %.0.tr, 3
   %10 = and i32 %9, 24
   %11 = shl nuw i32 %8, %10

@@ -3991,7 +3991,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %46, %
 
 65:                                               ; preds = %59
   %66 = load i16, ptr %12, align 8, !tbaa !119
-  %67 = trunc i64 %.099 to i16
+  %67 = trunc nuw nsw i64 %.099 to i16
   %68 = add i16 %66, %67
   store i16 %68, ptr %12, align 8, !tbaa !119
   store i8 1, ptr %9, align 2, !tbaa !318
@@ -4020,7 +4020,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %46, %
 
 _ZN6duckdb7roaring19RoaringAnalyzeState15HandleNoneValidERS1_m.exit: ; preds = %73, %76
   %79 = load i16, ptr %11, align 2, !tbaa !118
-  %80 = trunc i64 %.099 to i16
+  %80 = trunc nuw nsw i64 %.099 to i16
   %81 = add i16 %79, %80
   store i16 %81, ptr %11, align 2, !tbaa !118
   store i8 0, ptr %9, align 2, !tbaa !318

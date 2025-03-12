@@ -78,7 +78,7 @@ define noundef i32 @SHA1_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2) 
 
 42:                                               ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %44 = trunc nuw i64 %.155 to i32
+  %44 = trunc nuw nsw i64 %.155 to i32
   store i32 %44, ptr %19, align 4, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %.1, i64 %.155, i1 false)
   br label %45
@@ -345,7 +345,7 @@ define range(i32 -2, 2) i32 @ossl_sha1_ctrl(ptr noundef %0, i32 noundef %1, i32 
   %.1.i57 = phi ptr [ %.1.i, %37 ], [ %3, %9 ]
   %.155.i56 = phi i64 [ %.155.i, %37 ], [ 48, %9 ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %39 = trunc nuw i64 %.155.i56 to i32
+  %39 = trunc nuw nsw i64 %.155.i56 to i32
   store i32 %39, ptr %18, align 4, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %38, ptr noundef nonnull align 1 dereferenceable(1) %.1.i57, i64 %.155.i56, i1 false)
   br label %SHA1_Update.exit
@@ -406,7 +406,7 @@ SHA1_Update.exit:                                 ; preds = %25, %37, %.thread52
   %.1.i2267 = phi ptr [ %.1.i22, %64 ], [ %5, %SHA1_Update.exit ]
   %.155.i2166 = phi i64 [ %.155.i21, %64 ], [ 40, %SHA1_Update.exit ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %66 = trunc nuw i64 %.155.i2166 to i32
+  %66 = trunc nuw nsw i64 %.155.i2166 to i32
   store i32 %66, ptr %18, align 4, !tbaa !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr noundef nonnull align 1 dereferenceable(1) %.1.i2267, i64 %.155.i2166, i1 false)
   br label %SHA1_Update.exit48

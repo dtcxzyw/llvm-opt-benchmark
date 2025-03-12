@@ -4674,7 +4674,7 @@ define hidden noundef i32 @_ZNK3sat3cut4hashEv(ptr noundef nonnull readonly alig
   br i1 %.wide.i, label %181, label %._crit_edge.i, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit388.i"
-  %238 = trunc nuw i64 %196 to i32
+  %238 = trunc nuw nsw i64 %196 to i32
   switch i32 %238, label %246 [
     i32 2, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit390.i"
     i32 1, label %"_ZZNK3sat3cut4hashEvENK3$_1clERKS0_j.exit392.i"
@@ -5033,7 +5033,7 @@ define hidden noundef i32 @_ZNK3sat3cut8dom_hashEv(ptr noundef nonnull readonly 
   br i1 %.wide.i, label %176, label %._crit_edge.i, !llvm.loop !55
 
 ._crit_edge.i:                                    ; preds = %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit388.i"
-  %233 = trunc nuw i64 %191 to i32
+  %233 = trunc nuw nsw i64 %191 to i32
   switch i32 %233, label %241 [
     i32 2, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit390.i"
     i32 1, label %"_ZZNK3sat3cut8dom_hashEvENK3$_1clERKS0_j.exit392.i"

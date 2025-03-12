@@ -1020,7 +1020,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   br i1 %164, label %27, label %._crit_edge.loopexit, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit
-  %indvars = trunc i64 %indvars.iv.next to i32
+  %indvars = trunc nsw i64 %indvars.iv.next to i32
   %165 = uitofp nneg i32 %indvars to double
   %166 = fdiv double %156, %165
   br label %._crit_edge

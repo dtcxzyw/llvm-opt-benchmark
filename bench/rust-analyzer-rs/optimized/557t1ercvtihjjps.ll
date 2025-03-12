@@ -27343,7 +27343,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h0c3a4f99e2da6396E.llvm.6887668
   br i1 %.not, label %127, label %123
 
 123:                                              ; preds = %122
-  %124 = trunc i8 %115 to i1
+  %124 = trunc nuw i8 %115 to i1
   %125 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %126 = icmp samesign ult i64 %125, 2
   br i1 %124, label %197, label %129
@@ -27671,7 +27671,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit194
   br i1 %.not145, label %235, label %231
 
 231:                                              ; preds = %230
-  %232 = trunc i8 %128 to i1
+  %232 = trunc nuw i8 %128 to i1
   %233 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %234 = icmp samesign ult i64 %233, 2
   br i1 %232, label %275, label %242
@@ -28377,7 +28377,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h0c3a4f99e2da6396E.llvm.6887668
   br i1 %.not, label %127, label %123
 
 123:                                              ; preds = %122
-  %124 = trunc i8 %115 to i1
+  %124 = trunc nuw i8 %115 to i1
   %125 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %126 = icmp samesign ult i64 %125, 2
   br i1 %124, label %197, label %129
@@ -28705,7 +28705,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit194
   br i1 %.not145, label %235, label %231
 
 231:                                              ; preds = %230
-  %232 = trunc i8 %128 to i1
+  %232 = trunc nuw i8 %128 to i1
   %233 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %234 = icmp samesign ult i64 %233, 2
   br i1 %232, label %275, label %242

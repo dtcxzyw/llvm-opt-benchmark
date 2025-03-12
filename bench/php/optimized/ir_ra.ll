@@ -2121,7 +2121,7 @@ ir_add_fixed_live_range.exit424:                  ; preds = %934, %931, %930, %i
 
 ir_arena_alloc.exit:                              ; preds = %969, %971
   %.0.i375 = phi ptr [ %963, %969 ], [ %975, %971 ]
-  %980 = trunc i64 %indvars.iv546 to i16
+  %980 = trunc nuw i64 %indvars.iv546 to i16
   store i16 %980, ptr %.0.i375, align 8, !tbaa !74
   %981 = getelementptr inbounds nuw i8, ptr %.0.i375, i64 2
   store i8 %939, ptr %981, align 2, !tbaa !76

@@ -3919,7 +3919,7 @@ if.then.i19:                                      ; preds = %if.end34
   br i1 %cmp.i20, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i19
-  %conv4.i = trunc nuw i16 %conv38 to i8
+  %conv4.i = trunc nuw nsw i16 %conv38 to i8
   %cmp.i.i.i = icmp ugt i32 %bf.load.i.i.i.i, 150994943
   br i1 %cmp.i.i.i, label %if.then.i.i21, label %if.else.i.i
 
@@ -6162,7 +6162,7 @@ if.then74:                                        ; preds = %if.end71
 
 if.end86:                                         ; preds = %if.end71
   %shr.i = lshr i64 %conv.i, 32
-  %23 = trunc nuw i64 %shr.i to i32
+  %23 = trunc nuw nsw i64 %shr.i to i32
   call void @_ZN6hermes2vm13StringBuilder19createStringBuilderERNS0_7RuntimeENS_10SafeUInt32Eb(ptr nonnull sret(%"class.hermes::vm::CallResult.169") align 8 %builderRes, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i64 %conv.i, i32 %23, i1 noundef zeroext false)
   %hasVal.i.i.i = getelementptr inbounds nuw i8, ptr %builderRes, i64 24
   %24 = load i8, ptr %hasVal.i.i.i, align 8
@@ -6171,7 +6171,7 @@ if.end86:                                         ; preds = %if.end71
   br i1 %cmp.i59, label %return, label %if.end91
 
 if.end91:                                         ; preds = %if.end86
-  %conv.i60 = trunc i64 %conv.i to i32
+  %conv.i60 = trunc nuw i64 %conv.i to i32
   store ptr %filler, ptr %addFiller, align 8
   %26 = getelementptr inbounds nuw i8, ptr %addFiller, i64 8
   store i32 %conv.i60, ptr %26, align 8
@@ -9389,7 +9389,7 @@ if.then.i53:                                      ; preds = %for.body116
   br i1 %cmp.i54, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.then.i53
-  %conv4.i = trunc nuw i16 %and130 to i8
+  %conv4.i = trunc nuw nsw i16 %and130 to i8
   %cmp.i.i.i = icmp ugt i32 %bf.load.i.i.i.i, 150994943
   br i1 %cmp.i.i.i, label %if.then.i.i55, label %if.else.i.i
 
@@ -9486,7 +9486,7 @@ if.then.i80:                                      ; preds = %for.body144
   br i1 %cmp.i81, label %if.then3.i83, label %if.else.i82
 
 if.then3.i83:                                     ; preds = %if.then.i80
-  %conv4.i84 = trunc nuw i16 %or157 to i8
+  %conv4.i84 = trunc nuw nsw i16 %or157 to i8
   %cmp.i.i.i85 = icmp ugt i32 %bf.load.i.i.i.i61, 150994943
   br i1 %cmp.i.i.i85, label %if.then.i.i99, label %if.else.i.i86
 

@@ -699,7 +699,7 @@ acpi_fan_get_fst.exit:                            ; preds = %18, %21, %24, %28
 51:                                               ; preds = %35
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %53 = load i8, ptr %52, align 1
-  %.lhs.trunc = trunc nuw i64 %37 to i8
+  %.lhs.trunc = trunc nuw nsw i64 %37 to i8
   %54 = udiv i8 %.lhs.trunc, %53
   %.zext = zext nneg i8 %54 to i32
   br label %68

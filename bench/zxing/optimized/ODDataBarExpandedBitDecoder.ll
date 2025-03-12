@@ -3226,7 +3226,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
 
 31:                                               ; preds = %1
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   %33 = or disjoint i8 %32, 48
   ret i8 %33
 
@@ -3547,7 +3547,7 @@ define linkonce_odr void @_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_(ptr nound
   br label %37
 
 34:                                               ; preds = %._crit_edge
-  %35 = trunc nuw i32 %.0.lcssa to i8
+  %35 = trunc nuw nsw i32 %.0.lcssa to i8
   %36 = or disjoint i8 %35, 48
   br label %37
 

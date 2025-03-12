@@ -34447,7 +34447,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   br i1 %132, label %133, label %_ZL32convertArgsForAvailabilityChecksRN5clang4SemaEPNS_12FunctionDeclEPNS_4ExprENS_14SourceLocationEN4llvm8ArrayRefIS5_EERNS0_10SFINAETrapEbRS5_RNS7_15SmallVectorImplIS5_EE.exit
 
 133:                                              ; preds = %129
-  %134 = trunc i64 %4 to i32
+  %134 = trunc nuw i64 %4 to i32
   %135 = call noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #30
   %.not5315.i = icmp eq i32 %135, %134
   br i1 %.not5315.i, label %.critedge58.i, label %.lr.ph17.i

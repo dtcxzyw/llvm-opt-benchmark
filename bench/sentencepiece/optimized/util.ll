@@ -420,7 +420,7 @@ define noundef range(i64 1, 5) i64 @_ZN13sentencepiece11string_util10EncodeUTF8E
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %11, ptr %12, align 1, !tbaa !12
   %13 = lshr i32 %0, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   br label %41
 
@@ -541,7 +541,7 @@ define void @_ZN13sentencepiece11string_util17UnicodeTextToUTF8B5cxx11ERKSt6vect
   %22 = or disjoint i8 %21, -128
   store i8 %22, ptr %11, align 1, !tbaa !12
   %23 = lshr i32 %13, 6
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -64
   br label %_ZN13sentencepiece11string_util10EncodeUTF8EjPc.exit
 

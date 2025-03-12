@@ -6781,28 +6781,28 @@ _RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundst
   br i1 %switch256, label %303, label %.critedge284
 
 231:                                              ; preds = %_RINvYINtNtNtCs1LoaDTb72WA_4core3ops5range14RangeInclusivetEINtB6_11RangeBoundstE8containstECs8mTrBI1stz4_15turborepo_vt100.exit309.thread
-  %232 = trunc nuw i16 %54 to i8
+  %232 = trunc nuw nsw i16 %54 to i8
   %233 = add nsw i8 %232, -92
   store i8 1, ptr %40, align 4
   store i8 %233, ptr %.sroa.573.0..sroa_idx, align 1
   br label %70
 
 234:                                              ; preds = %153
-  %235 = trunc nuw i16 %54 to i8
+  %235 = trunc nuw nsw i16 %54 to i8
   %236 = add nsw i8 %235, -82
   store i8 1, ptr %41, align 8
   store i8 %236, ptr %.sroa.520.0..sroa_idx, align 1
   br label %70
 
 237:                                              ; preds = %75
-  %238 = trunc nuw i16 %54 to i8
+  %238 = trunc nuw nsw i16 %54 to i8
   %239 = add nsw i8 %238, -40
   store i8 1, ptr %40, align 4
   store i8 %239, ptr %.sroa.573.0..sroa_idx, align 1
   br label %70
 
 240:                                              ; preds = %55
-  %241 = trunc nuw i16 %54 to i8
+  %241 = trunc nuw nsw i16 %54 to i8
   %242 = add nsw i8 %241, -30
   store i8 1, ptr %41, align 8
   store i8 %242, ptr %.sroa.520.0..sroa_idx, align 1

@@ -2929,7 +2929,7 @@ define void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnu
   br label %_ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
 46:                                               ; preds = %._crit_edge.i.i.i
-  %47 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %47 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %48 = or disjoint i8 %47, 48
   br label %_ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xES2_IS6_nEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yES2_IS6_oEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSP_S4_i.exit
 
@@ -3435,7 +3435,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %135, %133, %129, %1
 ._crit_edge.i.i.i54.thread:                       ; preds = %._crit_edge, %._crit_edge.i.i.i54
   %.0.lcssa.i.i.i101 = phi i32 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i54 ], [ %.017.lcssa, %._crit_edge ]
   %172 = phi i64 [ %139, %._crit_edge.i.i.i54 ], [ 1, %._crit_edge ]
-  %173 = trunc nuw i32 %.0.lcssa.i.i.i101 to i8
+  %173 = trunc nuw nsw i32 %.0.lcssa.i.i.i101 to i8
   %174 = or disjoint i8 %173, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i
 
@@ -3604,7 +3604,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %32, %30, %26, %22
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i
 
 69:                                               ; preds = %._crit_edge.i.i.i
-  %70 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %70 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %71 = or disjoint i8 %70, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i
 
@@ -3752,7 +3752,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i31: ; preds = %102, %100, %96, %9
 ._crit_edge.i.i.i33.thread:                       ; preds = %88, %._crit_edge.i.i.i33
   %.0.lcssa.i.i.i3475 = phi i32 [ %.0.lcssa.i.i.i34, %._crit_edge.i.i.i33 ], [ %.1, %88 ]
   %139 = phi i64 [ %106, %._crit_edge.i.i.i33 ], [ 1, %88 ]
-  %140 = trunc nuw i32 %.0.lcssa.i.i.i3475 to i8
+  %140 = trunc nuw nsw i32 %.0.lcssa.i.i.i3475 to i8
   %141 = or disjoint i8 %140, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i35
 
@@ -3919,7 +3919,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %22, %20, %16, %12
 ._crit_edge.i.i.i.thread:                         ; preds = %8, %._crit_edge.i.i.i
   %.0.lcssa.i.i.i54 = phi i32 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %6, %8 ]
   %59 = phi i64 [ %26, %._crit_edge.i.i.i ], [ 1, %8 ]
-  %60 = trunc nuw i32 %.0.lcssa.i.i.i54 to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i.i.i54 to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i
 
@@ -4047,7 +4047,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i15: ; preds = %86, %84, %80, %76
 ._crit_edge.i.i.i17.thread:                       ; preds = %72, %._crit_edge.i.i.i17
   %.0.lcssa.i.i.i1860 = phi i32 [ %.0.lcssa.i.i.i18, %._crit_edge.i.i.i17 ], [ %70, %72 ]
   %123 = phi i64 [ %90, %._crit_edge.i.i.i17 ], [ 1, %72 ]
-  %124 = trunc nuw i32 %.0.lcssa.i.i.i1860 to i8
+  %124 = trunc nuw nsw i32 %.0.lcssa.i.i.i1860 to i8
   %125 = or disjoint i8 %124, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i19
 
@@ -7433,7 +7433,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %42, %40, %36, %32
 ._crit_edge.i.i.i.thread:                         ; preds = %29, %._crit_edge.i.i.i
   %.0.lcssa.i.i.i31 = phi i64 [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ], [ %27, %29 ]
   %74 = phi i64 [ %46, %._crit_edge.i.i.i ], [ 1, %29 ]
-  %75 = trunc nuw i64 %.0.lcssa.i.i.i31 to i8
+  %75 = trunc nuw nsw i64 %.0.lcssa.i.i.i31 to i8
   %76 = or disjoint i8 %75, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i
 
@@ -19876,7 +19876,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i:  ; preds = %87, %85, %81, %77, 
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
 123:                                              ; preds = %._crit_edge.i.i.i
-  %124 = trunc nuw i64 %.0.lcssa.i.i.i to i8
+  %124 = trunc nuw nsw i64 %.0.lcssa.i.i.i to i8
   %125 = or disjoint i8 %124, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i
 
@@ -30908,7 +30908,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i: ; preds = %21, %19, %15, %11,
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i.i
 
 57:                                               ; preds = %._crit_edge.i.i.i.i
-  %58 = trunc nuw i64 %.0.lcssa.i.i.i.i to i8
+  %58 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i.i
 
@@ -31101,7 +31101,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 96:                                               ; preds = %._crit_edge.i.i
-  %97 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %97 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %98 = or disjoint i8 %97, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -31154,7 +31154,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
 
 126:                                              ; preds = %._crit_edge.i29
   %127 = lshr i64 %.028.lcssa.i30, 3
-  %128 = trunc nuw i64 %.028.lcssa.i30 to i8
+  %128 = trunc nuw nsw i64 %.028.lcssa.i30 to i8
   %129 = and i8 %128, 7
   %130 = or disjoint i8 %129, 48
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -31163,7 +31163,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
 
 132:                                              ; preds = %126, %._crit_edge.i29
   %storemerge.in.in.i = phi i64 [ %127, %126 ], [ %.028.lcssa.i30, %._crit_edge.i29 ]
-  %storemerge.in.i31 = trunc i64 %storemerge.in.in.i to i8
+  %storemerge.in.i31 = trunc nuw nsw i64 %storemerge.in.in.i to i8
   %storemerge.i32 = or disjoint i8 %storemerge.in.i31, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -32938,7 +32938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit140: ; preds = %_Z
 
 272:                                              ; preds = %270
   %273 = lshr i32 %.069, 6
-  %274 = trunc nuw i32 %273 to i8
+  %274 = trunc nuw nsw i32 %273 to i8
   %275 = or disjoint i8 %274, -64
   %276 = load i64, ptr %49, align 8, !tbaa !11
   %277 = add i64 %276, 1
@@ -33017,7 +33017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit148: ; preds = %_Z
 
 312:                                              ; preds = %306
   %313 = lshr i32 %.069, 12
-  %314 = trunc nuw i32 %313 to i8
+  %314 = trunc nuw nsw i32 %313 to i8
   %315 = or disjoint i8 %314, -32
   br i1 %311, label %316, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i149
 
@@ -33121,7 +33121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit160: ; preds = %_Z
 
 361:                                              ; preds = %306
   %362 = lshr i32 %.069, 18
-  %363 = trunc nuw i32 %362 to i8
+  %363 = trunc nuw nsw i32 %362 to i8
   %364 = or disjoint i8 %363, -16
   br i1 %311, label %365, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i161
 
@@ -35561,7 +35561,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i: ; preds = %22, %20, %16, %1
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i.i.i
 
 58:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %59 = trunc nuw i64 %.0.lcssa.i.i.i.i.i to i8
+  %59 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i to i8
   %60 = or disjoint i8 %59, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split.i.i.i
 
@@ -36450,7 +36450,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i.i.i.i: ; preds = %29, %27, %23, %1
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i.i.i
 
 65:                                               ; preds = %._crit_edge.i.i.i.i.i
-  %66 = trunc nuw i64 %.0.lcssa.i.i.i.i.i to i8
+  %66 = trunc nuw nsw i64 %.0.lcssa.i.i.i.i.i to i8
   %67 = or disjoint i8 %66, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i.i.i
 
@@ -36661,7 +36661,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %68, %66, %62, %58, 
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i
 
 104:                                              ; preds = %._crit_edge.i.i
-  %105 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %105 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %106 = or disjoint i8 %105, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i
 
@@ -36720,7 +36720,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i: ; preds = %104, %96
 
 135:                                              ; preds = %._crit_edge.i34
   %136 = lshr i64 %.028.lcssa.i35, 3
-  %137 = trunc nuw i64 %.028.lcssa.i35 to i8
+  %137 = trunc nuw nsw i64 %.028.lcssa.i35 to i8
   %138 = and i8 %137, 7
   %139 = or disjoint i8 %138, 48
   %140 = getelementptr inbounds nuw i8, ptr %.026, i64 1
@@ -36729,7 +36729,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i: ; preds = %104, %96
 
 141:                                              ; preds = %135, %._crit_edge.i34
   %storemerge.in.in.i = phi i64 [ %136, %135 ], [ %.028.lcssa.i35, %._crit_edge.i34 ]
-  %storemerge.in.i36 = trunc i64 %storemerge.in.in.i to i8
+  %storemerge.in.i36 = trunc nuw nsw i64 %storemerge.in.in.i to i8
   %storemerge.i37 = or disjoint i8 %storemerge.in.i36, 48
   store i8 %storemerge.i37, ptr %.026, align 1, !tbaa !15
   %142 = getelementptr inbounds nuw i8, ptr %.026, i64 %115
@@ -42103,7 +42103,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %71, %69, %65, %61, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i
 
 111:                                              ; preds = %._crit_edge.i.i
-  %112 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %112 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %113 = or disjoint i8 %112, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i
 
@@ -42162,7 +42162,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i: ; preds = %111, %101
 
 142:                                              ; preds = %._crit_edge.i34
   %143 = lshr i32 %.028.lcssa.i35, 3
-  %144 = trunc nuw i32 %.028.lcssa.i35 to i8
+  %144 = trunc nuw nsw i32 %.028.lcssa.i35 to i8
   %145 = and i8 %144, 7
   %146 = or disjoint i8 %145, 48
   %147 = getelementptr inbounds nuw i8, ptr %.026, i64 1
@@ -42171,7 +42171,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i: ; preds = %111, %101
 
 148:                                              ; preds = %142, %._crit_edge.i34
   %storemerge.in.in.i = phi i32 [ %143, %142 ], [ %.028.lcssa.i35, %._crit_edge.i34 ]
-  %storemerge.in.i36 = trunc i32 %storemerge.in.in.i to i8
+  %storemerge.in.i36 = trunc nuw nsw i32 %storemerge.in.in.i to i8
   %storemerge.i37 = or disjoint i8 %storemerge.in.i36, 48
   store i8 %storemerge.i37, ptr %.026, align 1, !tbaa !15
   %149 = getelementptr inbounds nuw i8, ptr %.026, i64 %122
@@ -42506,7 +42506,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %71, %69, %65, %61, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i
 
 111:                                              ; preds = %._crit_edge.i.i
-  %112 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %112 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %113 = or disjoint i8 %112, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i
 
@@ -42565,7 +42565,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i: ; preds = %111, %101
 
 142:                                              ; preds = %._crit_edge.i34
   %143 = lshr i32 %.028.lcssa.i35, 3
-  %144 = trunc nuw i32 %.028.lcssa.i35 to i8
+  %144 = trunc nuw nsw i32 %.028.lcssa.i35 to i8
   %145 = and i8 %144, 7
   %146 = or disjoint i8 %145, 48
   %147 = getelementptr inbounds nuw i8, ptr %.026, i64 1
@@ -42574,7 +42574,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i: ; preds = %111, %101
 
 148:                                              ; preds = %142, %._crit_edge.i34
   %storemerge.in.in.i = phi i32 [ %143, %142 ], [ %.028.lcssa.i35, %._crit_edge.i34 ]
-  %storemerge.in.i36 = trunc i32 %storemerge.in.in.i to i8
+  %storemerge.in.i36 = trunc nuw nsw i32 %storemerge.in.in.i to i8
   %storemerge.i37 = or disjoint i8 %storemerge.in.i36, 48
   store i8 %storemerge.i37, ptr %.026, align 1, !tbaa !15
   %149 = getelementptr inbounds nuw i8, ptr %.026, i64 %122
@@ -42905,7 +42905,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %70, %68, %64, %60, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i
 
 110:                                              ; preds = %._crit_edge.i.i
-  %111 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %111 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %112 = or disjoint i8 %111, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i
 
@@ -42964,7 +42964,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i: ; preds = %110, %100
 
 141:                                              ; preds = %._crit_edge.i34
   %142 = lshr i32 %.028.lcssa.i35, 3
-  %143 = trunc nuw i32 %.028.lcssa.i35 to i8
+  %143 = trunc nuw nsw i32 %.028.lcssa.i35 to i8
   %144 = and i8 %143, 7
   %145 = or disjoint i8 %144, 48
   %146 = getelementptr inbounds nuw i8, ptr %.026, i64 1
@@ -42973,7 +42973,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i: ; preds = %110, %100
 
 147:                                              ; preds = %141, %._crit_edge.i34
   %storemerge.in.in.i = phi i32 [ %142, %141 ], [ %.028.lcssa.i35, %._crit_edge.i34 ]
-  %storemerge.in.i36 = trunc i32 %storemerge.in.in.i to i8
+  %storemerge.in.i36 = trunc nuw nsw i32 %storemerge.in.in.i to i8
   %storemerge.i37 = or disjoint i8 %storemerge.in.i36, 48
   store i8 %storemerge.i37, ptr %.026, align 1, !tbaa !15
   %148 = getelementptr inbounds nuw i8, ptr %.026, i64 %121
@@ -43297,7 +43297,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %68, %66, %62, %58, 
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i
 
 104:                                              ; preds = %._crit_edge.i.i
-  %105 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %105 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %106 = or disjoint i8 %105, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i
 
@@ -43356,7 +43356,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i: ; preds = %104, %96
 
 135:                                              ; preds = %._crit_edge.i34
   %136 = lshr i64 %.028.lcssa.i35, 3
-  %137 = trunc nuw i64 %.028.lcssa.i35 to i8
+  %137 = trunc nuw nsw i64 %.028.lcssa.i35 to i8
   %138 = and i8 %137, 7
   %139 = or disjoint i8 %138, 48
   %140 = getelementptr inbounds nuw i8, ptr %.026, i64 1
@@ -43365,7 +43365,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i: ; preds = %104, %96
 
 141:                                              ; preds = %135, %._crit_edge.i34
   %storemerge.in.in.i = phi i64 [ %136, %135 ], [ %.028.lcssa.i35, %._crit_edge.i34 ]
-  %storemerge.in.i36 = trunc i64 %storemerge.in.in.i to i8
+  %storemerge.in.i36 = trunc nuw nsw i64 %storemerge.in.in.i to i8
   %storemerge.i37 = or disjoint i8 %storemerge.in.i36, 48
   store i8 %storemerge.i37, ptr %.026, align 1, !tbaa !15
   %142 = getelementptr inbounds nuw i8, ptr %.026, i64 %115
@@ -43947,7 +43947,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %53, %51, %.lr.ph.i.
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 91:                                               ; preds = %._crit_edge.i.i
-  %92 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %92 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %93 = or disjoint i8 %92, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -44000,7 +44000,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %53, %51, %.lr.ph.i.
 
 121:                                              ; preds = %._crit_edge.i29
   %122 = lshr i32 %.028.lcssa.i30, 3
-  %123 = trunc nuw i32 %.028.lcssa.i30 to i8
+  %123 = trunc nuw nsw i32 %.028.lcssa.i30 to i8
   %124 = and i8 %123, 7
   %125 = or disjoint i8 %124, 48
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -44009,7 +44009,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %53, %51, %.lr.ph.i.
 
 127:                                              ; preds = %121, %._crit_edge.i29
   %storemerge.in.in.i = phi i32 [ %122, %121 ], [ %.028.lcssa.i30, %._crit_edge.i29 ]
-  %storemerge.in.i31 = trunc i32 %storemerge.in.in.i to i8
+  %storemerge.in.i31 = trunc nuw nsw i32 %storemerge.in.in.i to i8
   %storemerge.i32 = or disjoint i8 %storemerge.in.i31, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -44319,7 +44319,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %62, %60, %56, %52, 
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 102:                                              ; preds = %._crit_edge.i.i
-  %103 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %103 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %104 = or disjoint i8 %103, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -44372,7 +44372,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %62, %60, %56, %52, 
 
 132:                                              ; preds = %._crit_edge.i29
   %133 = lshr i32 %.028.lcssa.i30, 3
-  %134 = trunc nuw i32 %.028.lcssa.i30 to i8
+  %134 = trunc nuw nsw i32 %.028.lcssa.i30 to i8
   %135 = and i8 %134, 7
   %136 = or disjoint i8 %135, 48
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -44381,7 +44381,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %62, %60, %56, %52, 
 
 138:                                              ; preds = %132, %._crit_edge.i29
   %storemerge.in.in.i = phi i32 [ %133, %132 ], [ %.028.lcssa.i30, %._crit_edge.i29 ]
-  %storemerge.in.i31 = trunc i32 %storemerge.in.in.i to i8
+  %storemerge.in.i31 = trunc nuw nsw i32 %storemerge.in.in.i to i8
   %storemerge.i32 = or disjoint i8 %storemerge.in.i31, 48
   br label %_ZNSt8__detail13__to_chars_16IjEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -44684,7 +44684,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
 96:                                               ; preds = %._crit_edge.i.i
-  %97 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %97 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %98 = or disjoint i8 %97, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 
@@ -44737,7 +44737,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
 
 126:                                              ; preds = %._crit_edge.i29
   %127 = lshr i64 %.028.lcssa.i30, 3
-  %128 = trunc nuw i64 %.028.lcssa.i30 to i8
+  %128 = trunc nuw nsw i64 %.028.lcssa.i30 to i8
   %129 = and i8 %128, 7
   %130 = or disjoint i8 %129, 48
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -44746,7 +44746,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
 
 132:                                              ; preds = %126, %._crit_edge.i29
   %storemerge.in.in.i = phi i64 [ %127, %126 ], [ %.028.lcssa.i30, %._crit_edge.i29 ]
-  %storemerge.in.i31 = trunc i64 %storemerge.in.in.i to i8
+  %storemerge.in.i31 = trunc nuw nsw i64 %storemerge.in.in.i to i8
   %storemerge.i32 = or disjoint i8 %storemerge.in.i31, 48
   br label %_ZNSt8__detail13__to_chars_16ImEENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES3_IS7_sES3_IS7_iES3_IS7_lES3_IS7_xES3_IS7_nEEES2_IJS3_IS7_hES3_IS7_tES3_IS7_jES3_IS7_mES3_IS7_yES3_IS7_oEEES3_IcS7_EEE5valueESt15to_chars_resultE4typeEPcSQ_S5_.exit.sink.split
 

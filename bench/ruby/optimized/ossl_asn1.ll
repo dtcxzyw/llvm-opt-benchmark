@@ -400,7 +400,7 @@ define void @ossl_time_split(i64 noundef %0, ptr noundef writeonly captures(none
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %6
-  %12 = trunc i64 %9 to i32
+  %12 = trunc nsw i64 %9 to i32
   store i32 %12, ptr %2, align 4, !tbaa !25
   br label %29
 
@@ -1317,7 +1317,7 @@ RSTRING_PTR.exit.i.i:                             ; preds = %62, %56
   unreachable
 
 obj_to_asn1bstr.exit.i:                           ; preds = %RSTRING_PTR.exit.i.i
-  %67 = trunc i64 %64 to i32
+  %67 = trunc nsw i64 %64 to i32
   %68 = call i32 @ASN1_BIT_STRING_set(ptr noundef nonnull %53, ptr noundef %.sroa.2.0.i.i.i, i32 noundef %67) #9
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !54
@@ -1386,7 +1386,7 @@ RSTRING_PTR.exit.i30.i:                           ; preds = %93, %87
   unreachable
 
 obj_to_asn1str.exit.i:                            ; preds = %RSTRING_PTR.exit.i30.i
-  %98 = trunc i64 %95 to i32
+  %98 = trunc nsw i64 %95 to i32
   %99 = call i32 @ASN1_STRING_set(ptr noundef nonnull %84, ptr noundef %.sroa.2.0.i.i31.i, i32 noundef %98) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %obj_to_asn1null.exit.i
@@ -1519,7 +1519,7 @@ RSTRING_PTR.exit.i42.i:                           ; preds = %143, %138
   unreachable
 
 obj_to_asn1derstr.exit.i:                         ; preds = %RSTRING_PTR.exit.i42.i
-  %148 = trunc i64 %145 to i32
+  %148 = trunc nsw i64 %145 to i32
   %149 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %135, ptr noundef %.sroa.2.0.i.i43.i, i32 noundef %148) #9
   br label %obj_to_asn1null.exit.i
 
@@ -3541,7 +3541,7 @@ ossl_asn1_tag.exit:                               ; preds = %31, %33
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %ossl_asn1_tag.exit
-  %42 = trunc i64 %39 to i32
+  %42 = trunc nsw i64 %39 to i32
   %43 = load i64, ptr @sivTAGGING, align 8, !tbaa !17
   %44 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %43) #9
   %45 = load i64, ptr @sym_EXPLICIT, align 8, !tbaa !17
@@ -3735,7 +3735,7 @@ RSTRING_PTR.exit:                                 ; preds = %1, %8
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %13 = trunc i64 %10 to i32
+  %13 = trunc nsw i64 %10 to i32
   %14 = tail call i32 @OBJ_obj2txt(ptr noundef %.sroa.2.0.i, i32 noundef %13, ptr noundef %2, i32 noundef 1) #9
   %15 = add i32 %14, -2147483647
   %or.cond = icmp ult i32 %15, -2147483646

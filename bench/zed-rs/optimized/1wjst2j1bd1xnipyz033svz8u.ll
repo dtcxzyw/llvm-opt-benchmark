@@ -42319,7 +42319,7 @@ define hidden void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$
   %2 = load i64, ptr %0, align 8, !range !13176, !noundef !4
   %3 = add nsw i64 %2, -2
   %4 = icmp ult i64 %3, 227
-  %5 = trunc i64 %3 to i8
+  %5 = trunc nuw i64 %3 to i8
   %trunc = select i1 %4, i8 %5, i8 97
   switch i8 %trunc, label %6 [
     i8 0, label %"_ZN4core3ptr51drop_in_place$LT$proto..CheckFileExistsResponse$GT$17hf78e0cd1bdf797b0E.exit"

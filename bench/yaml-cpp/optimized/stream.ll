@@ -1778,7 +1778,7 @@ define linkonce_odr void @_ZN4YAML21QueueUnicodeCodepointERSt5dequeIcSaIcEEm(ptr
 
 15:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #16
-  %16 = trunc nuw i64 %spec.store.select to i8
+  %16 = trunc nuw nsw i64 %spec.store.select to i8
   store i8 %16, ptr %3, align 1, !tbaa !36
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !81
@@ -1810,7 +1810,7 @@ _ZNSt5dequeIcSaIcEE9push_backEOc.exit:            ; preds = %22, %25
 28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #16
   %29 = lshr i64 %spec.store.select, 6
-  %30 = trunc nuw i64 %29 to i8
+  %30 = trunc nuw nsw i64 %29 to i8
   %31 = or disjoint i8 %30, -64
   store i8 %31, ptr %4, align 1, !tbaa !36
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1868,7 +1868,7 @@ _ZNSt5dequeIcSaIcEE9push_backEOc.exit26:          ; preds = %47, %50
 53:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #16
   %54 = lshr i64 %spec.store.select, 12
-  %55 = trunc nuw i64 %54 to i8
+  %55 = trunc nuw nsw i64 %54 to i8
   %56 = or disjoint i8 %55, -32
   store i8 %56, ptr %6, align 1, !tbaa !36
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48

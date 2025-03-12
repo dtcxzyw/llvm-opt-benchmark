@@ -15043,7 +15043,7 @@ rb_num2int_inline.exit.i:                         ; preds = %182, %180
   br i1 %.not.i38.i, label %219, label %leap_year_p.exit.thread.i, !prof !14
 
 219:                                              ; preds = %216
-  %.lhs.trunc.i = trunc i64 %217 to i32
+  %.lhs.trunc.i = trunc nuw i64 %217 to i32
   %220 = udiv i32 %.lhs.trunc.i, 100
   %.zext.i = zext nneg i32 %220 to i64
   %221 = mul nuw nsw i64 %.zext.i, 100
@@ -15907,7 +15907,7 @@ rb_num2long_inline.exit:                          ; preds = %67, %69
   unreachable
 
 rb_long2int_inline.exit:                          ; preds = %rb_num2long_inline.exit
-  %74 = trunc i64 %71 to i32
+  %74 = trunc nsw i64 %71 to i32
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %74, ptr %75, align 4, !tbaa !105
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -1490,7 +1490,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %indvars.iv455 = phi i64 [ %indvars.iv.next456, %220 ], [ 3, %201 ]
   %208 = load ptr, ptr %7, align 8, !tbaa !13
   %209 = load ptr, ptr %8, align 8, !tbaa !13
-  %210 = trunc i64 %indvars.iv455 to i32
+  %210 = trunc nuw nsw i64 %indvars.iv455 to i32
   %211 = add nsw i32 %210, -1
   call void @bn_mul_mont_gather5(ptr noundef %208, ptr noundef %209, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %211) #6
   %212 = load ptr, ptr %7, align 8, !tbaa !13
@@ -1518,7 +1518,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %indvars.iv458 = phi i64 [ %indvars.iv.next459, %.lr.ph427 ], [ 9, %220 ]
   %222 = load ptr, ptr %7, align 8, !tbaa !13
   %223 = load ptr, ptr %8, align 8, !tbaa !13
-  %224 = trunc i64 %indvars.iv458 to i32
+  %224 = trunc nuw nsw i64 %indvars.iv458 to i32
   %225 = add nsw i32 %224, -1
   call void @bn_mul_mont_gather5(ptr noundef %222, ptr noundef %223, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %225) #6
   %226 = load ptr, ptr %7, align 8, !tbaa !13
@@ -1536,7 +1536,7 @@ thread-pre-split:                                 ; preds = %51, %54
   %indvars.iv461 = phi i64 [ %indvars.iv.next462, %.lr.ph429 ], [ 17, %.lr.ph427 ]
   %232 = load ptr, ptr %7, align 8, !tbaa !13
   %233 = load ptr, ptr %8, align 8, !tbaa !13
-  %234 = trunc i64 %indvars.iv461 to i32
+  %234 = trunc nuw nsw i64 %indvars.iv461 to i32
   %235 = add nsw i32 %234, -1
   call void @bn_mul_mont_gather5(ptr noundef %232, ptr noundef %233, ptr noundef nonnull %125, ptr noundef nonnull %186, ptr noundef nonnull %164, i32 noundef %13, i32 noundef %235) #6
   %236 = load ptr, ptr %7, align 8, !tbaa !13

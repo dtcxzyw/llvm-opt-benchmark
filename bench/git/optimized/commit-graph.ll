@@ -6737,7 +6737,7 @@ _.exit129.i:                                      ; preds = %76, %74
 
 _.exit132.i:                                      ; preds = %110, %108
   %.0.i131.i = phi ptr [ %111, %110 ], [ @.str.114, %108 ]
-  %112 = trunc nuw i64 %indvars.iv.i to i32
+  %112 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ...) @graph_report(ptr noundef %.0.i131.i, i32 noundef %112, i32 noundef %106, i32 noundef %86)
   %.pre270.i = load i8, ptr %8, align 4, !tbaa !80
   br label %113
@@ -6750,7 +6750,7 @@ _.exit132.i:                                      ; preds = %110, %108
   br i1 %116, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !285
 
 ._crit_edge.loopexit.i:                           ; preds = %113
-  %117 = trunc nuw i64 %indvars.iv.next.i to i32
+  %117 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %80

@@ -33763,7 +33763,7 @@ define internal fastcc void @_ZN12jpeg_decoder7decoder17refine_non_zeroes17h3d63
   br label %47
 
 40:                                               ; preds = %31
-  %41 = trunc nuw i64 %indvars.iv to i8
+  %41 = trunc nuw nsw i64 %indvars.iv to i8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %41, ptr %42, align 8
   store i64 -9223372036854775805, ptr %0, align 8

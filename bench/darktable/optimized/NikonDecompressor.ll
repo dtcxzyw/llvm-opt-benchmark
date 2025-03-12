@@ -2584,7 +2584,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %397 = sub nuw nsw i32 64, %370
   %398 = zext nneg i32 %397 to i64
   %399 = lshr i64 %395, %398
-  %400 = trunc i64 %399 to i32
+  %400 = trunc nuw i64 %399 to i32
   %401 = sub nsw i32 %396, %370
   store i32 %401, ptr %21, align 8, !tbaa !173
   %402 = zext nneg i32 %370 to i64
@@ -3176,7 +3176,7 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_14BitStreamerMSBEE8getI
   %231 = sub nuw nsw i32 64, %228
   %232 = zext nneg i32 %231 to i64
   %233 = lshr i64 %218, %232
-  %234 = trunc i64 %233 to i32
+  %234 = trunc nuw nsw i64 %233 to i32
   %235 = sub nsw i32 %217, %228
   store i32 %235, ptr %36, align 8, !tbaa !173
   %236 = zext nneg i8 %.083 to i64

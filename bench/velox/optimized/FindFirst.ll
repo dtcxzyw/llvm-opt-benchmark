@@ -10306,7 +10306,7 @@ if.else28.i.i.i.i.i.i:                            ; preds = %if.else22.i.i.i.i.i
   br i1 %cmp29.i.i.i.i.i.i, label %if.then30.i.i.i.i.i.i, label %if.else40.i.i.i.i.i.i
 
 if.then30.i.i.i.i.i.i:                            ; preds = %if.else28.i.i.i.i.i.i
-  %128 = trunc i64 %123 to i32
+  %128 = trunc nuw nsw i64 %123 to i32
   %129 = add nsw i32 %128, -1
   %conv33.i.i.i.i.i.i = add i32 %129, %122
   store i32 %conv33.i.i.i.i.i.i, ptr %arrayidx34.i.i.i.i.i.i, align 4
@@ -10315,7 +10315,7 @@ if.then30.i.i.i.i.i.i:                            ; preds = %if.else28.i.i.i.i.i
 
 if.else40.i.i.i.i.i.i:                            ; preds = %if.else28.i.i.i.i.i.i
   %add41.i.i.i.i.i.i = add nsw i32 %122, %121
-  %130 = trunc i64 %123 to i32
+  %130 = trunc nsw i64 %123 to i32
   %conv44.i.i.i.i.i.i = add i32 %add41.i.i.i.i.i.i, %130
   store i32 %conv44.i.i.i.i.i.i, ptr %arrayidx34.i.i.i.i.i.i, align 4
   %131 = add i32 %121, %130
@@ -10526,7 +10526,7 @@ if.else33.i.i.i.i.i:                              ; preds = %if.else26.i.i.i.i.i
   br i1 %cmp34.i.i.i.i.i, label %if.then35.i.i.i.i.i, label %if.else47.i.i.i.i.i
 
 if.then35.i.i.i.i.i:                              ; preds = %if.else33.i.i.i.i.i
-  %177 = trunc i64 %172 to i32
+  %177 = trunc nuw nsw i64 %172 to i32
   %178 = add nsw i32 %177, -1
   %conv38.i.i.i.i.i = add i32 %178, %171
   store i32 %conv38.i.i.i.i.i, ptr %arrayidx40.i.i.i.i.i, align 4
@@ -10535,7 +10535,7 @@ if.then35.i.i.i.i.i:                              ; preds = %if.else33.i.i.i.i.i
 
 if.else47.i.i.i.i.i:                              ; preds = %if.else33.i.i.i.i.i
   %add48.i.i.i.i.i = add nsw i32 %171, %170
-  %179 = trunc i64 %172 to i32
+  %179 = trunc nsw i64 %172 to i32
   %conv51.i.i.i.i.i = add i32 %add48.i.i.i.i.i, %179
   store i32 %conv51.i.i.i.i.i, ptr %arrayidx40.i.i.i.i.i, align 4
   %180 = add i32 %170, %179
@@ -12001,7 +12001,7 @@ if.else33:                                        ; preds = %if.else26
   br i1 %cmp34, label %if.then35, label %if.else47
 
 if.then35:                                        ; preds = %if.else33
-  %46 = trunc i64 %33 to i32
+  %46 = trunc nuw nsw i64 %33 to i32
   %47 = add nsw i32 %46, -1
   %conv38 = add i32 %47, %23
   store i32 %conv38, ptr %arrayidx40, align 4
@@ -12010,7 +12010,7 @@ if.then35:                                        ; preds = %if.else33
 
 if.else47:                                        ; preds = %if.else33
   %add48 = add nsw i32 %27, %23
-  %48 = trunc i64 %33 to i32
+  %48 = trunc nsw i64 %33 to i32
   %conv51 = add i32 %add48, %48
   store i32 %conv51, ptr %arrayidx40, align 4
   %49 = add i32 %27, %48

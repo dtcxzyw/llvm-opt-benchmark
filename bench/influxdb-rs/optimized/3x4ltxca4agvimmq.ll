@@ -866,7 +866,7 @@ define hidden void @_ZN11arrow_array20temporal_conversions11as_datetime17h95c95d
   %spec.select73 = add nsw i64 %.lobit74, %4
   %7 = select i1 %6, i64 1000000000, i64 0
   %.0.i41 = add nsw i64 %7, %5
-  %8 = trunc nsw i64 %.0.i41 to i32
+  %8 = trunc nuw nsw i64 %.0.i41 to i32
   %9 = srem i64 %spec.select73, 86400
   %10 = icmp slt i64 %9, 0
   %11 = select i1 %10, i64 86400, i64 0
@@ -892,7 +892,7 @@ define hidden void @_ZN11arrow_array20temporal_conversions11as_datetime17h95c95d
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %20
-  %23 = trunc nsw i64 %.0.i15.i44 to i32
+  %23 = trunc nuw nsw i64 %.0.i15.i44 to i32
   %.fca.1.extract.i46 = extractvalue { i32, i32 } %15, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %23, ptr %24, align 4, !alias.scope !249
@@ -6977,7 +6977,7 @@ define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt
   %13 = extractvalue { i32, i1 } %10, 0
   %14 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h7a6284408aacb794E(i32 noundef %13)
   %.fca.1.extract = extractvalue { i32, i32 } %14, 1
-  %15 = trunc nsw i64 %.0.i15 to i32
+  %15 = trunc nuw nsw i64 %.0.i15 to i32
   %16 = icmp ugt i32 %2, 1999999999
   br i1 %16, label %.thread, label %17
 
@@ -7029,7 +7029,7 @@ define hidden void @_ZN6chrono6offset8TimeZone13timestamp_opt17h9f0c915a4e4fe7c8
   %15 = extractvalue { i32, i1 } %12, 0
   %16 = tail call { i32, i32 } @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h7a6284408aacb794E(i32 noundef %15), !noalias !1101
   %.fca.1.extract.i = extractvalue { i32, i32 } %16, 1
-  %17 = trunc nsw i64 %.0.i15.i to i32
+  %17 = trunc nuw nsw i64 %.0.i15.i to i32
   %18 = icmp ugt i32 %3, 1999999999
   br i1 %18, label %26, label %19
 
@@ -7094,7 +7094,7 @@ define hidden void @_ZN6chrono6offset8TimeZone15timestamp_nanos17h1fbca51b26d2e7
   %18 = icmp slt i64 %7, 0
   %19 = select i1 %18, i64 86400, i64 0
   %.0.i15.i.i = add nsw i64 %19, %7
-  %20 = trunc nsw i64 %.0.i15.i.i to i32
+  %20 = trunc nuw nsw i64 %.0.i15.i.i to i32
   %.fca.1.extract.i.i = extractvalue { i32, i32 } %11, 1
   %21 = icmp slt i64 %5, 0
   %22 = add nsw i64 %5, 1000000000
@@ -12659,7 +12659,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %657, %549, %397
   %.02546.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i16 [ %488, %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.025.in.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %497 ]
   %.12745.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.127.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %497 ]
   %507 = add nsw i64 %.12745.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %508 = trunc nuw i16 %.02546.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
+  %508 = trunc nuw nsw i16 %.02546.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
   %509 = getelementptr inbounds nuw i8, ptr %17, i64 %507
   %510 = or disjoint i8 %508, 48
   store i8 %510, ptr %509, align 1, !alias.scope !3569, !noalias !3563

@@ -4677,7 +4677,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %540 = getelementptr i8, ptr %539, i64 %527
   %541 = getelementptr i8, ptr %540, i64 8
   %542 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %541) #16, !srcloc !7
-  %543 = trunc i64 %527 to i32
+  %543 = trunc nuw nsw i64 %527 to i32
   %544 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, i32 noundef %543, i32 noundef %531, i32 noundef %534, i32 noundef %538, i32 noundef %542) #15
   %545 = add nuw nsw i64 %527, 16
   %546 = icmp samesign ult i64 %527, 25584
@@ -4704,7 +4704,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
   %563 = getelementptr i8, ptr %562, i64 %550
   %564 = getelementptr i8, ptr %563, i64 8
   %565 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %564) #16, !srcloc !7
-  %566 = trunc i64 %550 to i32
+  %566 = trunc nuw nsw i64 %550 to i32
   %567 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.51, i32 noundef %566, i32 noundef %554, i32 noundef %557, i32 noundef %561, i32 noundef %565) #15
   %568 = add nuw nsw i64 %550, 16
   %569 = icmp samesign ult i64 %550, 29680

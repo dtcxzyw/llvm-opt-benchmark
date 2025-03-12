@@ -12236,7 +12236,7 @@ define linkonce_odr void @_ZN5folly12format_value12formatStringINS_6detail27Base
   %24 = load i8, ptr %23, align 8, !tbaa !525
   %25 = icmp eq i8 %24, 0
   %spec.select = select i1 %25, i8 32, i8 %24
-  %26 = trunc i64 %.pre62 to i32
+  %26 = trunc nuw nsw i64 %.pre62 to i32
   %27 = sub nsw i32 %7, %26
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %27, i32 128)
   %28 = sext i32 %.sroa.speculated to i64
@@ -21588,7 +21588,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit75: ; preds = %36
   br label %common.resume
 
 41:                                               ; preds = %.critedge62
-  %42 = trunc nuw i64 %3 to i32
+  %42 = trunc nuw nsw i64 %3 to i32
   br label %.critedge65
 
 .critedge65:                                      ; preds = %28, %.critedge64, %33, %41
@@ -22905,7 +22905,7 @@ define linkonce_odr void @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_1
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i: ; preds = %24, %23, %21, %10
-  %25 = trunc nuw i64 %4 to i8
+  %25 = trunc nuw nsw i64 %4 to i8
   %26 = sub nuw nsw i8 23, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 23
   store i8 %26, ptr %27, align 1, !tbaa !223

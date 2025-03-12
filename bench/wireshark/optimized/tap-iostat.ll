@@ -2752,7 +2752,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %or.cond.i, label %399, label %410
 
 399:                                              ; preds = %395
-  %400 = trunc nuw i32 %397 to i8
+  %400 = trunc nuw nsw i32 %397 to i8
   %.neg.lhs.trunc.i = add nsw i8 %400, -6
   %.neg20.i = sdiv i8 %.neg.lhs.trunc.i, -2
   %narrow.i = add nsw i8 %.neg20.i, 5
@@ -2794,7 +2794,7 @@ printcenter.exit:                                 ; preds = %405, %407, %410, %4
   br i1 %or.cond.i657, label %418, label %429
 
 418:                                              ; preds = %414
-  %419 = trunc nuw i32 %416 to i8
+  %419 = trunc nuw nsw i32 %416 to i8
   %.neg.lhs.trunc.i659 = add nsw i8 %419, -6
   %.neg20.i660 = sdiv i8 %.neg.lhs.trunc.i659, -2
   %narrow.i661 = add nsw i8 %.neg20.i660, 5
@@ -2834,7 +2834,7 @@ printcenter.exit662:                              ; preds = %424, %426, %429, %4
 
 436:                                              ; preds = %printcenter.exit662
   %437 = add nsw i32 %434, -5
-  %.neg.lhs.trunc.i665 = trunc i32 %437 to i8
+  %.neg.lhs.trunc.i665 = trunc nsw i32 %437 to i8
   %.neg20.i666 = sdiv i8 %.neg.lhs.trunc.i665, -2
   %narrow.i667 = add nsw i8 %.neg20.i666, 5
   %438 = zext nneg i8 %narrow.i667 to i64
@@ -2881,7 +2881,7 @@ printcenter.exit668:                              ; preds = %442, %444, %447, %4
   br i1 %or.cond.i669, label %461, label %471
 
 461:                                              ; preds = %451
-  %.neg.lhs.trunc.i671 = trunc i32 %459 to i8
+  %.neg.lhs.trunc.i671 = trunc nsw i32 %459 to i8
   %.neg20.i672 = sdiv i8 %.neg.lhs.trunc.i671, -2
   %narrow.i673 = add nsw i8 %.neg20.i672, 5
   %462 = zext nneg i8 %narrow.i673 to i64

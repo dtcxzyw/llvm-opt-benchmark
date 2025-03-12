@@ -132,7 +132,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
 
 58:                                               ; preds = %.split.us.us
   %59 = lshr i32 %55, 10
-  %60 = trunc nuw i32 %59 to i16
+  %60 = trunc nuw nsw i32 %59 to i16
   %61 = add nuw nsw i16 %60, -10304
   %62 = getelementptr inbounds nuw i8, ptr %.391160.us, i64 2
   store i16 %61, ptr %.391160.us, align 2, !tbaa !9
@@ -238,7 +238,7 @@ define noundef ptr @u_strFromUTF32WithSub_77(ptr noundef %0, i32 noundef %1, ptr
 
 95:                                               ; preds = %.split
   %96 = lshr i32 %.us-phi155, 10
-  %97 = trunc nuw i32 %96 to i16
+  %97 = trunc nuw nsw i32 %96 to i16
   %98 = add nuw nsw i16 %97, -10304
   %99 = getelementptr inbounds nuw i8, ptr %.391160, i64 2
   store i16 %98, ptr %.391160, align 2, !tbaa !9
@@ -1959,7 +1959,7 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %38, label %39, label %_ZL11_appendUTF8Phi.exit.thread352
 
 39:                                               ; preds = %37
-  %40 = trunc nuw i16 %33 to i8
+  %40 = trunc nuw nsw i16 %33 to i8
   %41 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
   store i8 %40, ptr %.0293432, align 1, !tbaa !19
   br label %_ZL11_appendUTF8Phi.exit.thread
@@ -1976,7 +1976,7 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
 
 48:                                               ; preds = %44
   %49 = lshr i16 %33, 6
-  %50 = trunc nuw i16 %49 to i8
+  %50 = trunc nuw nsw i16 %49 to i8
   %51 = or disjoint i8 %50, -64
   %52 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
   store i8 %51, ptr %.0293432, align 1, !tbaa !19
@@ -2094,7 +2094,7 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
 
 .thread478:                                       ; preds = %.thread476
   %115 = lshr i32 %.0307, 6
-  %116 = trunc nuw i32 %115 to i8
+  %116 = trunc nuw nsw i32 %115 to i8
   %117 = or disjoint i8 %116, -64
   %118 = getelementptr inbounds nuw i8, ptr %.0293432, i64 1
   store i8 %117, ptr %.0293432, align 1, !tbaa !19
@@ -2113,7 +2113,7 @@ define noundef ptr @u_strToUTF8WithSub_77(ptr noundef %0, i32 noundef %1, ptr no
 
 127:                                              ; preds = %123
   %128 = lshr i32 %.0307, 12
-  %129 = trunc nuw i32 %128 to i8
+  %129 = trunc nuw nsw i32 %128 to i8
   %130 = or disjoint i8 %129, -32
   store i8 %130, ptr %.0293432, align 1, !tbaa !19
   %131 = lshr i32 %.0307, 6
@@ -2316,7 +2316,7 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
   br i1 %239, label %240, label %243
 
 240:                                              ; preds = %.preheader378
-  %241 = trunc nuw i16 %237 to i8
+  %241 = trunc nuw nsw i16 %237 to i8
   %242 = getelementptr inbounds nuw i8, ptr %.6299, i64 1
   store i8 %241, ptr %.6299, align 1, !tbaa !19
   br label %_ZL11_appendUTF8Phi.exit343
@@ -2327,7 +2327,7 @@ _ZL11_appendUTF8Phi.exit.thread352:               ; preds = %37, %44, %59, %104,
 
 245:                                              ; preds = %243
   %246 = lshr i16 %237, 6
-  %247 = trunc nuw i16 %246 to i8
+  %247 = trunc nuw nsw i16 %246 to i8
   %248 = or disjoint i8 %247, -64
   %249 = getelementptr inbounds nuw i8, ptr %.6299, i64 1
   store i8 %248, ptr %.6299, align 1, !tbaa !19
@@ -2499,7 +2499,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
   br i1 %337, label %338, label %._crit_edge
 
 338:                                              ; preds = %336
-  %339 = trunc nuw i16 %333 to i8
+  %339 = trunc nuw nsw i16 %333 to i8
   %340 = getelementptr inbounds nuw i8, ptr %.10303397, i64 1
   store i8 %339, ptr %.10303397, align 1, !tbaa !19
   br label %410
@@ -2516,7 +2516,7 @@ _ZL11_appendUTF8Phi.exit343:                      ; preds = %316, %315, %310, %3
 
 347:                                              ; preds = %343
   %348 = lshr i16 %333, 6
-  %349 = trunc nuw i16 %348 to i8
+  %349 = trunc nuw nsw i16 %348 to i8
   %350 = or disjoint i8 %349, -64
   %351 = getelementptr inbounds nuw i8, ptr %.10303397, i64 1
   store i8 %350, ptr %.10303397, align 1, !tbaa !19
@@ -2770,7 +2770,7 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %12, ptr %0, align 1, !tbaa !19
@@ -2789,7 +2789,7 @@ define internal fastcc noundef nonnull ptr @_ZL11_appendUTF8Phi(ptr noundef writ
 
 22:                                               ; preds = %18
   %23 = lshr i32 %1, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %0, align 1, !tbaa !19
   %26 = lshr i32 %1, 6
@@ -3446,7 +3446,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   %24 = phi i16 [ %28, %.lr.ph ], [ %22, %.preheader183 ]
   %.1144189 = phi ptr [ %27, %.lr.ph ], [ %3, %.preheader183 ]
   %.1148188 = phi ptr [ %26, %.lr.ph ], [ %0, %.preheader183 ]
-  %25 = trunc nuw i16 %24 to i8
+  %25 = trunc nuw nsw i16 %24 to i8
   %26 = getelementptr inbounds nuw i8, ptr %.1148188, i64 1
   store i8 %25, ptr %.1148188, align 1, !tbaa !19
   %27 = getelementptr inbounds nuw i8, ptr %.1144189, i64 2
@@ -3529,7 +3529,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   br i1 %or.cond21, label %64, label %.critedge13.loopexit
 
 64:                                               ; preds = %.lr.ph194
-  %65 = trunc nuw i16 %62 to i8
+  %65 = trunc nuw nsw i16 %62 to i8
   %66 = getelementptr inbounds nuw i8, ptr %.4151192, i64 1
   store i8 %65, ptr %.4151192, align 1, !tbaa !19
   %67 = getelementptr inbounds nuw i8, ptr %.4193, i64 2
@@ -3579,7 +3579,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   br i1 %or.cond15, label %82, label %84
 
 82:                                               ; preds = %.preheader181
-  %83 = trunc nuw i16 %79 to i8
+  %83 = trunc nuw nsw i16 %79 to i8
   store i8 %83, ptr %.5152, align 1, !tbaa !19
   br label %107
 
@@ -3589,7 +3589,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
 
 86:                                               ; preds = %84
   %87 = lshr i16 %79, 6
-  %88 = trunc nuw i16 %87 to i8
+  %88 = trunc nuw nsw i16 %87 to i8
   %89 = or disjoint i8 %88, -64
   store i8 %89, ptr %.5152, align 1, !tbaa !19
   %90 = trunc i16 %79 to i8
@@ -3640,7 +3640,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
   br i1 %115, label %116, label %._crit_edge
 
 116:                                              ; preds = %114
-  %117 = trunc nuw i16 %112 to i8
+  %117 = trunc nuw nsw i16 %112 to i8
   %118 = getelementptr inbounds nuw i8, ptr %.7154200, i64 1
   store i8 %117, ptr %.7154200, align 1, !tbaa !19
   br label %150
@@ -3657,7 +3657,7 @@ define noundef ptr @u_strToJavaModifiedUTF8_77(ptr noundef %0, i32 noundef %1, p
 
 125:                                              ; preds = %123
   %126 = lshr i16 %112, 6
-  %127 = trunc nuw i16 %126 to i8
+  %127 = trunc nuw nsw i16 %126 to i8
   %128 = or disjoint i8 %127, -64
   %129 = getelementptr inbounds nuw i8, ptr %.7154200, i64 1
   store i8 %128, ptr %.7154200, align 1, !tbaa !19

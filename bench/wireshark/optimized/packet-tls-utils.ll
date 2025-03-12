@@ -5682,7 +5682,7 @@ ssl_get_cipher_blocksize.exit:                    ; preds = %380, %380, %380, %3
   br label %ssl_decompress_record.exit.thread
 
 411:                                              ; preds = %408
-  %412 = trunc i32 %378 to i16
+  %412 = trunc nuw i32 %378 to i16
   %413 = sub i16 %.1154, %412
   %414 = zext i16 %413 to i32
   %415 = zext i16 %413 to i64

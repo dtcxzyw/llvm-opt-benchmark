@@ -5747,7 +5747,7 @@ _ZN5tokio4loom3std10atomic_u329AtomicU3211unsync_load17hc488a0b2ff33134bE.exit: 
   %17 = lshr i64 %14, 32
   %18 = trunc nuw i64 %17 to i32
   %19 = sub i32 %16, %18
-  %20 = trunc nuw i64 %2 to i32
+  %20 = trunc nuw nsw i64 %2 to i32
   %21 = sub nuw nsw i32 256, %20
   %.not = icmp ugt i32 %19, %21
   br i1 %.not, label %22, label %23

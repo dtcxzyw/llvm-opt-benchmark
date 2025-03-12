@@ -2915,7 +2915,7 @@ _ZN4absl7debian28AlphaNumC2El.exit:               ; preds = %_ZN4absl7debian28Al
   br label %122
 
 39:                                               ; preds = %33
-  %40 = trunc nuw i64 %3 to i32
+  %40 = trunc nuw nsw i64 %3 to i32
   %41 = or disjoint i64 %3, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %42 = zext i64 %41 to i128
   %43 = mul nuw i128 %42, 11376068507788127593
@@ -13340,7 +13340,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %452
 
 452:                                              ; preds = %451, %449
-  %453 = trunc i64 %433 to i32
+  %453 = trunc nsw i64 %433 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %454 = add i64 %433, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %455 = zext i64 %454 to i128
@@ -13578,7 +13578,7 @@ _ZNSt6vectorIN10open_spiel15stones_and_gems7ElementESaIS2_EE9push_backERKS2_.exi
   br label %557
 
 557:                                              ; preds = %556, %554
-  %558 = trunc i64 %538 to i32
+  %558 = trunc nsw i64 %538 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %559 = load ptr, ptr %384, align 8
   %560 = load ptr, ptr %385, align 8
@@ -15764,7 +15764,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %225
 
 225:                                              ; preds = %224, %222
-  %226 = trunc i64 %206 to i32
+  %226 = trunc nsw i64 %206 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %227 = add i64 %206, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %228 = zext i64 %227 to i128

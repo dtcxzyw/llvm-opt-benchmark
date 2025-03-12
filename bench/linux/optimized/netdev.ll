@@ -17930,7 +17930,7 @@ define internal fastcc i32 @__e1000_shutdown(ptr noundef %0, i1 noundef zeroext 
   %166 = getelementptr i8, ptr %164, i64 %165
   %167 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %166) #22, !srcloc !13
   %168 = load ptr, ptr %160, align 8
-  %169 = trunc i64 %162 to i32
+  %169 = trunc nuw nsw i64 %162 to i32
   %170 = shl nuw nsw i32 %169, 1
   %171 = and i32 %170, 30
   %172 = shl i32 %169, 17

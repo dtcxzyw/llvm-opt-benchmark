@@ -31965,7 +31965,7 @@ _ZN4llvm5ErrorD2Ev.exit2001.thread:               ; preds = %3730, %_ZN4llvm5Err
   %.sroa.02147.0.insert.insert = or disjoint i16 %.sroa.02147.0.insert.ext, 256
   store i16 %.sroa.02147.0.insert.insert, ptr %354, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %355) #31
-  %3754 = trunc i16 %3753 to i8
+  %3754 = trunc nsw i16 %3753 to i8
   br label %3755
 
 3755:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit2001._crit_edge, %_ZN4llvm5ErrorD2Ev.exit2001.thread
@@ -32261,7 +32261,7 @@ _ZN4llvm5ErrorD2Ev.exit2020._crit_edge:           ; preds = %_ZN4llvm5ErrorD2Ev.
   %.sroa.02140.0.insert.insert = or disjoint i16 %.sroa.02140.0.insert.ext, 256
   store i16 %.sroa.02140.0.insert.insert, ptr %370, align 2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %371) #31
-  %3865 = trunc i16 %3864 to i8
+  %3865 = trunc nsw i16 %3864 to i8
   br label %3866
 
 3866:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit2020._crit_edge, %3852
@@ -43259,7 +43259,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113BitcodeReader19parseAlignmentVal
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4
   %.not.i = icmp eq i64 %2, 0
-  %11 = trunc nuw i64 %2 to i16
+  %11 = trunc nuw nsw i64 %2 to i16
   %12 = add nuw nsw i16 %11, 255
   %13 = or i16 %12, 256
   %.sroa.02.0.insert.insert.i = select i1 %.not.i, i16 0, i16 %13
@@ -53529,7 +53529,7 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit223.i.i: ; preds = %1772, %.crited
   br label %_ZNSt6vectorIPN4llvm4TypeESaIS2_EE6resizeEm.exit.i.i
 
 1821:                                             ; preds = %1817
-  %1822 = trunc i64 %1819 to i32
+  %1822 = trunc nuw i64 %1819 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %124) #31, !noalias !2354
   store ptr %376, ptr %124, align 8, !tbaa !25, !noalias !2354
   store i32 0, ptr %377, align 8, !tbaa !26, !noalias !2354
@@ -53538,7 +53538,7 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit223.i.i: ; preds = %1772, %.crited
   store ptr %379, ptr %125, align 8, !tbaa !25, !noalias !2354
   store i32 0, ptr %380, align 8, !tbaa !26, !noalias !2354
   store i32 8, ptr %381, align 4, !tbaa !27, !noalias !2354
-  %.not148345.not.i.i = icmp eq i32 %1822, 0
+  %.not148345.not.i.i = icmp eq i64 %1819, 0
   br i1 %.not148345.not.i.i, label %._crit_edge348.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1821, %1834
@@ -55678,7 +55678,7 @@ _ZL17getDecodedLinkagej.exit.i:                   ; preds = %switch.lookup, %257
 
 _ZN12_GLOBAL__N_113BitcodeReader19parseAlignmentValueEmRN4llvm10MaybeAlignE.exit.thread.i: ; preds = %_ZL17getDecodedLinkagej.exit.i
   %.not.i.i.i331 = icmp ne i64 %2577, 0
-  %2579 = trunc nuw i64 %2577 to i8
+  %2579 = trunc nuw nsw i64 %2577 to i8
   %2580 = add nsw i8 %2579, -1
   %.sroa.0108.0.extract.trunc.i = select i1 %.not.i.i.i331, i8 %2580, i8 0
   store ptr null, ptr %0, align 8, !tbaa !63, !alias.scope !2472
@@ -56876,7 +56876,7 @@ _ZN4llvm5ErrorD2Ev.exit.i372:                     ; preds = %.thread.i371
   br i1 %.not.i.i112.i, label %_ZN4llvm5ErrorD2Ev.exit.thread.i, label %3043
 
 3043:                                             ; preds = %_ZN4llvm5ErrorD2Ev.exit.i372
-  %3044 = trunc nuw i64 %3041 to i8
+  %3044 = trunc nuw nsw i64 %3041 to i8
   %3045 = add nsw i8 %3044, -1
   %3046 = load ptr, ptr %29, align 8, !tbaa !658, !noalias !2484
   call void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(56) %3046, i8 %3045) #31, !noalias !2484

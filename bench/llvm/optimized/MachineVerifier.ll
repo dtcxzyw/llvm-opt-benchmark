@@ -22805,7 +22805,7 @@ _ZN4llvm15SmallVectorImplINS_3LLTEE7reserveEm.exit.i.i: ; preds = %124, %120
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %.lr.ph.preheader.i.i, %_ZN4llvm15SmallVectorImplINS_3LLTEE7reserveEm.exit.i.i
-  %129 = trunc i64 %.sroa.speculated to i32
+  %129 = trunc nuw i64 %.sroa.speculated to i32
   store i32 %129, ptr %93, align 8, !tbaa !84
   br label %_ZN4llvm15SmallVectorImplINS_3LLTEE6resizeEm.exit
 

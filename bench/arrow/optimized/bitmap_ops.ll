@@ -300,7 +300,7 @@ define void @_ZN5arrow8internal19ReverseBlockOffsetsEPKhlllPh(ptr noundef readon
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %30
-  %34 = trunc i64 %31 to i32
+  %34 = trunc nsw i64 %31 to i32
   %35 = sub nsw i32 8, %34
   %36 = shl i32 %28, %35
   %37 = and i32 %36, 255
@@ -1142,7 +1142,7 @@ define void @_ZN5arrow8internal13ReverseBitmapEPKhllPhl(ptr noundef readonly cap
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %30
-  %34 = trunc i64 %31 to i32
+  %34 = trunc nsw i64 %31 to i32
   %35 = sub nsw i32 8, %34
   %36 = shl i32 %28, %35
   %37 = and i32 %36, 255
@@ -1594,7 +1594,7 @@ define void @_ZN5arrow8internal13ReverseBitmapEPNS_10MemoryPoolEPKhll(ptr dead_o
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %46
-  %50 = trunc nuw i64 %47 to i32
+  %50 = trunc nuw nsw i64 %47 to i32
   %51 = sub nuw nsw i32 8, %50
   %52 = lshr i32 254, %51
   %53 = and i32 %52, %44

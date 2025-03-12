@@ -7658,7 +7658,7 @@ _ZNK4llvm10DataLayout14isLegalIntegerEm.exit.i:   ; preds = %102, %_ZNK4llvm10Da
 
 145:                                              ; preds = %143
   %146 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #26
-  %147 = trunc i64 %92 to i32
+  %147 = trunc nuw nsw i64 %92 to i32
   %148 = call noundef ptr @_ZN4llvm11IntegerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %146, i32 noundef %147) #26
   %149 = call i8 @_ZNK4llvm10DataLayout16getPrefTypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(496) %38, ptr noundef %148) #26
   %150 = load i8, ptr %21, align 8, !tbaa !63

@@ -175,7 +175,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit26:         ; preds = %_ZN8rawspeed10ByteS
   unreachable
 
 38:                                               ; preds = %_ZN8rawspeed10ByteStream6getU16Ev.exit26
-  %39 = trunc nuw i16 %spec.select.i.i.i.i.i.i25 to i8
+  %39 = trunc nuw nsw i16 %spec.select.i.i.i.i.i.i25 to i8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 %39, ptr %40, align 2, !tbaa !28
   %41 = zext nneg i32 %31 to i64

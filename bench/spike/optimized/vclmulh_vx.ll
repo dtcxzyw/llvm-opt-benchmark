@@ -410,7 +410,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vclmulh_vx
 184:                                              ; preds = %180
   %185 = sub nuw nsw i64 8, %.0146198
   %186 = lshr i64 %179, %185
-  %187 = trunc nuw i64 %186 to i8
+  %187 = trunc nuw nsw i64 %186 to i8
   %188 = xor i8 %181, %187
   store i8 %188, ptr %175, align 1, !tbaa !150
   br label %189
@@ -441,7 +441,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vclmulh_vx
 202:                                              ; preds = %198
   %203 = sub nuw nsw i64 16, %.0145196
   %204 = lshr i64 %197, %203
-  %205 = trunc nuw i64 %204 to i16
+  %205 = trunc nuw nsw i64 %204 to i16
   %206 = xor i16 %199, %205
   store i16 %206, ptr %193, align 2, !tbaa !153
   br label %207
@@ -472,7 +472,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32i_vclmulh_vx
 220:                                              ; preds = %216
   %221 = sub nuw nsw i64 32, %.0144194
   %222 = lshr i64 %215, %221
-  %223 = trunc nuw i64 %222 to i32
+  %223 = trunc nuw nsw i64 %222 to i32
   %224 = xor i32 %217, %223
   store i32 %224, ptr %211, align 4, !tbaa !156
   br label %225
@@ -980,7 +980,7 @@ define noundef i64 @_Z21fast_rv64i_vclmulh_vxP11processor_t6insn_tm(ptr noundef 
 182:                                              ; preds = %178
   %183 = sub nuw nsw i64 8, %.0146198
   %184 = lshr i64 %177, %183
-  %185 = trunc nuw i64 %184 to i8
+  %185 = trunc nuw nsw i64 %184 to i8
   %186 = xor i8 %179, %185
   store i8 %186, ptr %173, align 1, !tbaa !150
   br label %187
@@ -1011,7 +1011,7 @@ define noundef i64 @_Z21fast_rv64i_vclmulh_vxP11processor_t6insn_tm(ptr noundef 
 200:                                              ; preds = %196
   %201 = sub nuw nsw i64 16, %.0145196
   %202 = lshr i64 %195, %201
-  %203 = trunc nuw i64 %202 to i16
+  %203 = trunc nuw nsw i64 %202 to i16
   %204 = xor i16 %197, %203
   store i16 %204, ptr %191, align 2, !tbaa !153
   br label %205
@@ -1042,7 +1042,7 @@ define noundef i64 @_Z21fast_rv64i_vclmulh_vxP11processor_t6insn_tm(ptr noundef 
 218:                                              ; preds = %214
   %219 = sub nuw nsw i64 32, %.0144194
   %220 = lshr i64 %213, %219
-  %221 = trunc nuw i64 %220 to i32
+  %221 = trunc nuw nsw i64 %220 to i32
   %222 = xor i32 %215, %221
   store i32 %222, ptr %209, align 4, !tbaa !156
   br label %223
@@ -1430,7 +1430,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vclmulh_
 184:                                              ; preds = %180
   %185 = sub nuw nsw i64 8, %.0146198
   %186 = lshr i64 %179, %185
-  %187 = trunc nuw i64 %186 to i8
+  %187 = trunc nuw nsw i64 %186 to i8
   %188 = xor i8 %181, %187
   store i8 %188, ptr %175, align 1, !tbaa !150
   br label %189
@@ -1461,7 +1461,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vclmulh_
 202:                                              ; preds = %198
   %203 = sub nuw nsw i64 16, %.0145196
   %204 = lshr i64 %197, %203
-  %205 = trunc nuw i64 %204 to i16
+  %205 = trunc nuw nsw i64 %204 to i16
   %206 = xor i16 %199, %205
   store i16 %206, ptr %193, align 2, !tbaa !153
   br label %207
@@ -1492,7 +1492,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32i_vclmulh_
 220:                                              ; preds = %216
   %221 = sub nuw nsw i64 32, %.0144194
   %222 = lshr i64 %215, %221
-  %223 = trunc nuw i64 %222 to i32
+  %223 = trunc nuw nsw i64 %222 to i32
   %224 = xor i32 %217, %223
   store i32 %224, ptr %211, align 4, !tbaa !156
   br label %225
@@ -1878,7 +1878,7 @@ define noundef i64 @_Z23logged_rv64i_vclmulh_vxP11processor_t6insn_tm(ptr nounde
 182:                                              ; preds = %178
   %183 = sub nuw nsw i64 8, %.0146198
   %184 = lshr i64 %177, %183
-  %185 = trunc nuw i64 %184 to i8
+  %185 = trunc nuw nsw i64 %184 to i8
   %186 = xor i8 %179, %185
   store i8 %186, ptr %173, align 1, !tbaa !150
   br label %187
@@ -1909,7 +1909,7 @@ define noundef i64 @_Z23logged_rv64i_vclmulh_vxP11processor_t6insn_tm(ptr nounde
 200:                                              ; preds = %196
   %201 = sub nuw nsw i64 16, %.0145196
   %202 = lshr i64 %195, %201
-  %203 = trunc nuw i64 %202 to i16
+  %203 = trunc nuw nsw i64 %202 to i16
   %204 = xor i16 %197, %203
   store i16 %204, ptr %191, align 2, !tbaa !153
   br label %205
@@ -1940,7 +1940,7 @@ define noundef i64 @_Z23logged_rv64i_vclmulh_vxP11processor_t6insn_tm(ptr nounde
 218:                                              ; preds = %214
   %219 = sub nuw nsw i64 32, %.0144194
   %220 = lshr i64 %213, %219
-  %221 = trunc nuw i64 %220 to i32
+  %221 = trunc nuw nsw i64 %220 to i32
   %222 = xor i32 %215, %221
   store i32 %222, ptr %209, align 4, !tbaa !156
   br label %223
@@ -2344,7 +2344,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vclmulh_vx
 191:                                              ; preds = %187
   %192 = sub nuw nsw i64 8, %.0157217
   %193 = lshr i64 %186, %192
-  %194 = trunc nuw i64 %193 to i8
+  %194 = trunc nuw nsw i64 %193 to i8
   %195 = xor i8 %188, %194
   store i8 %195, ptr %176, align 1, !tbaa !150
   br label %196
@@ -2390,7 +2390,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vclmulh_vx
 215:                                              ; preds = %211
   %216 = sub nuw nsw i64 16, %.0154215
   %217 = lshr i64 %210, %216
-  %218 = trunc nuw i64 %217 to i16
+  %218 = trunc nuw nsw i64 %217 to i16
   %219 = xor i16 %212, %218
   store i16 %219, ptr %200, align 2, !tbaa !153
   br label %220
@@ -2436,7 +2436,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21fast_rv32e_vclmulh_vx
 239:                                              ; preds = %235
   %240 = sub nuw nsw i64 32, %.0153213
   %241 = lshr i64 %234, %240
-  %242 = trunc nuw i64 %241 to i32
+  %242 = trunc nuw nsw i64 %241 to i32
   %243 = xor i32 %236, %242
   store i32 %243, ptr %224, align 4, !tbaa !156
   br label %244
@@ -2853,7 +2853,7 @@ define noundef i64 @_Z21fast_rv64e_vclmulh_vxP11processor_t6insn_tm(ptr noundef 
 189:                                              ; preds = %185
   %190 = sub nuw nsw i64 8, %.0157217
   %191 = lshr i64 %184, %190
-  %192 = trunc nuw i64 %191 to i8
+  %192 = trunc nuw nsw i64 %191 to i8
   %193 = xor i8 %186, %192
   store i8 %193, ptr %174, align 1, !tbaa !150
   br label %194
@@ -2899,7 +2899,7 @@ define noundef i64 @_Z21fast_rv64e_vclmulh_vxP11processor_t6insn_tm(ptr noundef 
 213:                                              ; preds = %209
   %214 = sub nuw nsw i64 16, %.0154215
   %215 = lshr i64 %208, %214
-  %216 = trunc nuw i64 %215 to i16
+  %216 = trunc nuw nsw i64 %215 to i16
   %217 = xor i16 %210, %216
   store i16 %217, ptr %198, align 2, !tbaa !153
   br label %218
@@ -2945,7 +2945,7 @@ define noundef i64 @_Z21fast_rv64e_vclmulh_vxP11processor_t6insn_tm(ptr noundef 
 237:                                              ; preds = %233
   %238 = sub nuw nsw i64 32, %.0153213
   %239 = lshr i64 %232, %238
-  %240 = trunc nuw i64 %239 to i32
+  %240 = trunc nuw nsw i64 %239 to i32
   %241 = xor i32 %234, %240
   store i32 %241, ptr %222, align 4, !tbaa !156
   br label %242
@@ -3364,7 +3364,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vclmulh_
 191:                                              ; preds = %187
   %192 = sub nuw nsw i64 8, %.0157217
   %193 = lshr i64 %186, %192
-  %194 = trunc nuw i64 %193 to i8
+  %194 = trunc nuw nsw i64 %193 to i8
   %195 = xor i8 %188, %194
   store i8 %195, ptr %176, align 1, !tbaa !150
   br label %196
@@ -3410,7 +3410,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vclmulh_
 215:                                              ; preds = %211
   %216 = sub nuw nsw i64 16, %.0154215
   %217 = lshr i64 %210, %216
-  %218 = trunc nuw i64 %217 to i16
+  %218 = trunc nuw nsw i64 %217 to i16
   %219 = xor i16 %212, %218
   store i16 %219, ptr %200, align 2, !tbaa !153
   br label %220
@@ -3456,7 +3456,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23logged_rv32e_vclmulh_
 239:                                              ; preds = %235
   %240 = sub nuw nsw i64 32, %.0153213
   %241 = lshr i64 %234, %240
-  %242 = trunc nuw i64 %241 to i32
+  %242 = trunc nuw nsw i64 %241 to i32
   %243 = xor i32 %236, %242
   store i32 %243, ptr %224, align 4, !tbaa !156
   br label %244
@@ -3873,7 +3873,7 @@ define noundef i64 @_Z23logged_rv64e_vclmulh_vxP11processor_t6insn_tm(ptr nounde
 189:                                              ; preds = %185
   %190 = sub nuw nsw i64 8, %.0157217
   %191 = lshr i64 %184, %190
-  %192 = trunc nuw i64 %191 to i8
+  %192 = trunc nuw nsw i64 %191 to i8
   %193 = xor i8 %186, %192
   store i8 %193, ptr %174, align 1, !tbaa !150
   br label %194
@@ -3919,7 +3919,7 @@ define noundef i64 @_Z23logged_rv64e_vclmulh_vxP11processor_t6insn_tm(ptr nounde
 213:                                              ; preds = %209
   %214 = sub nuw nsw i64 16, %.0154215
   %215 = lshr i64 %208, %214
-  %216 = trunc nuw i64 %215 to i16
+  %216 = trunc nuw nsw i64 %215 to i16
   %217 = xor i16 %210, %216
   store i16 %217, ptr %198, align 2, !tbaa !153
   br label %218
@@ -3965,7 +3965,7 @@ define noundef i64 @_Z23logged_rv64e_vclmulh_vxP11processor_t6insn_tm(ptr nounde
 237:                                              ; preds = %233
   %238 = sub nuw nsw i64 32, %.0153213
   %239 = lshr i64 %232, %238
-  %240 = trunc nuw i64 %239 to i32
+  %240 = trunc nuw nsw i64 %239 to i32
   %241 = xor i32 %234, %240
   store i32 %241, ptr %222, align 4, !tbaa !156
   br label %242

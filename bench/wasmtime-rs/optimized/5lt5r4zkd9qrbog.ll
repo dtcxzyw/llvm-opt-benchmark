@@ -4141,7 +4141,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst11gen_opcodes28_$u7b$$u
   br i1 %.not, label %43, label %41
 
 41:                                               ; preds = %31
-  %42 = trunc i8 %40 to i1
+  %42 = trunc nuw i8 %40 to i1
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %69, %41, %31
@@ -5948,7 +5948,7 @@ define hidden void @"_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder28_$u
   br i1 %.not, label %.invoke155, label %107
 
 107:                                              ; preds = %101
-  %108 = trunc i8 %106 to i1
+  %108 = trunc nuw i8 %106 to i1
   br i1 %108, label %111, label %109
 
 109:                                              ; preds = %107

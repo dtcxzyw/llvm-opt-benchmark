@@ -76,7 +76,7 @@ define void @dlahr2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
 
 ._crit_edge302:                                   ; preds = %34
   %.pre304 = mul nuw nsw i64 %indvars.iv, %31
-  %37 = trunc nuw i64 %indvars.iv to i32
+  %37 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre308 = add nsw i32 %37, -1
   br label %122
 

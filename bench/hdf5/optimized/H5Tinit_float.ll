@@ -821,7 +821,7 @@ H5T__byte_cmp.exit272.thread.thread:              ; preds = %325
 375:                                              ; preds = %375, %374
   %indvars.iv.i274 = phi i64 [ 0, %374 ], [ %indvars.iv.next.i275, %375 ]
   %376 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv.i274
-  %377 = trunc i64 %indvars.iv.i274 to i32
+  %377 = trunc nuw nsw i64 %indvars.iv.i274 to i32
   %378 = sub nsw i32 6, %377
   store i32 %378, ptr %376, align 4, !tbaa !10
   %379 = sub nuw nsw i32 7, %377
@@ -1739,7 +1739,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
 57:                                               ; preds = %54, %57
   %indvars.iv = phi i64 [ 0, %54 ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %59 = trunc i64 %indvars.iv to i32
+  %59 = trunc nuw nsw i64 %indvars.iv to i32
   %60 = sub nsw i32 %55, %59
   store i32 %60, ptr %58, align 4, !tbaa !10
   %61 = trunc nuw nsw i64 %indvars.iv to i32

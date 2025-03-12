@@ -3624,7 +3624,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   br i1 %381, label %349, label %._crit_edge112, !llvm.loop !63
 
 ._crit_edge112:                                   ; preds = %378
-  %.pre113 = trunc i64 %379 to i32
+  %.pre113 = trunc nsw i64 %379 to i32
   br label %split
 
 split:                                            ; preds = %367, %._crit_edge112, %340
@@ -6800,7 +6800,7 @@ define dso_local void @nl80211_send_connect_result(ptr noundef readonly captures
   br i1 %211, label %.thread18, label %212
 
 212:                                              ; preds = %201
-  %213 = trunc i64 %indvars.iv to i8
+  %213 = trunc nuw nsw i64 %indvars.iv to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #26
   store i8 %213, ptr %6, align 1
   %214 = call i32 @nla_put(ptr noundef nonnull %72, i32 noundef 313, i32 noundef 1, ptr noundef nonnull %6) #26
@@ -7185,7 +7185,7 @@ define dso_local void @nl80211_send_roamed(ptr noundef readonly captures(none) %
   br i1 %197, label %.thread19, label %198
 
 198:                                              ; preds = %187
-  %199 = trunc i64 %indvars.iv to i8
+  %199 = trunc nuw nsw i64 %indvars.iv to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
   store i8 %199, ptr %5, align 1
   %200 = call i32 @nla_put(ptr noundef nonnull %82, i32 noundef 313, i32 noundef 1, ptr noundef nonnull %5) #26
@@ -18782,7 +18782,7 @@ define internal i32 @nl80211_set_key(ptr readnone captures(none) %0, ptr noundef
   br label %select.unfold
 
 176:                                              ; preds = %169
-  %177 = trunc nuw i32 %25 to i8
+  %177 = trunc nuw nsw i32 %25 to i8
   %178 = call fastcc i32 @rdev_add_key(ptr noundef %5, ptr noundef %7, i32 noundef -1, i8 noundef zeroext %177, i1 noundef zeroext true, ptr noundef nonnull %164, ptr noundef nonnull %3)
   br label %select.unfold
 
@@ -25037,7 +25037,7 @@ define internal i32 @nl80211_trigger_scan(ptr readnone captures(none) %0, ptr no
   br i1 %216, label %230, label %217
 
 217:                                              ; preds = %212, %207
-  %218 = trunc i64 %208 to i32
+  %218 = trunc nuw nsw i64 %208 to i32
   %219 = tail call ptr @wdev_chandef(ptr noundef %6, i32 noundef %218) #26
   %220 = icmp eq ptr %219, null
   br i1 %220, label %230, label %221
@@ -26004,7 +26004,7 @@ define internal i32 @nl80211_dump_scan(ptr noundef %0, ptr noundef captures(none
   br i1 %311, label %.loopexit, label %312
 
 312:                                              ; preds = %309
-  %313 = trunc i64 %295 to i8
+  %313 = trunc nuw nsw i64 %295 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #26
   store i8 %313, ptr %7, align 1
   %314 = call i32 @nla_put(ptr noundef %0, i32 noundef 21, i32 noundef 1, ptr noundef nonnull %7) #26
@@ -33097,11 +33097,11 @@ define internal i32 @nl80211_set_rekey_data(ptr readnone captures(none) %0, ptr 
   %69 = getelementptr i8, ptr %28, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %69, ptr %70, align 8
-  %71 = trunc i16 %39 to i8
+  %71 = trunc nuw nsw i16 %39 to i8
   %72 = add nsw i8 %71, -4
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i8 %72, ptr %73, align 4
-  %74 = trunc i16 %50 to i8
+  %74 = trunc nuw nsw i16 %50 to i8
   %75 = add nsw i8 %74, -4
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 29
   store i8 %75, ptr %76, align 1
@@ -47860,7 +47860,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @nl80211_put_regdom(ptr nou
   %48 = load i32, ptr %29, align 8
   %49 = zext i32 %48 to i64
   %50 = getelementptr i8, ptr %47, i64 %49
-  %51 = trunc i64 %44 to i32
+  %51 = trunc nuw i64 %44 to i32
   %52 = call i32 @nla_put(ptr noundef %1, i32 noundef %51, i32 noundef 0, ptr noundef null) #26
   %53 = icmp slt i32 %52, 0
   %54 = icmp eq ptr %50, null
@@ -54337,7 +54337,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_band_rateinfo(ptr no
   %74 = load i32, ptr %54, align 8
   %75 = zext i32 %74 to i64
   %76 = getelementptr i8, ptr %73, i64 %75
-  %77 = trunc i64 %72 to i32
+  %77 = trunc nuw nsw i64 %72 to i32
   %78 = call i32 @nla_put(ptr noundef %0, i32 noundef %77, i32 noundef 0, ptr noundef null) #26
   %79 = icmp slt i32 %78, 0
   %80 = icmp eq ptr %76, null

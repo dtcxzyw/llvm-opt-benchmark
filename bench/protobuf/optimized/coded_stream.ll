@@ -2086,7 +2086,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit: ; preds 
 if.end:                                           ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit
   %add.ptr.i30 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
   store ptr %add.ptr.i30, ptr %this, align 8
-  %conv11 = trunc nuw i64 %temp.0 to i32
+  %conv11 = trunc nuw nsw i64 %temp.0 to i32
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false

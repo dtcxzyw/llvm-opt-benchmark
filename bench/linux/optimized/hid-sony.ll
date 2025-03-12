@@ -1799,7 +1799,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
 
 381:                                              ; preds = %379, %375
   %382 = phi ptr [ %380, %379 ], [ %377, %375 ]
-  %383 = trunc i64 %372 to i32
+  %383 = trunc nuw nsw i64 %372 to i32
   %384 = add nuw nsw i32 %383, 1
   %385 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %376, i64 noundef %368, ptr noundef nonnull %354, ptr noundef %382, i32 noundef %384) #14
   store ptr %376, ptr %373, align 8
@@ -1868,7 +1868,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
 
 .thread50:                                        ; preds = %416, %.split.us
   %.us-phi = phi i64 [ %372, %.split.us ], [ %411, %416 ]
-  %427 = trunc i64 %.us-phi to i32
+  %427 = trunc nuw nsw i64 %.us-phi to i32
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %355, ptr noundef nonnull @.str.39, i32 noundef %427) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
@@ -1934,7 +1934,7 @@ define internal range(i32 -2147483648, 1) i32 @sony_input_configured(ptr noundef
   br label %463
 
 .split60.us.loopexit64:                           ; preds = %453
-  %.pre80 = trunc i64 %411 to i32
+  %.pre80 = trunc nuw nsw i64 %411 to i32
   br label %.split60.us
 
 .split60.us:                                      ; preds = %402, %.split60.us.loopexit64

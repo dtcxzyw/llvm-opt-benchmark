@@ -252,7 +252,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
 
 10:                                               ; preds = %7
   %11 = lshr i32 %3, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
@@ -280,7 +280,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
 
 29:                                               ; preds = %24
   %30 = lshr i32 %3, 12
-  %31 = trunc nuw i32 %30 to i8
+  %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -32
   %33 = sext i32 %1 to i64
   %34 = getelementptr inbounds i8, ptr %0, i64 %33
@@ -308,7 +308,7 @@ define i32 @utf8_appendCharSafeBody_77(ptr noundef writeonly captures(none) %0, 
 
 49:                                               ; preds = %45
   %50 = lshr i32 %3, 18
-  %51 = trunc nuw i32 %50 to i8
+  %51 = trunc nuw nsw i32 %50 to i8
   %52 = or disjoint i8 %51, -16
   %53 = sext i32 %1 to i64
   %54 = getelementptr inbounds i8, ptr %0, i64 %53

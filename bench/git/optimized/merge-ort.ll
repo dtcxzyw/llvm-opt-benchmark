@@ -5439,7 +5439,7 @@ setup_path_info.exit:                             ; preds = %269, %283
   %301 = xor i16 %300, 1792
   store i16 %301, ptr %270, align 8
   %302 = lshr exact i64 %2, 1
-  %303 = trunc nuw i64 %302 to i32
+  %303 = trunc nuw nsw i64 %302 to i32
   br label %304
 
 304:                                              ; preds = %296, %297, %292

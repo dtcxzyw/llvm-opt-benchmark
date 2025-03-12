@@ -3784,7 +3784,7 @@ define hidden { i32, i64 } @_ZN8datatype10param_size5power4evalERK7obj_mapI4sort
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #28
   call void @_ZN8rationalC2EmNS_4ui64E(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %13)
-  %37 = trunc nuw i64 %21 to i32
+  %37 = trunc nuw nsw i64 %21 to i32
   invoke void @_Z5powerRK8rationalj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %37)
           to label %38 unwind label %40
 

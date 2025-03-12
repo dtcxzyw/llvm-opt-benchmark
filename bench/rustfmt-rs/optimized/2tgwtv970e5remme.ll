@@ -640,13 +640,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h23430f75cdeaa
   br i1 %7, label %17, label %28
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i32 %1 to i8
+  %9 = trunc nuw nsw i32 %1 to i8
   store i8 %9, ptr %.sroa.0, align 4, !alias.scope !32
   br label %_ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.exit
 
 10:                                               ; preds = %4
   %11 = lshr i32 %1, 6
-  %12 = trunc nuw i32 %11 to i8
+  %12 = trunc nuw nsw i32 %11 to i8
   %13 = or disjoint i8 %12, -64
   store i8 %13, ptr %.sroa.0, align 4, !alias.scope !32
   %14 = trunc i32 %1 to i8
@@ -658,7 +658,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h23430f75cdeaa
 
 17:                                               ; preds = %6
   %18 = lshr i32 %1, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.sroa.0, align 4, !alias.scope !32
   %21 = lshr i32 %1, 6
@@ -746,13 +746,13 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h49efb95f897a8
   br i1 %9, label %20, label %33
 
 10:                                               ; preds = %2
-  %11 = trunc nuw i32 %1 to i8
+  %11 = trunc nuw nsw i32 %1 to i8
   store i8 %11, ptr %4, align 4, !alias.scope !53
   br label %_ZN4core4char7methods15encode_utf8_raw17hd036586f94355cb7E.exit
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 6
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -64
   store i8 %15, ptr %4, align 4, !alias.scope !53
   %16 = trunc i32 %1 to i8
@@ -764,7 +764,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write10write_char17h49efb95f897a8
 
 20:                                               ; preds = %8
   %21 = lshr i32 %1, 12
-  %22 = trunc nuw i32 %21 to i8
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = or disjoint i8 %22, -32
   store i8 %23, ptr %4, align 4, !alias.scope !53
   %24 = lshr i32 %1, 6
@@ -20310,7 +20310,7 @@ define hidden void @_ZN15rustfmt_nightly4expr32rewrite_assign_rhs_with_comments1
 24:                                               ; preds = %.body, %26
   %.1 = phi i8 [ %.0, %26 ], [ %.2.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %eh.lpad-body, %.body ]
-  %25 = trunc i8 %.1 to i1
+  %25 = trunc nuw i8 %.1 to i1
   br i1 %25, label %123, label %122
 
 26:                                               ; preds = %92, %89, %23, %9, %32, %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
@@ -20647,7 +20647,7 @@ define hidden void @_ZN15rustfmt_nightly4expr32rewrite_assign_rhs_with_comments1
 24:                                               ; preds = %.body, %26
   %.1 = phi i8 [ %.0, %26 ], [ %.2.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %eh.lpad-body, %.body ]
-  %25 = trunc i8 %.1 to i1
+  %25 = trunc nuw i8 %.1 to i1
   br i1 %25, label %123, label %122
 
 26:                                               ; preds = %92, %89, %23, %9, %32, %_ZN15rustfmt_nightly7rewrite14RewriteContext7snippet17h7d81c3a187049865E.exit
@@ -28040,7 +28040,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.llvm.11825479963814566850.exit: ; preds
   %178 = load i8, ptr %177, align 4, !range !1629, !noundef !10
   %179 = icmp eq i8 %178, 2
   %180 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %trunc189 = trunc i8 %178 to i1
+  %trunc189 = trunc nuw i8 %178 to i1
   %anon.435283188f88f97391414eebf75b8265.237.anon.435283188f88f97391414eebf75b8265.236 = select i1 %trunc189, ptr @anon.435283188f88f97391414eebf75b8265.237, ptr @anon.435283188f88f97391414eebf75b8265.236
   %anon.435283188f88f97391414eebf75b8265.237.sink = select i1 %179, ptr @anon.435283188f88f97391414eebf75b8265.238, ptr %anon.435283188f88f97391414eebf75b8265.237.anon.435283188f88f97391414eebf75b8265.236
   %.sink = select i1 %179, i64 2, i64 3

@@ -32502,7 +32502,7 @@ define internal fastcc void @leaveblock(ptr noundef captures(none) %0) unnamed_a
   br i1 %.wide, label %21, label %._crit_edge.i, !llvm.loop !337
 
 ._crit_edge.i:                                    ; preds = %21
-  %27 = trunc i64 %22 to i8
+  %27 = trunc nuw i64 %22 to i8
   store i8 %27, ptr %11, align 2, !tbaa !317
   br label %removevars.exit
 

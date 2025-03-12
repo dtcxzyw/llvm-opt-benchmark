@@ -44670,14 +44670,14 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !11681, !noalias !11678
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
   store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !11681, !noalias !11678
   %16 = lshr i32 %1, 6
@@ -129637,7 +129637,7 @@ common.resume:                                    ; preds = %.body30, %154, %162
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %33
-  %trunc = trunc i8 %32 to i1
+  %trunc = trunc nuw i8 %32 to i1
   br i1 %trunc, label %61, label %57
 
 "_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..FollowableItemHandle$GT$$GT$17hd67d1af5efeb2b06E.exit": ; preds = %45, %38, %16

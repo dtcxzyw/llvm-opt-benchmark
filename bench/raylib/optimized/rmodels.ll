@@ -6084,7 +6084,7 @@ cgltf_unhex.exit:                                 ; preds = %.preheader, %38, %4
 
 52:                                               ; preds = %50
   %53 = lshr i32 %46, 6
-  %54 = trunc nuw i32 %53 to i8
+  %54 = trunc nuw nsw i32 %53 to i8
   %55 = or disjoint i8 %54, -64
   store i8 %55, ptr %6, align 1
   %56 = trunc i32 %46 to i8
@@ -14695,7 +14695,7 @@ _m3dstbi__get8.exit293.thread.i.i:                ; preds = %_m3dstbi__get8.exit
   br i1 %or.cond650.i, label %_m3dstbi__parse_png_file.exit.thread.sink.split.i, label %212
 
 212:                                              ; preds = %210
-  %.lhs.trunc.i.i = trunc nuw i32 %.sroa.0.0.insert.ext.i.i.i to i16
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %.sroa.0.0.insert.ext.i.i.i to i16
   %213 = udiv i16 %.lhs.trunc.i.i, 3
   %.zext.i.i = zext nneg i16 %213 to i32
   %214 = mul nuw nsw i32 %.zext.i.i, 3
@@ -69980,7 +69980,7 @@ define internal fastcc void @LoadImageFromCgltfImage(ptr dead_on_unwind noalias 
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %81 = trunc i64 %72 to i32
+  %81 = trunc nuw i64 %72 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %70

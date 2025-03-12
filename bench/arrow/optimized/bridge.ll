@@ -24277,7 +24277,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %31, %29, %25, %21, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
 71:                                               ; preds = %._crit_edge.i.i.i
-  %72 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %72 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %73 = or disjoint i8 %72, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
@@ -24463,7 +24463,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19: ; preds = %120, %118, %114, %
   br label %._crit_edge.loopexit48
 
 160:                                              ; preds = %._crit_edge.i.i.i21
-  %161 = trunc nuw i32 %.0.lcssa.i.i.i22 to i8
+  %161 = trunc nuw nsw i32 %.0.lcssa.i.i.i22 to i8
   %162 = or disjoint i8 %161, 48
   br label %._crit_edge.loopexit48
 
@@ -25068,7 +25068,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %32, %30, %26, %22, 
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
 72:                                               ; preds = %._crit_edge.i.i.i
-  %73 = trunc nuw i32 %.0.lcssa.i.i.i to i8
+  %73 = trunc nuw nsw i32 %.0.lcssa.i.i.i to i8
   %74 = or disjoint i8 %73, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i
 
@@ -25254,7 +25254,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i19: ; preds = %121, %119, %115, %
   br label %._crit_edge.loopexit48
 
 161:                                              ; preds = %._crit_edge.i.i.i21
-  %162 = trunc nuw i32 %.0.lcssa.i.i.i22 to i8
+  %162 = trunc nuw nsw i32 %.0.lcssa.i.i.i22 to i8
   %163 = or disjoint i8 %162, 48
   br label %._crit_edge.loopexit48
 
@@ -25998,7 +25998,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERKNS
   br label %22
 
 .thread:                                          ; preds = %2
-  %20 = trunc nuw i64 %12 to i32
+  %20 = trunc nuw nsw i64 %12 to i32
   store ptr null, ptr %4, align 8, !tbaa !75, !alias.scope !1663
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %20, ptr %21, align 8, !tbaa !188, !alias.scope !1663
@@ -26553,7 +26553,7 @@ define internal fastcc void @"_ZZN5arrow12_GLOBAL__N_114EncodeMetadataB5cxx11ERK
   br label %16
 
 .thread:                                          ; preds = %2
-  %14 = trunc nuw i64 %6 to i32
+  %14 = trunc nuw nsw i64 %6 to i32
   store ptr null, ptr %4, align 8, !tbaa !75, !alias.scope !1677
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %14, ptr %15, align 8, !tbaa !188, !alias.scope !1677

@@ -5390,7 +5390,7 @@ invoke.cont6:                                     ; preds = %entry
   %6 = load i64, ptr %5, align 8
   %and.i.i = and i64 %6, 281474976710655
   %7 = inttoptr i64 %and.i.i to ptr
-  %conv = trunc nuw i32 %radix to i8
+  %conv = trunc nuw nsw i32 %radix to i8
   %call10 = invoke { i32, i64 } @_ZN6hermes2vm15BigIntPrimitive8toStringERNS0_7RuntimeENS0_12PseudoHandleIS1_EEh(ptr noundef nonnull align 8 dereferenceable(9832) %3, ptr %7, i8 noundef zeroext %conv)
           to label %invoke.cont9 unwind label %lpad
 

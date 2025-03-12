@@ -1701,7 +1701,7 @@ _ZL19icvTraceContour_32sPiiS_i.exit:              ; preds = %322, %306
 
 355:                                              ; preds = %347
   %356 = getelementptr inbounds i8, ptr %.04473.i, i64 %350
-  %357 = trunc nsw i64 %indvars.iv.next.i351 to i32
+  %357 = trunc nuw nsw i64 %indvars.iv.next.i351 to i32
   %358 = icmp eq ptr %.04473.i, %261
   br i1 %358, label %359, label %.critedge.i
 

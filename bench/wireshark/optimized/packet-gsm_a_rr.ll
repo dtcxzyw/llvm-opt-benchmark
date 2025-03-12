@@ -12445,13 +12445,13 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
   %147 = load i32, ptr @hf_gsm_a_rr_mnci_support, align 4
   %148 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %147, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef 0)
   %149 = add i32 %.2, 11
-  %150 = trunc nsw i32 %.0 to i16
+  %150 = trunc nuw nsw i32 %.0 to i16
   %151 = add nsw i16 %150, -11
   %152 = icmp eq i16 %151, 0
   br i1 %152, label %166, label %157
 
 153:                                              ; preds = %135
-  %154 = trunc nsw i32 %.0 to i16
+  %154 = trunc nuw nsw i32 %.0 to i16
   %155 = add nsw i16 %154, -9
   %156 = icmp eq i16 %155, 0
   br i1 %156, label %166, label %157

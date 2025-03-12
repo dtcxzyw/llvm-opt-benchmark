@@ -1517,7 +1517,7 @@ define void @_ZN6icu_7718TransliteratorSpec9setupNextEv(ptr noundef nonnull alig
 
 29:                                               ; preds = %27
   %30 = and i16 %20, 31
-  %.tr.i.i.i = trunc nuw i32 %17 to i16
+  %.tr.i.i.i = trunc nuw nsw i32 %17 to i16
   %31 = shl nuw nsw i16 %.tr.i.i.i, 5
   %32 = or disjoint i16 %30, %31
   store i16 %32, ptr %9, align 8, !tbaa !17

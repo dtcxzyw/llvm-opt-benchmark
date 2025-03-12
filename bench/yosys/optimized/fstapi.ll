@@ -988,7 +988,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit348:          ; preds = %_ZL19fstWriterMmapS
 _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fstWriterUint64P8_IO_FILEm.exit348
   %.09.lcssa.i = phi ptr [ %16, %_ZL15fstWriterUint64P8_IO_FILEm.exit348 ], [ %194, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %190, %_ZL15fstWriterUint64P8_IO_FILEm.exit348 ], [ %191, %.lr.ph.i ]
-  %195 = trunc nuw i64 %.0.lcssa.i to i8
+  %195 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %196 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 1
   store i8 %195, ptr %.09.lcssa.i, align 1, !tbaa !6
   %197 = ptrtoint ptr %196 to i64
@@ -1042,7 +1042,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fst
 _ZL15fstWriterVarintP8_IO_FILEm.exit358:          ; preds = %.lr.ph.i351, %206
   %.09.lcssa.i355 = phi ptr [ %15, %206 ], [ %222, %.lr.ph.i351 ]
   %.0.lcssa.i356 = phi i64 [ %218, %206 ], [ %219, %.lr.ph.i351 ]
-  %223 = trunc nuw i64 %.0.lcssa.i356 to i8
+  %223 = trunc nuw nsw i64 %.0.lcssa.i356 to i8
   %224 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i355, i64 1
   store i8 %223, ptr %.09.lcssa.i355, align 1, !tbaa !6
   %225 = ptrtoint ptr %224 to i64
@@ -2001,7 +2001,7 @@ define void @fstWriterEmitTimeChange(ptr noundef %0, i64 noundef %1) local_unnam
 _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %._crit_edge63
   %.09.lcssa.i = phi ptr [ %4, %._crit_edge63 ], [ %62, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %58, %._crit_edge63 ], [ %59, %.lr.ph.i ]
-  %63 = trunc nuw i64 %.0.lcssa.i to i8
+  %63 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %64 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 1
   store i8 %63, ptr %.09.lcssa.i, align 1, !tbaa !6
   %65 = ptrtoint ptr %64 to i64
@@ -2050,7 +2050,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %._crit_e
 _ZL15fstWriterVarintP8_IO_FILEm.exit53:           ; preds = %.lr.ph.i46, %75
   %.09.lcssa.i50 = phi ptr [ %3, %75 ], [ %84, %.lr.ph.i46 ]
   %.0.lcssa.i51 = phi i64 [ %80, %75 ], [ %81, %.lr.ph.i46 ]
-  %85 = trunc nuw i64 %.0.lcssa.i51 to i8
+  %85 = trunc nuw nsw i64 %.0.lcssa.i51 to i8
   %86 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i50, i64 1
   store i8 %85, ptr %.09.lcssa.i50, align 1, !tbaa !6
   %87 = ptrtoint ptr %86 to i64
@@ -2186,7 +2186,7 @@ define void @fstWriterEmitValueChange(ptr noundef captures(address_is_null) %0, 
 _ZL27fstWriterUint32WithVarint32P16fstWriterContextPjjPKvj.exit: ; preds = %.lr.ph.i, %47
   %.018.lcssa.i = phi ptr [ %56, %47 ], [ %60, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %53, %47 ], [ %57, %.lr.ph.i ]
-  %61 = trunc nuw i32 %.0.lcssa.i to i8
+  %61 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %62 = getelementptr inbounds nuw i8, ptr %.018.lcssa.i, i64 1
   store i8 %61, ptr %.018.lcssa.i, align 1, !tbaa !6
   %63 = zext i32 %21 to i64
@@ -2292,7 +2292,7 @@ define internal fastcc void @_ZL28fstWriterFlushContextPrivatePv(ptr noundef non
 _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %37
   %.09.lcssa.i = phi ptr [ %15, %37 ], [ %50, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %46, %37 ], [ %47, %.lr.ph.i ]
-  %51 = trunc nuw i64 %.0.lcssa.i to i8
+  %51 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %52 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 1
   store i8 %51, ptr %.09.lcssa.i, align 1, !tbaa !6
   %53 = ptrtoint ptr %52 to i64
@@ -3049,7 +3049,7 @@ _ZL21fstCopyVarint32ToLeftPhj.exit517:            ; preds = %.lr.ph28.i524, %.lr
 _ZL15fstWriterVarintP8_IO_FILEm.exit542:          ; preds = %.lr.ph.i534, %399
   %.09.lcssa.i539 = phi ptr [ %14, %399 ], [ %405, %.lr.ph.i534 ]
   %.0.lcssa.i540 = phi i64 [ %377, %399 ], [ %402, %.lr.ph.i534 ]
-  %406 = trunc nuw i64 %.0.lcssa.i540 to i8
+  %406 = trunc nuw nsw i64 %.0.lcssa.i540 to i8
   %407 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i539, i64 1
   store i8 %406, ptr %.09.lcssa.i539, align 1, !tbaa !6
   %408 = ptrtoint ptr %407 to i64
@@ -3158,7 +3158,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit542:          ; preds = %.lr.ph.i534, %399
 _ZL15fstWriterVarintP8_IO_FILEm.exit556:          ; preds = %.lr.ph.i548, %454
   %.09.lcssa.i553 = phi ptr [ %13, %454 ], [ %460, %.lr.ph.i548 ]
   %.0.lcssa.i554 = phi i64 [ %377, %454 ], [ %457, %.lr.ph.i548 ]
-  %461 = trunc nuw i64 %.0.lcssa.i554 to i8
+  %461 = trunc nuw nsw i64 %.0.lcssa.i554 to i8
   %462 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i553, i64 1
   store i8 %461, ptr %.09.lcssa.i553, align 1, !tbaa !6
   %463 = ptrtoint ptr %462 to i64
@@ -3328,7 +3328,7 @@ _Z11JenkinsFreePvj.exit:                          ; preds = %_ZL15fstWriterVarin
 _ZL15fstWriterVarintP8_IO_FILEm.exit577:          ; preds = %.lr.ph.i569, %526
   %.09.lcssa.i574 = phi ptr [ %12, %526 ], [ %532, %.lr.ph.i569 ]
   %.0.lcssa.i575 = phi i64 [ %528, %526 ], [ %529, %.lr.ph.i569 ]
-  %533 = trunc nuw i64 %.0.lcssa.i575 to i8
+  %533 = trunc nuw nsw i64 %.0.lcssa.i575 to i8
   %534 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i574, i64 1
   store i8 %533, ptr %.09.lcssa.i574, align 1, !tbaa !6
   %535 = ptrtoint ptr %534 to i64
@@ -3482,7 +3482,7 @@ _ZL16fstWriterSVarintP8_IO_FILEl.exit597:         ; preds = %.lr.ph.i587, %562
 _ZL15fstWriterVarintP8_IO_FILEm.exit607:          ; preds = %.lr.ph.i599, %588
   %.09.lcssa.i604 = phi ptr [ %9, %588 ], [ %594, %.lr.ph.i599 ]
   %.0.lcssa.i605 = phi i64 [ %590, %588 ], [ %591, %.lr.ph.i599 ]
-  %595 = trunc nuw i64 %.0.lcssa.i605 to i8
+  %595 = trunc nuw nsw i64 %.0.lcssa.i605 to i8
   %596 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i604, i64 1
   store i8 %595, ptr %.09.lcssa.i604, align 1, !tbaa !6
   %597 = ptrtoint ptr %596 to i64
@@ -3889,7 +3889,7 @@ define internal fastcc void @_ZL15fstWriterVarintP8_IO_FILEm(ptr noundef capture
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.09.lcssa = phi ptr [ %3, %2 ], [ %7, %.lr.ph ]
   %.0.lcssa = phi i64 [ %1, %2 ], [ %4, %.lr.ph ]
-  %8 = trunc nuw i64 %.0.lcssa to i8
+  %8 = trunc nuw nsw i64 %.0.lcssa to i8
   %9 = getelementptr inbounds nuw i8, ptr %.09.lcssa, i64 1
   store i8 %8, ptr %.09.lcssa, align 1, !tbaa !6
   %10 = ptrtoint ptr %9 to i64
@@ -4224,13 +4224,13 @@ _ZL23fstWriterSetAttrGenericPvPKcim.exit:         ; preds = %30
   br i1 %.not.i.i, label %_ZL22fstCopyVarint64ToRightPhm.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !105
 
 _ZL22fstCopyVarint64ToRightPhm.exit.thread.i:     ; preds = %.lr.ph.i.i
-  %42 = trunc nuw i64 %38 to i8
+  %42 = trunc nuw nsw i64 %38 to i8
   %43 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 2
   store i8 %42, ptr %41, align 1, !tbaa !6
   br label %46
 
 _ZL22fstCopyVarint64ToRightPhm.exit.i:            ; preds = %36
-  %44 = trunc nuw i64 %.027 to i8
+  %44 = trunc nuw nsw i64 %.027 to i8
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %44, ptr %6, align 1, !tbaa !6
   %.not.i = icmp eq i64 %.027, 0
@@ -4852,7 +4852,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %.thread,
   %63 = phi i32 [ %3, %54 ], [ %storemerge, %.thread ], [ 1, %.lr.ph.i ]
   %.09.lcssa.i = phi ptr [ %10, %54 ], [ %10, %.thread ], [ %60, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %56, %54 ], [ %53, %.thread ], [ %57, %.lr.ph.i ]
-  %64 = trunc nuw i64 %.0.lcssa.i to i8
+  %64 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %65 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 1
   store i8 %64, ptr %.09.lcssa.i, align 1, !tbaa !6
   %66 = ptrtoint ptr %65 to i64
@@ -4889,7 +4889,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %.thread,
 _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15fstWriterVarintP8_IO_FILEm.exit
   %.09.lcssa.i94 = phi ptr [ %9, %_ZL15fstWriterVarintP8_IO_FILEm.exit ], [ %81, %.lr.ph.i90 ]
   %.0.lcssa.i95 = phi i64 [ %77, %_ZL15fstWriterVarintP8_IO_FILEm.exit ], [ %78, %.lr.ph.i90 ]
-  %82 = trunc nuw i64 %.0.lcssa.i95 to i8
+  %82 = trunc nuw nsw i64 %.0.lcssa.i95 to i8
   %83 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i94, i64 1
   store i8 %82, ptr %.09.lcssa.i94, align 1, !tbaa !6
   %84 = ptrtoint ptr %83 to i64
@@ -4979,7 +4979,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit97:           ; preds = %.lr.ph.i90, %_ZL15f
 _ZL15fstWriterVarintP8_IO_FILEm.exit106:          ; preds = %.lr.ph.i99, %125
   %.09.lcssa.i103 = phi ptr [ %8, %125 ], [ %130, %.lr.ph.i99 ]
   %.0.lcssa.i104 = phi i64 [ %126, %125 ], [ %127, %.lr.ph.i99 ]
-  %131 = trunc nuw i64 %.0.lcssa.i104 to i8
+  %131 = trunc nuw nsw i64 %.0.lcssa.i104 to i8
   %132 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i103, i64 1
   store i8 %131, ptr %.09.lcssa.i103, align 1, !tbaa !6
   %133 = ptrtoint ptr %132 to i64
@@ -5236,7 +5236,7 @@ define void @fstWriterSetAttrBegin(ptr noundef captures(address_is_null) %0, i32
 _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %28
   %.09.lcssa.i = phi ptr [ %6, %28 ], [ %36, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %4, %28 ], [ %33, %.lr.ph.i ]
-  %37 = trunc nuw i64 %.0.lcssa.i to i8
+  %37 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %38 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 1
   store i8 %37, ptr %.09.lcssa.i, align 1, !tbaa !6
   %39 = ptrtoint ptr %38 to i64
@@ -6338,7 +6338,7 @@ define void @fstWriterEmitVariableLengthValueChange(ptr noundef captures(address
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %45
   %.025.lcssa.i = phi ptr [ %54, %45 ], [ %58, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %51, %45 ], [ %55, %.lr.ph.i ]
-  %59 = trunc nuw i32 %.0.lcssa.i to i8
+  %59 = trunc nuw nsw i32 %.0.lcssa.i to i8
   store i8 %59, ptr %.025.lcssa.i, align 1, !tbaa !6
   %.1265.i = getelementptr inbounds nuw i8, ptr %.025.lcssa.i, i64 1
   %.not296.i = icmp ult i32 %3, 128
@@ -6359,7 +6359,7 @@ _ZL36fstWriterUint32WithVarint32AndLengthP16fstWriterContextPjjPKvj.exit: ; pred
   %.025.pn.lcssa.i = phi ptr [ %.025.lcssa.i, %._crit_edge.i ], [ %.1268.i, %.lr.ph10.i ]
   %.1.lcssa.i = phi i32 [ %3, %._crit_edge.i ], [ %60, %.lr.ph10.i ]
   %.126.lcssa.i = phi ptr [ %.1265.i, %._crit_edge.i ], [ %.126.i, %.lr.ph10.i ]
-  %63 = trunc nuw i32 %.1.lcssa.i to i8
+  %63 = trunc nuw nsw i32 %.1.lcssa.i to i8
   %64 = getelementptr inbounds nuw i8, ptr %.025.pn.lcssa.i, i64 2
   store i8 %63, ptr %.126.lcssa.i, align 1, !tbaa !6
   %65 = zext i32 %3 to i64
@@ -6491,7 +6491,7 @@ _ZL15fstWriterUint64P8_IO_FILEm.exit45:           ; preds = %44
 _ZL15fstWriterVarintP8_IO_FILEm.exit:             ; preds = %.lr.ph.i, %_ZL15fstWriterUint64P8_IO_FILEm.exit45
   %.09.lcssa.i = phi ptr [ %4, %_ZL15fstWriterUint64P8_IO_FILEm.exit45 ], [ %57, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ %53, %_ZL15fstWriterUint64P8_IO_FILEm.exit45 ], [ %54, %.lr.ph.i ]
-  %58 = trunc nuw i64 %.0.lcssa.i to i8
+  %58 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %59 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 1
   store i8 %58, ptr %.09.lcssa.i, align 1, !tbaa !6
   %60 = ptrtoint ptr %59 to i64
@@ -6535,7 +6535,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit._crit_edge:  ; preds = %_ZL15fstWriterVarin
 _ZL15fstWriterVarintP8_IO_FILEm.exit60:           ; preds = %.lr.ph.i53, %70
   %.09.lcssa.i57 = phi ptr [ %3, %70 ], [ %75, %.lr.ph.i53 ]
   %.0.lcssa.i58 = phi i64 [ %67, %70 ], [ %72, %.lr.ph.i53 ]
-  %76 = trunc nuw i64 %.0.lcssa.i58 to i8
+  %76 = trunc nuw nsw i64 %.0.lcssa.i58 to i8
   %77 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i57, i64 1
   store i8 %76, ptr %.09.lcssa.i57, align 1, !tbaa !6
   %78 = ptrtoint ptr %77 to i64
@@ -6568,7 +6568,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit60:           ; preds = %.lr.ph.i53, %70
 _ZL15fstWriterVarintP8_IO_FILEm.exit69:           ; preds = %.lr.ph.i62, %83
   %.09.lcssa.i66 = phi ptr [ %2, %83 ], [ %88, %.lr.ph.i62 ]
   %.0.lcssa.i67 = phi i64 [ %.pre-phi96, %83 ], [ %85, %.lr.ph.i62 ]
-  %89 = trunc nuw i64 %.0.lcssa.i67 to i8
+  %89 = trunc nuw nsw i64 %.0.lcssa.i67 to i8
   %90 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i66, i64 1
   store i8 %89, ptr %.09.lcssa.i66, align 1, !tbaa !6
   %91 = ptrtoint ptr %90 to i64
@@ -6603,7 +6603,7 @@ _ZL15fstWriterVarintP8_IO_FILEm.exit69:           ; preds = %.lr.ph.i62, %83
 _ZL15fstWriterVarintP8_IO_FILEm.exit78:           ; preds = %.lr.ph.i71, %96
   %.09.lcssa.i75 = phi ptr [ %1, %96 ], [ %104, %.lr.ph.i71 ]
   %.0.lcssa.i76 = phi i64 [ %100, %96 ], [ %101, %.lr.ph.i71 ]
-  %105 = trunc nuw i64 %.0.lcssa.i76 to i8
+  %105 = trunc nuw nsw i64 %.0.lcssa.i76 to i8
   %106 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i75, i64 1
   store i8 %105, ptr %.09.lcssa.i75, align 1, !tbaa !6
   %107 = ptrtoint ptr %106 to i64
@@ -8170,7 +8170,7 @@ _ZL14fstGetVarint64PhPi.exit:                     ; preds = %.preheader
   store i8 0, ptr %130, align 1, !tbaa !6
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 596
   store i32 0, ptr %131, align 4, !tbaa !6
-  %132 = trunc i32 %28 to i8
+  %132 = trunc nuw nsw i32 %28 to i8
   store i8 %132, ptr %128, align 8, !tbaa !6
   %133 = load ptr, ptr %5, align 8, !tbaa !152
   %134 = tail call i32 @fgetc(ptr noundef %133)

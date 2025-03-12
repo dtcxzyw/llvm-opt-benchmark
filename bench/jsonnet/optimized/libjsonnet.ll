@@ -4179,7 +4179,7 @@ define void @jsonnet_fmt_string(ptr noundef writeonly captures(none) initializes
   %4 = and i32 %1, -9
   %5 = icmp ne i32 %4, 100
   %or.cond3 = and i1 %3, %5
-  %6 = trunc i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   %7 = select i1 %or.cond3, i8 108, i8 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i8 %7, ptr %8, align 8, !tbaa !130
@@ -4192,7 +4192,7 @@ define void @jsonnet_fmt_comment(ptr noundef writeonly captures(none) initialize
   %4 = and i32 %1, -5
   %5 = icmp ne i32 %4, 104
   %or.cond3 = and i1 %3, %5
-  %6 = trunc i32 %1 to i8
+  %6 = trunc nuw nsw i32 %1 to i8
   %7 = select i1 %or.cond3, i8 108, i8 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 217
   store i8 %7, ptr %8, align 1, !tbaa !131

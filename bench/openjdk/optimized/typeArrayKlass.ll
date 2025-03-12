@@ -201,7 +201,7 @@ _ZN14TypeArrayKlassC2E9BasicTypeP6Symbol.exit:    ; preds = %16, %_ZN12arrayOopD
   %36 = xor i64 %23, 2147483647
   %37 = and i64 %36, %27
   %.0.in.i.i = select i1 %35, i64 %37, i64 %34
-  %.0.i.i = trunc i64 %.0.in.i.i to i32
+  %.0.i.i = trunc nuw nsw i64 %.0.in.i.i to i32
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 216
   store i32 %.0.i.i, ptr %38, align 8
   %39 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
@@ -274,7 +274,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %10, %_ZN12arrayO
   %30 = xor i64 %17, 2147483647
   %31 = and i64 %30, %21
   %.0.in.i = select i1 %29, i64 %31, i64 %28
-  %.0.i = trunc i64 %.0.in.i to i32
+  %.0.i = trunc nuw nsw i64 %.0.in.i to i32
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i32 %.0.i, ptr %32, align 8
   %33 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8

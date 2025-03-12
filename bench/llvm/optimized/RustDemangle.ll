@@ -1953,7 +1953,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %75
 
 108:                                              ; preds = %106
   %109 = lshr i64 %100, 6
-  %110 = trunc nuw i64 %109 to i8
+  %110 = trunc nuw nsw i64 %109 to i8
   %111 = or disjoint i8 %110, -64
   %112 = trunc i64 %100 to i8
   %113 = and i8 %112, 63
@@ -1966,7 +1966,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %75
 
 117:                                              ; preds = %115
   %118 = lshr i64 %100, 12
-  %119 = trunc nuw i64 %118 to i8
+  %119 = trunc nuw nsw i64 %118 to i8
   %120 = or disjoint i8 %119, -32
   %121 = lshr i64 %100, 6
   %122 = trunc i64 %121 to i8
@@ -1983,7 +1983,7 @@ _ZL19decodePunycodeDigitcRm.exit.i:               ; preds = %75
 
 130:                                              ; preds = %128
   %131 = lshr i64 %100, 18
-  %132 = trunc nuw i64 %131 to i8
+  %132 = trunc nuw nsw i64 %131 to i8
   %133 = or disjoint i8 %132, -16
   %134 = lshr i64 %100, 12
   %135 = trunc i64 %134 to i8
@@ -4621,7 +4621,7 @@ _ZN12_GLOBAL__N_19Demangler5printEc.exit:         ; preds = %38, %43, %_ZN4llvm1
   br i1 %64, label %65, label %91
 
 65:                                               ; preds = %_ZN12_GLOBAL__N_19Demangler5printEc.exit
-  %66 = trunc nuw i64 %39 to i8
+  %66 = trunc nuw nsw i64 %39 to i8
   %67 = add nuw nsw i8 %66, 97
   %68 = load i8, ptr %40, align 1, !tbaa !18, !range !24, !noundef !25
   %69 = trunc nuw i8 %68 to i1
@@ -6402,7 +6402,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i41: ; preds = %._ZN4llvm
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %184
-  %188 = trunc nuw i64 %3 to i8
+  %188 = trunc nuw nsw i64 %3 to i8
   tail call fastcc void @_ZN12_GLOBAL__N_19Demangler5printEc(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 noundef signext %188)
   br label %_ZN12_GLOBAL__N_19Demangler5printESt17basic_string_viewIcSt11char_traitsIcEE.exit10
 

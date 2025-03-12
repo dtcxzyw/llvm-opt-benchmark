@@ -108,7 +108,7 @@ define hidden noundef range(i32 1, 5) i32 @_ZN10duckdb_re210runetocharEPcPKi(ptr
 
 9:                                                ; preds = %7
   %10 = lshr i32 %3, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %0, align 1, !tbaa !3
   %13 = trunc i32 %3 to i8
@@ -127,7 +127,7 @@ define hidden noundef range(i32 1, 5) i32 @_ZN10duckdb_re210runetocharEPcPKi(ptr
 
 21:                                               ; preds = %17
   %22 = lshr i32 %spec.store.select, 12
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, -32
   store i8 %24, ptr %0, align 1, !tbaa !3
   %25 = lshr i32 %spec.store.select, 6

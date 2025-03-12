@@ -67460,7 +67460,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %170, %178
   ]
 
 191:                                              ; preds = %188, %188, %188, %188
-  %192 = trunc i32 %190 to i8
+  %192 = trunc nuw nsw i32 %190 to i8
   %193 = load i8, ptr %14, align 1, !tbaa !278
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 30
@@ -67472,7 +67472,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %170, %178
   br label %219
 
 201:                                              ; preds = %188, %188, %188, %188, %188, %188
-  %202 = trunc i32 %190 to i8
+  %202 = trunc nuw nsw i32 %190 to i8
   %203 = load i8, ptr %14, align 1, !tbaa !278
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 30
@@ -68316,7 +68316,7 @@ jit_CONST_FUNC.exit259:                           ; preds = %263, %274
   ]
 
 291:                                              ; preds = %.thread286, %.thread286, %.thread286, %.thread286
-  %292 = trunc i32 %290 to i8
+  %292 = trunc nuw nsw i32 %290 to i8
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %295 = load i32, ptr %16, align 4, !tbaa !57
@@ -68327,7 +68327,7 @@ jit_CONST_FUNC.exit259:                           ; preds = %263, %274
   br i1 %.not237, label %.critedge246, label %.critedge
 
 299:                                              ; preds = %.thread286, %.thread286, %.thread286, %.thread286, %.thread286, %.thread286
-  %300 = trunc i32 %290 to i8
+  %300 = trunc nuw nsw i32 %290 to i8
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %302 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %303 = load i32, ptr %16, align 4, !tbaa !57
@@ -72450,7 +72450,7 @@ jit_CONST_FUNC.exit729:                           ; preds = %877, %888
 
 913:                                              ; preds = %909, %906
   %.6490 = phi i1 [ %.5489, %906 ], [ %spec.select618, %909 ]
-  %914 = trunc i32 %905 to i8
+  %914 = trunc nuw nsw i32 %905 to i8
   %915 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %916 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %917 = load i32, ptr %915, align 8
@@ -72528,7 +72528,7 @@ jit_CONST_FUNC.exit729:                           ; preds = %877, %888
 
 954:                                              ; preds = %923, %920, %950, %953, %936, %939
   %.9493 = phi i1 [ true, %953 ], [ %.11495, %950 ], [ true, %939 ], [ %.10494, %936 ], [ %.5489, %920 ], [ %spec.select619, %923 ]
-  %955 = trunc i32 %905 to i8
+  %955 = trunc nuw nsw i32 %905 to i8
   %956 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %957 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %958 = load i32, ptr %956, align 8

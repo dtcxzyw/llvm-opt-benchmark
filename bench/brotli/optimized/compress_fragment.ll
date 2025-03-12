@@ -598,7 +598,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 244:                                              ; preds = %242
   %245 = add nsw i64 %217, -2
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %247 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %246, i1 true)
   %248 = sub nuw nsw i32 30, %247
   %249 = zext nneg i32 %248 to i64
@@ -652,7 +652,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 284:                                              ; preds = %282
   %285 = add nsw i64 %217, -66
-  %286 = trunc i64 %285 to i32
+  %286 = trunc nuw nsw i64 %285 to i32
   %287 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %286, i1 true)
   %288 = xor i32 %287, 31
   %289 = sub nuw nsw i32 81, %287
@@ -978,7 +978,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 508:                                              ; preds = %506
   %509 = add nsw i64 %.2.i20, -3
-  %510 = trunc i64 %509 to i32
+  %510 = trunc nuw nsw i64 %509 to i32
   %511 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %510, i1 true)
   %512 = sub nuw nsw i32 30, %511
   %513 = zext nneg i32 %512 to i64
@@ -1095,7 +1095,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 593:                                              ; preds = %591
   %594 = add nsw i64 %.2.i20, -67
-  %595 = trunc i64 %594 to i32
+  %595 = trunc nuw nsw i64 %594 to i32
   %596 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %595, i1 true)
   %597 = xor i32 %596, 31
   %598 = sub nuw nsw i32 59, %596
@@ -1390,7 +1390,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 769:                                              ; preds = %767
   %770 = add nsw i64 %.2.i9, -1
-  %771 = trunc i64 %770 to i32
+  %771 = trunc nuw nsw i64 %770 to i32
   %772 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %771, i1 true)
   %773 = sub nuw nsw i32 30, %772
   %774 = zext nneg i32 %773 to i64
@@ -1444,7 +1444,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 809:                                              ; preds = %807
   %810 = add nsw i64 %.2.i9, -65
-  %811 = trunc i64 %810 to i32
+  %811 = trunc nuw nsw i64 %810 to i32
   %812 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %811, i1 true)
   %813 = xor i32 %812, 31
   %814 = sub nuw nsw i32 59, %812
@@ -1794,7 +1794,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1037:                                             ; preds = %1035
   %1038 = add nsw i64 %1011, -2
-  %1039 = trunc i64 %1038 to i32
+  %1039 = trunc nuw nsw i64 %1038 to i32
   %1040 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1039, i1 true)
   %1041 = sub nuw nsw i32 30, %1040
   %1042 = zext nneg i32 %1041 to i64
@@ -1848,7 +1848,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1077:                                             ; preds = %1075
   %1078 = add nsw i64 %1011, -66
-  %1079 = trunc i64 %1078 to i32
+  %1079 = trunc nuw nsw i64 %1078 to i32
   %1080 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1079, i1 true)
   %1081 = xor i32 %1080, 31
   %1082 = sub nuw nsw i32 81, %1080
@@ -2606,7 +2606,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 244:                                              ; preds = %242
   %245 = add nsw i64 %217, -2
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %247 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %246, i1 true)
   %248 = sub nuw nsw i32 30, %247
   %249 = zext nneg i32 %248 to i64
@@ -2660,7 +2660,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 284:                                              ; preds = %282
   %285 = add nsw i64 %217, -66
-  %286 = trunc i64 %285 to i32
+  %286 = trunc nuw nsw i64 %285 to i32
   %287 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %286, i1 true)
   %288 = xor i32 %287, 31
   %289 = sub nuw nsw i32 81, %287
@@ -2986,7 +2986,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 508:                                              ; preds = %506
   %509 = add nsw i64 %.2.i20, -3
-  %510 = trunc i64 %509 to i32
+  %510 = trunc nuw nsw i64 %509 to i32
   %511 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %510, i1 true)
   %512 = sub nuw nsw i32 30, %511
   %513 = zext nneg i32 %512 to i64
@@ -3103,7 +3103,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 593:                                              ; preds = %591
   %594 = add nsw i64 %.2.i20, -67
-  %595 = trunc i64 %594 to i32
+  %595 = trunc nuw nsw i64 %594 to i32
   %596 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %595, i1 true)
   %597 = xor i32 %596, 31
   %598 = sub nuw nsw i32 59, %596
@@ -3398,7 +3398,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 769:                                              ; preds = %767
   %770 = add nsw i64 %.2.i9, -1
-  %771 = trunc i64 %770 to i32
+  %771 = trunc nuw nsw i64 %770 to i32
   %772 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %771, i1 true)
   %773 = sub nuw nsw i32 30, %772
   %774 = zext nneg i32 %773 to i64
@@ -3452,7 +3452,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 809:                                              ; preds = %807
   %810 = add nsw i64 %.2.i9, -65
-  %811 = trunc i64 %810 to i32
+  %811 = trunc nuw nsw i64 %810 to i32
   %812 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %811, i1 true)
   %813 = xor i32 %812, 31
   %814 = sub nuw nsw i32 59, %812
@@ -3802,7 +3802,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1037:                                             ; preds = %1035
   %1038 = add nsw i64 %1011, -2
-  %1039 = trunc i64 %1038 to i32
+  %1039 = trunc nuw nsw i64 %1038 to i32
   %1040 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1039, i1 true)
   %1041 = sub nuw nsw i32 30, %1040
   %1042 = zext nneg i32 %1041 to i64
@@ -3856,7 +3856,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1077:                                             ; preds = %1075
   %1078 = add nsw i64 %1011, -66
-  %1079 = trunc i64 %1078 to i32
+  %1079 = trunc nuw nsw i64 %1078 to i32
   %1080 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1079, i1 true)
   %1081 = xor i32 %1080, 31
   %1082 = sub nuw nsw i32 81, %1080
@@ -4614,7 +4614,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 244:                                              ; preds = %242
   %245 = add nsw i64 %217, -2
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %247 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %246, i1 true)
   %248 = sub nuw nsw i32 30, %247
   %249 = zext nneg i32 %248 to i64
@@ -4668,7 +4668,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 284:                                              ; preds = %282
   %285 = add nsw i64 %217, -66
-  %286 = trunc i64 %285 to i32
+  %286 = trunc nuw nsw i64 %285 to i32
   %287 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %286, i1 true)
   %288 = xor i32 %287, 31
   %289 = sub nuw nsw i32 81, %287
@@ -4994,7 +4994,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 508:                                              ; preds = %506
   %509 = add nsw i64 %.2.i20, -3
-  %510 = trunc i64 %509 to i32
+  %510 = trunc nuw nsw i64 %509 to i32
   %511 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %510, i1 true)
   %512 = sub nuw nsw i32 30, %511
   %513 = zext nneg i32 %512 to i64
@@ -5111,7 +5111,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 593:                                              ; preds = %591
   %594 = add nsw i64 %.2.i20, -67
-  %595 = trunc i64 %594 to i32
+  %595 = trunc nuw nsw i64 %594 to i32
   %596 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %595, i1 true)
   %597 = xor i32 %596, 31
   %598 = sub nuw nsw i32 59, %596
@@ -5406,7 +5406,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 769:                                              ; preds = %767
   %770 = add nsw i64 %.2.i9, -1
-  %771 = trunc i64 %770 to i32
+  %771 = trunc nuw nsw i64 %770 to i32
   %772 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %771, i1 true)
   %773 = sub nuw nsw i32 30, %772
   %774 = zext nneg i32 %773 to i64
@@ -5460,7 +5460,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 809:                                              ; preds = %807
   %810 = add nsw i64 %.2.i9, -65
-  %811 = trunc i64 %810 to i32
+  %811 = trunc nuw nsw i64 %810 to i32
   %812 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %811, i1 true)
   %813 = xor i32 %812, 31
   %814 = sub nuw nsw i32 59, %812
@@ -5810,7 +5810,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1037:                                             ; preds = %1035
   %1038 = add nsw i64 %1011, -2
-  %1039 = trunc i64 %1038 to i32
+  %1039 = trunc nuw nsw i64 %1038 to i32
   %1040 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1039, i1 true)
   %1041 = sub nuw nsw i32 30, %1040
   %1042 = zext nneg i32 %1041 to i64
@@ -5864,7 +5864,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1077:                                             ; preds = %1075
   %1078 = add nsw i64 %1011, -66
-  %1079 = trunc i64 %1078 to i32
+  %1079 = trunc nuw nsw i64 %1078 to i32
   %1080 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1079, i1 true)
   %1081 = xor i32 %1080, 31
   %1082 = sub nuw nsw i32 81, %1080
@@ -6622,7 +6622,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 244:                                              ; preds = %242
   %245 = add nsw i64 %217, -2
-  %246 = trunc i64 %245 to i32
+  %246 = trunc nuw nsw i64 %245 to i32
   %247 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %246, i1 true)
   %248 = sub nuw nsw i32 30, %247
   %249 = zext nneg i32 %248 to i64
@@ -6676,7 +6676,7 @@ FindMatchLengthWithLimit.exit24:                  ; preds = %191, %.critedge.i19
 
 284:                                              ; preds = %282
   %285 = add nsw i64 %217, -66
-  %286 = trunc i64 %285 to i32
+  %286 = trunc nuw nsw i64 %285 to i32
   %287 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %286, i1 true)
   %288 = xor i32 %287, 31
   %289 = sub nuw nsw i32 81, %287
@@ -7002,7 +7002,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 508:                                              ; preds = %506
   %509 = add nsw i64 %.2.i20, -3
-  %510 = trunc i64 %509 to i32
+  %510 = trunc nuw nsw i64 %509 to i32
   %511 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %510, i1 true)
   %512 = sub nuw nsw i32 30, %511
   %513 = zext nneg i32 %512 to i64
@@ -7119,7 +7119,7 @@ EmitLiterals.exit:                                ; preds = %403, %EmitInsertLen
 
 593:                                              ; preds = %591
   %594 = add nsw i64 %.2.i20, -67
-  %595 = trunc i64 %594 to i32
+  %595 = trunc nuw nsw i64 %594 to i32
   %596 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %595, i1 true)
   %597 = xor i32 %596, 31
   %598 = sub nuw nsw i32 59, %596
@@ -7414,7 +7414,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 769:                                              ; preds = %767
   %770 = add nsw i64 %.2.i9, -1
-  %771 = trunc i64 %770 to i32
+  %771 = trunc nuw nsw i64 %770 to i32
   %772 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %771, i1 true)
   %773 = sub nuw nsw i32 30, %772
   %774 = zext nneg i32 %773 to i64
@@ -7468,7 +7468,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %716, %.critedge.i
 
 809:                                              ; preds = %807
   %810 = add nsw i64 %.2.i9, -65
-  %811 = trunc i64 %810 to i32
+  %811 = trunc nuw nsw i64 %810 to i32
   %812 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %811, i1 true)
   %813 = xor i32 %812, 31
   %814 = sub nuw nsw i32 59, %812
@@ -7818,7 +7818,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1037:                                             ; preds = %1035
   %1038 = add nsw i64 %1011, -2
-  %1039 = trunc i64 %1038 to i32
+  %1039 = trunc nuw nsw i64 %1038 to i32
   %1040 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1039, i1 true)
   %1041 = sub nuw nsw i32 30, %1040
   %1042 = zext nneg i32 %1041 to i64
@@ -7872,7 +7872,7 @@ ShouldMergeBlock.exit:                            ; preds = %FastLog2.exit23.i
 
 1077:                                             ; preds = %1075
   %1078 = add nsw i64 %1011, -66
-  %1079 = trunc i64 %1078 to i32
+  %1079 = trunc nuw nsw i64 %1078 to i32
   %1080 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1079, i1 true)
   %1081 = xor i32 %1080, 31
   %1082 = sub nuw nsw i32 81, %1080

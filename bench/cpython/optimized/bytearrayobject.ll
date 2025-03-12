@@ -10786,7 +10786,7 @@ PyByteArray_AS_STRING.exit76.i:                   ; preds = %51, %PyByteArray_AS
 
 .preheader78.i:                                   ; preds = %68, %.preheader78.i
   %.15182.i = phi i64 [ %72, %.preheader78.i ], [ 0, %68 ]
-  %70 = trunc nuw i64 %.15182.i to i32
+  %70 = trunc nuw nsw i64 %.15182.i to i32
   %71 = getelementptr [256 x i32], ptr %5, i64 0, i64 %.15182.i
   store i32 %70, ptr %71, align 4, !tbaa !167
   %72 = add nuw nsw i64 %.15182.i, 1

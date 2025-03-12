@@ -960,7 +960,7 @@ RSTRING_PTR.exit:                                 ; preds = %7, %16
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nsw i64 %18 to i32
   %22 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %10, ptr noundef %.sroa.2.0.i, i32 noundef %21) #5
   %.not3 = icmp eq i32 %22, 0
   br i1 %.not3, label %23, label %25

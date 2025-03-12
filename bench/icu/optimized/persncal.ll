@@ -436,7 +436,7 @@ define noundef range(i64 -785977099983, 785980995524) i64 @_ZNK6icu_7715PersianC
 
 27:                                               ; preds = %15
   %28 = call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
-  %29 = trunc i64 %18 to i32
+  %29 = trunc nsw i64 %18 to i32
   %30 = call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %28, i32 noundef %29)
   %.not.i = icmp ne i8 %30, 0
   %31 = sext i1 %.not.i to i64
@@ -536,7 +536,7 @@ define void @_ZN6icu_7715PersianCalendar19handleComputeFieldsEiR10UErrorCode(ptr
 
 20:                                               ; preds = %12
   %21 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_117getLeapCorrectionEv()
-  %22 = trunc i64 %8 to i32
+  %22 = trunc nsw i64 %8 to i32
   %23 = tail call noundef signext i8 @_ZNK6icu_7710UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %21, i32 noundef %22)
   %.not.i = icmp ne i8 %23, 0
   %24 = sext i1 %.not.i to i64

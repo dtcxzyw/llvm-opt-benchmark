@@ -3301,7 +3301,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %87, %86, %_ZNSt6vec
 
 123:                                              ; preds = %121
   %124 = load i32, ptr %7, align 4, !tbaa !11
-  %125 = trunc i64 %.082 to i32
+  %125 = trunc nuw i64 %.082 to i32
   %126 = trunc i64 %.083 to i32
   %127 = getelementptr inbounds nuw i32, ptr %.sroa.0200.1, i64 %.082
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 16

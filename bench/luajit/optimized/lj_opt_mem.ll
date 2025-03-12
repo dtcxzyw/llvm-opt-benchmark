@@ -26,7 +26,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_tptr(ptr noundef readonly captures
   %10 = getelementptr inbounds nuw %union.IRIns, ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 5
   %12 = ptrtoint ptr %8 to i64
-  %13 = trunc i32 %1 to i16
+  %13 = trunc nuw i32 %1 to i16
   br label %14
 
 14:                                               ; preds = %.lr.ph, %aa_table.exit
@@ -109,7 +109,7 @@ aa_table.exit:                                    ; preds = %43, %30, %19
   %52 = getelementptr inbounds nuw %union.IRIns, ptr %50, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 5
   %54 = ptrtoint ptr %50 to i64
-  %55 = trunc i32 %1 to i16
+  %55 = trunc nuw i32 %1 to i16
   br label %56
 
 56:                                               ; preds = %aa_table.exit.i, %.lr.ph.i
@@ -2429,7 +2429,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !7
-  %12 = trunc i32 %1 to i16
+  %12 = trunc nuw i32 %1 to i16
   br label %16
 
 13:                                               ; preds = %16
@@ -2458,7 +2458,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_sbuf(ptr noundef readonly captures
 .lr.ph44:                                         ; preds = %._crit_edge
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !7
-  %26 = trunc i32 %1 to i16
+  %26 = trunc nuw i32 %1 to i16
   br label %30
 
 27:                                               ; preds = %30
@@ -3316,7 +3316,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = icmp eq i16 %1, 66
   %invariant.gep72 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %15 = trunc i32 %2 to i16
+  %15 = trunc nuw i32 %2 to i16
   br i1 %14, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %33
@@ -3422,7 +3422,7 @@ define hidden range(i32 0, 2) i32 @lj_opt_fwd_wasnonnil(ptr noundef readonly cap
 .lr.ph80:                                         ; preds = %._crit_edge
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !7
-  %77 = trunc i32 %2 to i16
+  %77 = trunc nuw i32 %2 to i16
   br label %78
 
 78:                                               ; preds = %.lr.ph80, %83

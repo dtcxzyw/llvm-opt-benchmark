@@ -373,7 +373,7 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i: ; 
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = trunc nuw i32 %22 to i8
+  %25 = trunc nuw nsw i32 %22 to i8
   store i8 %25, ptr %4, align 1, !tbaa !15
   br label %_ZN5ZXingL11Utf32ToUtf8EDiPc.exit.i
 
@@ -383,7 +383,7 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i: ; 
 
 28:                                               ; preds = %26
   %29 = lshr i32 %22, 6
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -64
   store i8 %31, ptr %4, align 1, !tbaa !15
   %32 = trunc i32 %22 to i8
@@ -398,7 +398,7 @@ _ZN5ZXingL14Utf8CountBytesESt17basic_string_viewIwSt11char_traitsIwEE.exit.i: ; 
 
 37:                                               ; preds = %35
   %38 = lshr i32 %22, 12
-  %39 = trunc nuw i32 %38 to i8
+  %39 = trunc nuw nsw i32 %38 to i8
   %40 = or disjoint i8 %39, -32
   store i8 %40, ptr %4, align 1, !tbaa !15
   %41 = lshr i32 %22, 6

@@ -93,7 +93,7 @@ define noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr nounde
   %38 = urem i64 %37, %34
   %39 = getelementptr inbounds nuw i16, ptr %30, i64 %38
   store i16 %36, ptr %39, align 2, !tbaa !23
-  %40 = trunc i64 %1 to i32
+  %40 = trunc nuw i64 %1 to i32
   %41 = add i32 %.lcssa, %40
   store i32 %41, ptr %13, align 4, !tbaa !16
   %42 = add i32 %25, 1

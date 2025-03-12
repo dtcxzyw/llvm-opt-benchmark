@@ -374,7 +374,7 @@ thread-pre-split:                                 ; preds = %35
   br i1 %47, label %.thread, label %48
 
 48:                                               ; preds = %43
-  %49 = trunc i32 %41 to i16
+  %49 = trunc nsw i32 %41 to i16
   %50 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store volatile i16 %49, ptr %50, align 8
   br label %.thread
@@ -639,7 +639,7 @@ thread-pre-split:                                 ; preds = %35
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 70
   %170 = load volatile i8, ptr %169, align 2
   %171 = and i8 %170, -8
-  %172 = trunc i32 %156 to i8
+  %172 = trunc nuw nsw i32 %156 to i8
   %173 = or i8 %171, %172
   %174 = load volatile i8, ptr %14, align 2
   %175 = zext nneg i8 %174 to i32
@@ -1115,7 +1115,7 @@ thread-pre-split:                                 ; preds = %35
 
 425:                                              ; preds = %420
   %426 = getelementptr inbounds nuw i8, ptr %24, i64 73
-  %427 = trunc i32 %421 to i8
+  %427 = trunc nuw i32 %421 to i8
   store i8 %427, ptr %426, align 1
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store volatile i16 -1, ptr %428, align 8

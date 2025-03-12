@@ -10530,7 +10530,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIN7datalog18relati
   br i1 %.wide, label %177, label %._crit_edge, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %177
-  %233 = trunc nuw i64 %191 to i32
+  %233 = trunc nuw nsw i64 %191 to i32
   %234 = add i32 %224, 17
   switch i32 %233, label %248 [
     i32 2, label %235
@@ -12547,7 +12547,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashI7svectorIbjE22def
   br i1 %.wide, label %156, label %._crit_edge, !llvm.loop !224
 
 ._crit_edge:                                      ; preds = %156
-  %209 = trunc nuw i64 %168 to i32
+  %209 = trunc nuw nsw i64 %168 to i32
   %210 = add i32 %200, 17
   switch i32 %209, label %222 [
     i32 2, label %211

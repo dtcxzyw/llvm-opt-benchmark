@@ -1442,7 +1442,7 @@ define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UError
   br i1 %45, label %46, label %48
 
 46:                                               ; preds = %40
-  %47 = trunc nuw i16 %42 to i8
+  %47 = trunc nuw nsw i16 %42 to i8
   store i8 %47, ptr %.2281, align 1, !tbaa !16
   br label %301
 
@@ -1458,7 +1458,7 @@ define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UError
   br i1 %.not326, label %56, label %54
 
 54:                                               ; preds = %50
-  %55 = trunc nuw i16 %42 to i8
+  %55 = trunc nuw nsw i16 %42 to i8
   store i8 %55, ptr %.2281, align 1, !tbaa !16
   br label %301
 
@@ -1928,7 +1928,7 @@ _ZL9getWindowPKjj.exit370.thread:                 ; preds = %255, %_ZL9getWindow
   %.1280.sink = phi ptr [ %.2281, %58 ], [ %.1280, %74 ]
   %.6294 = phi ptr [ %41, %58 ], [ %75, %74 ]
   %.6278.in = phi i32 [ %.2274, %58 ], [ %.1273, %74 ]
-  %299 = trunc nuw i32 %.sink to i8
+  %299 = trunc nuw nsw i32 %.sink to i8
   %300 = or disjoint i8 %299, -128
   store i8 %300, ptr %.1280.sink, align 1, !tbaa !16
   br label %301
@@ -2606,7 +2606,7 @@ define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %50, label %51, label %55
 
 51:                                               ; preds = %44
-  %52 = trunc nuw i16 %46 to i8
+  %52 = trunc nuw nsw i16 %46 to i8
   store i8 %52, ptr %.2362, align 1, !tbaa !16
   %.not428 = icmp eq ptr %.2344, null
   br i1 %.not428, label %321, label %53
@@ -2628,7 +2628,7 @@ define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %.not422, label %65, label %61
 
 61:                                               ; preds = %57
-  %62 = trunc nuw i16 %46 to i8
+  %62 = trunc nuw nsw i16 %46 to i8
   store i8 %62, ptr %.2362, align 1, !tbaa !16
   %.not427 = icmp eq ptr %.2344, null
   br i1 %.not427, label %321, label %63
@@ -2648,7 +2648,7 @@ define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %67
-  %71 = trunc nuw i32 %68 to i8
+  %71 = trunc nuw nsw i32 %68 to i8
   %72 = or disjoint i8 %71, -128
   store i8 %72, ptr %.2362, align 1, !tbaa !16
   %.not421 = icmp eq ptr %.2344, null
@@ -2698,7 +2698,7 @@ define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %95, label %96, label %.preheader592
 
 96:                                               ; preds = %88
-  %97 = trunc nuw i32 %94 to i8
+  %97 = trunc nuw nsw i32 %94 to i8
   %98 = or disjoint i8 %97, -128
   store i8 %98, ptr %.1361, align 1, !tbaa !16
   %.not414 = icmp eq ptr %.1343, null

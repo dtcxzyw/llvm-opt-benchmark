@@ -10958,7 +10958,7 @@ define internal fastcc void @fscope_end(ptr noundef captures(none) %0) unnamed_a
   br i1 %.wide.i, label %20, label %._crit_edge.i, !llvm.loop !168
 
 ._crit_edge.i:                                    ; preds = %20
-  %26 = trunc i64 %21 to i32
+  %26 = trunc nuw nsw i64 %21 to i32
   store i32 %26, ptr %11, align 8, !tbaa !59
   br label %var_remove.exit
 
@@ -11715,7 +11715,7 @@ bcreg_reserve.exit29:                             ; preds = %62, %75
   br i1 %112, label %113, label %bcemit_nil.exit
 
 113:                                              ; preds = %110
-  %114 = trunc i32 %111 to i16
+  %114 = trunc nsw i32 %111 to i16
   %115 = getelementptr inbounds nuw i8, ptr %87, i64 2
   store i16 %114, ptr %115, align 2, !tbaa !70
   br label %bcemit_nil.exit

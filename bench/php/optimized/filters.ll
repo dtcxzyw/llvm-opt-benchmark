@@ -2519,7 +2519,7 @@ define internal range(i32 0, 3) i32 @php_conv_qprint_encode_convert(ptr noundef 
   br i1 %144, label %.loopexit, label %145
 
 145:                                              ; preds = %143
-  %146 = trunc nuw i32 %68 to i8
+  %146 = trunc nuw nsw i32 %68 to i8
   %147 = getelementptr inbounds nuw i8, ptr %.6215, i64 1
   store i8 %146, ptr %.6215, align 1, !tbaa !25
   %148 = add i64 %.6206, -1

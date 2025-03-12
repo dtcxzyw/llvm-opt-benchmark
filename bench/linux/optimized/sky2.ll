@@ -4969,7 +4969,7 @@ define internal noundef range(i32 -22, 1) i32 @sky2_set_link_ksettings(ptr nound
   br i1 %55, label %86, label %56
 
 56:                                               ; preds = %52
-  %57 = trunc i32 %39 to i16
+  %57 = trunc nuw nsw i32 %39 to i16
   %58 = getelementptr i8, ptr %0, i64 2522
   store i16 %57, ptr %58, align 2
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 8

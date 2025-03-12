@@ -191,7 +191,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit:
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit: ; preds = %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit, %8
   %.013.lcssa.i = phi i32 [ 9, %8 ], [ %14, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit ]
   %.0.lcssa.i = phi i32 [ 0, %8 ], [ %16, %_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit.loopexit ]
-  %17 = trunc nuw i64 %1 to i32
+  %17 = trunc nuw nsw i64 %1 to i32
   %18 = mul i32 %17, -862048943
   %19 = tail call i32 @llvm.fshl.i32(i32 %18, i32 %18, i32 15)
   %20 = mul i32 %19, 461845907
@@ -216,7 +216,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit: ; preds 
   br label %252
 
 39:                                               ; preds = %6
-  %40 = trunc nuw i64 %1 to i32
+  %40 = trunc nuw nsw i64 %1 to i32
   %41 = mul nuw nsw i32 %40, 5
   %42 = load i32, ptr %0, align 1
   %43 = add i32 %42, %40
@@ -276,7 +276,7 @@ _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit: ; preds 
   %95 = getelementptr inbounds i8, ptr %89, i64 -4
   %96 = load i32, ptr %95, align 1
   %97 = mul i32 %93, -862048943
-  %98 = trunc nuw i64 %1 to i32
+  %98 = trunc nuw nsw i64 %1 to i32
   %99 = add i32 %97, %98
   %100 = tail call i32 @llvm.fshl.i32(i32 %86, i32 %86, i32 20)
   %101 = add i32 %96, %100
@@ -475,7 +475,7 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   %21 = getelementptr inbounds i8, ptr %15, i64 -4
   %22 = load i32, ptr %21, align 1
   %23 = mul i32 %19, -862048943
-  %24 = trunc nuw i64 %1 to i32
+  %24 = trunc nuw nsw i64 %1 to i32
   %25 = add i32 %8, %24
   %26 = add i32 %25, %23
   %27 = tail call i32 @llvm.fshl.i32(i32 %12, i32 %12, i32 20)
@@ -525,7 +525,7 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
   br i1 %68, label %69, label %114
 
 69:                                               ; preds = %67
-  %70 = trunc nuw i64 %1 to i32
+  %70 = trunc nuw nsw i64 %1 to i32
   %71 = mul nuw nsw i32 %70, 5
   %72 = add i32 %71, %2
   %73 = load i32, ptr %0, align 1
@@ -592,7 +592,7 @@ define linkonce_odr hidden noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash10farmha
 _ZN11OpenImageIO6v3_1_08farmhash10farmhashmk13Hash32Len0to4EPKcmj.exit: ; preds = %.lr.ph.i, %114
   %.013.lcssa.i = phi i32 [ 9, %114 ], [ %120, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ %2, %114 ], [ %119, %.lr.ph.i ]
-  %122 = trunc nuw i64 %1 to i32
+  %122 = trunc nuw nsw i64 %1 to i32
   %123 = mul i32 %122, -862048943
   %124 = tail call i32 @llvm.fshl.i32(i32 %123, i32 %123, i32 15)
   %125 = mul i32 %124, 461845907

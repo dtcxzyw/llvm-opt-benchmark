@@ -11227,7 +11227,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 12
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -32
   %18 = lshr i32 %0, 6
   br label %30
@@ -11269,7 +11269,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 .thread:                                          ; preds = %10
   %36 = lshr i32 %0, 6
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -64
   store i8 %38, ptr %8, align 4, !alias.scope !2641
   %39 = trunc i32 %0 to i8
@@ -11506,7 +11506,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit.i: ; preds = %52
   br label %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit
 
 137:                                              ; preds = %3
-  %138 = trunc nuw i32 %0 to i8
+  %138 = trunc nuw nsw i32 %0 to i8
   %139 = icmp ult i64 %2, 16
   br i1 %139, label %.preheader.i, label %140
 
@@ -12099,7 +12099,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !2759
   %12 = trunc i32 %1 to i8
@@ -12111,7 +12111,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !2759
   %19 = lshr i32 %1, 6

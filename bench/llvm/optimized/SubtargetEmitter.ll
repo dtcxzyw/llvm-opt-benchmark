@@ -11695,7 +11695,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit233.i:            ; preds = %1217, %1215
   br i1 %1221, label %1222, label %1226
 
 1222:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit233.i
-  %1223 = trunc nuw i64 %1220 to i32
+  %1223 = trunc nuw nsw i64 %1220 to i32
   %1224 = sub nuw nsw i32 18, %1223
   %1225 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %1224) #22
   br label %1226
@@ -14422,7 +14422,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit92.i.i:           ; preds = %2636, %2634
   br i1 %2641, label %2642, label %2646
 
 2642:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit92.i.i
-  %2643 = trunc nuw i64 %.sroa.2.0.copyload.i.i95.i.i to i32
+  %2643 = trunc nuw nsw i64 %.sroa.2.0.copyload.i.i95.i.i to i32
   %2644 = sub nuw nsw i32 15, %2643
   %2645 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2644) #22
   br label %2646

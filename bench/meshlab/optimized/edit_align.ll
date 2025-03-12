@@ -19803,7 +19803,7 @@ _ZNKSt6bitsetILm2048EE4testEm.exit.i:             ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i, label %65
 
 65:                                               ; preds = %_ZNKSt6bitsetILm2048EE4testEm.exit.i
-  %66 = trunc nuw i64 %.08.i to i32
+  %66 = trunc nuw nsw i64 %.08.i to i32
   %.not.i.i6.i = icmp eq ptr %58, %.sroa.22.3
   br i1 %.not.i.i6.i, label %69, label %67
 

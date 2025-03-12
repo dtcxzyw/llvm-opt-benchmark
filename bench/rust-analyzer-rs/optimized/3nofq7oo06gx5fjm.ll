@@ -1674,7 +1674,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
 
 23:                                               ; preds = %21
   %24 = lshr i32 %1, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   %27 = lshr i32 %1, 6
   br label %39
@@ -1716,7 +1716,7 @@ define void @_ZN4stdx7replace17hdad97c71450ef43fE(ptr noalias noundef align 8 de
 
 .thread.i:                                        ; preds = %19
   %45 = lshr i32 %1, 6
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -64
   store i8 %47, ptr %13, align 4, !alias.scope !252, !noalias !249
   %48 = trunc i32 %1 to i8

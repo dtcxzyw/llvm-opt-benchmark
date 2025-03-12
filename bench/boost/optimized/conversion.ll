@@ -1645,7 +1645,7 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %31, %.noexc32, %_ZN
   %34 = ptrtoint ptr %.sroa.041.3 to i64
   %35 = sub i64 %33, %34
   %36 = trunc i64 %35 to i32
-  %37 = trunc i64 %10 to i32
+  %37 = trunc nsw i64 %10 to i32
   %38 = invoke noundef i32 %2(ptr noundef %32, ptr noundef %.sroa.041.3, i32 noundef %36, ptr noundef %3, i32 noundef %37, ptr noundef nonnull %7)
           to label %39 unwind label %83
 
@@ -1975,7 +1975,7 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %31, %.noexc32, %_ZN
   %34 = ptrtoint ptr %.sroa.041.3 to i64
   %35 = sub i64 %33, %34
   %36 = trunc i64 %35 to i32
-  %37 = trunc i64 %10 to i32
+  %37 = trunc nsw i64 %10 to i32
   %38 = invoke noundef i32 %2(ptr noundef %32, ptr noundef %.sroa.041.3, i32 noundef %36, ptr noundef %3, i32 noundef %37, ptr noundef nonnull %7)
           to label %39 unwind label %83
 

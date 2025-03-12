@@ -6489,7 +6489,7 @@ switch.early.test:                                ; preds = %54
 
 76:                                               ; preds = %.thread67
   %77 = lshr i32 %74, 6
-  %78 = trunc nuw i32 %77 to i8
+  %78 = trunc nuw nsw i32 %77 to i8
   %79 = or disjoint i8 %78, -64
   store i8 %79, ptr %.0, align 1, !tbaa !30
   %80 = trunc i32 %74 to i8
@@ -6505,7 +6505,7 @@ switch.early.test:                                ; preds = %54
 
 86:                                               ; preds = %84
   %87 = lshr i32 %74, 12
-  %88 = trunc nuw i32 %87 to i8
+  %88 = trunc nuw nsw i32 %87 to i8
   %89 = or disjoint i8 %88, -32
   store i8 %89, ptr %.0, align 1, !tbaa !30
   %90 = lshr i32 %74, 6
@@ -6527,7 +6527,7 @@ switch.early.test:                                ; preds = %54
 
 101:                                              ; preds = %99
   %102 = lshr i32 %74, 18
-  %103 = trunc nuw i32 %102 to i8
+  %103 = trunc nuw nsw i32 %102 to i8
   %104 = or disjoint i8 %103, -16
   store i8 %104, ptr %.0, align 1, !tbaa !30
   %105 = lshr i32 %74, 12

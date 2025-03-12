@@ -1949,7 +1949,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %12, %19, %21
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = select i1 %24, i32 %28, i32 %26
-  %30 = trunc nuw i32 %1 to i8
+  %30 = trunc nuw nsw i32 %1 to i8
   tail call void @ubidi_setPara_77(ptr noundef %13, ptr noundef %.0.i, i32 noundef %29, i8 noundef zeroext %30, ptr noundef null, ptr noundef %4)
   %31 = load i32, ptr %4, align 4, !tbaa !3
   %32 = icmp slt i32 %31, 1

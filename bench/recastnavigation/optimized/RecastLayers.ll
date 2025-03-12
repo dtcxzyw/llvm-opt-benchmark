@@ -1526,7 +1526,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
 660:                                              ; preds = %655
   %661 = trunc nuw nsw i64 %indvars.iv1045 to i32
   %662 = shl nuw nsw i32 1, %661
-  %663 = trunc nuw i32 %662 to i8
+  %663 = trunc nuw nsw i32 %662 to i8
   %664 = or i8 %.0535906.us, %663
   %665 = load ptr, ptr %517, align 8
   %666 = getelementptr inbounds nuw %struct.rcCompactSpan, ptr %665, i64 %647
@@ -1570,7 +1570,7 @@ _ZL8containsPKhhh.exit690:                        ; preds = %.lr.ph.i685, %397, 
 686:                                              ; preds = %679
   %687 = trunc nuw nsw i64 %indvars.iv1045 to i32
   %688 = shl nuw nsw i32 1, %687
-  %689 = trunc nuw i32 %688 to i8
+  %689 = trunc nuw nsw i32 %688 to i8
   %690 = or i8 %.0533907.us, %689
   br label %691
 

@@ -1867,7 +1867,7 @@ default.unreachable:                              ; preds = %373, %355, %334, %3
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
-  %.lhs.trunc = trunc nuw i64 %.sroa.11.0641 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %.sroa.11.0641 to i16
   %69 = udiv i16 %.lhs.trunc, 12
   %.zext = zext nneg i16 %69 to i64
   br label %76

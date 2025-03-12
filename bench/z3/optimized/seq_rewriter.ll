@@ -95651,7 +95651,7 @@ _Z9is_groundPK4expr.exit:                         ; preds = %415, %_ZNK11ast_man
   %.sroa.4.0.extract.trunc = trunc nuw i64 %.sroa.4.0.extract.shift to i32
   %.not105 = icmp uge i32 %.1334381, %.sroa.0.0.extract.trunc
   %.not106 = icmp ule i32 %.1334381, %.sroa.4.0.extract.trunc
-  %or.cond.not = and i1 %.not105, %.not106
+  %or.cond.not = select i1 %.not105, i1 %.not106, i1 false
   %783 = add i32 %.sroa.4.0.extract.trunc, 1
   %.2335 = select i1 %or.cond.not, i32 %783, i32 %.1334381
   %.182 = select i1 %or.cond.not, i1 true, i1 %.081382
@@ -113212,7 +113212,7 @@ define linkonce_odr hidden noundef i32 @_Z18get_composite_hashIPK15ref_vector_co
   br i1 %.wide, label %175, label %._crit_edge, !llvm.loop !1028
 
 ._crit_edge:                                      ; preds = %175
-  %228 = trunc nuw i64 %187 to i32
+  %228 = trunc nuw nsw i64 %187 to i32
   %229 = add i32 %219, 17
   switch i32 %228, label %242 [
     i32 2, label %230

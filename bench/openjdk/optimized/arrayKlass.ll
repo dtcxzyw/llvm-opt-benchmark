@@ -639,7 +639,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %23 = xor i64 %12, 2147483647
   %24 = and i64 %23, %16
   %.0.in.i = select i1 %22, i64 %24, i64 %21
-  %.0.i = trunc i64 %.0.in.i to i32
+  %.0.i = trunc nuw nsw i64 %.0.in.i to i32
   tail call void @_ZN5Klass29check_array_allocation_lengthEiiP10JavaThread(i32 noundef %2, i32 noundef %.0.i, ptr noundef %3) #13
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = load ptr, ptr %25, align 8

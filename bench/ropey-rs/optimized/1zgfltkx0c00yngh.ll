@@ -5129,7 +5129,7 @@ define void @_ZN5ropey4iter5Lines9prev_impl17h75e809cb14f6e25aE(ptr dead_on_unwi
   %.sroa.0131.1 = phi i64 [ %51, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h5bf8989fb42c6dcbE.exit.thread1445" ], [ %69, %68 ], [ %69, %72 ], [ %69, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i226" ]
   store i64 %.sink, ptr %53, align 8
   %.sroa.0112.0 = getelementptr inbounds i8, ptr %16, i64 %.sroa.0131.1
-  %81 = trunc i64 %.sroa.0131.1 to i32
+  %81 = trunc nuw i64 %.sroa.0131.1 to i32
   store i32 %81, ptr %19, align 8
   %82 = icmp samesign ult i64 %.sroa.4114.0, 16
   br i1 %82, label %104, label %83

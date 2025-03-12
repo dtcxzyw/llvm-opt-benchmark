@@ -27,7 +27,7 @@ define range(i32 -1, 1) i32 @sem_init(ptr noundef %0, i32 noundef %1, i32 nounde
   br label %12
 
 8:                                                ; preds = %3
-  %9 = trunc nuw i32 %2 to i16
+  %9 = trunc nuw nsw i32 %2 to i16
   store volatile i16 %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2

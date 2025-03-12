@@ -109,7 +109,7 @@ define hidden noundef nonnull ptr @SHA224(ptr noundef %0, i64 noundef %1, ptr no
 .thread:                                          ; preds = %15, %22
   %.152.i.i8 = phi ptr [ %25, %22 ], [ %0, %15 ]
   %.154.i.i7 = phi i64 [ %26, %22 ], [ %1, %15 ]
-  %27 = trunc nuw i64 %.154.i.i7 to i32
+  %27 = trunc nuw nsw i64 %.154.i.i7 to i32
   store i32 %27, ptr %21, align 4, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %.152.i.i8, i64 %.154.i.i7, i1 false)
@@ -200,7 +200,7 @@ define hidden noundef i32 @SHA224_Update(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not58.i, label %SHA256_Update.exit, label %41
 
 41:                                               ; preds = %40
-  %42 = trunc nuw i64 %.154.i to i32
+  %42 = trunc nuw nsw i64 %.154.i to i32
   store i32 %42, ptr %18, align 4, !tbaa !14
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %43, ptr align 1 %.152.i, i64 %.154.i, i1 false)
@@ -271,7 +271,7 @@ define hidden noundef nonnull ptr @SHA256(ptr noundef %0, i64 noundef %1, ptr no
 .thread:                                          ; preds = %15, %22
   %.152.i8 = phi ptr [ %25, %22 ], [ %0, %15 ]
   %.154.i7 = phi i64 [ %26, %22 ], [ %1, %15 ]
-  %27 = trunc nuw i64 %.154.i7 to i32
+  %27 = trunc nuw nsw i64 %.154.i7 to i32
   store i32 %27, ptr %21, align 4, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %28, ptr align 1 %.152.i8, i64 %.154.i7, i1 false)
@@ -360,7 +360,7 @@ define hidden noundef i32 @SHA256_Update(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %.not58, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = trunc nuw i64 %.154 to i32
+  %43 = trunc nuw nsw i64 %.154 to i32
   store i32 %43, ptr %19, align 4, !tbaa !14
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %44, ptr align 1 %.152, i64 %.154, i1 false)

@@ -1049,7 +1049,7 @@ thread-pre-split:                                 ; preds = %126, %_ZN5alloc6str
 
 168:                                              ; preds = %164
   %169 = lshr i32 %.sroa.4.0.i.ph, 6
-  %170 = trunc nuw i32 %169 to i8
+  %170 = trunc nuw nsw i32 %169 to i8
   %171 = or disjoint i8 %170, -64
   store i8 %171, ptr %.sroa.0.i, align 4, !alias.scope !157, !noalias !154
   %172 = trunc i32 %.sroa.4.0.i.ph to i8
@@ -1060,7 +1060,7 @@ thread-pre-split:                                 ; preds = %126, %_ZN5alloc6str
 
 175:                                              ; preds = %166
   %176 = lshr i32 %.sroa.4.0.i.ph, 12
-  %177 = trunc nuw i32 %176 to i8
+  %177 = trunc nuw nsw i32 %176 to i8
   %178 = or disjoint i8 %177, -32
   store i8 %178, ptr %.sroa.0.i, align 4, !alias.scope !157, !noalias !154
   %179 = lshr i32 %.sroa.4.0.i.ph, 6
@@ -1132,7 +1132,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %18
   %.sroa.10.4131 = phi i64 [ %.sroa.10.4, %.critedge72 ], [ %spec.select74, %226 ], [ %.sroa.10.3, %149 ], [ %.sroa.10.3, %161 ], [ %.sroa.10.3, %.critedge72.thread175 ]
   %.sroa.032.4129 = phi i64 [ %.sroa.032.4, %.critedge72 ], [ %spec.select73, %226 ], [ %.sroa.032.3, %149 ], [ %.sroa.032.3, %161 ], [ %.sroa.032.3, %.critedge72.thread175 ]
   %.4127 = phi i64 [ %.4, %.critedge72 ], [ %157, %226 ], [ 0, %149 ], [ %162, %161 ], [ %.4178, %.critedge72.thread175 ]
-  %215 = trunc nuw i32 %.sroa.4.0.i.ph to i8
+  %215 = trunc nuw nsw i32 %.sroa.4.0.i.ph to i8
   %216 = load i64, ptr %.sroa.442.0..sroa_idx43, align 8, !alias.scope !170, !noundef !5
   %217 = load i64, ptr %20, align 8, !alias.scope !170, !noundef !5
   %218 = icmp eq i64 %216, %217

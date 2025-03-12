@@ -119,7 +119,7 @@ is_gunzip.exit:                                   ; preds = %2, %14
   br label %24
 
 33:                                               ; preds = %24, %24, %24, %24, %24, %24, %24, %24, %24
-  %34 = trunc i32 %32 to i8
+  %34 = trunc nuw nsw i32 %32 to i8
   %35 = load ptr, ptr @toptarg, align 8, !tbaa !5
   %36 = tail call i32 @parse_compression_level(i8 noundef signext %34, ptr noundef %35) #11
   %37 = icmp slt i32 %36, 0

@@ -1343,7 +1343,7 @@ define dso_local i32 @usb_string(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 
 49:                                               ; preds = %44
   %50 = getelementptr i8, ptr %17, i64 2
-  %51 = trunc i32 %47 to i16
+  %51 = trunc nuw nsw i32 %47 to i16
   %.lhs.trunc = add nsw i16 %51, -2
   %52 = sdiv i16 %.lhs.trunc, 2
   %.sext = sext i16 %52 to i32

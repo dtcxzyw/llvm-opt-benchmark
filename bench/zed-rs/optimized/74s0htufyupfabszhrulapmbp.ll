@@ -936,7 +936,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h92
   br i1 %7, label %21, label %34
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i32 %0 to i8
+  %9 = trunc nuw nsw i32 %0 to i8
   store i8 %9, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h93b92bf300cede14E.exit"
 
@@ -948,7 +948,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h92
 
 13:                                               ; preds = %4
   %14 = lshr i32 %0, 6
-  %15 = trunc nuw i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %1, align 1
   %17 = trunc i32 %0 to i8
@@ -960,7 +960,7 @@ define internal fastcc { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h92
 
 21:                                               ; preds = %6
   %22 = lshr i32 %0, 12
-  %23 = trunc nuw i32 %22 to i8
+  %23 = trunc nuw nsw i32 %22 to i8
   %24 = or disjoint i8 %23, -32
   store i8 %24, ptr %1, align 1
   %25 = lshr i32 %0, 6
@@ -2735,13 +2735,13 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$10cr
   br i1 %28, label %40, label %52
 
 30:                                               ; preds = %"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$11discard_tag17h796f3db3f2c0d541E.exit"
-  %31 = trunc nuw i32 %2 to i8
+  %31 = trunc nuw nsw i32 %2 to i8
   store i8 %31, ptr %4, align 4, !alias.scope !326
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 32:                                               ; preds = %25
   %33 = lshr i32 %2, 6
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   store i8 %35, ptr %4, align 4, !alias.scope !326
   %36 = trunc i32 %2 to i8
@@ -2753,7 +2753,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$10cr
 
 40:                                               ; preds = %27
   %41 = lshr i32 %2, 12
-  %42 = trunc nuw i32 %41 to i8
+  %42 = trunc nuw nsw i32 %41 to i8
   %43 = or disjoint i8 %42, -32
   store i8 %43, ptr %4, align 4, !alias.scope !326
   %44 = lshr i32 %2, 6
@@ -3491,13 +3491,13 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16cr
   br i1 %8, label %19, label %32
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %3, align 4, !alias.scope !411
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %3, align 4, !alias.scope !411
   %15 = trunc i32 %1 to i8
@@ -3509,7 +3509,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16cr
 
 19:                                               ; preds = %7
   %20 = lshr i32 %1, 12
-  %21 = trunc nuw i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = or disjoint i8 %21, -32
   store i8 %22, ptr %3, align 4, !alias.scope !411
   %23 = lshr i32 %1, 6
@@ -4334,13 +4334,13 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16pr
   br i1 %36, label %46, label %57
 
 37:                                               ; preds = %31
-  %38 = trunc nuw i32 %19 to i8
+  %38 = trunc nuw nsw i32 %19 to i8
   store i8 %38, ptr %2, align 4, !alias.scope !486
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 39:                                               ; preds = %33
   %40 = lshr i32 %19, 6
-  %41 = trunc nuw i32 %40 to i8
+  %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -64
   store i8 %42, ptr %2, align 4, !alias.scope !486
   %43 = trunc i32 %19 to i8
@@ -4351,7 +4351,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$16pr
 
 46:                                               ; preds = %35
   %47 = lshr i32 %19, 12
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -32
   store i8 %49, ptr %2, align 4, !alias.scope !486
   %50 = lshr i32 %19, 6
@@ -4700,13 +4700,13 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN9html5ever9tokenizer21Toke
   br i1 %43, label %53, label %64
 
 44:                                               ; preds = %37
-  %45 = trunc nuw i32 %38 to i8
+  %45 = trunc nuw nsw i32 %38 to i8
   store i8 %45, ptr %6, align 4, !alias.scope !512, !noalias !510
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 46:                                               ; preds = %40
   %47 = lshr i32 %38, 6
-  %48 = trunc nuw i32 %47 to i8
+  %48 = trunc nuw nsw i32 %47 to i8
   %49 = or disjoint i8 %48, -64
   store i8 %49, ptr %6, align 4, !alias.scope !512, !noalias !510
   %50 = trunc i32 %38 to i8
@@ -4717,7 +4717,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN9html5ever9tokenizer21Toke
 
 53:                                               ; preds = %42
   %54 = lshr i32 %38, 12
-  %55 = trunc nuw i32 %54 to i8
+  %55 = trunc nuw nsw i32 %54 to i8
   %56 = or disjoint i8 %55, -32
   store i8 %56, ptr %6, align 4, !alias.scope !512, !noalias !510
   %57 = lshr i32 %38, 6
@@ -7762,13 +7762,13 @@ common.resume:                                    ; preds = %1556, %1559, %1562,
   br i1 %560, label %570, label %581
 
 561:                                              ; preds = %553
-  %562 = trunc nuw i32 %spec.select to i8
+  %562 = trunc nuw nsw i32 %spec.select to i8
   store i8 %562, ptr %62, align 4, !alias.scope !752
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit
 
 563:                                              ; preds = %557
   %564 = lshr i32 %spec.select, 6
-  %565 = trunc nuw i32 %564 to i8
+  %565 = trunc nuw nsw i32 %564 to i8
   %566 = or disjoint i8 %565, -64
   store i8 %566, ptr %62, align 4, !alias.scope !752
   %567 = trunc i32 %spec.select to i8
@@ -7779,7 +7779,7 @@ common.resume:                                    ; preds = %1556, %1559, %1562,
 
 570:                                              ; preds = %559
   %571 = lshr i32 %spec.select, 12
-  %572 = trunc nuw i32 %571 to i8
+  %572 = trunc nuw nsw i32 %571 to i8
   %573 = or disjoint i8 %572, -32
   store i8 %573, ptr %62, align 4, !alias.scope !752
   %574 = lshr i32 %spec.select, 6
@@ -8168,7 +8168,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %561,
   br i1 %670, label %.loopexit694, label %661
 
 671:                                              ; preds = %227
-  %trunc467 = trunc i8 %229 to i1
+  %trunc467 = trunc nuw i8 %229 to i1
   %672 = call fastcc noundef i32 @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$8get_char17hb07554541987c5edE"(ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 dereferenceable(32) %1), !range !374
   br i1 %trunc467, label %676, label %675
 
@@ -8493,13 +8493,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %561,
   br i1 %784, label %794, label %805
 
 785:                                              ; preds = %779
-  %786 = trunc nuw i32 %.sroa.093.0 to i8
+  %786 = trunc nuw nsw i32 %.sroa.093.0 to i8
   store i8 %786, ptr %59, align 4, !alias.scope !785
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558
 
 787:                                              ; preds = %781
   %788 = lshr i32 %.sroa.093.0, 6
-  %789 = trunc nuw i32 %788 to i8
+  %789 = trunc nuw nsw i32 %788 to i8
   %790 = or disjoint i8 %789, -64
   store i8 %790, ptr %59, align 4, !alias.scope !785
   %791 = trunc i32 %.sroa.093.0 to i8
@@ -8510,7 +8510,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %561,
 
 794:                                              ; preds = %783
   %795 = lshr i32 %.sroa.093.0, 12
-  %796 = trunc nuw i32 %795 to i8
+  %796 = trunc nuw nsw i32 %795 to i8
   %797 = or disjoint i8 %796, -32
   store i8 %797, ptr %59, align 4, !alias.scope !785
   %798 = lshr i32 %.sroa.093.0, 6
@@ -8563,13 +8563,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558: ; preds = %7
   br i1 %825, label %835, label %846
 
 826:                                              ; preds = %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558
-  %827 = trunc nuw i32 %.sroa.0.0.i555671 to i8
+  %827 = trunc nuw nsw i32 %.sroa.0.0.i555671 to i8
   store i8 %827, ptr %58, align 4, !alias.scope !788
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit559
 
 828:                                              ; preds = %822
   %829 = lshr i32 %.sroa.0.0.i555671, 6
-  %830 = trunc nuw i32 %829 to i8
+  %830 = trunc nuw nsw i32 %829 to i8
   %831 = or disjoint i8 %830, -64
   store i8 %831, ptr %58, align 4, !alias.scope !788
   %832 = trunc i32 %.sroa.0.0.i555671 to i8
@@ -8580,7 +8580,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit558: ; preds = %7
 
 835:                                              ; preds = %824
   %836 = lshr i32 %.sroa.0.0.i555671, 12
-  %837 = trunc nuw i32 %836 to i8
+  %837 = trunc nuw nsw i32 %836 to i8
   %838 = or disjoint i8 %837, -32
   store i8 %838, ptr %58, align 4, !alias.scope !788
   %839 = lshr i32 %.sroa.0.0.i555671, 6
@@ -8923,13 +8923,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit559: ; preds = %8
   br i1 %966, label %976, label %987
 
 967:                                              ; preds = %961
-  %968 = trunc nuw i32 %.sroa.0148.0 to i8
+  %968 = trunc nuw nsw i32 %.sroa.0148.0 to i8
   store i8 %968, ptr %56, align 4, !alias.scope !804
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574
 
 969:                                              ; preds = %963
   %970 = lshr i32 %.sroa.0148.0, 6
-  %971 = trunc nuw i32 %970 to i8
+  %971 = trunc nuw nsw i32 %970 to i8
   %972 = or disjoint i8 %971, -64
   store i8 %972, ptr %56, align 4, !alias.scope !804
   %973 = trunc i32 %.sroa.0148.0 to i8
@@ -8940,7 +8940,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit559: ; preds = %8
 
 976:                                              ; preds = %965
   %977 = lshr i32 %.sroa.0148.0, 12
-  %978 = trunc nuw i32 %977 to i8
+  %978 = trunc nuw nsw i32 %977 to i8
   %979 = or disjoint i8 %978, -32
   store i8 %979, ptr %56, align 4, !alias.scope !804
   %980 = lshr i32 %.sroa.0148.0, 6
@@ -9503,13 +9503,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
   br i1 %1174, label %1184, label %1195
 
 1175:                                             ; preds = %.thread, %1169
-  %1176 = trunc nuw i32 %1097 to i8
+  %1176 = trunc nuw nsw i32 %1097 to i8
   store i8 %1176, ptr %47, align 4, !alias.scope !819
   br label %1211
 
 1177:                                             ; preds = %1171
   %1178 = lshr i32 %1097, 6
-  %1179 = trunc nuw i32 %1178 to i8
+  %1179 = trunc nuw nsw i32 %1178 to i8
   %1180 = or disjoint i8 %1179, -64
   store i8 %1180, ptr %47, align 4, !alias.scope !819
   %1181 = trunc i32 %1097 to i8
@@ -9520,7 +9520,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
 
 1184:                                             ; preds = %1173
   %1185 = lshr i32 %1097, 12
-  %1186 = trunc nuw i32 %1185 to i8
+  %1186 = trunc nuw nsw i32 %1185 to i8
   %1187 = or disjoint i8 %1186, -32
   store i8 %1187, ptr %47, align 4, !alias.scope !819
   %1188 = lshr i32 %1097, 6
@@ -10080,13 +10080,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
   br i1 %1384, label %1394, label %1405
 
 1385:                                             ; preds = %1379
-  %1386 = trunc nuw i32 %.sroa.0.0.i530 to i8
+  %1386 = trunc nuw nsw i32 %.sroa.0.0.i530 to i8
   store i8 %1386, ptr %22, align 4, !alias.scope !846
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit637
 
 1387:                                             ; preds = %1381
   %1388 = lshr i32 %.sroa.0.0.i530, 6
-  %1389 = trunc nuw i32 %1388 to i8
+  %1389 = trunc nuw nsw i32 %1388 to i8
   %1390 = or disjoint i8 %1389, -64
   store i8 %1390, ptr %22, align 4, !alias.scope !846
   %1391 = trunc i32 %.sroa.0.0.i530 to i8
@@ -10097,7 +10097,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit574: ; preds = %9
 
 1394:                                             ; preds = %1383
   %1395 = lshr i32 %.sroa.0.0.i530, 12
-  %1396 = trunc nuw i32 %1395 to i8
+  %1396 = trunc nuw nsw i32 %1395 to i8
   %1397 = or disjoint i8 %1396, -32
   store i8 %1397, ptr %22, align 4, !alias.scope !846
   %1398 = lshr i32 %.sroa.0.0.i530, 6
@@ -10284,13 +10284,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit637: ; preds = %1
   br i1 %1468, label %1478, label %1489
 
 1469:                                             ; preds = %1463
-  %1470 = trunc nuw i32 %.sroa.0.0.i532 to i8
+  %1470 = trunc nuw nsw i32 %.sroa.0.0.i532 to i8
   store i8 %1470, ptr %42, align 4, !alias.scope !849
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit638
 
 1471:                                             ; preds = %1465
   %1472 = lshr i32 %.sroa.0.0.i532, 6
-  %1473 = trunc nuw i32 %1472 to i8
+  %1473 = trunc nuw nsw i32 %1472 to i8
   %1474 = or disjoint i8 %1473, -64
   store i8 %1474, ptr %42, align 4, !alias.scope !849
   %1475 = trunc i32 %.sroa.0.0.i532 to i8
@@ -10301,7 +10301,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit637: ; preds = %1
 
 1478:                                             ; preds = %1467
   %1479 = lshr i32 %.sroa.0.0.i532, 12
-  %1480 = trunc nuw i32 %1479 to i8
+  %1480 = trunc nuw nsw i32 %1479 to i8
   %1481 = or disjoint i8 %1480, -32
   store i8 %1481, ptr %42, align 4, !alias.scope !849
   %1482 = lshr i32 %.sroa.0.0.i532, 6
@@ -10678,7 +10678,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit639: ; preds = %"
 
 1575:                                             ; preds = %.lr.ph, %1599
   %1576 = phi i8 [ %147, %.lr.ph ], [ %1600, %1599 ]
-  %1577 = trunc i8 %1576 to i1
+  %1577 = trunc nuw i8 %1576 to i1
   br i1 %1577, label %1581, label %1578
 
 1578:                                             ; preds = %1575
@@ -11180,13 +11180,13 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit639: ; preds = %"
   br i1 %1692, label %1702, label %1713
 
 1693:                                             ; preds = %1687
-  %1694 = trunc nuw i32 %.sroa.0.0.i546 to i8
+  %1694 = trunc nuw nsw i32 %.sroa.0.0.i546 to i8
   store i8 %1694, ptr %20, align 4, !alias.scope !877
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit650
 
 1695:                                             ; preds = %1689
   %1696 = lshr i32 %.sroa.0.0.i546, 6
-  %1697 = trunc nuw i32 %1696 to i8
+  %1697 = trunc nuw nsw i32 %1696 to i8
   %1698 = or disjoint i8 %1697, -64
   store i8 %1698, ptr %20, align 4, !alias.scope !877
   %1699 = trunc i32 %.sroa.0.0.i546 to i8
@@ -11197,7 +11197,7 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit639: ; preds = %"
 
 1702:                                             ; preds = %1691
   %1703 = lshr i32 %.sroa.0.0.i546, 12
-  %1704 = trunc nuw i32 %1703 to i8
+  %1704 = trunc nuw nsw i32 %1703 to i8
   %1705 = or disjoint i8 %1704, -32
   store i8 %1705, ptr %20, align 4, !alias.scope !877
   %1706 = lshr i32 %.sroa.0.0.i546, 6
@@ -11383,13 +11383,13 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emi
   br i1 %13, label %24, label %37
 
 14:                                               ; preds = %8
-  %15 = trunc nuw i32 %1 to i8
+  %15 = trunc nuw nsw i32 %1 to i8
   store i8 %15, ptr %4, align 4, !alias.scope !904, !noalias !896
   br label %59
 
 16:                                               ; preds = %10
   %17 = lshr i32 %1, 6
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -64
   store i8 %19, ptr %4, align 4, !alias.scope !904, !noalias !896
   %20 = trunc i32 %1 to i8
@@ -11401,7 +11401,7 @@ define internal fastcc void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$9emi
 
 24:                                               ; preds = %12
   %25 = lshr i32 %1, 12
-  %26 = trunc nuw i32 %25 to i8
+  %26 = trunc nuw nsw i32 %25 to i8
   %27 = or disjoint i8 %26, -32
   store i8 %27, ptr %4, align 4, !alias.scope !904, !noalias !896
   %28 = lshr i32 %1, 6

@@ -2001,7 +2001,7 @@ define noundef range(i32 56, 1) i32 @_ZN4base25PersistentMemoryAllocator12Alloca
   br i1 %8, label %_ZN12_GLOBAL__N_17SetFlagEPVSt6atomicIjEi.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = trunc nuw i64 %1 to i32
+  %10 = trunc nuw nsw i64 %1 to i32
   %11 = add nuw nsw i32 %10, 23
   %12 = and i32 %11, 2147483640
   %13 = icmp samesign ult i32 %12, 17

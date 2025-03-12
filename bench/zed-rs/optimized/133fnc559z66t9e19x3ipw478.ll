@@ -48311,7 +48311,7 @@ define void @"_ZN72_$LT$languages..rust..RustLspAdapter$u20$as$u20$language..Lsp
   call void @llvm.experimental.noalias.scope.decl(metadata !15514)
   call void @llvm.experimental.noalias.scope.decl(metadata !15517)
   %.promoted.i.i.i.i.i = load ptr, ptr %.sroa.524.sroa.3.0..sroa.524.0..sroa_idx.sroa_idx, align 8, !alias.scope !15520
-  %trunc.i.i.i.i.i.i = trunc i64 %20 to i1
+  %trunc.i.i.i.i.i.i = trunc nuw i64 %20 to i1
   %.promoted16.i.i.i.i.i = load ptr, ptr %.sroa.524.sroa.4.0..sroa.524.0..sroa_idx.sroa_idx, align 8, !alias.scope !15520
   br i1 %trunc.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i, label %.split.i.i.i.i.i
 

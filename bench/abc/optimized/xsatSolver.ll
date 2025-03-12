@@ -290,8 +290,8 @@ Vec_IntPush.exit.i:                               ; preds = %102, %Vec_IntGrow.e
   %.val46.val.i.i = load ptr, ptr %125, align 8, !tbaa !27
   %126 = sext i32 %119 to i64
   %127 = getelementptr inbounds i32, ptr %.val46.val.i.i, i64 %126
-  %128 = trunc nsw i64 %121 to i32
-  %129 = trunc nsw i64 %120 to i32
+  %128 = trunc nuw nsw i64 %121 to i32
+  %129 = trunc nuw nsw i64 %120 to i32
   %130 = trunc nsw i64 %indvars.iv.next45.i to i32
   br label %131
 

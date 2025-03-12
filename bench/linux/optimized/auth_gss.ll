@@ -1413,7 +1413,7 @@ gss_find_downcall.exit.thread:                    ; preds = %60, %32, %gss_find_
   ]
 
 79:                                               ; preds = %77, %77
-  %80 = trunc i64 %78 to i32
+  %80 = trunc nsw i64 %78 to i32
   %81 = getelementptr i8, ptr %40, i64 -8
   store i32 %80, ptr %81, align 8
   br label %90

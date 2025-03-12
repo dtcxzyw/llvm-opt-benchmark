@@ -12108,7 +12108,7 @@ define hidden void @"_ZN4core4task4poll73Poll$LT$core..option..Option$LT$core..r
   br label %13
 
 6:                                                ; preds = %2
-  %trunc = trunc i8 %3 to i1
+  %trunc = trunc nuw i8 %3 to i1
   br i1 %trunc, label %10, label %7
 
 7:                                                ; preds = %6

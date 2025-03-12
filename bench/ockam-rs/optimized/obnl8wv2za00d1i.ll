@@ -5143,7 +5143,7 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
 1780:                                             ; preds = %1767, %1763
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %95)
   store i8 1, ptr %1751, align 8, !noalias !576
-  %1781 = trunc i8 %1754 to i1
+  %1781 = trunc nuw i8 %1754 to i1
   br i1 %1781, label %1801, label %1796
 
 .body.i.i.i.i.i:                                  ; preds = %1778, %1729
@@ -13308,7 +13308,7 @@ default.unreachable41:                            ; preds = %30, %20, %3
 102:                                              ; preds = %89, %85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   store i8 1, ptr %73, align 8, !noalias !1737
-  %103 = trunc i8 %76 to i1
+  %103 = trunc nuw i8 %76 to i1
   br i1 %103, label %"_ZN5tokio4sync4mpsc7bounded15Sender$LT$T$GT$7reserve28_$u7b$$u7b$closure$u7d$$u7d$17h9efe964d4e1d97e0E.exit.thread", label %104
 
 104:                                              ; preds = %102

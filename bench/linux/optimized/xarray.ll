@@ -1916,7 +1916,7 @@ define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr nounde
   br i1 %16, label %.loopexit5, label %17
 
 17:                                               ; preds = %14
-  %.lhs.trunc = trunc i32 %2 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %2 to i16
   %18 = urem i16 %.lhs.trunc, 6
   %.zext = zext nneg i16 %18 to i32
   %19 = shl nsw i32 -1, %.zext

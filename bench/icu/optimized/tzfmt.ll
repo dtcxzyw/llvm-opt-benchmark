@@ -3069,7 +3069,7 @@ _ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit: ; preds = %44
   br i1 %49, label %50, label %._crit_edge.thread.sink.split
 
 50:                                               ; preds = %45, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit
-  %51 = trunc i32 %.0128231 to i8
+  %51 = trunc nuw nsw i32 %.0128231 to i8
   %52 = load i32, ptr %2, align 4, !tbaa !13
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit
@@ -3294,7 +3294,7 @@ _ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182: ; preds = %_ZN6icu_
   br i1 %132, label %133, label %._crit_edge.thread.sink.split
 
 133:                                              ; preds = %128, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit182
-  %134 = trunc i32 %.0128231 to i8
+  %134 = trunc nuw nsw i32 %.0128231 to i8
   %135 = load i32, ptr %2, align 4, !tbaa !13
   %136 = icmp slt i32 %135, 1
   br i1 %136, label %137, label %_ZN6icu_7714GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode.exit186
@@ -3422,7 +3422,7 @@ _ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190: ; preds = %163
   br i1 %183, label %184, label %._crit_edge.thread.sink.split
 
 184:                                              ; preds = %179, %_ZN6icu_7714GMTOffsetField7isValidENS0_9FieldTypeEi.exit190
-  %185 = trunc i32 %.1129.ph.ph to i8
+  %185 = trunc nuw nsw i32 %.1129.ph.ph to i8
   %186 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 24) #22
   %187 = icmp eq ptr %186, null
   br i1 %187, label %189, label %188

@@ -12253,7 +12253,7 @@ Cba_ObjSetName.exit216:                           ; preds = %Cba_ObjName.exit200
 330:                                              ; preds = %328, %326
   %331 = phi ptr [ %327, %326 ], [ %329, %328 ]
   store ptr %331, ptr %76, align 8, !tbaa !30
-  %332 = trunc nsw i64 %317 to i32
+  %332 = trunc nuw nsw i64 %317 to i32
   br label %Vec_IntGrow.exit.sink.split.i.i.i221
 
 333:                                              ; preds = %319
@@ -12302,7 +12302,7 @@ Vec_IntGrow.exit.i.i.i224:                        ; preds = %Vec_IntGrow.exit.si
   br label %._crit_edge.i.i.i229
 
 ._crit_edge.i.i.i229:                             ; preds = %.lr.ph.i.i.i226, %Vec_IntGrow.exit.i.i.i224
-  %348 = trunc nsw i64 %317 to i32
+  %348 = trunc nuw nsw i64 %317 to i32
   store i32 %348, ptr %74, align 4, !tbaa !46
   br label %Cba_FonName.exit232
 

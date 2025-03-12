@@ -1146,7 +1146,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %88
 
 88:                                               ; preds = %87, %85
-  %89 = trunc i64 %67 to i32
+  %89 = trunc nsw i64 %67 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #37
   %90 = load ptr, ptr %10, align 8, !tbaa !12
   %91 = icmp eq ptr %90, %47
@@ -1338,7 +1338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   br i1 %158, label %_ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000EEEEvRKNSt6chrono8durationIT_T0_EE.exit, label %159
 
 159:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84
-  %.lhs.trunc = trunc i64 %130 to i32
+  %.lhs.trunc = trunc nsw i64 %130 to i32
   %160 = udiv i32 %.lhs.trunc, 1000
   %.zext = zext nneg i32 %160 to i64
   %.neg.i.i = mul nsw i64 %.zext, -1000

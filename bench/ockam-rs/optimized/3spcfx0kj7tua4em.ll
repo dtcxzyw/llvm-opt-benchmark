@@ -136713,7 +136713,7 @@ common.ret:                                       ; preds = %42, %16
   br i1 %63, label %"_ZN4core6option47Option$LT$core..result..Result$LT$T$C$E$GT$$GT$9transpose17h15cfd02ba78d9dbeE.exit", label %64
 
 64:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$3map17he6f93a09939da349E.exit"
-  %trunc.i = trunc i8 %.sroa.050.0.copyload to i1
+  %trunc.i = trunc nuw i8 %.sroa.050.0.copyload to i1
   br i1 %trunc.i, label %66, label %65
 
 65:                                               ; preds = %64

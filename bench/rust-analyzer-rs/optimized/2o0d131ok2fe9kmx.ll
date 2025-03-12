@@ -12164,7 +12164,7 @@ select.unfold:                                    ; preds = %247, %"_ZN9hashbrow
 
 339:                                              ; preds = %337
   %.promoted.i.i.i.i.i.i = load i8, ptr %225, align 8, !alias.scope !2262
-  %trunc.i.i.i.i.i.i.i = trunc i64 %.pre.i.i to i1
+  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %.pre.i.i to i1
   %340 = load i64, ptr %226, align 8, !alias.scope !2262
   br i1 %trunc.i.i.i.i.i.i.i, label %.split.us.preheader.i.i.i.i.i.i, label %.split.i.i.i.i.i.i
 
@@ -12314,7 +12314,7 @@ default.unreachable:                              ; preds = %372
 
 379:                                              ; preds = %376
   %.promoted.i.i.i.i.i5.i = load i8, ptr %228, align 8, !alias.scope !2325
-  %trunc.i.i.i.i.i.i6.i = trunc i64 %377 to i1
+  %trunc.i.i.i.i.i.i6.i = trunc nuw i64 %377 to i1
   %380 = load i64, ptr %229, align 8, !alias.scope !2325
   br i1 %trunc.i.i.i.i.i.i6.i, label %.split.us.preheader.i.i.i.i.i22.i, label %.split.i.i.i.i.i7.i
 

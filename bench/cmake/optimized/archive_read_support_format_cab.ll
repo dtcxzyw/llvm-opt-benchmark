@@ -2847,7 +2847,7 @@ define internal fastcc ptr @cab_read_ahead_cfdata(ptr noundef %0, ptr noundef no
 thread-pre-split.i:                               ; preds = %124, %120
   %125 = phi i64 [ %122, %124 ], [ %117, %120 ]
   store ptr %116, ptr %98, align 8, !tbaa !151
-  %126 = trunc i64 %125 to i32
+  %126 = trunc nuw nsw i64 %125 to i32
   store i32 %126, ptr %102, align 8, !tbaa !152
   store i64 0, ptr %103, align 8, !tbaa !156
   %127 = icmp sgt i32 %.1136188.i, 0
@@ -3961,7 +3961,7 @@ split.i.i.i:                                      ; preds = %532, %._crit_edge40
   %642 = sext i32 %spec.select.i.i.i to i64
   %.1360.i.i.i = call i64 @llvm.smin.i64(i64 %630, i64 %642)
   %.2.v.i.i.i = call i64 @llvm.smin.i64(i64 %634, i64 %.1360.i.i.i)
-  %.2.i.i.i = trunc i64 %.2.v.i.i.i to i32
+  %.2.i.i.i = trunc nsw i64 %.2.v.i.i.i to i32
   %643 = load ptr, ptr %397, align 8, !tbaa !199
   %644 = load ptr, ptr %389, align 8, !tbaa !187
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %643, ptr align 1 %644, i64 %.2.v.i.i.i, i1 false)
@@ -4170,7 +4170,7 @@ split.i.i.i:                                      ; preds = %532, %._crit_edge40
   br i1 %759, label %732, label %lzx_read_pre_tree.exit.i.i.i, !llvm.loop !207
 
 lzx_read_pre_tree.exit.i.i.i:                     ; preds = %738
-  %.0.lcssa.ph.i.i.i.i = trunc i64 %indvars.iv.next.i.i.i.i to i32
+  %.0.lcssa.ph.i.i.i.i = trunc nsw i64 %indvars.iv.next.i.i.i.i to i32
   br label %lzx_read_pre_tree.exit.thread.i.i.i
 
 760:                                              ; preds = %735
@@ -4281,7 +4281,7 @@ lzx_read_pre_tree.exit.thread.i.i.i:              ; preds = %lzx_read_pre_tree.e
   br i1 %814, label %787, label %lzx_read_pre_tree.exit306.i.i.i, !llvm.loop !207
 
 lzx_read_pre_tree.exit306.i.i.i:                  ; preds = %793
-  %.0.lcssa.ph.i304.i.i.i = trunc i64 %indvars.iv.next.i305.i.i.i to i32
+  %.0.lcssa.ph.i304.i.i.i = trunc nsw i64 %indvars.iv.next.i305.i.i.i to i32
   br label %lzx_read_pre_tree.exit306.thread.i.i.i
 
 815:                                              ; preds = %790
@@ -4397,7 +4397,7 @@ lzx_read_pre_tree.exit306.thread.i.i.i:           ; preds = %lzx_read_pre_tree.e
   br i1 %871, label %844, label %lzx_read_pre_tree.exit320.i.i.i, !llvm.loop !207
 
 lzx_read_pre_tree.exit320.i.i.i:                  ; preds = %850
-  %.0.lcssa.ph.i318.i.i.i = trunc i64 %indvars.iv.next.i319.i.i.i to i32
+  %.0.lcssa.ph.i318.i.i.i = trunc nsw i64 %indvars.iv.next.i319.i.i.i to i32
   br label %lzx_read_pre_tree.exit320.thread.i.i.i
 
 872:                                              ; preds = %847

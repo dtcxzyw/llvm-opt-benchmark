@@ -992,7 +992,7 @@ loop_subst_snap.exit.i:                           ; preds = %.lr.ph93.i.i, %._cr
 
 .critedge.i.i:                                    ; preds = %476, %462, %457, %455
   %.2.in.i.i = phi i64 [ %indvars.iv224.i.i, %455 ], [ %indvars.iv224.i.i, %457 ], [ %indvars.iv224.i.i, %462 ], [ %indvars.iv.next225.i.i, %476 ]
-  %.2.i.i = trunc i64 %.2.in.i.i to i32
+  %.2.i.i = trunc nuw i64 %.2.in.i.i to i32
   %indvars.iv.next229.i.i = add nuw nsw i64 %indvars.iv228.i.i, 1
   %exitcond233.not.i.i = icmp eq i64 %indvars.iv.next229.i.i, %wide.trip.count232.i.i
   br i1 %exitcond233.not.i.i, label %.preheader171.i.i, label %450, !llvm.loop !85

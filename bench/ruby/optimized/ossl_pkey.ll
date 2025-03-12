@@ -786,7 +786,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %15
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nsw i64 %17 to i32
   %21 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef %.sroa.2.0.i, i32 noundef %20) #8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %25
@@ -881,7 +881,7 @@ RSTRING_PTR.exit:                                 ; preds = %3, %15
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %20 = trunc i64 %17 to i32
+  %20 = trunc nsw i64 %17 to i32
   %21 = call ptr @EVP_PKEY_asn1_find_str(ptr noundef null, ptr noundef %.sroa.2.0.i, i32 noundef %20) #8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %22, label %25

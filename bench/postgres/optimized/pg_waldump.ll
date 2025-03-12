@@ -1266,7 +1266,7 @@ define internal fastcc void @print_rmgr_list() unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %.03 = phi i32 [ 0, %0 ], [ %6, %1 ]
-  %2 = trunc nuw i32 %.03 to i8
+  %2 = trunc nuw nsw i32 %.03 to i8
   %3 = tail call ptr @GetRmgrDesc(i8 noundef zeroext %2) #16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.90, ptr noundef %4) #16

@@ -6915,7 +6915,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.03448.i = phi i32 [ 0, %.lr.ph52.i ], [ %.337.i, %104 ]
   %80 = getelementptr inbounds nuw [8 x i64], ptr %75, i64 0, i64 %indvars.iv57.i
   %81 = load i64, ptr %80, align 8
-  %indvars.iv57.tr.i = trunc i64 %indvars.iv57.i to i32
+  %indvars.iv57.tr.i = trunc nuw nsw i64 %indvars.iv57.i to i32
   %82 = shl nuw nsw i32 %indvars.iv57.tr.i, 6
   %83 = or i32 %82, %67
   br label %84
@@ -7137,7 +7137,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
   %.02532.i = phi i32 [ 0, %.lr.ph.i ], [ %.227.i, %82 ]
   %66 = getelementptr inbounds nuw [8 x i64], ptr %61, i64 0, i64 %indvars.iv37.i
   %67 = load i64, ptr %66, align 8
-  %indvars.iv37.tr.i = trunc i64 %indvars.iv37.i to i32
+  %indvars.iv37.tr.i = trunc nuw nsw i64 %indvars.iv37.i to i32
   %68 = shl nuw nsw i32 %indvars.iv37.tr.i, 6
   %69 = or i32 %68, %53
   br label %70

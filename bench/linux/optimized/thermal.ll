@@ -767,7 +767,7 @@ define internal void @acpi_thermal_notify(ptr readnone captures(none) %0, i32 no
 38:                                               ; preds = %35, %31
   %39 = phi ptr [ %37, %35 ], [ %33, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 208
-  %41 = trunc i32 %1 to i8
+  %41 = trunc nuw i32 %1 to i8
   %42 = call i32 @acpi_bus_generate_netlink_event(ptr noundef nonnull %40, ptr noundef %39, i8 noundef zeroext %41, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   br label %43

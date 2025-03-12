@@ -562,7 +562,7 @@ while.body36:                                     ; preds = %land.rhs
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i9, i64 %sub.i.i.i.i, i64 %24
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %26 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %26, i32 31
   %27 = load ptr, ptr @_ZZN8proxygen16QPACKHeaderTable3addENS_11HPACKHeaderEE8vlocal__, align 8
@@ -1701,7 +1701,7 @@ while.body:                                       ; preds = %land.rhs
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, i64 %sub.i.i.i.i, i64 %11
   %add13.i.i.i = add i64 %cond.i.i.i.i, %conv.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %13 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %13, i32 31
   %add = add i32 %add.i, %freeable.012
@@ -1763,7 +1763,7 @@ if.then37:                                        ; preds = %while.end
   %conv.i = and i64 %call.i.i, 4294967295
   %add13.i.i.i = add i64 %conv.i, %cond.i.i.i
   %cmp.i.i.i.i.i.i.i = icmp ult i64 %add13.i.i.i, 4294967296
-  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc i64 %add13.i.i.i to i32
+  %ref.tmp11.sroa.21.0.extract.trunc.i.i.i = trunc nuw i64 %add13.i.i.i to i32
   %5 = add i32 %ref.tmp11.sroa.21.0.extract.trunc.i.i.i, 32
   %add15.i.i = select i1 %cmp.i.i.i.i.i.i.i, i32 %5, i32 31
   %bytes_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -2498,7 +2498,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %8 = trunc nuw i64 %sub.ptr.sub.i to i8
+  %8 = trunc nuw nsw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %8
   %arrayidx.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1

@@ -14946,7 +14946,7 @@ _ZN3ue212_GLOBAL__N_123isExceptionalTransitionEjjRKNS0_10build_infoEj.exit: ; pr
 108:                                              ; preds = %_ZN3ue212_GLOBAL__N_123isExceptionalTransitionEjjRKNS0_10build_infoEj.exit
   %109 = zext nneg i32 %98 to i64
   %110 = shl nuw nsw i64 1, %109
-  %111 = trunc nuw i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   %112 = or i32 %.06191, %111
   br label %_ZN3ue212_GLOBAL__N_123isExceptionalTransitionEjjRKNS0_10build_infoEj.exit.thread
 

@@ -5273,7 +5273,7 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 191:                                              ; preds = %189
   %192 = zext i8 %190 to i32
-  %193 = trunc nuw i64 %indvars.iv700 to i32
+  %193 = trunc nuw nsw i64 %indvars.iv700 to i32
   %194 = sub nuw nsw i32 7, %193
   %195 = shl nuw nsw i32 1, %194
   %196 = and i32 %195, %192

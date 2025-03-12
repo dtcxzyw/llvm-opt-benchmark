@@ -576,7 +576,7 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %32 = trunc i64 %29 to i32
+  %32 = trunc nsw i64 %29 to i32
   %33 = call i32 @OCSP_request_add1_nonce(ptr noundef nonnull %18, ptr noundef %.sroa.2.0.i, i32 noundef %32) #5
   br label %34
 
@@ -1726,7 +1726,7 @@ RSTRING_PTR.exit:                                 ; preds = %21, %27
   unreachable
 
 RSTRING_LENINT.exit:                              ; preds = %RSTRING_PTR.exit
-  %32 = trunc i64 %29 to i32
+  %32 = trunc nsw i64 %29 to i32
   %33 = call i32 @OCSP_basic_add1_nonce(ptr noundef nonnull %18, ptr noundef %.sroa.2.0.i, i32 noundef %32) #5
   br label %34
 

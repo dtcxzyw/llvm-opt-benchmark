@@ -915,7 +915,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %214
 
 214:                                              ; preds = %213, %211
-  %215 = trunc i64 %195 to i32
+  %215 = trunc nsw i64 %195 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22, !noalias !111
   %.not.i47.i = icmp eq ptr %.sroa.15.0254.i, %.sroa.24.2253.i
   br i1 %.not.i47.i, label %218, label %216
@@ -1043,7 +1043,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
 
 260:                                              ; preds = %259, %257
   %261 = phi i32 [ %240, %259 ], [ %252, %257 ]
-  %262 = trunc i64 %241 to i32
+  %262 = trunc nsw i64 %241 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22, !noalias !111
   %263 = load ptr, ptr %18, align 8, !tbaa !120, !noalias !111
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
@@ -1101,13 +1101,13 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %285
 
 285:                                              ; preds = %284, %282
-  %286 = trunc i64 %266 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22, !noalias !111
-  %.not244.i = icmp sgt i32 %262, %286
+  %.not244.i = icmp sgt i64 %241, %266
   br i1 %.not244.i, label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %285
-  %287 = icmp slt i32 %262, 0
+  %286 = trunc nsw i64 %266 to i32
+  %287 = icmp slt i64 %241, 0
   br i1 %287, label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
@@ -2111,7 +2111,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 640:                                              ; preds = %._crit_edge.i.i
-  %641 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %641 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %642 = or disjoint i8 %641, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -2914,7 +2914,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
 
 893:                                              ; preds = %892, %890
   %894 = phi i32 [ %873, %892 ], [ %885, %890 ]
-  %895 = trunc i64 %874 to i32
+  %895 = trunc nsw i64 %874 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
   %896 = load ptr, ptr %31, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
@@ -2970,7 +2970,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %916
 
 916:                                              ; preds = %915, %913
-  %917 = trunc i64 %897 to i32
+  %917 = trunc nsw i64 %897 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   %.not.i.i201 = icmp eq ptr %.sroa.10.0897, %.sroa.16.0898
   br i1 %.not.i.i201, label %920, label %918

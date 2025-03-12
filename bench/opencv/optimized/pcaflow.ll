@@ -228,7 +228,7 @@ define void @_ZNK2cv7optflow18OpticalFlowPCAFlow18findSparseFeaturesERNS_4UMatES
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %5
-  %49 = trunc i64 %46 to i32
+  %49 = trunc nuw i64 %46 to i32
   %50 = sub i32 %27, %49
   %51 = uitofp i32 %50 to float
   %52 = fdiv float %23, %51

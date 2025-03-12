@@ -15747,7 +15747,7 @@ callout_tag_entry_raw.exit:                       ; preds = %21, %33, %36, %39, 
   br i1 %or.cond.i, label %ext_ensure_tag_table.exit, label %47
 
 47:                                               ; preds = %callout_tag_entry_raw.exit
-  %48 = trunc nsw i64 %4 to i32
+  %48 = trunc nuw nsw i64 %4 to i32
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !90
   %51 = icmp slt i32 %50, %48

@@ -253,7 +253,7 @@ define hidden range(i32 -28928, 1) i32 @mbedtls_ssl_conf_cid(ptr noundef writeon
   br i1 %or.cond9, label %9, label %5
 
 5:                                                ; preds = %3
-  %6 = trunc nuw i32 %2 to i8
+  %6 = trunc nuw nsw i32 %2 to i8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 22
   store i8 %6, ptr %7, align 2, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192

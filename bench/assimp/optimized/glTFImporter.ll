@@ -5756,7 +5756,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   br i1 %239, label %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %240
 
 240:                                              ; preds = %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit
-  %241 = trunc nuw i64 %238 to i32
+  %241 = trunc nuw nsw i64 %238 to i32
   store i32 %241, ptr %237, align 4
   %242 = getelementptr inbounds nuw i8, ptr %210, i64 240
   %243 = load ptr, ptr %197, align 8
@@ -9731,7 +9731,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %22, %24, %26, %28
 81:                                               ; preds = %61
   %82 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %84 = trunc nuw i64 %79 to i32
+  %84 = trunc nuw nsw i64 %79 to i32
   store i32 %84, ptr %83, align 4
   %85 = getelementptr inbounds nuw i8, ptr %68, i64 36
   %86 = load ptr, ptr %82, align 8
@@ -10255,7 +10255,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph, %_ZN8aiStri
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw %struct.aiString, ptr %8, i64 %65
-  %69 = trunc nuw i64 %62 to i32
+  %69 = trunc nuw nsw i64 %62 to i32
   store i32 %69, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load ptr, ptr %1, align 8
@@ -44984,7 +44984,7 @@ define linkonce_odr hidden void @_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsitu
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -45010,7 +45010,7 @@ define linkonce_odr hidden void @_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsitu
 
 28:                                               ; preds = %23
   %29 = lshr i32 %1, 12
-  %30 = trunc nuw i32 %29 to i8
+  %30 = trunc nuw nsw i32 %29 to i8
   %31 = or disjoint i8 %30, -32
   store i8 %31, ptr %26, align 1
   %32 = lshr i32 %1, 6
@@ -76316,7 +76316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 56:                                               ; preds = %._crit_edge.i
-  %57 = trunc nuw i32 %.0.lcssa.i to i8
+  %57 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

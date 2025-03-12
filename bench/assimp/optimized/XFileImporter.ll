@@ -957,7 +957,7 @@ define hidden void @_ZN6Assimp13XFileImporter16ConvertMaterialsEP7aiSceneRSt6vec
   br i1 %78, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %79
 
 79:                                               ; preds = %75
-  %80 = trunc nuw i64 %77 to i32
+  %80 = trunc nuw nsw i64 %77 to i32
   store i32 %80, ptr %6, align 4
   %81 = load ptr, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %40, ptr align 1 %81, i64 %77, i1 false)
@@ -1536,7 +1536,7 @@ _ZNSt6vectorIP11aiAnimationSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vecto
   br i1 %56, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %57
 
 57:                                               ; preds = %_ZNSt6vectorIP11aiAnimationSaIS1_EE9push_backERKS1_.exit
-  %58 = trunc nuw i64 %55 to i32
+  %58 = trunc nuw nsw i64 %55 to i32
   store i32 %58, ptr %25, align 4
   %59 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %60 = load ptr, ptr %18, align 8
@@ -1604,7 +1604,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; 
   br i1 %87, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit157, label %88
 
 88:                                               ; preds = %81
-  %89 = trunc nuw i64 %86 to i32
+  %89 = trunc nuw nsw i64 %86 to i32
   store i32 %89, ptr %80, align 4
   %90 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %91 = load ptr, ptr %79, align 8
@@ -2840,7 +2840,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
 
 218:                                              ; preds = %.loopexit434
   %219 = getelementptr inbounds nuw i8, ptr %151, i64 236
-  %220 = trunc nuw i64 %216 to i32
+  %220 = trunc nuw nsw i64 %216 to i32
   store i32 %220, ptr %219, align 4
   %221 = getelementptr inbounds nuw i8, ptr %151, i64 240
   %222 = load ptr, ptr %27, align 8
@@ -3443,7 +3443,7 @@ _ZNSt6vectorIP6aiBoneSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6ai
   br i1 %497, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit237, label %498
 
 498:                                              ; preds = %_ZNSt6vectorIP6aiBoneSaIS1_EE9push_backERKS1_.exit
-  %499 = trunc nuw i64 %496 to i32
+  %499 = trunc nuw nsw i64 %496 to i32
   store i32 %499, ptr %467, align 4
   %500 = getelementptr inbounds nuw i8, ptr %467, i64 4
   %501 = load ptr, ptr %393, align 8

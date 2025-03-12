@@ -167,7 +167,7 @@ define hidden void @_ZN28CardTableBarrierSetAssembler11store_checkEP14MacroAssem
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %4
-  %32 = trunc i64 %28 to i32
+  %32 = trunc nsw i64 %28 to i32
   store i32 -1, ptr %6, align 8
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %33, align 4

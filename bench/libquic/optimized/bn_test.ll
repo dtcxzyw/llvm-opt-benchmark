@@ -7537,7 +7537,7 @@ define internal fastcc noundef zeroext i1 @_ZL18test_bn2bin_paddedP10bignum_ctx(
   br i1 %exitcond, label %.loopexit.thread, label %26
 
 26:                                               ; preds = %25
-  %.0.tr = trunc nuw i64 %.0 to i32
+  %.0.tr = trunc nuw nsw i64 %.0 to i32
   %27 = shl nuw nsw i32 %.0.tr, 3
   %28 = invoke i32 @BN_rand(ptr noundef nonnull %5, i32 noundef %27, i32 noundef 0, i32 noundef 0)
           to label %29 unwind label %.loopexit2

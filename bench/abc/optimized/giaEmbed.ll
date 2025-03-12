@@ -2728,7 +2728,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %124, label %125, label %130
 
 125:                                              ; preds = %123
-  %.lhs.trunc = trunc nuw i32 %.val136 to i8
+  %.lhs.trunc = trunc nuw nsw i32 %.val136 to i8
   %126 = udiv i8 %.lhs.trunc, 10
   %127 = zext nneg i8 %126 to i64
   %gep281 = getelementptr inbounds nuw i32, ptr %invariant.gep280, i64 %127
@@ -2742,7 +2742,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %131, label %132, label %137
 
 132:                                              ; preds = %130
-  %.lhs.trunc172 = trunc nuw i32 %.val136 to i16
+  %.lhs.trunc172 = trunc nuw nsw i32 %.val136 to i16
   %133 = udiv i16 %.lhs.trunc172, 100
   %134 = zext nneg i16 %133 to i64
   %gep279 = getelementptr inbounds nuw i32, ptr %invariant.gep278, i64 %134
@@ -2756,7 +2756,7 @@ Vec_IntStart.exit165:                             ; preds = %Vec_IntAlloc.exit.t
   br i1 %138, label %139, label %144
 
 139:                                              ; preds = %137
-  %.lhs.trunc174 = trunc nuw i32 %.val136 to i16
+  %.lhs.trunc174 = trunc nuw nsw i32 %.val136 to i16
   %140 = udiv i16 %.lhs.trunc174, 1000
   %141 = zext nneg i16 %140 to i64
   %gep277 = getelementptr inbounds nuw i32, ptr %invariant.gep276, i64 %141

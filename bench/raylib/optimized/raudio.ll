@@ -1214,7 +1214,7 @@ define hidden range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef captur
   %.046 = phi ptr [ %1, %9 ], [ %15, %11 ]
   %12 = urem i32 %.148, %3
   %13 = icmp samesign ugt i32 %12, 9
-  %14 = trunc nuw i32 %12 to i8
+  %14 = trunc nuw nsw i32 %12 to i8
   %storemerge.v = select i1 %13, i8 87, i8 48
   %storemerge = add nuw nsw i8 %storemerge.v, %14
   store i8 %storemerge, ptr %.046, align 1
@@ -36694,7 +36694,7 @@ ma_channel_map_get_channel.exit.us.us.i:          ; preds = %97, %94
   br i1 %or.cond.i58.i.us.us.us.i, label %116, label %ma_channel_map_get_channel.exit45.us.us.us.i
 
 116:                                              ; preds = %114
-  %117 = trunc nuw i32 %.03552.us.us.us.i to i8
+  %117 = trunc nuw nsw i32 %.03552.us.us.us.i to i8
   %118 = add nuw nsw i8 %117, 12
   br label %ma_channel_map_get_channel.exit45.us.us.us.i
 
@@ -42181,7 +42181,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i, label %22, label %ma_channel_map_init_standard_channel_alsa.exit
 
 22:                                               ; preds = %19
-  %23 = trunc nuw i32 %2 to i8
+  %23 = trunc nuw nsw i32 %2 to i8
   %24 = add nuw nsw i8 %23, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42224,7 +42224,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i25, label %38, label %ma_channel_map_init_standard_channel_alsa.exit
 
 38:                                               ; preds = %35
-  %39 = trunc nuw i32 %2 to i8
+  %39 = trunc nuw nsw i32 %2 to i8
   %40 = add nuw nsw i8 %39, 14
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42277,7 +42277,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i32, label %58, label %ma_channel_map_init_standard_channel_alsa.exit
 
 58:                                               ; preds = %55
-  %59 = trunc nuw i32 %2 to i8
+  %59 = trunc nuw nsw i32 %2 to i8
   %60 = add nuw nsw i8 %59, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42330,7 +42330,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i39, label %78, label %ma_channel_map_init_standard_channel_alsa.exit
 
 78:                                               ; preds = %75
-  %79 = trunc nuw i32 %2 to i8
+  %79 = trunc nuw nsw i32 %2 to i8
   %80 = add nuw nsw i8 %79, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42383,7 +42383,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i46, label %98, label %ma_channel_map_init_standard_channel_alsa.exit
 
 98:                                               ; preds = %95
-  %99 = trunc nuw i32 %2 to i8
+  %99 = trunc nuw nsw i32 %2 to i8
   %100 = add nuw nsw i8 %99, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42426,7 +42426,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i53, label %114, label %ma_channel_map_init_standard_channel_alsa.exit
 
 114:                                              ; preds = %111
-  %115 = trunc nuw i32 %2 to i8
+  %115 = trunc nuw nsw i32 %2 to i8
   %116 = add nuw nsw i8 %115, 14
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -42479,7 +42479,7 @@ define internal fastcc zeroext range(i8 0, 46) i8 @ma_channel_map_init_standard_
   br i1 %or.cond.i58, label %134, label %ma_channel_map_init_standard_channel_alsa.exit
 
 134:                                              ; preds = %131
-  %135 = trunc nuw i32 %2 to i8
+  %135 = trunc nuw nsw i32 %2 to i8
   %136 = add nuw nsw i8 %135, 12
   br label %ma_channel_map_init_standard_channel_alsa.exit
 
@@ -61235,12 +61235,12 @@ drwav_read_pcm_frames_s16__ieee.exit:             ; preds = %.preheader.split.us
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %213 = load i16, ptr %212, align 8
   %214 = zext i16 %213 to i32
-  %.lhs.trunc = trunc i32 %.0.i.i47 to i16
+  %.lhs.trunc = trunc nuw i32 %.0.i.i47 to i16
   %215 = udiv i16 %.lhs.trunc, %213
   %216 = urem i16 %.lhs.trunc, %213
   %217 = icmp samesign uge i32 %.0.i.i47, %214
   %.not.i51 = icmp eq i16 %216, 0
-  %or.cond131 = and i1 %217, %.not.i51
+  %or.cond131 = select i1 %217, i1 %.not.i51, i1 false
   br i1 %or.cond131, label %.preheader.i53, label %drwav_read_pcm_frames_s16__alaw.exit
 
 .preheader.i53:                                   ; preds = %211
@@ -61334,12 +61334,12 @@ drwav_read_pcm_frames_s16__alaw.exit:             ; preds = %221, %224, %.loopex
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %261 = load i16, ptr %260, align 8
   %262 = zext i16 %261 to i32
-  %.lhs.trunc81 = trunc i32 %.0.i.i57 to i16
+  %.lhs.trunc81 = trunc nuw i32 %.0.i.i57 to i16
   %263 = udiv i16 %.lhs.trunc81, %261
   %264 = urem i16 %.lhs.trunc81, %261
   %265 = icmp samesign uge i32 %.0.i.i57, %262
   %.not.i61 = icmp eq i16 %264, 0
-  %or.cond132 = and i1 %265, %.not.i61
+  %or.cond132 = select i1 %265, i1 %.not.i61, i1 false
   br i1 %or.cond132, label %.preheader.i63, label %drwav_read_pcm_frames_s16__mulaw.exit
 
 .preheader.i63:                                   ; preds = %259
@@ -62127,12 +62127,12 @@ drwav_read_pcm_frames_f32__ieee.exit:             ; preds = %.preheader.split.us
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %239 = load i16, ptr %238, align 8
   %240 = zext i16 %239 to i32
-  %.lhs.trunc = trunc i32 %.0.i.i48 to i16
+  %.lhs.trunc = trunc nuw i32 %.0.i.i48 to i16
   %241 = udiv i16 %.lhs.trunc, %239
   %242 = urem i16 %.lhs.trunc, %239
   %243 = icmp samesign uge i32 %.0.i.i48, %240
   %.not.i52 = icmp eq i16 %242, 0
-  %or.cond142 = and i1 %243, %.not.i52
+  %or.cond142 = select i1 %243, i1 %.not.i52, i1 false
   br i1 %or.cond142, label %.preheader.i54, label %drwav_read_pcm_frames_f32__alaw.exit
 
 .preheader.i54:                                   ; preds = %237
@@ -62229,12 +62229,12 @@ drwav_read_pcm_frames_f32__alaw.exit:             ; preds = %247, %250, %.loopex
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %289 = load i16, ptr %288, align 8
   %290 = zext i16 %289 to i32
-  %.lhs.trunc87 = trunc i32 %.0.i.i62 to i16
+  %.lhs.trunc87 = trunc nuw i32 %.0.i.i62 to i16
   %291 = udiv i16 %.lhs.trunc87, %289
   %292 = urem i16 %.lhs.trunc87, %289
   %293 = icmp samesign uge i32 %.0.i.i62, %290
   %.not.i66 = icmp eq i16 %292, 0
-  %or.cond143 = and i1 %293, %.not.i66
+  %or.cond143 = select i1 %293, i1 %.not.i66, i1 false
   br i1 %or.cond143, label %.preheader.i68, label %drwav_read_pcm_frames_f32__mulaw.exit
 
 .preheader.i68:                                   ; preds = %287
@@ -63035,12 +63035,12 @@ drwav_read_pcm_frames_s32__ieee.exit:             ; preds = %.preheader.split.us
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %234 = load i16, ptr %233, align 8
   %235 = zext i16 %234 to i32
-  %.lhs.trunc = trunc i32 %.0.i.i48 to i16
+  %.lhs.trunc = trunc nuw i32 %.0.i.i48 to i16
   %236 = udiv i16 %.lhs.trunc, %234
   %237 = urem i16 %.lhs.trunc, %234
   %238 = icmp samesign uge i32 %.0.i.i48, %235
   %.not.i52 = icmp eq i16 %237, 0
-  %or.cond142 = and i1 %238, %.not.i52
+  %or.cond142 = select i1 %238, i1 %.not.i52, i1 false
   br i1 %or.cond142, label %.preheader.i54, label %drwav_read_pcm_frames_s32__alaw.exit
 
 .preheader.i54:                                   ; preds = %232
@@ -63137,12 +63137,12 @@ drwav_read_pcm_frames_s32__alaw.exit:             ; preds = %242, %245, %.loopex
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %284 = load i16, ptr %283, align 8
   %285 = zext i16 %284 to i32
-  %.lhs.trunc87 = trunc i32 %.0.i.i62 to i16
+  %.lhs.trunc87 = trunc nuw i32 %.0.i.i62 to i16
   %286 = udiv i16 %.lhs.trunc87, %284
   %287 = urem i16 %.lhs.trunc87, %284
   %288 = icmp samesign uge i32 %.0.i.i62, %285
   %.not.i66 = icmp eq i16 %287, 0
-  %or.cond143 = and i1 %288, %.not.i66
+  %or.cond143 = select i1 %288, i1 %.not.i66, i1 false
   br i1 %or.cond143, label %.preheader.i68, label %drwav_read_pcm_frames_s32__mulaw.exit
 
 .preheader.i68:                                   ; preds = %282
@@ -76819,7 +76819,7 @@ drmp3_bs_get_bits.exit167.i:                      ; preds = %._crit_edge.i156.i,
   %541 = sub nuw nsw i32 8, %.018.lcssa.i171.i
   %542 = lshr i32 %.021.lcssa.i169.i, %541
   %543 = or i32 %542, %.020.lcssa.i170.i
-  %544 = trunc i32 %543 to i16
+  %544 = trunc nuw i32 %543 to i16
   br label %drmp3_bs_get_bits.exit179.i
 
 drmp3_bs_get_bits.exit179.i:                      ; preds = %._crit_edge.i168.i, %drmp3_bs_get_bits.exit167.i
@@ -79660,7 +79660,7 @@ drmp3_bs_get_bits.exit81.i:                       ; preds = %._crit_edge.i70.i, 
   %2052 = sub nuw nsw i32 8, %.018.lcssa.i.i.i
   %2053 = lshr i32 %.021.lcssa.i.i.i, %2052
   %2054 = or i32 %2053, %.020.lcssa.i.i.i
-  %2055 = trunc i32 %2054 to i16
+  %2055 = trunc nuw nsw i32 %2054 to i16
   br label %drmp3_bs_get_bits.exit.i.i
 
 drmp3_bs_get_bits.exit.i.i:                       ; preds = %._crit_edge.i.i.i, %2034
@@ -110014,7 +110014,7 @@ drwav__chunk_matches.exit261.thread:              ; preds = %481, %482, %.thread
 567:                                              ; preds = %564
   %568 = load ptr, ptr %446, align 8
   %569 = load ptr, ptr %437, align 8
-  %570 = trunc i64 %.1176 to i32
+  %570 = trunc nuw i64 %.1176 to i32
   %571 = sub i32 %471, %570
   %572 = call i32 %568(ptr noundef %569, i32 noundef %571, i32 noundef 1) #72
   %.not212.not = icmp eq i32 %572, 0

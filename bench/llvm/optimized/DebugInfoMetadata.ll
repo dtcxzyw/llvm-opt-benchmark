@@ -6857,7 +6857,7 @@ define dso_local noundef ptr @_ZN4llvm15DICompositeType12buildODRTypeERNS_11LLVM
 70:                                               ; preds = %64
   %71 = getelementptr inbounds nuw i8, ptr %34, i64 44
   store i32 %15, ptr %71, align 4, !tbaa !365
-  %72 = trunc i32 %2 to i16
+  %72 = trunc nuw i32 %2 to i16
   store i16 %72, ptr %61, align 2, !tbaa !50
   %73 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %5, ptr %73, align 8, !tbaa !258

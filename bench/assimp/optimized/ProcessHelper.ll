@@ -1471,7 +1471,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %._crit_edge290, %28
   store i32 %37, ptr %38, align 8
   %39 = load i32, ptr %0, align 8
   store i32 %39, ptr %4, align 8
-  %40 = trunc i64 %24 to i32
+  %40 = trunc nuw i64 %24 to i32
   store i32 %40, ptr %6, align 8
   %41 = trunc i64 %.0174.lcssa to i32
   store i32 %41, ptr %5, align 4

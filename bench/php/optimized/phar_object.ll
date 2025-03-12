@@ -1607,7 +1607,7 @@ thread-pre-split:                                 ; preds = %174, %201
   br i1 %switch214, label %311, label %313
 
 311:                                              ; preds = %309
-  %312 = trunc nuw i64 %310 to i32
+  %312 = trunc nuw nsw i64 %310 to i32
   br label %.thread225.thread
 
 313:                                              ; preds = %309
@@ -5224,7 +5224,7 @@ define hidden void @zim_Phar_convertToExecutable(ptr noundef readonly captures(n
   %103 = and i16 %101, -129
   store i16 %103, ptr %100, align 4
   %104 = load ptr, ptr %24, align 8, !tbaa !8
-  %105 = trunc i64 %54 to i32
+  %105 = trunc nuw nsw i64 %54 to i32
   %106 = load ptr, ptr %3, align 8, !tbaa !47
   %107 = call fastcc ptr @phar_convert_to_other(ptr noundef %104, i32 noundef %105, ptr noundef %106, i32 noundef %.0)
   %108 = load ptr, ptr %24, align 8, !tbaa !8
@@ -6348,7 +6348,7 @@ define hidden void @zim_Phar_convertToData(ptr noundef readonly captures(none) %
   %107 = or i16 %105, 128
   store i16 %107, ptr %104, align 4
   %108 = load ptr, ptr %24, align 8, !tbaa !8
-  %109 = trunc i64 %58 to i32
+  %109 = trunc nuw nsw i64 %58 to i32
   %110 = load ptr, ptr %3, align 8, !tbaa !47
   %111 = call fastcc ptr @phar_convert_to_other(ptr noundef %108, i32 noundef %109, ptr noundef %110, i32 noundef %.0)
   %112 = load ptr, ptr %24, align 8, !tbaa !8

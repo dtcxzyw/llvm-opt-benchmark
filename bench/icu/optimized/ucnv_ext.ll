@@ -464,7 +464,7 @@ define void @ucnv_extContinueMatchToU_77(ptr noundef %0, ptr noundef %1, i32 nou
   %47 = getelementptr inbounds nuw i8, ptr %23, i64 %46
   %48 = sext i32 %45 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %23, ptr nonnull align 1 %47, i64 %48, i1 false)
-  %49 = trunc i32 %45 to i8
+  %49 = trunc nsw i32 %45 to i8
   %50 = sub nsw i8 0, %49
   br label %51
 
@@ -1092,7 +1092,7 @@ define void @ucnv_extContinueMatchFromU_77(ptr noundef %0, ptr noundef %1, i32 n
   %40 = zext nneg i32 %33 to i64
   %41 = getelementptr inbounds nuw i16, ptr %13, i64 %40
   %42 = tail call ptr @u_memmove_77(ptr noundef nonnull %13, ptr noundef nonnull %41, i32 noundef %39)
-  %43 = trunc i32 %39 to i8
+  %43 = trunc nsw i32 %39 to i8
   %44 = sub nsw i8 0, %43
   %.pre = load ptr, ptr %7, align 8, !tbaa !7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 288

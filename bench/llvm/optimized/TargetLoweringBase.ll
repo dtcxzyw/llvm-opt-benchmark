@@ -5821,7 +5821,7 @@ define dso_local void @_ZN4llvm18TargetLoweringBase25computeRegisterPropertiesEP
   br i1 %22, label %.lr.ph, label %.preheader305
 
 .lr.ph:                                           ; preds = %.preheader306
-  %23 = trunc i32 %.094 to i16
+  %23 = trunc nsw i32 %.094 to i16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 400552
   %25 = zext i32 %indvars.iv336 to i64
   br label %29

@@ -1706,7 +1706,7 @@ lpStringToInt64.exit.i.thread:                    ; preds = %.thread87.i.i, %72,
   %104 = and i64 %103, 8192
   %spec.select.i = add nsw i64 %104, %.sink.i.i
   %105 = lshr i64 %spec.select.i, 8
-  %106 = trunc i64 %105 to i8
+  %106 = trunc nuw nsw i64 %105 to i8
   %107 = or i8 %106, -64
   store i8 %107, ptr %8, align 1, !tbaa !5
   %108 = trunc i64 %.sink.i.i to i8
@@ -2131,7 +2131,7 @@ lpEncodeBacklen.exit._crit_edge:                  ; preds = %lpEncodeBacklen.exi
   br i1 %311, label %312, label %315
 
 312:                                              ; preds = %310
-  %313 = trunc nuw i32 %3 to i8
+  %313 = trunc nuw nsw i32 %3 to i8
   %314 = or disjoint i8 %313, -128
   store i8 %314, ptr %.1116, align 1, !tbaa !5
   br label %lpEncodeString.exit
@@ -2142,7 +2142,7 @@ lpEncodeBacklen.exit._crit_edge:                  ; preds = %lpEncodeBacklen.exi
 
 317:                                              ; preds = %315
   %318 = lshr i32 %3, 8
-  %319 = trunc nuw i32 %318 to i8
+  %319 = trunc nuw nsw i32 %318 to i8
   %320 = or disjoint i8 %319, -32
   store i8 %320, ptr %.1116, align 1, !tbaa !5
   %321 = trunc i32 %3 to i8
@@ -2216,7 +2216,7 @@ lpEncodeString.exit:                              ; preds = %312, %317, %323
   %358 = trunc i32 %357 to i8
   store i8 %358, ptr %349, align 1, !tbaa !5
   %359 = lshr i32 %357, 8
-  %360 = trunc i32 %359 to i8
+  %360 = trunc nuw i32 %359 to i8
   store i8 %360, ptr %352, align 1, !tbaa !5
   br label %366
 
@@ -2547,7 +2547,7 @@ lpStringToInt64.exit.i.thread:                    ; preds = %.thread87.i.i, %101
   %133 = and i64 %132, 8192
   %spec.select.i154 = add nsw i64 %133, %.sink.i.i
   %134 = lshr i64 %spec.select.i154, 8
-  %135 = trunc i64 %134 to i8
+  %135 = trunc nuw nsw i64 %134 to i8
   %136 = or i8 %135, -64
   store i8 %136, ptr %94, align 1, !tbaa !5
   %137 = trunc i64 %.sink.i.i to i8
@@ -2685,7 +2685,7 @@ lpStringToInt64.exit.i.thread:                    ; preds = %.thread87.i.i, %101
   %207 = and i64 %206, 8192
   %spec.select.i = add nsw i64 %207, %198
   %208 = lshr i64 %spec.select.i, 8
-  %209 = trunc i64 %208 to i8
+  %209 = trunc nuw nsw i64 %208 to i8
   %210 = or i8 %209, -64
   store i8 %210, ptr %199, align 1, !tbaa !5
   %211 = trunc i64 %198 to i8
@@ -2966,7 +2966,7 @@ lpEncodeBacklen.exit:                             ; preds = %262, %270, %278, %2
   br i1 %365, label %366, label %369
 
 366:                                              ; preds = %361
-  %367 = trunc nuw i32 %364 to i8
+  %367 = trunc nuw nsw i32 %364 to i8
   %368 = or disjoint i8 %367, -128
   store i8 %368, ptr %.1129161, align 1, !tbaa !5
   br label %lpEncodeString.exit
@@ -2977,7 +2977,7 @@ lpEncodeBacklen.exit:                             ; preds = %262, %270, %278, %2
 
 371:                                              ; preds = %369
   %372 = lshr i32 %364, 8
-  %373 = trunc nuw i32 %372 to i8
+  %373 = trunc nuw nsw i32 %372 to i8
   %374 = or disjoint i8 %373, -32
   store i8 %374, ptr %.1129161, align 1, !tbaa !5
   %375 = trunc i32 %364 to i8
@@ -3106,7 +3106,7 @@ define dso_local ptr @lpInsertInteger(ptr noundef %0, i64 noundef %1, ptr nounde
   %13 = and i64 %12, 8192
   %spec.select.i = add nsw i64 %13, %1
   %14 = lshr i64 %spec.select.i, 8
-  %15 = trunc i64 %14 to i8
+  %15 = trunc nuw nsw i64 %14 to i8
   %16 = or i8 %15, -64
   store i8 %16, ptr %6, align 1, !tbaa !5
   %17 = trunc i64 %1 to i8

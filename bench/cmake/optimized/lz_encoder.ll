@@ -71,7 +71,7 @@ define internal fastcc noundef zeroext i1 @lz_encoder_prepare(ptr noundef nonnul
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %21, ptr %22, align 8, !tbaa !22
   %23 = lshr i64 %5, 1
-  %24 = trunc nuw i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = add i64 %20, %14
   %26 = lshr i64 %25, 1
   %27 = trunc i64 %26 to i32

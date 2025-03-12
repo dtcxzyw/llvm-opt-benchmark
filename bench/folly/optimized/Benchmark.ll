@@ -22729,7 +22729,7 @@ _ZN5boost16re_detail_10740028hash_value_from_capture_nameIPKcEEiT_S4_.exit: ; pr
   br i1 %865, label %._crit_edge315, label %.thread259
 
 ._crit_edge315:                                   ; preds = %863
-  %.pre316 = trunc nuw i64 %.167 to i32
+  %.pre316 = trunc nuw nsw i64 %.167 to i32
   br label %879
 
 866:                                              ; preds = %857

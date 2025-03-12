@@ -8280,7 +8280,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %82, label %83, label %.critedge42.i
 
 83:                                               ; preds = %78
-  %84 = trunc i64 %indvars.iv.i to i32
+  %84 = trunc nuw i64 %indvars.iv.i to i32
   %85 = add i32 %84, 1
   %.sroa.01.0.insert.ext.i = and i32 %85, 65535
   store i32 %.sroa.01.0.insert.ext.i, ptr %52, align 2
@@ -8639,7 +8639,7 @@ select.unfold:                                    ; preds = %62, %59
 
 82:                                               ; preds = %77
   store i32 %23, ptr %15, align 2
-  %83 = trunc nuw i32 %80 to i16
+  %83 = trunc nuw nsw i32 %80 to i16
   store i16 %83, ptr %16, align 2, !tbaa !480
   br label %.critedge81
 
@@ -9881,7 +9881,7 @@ _ZNSt6vectorIjSaIjEEC2ERKS1_.exit12:              ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %81, label %82, label %.critedge42.i
 
 82:                                               ; preds = %77
-  %83 = trunc i64 %indvars.iv.i to i32
+  %83 = trunc nuw i64 %indvars.iv.i to i32
   %84 = add i32 %83, 1
   %.sroa.01.0.insert.ext.i = and i32 %84, 65535
   store i32 %.sroa.01.0.insert.ext.i, ptr %51, align 2

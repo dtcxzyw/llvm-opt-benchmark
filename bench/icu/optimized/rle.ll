@@ -171,7 +171,7 @@ define dso_local i32 @usArrayToRLEString(ptr noundef readonly captures(none) %0,
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %64
-  %67 = trunc i32 %.041.i to i16
+  %67 = trunc nuw i32 %.041.i to i16
   %68 = getelementptr inbounds nuw i8, ptr %.7.i, i64 2
   store i16 %67, ptr %.7.i, align 2, !tbaa !4
   br label %70
@@ -329,7 +329,7 @@ encodeRunShort.exit:                              ; preds = %43, %37, %74, %72, 
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %114
-  %117 = trunc i32 %.041.i46 to i16
+  %117 = trunc nuw i32 %.041.i46 to i16
   %118 = getelementptr inbounds nuw i8, ptr %.7.i48, i64 2
   store i16 %117, ptr %.7.i48, align 2, !tbaa !4
   br label %120

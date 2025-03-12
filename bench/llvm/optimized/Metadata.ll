@@ -10421,7 +10421,7 @@ _ZN4llvm15SmallVectorImplINS_9MDOperandEE7reserveEm.exit.i.i: ; preds = %26, %21
 _ZN4llvm6MDNode6Header8operandsEv.exit.i:         ; preds = %32
   %35 = sub nsw i64 0, %34
   %36 = getelementptr inbounds %"class.llvm::MDOperand", ptr %0, i64 %35
-  %37 = trunc i64 %1 to i32
+  %37 = trunc nuw nsw i64 %1 to i32
   %38 = trunc nuw nsw i64 %6 to i32
   %39 = sub nsw i32 %37, %38
   %40 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %36, i64 %6
@@ -18691,8 +18691,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %.thread, %22
   br i1 %28, label %29, label %.loopexit.sink.split
 
 29:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %30 = trunc i64 %2 to i32
-  %.not2141 = icmp eq i32 %30, 1
+  %30 = trunc nuw i64 %2 to i32
+  %.not2141 = icmp eq i64 %2, 1
   br i1 %.not2141, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29

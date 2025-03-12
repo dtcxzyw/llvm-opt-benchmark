@@ -3852,7 +3852,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE17
   %.pn181 = phi ptr [ %167, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i88.i ], [ %152, %153 ]
   %.sroa.0148.5 = phi ptr [ %166, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdGeomXformOp4TypeESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i88.i ], [ %.sroa.0148.2, %153 ]
   %.sroa.14.0 = getelementptr inbounds nuw i8, ptr %.pn181, i64 4
-  %172 = trunc nsw i64 %.2.i to i32
+  %172 = trunc nuw nsw i64 %.2.i to i32
   %173 = ptrtoint ptr %.sroa.14.0 to i64
   %174 = ptrtoint ptr %.sroa.0148.5 to i64
   %175 = sub i64 %173, %174

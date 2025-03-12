@@ -2174,7 +2174,7 @@ _ZL20setDoesNotFreeMemoryRN4llvm8FunctionE.exit1076: ; preds = %1397, %1399
 
 1402:                                             ; preds = %_ZL20setDoesNotFreeMemoryRN4llvm8FunctionE.exit1076, %1395, %1392
   %.10 = phi i8 [ %.9, %1392 ], [ %.9, %1395 ], [ %1401, %_ZL20setDoesNotFreeMemoryRN4llvm8FunctionE.exit1076 ]
-  %1403 = trunc i8 %.10 to i1
+  %1403 = trunc nuw i8 %.10 to i1
   br label %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread
 
 _ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit.thread: ; preds = %6, %1334, %1402, %2, %_ZNK4llvm17TargetLibraryInfo3hasENS_7LibFuncE.exit

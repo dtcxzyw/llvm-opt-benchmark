@@ -9255,7 +9255,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv15DefaultConcatBBINS
   br i1 %21, label %.lr.ph, label %.critedge42
 
 .lr.ph:                                           ; preds = %3
-  %22 = trunc nsw i64 %20 to i32
+  %22 = trunc nuw nsw i64 %20 to i32
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8

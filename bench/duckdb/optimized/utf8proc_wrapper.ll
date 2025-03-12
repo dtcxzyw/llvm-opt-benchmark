@@ -1149,7 +1149,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
 9:                                                ; preds = %7
   store i32 2, ptr %1, align 4, !tbaa !15
   %10 = lshr i32 %0, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %2, align 1, !tbaa !3
   %13 = trunc i32 %0 to i8
@@ -1175,7 +1175,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
 22:                                               ; preds = %20
   store i32 3, ptr %1, align 4, !tbaa !15
   %23 = lshr i32 %0, 12
-  %24 = trunc nuw i32 %23 to i8
+  %24 = trunc nuw nsw i32 %23 to i8
   %25 = or disjoint i8 %24, -32
   store i8 %25, ptr %2, align 1, !tbaa !3
   %26 = lshr i32 %0, 6
@@ -1198,7 +1198,7 @@ define noundef zeroext i1 @_ZN6duckdb8Utf8Proc15CodepointToUtf8EiRiPc(i32 nounde
 37:                                               ; preds = %35
   store i32 4, ptr %1, align 4, !tbaa !15
   %38 = lshr i32 %0, 18
-  %39 = trunc nuw i32 %38 to i8
+  %39 = trunc nuw nsw i32 %38 to i8
   %40 = or disjoint i8 %39, -16
   store i8 %40, ptr %2, align 1, !tbaa !3
   %41 = lshr i32 %0, 12

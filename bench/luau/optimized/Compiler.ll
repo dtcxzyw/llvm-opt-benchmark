@@ -13586,7 +13586,7 @@ _ZN4Luau8Compiler15compileExprTempEPNS_7AstExprEh.exit: ; preds = %527
 .lr.ph434:                                        ; preds = %.preheader, %561
   %.0433 = phi i64 [ %562, %561 ], [ 0, %.preheader ]
   %557 = load ptr, ptr %0, align 8, !tbaa !234
-  %558 = trunc i64 %.0433 to i8
+  %558 = trunc nuw i64 %.0433 to i8
   %559 = add i8 %2, %558
   %560 = add i8 %109, %558
   invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %557, i32 noundef 6, i8 noundef zeroext %559, i8 noundef zeroext %560, i8 noundef zeroext 0)
@@ -18809,7 +18809,7 @@ tailrecurse.backedge:                             ; preds = %224, %_ZN4Luau12Den
   br i1 %87, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = trunc nuw i32 %82 to i16
+  %90 = trunc nuw nsw i32 %82 to i16
   tail call void @_ZN4Luau15BytecodeBuilder6emitADE10LuauOpcodehs(ptr noundef nonnull align 8 dereferenceable(840) %88, i32 noundef 5, i8 noundef zeroext %2, i16 noundef signext %90)
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit
 
@@ -18846,7 +18846,7 @@ tailrecurse.backedge:                             ; preds = %224, %_ZN4Luau12Den
   br i1 %104, label %106, label %108
 
 106:                                              ; preds = %103
-  %107 = trunc nuw i32 %99 to i16
+  %107 = trunc nuw nsw i32 %99 to i16
   tail call void @_ZN4Luau15BytecodeBuilder6emitADE10LuauOpcodehs(ptr noundef nonnull align 8 dereferenceable(840) %105, i32 noundef 5, i8 noundef zeroext %2, i16 noundef signext %107)
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit
 
@@ -19190,7 +19190,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler19compileExprConstantEPNS_7
   br i1 %34, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = trunc nuw i32 %29 to i16
+  %37 = trunc nuw nsw i32 %29 to i16
   tail call void @_ZN4Luau15BytecodeBuilder6emitADE10LuauOpcodehs(ptr noundef nonnull align 8 dereferenceable(840) %35, i32 noundef 5, i8 noundef zeroext %3, i16 noundef signext %37)
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit
 
@@ -19248,7 +19248,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler19compileExprConstantEPNS_7
   br i1 %69, label %71, label %73
 
 71:                                               ; preds = %68
-  %72 = trunc nuw i32 %64 to i16
+  %72 = trunc nuw nsw i32 %64 to i16
   tail call void @_ZN4Luau15BytecodeBuilder6emitADE10LuauOpcodehs(ptr noundef nonnull align 8 dereferenceable(840) %70, i32 noundef 5, i8 noundef zeroext %3, i16 noundef signext %72)
   br label %_ZN4Luau8Compiler9emitLoadKEhi.exit
 
@@ -22495,7 +22495,7 @@ _ZNSt6vectorISt10unique_ptrIA_cSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS
   br i1 %139, label %141, label %143
 
 141:                                              ; preds = %134
-  %142 = trunc nuw i32 %112 to i16
+  %142 = trunc nuw nsw i32 %112 to i16
   invoke void @_ZN4Luau15BytecodeBuilder6emitADE10LuauOpcodehs(ptr noundef nonnull align 8 dereferenceable(840) %140, i32 noundef 5, i8 noundef zeroext %138, i16 noundef signext %142)
           to label %_ZN4Luau8Compiler9emitLoadKEhi.exit unwind label %149
 
@@ -25571,7 +25571,7 @@ _ZN4Luau8Compiler18compileExprVarargsEPNS_14AstExprVarargsEhhb.exit: ; preds = %
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %.024 = phi i64 [ %31, %.lr.ph ], [ 1, %25 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !234
-  %29 = trunc i64 %.024 to i8
+  %29 = trunc nuw i64 %.024 to i8
   %30 = add i8 %2, %29
   tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %28, i32 noundef 2, i8 noundef zeroext %30, i8 noundef zeroext 0, i8 noundef zeroext 0)
   %31 = add nuw nsw i64 %.024, 1
@@ -26035,7 +26035,7 @@ _ZN4Luau8Compiler18compileExprTempTopEPNS_7AstExprEh.exit: ; preds = %_ZN4Luau8C
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.037 = phi i64 [ %95, %.lr.ph ], [ 0, %.preheader ]
   %91 = load ptr, ptr %0, align 8, !tbaa !234
-  %92 = trunc i64 %.037 to i8
+  %92 = trunc nuw i64 %.037 to i8
   %93 = add i8 %2, %92
   %94 = add i8 %6, %92
   tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %91, i32 noundef 6, i8 noundef zeroext %93, i8 noundef zeroext %94, i8 noundef zeroext 0)
@@ -26439,7 +26439,7 @@ _ZN4Luau8Compiler9emitLoadKEhi.exit:              ; preds = %188, %186, %191, %1
 .lr.ph96:                                         ; preds = %.preheader, %.lr.ph96
   %.095 = phi i64 [ %211, %.lr.ph96 ], [ 0, %.preheader ]
   %207 = load ptr, ptr %0, align 8, !tbaa !234
-  %208 = trunc i64 %.095 to i8
+  %208 = trunc nuw i64 %.095 to i8
   %209 = add i8 %2, %208
   %210 = add i8 %6, %208
   tail call void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %207, i32 noundef 6, i8 noundef zeroext %209, i8 noundef zeroext %210, i8 noundef zeroext 0)
@@ -27885,7 +27885,7 @@ _ZN4Luau12DenseHashMapIPNS_8AstLocalENS_8Compiler5LocalENS_16DenseHashPointerESt
 .lr.ph751:                                        ; preds = %.preheader, %557
   %.0126750 = phi i64 [ %558, %557 ], [ 0, %.preheader ]
   %554 = load ptr, ptr %0, align 8, !tbaa !234
-  %555 = trunc i64 %.0126750 to i8
+  %555 = trunc nuw i64 %.0126750 to i8
   %556 = add i8 %3, %555
   invoke void @_ZN4Luau15BytecodeBuilder7emitABCE10LuauOpcodehhh(ptr noundef nonnull align 8 dereferenceable(840) %554, i32 noundef 2, i8 noundef zeroext %556, i8 noundef zeroext 0, i8 noundef zeroext 0)
           to label %557 unwind label %559

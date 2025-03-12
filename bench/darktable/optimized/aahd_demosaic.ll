@@ -191,7 +191,7 @@ define void @_ZN4AAHDC2ER6LibRaw(ptr noundef nonnull align 8 captures(none) dere
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #11
   %87 = trunc nuw nsw i64 %indvars.iv119 to i32
   %88 = lshr i32 %87, 1
-  %indvars.iv119.tr = trunc i64 %indvars.iv119 to i32
+  %indvars.iv119.tr = trunc nuw nsw i64 %indvars.iv119 to i32
   %89 = shl nuw nsw i32 %indvars.iv119.tr, 1
   %90 = and i32 %89, 14
   %91 = getelementptr inbounds nuw i8, ptr %.pre125, i64 544

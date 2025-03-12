@@ -1166,7 +1166,7 @@ define dso_local void @drm_dp_dump_sideband_msg_req_body(ptr noundef %0, i32 nou
   %97 = zext i8 %96 to i32
   %98 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %99 = load ptr, ptr %98, align 8
-  %100 = trunc i64 %85 to i32
+  %100 = trunc nuw nsw i64 %85 to i32
   tail call void (ptr, ptr, ...) @drm_printf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %79, ptr noundef nonnull @.str.2, i32 noundef %100, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %97, i32 noundef %91, ptr noundef %99) #21
   %101 = add nuw nsw i64 %85, 1
   %102 = load i8, ptr %67, align 8
@@ -9875,7 +9875,7 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
 
 189:                                              ; preds = %176, %174
   %190 = getelementptr inbounds nuw i8, ptr %7, i64 304
-  %191 = trunc i32 %13 to i8
+  %191 = trunc nuw nsw i32 %13 to i8
   %192 = sub nsw i8 %191, %140
   %193 = call i8 @llvm.umin.i8(i8 %128, i8 %192)
   %194 = zext nneg i8 %140 to i64
@@ -10445,7 +10445,7 @@ define internal fastcc i32 @drm_dp_send_link_address(ptr noundef %0, ptr noundef
   %107 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
-  %110 = trunc i64 %75 to i32
+  %110 = trunc nuw nsw i64 %75 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %83, i32 noundef 2, ptr noundef nonnull @.str.190, i32 noundef %110, i32 noundef %85, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %97, i32 noundef %100, i32 noundef %103, i32 noundef %106, i32 noundef %109) #21
   %111 = add nuw nsw i64 %75, 1
   %112 = load i8, ptr %67, align 4

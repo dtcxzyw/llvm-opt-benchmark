@@ -537,7 +537,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br label %.thread117
 
 86:                                               ; preds = %75
-  %87 = trunc nuw i64 %60 to i32
+  %87 = trunc nuw nsw i64 %60 to i32
   switch i32 %87, label %219 [
     i32 1, label %88
     i32 2, label %91
@@ -635,7 +635,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br label %.thread117
 
 131:                                              ; preds = %119
-  %132 = trunc nuw i64 %70 to i32
+  %132 = trunc nuw nsw i64 %70 to i32
   store i32 %132, ptr %34, align 4
   br label %40
 
@@ -671,7 +671,7 @@ define dso_local i32 @i915_perf_open_ioctl(ptr noundef %0, ptr noundef readonly 
   br i1 %152, label %153, label %.thread
 
 153:                                              ; preds = %143
-  %.rhs.trunc = trunc nuw i64 %151 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %151 to i32
   %154 = udiv i32 1000000000, %.rhs.trunc
   %155 = load i32, ptr @i915_oa_max_sample_rate, align 4
   %156 = icmp ugt i32 %154, %155

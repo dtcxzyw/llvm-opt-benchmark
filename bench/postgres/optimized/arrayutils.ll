@@ -98,8 +98,8 @@ define dso_local range(i32 -1, 134217728) i32 @ArrayGetNItemsSafe(i32 noundef %0
   br i1 %17, label %.thread.sink.split, label %.thread
 
 18:                                               ; preds = %5
-  %19 = trunc i64 %14 to i32
-  %20 = icmp ugt i32 %19, 134217727
+  %19 = trunc nuw nsw i64 %14 to i32
+  %20 = icmp ugt i64 %14, 134217727
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %18

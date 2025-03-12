@@ -538,7 +538,7 @@ define hidden noundef zeroext i1 @pcapng_write_section_header_block(ptr noundef 
   br i1 %or.cond.i, label %29, label %pcapng_count_string_option.exit
 
 29:                                               ; preds = %26
-  %30 = trunc nuw i64 %27 to i32
+  %30 = trunc nuw nsw i64 %27 to i32
   %31 = add nuw nsw i32 %30, 3
   %32 = and i32 %31, 65532
   %33 = add nuw nsw i32 %32, 4
@@ -563,7 +563,7 @@ pcapng_count_string_option.exit:                  ; preds = %23, %26, %29
   br i1 %or.cond.i62, label %38, label %pcapng_count_string_option.exit64
 
 38:                                               ; preds = %35
-  %39 = trunc nuw i64 %36 to i32
+  %39 = trunc nuw nsw i64 %36 to i32
   %40 = add nuw nsw i32 %39, 3
   %41 = and i32 %40, 65532
   %42 = add nuw nsw i32 %41, 4
@@ -582,7 +582,7 @@ pcapng_count_string_option.exit64:                ; preds = %.loopexit, %35, %38
   br i1 %or.cond.i66, label %47, label %pcapng_count_string_option.exit68
 
 47:                                               ; preds = %44
-  %48 = trunc nuw i64 %45 to i32
+  %48 = trunc nuw nsw i64 %45 to i32
   %49 = add nuw nsw i32 %48, 3
   %50 = and i32 %49, 65532
   %51 = add nuw nsw i32 %50, 4
@@ -601,7 +601,7 @@ pcapng_count_string_option.exit68:                ; preds = %pcapng_count_string
   br i1 %or.cond.i70, label %56, label %pcapng_count_string_option.exit72
 
 56:                                               ; preds = %53
-  %57 = trunc nuw i64 %54 to i32
+  %57 = trunc nuw nsw i64 %54 to i32
   %58 = add nuw nsw i32 %57, 3
   %59 = and i32 %58, 65532
   %60 = add nuw nsw i32 %59, 4
@@ -919,7 +919,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_description_block(ptr n
   br i1 %or.cond.i, label %29, label %pcapng_count_string_option.exit
 
 29:                                               ; preds = %26
-  %30 = trunc nuw i64 %27 to i32
+  %30 = trunc nuw nsw i64 %27 to i32
   %31 = add nuw nsw i32 %30, 3
   %32 = and i32 %31, 65532
   %33 = add nuw nsw i32 %32, 4
@@ -937,7 +937,7 @@ pcapng_count_string_option.exit:                  ; preds = %13, %26, %29
   br i1 %or.cond.i107, label %37, label %pcapng_count_string_option.exit109
 
 37:                                               ; preds = %34
-  %38 = trunc nuw i64 %35 to i32
+  %38 = trunc nuw nsw i64 %35 to i32
   %39 = add nuw nsw i32 %38, 3
   %40 = and i32 %39, 65532
   %41 = add nuw nsw i32 %40, 4
@@ -956,7 +956,7 @@ pcapng_count_string_option.exit109:               ; preds = %pcapng_count_string
   br i1 %or.cond.i111, label %46, label %pcapng_count_string_option.exit113
 
 46:                                               ; preds = %43
-  %47 = trunc nuw i64 %44 to i32
+  %47 = trunc nuw nsw i64 %44 to i32
   %48 = add nuw nsw i32 %47, 3
   %49 = and i32 %48, 65532
   %50 = add nuw nsw i32 %49, 4
@@ -981,7 +981,7 @@ pcapng_count_string_option.exit113:               ; preds = %pcapng_count_string
   br i1 %or.cond, label %57, label %63
 
 57:                                               ; preds = %54
-  %58 = trunc nuw i64 %55 to i32
+  %58 = trunc nuw nsw i64 %55 to i32
   %59 = add nuw nsw i32 %58, 4
   %60 = and i32 %59, 65532
   %61 = add nuw nsw i32 %.1, 4
@@ -1000,7 +1000,7 @@ pcapng_count_string_option.exit113:               ; preds = %pcapng_count_string
   br i1 %or.cond.i115, label %67, label %pcapng_count_string_option.exit117
 
 67:                                               ; preds = %64
-  %68 = trunc nuw i64 %65 to i32
+  %68 = trunc nuw nsw i64 %65 to i32
   %69 = add nuw nsw i32 %68, 3
   %70 = and i32 %69, 65532
   %71 = add nuw nsw i32 %70, 4
@@ -1019,7 +1019,7 @@ pcapng_count_string_option.exit117:               ; preds = %63, %64, %67
   br i1 %or.cond.i119, label %76, label %pcapng_count_string_option.exit121
 
 76:                                               ; preds = %73
-  %77 = trunc nuw i64 %74 to i32
+  %77 = trunc nuw nsw i64 %74 to i32
   %78 = add nuw nsw i32 %77, 3
   %79 = and i32 %78, 65532
   %80 = add nuw nsw i32 %79, 4
@@ -1306,7 +1306,7 @@ define hidden noundef zeroext i1 @pcapng_write_enhanced_packet_block(ptr noundef
   br i1 %or.cond.i, label %27, label %pcapng_count_string_option.exit
 
 27:                                               ; preds = %24
-  %28 = trunc nuw i64 %25 to i32
+  %28 = trunc nuw nsw i64 %25 to i32
   %29 = add nuw nsw i32 %28, 3
   %30 = and i32 %29, 65532
   %31 = add nuw nsw i32 %30, 4
@@ -1508,7 +1508,7 @@ define hidden noundef zeroext i1 @pcapng_write_interface_statistics_block(ptr no
   br i1 %or.cond.i, label %34, label %pcapng_count_string_option.exit
 
 34:                                               ; preds = %31
-  %35 = trunc nuw i64 %32 to i32
+  %35 = trunc nuw nsw i64 %32 to i32
   %36 = add nuw nsw i32 %35, 3
   %37 = and i32 %36, 65532
   %38 = add nuw nsw i32 %37, 4

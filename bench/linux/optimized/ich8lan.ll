@@ -7666,7 +7666,7 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
 
 35:                                               ; preds = %.critedge, %29
   %36 = phi i64 [ 0, %29 ], [ %33, %.critedge ]
-  %37 = trunc i64 %36 to i32
+  %37 = trunc nuw nsw i64 %36 to i32
   %38 = add i32 %31, %37
   %39 = call fastcc i32 @e1000_read_flash_dword_ich8lan(ptr noundef %0, i32 noundef %38, ptr noundef nonnull %3)
   %40 = getelementptr [2048 x %struct.e1000_shadow_ram], ptr %32, i64 0, i64 %36

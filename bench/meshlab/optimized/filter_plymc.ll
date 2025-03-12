@@ -13548,7 +13548,7 @@ _ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread.i: ; preds = %_ZN3vcg4face8IsB
 _ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.i:        ; preds = %212, %253
   %.sroa.032.0.i = phi ptr [ %241, %253 ], [ %19, %212 ]
   %.sroa.6.0.i = phi i32 [ %254, %253 ], [ %213, %212 ]
-  %222 = trunc i32 %.sroa.6.0.i to i16
+  %222 = trunc nsw i32 %.sroa.6.0.i to i16
   %.lhs.trunc47.i = add nsw i16 %222, 1
   %223 = srem i16 %.lhs.trunc47.i, 3
   %224 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.i, i64 8
@@ -14436,7 +14436,7 @@ _ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.thread.i: ; preds = %_ZN3vcg4face8IsB
 _ZNK3vcg4face3PosI6CFaceOEneERKS3_.exit.i:        ; preds = %398, %438
   %.sroa.032.0.i = phi ptr [ %426, %438 ], [ %.sroa.0117.0145, %398 ]
   %.sroa.6.0.i = phi i32 [ %439, %438 ], [ %276, %398 ]
-  %407 = trunc i32 %.sroa.6.0.i to i16
+  %407 = trunc nsw i32 %.sroa.6.0.i to i16
   %.lhs.trunc47.i = add nsw i16 %407, 1
   %408 = srem i16 %.lhs.trunc47.i, 3
   %409 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.i, i64 8
@@ -32270,7 +32270,7 @@ _ZN3vcg4face8IsBorderINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCF
 _ZNK3vcg4face3PosINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCFaceEEneERKS9_.exit.i: ; preds = %194, %235
   %.sroa.032.0.i = phi ptr [ %223, %235 ], [ %19, %194 ]
   %.sroa.6.0.i = phi i32 [ %236, %235 ], [ %195, %194 ]
-  %204 = trunc i32 %.sroa.6.0.i to i16
+  %204 = trunc nsw i32 %.sroa.6.0.i to i16
   %.lhs.trunc47.i = add nsw i16 %204, 1
   %205 = srem i16 %.lhs.trunc47.i, 3
   %206 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.i, i64 8
@@ -33136,7 +33136,7 @@ _ZN3vcg4face8IsBorderINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCF
 _ZNK3vcg4face3PosINS_3tri5PlyMCINS_5SMeshENS_18SimpleMeshProviderIS4_EEE6MCFaceEEneERKS9_.exit.i: ; preds = %382, %422
   %.sroa.032.0.i = phi ptr [ %410, %422 ], [ %.sroa.0117.0145, %382 ]
   %.sroa.6.0.i = phi i32 [ %423, %422 ], [ %264, %382 ]
-  %391 = trunc i32 %.sroa.6.0.i to i16
+  %391 = trunc nsw i32 %.sroa.6.0.i to i16
   %.lhs.trunc47.i = add nsw i16 %391, 1
   %392 = srem i16 %.lhs.trunc47.i, 3
   %393 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.i, i64 8
@@ -98472,7 +98472,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit:      ; preds = %17, %2, %7, %11, %1
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 57:                                               ; preds = %._crit_edge.i
-  %58 = trunc nuw i32 %.0.lcssa.i to i8
+  %58 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

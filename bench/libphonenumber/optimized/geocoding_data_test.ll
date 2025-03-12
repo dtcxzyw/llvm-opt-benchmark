@@ -9108,7 +9108,7 @@ _ZN4absl7debian218container_internal10btree_nodeINS1_10set_paramsIiSt4lessIiESaI
   %88 = load ptr, ptr %87, align 8, !tbaa !93
   %89 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv33
   store ptr %88, ptr %89, align 8, !tbaa !93
-  %90 = trunc i64 %indvars.iv33 to i8
+  %90 = trunc nuw i64 %indvars.iv33 to i8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i8 %90, ptr %91, align 1, !tbaa !41
   store ptr %2, ptr %88, align 8, !tbaa !93

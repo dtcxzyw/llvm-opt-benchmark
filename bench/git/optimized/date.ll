@@ -1920,7 +1920,7 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br i1 %351, label %.else82, label %match_digit.exit
 
 .then81:                                          ; preds = %.cont83
-  %.lhs.trunc.i = trunc nuw i64 %239 to i16
+  %.lhs.trunc.i = trunc nuw nsw i64 %239 to i16
   %352 = urem i16 %.lhs.trunc.i, 100
   %353 = udiv i16 %.lhs.trunc.i, 100
   %narrow.i = mul nuw nsw i16 %353, 60
@@ -1929,7 +1929,7 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br label %match_digit.exit
 
 .else82:                                          ; preds = %.cont83.thread
-  %.lhs.trunc.i158 = trunc nuw i64 %239 to i16
+  %.lhs.trunc.i158 = trunc nuw nsw i64 %239 to i16
   %355 = urem i16 %.lhs.trunc.i158, 100
   %356 = udiv i16 %.lhs.trunc.i158, 100
   %narrow.i159 = mul nuw nsw i16 %356, 60
@@ -1944,7 +1944,7 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br i1 %or.cond7.i, label %360, label %match_digit.exit
 
 360:                                              ; preds = %358
-  %361 = trunc nuw i64 %239 to i32
+  %361 = trunc nuw nsw i64 %239 to i32
   %362 = add nsw i32 %361, -1900
   store i32 %362, ptr %11, align 4, !tbaa !4
   br label %match_digit.exit
@@ -1982,7 +1982,7 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br i1 %378, label %379, label %.thread139.i
 
 379:                                              ; preds = %377
-  %380 = trunc nuw i64 %239 to i32
+  %380 = trunc nuw nsw i64 %239 to i32
   %381 = add nuw nsw i32 %380, 100
   store i32 %381, ptr %11, align 4, !tbaa !4
   br label %match_digit.exit
@@ -2004,7 +2004,7 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   br i1 %or.cond190, label %388, label %match_digit.exit
 
 388:                                              ; preds = %.thread139.i
-  %389 = trunc nuw i64 %239 to i32
+  %389 = trunc nuw nsw i64 %239 to i32
   %390 = add nsw i32 %389, -1
   store i32 %390, ptr %12, align 8, !tbaa !12
   br label %match_digit.exit
@@ -4015,10 +4015,10 @@ define internal fastcc i32 @match_multi_number(i64 noundef %0, i8 noundef signex
   %30 = trunc nuw nsw i64 %0 to i32
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %30, ptr %31, align 8, !tbaa !14
-  %32 = trunc nuw i64 %12 to i32
+  %32 = trunc nuw nsw i64 %12 to i32
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %32, ptr %33, align 4, !tbaa !15
-  %34 = trunc nuw i64 %spec.store.select to i32
+  %34 = trunc nuw nsw i64 %spec.store.select to i32
   store i32 %34, ptr %4, align 8, !tbaa !16
   %35 = load ptr, ptr %8, align 8, !tbaa !27
   %36 = load i8, ptr %35, align 1, !tbaa !23

@@ -27128,7 +27128,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %60, %58, %54, %50, 
   br label %97
 
 94:                                               ; preds = %._crit_edge.i.i74
-  %95 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %95 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %96 = or disjoint i8 %95, 48
   br label %97
 
@@ -61294,7 +61294,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %70, %68, %64, %60, 
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 111:                                              ; preds = %._crit_edge.i.i
-  %112 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %112 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %113 = or disjoint i8 %112, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -61581,7 +61581,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %202, %200, %196, %1
   br label %241
 
 238:                                              ; preds = %._crit_edge.i.i63
-  %239 = trunc nuw i64 %.0.lcssa.i.i64 to i8
+  %239 = trunc nuw nsw i64 %.0.lcssa.i.i64 to i8
   %240 = or disjoint i8 %239, 48
   br label %241
 
@@ -62197,7 +62197,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i140: ; preds = %428, %426, %422, %4
   br label %_ZNSt7__cxx119to_stringEj.exit149
 
 467:                                              ; preds = %._crit_edge.i.i142
-  %468 = trunc nuw i32 %.0.lcssa.i.i143 to i8
+  %468 = trunc nuw nsw i32 %.0.lcssa.i.i143 to i8
   %469 = or disjoint i8 %468, 48
   br label %_ZNSt7__cxx119to_stringEj.exit149
 
@@ -120640,7 +120640,7 @@ _ZZN6duckdbL23MergeUpdateLoopInternalIbNS_12ValidityMaskENS_20ExtractValidityEnt
   %.0.i.i.i.i.i = phi i8 [ %186, %_ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit.i.i.i.i.i ], [ 1, %179 ]
   %187 = getelementptr inbounds nuw [2048 x i8], ptr %8, i64 0, i64 %.6.i
   store i8 %.0.i.i.i.i.i, ptr %187, align 1, !tbaa !1576
-  %188 = trunc i64 %159 to i32
+  %188 = trunc nuw i64 %159 to i32
   %189 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %188, ptr %189, align 4, !tbaa !60
   %190 = add nuw i64 %.04.i.i, 1
@@ -121006,7 +121006,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %118, %.lr.ph.i.i
   %142 = getelementptr inbounds nuw i8, ptr %13, i64 %122
   %143 = load i8, ptr %142, align 1, !tbaa !59
   store i8 %143, ptr %140, align 1, !tbaa !59
-  %144 = trunc i64 %125 to i32
+  %144 = trunc nuw i64 %125 to i32
   %145 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.8.i
   store i32 %144, ptr %145, align 4, !tbaa !60
   %146 = add nuw i64 %.065.i.i, 1
@@ -121372,7 +121372,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %125, %124
   %149 = getelementptr inbounds nuw i16, ptr %13, i64 %129
   %150 = load i16, ptr %149, align 2, !tbaa !96
   store i16 %150, ptr %147, align 2, !tbaa !96
-  %151 = trunc i64 %132 to i32
+  %151 = trunc nuw i64 %132 to i32
   %152 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %151, ptr %152, align 4, !tbaa !60
   %153 = add nuw i64 %.04.i.i, 1
@@ -121737,7 +121737,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %120, %119
   %144 = getelementptr inbounds nuw i32, ptr %13, i64 %124
   %145 = load i32, ptr %144, align 4, !tbaa !60
   store i32 %145, ptr %142, align 4, !tbaa !60
-  %146 = trunc i64 %127 to i32
+  %146 = trunc nuw i64 %127 to i32
   %147 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %146, ptr %147, align 4, !tbaa !60
   %148 = add nuw i64 %.04.i.i, 1
@@ -122102,7 +122102,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %124, %123
   %148 = getelementptr inbounds nuw i64, ptr %13, i64 %128
   %149 = load i64, ptr %148, align 8, !tbaa !19
   store i64 %149, ptr %146, align 8, !tbaa !19
-  %150 = trunc i64 %131 to i32
+  %150 = trunc nuw i64 %131 to i32
   %151 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.9.i
   store i32 %150, ptr %151, align 4, !tbaa !60
   %152 = add nuw i64 %.04.i.i, 1
@@ -122466,7 +122466,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %118, %.lr.ph.i.i
   %142 = getelementptr inbounds nuw i8, ptr %13, i64 %122
   %143 = load i8, ptr %142, align 1, !tbaa !59
   store i8 %143, ptr %140, align 1, !tbaa !59
-  %144 = trunc i64 %125 to i32
+  %144 = trunc nuw i64 %125 to i32
   %145 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.8.i
   store i32 %144, ptr %145, align 4, !tbaa !60
   %146 = add nuw i64 %.065.i.i, 1
@@ -122832,7 +122832,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %125, %124
   %149 = getelementptr inbounds nuw i16, ptr %13, i64 %129
   %150 = load i16, ptr %149, align 2, !tbaa !96
   store i16 %150, ptr %147, align 2, !tbaa !96
-  %151 = trunc i64 %132 to i32
+  %151 = trunc nuw i64 %132 to i32
   %152 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %151, ptr %152, align 4, !tbaa !60
   %153 = add nuw i64 %.04.i.i, 1
@@ -123197,7 +123197,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %120, %119
   %144 = getelementptr inbounds nuw i32, ptr %13, i64 %124
   %145 = load i32, ptr %144, align 4, !tbaa !60
   store i32 %145, ptr %142, align 4, !tbaa !60
-  %146 = trunc i64 %127 to i32
+  %146 = trunc nuw i64 %127 to i32
   %147 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %146, ptr %147, align 4, !tbaa !60
   %148 = add nuw i64 %.04.i.i, 1
@@ -123562,7 +123562,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %124, %123
   %148 = getelementptr inbounds nuw i64, ptr %13, i64 %128
   %149 = load i64, ptr %148, align 8, !tbaa !19
   store i64 %149, ptr %146, align 8, !tbaa !19
-  %150 = trunc i64 %131 to i32
+  %150 = trunc nuw i64 %131 to i32
   %151 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.9.i
   store i32 %150, ptr %151, align 4, !tbaa !60
   %152 = add nuw i64 %.04.i.i, 1
@@ -123942,7 +123942,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %122, %.lr.ph.i.i
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %145, align 16, !tbaa !19
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !19
-  %146 = trunc i64 %129 to i32
+  %146 = trunc nuw i64 %129 to i32
   %147 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.9.i
   store i32 %146, ptr %147, align 4, !tbaa !60
   %148 = add nuw i64 %.069.i.i, 1
@@ -124326,7 +124326,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %122, %.lr.ph.i.i
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %145, align 16, !tbaa !19
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !19
-  %146 = trunc i64 %129 to i32
+  %146 = trunc nuw i64 %129 to i32
   %147 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.9.i
   store i32 %146, ptr %147, align 4, !tbaa !60
   %148 = add nuw i64 %.069.i.i, 1
@@ -124695,7 +124695,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %120, %119
   %144 = getelementptr inbounds nuw float, ptr %13, i64 %124
   %145 = load float, ptr %144, align 4, !tbaa !1538
   store float %145, ptr %142, align 4, !tbaa !1538
-  %146 = trunc i64 %127 to i32
+  %146 = trunc nuw i64 %127 to i32
   %147 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %146, ptr %147, align 4, !tbaa !60
   %148 = add nuw i64 %.04.i.i, 1
@@ -125060,7 +125060,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %125, %124
   %149 = getelementptr inbounds nuw double, ptr %13, i64 %129
   %150 = load double, ptr %149, align 8, !tbaa !1551
   store double %150, ptr %147, align 8, !tbaa !1551
-  %151 = trunc i64 %132 to i32
+  %151 = trunc nuw i64 %132 to i32
   %152 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.6.i
   store i32 %151, ptr %152, align 4, !tbaa !60
   %153 = add nuw i64 %.04.i.i, 1
@@ -125440,7 +125440,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %122, %.lr.ph.i.i
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %145, align 16
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !19
-  %146 = trunc i64 %129 to i32
+  %146 = trunc nuw i64 %129 to i32
   %147 = getelementptr inbounds nuw [2048 x i32], ptr %9, i64 0, i64 %.8.i
   store i32 %146, ptr %147, align 4, !tbaa !60
   %148 = add nuw i64 %.069.i.i, 1
@@ -125841,7 +125841,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.i.i: ; preds = %134, %.lr.ph.i.i
   store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %157, align 16
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %157, i64 8
   store ptr %.sroa.2.0.copyload.i.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !59
-  %158 = trunc i64 %141 to i32
+  %158 = trunc nuw i64 %141 to i32
   %159 = getelementptr inbounds nuw [2048 x i32], ptr %10, i64 0, i64 %.8.i
   store i32 %158, ptr %159, align 4, !tbaa !60
   %160 = add nuw i64 %.069.i.i, 1

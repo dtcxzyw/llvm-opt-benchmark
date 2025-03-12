@@ -12661,7 +12661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit.i: ; preds 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 59:                                               ; preds = %._crit_edge.i.i
-  %60 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -14540,7 +14540,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i84: ; 
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE3addEi.exit86: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i84, %357
   %358 = phi ptr [ %.pre.i.i85, %357 ], [ %350, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i84 ]
-  %359 = trunc i32 %.pr.i to i8
+  %359 = trunc nuw nsw i32 %.pr.i to i8
   %360 = getelementptr inbounds nuw i8, ptr %358, i64 %348
   store i8 %359, ptr %360, align 1, !tbaa !62
   store i64 %349, ptr %30, align 8, !tbaa !26
@@ -14748,7 +14748,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i26: ; 
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE3addEi.exit28: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i26, %54
   %55 = phi ptr [ %.pre.i.i27, %54 ], [ %46, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i26 ]
-  %56 = trunc i32 %4 to i8
+  %56 = trunc nuw nsw i32 %4 to i8
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %44
   store i8 %56, ptr %57, align 1, !tbaa !62
   store i64 %45, ptr %43, align 8, !tbaa !26
@@ -15100,7 +15100,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i38: ; 
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE3addEi.exit40: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i38, %214
   %215 = phi ptr [ %.pre.i.i39, %214 ], [ %207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i38 ]
-  %216 = trunc i32 %.pr.i to i8
+  %216 = trunc nuw nsw i32 %.pr.i to i8
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 %205
   store i8 %216, ptr %217, align 1, !tbaa !62
   store i64 %206, ptr %92, align 8, !tbaa !26
@@ -15170,7 +15170,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i44: ; 
 
 _ZN8nlohmann16json_abi_v3_11_36detail5lexerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_20input_stream_adapterEE3addEi.exit46: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i44, %248
   %249 = phi ptr [ %.pre.i.i45, %248 ], [ %241, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i44 ]
-  %250 = trunc i32 %.pr.i to i8
+  %250 = trunc nuw nsw i32 %.pr.i to i8
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 %239
   store i8 %250, ptr %251, align 1, !tbaa !62
   store i64 %240, ptr %92, align 8, !tbaa !26
@@ -25006,7 +25006,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit:      ; preds = %15, %2, %5, %9, %13
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 51:                                               ; preds = %._crit_edge.i
-  %52 = trunc nuw i64 %.0.lcssa.i to i8
+  %52 = trunc nuw nsw i64 %.0.lcssa.i to i8
   %53 = or disjoint i8 %52, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -30777,7 +30777,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %20, %18, %14, %10, 
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 56:                                               ; preds = %._crit_edge.i.i
-  %57 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %57 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %58 = or disjoint i8 %57, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -30882,7 +30882,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i8:   ; preds = %73, %71, %67, %63, 
   br label %112
 
 109:                                              ; preds = %._crit_edge.i.i10
-  %110 = trunc nuw i64 %.0.lcssa.i.i11 to i8
+  %110 = trunc nuw nsw i64 %.0.lcssa.i.i11 to i8
   %111 = or disjoint i8 %110, 48
   br label %112
 
@@ -33968,7 +33968,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa48.i = phi ptr [ %363, %._crit_edge.thread.i93 ], [ %.0.lcssa.i, %._crit_edge.i92 ]
   %.1.lcssa47.i = phi i64 [ %354, %._crit_edge.thread.i93 ], [ %.1.lcssa.i, %._crit_edge.i92 ]
   %400 = phi i64 [ 1, %._crit_edge.thread.i93 ], [ %379, %._crit_edge.i92 ]
-  %401 = trunc nuw i64 %.1.lcssa47.i to i8
+  %401 = trunc nuw nsw i64 %.1.lcssa47.i to i8
   %402 = or disjoint i8 %401, 48
   %403 = getelementptr inbounds i8, ptr %.0.lcssa48.i, i64 -1
   store i8 %402, ptr %403, align 1, !tbaa !62
@@ -34288,7 +34288,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa48.i116 = phi ptr [ %539, %._crit_edge.thread.i121 ], [ %.0.lcssa.i115, %._crit_edge.i113 ]
   %.1.lcssa47.i117 = phi i64 [ %530, %._crit_edge.thread.i121 ], [ %.1.lcssa.i114, %._crit_edge.i113 ]
   %576 = phi i64 [ 1, %._crit_edge.thread.i121 ], [ %555, %._crit_edge.i113 ]
-  %577 = trunc nuw i64 %.1.lcssa47.i117 to i8
+  %577 = trunc nuw nsw i64 %.1.lcssa47.i117 to i8
   %578 = or disjoint i8 %577, 48
   %579 = getelementptr inbounds i8, ptr %.0.lcssa48.i116, i64 -1
   store i8 %578, ptr %579, align 1, !tbaa !62
@@ -34440,7 +34440,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa48.i131 = phi ptr [ %618, %._crit_edge.thread.i136 ], [ %.0.lcssa.i130, %._crit_edge.i128 ]
   %.1.lcssa47.i132 = phi i64 [ %609, %._crit_edge.thread.i136 ], [ %.1.lcssa.i129, %._crit_edge.i128 ]
   %655 = phi i64 [ 1, %._crit_edge.thread.i136 ], [ %634, %._crit_edge.i128 ]
-  %656 = trunc nuw i64 %.1.lcssa47.i132 to i8
+  %656 = trunc nuw nsw i64 %.1.lcssa47.i132 to i8
   %657 = or disjoint i8 %656, 48
   %658 = getelementptr inbounds i8, ptr %.0.lcssa48.i131, i64 -1
   store i8 %657, ptr %658, align 1, !tbaa !62
@@ -35446,7 +35446,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vect
   %.0.lcssa57 = phi ptr [ %32, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
   %.1.lcssa56 = phi i64 [ %1, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
   %69 = phi i64 [ 1, %._crit_edge.thread ], [ %48, %._crit_edge ]
-  %70 = trunc nuw i64 %.1.lcssa56 to i8
+  %70 = trunc nuw nsw i64 %.1.lcssa56 to i8
   %71 = or disjoint i8 %70, 48
   %72 = getelementptr inbounds i8, ptr %.0.lcssa57, i64 -1
   store i8 %71, ptr %72, align 1, !tbaa !62
@@ -36026,7 +36026,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
 63:                                               ; preds = %59
   %64 = getelementptr i8, ptr %.pn.i, i64 4
   store i8 48, ptr %.023.i.i, align 1, !tbaa !62
-  %65 = trunc nuw i32 %.0.i.i to i8
+  %65 = trunc nuw nsw i32 %.0.i.i to i8
   %66 = or disjoint i8 %65, 48
   %67 = getelementptr i8, ptr %.pn.i, i64 5
   store i8 %66, ptr %64, align 1, !tbaa !62
@@ -36038,7 +36038,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN8nlohmann16json_abi_v3_11_
   br i1 %69, label %71, label %77
 
 71:                                               ; preds = %68
-  %.lhs.trunc.i.i = trunc nuw i32 %.0.i.i to i8
+  %.lhs.trunc.i.i = trunc nuw nsw i32 %.0.i.i to i8
   %72 = udiv i8 %.lhs.trunc.i.i, 10
   %73 = or disjoint i8 %72, 48
   store i8 %73, ptr %.023.i.i, align 1, !tbaa !62
@@ -37859,7 +37859,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binar
   br label %19
 
 19:                                               ; preds = %14, %13
-  %20 = trunc i64 %1 to i8
+  %20 = trunc nsw i64 %1 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #26
   store i8 %20, ptr %11, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37919,7 +37919,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binar
   br label %47
 
 47:                                               ; preds = %42, %.thread98
-  %48 = trunc i64 %1 to i16
+  %48 = trunc nsw i64 %1 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #26
   store i16 %48, ptr %9, align 2
   %49 = load i8, ptr %0, align 8, !tbaa !402, !range !18, !noundef !19
@@ -38015,7 +38015,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br label %84
 
 84:                                               ; preds = %79, %.thread113
-  %85 = trunc i64 %1 to i32
+  %85 = trunc nsw i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
   store i32 %85, ptr %7, align 4
   %86 = load i8, ptr %0, align 8, !tbaa !402, !range !18, !noundef !19
@@ -38176,7 +38176,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binar
   br label %19
 
 19:                                               ; preds = %14, %13
-  %20 = trunc nuw i64 %1 to i8
+  %20 = trunc nuw nsw i64 %1 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #26
   store i8 %20, ptr %9, align 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38232,7 +38232,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binar
   br label %47
 
 47:                                               ; preds = %42, %41
-  %48 = trunc nuw i64 %1 to i16
+  %48 = trunc nuw nsw i64 %1 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #26
   store i16 %48, ptr %7, align 2
   %49 = load i8, ptr %0, align 8, !tbaa !402, !range !18, !noundef !19
@@ -38242,7 +38242,7 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail13binar
 
 .lr.ph.i.i.i:                                     ; preds = %47
   %51 = lshr i64 %1, 8
-  %52 = trunc nuw i64 %51 to i8
+  %52 = trunc nuw nsw i64 %51 to i8
   %53 = trunc i64 %1 to i8
   %.012.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %52, ptr %7, align 2, !tbaa !62
@@ -38324,7 +38324,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br label %85
 
 85:                                               ; preds = %80, %79
-  %86 = trunc i64 %1 to i32
+  %86 = trunc nuw nsw i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
   store i32 %86, ptr %5, align 4
   %87 = load i8, ptr %0, align 8, !tbaa !402, !range !18, !noundef !19
@@ -44518,7 +44518,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %41, %39, %35, %31, 
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 75:                                               ; preds = %._crit_edge.i.i
-  %76 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %76 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %77 = or disjoint i8 %76, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -45209,7 +45209,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %23, %21, %17, %13, 
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 57:                                               ; preds = %._crit_edge.i.i
-  %58 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %58 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %59 = or disjoint i8 %58, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -45436,7 +45436,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %53, %51, %47, %43, 
   br label %_ZNSt7__cxx119to_stringEm.exit
 
 87:                                               ; preds = %._crit_edge.i.i
-  %88 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %88 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %89 = or disjoint i8 %88, 48
   br label %_ZNSt7__cxx119to_stringEm.exit
 
@@ -46163,7 +46163,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %101, label %102, label %110
 
 102:                                              ; preds = %99
-  %103 = trunc i64 %50 to i8
+  %103 = trunc nsw i64 %50 to i8
   %104 = sub nsw i8 31, %103
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %28) #26
   store i8 %104, ptr %28, align 1
@@ -46490,7 +46490,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %261, label %262, label %270
 
 262:                                              ; preds = %256
-  %263 = trunc nuw i64 %260 to i8
+  %263 = trunc nuw nsw i64 %260 to i8
   %264 = or disjoint i8 %263, 96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20) #26
   store i8 %264, ptr %20, align 1
@@ -46605,7 +46605,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %324, label %325, label %333
 
 325:                                              ; preds = %314
-  %326 = trunc nuw i64 %323 to i8
+  %326 = trunc nuw nsw i64 %323 to i8
   %327 = or disjoint i8 %326, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17) #26
   store i8 %327, ptr %17, align 1
@@ -46852,7 +46852,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %458, label %459, label %467
 
 459:                                              ; preds = %450
-  %460 = trunc nuw i64 %457 to i8
+  %460 = trunc nuw nsw i64 %457 to i8
   %461 = or disjoint i8 %460, 64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #26
   store i8 %461, ptr %8, align 1
@@ -46960,7 +46960,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %514, label %515, label %523
 
 515:                                              ; preds = %509
-  %516 = trunc nuw i64 %513 to i8
+  %516 = trunc nuw nsw i64 %513 to i8
   %517 = or disjoint i8 %516, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
   store i8 %517, ptr %5, align 1
@@ -47721,7 +47721,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %226, label %227, label %235
 
 227:                                              ; preds = %221
-  %228 = trunc nuw i64 %225 to i8
+  %228 = trunc nuw nsw i64 %225 to i8
   %229 = or disjoint i8 %228, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #26
   store i8 %229, ptr %12, align 1
@@ -47831,7 +47831,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %288, label %289, label %297
 
 289:                                              ; preds = %278
-  %290 = trunc nuw i64 %287 to i8
+  %290 = trunc nuw nsw i64 %287 to i8
   %291 = or disjoint i8 %290, -112
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #26
   store i8 %291, ptr %9, align 1
@@ -48068,7 +48068,7 @@ _ZN8nlohmann16json_abi_v3_11_36detail13binary_writerINS0_10basic_jsonISt3mapSt6v
   br i1 %407, label %408, label %416
 
 408:                                              ; preds = %402
-  %409 = trunc nuw i64 %406 to i8
+  %409 = trunc nuw nsw i64 %406 to i8
   %410 = or disjoint i8 %409, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
   store i8 %410, ptr %4, align 1

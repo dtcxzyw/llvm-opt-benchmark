@@ -117,7 +117,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %.0.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8771a8151b7b1343E.exit.i, label %.critedge.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i:                          ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i"
-  %52 = trunc nuw i32 %50 to i8
+  %52 = trunc nuw nsw i32 %50 to i8
   %53 = load i64, ptr %10, align 8, !alias.scope !33, !noalias !38, !noundef !4
   %54 = load i64, ptr %1, align 8, !alias.scope !33, !noalias !38, !noundef !4
   %55 = icmp eq i64 %53, %54
@@ -235,7 +235,7 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I
   br i1 %.0.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8771a8151b7b1343E.exit, label %.critedge.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i"
-  %52 = trunc nuw i32 %50 to i8
+  %52 = trunc nuw nsw i32 %50 to i8
   %53 = load i64, ptr %10, align 8, !alias.scope !62, !noalias !40, !noundef !4
   %54 = load i64, ptr %1, align 8, !alias.scope !62, !noalias !40, !noundef !4
   %55 = icmp eq i64 %53, %54
@@ -410,7 +410,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8for_each17ha3d91a0ba6
   br i1 %.0.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h8771a8151b7b1343E.exit.i.i, label %.critedge.i.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i:                        ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i"
-  %52 = trunc nuw i32 %50 to i8
+  %52 = trunc nuw nsw i32 %50 to i8
   %53 = load i64, ptr %10, align 8, !alias.scope !102, !noalias !107, !noundef !4
   %54 = load i64, ptr %1, align 8, !alias.scope !102, !noalias !107, !noundef !4
   %55 = icmp eq i64 %53, %54
@@ -554,7 +554,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   br i1 %.0.i.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17ha3d91a0ba60d1d0fE.llvm.13318427548037469562.exit, label %.critedge.i.i.i.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i.i.i.i:                      ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i.i.i"
-  %48 = trunc nuw i32 %46 to i8
+  %48 = trunc nuw nsw i32 %46 to i8
   %49 = load i64, ptr %3, align 8, !alias.scope !133, !noalias !141, !noundef !4
   %50 = load i64, ptr %0, align 8, !alias.scope !133, !noalias !141, !noundef !4
   %51 = icmp eq i64 %49, %50

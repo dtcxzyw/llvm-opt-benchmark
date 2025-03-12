@@ -1620,7 +1620,7 @@ lor.lhs.false96:                                  ; preds = %_ZNK6hermes2vm10Str
   ]
 
 if.then106:                                       ; preds = %lor.lhs.false96, %lor.lhs.false96, %lor.lhs.false96, %lor.lhs.false96, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit263
-  %conv107 = trunc i16 %cond.i260 to i8
+  %conv107 = trunc nuw nsw i16 %cond.i260 to i8
   %conv108 = zext i32 %i.0 to i64
   %60 = load ptr, ptr %str8, align 8
   %arrayidx.i141 = getelementptr inbounds nuw i8, ptr %60, i64 %conv108

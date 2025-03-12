@@ -5950,7 +5950,7 @@ skip_prefix.exit.thread:                          ; preds = %.preheader, %skip_p
   br i1 %or.cond9.i, label %strtol_i.exit, label %31
 
 strtol_i.exit:                                    ; preds = %25
-  %30 = trunc i64 %23 to i32
+  %30 = trunc nsw i64 %23 to i32
   store i32 %30, ptr %21, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23
   br label %63
@@ -6008,7 +6008,7 @@ skip_prefix.exit17:                               ; preds = %16, %35
   br i1 %or.cond9.i29, label %strtol_i.exit30, label %51
 
 strtol_i.exit30:                                  ; preds = %45
-  %50 = trunc i64 %43 to i32
+  %50 = trunc nsw i64 %43 to i32
   store i32 %50, ptr %41, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #23
   br label %63

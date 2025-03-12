@@ -1101,7 +1101,7 @@ define dso_local noundef range(i32 0, 2) i32 @hpet_set_periodic_freq(i64 noundef
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %.rhs.trunc = trunc nuw i64 %0 to i8
+  %.rhs.trunc = trunc nuw nsw i64 %0 to i8
   %12 = udiv i8 64, %.rhs.trunc
   %.zext = zext nneg i8 %12 to i64
   br label %26
@@ -1798,7 +1798,7 @@ define internal fastcc void @hpet_select_clockevents() unnamed_addr #4 section "
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 280
-  %64 = trunc i64 %52 to i32
+  %64 = trunc nuw i64 %52 to i32
   %65 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %64) #19
   %66 = load ptr, ptr @hpet_domain, align 8
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 256

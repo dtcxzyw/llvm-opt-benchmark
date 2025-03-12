@@ -3153,7 +3153,7 @@ cast_size_t_to_int.exit:                          ; preds = %481
   br i1 %.not163, label %492, label %489
 
 489:                                              ; preds = %cast_size_t_to_int.exit
-  %490 = trunc i64 %483 to i32
+  %490 = trunc nsw i64 %483 to i32
   %491 = add nsw i32 %490, 5
   store i32 %491, ptr %154, align 8, !tbaa !216
   br label %492
@@ -6672,13 +6672,13 @@ strtol_i.exit.thread:                             ; preds = %10, %6
   br label %19
 
 strtol_i.exit:                                    ; preds = %10
-  %15 = trunc i64 %8 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %17, label %19
+  %15 = icmp sgt i64 %8, 0
+  br i1 %15, label %16, label %19
 
-17:                                               ; preds = %strtol_i.exit
-  %18 = add nsw i32 %15, -1
+16:                                               ; preds = %strtol_i.exit
+  %17 = trunc nuw nsw i64 %8 to i32
+  %18 = add nsw i32 %17, -1
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %18) #22
   br label %21
 
@@ -6687,7 +6687,7 @@ strtol_i.exit:                                    ; preds = %10
   tail call void @strbuf_add(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %20) #22
   br label %21
 
-21:                                               ; preds = %19, %17
+21:                                               ; preds = %19, %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !131
   ret ptr %23

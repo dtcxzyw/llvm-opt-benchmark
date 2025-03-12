@@ -3055,10 +3055,10 @@ EVP_MD_free.exit115:                              ; preds = %152, %CRYPTO_DOWN_R
   br i1 %narrow.i, label %175, label %191
 
 175:                                              ; preds = %164
-  %176 = trunc nuw i64 %173 to i32
+  %176 = trunc nuw nsw i64 %173 to i32
   %177 = getelementptr inbounds nuw i8, ptr %15, i64 72
   store i32 %176, ptr %177, align 8, !tbaa !92
-  %178 = trunc nuw i64 %171 to i32
+  %178 = trunc nuw nsw i64 %171 to i32
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %178, ptr %179, align 8, !tbaa !93
   %180 = load i32, ptr %4, align 4, !tbaa !52

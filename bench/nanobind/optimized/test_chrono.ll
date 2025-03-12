@@ -1206,7 +1206,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINSt6chrono10tim
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !84
   %30 = load i32, ptr %5, align 8, !tbaa !85
-  %31 = trunc nsw i64 %spec.select to i32
+  %31 = trunc nuw nsw i64 %spec.select to i32
   %32 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8, !tbaa !86
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %36
@@ -3312,7 +3312,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINSt6chrono10tim
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !84
   %31 = load i32, ptr %5, align 8, !tbaa !85
-  %32 = trunc nsw i64 %spec.select to i32
+  %32 = trunc nuw nsw i64 %spec.select to i32
   %33 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8, !tbaa !86
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %34, label %37
@@ -3560,7 +3560,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail11type_casterINSt6chrono10tim
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !84
   %29 = load i32, ptr %5, align 8, !tbaa !85
-  %30 = trunc nsw i64 %spec.select to i32
+  %30 = trunc nuw nsw i64 %spec.select to i32
   %31 = load ptr, ptr @_ZL13PyDateTimeAPI, align 8, !tbaa !86
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %32, label %35

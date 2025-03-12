@@ -4519,7 +4519,7 @@ switch.lookup1129:                                ; preds = %.loopexit987
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit572.thread"
 
 .critedge.i.i.i:                                  ; preds = %391
-  %414 = trunc nuw i32 %392 to i8
+  %414 = trunc nuw nsw i32 %392 to i8
   br label %.critedge.i.i.i.invoke
 
 .critedge.i.i.i.invoke:                           ; preds = %959, %947, %._crit_edge, %.critedge.i.i.i645, %604, %600, %597, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb83004d8359efd5fE.exit", %473, %.critedge.i.i.i
@@ -4815,7 +4815,7 @@ switch.lookup1129:                                ; preds = %.loopexit987
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit608"
 
 .critedge.i.i.i603:                               ; preds = %.lr.ph1059
-  %536 = trunc nuw i32 %514 to i8
+  %536 = trunc nuw nsw i32 %514 to i8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc0e260aae8a51ca8E.llvm.2875332049115192089"(ptr noalias noundef nonnull align 8 dereferenceable(24) %515, i8 noundef %536)
           to label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit608" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5197,7 +5197,7 @@ switch.lookup1129:                                ; preds = %.loopexit987
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit572.thread"
 
 .critedge.i.i.i645:                               ; preds = %639
-  %662 = trunc nuw i32 %640 to i8
+  %662 = trunc nuw nsw i32 %640 to i8
   br label %.critedge.i.i.i.invoke
 
 663:                                              ; preds = %279
@@ -5572,7 +5572,7 @@ switch.lookup1129:                                ; preds = %.loopexit987
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit698"
 
 .critedge.i.i.i693:                               ; preds = %.lr.ph1052
-  %825 = trunc nuw i32 %803 to i8
+  %825 = trunc nuw nsw i32 %803 to i8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc0e260aae8a51ca8E.llvm.2875332049115192089"(ptr noalias noundef nonnull align 8 dereferenceable(24) %804, i8 noundef %825)
           to label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit698" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -6439,7 +6439,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit790: ; preds = %1086
 
 1125:                                             ; preds = %1121
   %1126 = lshr i32 %1119, 6
-  %1127 = trunc nuw i32 %1126 to i8
+  %1127 = trunc nuw nsw i32 %1126 to i8
   %1128 = or disjoint i8 %1127, -64
   store i8 %1128, ptr %.sroa.0.i, align 4, !alias.scope !1089, !noalias !1086
   %1129 = trunc i32 %1119 to i8
@@ -6450,7 +6450,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit790: ; preds = %1086
 
 1132:                                             ; preds = %1123
   %1133 = lshr i32 %1119, 12
-  %1134 = trunc nuw i32 %1133 to i8
+  %1134 = trunc nuw nsw i32 %1133 to i8
   %1135 = or disjoint i8 %1134, -32
   store i8 %1135, ptr %.sroa.0.i, align 4, !alias.scope !1089, !noalias !1086
   %1136 = lshr i32 %1119, 6
@@ -6486,7 +6486,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit790: ; preds = %1086
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 .thread9.i.i:                                     ; preds = %1118
-  %1158 = trunc nuw i32 %1119 to i8
+  %1158 = trunc nuw nsw i32 %1119 to i8
   store i8 %1158, ptr %.sroa.0.i, align 4, !alias.scope !1089, !noalias !1086
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
@@ -6532,7 +6532,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %.t
 
 1173:                                             ; preds = %1169
   %1174 = lshr i32 %1167, 6
-  %1175 = trunc nuw i32 %1174 to i8
+  %1175 = trunc nuw nsw i32 %1174 to i8
   %1176 = or disjoint i8 %1175, -64
   store i8 %1176, ptr %.sroa.0.i799, align 4, !alias.scope !1095, !noalias !1092
   %1177 = trunc i32 %1167 to i8
@@ -6543,7 +6543,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %.t
 
 1180:                                             ; preds = %1171
   %1181 = lshr i32 %1167, 12
-  %1182 = trunc nuw i32 %1181 to i8
+  %1182 = trunc nuw nsw i32 %1181 to i8
   %1183 = or disjoint i8 %1182, -32
   store i8 %1183, ptr %.sroa.0.i799, align 4, !alias.scope !1095, !noalias !1092
   %1184 = lshr i32 %1167, 6
@@ -6579,7 +6579,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %.t
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i803
 
 .thread9.i.i809:                                  ; preds = %1163
-  %1206 = trunc nuw i32 %1167 to i8
+  %1206 = trunc nuw nsw i32 %1167 to i8
   store i8 %1206, ptr %.sroa.0.i799, align 4, !alias.scope !1095, !noalias !1092
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i803
 
@@ -8126,7 +8126,7 @@ switch.lookup1120:                                ; preds = %.loopexit992
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit571.thread"
 
 .critedge.i.i.i:                                  ; preds = %405
-  %428 = trunc nuw i32 %406 to i8
+  %428 = trunc nuw nsw i32 %406 to i8
   br label %.critedge.i.i.i.invoke
 
 .critedge.i.i.i.invoke:                           ; preds = %973, %961, %._crit_edge, %.critedge.i.i.i643, %618, %614, %611, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb83004d8359efd5fE.exit", %487, %.critedge.i.i.i
@@ -8422,7 +8422,7 @@ switch.lookup1120:                                ; preds = %.loopexit992
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit607"
 
 .critedge.i.i.i602:                               ; preds = %.lr.ph1058
-  %550 = trunc nuw i32 %528 to i8
+  %550 = trunc nuw nsw i32 %528 to i8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc0e260aae8a51ca8E.llvm.2875332049115192089"(ptr noalias noundef nonnull align 8 dereferenceable(24) %529, i8 noundef %550)
           to label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit607" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -8804,7 +8804,7 @@ switch.lookup1120:                                ; preds = %.loopexit992
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit571.thread"
 
 .critedge.i.i.i643:                               ; preds = %653
-  %676 = trunc nuw i32 %654 to i8
+  %676 = trunc nuw nsw i32 %654 to i8
   br label %.critedge.i.i.i.invoke
 
 677:                                              ; preds = %293
@@ -9179,7 +9179,7 @@ switch.lookup1120:                                ; preds = %.loopexit992
   br label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit696"
 
 .critedge.i.i.i691:                               ; preds = %.lr.ph1051
-  %839 = trunc nuw i32 %817 to i8
+  %839 = trunc nuw nsw i32 %817 to i8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc0e260aae8a51ca8E.llvm.2875332049115192089"(ptr noalias noundef nonnull align 8 dereferenceable(24) %818, i8 noundef %839)
           to label %"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write$GT$10write_char17hcbccb4a8c051a34eE.exit696" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -10046,7 +10046,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit788: ; preds = %1100
 
 1139:                                             ; preds = %1135
   %1140 = lshr i32 %1133, 6
-  %1141 = trunc nuw i32 %1140 to i8
+  %1141 = trunc nuw nsw i32 %1140 to i8
   %1142 = or disjoint i8 %1141, -64
   store i8 %1142, ptr %.sroa.0.i, align 4, !alias.scope !1870, !noalias !1867
   %1143 = trunc i32 %1133 to i8
@@ -10057,7 +10057,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit788: ; preds = %1100
 
 1146:                                             ; preds = %1137
   %1147 = lshr i32 %1133, 12
-  %1148 = trunc nuw i32 %1147 to i8
+  %1148 = trunc nuw nsw i32 %1147 to i8
   %1149 = or disjoint i8 %1148, -32
   store i8 %1149, ptr %.sroa.0.i, align 4, !alias.scope !1870, !noalias !1867
   %1150 = lshr i32 %1133, 6
@@ -10093,7 +10093,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit788: ; preds = %1100
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 .thread9.i.i:                                     ; preds = %1132
-  %1172 = trunc nuw i32 %1133 to i8
+  %1172 = trunc nuw nsw i32 %1133 to i8
   store i8 %1172, ptr %.sroa.0.i, align 4, !alias.scope !1870, !noalias !1867
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
@@ -10139,7 +10139,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %.t
 
 1187:                                             ; preds = %1183
   %1188 = lshr i32 %1181, 6
-  %1189 = trunc nuw i32 %1188 to i8
+  %1189 = trunc nuw nsw i32 %1188 to i8
   %1190 = or disjoint i8 %1189, -64
   store i8 %1190, ptr %.sroa.0.i797, align 4, !alias.scope !1876, !noalias !1873
   %1191 = trunc i32 %1181 to i8
@@ -10150,7 +10150,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %.t
 
 1194:                                             ; preds = %1185
   %1195 = lshr i32 %1181, 12
-  %1196 = trunc nuw i32 %1195 to i8
+  %1196 = trunc nuw nsw i32 %1195 to i8
   %1197 = or disjoint i8 %1196, -32
   store i8 %1197, ptr %.sroa.0.i797, align 4, !alias.scope !1876, !noalias !1873
   %1198 = lshr i32 %1181, 6
@@ -10186,7 +10186,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i: ; preds = %.t
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i801
 
 .thread9.i.i807:                                  ; preds = %1177
-  %1220 = trunc nuw i32 %1181 to i8
+  %1220 = trunc nuw nsw i32 %1181 to i8
   store i8 %1220, ptr %.sroa.0.i797, align 4, !alias.scope !1876, !noalias !1873
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i801
 
@@ -10678,7 +10678,7 @@ define internal fastcc noundef zeroext i1 @"_ZN23pulldown_cmark_to_cmark25cmark_
   %3 = icmp ult i32 %.88.val, 128
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %6 = trunc nuw i32 %.88.val to i8
+  %6 = trunc nuw nsw i32 %.88.val to i8
   br i1 %3, label %.critedge.i.i.i.us, label %.lr.ph.split
 
 .critedge.i.i.i.us:                               ; preds = %.lr.ph, %.critedge.i.i.i.us
@@ -10742,7 +10742,7 @@ define internal fastcc noundef zeroext i1 @"_ZN23pulldown_cmark_to_cmark25cmark_
   %3 = icmp ult i32 %.88.val, 128
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %6 = trunc nuw i32 %.88.val to i8
+  %6 = trunc nuw nsw i32 %.88.val to i8
   br i1 %3, label %.critedge.i.i.i.us, label %.lr.ph.split
 
 .critedge.i.i.i.us:                               ; preds = %.lr.ph, %.critedge.i.i.i.us
@@ -20017,7 +20017,7 @@ define internal fastcc void @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd1682
   br i1 %29, label %52, label %14
 
 .thread9:                                         ; preds = %3
-  %30 = trunc nuw i32 %0 to i8
+  %30 = trunc nuw nsw i32 %0 to i8
   store i8 %30, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h54194cd563c5fd70E.exit"
 
@@ -20027,7 +20027,7 @@ define internal fastcc void @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd1682
 
 31:                                               ; preds = %24
   %32 = lshr i32 %0, 6
-  %33 = trunc nuw i32 %32 to i8
+  %33 = trunc nuw nsw i32 %32 to i8
   %34 = or disjoint i8 %33, -64
   store i8 %34, ptr %1, align 1
   %35 = trunc i32 %0 to i8
@@ -20039,7 +20039,7 @@ define internal fastcc void @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd1682
 
 39:                                               ; preds = %26
   %40 = lshr i32 %0, 12
-  %41 = trunc nuw i32 %40 to i8
+  %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -32
   store i8 %42, ptr %1, align 1
   %43 = lshr i32 %0, 6
@@ -20249,7 +20249,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 14:                                               ; preds = %12
   %15 = lshr i32 %0, 12
-  %16 = trunc nuw i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = or disjoint i8 %16, -32
   %18 = lshr i32 %0, 6
   br label %30
@@ -20291,7 +20291,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
 
 .thread:                                          ; preds = %10
   %36 = lshr i32 %0, 6
-  %37 = trunc nuw i32 %36 to i8
+  %37 = trunc nuw nsw i32 %36 to i8
   %38 = or disjoint i8 %37, -64
   store i8 %38, ptr %8, align 4, !alias.scope !3806
   %39 = trunc i32 %0 to i8
@@ -20913,7 +20913,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !3866
   %12 = trunc i32 %1 to i8
@@ -20925,7 +20925,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !3866
   %19 = lshr i32 %1, 6
@@ -20996,7 +20996,7 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit: ; preds = %8, %
   br label %70
 
 .critedge:                                        ; preds = %2
-  %58 = trunc nuw i32 %1 to i8
+  %58 = trunc nuw nsw i32 %1 to i8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i64, ptr %59, align 8, !alias.scope !3879, !noundef !11
   %61 = load i64, ptr %0, align 8, !alias.scope !3879, !noundef !11

@@ -1513,7 +1513,7 @@ define noundef i32 @If_ManNodeShapeSat(ptr noundef %0, ptr noundef %1, ptr nound
 21:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %indvars.iv.next.tr = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next.tr = trunc nuw nsw i64 %indvars.iv.next to i32
   %23 = shl nuw nsw i32 %indvars.iv.next.tr, 1
   store i32 %23, ptr %22, align 4, !tbaa !3
   %24 = load i64, ptr %10, align 4

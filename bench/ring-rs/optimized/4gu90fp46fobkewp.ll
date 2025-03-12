@@ -2016,7 +2016,7 @@ _ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit.thread: ; preds = %39,
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %57
-  %62 = trunc i8 %.060 to i1
+  %62 = trunc nuw i8 %.060 to i1
   br i1 %62, label %67, label %_ZN9untrusted6reader6Reader4peek17hd8bdc58f301fd15eE.exit102.thread
 
 63:                                               ; preds = %57

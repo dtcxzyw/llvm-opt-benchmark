@@ -2161,7 +2161,7 @@ zend_parse_arg_resource.exit:                     ; preds = %34, %8, %zend_parse
 
 54:                                               ; preds = %50, %49, %52, %46
   %55 = phi ptr [ %48, %46 ], [ null, %49 ], [ %53, %52 ], [ %51, %50 ]
-  %56 = trunc nuw i64 %.fr231 to i32
+  %56 = trunc nuw nsw i64 %.fr231 to i32
   %57 = and i32 %56, 1
   %58 = or disjoint i32 %57, 8
   %59 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %24, ptr noundef nonnull @.str.3, i32 noundef %58, ptr noundef null, ptr noundef %55) #18

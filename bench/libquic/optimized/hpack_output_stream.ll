@@ -73,7 +73,7 @@ define void @_ZN3net17HpackOutputStream10AppendBitsEhm(ptr noundef nonnull align
 
 25:                                               ; preds = %17
   %26 = zext i8 %1 to i16
-  %27 = trunc nuw i64 %6 to i16
+  %27 = trunc nuw nsw i64 %6 to i16
   %28 = sub nuw nsw i16 8, %27
   %29 = shl nuw i16 %26, %28
   %30 = trunc i16 %29 to i8
@@ -135,7 +135,7 @@ define void @_ZN3net17HpackOutputStream12AppendPrefixENS_11HpackPrefixE(ptr noun
 
 25:                                               ; preds = %17
   %26 = zext i8 %1 to i16
-  %27 = trunc nuw i64 %6 to i16
+  %27 = trunc nuw nsw i64 %6 to i16
   %28 = sub nuw nsw i16 8, %27
   %29 = shl nuw i16 %26, %28
   %30 = trunc i16 %29 to i8
@@ -196,7 +196,7 @@ define void @_ZN3net17HpackOutputStream12AppendUint32Ej(ptr noundef nonnull alig
   br i1 %10, label %12, label %26
 
 12:                                               ; preds = %2
-  %13 = trunc i32 %1 to i8
+  %13 = trunc nuw i32 %1 to i8
   br i1 %11, label %14, label %18
 
 14:                                               ; preds = %12
@@ -264,7 +264,7 @@ _ZN3net17HpackOutputStream10AppendBitsEhm.exit15: ; preds = %27, %31
 
 ._crit_edge.thread:                               ; preds = %_ZN3net17HpackOutputStream10AppendBitsEhm.exit15, %._crit_edge
   %.0.lcssa20 = phi i32 [ %46, %._crit_edge ], [ %39, %_ZN3net17HpackOutputStream10AppendBitsEhm.exit15 ]
-  %49 = trunc nuw i32 %.0.lcssa20 to i8
+  %49 = trunc nuw nsw i32 %.0.lcssa20 to i8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !9
   %52 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %51, i64 noundef 0, i64 noundef 1, i8 noundef signext %49)
@@ -282,7 +282,7 @@ _ZN3net17HpackOutputStream10AppendBitsEhm.exit15: ; preds = %27, %31
 
 61:                                               ; preds = %53
   %62 = trunc nuw i32 %46 to i16
-  %63 = trunc nuw i64 %47 to i16
+  %63 = trunc nuw nsw i64 %47 to i16
   %64 = sub nuw nsw i16 8, %63
   %65 = shl nuw nsw i16 %62, %64
   %66 = trunc i16 %65 to i8
@@ -294,7 +294,7 @@ _ZN3net17HpackOutputStream10AppendBitsEhm.exit15: ; preds = %27, %31
   %69 = trunc i64 %47 to i32
   %70 = add i32 %69, -8
   %71 = lshr i32 %46, %70
-  %72 = trunc nuw i32 %71 to i8
+  %72 = trunc nuw nsw i32 %71 to i8
   %73 = or i8 %60, %72
   store i8 %73, ptr %59, align 1, !tbaa !12
   %74 = sub i32 16, %69

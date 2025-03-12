@@ -621,7 +621,7 @@ define ptr @ossl_c2i_ASN1_OBJECT(ptr noundef captures(address_is_null) %0, ptr n
   br label %ASN1_OBJECT_new.exit.thread
 
 15:                                               ; preds = %10
-  %16 = trunc nuw i64 %2 to i32
+  %16 = trunc nuw nsw i64 %2 to i32
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %17, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24

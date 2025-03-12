@@ -882,7 +882,7 @@ _ZN15ClassListParser6linenoEv.exit:               ; preds = %69, %76
   br i1 %92, label %.thread.i, label %93
 
 93:                                               ; preds = %85
-  %94 = trunc nuw i64 %91 to i32
+  %94 = trunc nuw nsw i64 %91 to i32
   %95 = tail call noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef nonnull %89, i32 noundef %94, i1 noundef zeroext false) #19
   br i1 %95, label %_ZN15ClassListParser16check_class_nameEPKc.exit, label %.thread.i
 
@@ -1015,7 +1015,7 @@ define hidden void @_ZN15ClassListParser31parse_class_name_and_attributesEP10Jav
   br i1 %10, label %.thread.i, label %11
 
 11:                                               ; preds = %6
-  %12 = trunc nuw i64 %9 to i32
+  %12 = trunc nuw nsw i64 %9 to i32
   %13 = tail call noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef nonnull %8, i32 noundef %12, i1 noundef zeroext false) #19
   br i1 %13, label %_ZN15ClassListParser16check_class_nameEPKc.exit, label %.thread.i
 
@@ -1549,7 +1549,7 @@ define hidden void @_ZN15ClassListParser16check_class_nameEPKc(ptr noundef nonnu
   br i1 %4, label %.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = trunc nuw i64 %3 to i32
+  %6 = trunc nuw nsw i64 %3 to i32
   %7 = tail call noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef nonnull %1, i32 noundef %6, i1 noundef zeroext false) #19
   br i1 %7, label %25, label %.thread
 

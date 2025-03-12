@@ -11942,7 +11942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 164:                                              ; preds = %._crit_edge.i.i61
-  %165 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %165 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %166 = or disjoint i8 %165, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -56524,7 +56524,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(pt
   br label %_ZN9rapidjson8internal13WriteExponentEiPc.exit
 
 118:                                              ; preds = %107
-  %119 = trunc nuw i32 %.0.i to i8
+  %119 = trunc nuw nsw i32 %.0.i to i8
   %120 = or disjoint i8 %119, 48
   %121 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   store i8 %120, ptr %.020.i, align 1
@@ -56594,7 +56594,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(pt
   br label %_ZN9rapidjson8internal13WriteExponentEiPc.exit
 
 162:                                              ; preds = %151
-  %163 = trunc nuw i32 %.0.i110 to i8
+  %163 = trunc nuw nsw i32 %.0.i110 to i8
   %164 = or disjoint i8 %163, 48
   %165 = getelementptr inbounds nuw i8, ptr %.020.i109, i64 1
   store i8 %164, ptr %.020.i109, align 1
@@ -56903,7 +56903,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   br i1 %3, label %4, label %34
 
 4:                                                ; preds = %2
-  %.lhs.trunc = trunc nuw i32 %0 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %0 to i16
   %5 = udiv i16 %.lhs.trunc, 100
   %6 = shl nuw nsw i16 %5, 1
   %7 = urem i16 %.lhs.trunc, 100
@@ -56965,7 +56965,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u32toaEjPc(i32 no
   %38 = urem i32 %0, 10000
   %39 = udiv i32 %0, 1000000
   %40 = shl nuw nsw i32 %39, 1
-  %.lhs.trunc111 = trunc nuw i32 %37 to i16
+  %.lhs.trunc111 = trunc nuw nsw i32 %37 to i16
   %41 = urem i16 %.lhs.trunc111, 100
   %42 = shl nuw nsw i16 %41, 1
   %.lhs.trunc113 = trunc nuw nsw i32 %38 to i16
@@ -57204,7 +57204,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u64toaEmPc(i64 no
   %39 = urem i32 %5, 10000
   %40 = udiv i32 %5, 1000000
   %41 = shl nuw nsw i32 %40, 1
-  %.lhs.trunc = trunc nuw i32 %38 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %38 to i16
   %42 = urem i16 %.lhs.trunc, 100
   %43 = shl nuw nsw i16 %42, 1
   %.lhs.trunc257 = trunc nuw nsw i32 %39 to i16
@@ -57295,7 +57295,7 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal6u64toaEmPc(i64 no
   %99 = urem i32 %95, 10000
   %100 = udiv i32 %95, 1000000
   %101 = shl nuw nsw i32 %100, 1
-  %.lhs.trunc261 = trunc nuw i32 %98 to i16
+  %.lhs.trunc261 = trunc nuw nsw i32 %98 to i16
   %102 = urem i16 %.lhs.trunc261, 100
   %103 = shl nuw nsw i16 %102, 1
   %.lhs.trunc263 = trunc nuw nsw i32 %99 to i16

@@ -103,7 +103,7 @@ define hidden range(i64 0, 5) i64 @_glfwEncodeUTF8(ptr noundef writeonly capture
 
 8:                                                ; preds = %6
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %0, align 1, !tbaa !3
   %12 = trunc i32 %1 to i8
@@ -119,7 +119,7 @@ define hidden range(i64 0, 5) i64 @_glfwEncodeUTF8(ptr noundef writeonly capture
 
 18:                                               ; preds = %16
   %19 = lshr i32 %1, 12
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %0, align 1, !tbaa !3
   %22 = lshr i32 %1, 6
@@ -141,7 +141,7 @@ define hidden range(i64 0, 5) i64 @_glfwEncodeUTF8(ptr noundef writeonly capture
 
 33:                                               ; preds = %31
   %34 = lshr i32 %1, 18
-  %35 = trunc nuw i32 %34 to i8
+  %35 = trunc nuw nsw i32 %34 to i8
   %36 = or disjoint i8 %35, -16
   store i8 %36, ptr %0, align 1, !tbaa !3
   %37 = lshr i32 %1, 12

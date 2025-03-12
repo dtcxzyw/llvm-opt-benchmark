@@ -3681,7 +3681,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %exitcond.not.i.i, label %for.inc.i, label %for.body.i.i, !llvm.loop !73
 
 if.else.i:                                        ; preds = %if.end.i
-  %conv5.i = trunc nuw i16 %0 to i8
+  %conv5.i = trunc nuw nsw i16 %0 to i8
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(112) %dst, i8 noundef signext %conv5.i) #27
   br label %for.inc.i
 
@@ -6186,7 +6186,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %4 = trunc nuw i64 %__val.addr.0.lcssa.i to i8
+  %4 = trunc nuw nsw i64 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %4, 48
   br label %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit
 
@@ -6274,7 +6274,7 @@ for.body.i27:                                     ; preds = %for.body.i27, %if.e
   %arrayidx.i.i31 = getelementptr inbounds nuw i8, ptr %add.ptr.i22, i64 %sub.i30
   %4 = load i8, ptr %arrayidx.i.i31, align 1
   %conv.i = zext i8 %4 to i32
-  %shift_bytes.0.tr.i32 = trunc nuw i64 %shift_bytes.06.i28 to i32
+  %shift_bytes.0.tr.i32 = trunc nuw nsw i64 %shift_bytes.06.i28 to i32
   %sh_prom.i33 = shl nuw nsw i32 %shift_bytes.0.tr.i32, 3
   %shl.i34 = shl nuw i32 %conv.i, %sh_prom.i33
   %or.i = or i32 %shl.i34, %result.05.i29
@@ -6620,7 +6620,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS
 
 _ZNSt6vectorIhSaIhEE9push_backEOh.exit117:        ; preds = %if.then.i.i90, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i113
   %.pre.i = phi ptr [ %incdec.ptr.i.i91, %if.then.i.i90 ], [ %incdec.ptr.i.i.i110, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i113 ]
-  %conv16 = trunc nuw i64 %value to i32
+  %conv16 = trunc nuw nsw i64 %value to i32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNSt6vectorIhSaIhEE9push_backEOh.exit.i, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit117
@@ -7034,7 +7034,7 @@ if.then11:                                        ; preds = %if.end7
   %2 = shl i8 %type.tr.i23, 5
   %conv3.i24 = or disjoint i8 %2, 25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %encoded, i8 noundef signext %conv3.i24) #27
-  %conv13 = trunc nuw i64 %value to i32
+  %conv13 = trunc nuw nsw i64 %value to i32
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.then11
@@ -8686,7 +8686,7 @@ for.body.i27.i:                                   ; preds = %for.body.i27.i, %if
   %arrayidx.i.i31.i = getelementptr inbounds nuw i8, ptr %add.ptr.i22.i, i64 %sub.i30.i
   %9 = load i8, ptr %arrayidx.i.i31.i, align 1
   %conv.i.i = zext i8 %9 to i32
-  %shift_bytes.0.tr.i32.i = trunc nuw i64 %shift_bytes.06.i28.i to i32
+  %shift_bytes.0.tr.i32.i = trunc nuw nsw i64 %shift_bytes.06.i28.i to i32
   %sh_prom.i33.i = shl nuw nsw i32 %shift_bytes.0.tr.i32.i, 3
   %shl.i34.i = shl nuw i32 %conv.i.i, %sh_prom.i33.i
   %or.i.i = or i32 %shl.i34.i, %result.05.i29.i
@@ -8801,7 +8801,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 %sub.i52
   %13 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i = zext i8 %13 to i32
-  %shift_bytes.0.tr.i = trunc nuw i64 %shift_bytes.06.i to i32
+  %shift_bytes.0.tr.i = trunc nuw nsw i64 %shift_bytes.06.i to i32
   %sh_prom.i = shl nuw nsw i32 %shift_bytes.0.tr.i, 3
   %shl.i = shl nuw i32 %conv.i, %sh_prom.i
   %or.i = or i32 %shl.i, %result.05.i
@@ -8902,7 +8902,7 @@ for.body.i27.i91:                                 ; preds = %for.body.i27.i91, %
   %arrayidx.i.i31.i95 = getelementptr inbounds nuw i8, ptr %add.ptr.i22.i90, i64 %sub.i30.i94
   %17 = load i8, ptr %arrayidx.i.i31.i95, align 1
   %conv.i.i96 = zext i8 %17 to i32
-  %shift_bytes.0.tr.i32.i97 = trunc nuw i64 %shift_bytes.06.i28.i92 to i32
+  %shift_bytes.0.tr.i32.i97 = trunc nuw nsw i64 %shift_bytes.06.i28.i92 to i32
   %sh_prom.i33.i98 = shl nuw nsw i32 %shift_bytes.0.tr.i32.i97, 3
   %shl.i34.i99 = shl nuw i32 %conv.i.i96, %sh_prom.i33.i98
   %or.i.i100 = or i32 %shl.i34.i99, %result.05.i29.i93
@@ -10842,7 +10842,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw nsw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -13796,7 +13796,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %cleanup.i
 
 if.end.i:                                         ; preds = %for.body.i
-  %conv.i = trunc nuw i16 %6 to i8
+  %conv.i = trunc nuw nsw i16 %6 to i8
   %7 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, %7
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %if.then.i.i10.i
@@ -19790,7 +19790,7 @@ if.else30:                                        ; preds = %for.body
   br i1 %or.cond, label %if.then35, label %if.else37
 
 if.then35:                                        ; preds = %if.else30
-  %conv36 = trunc nuw i16 %13 to i8
+  %conv36 = trunc nuw nsw i16 %13 to i8
   %this.val22 = load ptr, ptr %out_, align 8
   %_M_finish.i.i.i72 = getelementptr inbounds nuw i8, ptr %this.val22, i64 8
   %29 = load ptr, ptr %_M_finish.i.i.i72, align 8
@@ -22676,7 +22676,7 @@ if.else30:                                        ; preds = %for.body
   br i1 %or.cond, label %if.then35, label %if.else37
 
 if.then35:                                        ; preds = %if.else30
-  %conv36 = trunc nuw i16 %12 to i8
+  %conv36 = trunc nuw nsw i16 %12 to i8
   %this.val22 = load ptr, ptr %out_, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %this.val22, i8 noundef signext %conv36) #27
   br label %for.inc
@@ -25158,7 +25158,7 @@ _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE13CharsToDoubleEPKt
   br label %if.then14
 
 if.end.i:                                         ; preds = %for.body.i
-  %conv4.i = trunc nuw i16 %22 to i8
+  %conv4.i = trunc nuw nsw i16 %22 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i, i8 noundef signext %conv4.i) #27
   %inc.i = add nuw i64 %ii.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub.ptr.div

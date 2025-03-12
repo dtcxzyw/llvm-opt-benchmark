@@ -42407,7 +42407,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.i.thread.i.i: 
   br i1 %608, label %609, label %.loopexit297.i.i.invoke
 
 609:                                              ; preds = %.thread216.i.i
-  %610 = trunc nuw i64 %indvars.iv.i.i to i32
+  %610 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %611 = sub nsw i32 16, %610
   %612 = and i32 %611, 31
   %613 = lshr i32 %587, %612
@@ -43129,7 +43129,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i.i: ; 
   unreachable
 
 913:                                              ; preds = %.thread282.i.i
-  %914 = trunc nuw i64 %indvars.iv373.i.i to i32
+  %914 = trunc nuw nsw i64 %indvars.iv373.i.i to i32
   %915 = sub nsw i32 16, %914
   %916 = and i32 %915, 31
   %917 = lshr i32 %887, %916
@@ -47153,7 +47153,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i763.us
   br i1 %540, label %541, label %.loopexit816.i
 
 541:                                              ; preds = %.thread618.i.us
-  %542 = trunc nuw i64 %indvars.iv.i778.us to i32
+  %542 = trunc nuw nsw i64 %indvars.iv.i778.us to i32
   %543 = sub nsw i32 16, %542
   %544 = and i32 %543, 31
   %545 = lshr i32 %530, %544
@@ -49624,7 +49624,7 @@ _ZN9zune_jpeg9bitstream9BitStream6refill17hd4ab66b86a67dab1E.exit.thread.i.us: ;
   br i1 %1548, label %1549, label %.loopexit167.i
 
 1549:                                             ; preds = %.thread156.i.us
-  %1550 = trunc nuw i64 %indvars.iv.i.us to i32
+  %1550 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %1551 = sub nsw i32 16, %1550
   %1552 = and i32 %1551, 31
   %1553 = lshr i32 %1538, %1552

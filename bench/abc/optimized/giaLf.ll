@@ -6108,7 +6108,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %60, %.lr.ph.preheader.i
   %.010.lcssa.i = phi i32 [ %63, %60 ], [ %indvars.iv.next.i, %.lr.ph.preheader.i ]
   %.0.lcssa.i = phi i32 [ %70, %60 ], [ 1, %.lr.ph.preheader.i ]
-  %74 = trunc nuw i32 %.0.lcssa.i to i8
+  %74 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %75 = sext i32 %.010.lcssa.i to i64
   %76 = getelementptr inbounds i8, ptr %67, i64 %75
   store i8 %74, ptr %76, align 1, !tbaa !76
@@ -6157,7 +6157,7 @@ Gia_AigerWriteUnsignedBuffer.exit:                ; preds = %60, %.lr.ph.prehead
 Gia_AigerWriteUnsignedBuffer.exit57:              ; preds = %81, %._crit_edge.loopexit.i54
   %.010.lcssa.i55 = phi i32 [ %.04373, %81 ], [ %90, %._crit_edge.loopexit.i54 ]
   %.0.lcssa.i56 = phi i32 [ %84, %81 ], [ %89, %._crit_edge.loopexit.i54 ]
-  %91 = trunc nuw i32 %.0.lcssa.i56 to i8
+  %91 = trunc nuw nsw i32 %.0.lcssa.i56 to i8
   %92 = sext i32 %.010.lcssa.i55 to i64
   %93 = getelementptr inbounds i8, ptr %67, i64 %92
   store i8 %91, ptr %93, align 1, !tbaa !76
@@ -6200,7 +6200,7 @@ Gia_AigerWriteUnsignedBuffer.exit57:              ; preds = %81, %._crit_edge.lo
 Gia_AigerWriteUnsignedBuffer.exit68:              ; preds = %99, %._crit_edge.loopexit.i65
   %.010.lcssa.i66 = phi i32 [ %.043.lcssa, %99 ], [ %105, %._crit_edge.loopexit.i65 ]
   %.0.lcssa.i67 = phi i32 [ %97, %99 ], [ %104, %._crit_edge.loopexit.i65 ]
-  %106 = trunc nuw i32 %.0.lcssa.i67 to i8
+  %106 = trunc nuw nsw i32 %.0.lcssa.i67 to i8
   %107 = add nsw i32 %.010.lcssa.i66, 1
   %108 = sext i32 %.010.lcssa.i66 to i64
   %109 = getelementptr inbounds i8, ptr %67, i64 %108

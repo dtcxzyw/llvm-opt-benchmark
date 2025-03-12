@@ -3171,7 +3171,7 @@ define internal i32 @io_sg_from_iter(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %76, label %37, label %77, !llvm.loop !17
 
 77:                                               ; preds = %37
-  %78 = trunc i64 %61 to i8
+  %78 = trunc nuw nsw i64 %61 to i8
   %79 = zext i32 %71 to i64
   br label %80
 

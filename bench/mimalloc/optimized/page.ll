@@ -488,7 +488,7 @@ define hidden void @_mi_page_free_collect(ptr noundef captures(none) %0, i1 noun
   %35 = ptrtoint ptr %34 to i64
   store i64 %35, ptr %.026.lcssa.i, align 8, !tbaa !30
   store ptr %16, ptr %33, align 8, !tbaa !33
-  %36 = trunc i64 %.027.lcssa.i to i16
+  %36 = trunc nuw i64 %.027.lcssa.i to i16
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i16, ptr %37, align 8, !tbaa !34
   %39 = sub i16 %38, %36
@@ -1917,7 +1917,7 @@ mi_page_queue.exit.i:                             ; preds = %23, %19
   %67 = ptrtoint ptr %66 to i64
   store i64 %67, ptr %.026.lcssa.i.i.i, align 8, !tbaa !30
   store ptr %48, ptr %65, align 8, !tbaa !33
-  %68 = trunc i64 %.027.lcssa.i.i.i to i16
+  %68 = trunc nuw i64 %.027.lcssa.i.i.i to i16
   %69 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %70 = load i16, ptr %69, align 8, !tbaa !34
   %71 = sub i16 %70, %68
@@ -2027,7 +2027,7 @@ tailrecurse.i.i:                                  ; preds = %_mi_heap_collect_re
   %117 = ptrtoint ptr %116 to i64
   store i64 %117, ptr %.026.lcssa.i.i.i.i, align 8, !tbaa !30
   store ptr %98, ptr %115, align 8, !tbaa !33
-  %118 = trunc i64 %.027.lcssa.i.i.i.i to i16
+  %118 = trunc nuw i64 %.027.lcssa.i.i.i.i to i16
   %119 = getelementptr inbounds nuw i8, ptr %.04687.i.i, i64 24
   %120 = load i16, ptr %119, align 8, !tbaa !34
   %121 = sub i16 %120, %118
@@ -2156,7 +2156,7 @@ _mi_page_free_collect.exit.thread.i.i:            ; preds = %128, %_mi_page_free
   br i1 %172, label %175, label %173
 
 173:                                              ; preds = %159
-  %.rhs.trunc.i.i.i = trunc nuw i64 %.val.i.i.i to i16
+  %.rhs.trunc.i.i.i = trunc nuw nsw i64 %.val.i.i.i to i16
   %174 = udiv i16 4096, %.rhs.trunc.i.i.i
   %.zext.i.i.i = zext nneg i16 %174 to i64
   br label %175
@@ -2358,7 +2358,7 @@ define internal fastcc void @mi_page_to_full(ptr noundef nonnull %0, ptr noundef
   %40 = ptrtoint ptr %39 to i64
   store i64 %40, ptr %.026.lcssa.i.i, align 8, !tbaa !30
   store ptr %21, ptr %38, align 8, !tbaa !33
-  %41 = trunc i64 %.027.lcssa.i.i to i16
+  %41 = trunc nuw i64 %.027.lcssa.i.i to i16
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i16, ptr %42, align 8, !tbaa !34
   %44 = sub i16 %43, %41
@@ -2773,7 +2773,7 @@ mi_page_set_heap.exit.i:                          ; preds = %13, %16
   br i1 %62, label %65, label %63
 
 63:                                               ; preds = %55
-  %.rhs.trunc.i.i = trunc nuw i64 %.val.i.i to i16
+  %.rhs.trunc.i.i = trunc nuw nsw i64 %.val.i.i to i16
   %64 = udiv i16 4096, %.rhs.trunc.i.i
   %.zext.i.i = zext nneg i16 %64 to i64
   br label %65

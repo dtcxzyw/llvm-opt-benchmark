@@ -8302,7 +8302,7 @@ define dso_local noundef zeroext i1 @_ZN5clang6format16FormatTokenLexer14tryMerg
   br i1 %.not16.not, label %.critedge.i, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %10
-  %15 = trunc i64 %2 to i32
+  %15 = trunc nuw i64 %2 to i32
   br label %.lr.ph
 
 16:                                               ; preds = %.lr.ph

@@ -4186,7 +4186,7 @@ switch.early.test:                                ; preds = %838
 
 840:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %838, %_ZN7scanner9read_charEv.exit145
   %.0.i144168 = phi i32 [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %switch.early.test ], [ %.0.i144167, %838 ], [ %.0.i144, %_ZN7scanner9read_charEv.exit145 ]
-  %841 = trunc i32 %.0.i144168 to i8
+  %841 = trunc nuw nsw i32 %.0.i144168 to i8
   %842 = load ptr, ptr %668, align 8, !tbaa !39
   %843 = icmp eq ptr %842, null
   br i1 %843, label %850, label %844

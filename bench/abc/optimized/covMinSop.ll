@@ -1915,7 +1915,7 @@ define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(addr
   br i1 %57, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i52
-  %indvars.iv.tr.i = trunc i64 %indvars.iv.i53 to i32
+  %indvars.iv.tr.i = trunc nuw nsw i64 %indvars.iv.i53 to i32
   %58 = shl nuw nsw i32 %indvars.iv.tr.i, 4
   br label %59
 

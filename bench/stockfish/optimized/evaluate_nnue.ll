@@ -2804,7 +2804,7 @@ _ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib.exit: ; 
 
 290:                                              ; preds = %266
   %291 = icmp samesign ugt i32 %273, 999
-  %.lhs.trunc36.i.i = trunc nuw i32 %273 to i16
+  %.lhs.trunc36.i.i = trunc nuw nsw i32 %273 to i16
   %292 = getelementptr inbounds nuw i8, ptr %268, i64 1
   br i1 %291, label %293, label %306
 
@@ -2829,7 +2829,7 @@ _ZN9Stockfish4Eval4NNUE8evaluateILNS1_7NetSizeE0EEEiRKNS_8PositionEbPib.exit: ; 
 
 306:                                              ; preds = %290
   %307 = udiv i16 %.lhs.trunc36.i.i, 100
-  %308 = trunc nuw i16 %307 to i8
+  %308 = trunc nuw nsw i16 %307 to i8
   %309 = or disjoint i8 %308, 48
   store i8 %309, ptr %292, align 1
   %310 = urem i16 %.lhs.trunc36.i.i, 100

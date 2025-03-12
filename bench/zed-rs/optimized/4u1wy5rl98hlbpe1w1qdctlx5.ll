@@ -2971,7 +2971,7 @@ define hidden void @_ZN7tendril6stream11TendrilSink9read_from17ha0d940390f0256cd
   unreachable
 
 163:                                              ; preds = %132
-  %164 = trunc nuw i64 %.sroa.0.0.sroa.speculated.i.i to i32
+  %164 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i to i32
   %165 = sub nuw nsw i32 4096, %164
   call void @llvm.experimental.noalias.scope.decl(metadata !812)
   %166 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 4096

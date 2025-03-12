@@ -9872,7 +9872,7 @@ define linkonce_odr hidden i16 @_ZNK5boost9date_time4dateINS_9gregorian4dateENS2
   resume { ptr, i32 } %30
 
 _ZN5boost9gregorian12greg_weekdayC2Et.exit:       ; preds = %1
-  %31 = trunc nsw i32 %25 to i16
+  %31 = trunc nuw nsw i32 %25 to i16
   ret i16 %31
 }
 

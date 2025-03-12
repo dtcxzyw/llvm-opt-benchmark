@@ -6496,7 +6496,7 @@ define internal void @led_work(ptr noundef %0) #1 align 16 {
   %22 = phi i32 [ 0, %16 ], [ %47, %45 ]
   %23 = getelementptr [31 x i8], ptr %17, i64 0, i64 %20
   %24 = load i8, ptr %23, align 1
-  %25 = trunc i64 %20 to i32
+  %25 = trunc nuw i64 %20 to i32
   switch i8 %24, label %45 [
     i8 1, label %32
     i8 2, label %26
@@ -7342,7 +7342,7 @@ hub_power_on.exit:                                ; preds = %.preheader, %155
   br label %457
 
 455:                                              ; preds = %440
-  %456 = trunc i32 %441 to i16
+  %456 = trunc nuw i32 %441 to i16
   br label %457
 
 457:                                              ; preds = %455, %453, %437

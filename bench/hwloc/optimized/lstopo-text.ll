@@ -2371,7 +2371,7 @@ lstopo_busid_snprintf.exit:                       ; preds = %57, %84, %95
   br i1 %215, label %216, label %221
 
 216:                                              ; preds = %214
-  %.lhs.trunc.i = trunc nuw i64 %199 to i32
+  %.lhs.trunc.i = trunc nuw nsw i64 %199 to i32
   %217 = udiv i32 %.lhs.trunc.i, 500
   %narrow.i = add nuw nsw i32 %217, 1
   %218 = lshr i32 %narrow.i, 1

@@ -482,13 +482,13 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br i1 %153, label %154, label %144
 
 154:                                              ; preds = %152
-  %155 = trunc i64 %148 to i32
+  %155 = trunc nuw i64 %148 to i32
   store i32 %139, ptr %149, align 8
   %.pre64 = load i32, ptr %113, align 8
   br label %.thread28
 
 .thread28.loopexit.split.loop.exit45:             ; preds = %147
-  %156 = trunc i64 %148 to i32
+  %156 = trunc nuw i64 %148 to i32
   br label %.thread28
 
 .thread28:                                        ; preds = %144, %.thread28.loopexit.split.loop.exit45, %154
@@ -535,13 +535,13 @@ define dso_local void @acpi_mipi_scan_crs_csi2() local_unnamed_addr #0 align 16 
   br i1 %180, label %181, label %171
 
 181:                                              ; preds = %179
-  %182 = trunc i64 %175 to i32
+  %182 = trunc nuw i64 %175 to i32
   store i32 %163, ptr %176, align 8
   %.pre65 = load i32, ptr %164, align 8
   br label %.thread30
 
 .thread30.loopexit.split.loop.exit49:             ; preds = %174
-  %183 = trunc i64 %175 to i32
+  %183 = trunc nuw i64 %175 to i32
   br label %.thread30
 
 .thread30:                                        ; preds = %171, %.thread30.loopexit.split.loop.exit49, %181
@@ -955,7 +955,7 @@ define dso_local void @acpi_mipi_init_crs_csi2_swnodes() local_unnamed_addr #0 a
 
 130:                                              ; preds = %125
   %131 = load ptr, ptr %101, align 8
-  %132 = trunc i64 %113 to i32
+  %132 = trunc nuw i64 %113 to i32
   %133 = shl i32 %132, 1
   %134 = or disjoint i32 %133, 1
   %135 = zext i32 %134 to i64

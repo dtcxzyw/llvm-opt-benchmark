@@ -3731,7 +3731,7 @@ define internal noundef range(i32 -95, 1) i32 @e1000e_set_eee(ptr noundef %0, pt
   br label %58
 
 33:                                               ; preds = %25
-  %34 = trunc nuw i32 %27 to i16
+  %34 = trunc nuw nsw i32 %27 to i16
   %35 = lshr exact i16 %34, 2
   %36 = and i16 %35, 2
   %37 = lshr exact i16 %34, 3

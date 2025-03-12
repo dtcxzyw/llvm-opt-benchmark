@@ -5564,7 +5564,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !1650
   %12 = trunc i32 %1 to i8
@@ -5576,7 +5576,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !1650
   %19 = lshr i32 %1, 6
@@ -12552,7 +12552,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit18: ; preds = %._ZN5alloc6s
 
 180:                                              ; preds = %176
   %181 = lshr i32 %174, 6
-  %182 = trunc nuw i32 %181 to i8
+  %182 = trunc nuw nsw i32 %181 to i8
   %183 = or disjoint i8 %182, -64
   store i8 %183, ptr %.sroa.0.i, align 4, !alias.scope !2973, !noalias !2970
   %184 = trunc i32 %174 to i8
@@ -12563,7 +12563,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit18: ; preds = %._ZN5alloc6s
 
 187:                                              ; preds = %178
   %188 = lshr i32 %174, 12
-  %189 = trunc nuw i32 %188 to i8
+  %189 = trunc nuw nsw i32 %188 to i8
   %190 = or disjoint i8 %189, -32
   store i8 %190, ptr %.sroa.0.i, align 4, !alias.scope !2973, !noalias !2970
   %191 = lshr i32 %174, 6

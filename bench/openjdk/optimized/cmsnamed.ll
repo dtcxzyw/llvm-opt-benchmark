@@ -1046,7 +1046,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly captures(address) %
 
 32:                                               ; preds = %28
   %33 = lshr i32 %.263, 6
-  %34 = trunc nuw i32 %33 to i8
+  %34 = trunc nuw nsw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   %36 = getelementptr inbounds nuw i8, ptr %.06482, i64 1
   store i8 %35, ptr %.06482, align 1
@@ -1071,7 +1071,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly captures(address) %
 
 47:                                               ; preds = %44
   %48 = lshr i32 %.263, 12
-  %49 = trunc nuw i32 %48 to i8
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = or disjoint i8 %49, -32
   %51 = getelementptr inbounds nuw i8, ptr %.06482, i64 1
   store i8 %50, ptr %.06482, align 1

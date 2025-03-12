@@ -1188,7 +1188,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   br i1 %.not89, label %203, label %199
 
 199:                                              ; preds = %.preheader
-  %200 = trunc nuw i32 %.0172 to i8
+  %200 = trunc nuw nsw i32 %.0172 to i8
   %201 = shl nuw i8 %200, 3
   %202 = or disjoint i8 %201, 2
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %202, i32 noundef 57005)
@@ -1200,7 +1200,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   br i1 %.not90, label %209, label %205
 
 205:                                              ; preds = %203
-  %206 = trunc nuw i32 %.0172 to i8
+  %206 = trunc nuw nsw i32 %.0172 to i8
   %207 = shl nuw i8 %206, 3
   %208 = or disjoint i8 %207, 4
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %208, double noundef -1.250000e-01)

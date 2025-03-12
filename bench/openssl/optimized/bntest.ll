@@ -2831,7 +2831,7 @@ define internal range(i32 0, 2) i32 @test_bn2padded() #1 {
   br i1 %exitcond.not, label %.loopexit, label %17
 
 17:                                               ; preds = %16
-  %.030.tr = trunc nuw i64 %.030 to i32
+  %.030.tr = trunc nuw nsw i64 %.030 to i32
   %18 = shl nuw nsw i32 %.030.tr, 3
   %19 = call i32 @BN_rand(ptr noundef %4, i32 noundef %18, i32 noundef 0, i32 noundef 0) #8
   %20 = icmp ne i32 %19, 0

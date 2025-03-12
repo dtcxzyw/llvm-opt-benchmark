@@ -1915,7 +1915,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i8
+  %15 = trunc nuw i64 %4 to i8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 61
   store i8 %15, ptr %16, align 1, !tbaa !108
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1964,7 +1964,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i8
+  %15 = trunc nuw nsw i64 %4 to i8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i8 %15, ptr %16, align 8, !tbaa !61
   br label %17
@@ -2009,7 +2009,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i8
+  %15 = trunc nuw i64 %4 to i8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 62
   store i8 %15, ptr %16, align 2, !tbaa !109
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2058,7 +2058,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i8
+  %15 = trunc nsw i64 %4 to i8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i8 %15, ptr %16, align 4, !tbaa !110
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2164,7 +2164,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i32
+  %15 = trunc nuw nsw i64 %4 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %15, ptr %16, align 8, !tbaa !112
   br label %17
@@ -2209,7 +2209,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i16
+  %15 = trunc nuw i64 %4 to i16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i16 %15, ptr %16, align 4, !tbaa !113
   br label %17
@@ -2538,7 +2538,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #19
-  %15 = trunc i64 %4 to i16
+  %15 = trunc nuw i64 %4 to i16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 66
   store i16 %15, ptr %16, align 2, !tbaa !124
   br label %17
@@ -2696,7 +2696,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
   br label %20
 
 17:                                               ; preds = %14
-  %18 = trunc i64 %4 to i16
+  %18 = trunc nuw i64 %4 to i16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i16 %18, ptr %19, align 8, !tbaa !72
   br label %20
@@ -2749,7 +2749,7 @@ doInt.exit.thread:                                ; preds = %7, %10, %13
   br label %20
 
 17:                                               ; preds = %14
-  %18 = trunc i64 %4 to i16
+  %18 = trunc nuw i64 %4 to i16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 106
   store i16 %18, ptr %19, align 2, !tbaa !76
   br label %20

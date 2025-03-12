@@ -3327,7 +3327,7 @@ define noundef signext range(i8 0, 16) i8 @_ZN4base13HexDigitToIntEw(i32 noundef
   br i1 %or.cond, label %3, label %6
 
 3:                                                ; preds = %1
-  %4 = trunc nuw i32 %0 to i8
+  %4 = trunc nuw nsw i32 %0 to i8
   %5 = add nsw i8 %4, -48
   br label %16
 
@@ -3337,7 +3337,7 @@ define noundef signext range(i8 0, 16) i8 @_ZN4base13HexDigitToIntEw(i32 noundef
   br i1 %or.cond3, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = trunc nuw i32 %0 to i8
+  %9 = trunc nuw nsw i32 %0 to i8
   %10 = add nsw i8 %9, -55
   br label %16
 
@@ -3347,7 +3347,7 @@ define noundef signext range(i8 0, 16) i8 @_ZN4base13HexDigitToIntEw(i32 noundef
   br i1 %or.cond5, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = trunc nuw i32 %0 to i8
+  %14 = trunc nuw nsw i32 %0 to i8
   %15 = add nsw i8 %14, -87
   br label %16
 

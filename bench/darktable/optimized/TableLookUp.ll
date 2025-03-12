@@ -266,7 +266,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %71)
   %72 = getelementptr inbounds nuw i16, ptr %29, i64 %70
   store i16 %69, ptr %72, align 2, !tbaa !19
-  %73 = trunc i32 %64 to i16
+  %73 = trunc nuw i32 %64 to i16
   %74 = or disjoint i64 %70, 1
   %75 = getelementptr inbounds nuw i16, ptr %29, i64 %74
   store i16 %73, ptr %75, align 2, !tbaa !19

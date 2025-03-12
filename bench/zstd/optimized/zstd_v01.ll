@@ -2900,7 +2900,7 @@ ZSTDv01_decodeSeqHeaders.exit.i:                  ; preds = %1414, %FSE_buildDTa
 FSE_initDStream.exit.thread143.i:                 ; preds = %1487
   %1491 = zext i8 %1489 to i32
   %1492 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1491, i1 true)
-  %1493 = trunc nuw i64 %gepdiff.i to i32
+  %1493 = trunc nuw nsw i64 %gepdiff.i to i32
   %1494 = shl nuw nsw i32 %1493, 3
   %reass.sub121 = sub nsw i32 %1492, %1494
   %1495 = add nsw i32 %reass.sub121, 41
@@ -4354,7 +4354,7 @@ define internal fastcc range(i64 1, 0) i64 @FSE_initDStream(ptr noundef nonnull 
   %70 = zext i8 %68 to i32
   %71 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %70, i1 true)
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %73 = trunc nuw i64 %2 to i32
+  %73 = trunc nuw nsw i64 %2 to i32
   %74 = shl nuw nsw i32 %73, 3
   %75 = sub nsw i32 %71, %74
   %76 = add nsw i32 %75, 41

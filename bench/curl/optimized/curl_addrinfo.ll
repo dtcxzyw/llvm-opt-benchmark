@@ -401,7 +401,7 @@ define hidden ptr @Curl_unix2addr(ptr noundef readonly captures(none) %0, ptr no
   store i32 1, ptr %15, align 4, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %16, align 8, !tbaa !27
-  %17 = trunc i64 %9 to i32
+  %17 = trunc nsw i64 %9 to i32
   %18 = add nsw i32 %17, 3
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %18, ptr %19, align 8, !tbaa !30

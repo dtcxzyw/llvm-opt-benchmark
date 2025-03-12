@@ -695,7 +695,7 @@ Vec_WecPush.exit126.i.i:                          ; preds = %285, %Vec_IntGrow.e
 
 316:                                              ; preds = %311
   %317 = shl nsw i32 %314, 1
-  %318 = trunc i64 %indvars.iv188.i.i to i32
+  %318 = trunc nsw i64 %indvars.iv188.i.i to i32
   %319 = add nsw i32 %318, 1
   %320 = call noundef i32 @llvm.smax.i32(i32 %317, i32 %319)
   %321 = load i32, ptr %40, align 8, !tbaa !25
@@ -4287,7 +4287,7 @@ Vec_WecStart.exit.i:                              ; preds = %99, %77
 
 156:                                              ; preds = %.lr.ph.i.i
   %157 = shl nsw i32 %154, 1
-  %158 = trunc i64 %indvars.iv.i.i to i32
+  %158 = trunc nsw i64 %indvars.iv.i.i to i32
   %159 = add nsw i32 %158, 1
   %160 = call noundef i32 @llvm.smax.i32(i32 %157, i32 %159)
   %161 = load i32, ptr %97, align 8, !tbaa !25

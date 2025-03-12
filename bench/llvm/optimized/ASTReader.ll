@@ -54916,7 +54916,7 @@ define dso_local noundef ptr @_ZN5clang9ASTReader15GetExistingDeclENS_12GlobalDe
   br i1 %5, label %6, label %_ZNK5clang9ASTReader19getOwningModuleFileENS_12GlobalDeclIDE.exit.i
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %1 to i32
+  %7 = trunc nuw nsw i64 %1 to i32
   %8 = tail call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %7)
   %.not11 = icmp eq ptr %8, null
   br i1 %.not11, label %61, label %9
@@ -63645,7 +63645,7 @@ define dso_local i64 @_ZN5clang9ASTReader7GetTypeEm(ptr noundef nonnull align 8 
   br i1 %5, label %6, label %1028
 
 6:                                                ; preds = %2
-  %7 = trunc nuw i64 %1 to i32
+  %7 = trunc nuw nsw i64 %1 to i32
   %8 = lshr i32 %7, 3
   switch i32 %8, label %1025 [
     i32 508, label %1023
@@ -101858,7 +101858,7 @@ _ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10Modu
 
 _ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, %176, %_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_S2_.exit, %_ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit, %_ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread422
   %.sroa.07.0.i.i421 = phi i64 [ %236, %_ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit ], [ %213, %_ZN5clang9ASTReader10ReadDeclAsINS_12FunctionDeclEEEPT_RNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread422 ], [ 0, %_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_S2_.exit ], [ 0, %176 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i ]
-  %238 = trunc nuw i64 %.sroa.07.0.i.i421 to i32
+  %238 = trunc nuw nsw i64 %.sroa.07.0.i.i421 to i32
   %239 = call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %238)
   %.not11.i99 = icmp eq ptr %239, null
   br i1 %.not11.i99, label %_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit, label %240
@@ -102844,7 +102844,7 @@ _ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVect
 
 _ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit.i65, %640, %_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_S2_.exit156, %_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit, %_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread426
   %.sroa.07.0.i.i27425 = phi i64 [ %700, %_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit ], [ %677, %_ZN5clang9ASTReader8ReadDeclERNS_13serialization10ModuleFileERKN4llvm15SmallVectorImplImEERj.exit.thread426 ], [ 0, %_ZNK5clang9ASTReader5ErrorEjN4llvm9StringRefES2_S2_.exit156 ], [ 0, %640 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i65 ]
-  %702 = trunc nuw i64 %.sroa.07.0.i.i27425 to i32
+  %702 = trunc nuw nsw i64 %.sroa.07.0.i.i27425 to i32
   %703 = call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %702)
   %.not11.i139 = icmp ne ptr %703, null
   call void @llvm.assume(i1 %.not11.i139)
@@ -108965,7 +108965,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoENS_11SmallVectorIPN
   br i1 %367, label %368, label %_ZNK5clang9ASTReader19getOwningModuleFileENS_12GlobalDeclIDE.exit.i.i406
 
 368:                                              ; preds = %366
-  %369 = trunc nuw i64 %.sroa.03.0.copyload.us.i to i32
+  %369 = trunc nuw nsw i64 %.sroa.03.0.copyload.us.i to i32
   %370 = call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %369)
   %.not11.i614 = icmp eq ptr %370, null
   br i1 %.not11.i614, label %_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit424, label %371
@@ -110629,7 +110629,7 @@ _ZNSt5dequeIN5clang9ASTReader22PendingDeclContextInfoESaIS2_EE9pop_frontEv.exit:
   br i1 %1125, label %1126, label %_ZNK5clang9ASTReader19getOwningModuleFileENS_12GlobalDeclIDE.exit.i.i
 
 1126:                                             ; preds = %_ZNSt5dequeIN5clang9ASTReader22PendingDeclContextInfoESaIS2_EE9pop_frontEv.exit
-  %1127 = trunc nuw i64 %.sroa.4129.0.copyload to i32
+  %1127 = trunc nuw nsw i64 %.sroa.4129.0.copyload to i32
   %1128 = call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %1127)
   %.not11.i476 = icmp eq ptr %1128, null
   br i1 %.not11.i476, label %_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit, label %1129
@@ -111421,7 +111421,7 @@ _ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit: ; preds = %_ZN5clang17Diagn
   br i1 %1501, label %1502, label %_ZNK5clang9ASTReader19getOwningModuleFileENS_12GlobalDeclIDE.exit.i.i282
 
 1502:                                             ; preds = %_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit
-  %1503 = trunc nuw i64 %.sroa.5130.0.copyload to i32
+  %1503 = trunc nuw nsw i64 %.sroa.5130.0.copyload to i32
   %1504 = call noundef ptr @_ZN5clang9ASTReader17getPredefinedDeclENS_17PredefinedDeclIDsE(ptr noundef nonnull align 8 dereferenceable(16272) %0, i32 noundef %1503)
   %.not11.i508 = icmp eq ptr %1504, null
   br i1 %.not11.i508, label %_ZN5clang9ASTReader7GetDeclENS_12GlobalDeclIDE.exit300, label %1505

@@ -3444,7 +3444,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime7context8blocking23disallow_block_in
   br i1 %.not.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit", label %6
 
 6:                                                ; preds = %4
-  %7 = trunc i8 %5 to i1
+  %7 = trunc nuw i8 %5 to i1
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17he9ec98b67751fb88E.exit"
 
 8:                                                ; preds = %6

@@ -2201,11 +2201,11 @@ _node_is_hidden.exit116:                          ; preds = %164, %153
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %136
-  %indvars144 = trunc i64 %indvars.iv.next142 to i32
+  %indvars144 = trunc nsw i64 %indvars.iv.next142 to i32
   br label %.loopexit
 
 .loopexit.loopexit128:                            ; preds = %116
-  %indvars139 = trunc i64 %indvars.iv.next137 to i32
+  %indvars139 = trunc nsw i64 %indvars.iv.next137 to i32
   br label %.loopexit
 
 .loopexit.loopexit129:                            ; preds = %180

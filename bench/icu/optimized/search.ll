@@ -177,7 +177,7 @@ define void @_ZN6icu_7714SearchIterator12setAttributeE16USearchAttribute21USearc
   br i1 %or.cond, label %.thread, label %26
 
 .thread:                                          ; preds = %20
-  %22 = trunc nuw i32 %2 to i16
+  %22 = trunc nuw nsw i32 %2 to i16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !16
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 14

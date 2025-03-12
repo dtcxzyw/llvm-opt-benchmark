@@ -24781,7 +24781,7 @@ define void @_ZN5image6codecs3hdr7encoder12rle_compress17ha5d3d83bc0ef6917E(ptr 
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.51.0.copyload = load i64, ptr %.sroa.51.0..sroa_idx, align 8
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx, align 8
-  %trunc = trunc i8 %24 to i1
+  %trunc = trunc nuw i8 %24 to i1
   br i1 %trunc, label %27, label %25
 
 25:                                               ; preds = %23

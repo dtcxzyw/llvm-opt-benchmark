@@ -6256,7 +6256,7 @@ define internal noundef range(i32 0, 16) i32 @_ZL19ssl_handshaker_nextP14tsi_han
 
 _ZN4absl12lts_2024072212log_internal12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i: ; preds = %34
   %42 = load ptr, ptr %28, align 8, !tbaa !70
-  %43 = trunc nuw i64 %.0107194 to i32
+  %43 = trunc nuw nsw i64 %.0107194 to i32
   %44 = call i32 @BIO_write(ptr noundef %42, ptr noundef nonnull %.0109193, i32 noundef %43)
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %_ZL38ssl_handshaker_process_bytes_from_peerP18tsi_ssl_handshakerPKhPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -6598,7 +6598,7 @@ _ZN4absl12lts_2024072212log_internal12Check_LEImplImmEEPNSt7__cxx1112basic_strin
   %.032 = phi i64 [ %4, %_ZN4absl12lts_2024072212log_internal12Check_LEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.i.lr.ph ], [ %40, %39 ]
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.032
   %20 = load ptr, ptr %12, align 8, !tbaa !70
-  %21 = trunc nuw i64 %18 to i32
+  %21 = trunc nuw nsw i64 %18 to i32
   %22 = tail call i32 @BIO_read(ptr noundef %20, ptr noundef nonnull %19, i32 noundef %21)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %34

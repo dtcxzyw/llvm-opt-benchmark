@@ -57,7 +57,7 @@ define internal i32 @aes_siv_initkey(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %or.cond, label %.thread, label %19
 
 19:                                               ; preds = %14
-  %20 = trunc i64 %5 to i32
+  %20 = trunc nuw nsw i64 %5 to i32
   %21 = tail call i32 @ossl_siv128_init(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %20, ptr noundef nonnull %.pr, ptr noundef nonnull %16, ptr noundef %7, ptr noundef null) #5
   br label %.thread
 

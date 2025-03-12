@@ -881,7 +881,7 @@ define hidden void @png_handle_PLTE(ptr noalias noundef %0, ptr noalias noundef 
   unreachable
 
 34:                                               ; preds = %26
-  %.lhs.trunc = trunc nuw i32 %2 to i16
+  %.lhs.trunc = trunc nuw nsw i32 %2 to i16
   %35 = udiv i16 %.lhs.trunc, 3
   %.zext = zext nneg i16 %35 to i32
   %36 = icmp eq i8 %21, 3

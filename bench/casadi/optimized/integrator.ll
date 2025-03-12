@@ -5430,7 +5430,7 @@ switch.lookup:                                    ; preds = %357
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #37
-  %358 = trunc nuw i64 %.0155560 to i32
+  %358 = trunc nuw nsw i64 %.0155560 to i32
   %359 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %359, ptr %39, align 8, !tbaa !3, !alias.scope !85
   %360 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -6430,7 +6430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65) #37
-  %694 = trunc nuw i64 %.065561 to i32
+  %694 = trunc nuw nsw i64 %.065561 to i32
   %695 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %695, ptr %65, align 8, !tbaa !3, !alias.scope !115
   %696 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -8176,7 +8176,7 @@ switch.lookup:                                    ; preds = %344
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #37
-  %345 = trunc nuw i64 %.0155537 to i32
+  %345 = trunc nuw nsw i64 %.0155537 to i32
   %346 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %346, ptr %40, align 8, !tbaa !3, !alias.scope !138
   %347 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -9140,7 +9140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %66) #37
-  %668 = trunc nuw i64 %.065538 to i32
+  %668 = trunc nuw nsw i64 %.065538 to i32
   %669 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %669, ptr %66, align 8, !tbaa !3, !alias.scope !171
   %670 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -25022,7 +25022,7 @@ switch.lookup:                                    ; preds = %1041
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73) #37
-  %1042 = trunc nuw i64 %.02682201 to i32
+  %1042 = trunc nuw nsw i64 %.02682201 to i32
   %1043 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %1043, ptr %73, align 8, !tbaa !3, !alias.scope !547
   %1044 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -25830,7 +25830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1032: ; preds = %_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98) #37
-  %1312 = trunc nuw i64 %.02342202 to i32
+  %1312 = trunc nuw nsw i64 %.02342202 to i32
   %1313 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %1313, ptr %98, align 8, !tbaa !3, !alias.scope !564
   %1314 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -26276,7 +26276,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1070: ; preds = %_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %109) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %110) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %111) #37
-  %1454 = trunc nuw i64 %.02342202 to i32
+  %1454 = trunc nuw nsw i64 %.02342202 to i32
   %1455 = getelementptr inbounds nuw i8, ptr %111, i64 16
   store ptr %1455, ptr %111, align 8, !tbaa !3, !alias.scope !572
   %1456 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -38207,7 +38207,7 @@ switch.lookup:                                    ; preds = %445
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #37
-  %455 = trunc nuw i64 %.077666 to i32
+  %455 = trunc nuw nsw i64 %.077666 to i32
   store ptr %365, ptr %36, align 8, !tbaa !3, !alias.scope !694
   %switch.tableidx = shl i32 %455, 3
   %switch.shiftamt = add i32 %switch.tableidx, -8
@@ -41289,7 +41289,7 @@ switch.lookup:                                    ; preds = %423
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #37
-  %433 = trunc nuw i64 %.077628 to i32
+  %433 = trunc nuw nsw i64 %.077628 to i32
   store ptr %347, ptr %35, align 8, !tbaa !3, !alias.scope !741
   %switch.tableidx = shl i32 %433, 3
   %switch.shiftamt = add i32 %switch.tableidx, -8
@@ -48262,7 +48262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324: ; preds = %_Z
   %.01331016 = phi i64 [ 0, %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit ], [ %464, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit333 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #37
-  %441 = trunc nuw i64 %.01331016 to i32
+  %441 = trunc nuw nsw i64 %.01331016 to i32
   store ptr %334, ptr %34, align 8, !tbaa !3, !alias.scope !826
   switch i32 %441, label %default.unreachable [
     i32 0, label %._crit_edge.i.i.i325
@@ -48436,7 +48436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit336: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #37
-  %477 = trunc nuw i64 %.01351017 to i32
+  %477 = trunc nuw nsw i64 %.01351017 to i32
   store ptr %342, ptr %37, align 8, !tbaa !3, !alias.scope !832
   switch i32 %477, label %default.unreachable773 [
     i32 0, label %._crit_edge.i.i.i344
@@ -49443,7 +49443,7 @@ _ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i: ; preds = %769
 
 _ZNK6casadi16FunctionInternal8size1_inEx.exit:    ; preds = %_ZNK6casadi16FunctionInternal11sparsity_inEx.exit.i
   %779 = icmp sgt i64 %778, 0
-  %780 = trunc nuw i64 %.01401037 to i32
+  %780 = trunc nuw nsw i64 %.01401037 to i32
   %.off.i = add nsw i32 %780, -3
   %switch.i = icmp ult i32 %.off.i, 4
   %or.cond = select i1 %779, i1 %switch.i, i1 false
@@ -50117,7 +50117,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 1008:                                             ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit512, %_ZNSt6vectorIxSaIxEED2Ev.exit
   %.01341053 = phi i64 [ 0, %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit512 ], [ %1163, %_ZNSt6vectorIxSaIxEED2Ev.exit ]
-  %1009 = trunc nuw i64 %.01341053 to i32
+  %1009 = trunc nuw nsw i64 %.01341053 to i32
   switch i32 %1009, label %_ZN6casadi10Integrator8grid_outEx.exit [
     i32 0, label %1010
     i32 1, label %1010
@@ -53785,7 +53785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit450: ; preds = %_Z
   %.01851404 = phi i64 [ 0, %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit ], [ %639, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit459 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #37
-  %616 = trunc nuw i64 %.01851404 to i32
+  %616 = trunc nuw nsw i64 %.01851404 to i32
   store ptr %573, ptr %48, align 8, !tbaa !3, !alias.scope !905
   switch i32 %616, label %default.unreachable [
     i32 0, label %._crit_edge.i.i.i451
@@ -53959,7 +53959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit462: ; preds = %_Z
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #37
-  %652 = trunc nuw i64 %.01871405 to i32
+  %652 = trunc nuw nsw i64 %.01871405 to i32
   store ptr %581, ptr %51, align 8, !tbaa !3, !alias.scope !909
   switch i32 %652, label %default.unreachable1035 [
     i32 0, label %._crit_edge.i.i.i470
@@ -54945,7 +54945,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EE9push_backEOS1_.exit565: ; preds = %.noexc563, 
 
 946:                                              ; preds = %931, %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit659
   %.01911434 = phi i64 [ 0, %931 ], [ %1184, %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit659 ]
-  %947 = trunc nuw i64 %.01911434 to i32
+  %947 = trunc nuw nsw i64 %.01911434 to i32
   switch i32 %947, label %default.unreachable1036 [
     i32 0, label %_ZN6casadi10Integrator10adjmap_outEx.exit
     i32 1, label %948
@@ -55945,7 +55945,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 1261:                                             ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit697, %_ZNSt6vectorIxSaIxEED2Ev.exit
   %.01861465 = phi i64 [ 0, %_ZNSt6vectorIN6casadi2MXESaIS1_EE7reserveEm.exit697 ], [ %1477, %_ZNSt6vectorIxSaIxEED2Ev.exit ]
-  %1262 = trunc nuw i64 %.01861465 to i32
+  %1262 = trunc nuw nsw i64 %.01861465 to i32
   switch i32 %1262, label %default.unreachable1037 [
     i32 0, label %_ZN6casadi10Integrator8grid_outEx.exit
     i32 1, label %1263

@@ -305,7 +305,7 @@ float_to_half.exit:                               ; preds = %83, %86, %96, %98, 
   %164 = add nsw i32 %160, -94
   %165 = shl i32 %163, %164
   %166 = lshr i32 %163, %161
-  %167 = trunc nuw i32 %166 to i16
+  %167 = trunc nuw nsw i32 %166 to i16
   %168 = icmp ugt i32 %165, -2147483648
   br i1 %168, label %172, label %169
 

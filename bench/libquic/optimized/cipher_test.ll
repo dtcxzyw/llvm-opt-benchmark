@@ -1572,7 +1572,7 @@ _ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaI
   br label %231
 
 217:                                              ; preds = %206
-  %218 = trunc nuw i64 %212 to i32
+  %218 = trunc nuw nsw i64 %212 to i32
   %219 = invoke i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %11, i32 noundef 16, i32 noundef %218, ptr noundef nonnull %18)
           to label %220 unwind label %215
 

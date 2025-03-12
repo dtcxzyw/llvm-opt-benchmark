@@ -1839,7 +1839,7 @@ if.then.i9.i.i:                                   ; preds = %if.else9.i.i
   br label %invoke.cont142
 
 invoke.cont142:                                   ; preds = %if.then.i9.i.i, %if.else9.i.i
-  %conv.i.i = trunc i64 %call.i.i109 to i32
+  %conv.i.i = trunc nsw i64 %call.i.i109 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i) #18
   %75 = load ptr, ptr %ref.tmp138, align 8, !tbaa !17
   %cmp.i.i.i113 = icmp eq ptr %75, %63
@@ -1859,7 +1859,7 @@ if.then.i.i114:                                   ; preds = %invoke.cont142
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i117, %if.then.i.i114
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp138) #18
-  %cmp = icmp eq i32 %conv.i.i, 0
+  %cmp = icmp eq i64 %call.i.i109, 0
   br i1 %cmp, label %land.lhs.true, label %if.end151
 
 land.lhs.true:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit120

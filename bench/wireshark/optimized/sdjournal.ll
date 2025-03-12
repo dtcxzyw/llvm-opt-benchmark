@@ -636,7 +636,7 @@ define internal fastcc range(i32 0, 2) i32 @sdj_start_export(i32 noundef range(i
   %169 = icmp ne i64 %168, -1
   call void @llvm.assume(i1 %169)
   %170 = call ptr @__memcpy_chk(ptr noundef %164, ptr noundef %165, i64 noundef %157, i64 noundef %168) #14, !alias.scope !9
-  %171 = trunc i64 %157 to i32
+  %171 = trunc nuw i64 %157 to i32
   %172 = add i32 %.099149.i, %171
   %173 = zext i32 %172 to i64
   %174 = getelementptr i8, ptr %94, i64 %173

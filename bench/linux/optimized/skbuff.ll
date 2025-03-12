@@ -6225,7 +6225,7 @@ define dso_local ptr @__pskb_copy_fclone(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %144, label %.preheader7, label %145, !llvm.loop !127
 
 145:                                              ; preds = %133
-  %146 = trunc i64 %136 to i8
+  %146 = trunc nuw i64 %136 to i8
   br label %.thread
 
 .thread:                                          ; preds = %84, %145

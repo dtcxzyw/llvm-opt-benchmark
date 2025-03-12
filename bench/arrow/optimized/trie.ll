@@ -861,7 +861,7 @@ _ZN5arrow6StatusD2Ev.exit28:                      ; preds = %.critedge, %6
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 -1, ptr %27, align 2, !tbaa !25
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %29 = trunc nuw i64 %.sroa.031.0.lcssa to i8
+  %29 = trunc nuw nsw i64 %.sroa.031.0.lcssa to i8
   store i8 %29, ptr %28, align 2, !tbaa !33
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.sroa.6.0.lcssa, i64 %.sroa.031.0.lcssa, i1 false)
@@ -954,7 +954,7 @@ _ZN5arrow6StatusD2Ev.exit28.i:                    ; preds = %.critedge.i, %6
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i16 -1, ptr %27, align 2, !tbaa !25, !noalias !102
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %29 = trunc nuw i64 %.sroa.031.0.lcssa.i to i8
+  %29 = trunc nuw nsw i64 %.sroa.031.0.lcssa.i to i8
   store i8 %29, ptr %28, align 2, !tbaa !33, !noalias !102
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %.sroa.6.0.lcssa.i, i64 %.sroa.031.0.lcssa.i, i1 false), !noalias !102
@@ -1319,7 +1319,7 @@ _ZN5arrow6StatusD2Ev.exit28.i.i:                  ; preds = %.critedge.i.i, %_ZN
   %99 = getelementptr inbounds nuw i8, ptr %13, i64 2
   store i16 -1, ptr %99, align 2, !tbaa !25, !noalias !148
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %101 = trunc nuw i64 %.sroa.031.0.lcssa.i.i to i8
+  %101 = trunc nuw nsw i64 %.sroa.031.0.lcssa.i.i to i8
   store i8 %101, ptr %100, align 2, !tbaa !33, !noalias !148
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %102, ptr align 1 %.sroa.6.0.lcssa.i.i, i64 %.sroa.031.0.lcssa.i.i, i1 false), !noalias !148
@@ -1504,7 +1504,7 @@ _ZN5arrow6StatusD2Ev.exit28.i:                    ; preds = %.critedge.i, %_ZNKS
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 -1, ptr %172, align 2, !tbaa !25, !noalias !175
   %173 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %174 = trunc nuw i64 %.sroa.031.0.lcssa.i to i8
+  %174 = trunc nuw nsw i64 %.sroa.031.0.lcssa.i to i8
   store i8 %174, ptr %173, align 2, !tbaa !33, !noalias !175
   %175 = getelementptr inbounds nuw i8, ptr %8, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %175, ptr align 1 %.sroa.6.0.lcssa.i, i64 %.sroa.031.0.lcssa.i, i1 false), !noalias !175

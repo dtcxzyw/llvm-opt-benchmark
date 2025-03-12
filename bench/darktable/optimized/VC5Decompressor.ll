@@ -2486,7 +2486,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit60:         ; preds = %_ZN8rawspeed10ByteS
   %128 = shl i32 %indvars.iv.tr, 1
   %129 = sub i32 14, %128
   %130 = lshr i32 %70, %129
-  %131 = trunc nuw i32 %130 to i16
+  %131 = trunc nuw nsw i32 %130 to i16
   %132 = and i16 %131, 3
   %133 = getelementptr inbounds nuw [4 x %"class.rawspeed::VC5Decompressor::Wavelet"], ptr %69, i64 0, i64 %indvars.iv.next, i32 2
   store i16 %132, ptr %133, align 8, !tbaa !79

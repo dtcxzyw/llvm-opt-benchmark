@@ -360,7 +360,7 @@ define internal i64 @readbuffer_ctrl(ptr noundef readonly captures(none) %0, i32
   br i1 %or.cond, label %45, label %26
 
 26:                                               ; preds = %17
-  %27 = trunc i64 %2 to i32
+  %27 = trunc nuw nsw i64 %2 to i32
   store i32 %27, ptr %18, align 4, !tbaa !20
   %28 = sub i32 %22, %27
   store i32 %28, ptr %20, align 8, !tbaa !18

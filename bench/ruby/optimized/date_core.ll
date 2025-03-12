@@ -6696,7 +6696,7 @@ m_jd.exit:                                        ; preds = %47, %49, %88
 m_jd.exit338:                                     ; preds = %90, %92, %131
   %.0.in.i332 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.0.i333 = load i32, ptr %.0.in.i332, align 4, !tbaa !47
-  %132 = trunc nuw i64 %.0236 to i32
+  %132 = trunc nuw nsw i64 %.0236 to i32
   %133 = add nsw i32 %.0.i333, %132
   %134 = icmp slt i32 %133, 0
   br i1 %134, label %.thread634, label %137
@@ -15816,7 +15816,7 @@ rb_long2num_inline.exit:                          ; preds = %45, %48
   %50 = add nsw i32 %24, 1
   %51 = icmp eq i32 %31, 60
   %spec.store.select = select i1 %51, i32 59, i32 %31
-  %52 = trunc i64 %.019 to i32
+  %52 = trunc nsw i64 %.019 to i32
   %53 = load double, ptr @negative_inf, align 8, !tbaa !10
   %54 = load i32, ptr %8, align 4, !tbaa !33
   %55 = call fastcc i64 @d_complex_new_internal(i64 noundef %2, i64 noundef %43, i32 noundef 0, i32 noundef 0, i64 noundef %.0.i22, i32 noundef %52, double noundef %53, i32 noundef %54, i32 noundef %50, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %spec.store.select, i32 noundef 12)
@@ -28710,7 +28710,7 @@ rb_type.exit.thread77:                            ; preds = %9, %rb_type.exit
   br i1 %or.cond3, label %95, label %20
 
 20:                                               ; preds = %rb_type.exit.thread77
-  %21 = trunc i64 %18 to i32
+  %21 = trunc nsw i64 %18 to i32
   %22 = mul nsw i32 %21, 86400
   store i32 %22, ptr %1, align 4, !tbaa !33
   br label %95

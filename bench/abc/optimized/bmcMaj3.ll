@@ -4595,7 +4595,7 @@ define range(i32 0, 2) i32 @Zyx_ManAddCnfBlockSolution(ptr noundef captures(none
   br i1 %20, label %.lr.ph.i, label %Zyx_ManCollectFanins.exit
 
 .lr.ph.i:                                         ; preds = %18
-  %21 = trunc nsw i64 %indvars.iv29 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv29 to i32
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph.i
@@ -4799,7 +4799,7 @@ define range(i32 0, 2) i32 @Zyx_ManAddCnfLazyFunc2(ptr noundef %0, i32 noundef %
   br i1 %27, label %.lr.ph.i, label %Zyx_ManCollectFanins.exit
 
 .lr.ph.i:                                         ; preds = %26
-  %28 = trunc nsw i64 %indvars.iv179 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv179 to i32
   br label %29
 
 29:                                               ; preds = %29, %.lr.ph.i
@@ -5760,7 +5760,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i, %40, %35,
   br i1 %97, label %.lr.ph.i.i, label %Zyx_ManCollectFanins.exit.i
 
 .lr.ph.i.i:                                       ; preds = %96
-  %98 = trunc nsw i64 %indvars.iv181.i to i32
+  %98 = trunc nuw nsw i64 %indvars.iv181.i to i32
   br label %99
 
 99:                                               ; preds = %99, %.lr.ph.i.i

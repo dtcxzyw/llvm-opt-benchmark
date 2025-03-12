@@ -242,7 +242,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
   br i1 %30, label %57, label %14
 
 31:                                               ; preds = %24
-  %32 = trunc nuw i32 %0 to i8
+  %32 = trunc nuw nsw i32 %0 to i8
   store i8 %32, ptr %1, align 1
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc1863858b540305bE.exit"
 
@@ -255,7 +255,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 36:                                               ; preds = %25
   %37 = lshr i32 %0, 6
-  %38 = trunc nuw i32 %37 to i8
+  %38 = trunc nuw nsw i32 %37 to i8
   %39 = or disjoint i8 %38, -64
   store i8 %39, ptr %1, align 1
   %40 = trunc i32 %0 to i8
@@ -267,7 +267,7 @@ define hidden { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826
 
 44:                                               ; preds = %27
   %45 = lshr i32 %0, 12
-  %46 = trunc nuw i32 %45 to i8
+  %46 = trunc nuw nsw i32 %45 to i8
   %47 = or disjoint i8 %46, -32
   store i8 %47, ptr %1, align 1
   %48 = lshr i32 %0, 6
@@ -533,7 +533,7 @@ define { i1, i8 } @_ZN6uu_env14native_int_str27get_single_native_int_value17hd1e
 _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.11676108902394252037.exit:
   %1 = load i32, ptr %0, align 4, !range !64, !noundef !5
   %2 = icmp samesign ult i32 %1, 128
-  %3 = trunc nuw i32 %1 to i8
+  %3 = trunc nuw nsw i32 %1 to i8
   %.sroa.3.0 = select i1 %2, i8 %3, i8 undef
   %4 = insertvalue { i1, i8 } poison, i1 %2, 0
   %5 = insertvalue { i1, i8 } %4, i8 %.sroa.3.0, 1
@@ -744,7 +744,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr11into_native17h0469172fe97f573
 define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains17hf8d5c30969619803E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !range !64, !alias.scope !88, !noundef !5
   %4 = icmp samesign ugt i32 %3, 127
-  %5 = trunc nuw i32 %3 to i8
+  %5 = trunc nuw nsw i32 %3 to i8
   br i1 %4, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %6
 
 6:                                                ; preds = %2
@@ -822,7 +822,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = load i32, ptr %2, align 4, !range !64, !alias.scope !104, !noundef !5
   %14 = icmp samesign ugt i32 %13, 127
-  %15 = trunc nuw i32 %13 to i8
+  %15 = trunc nuw nsw i32 %13 to i8
   br i1 %14, label %25, label %16
 
 16:                                               ; preds = %3

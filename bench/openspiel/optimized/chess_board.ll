@@ -4677,7 +4677,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
   br label %282
 
 282:                                              ; preds = %281, %279
-  %283 = trunc i64 %263 to i32
+  %283 = trunc nsw i64 %263 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %284 = getelementptr inbounds nuw i8, ptr %10, i64 140
   store i32 %283, ptr %284, align 4
@@ -4732,7 +4732,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit: ; pred
   br label %306
 
 306:                                              ; preds = %305, %303
-  %307 = trunc i64 %287 to i32
+  %307 = trunc nsw i64 %287 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %308 = getelementptr inbounds nuw i8, ptr %10, i64 144
   store i32 %307, ptr %308, align 8
@@ -6878,7 +6878,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 .lr.ph.i.split.preheader.i:                       ; preds = %.lr.ph.i.i
   %.sroa.2.0.extract.shift.i.i = lshr i16 %.fr103.i, 8
-  %.sroa.2.0.extract.trunc.i.i = trunc nuw i16 %.sroa.2.0.extract.shift.i.i to i8
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw nsw i16 %.sroa.2.0.extract.shift.i.i to i8
   %35 = zext nneg i16 %.sroa.2.0.extract.shift.i.i to i32
   %36 = load i32, ptr %0, align 8
   %37 = icmp samesign ugt i32 %36, %35
@@ -6946,7 +6946,7 @@ _ZNK10open_spiel5chess4MoveeqERKS1_.exit.thread:  ; preds = %3, %9, %15
 
 .lr.ph.i27.split.i.preheader:                     ; preds = %.lr.ph.i27.i
   %.sroa.2.0.extract.shift.i28.i = lshr i16 %.fr103.i, 8
-  %.sroa.2.0.extract.trunc.i29.i = trunc nuw i16 %.sroa.2.0.extract.shift.i28.i to i8
+  %.sroa.2.0.extract.trunc.i29.i = trunc nuw nsw i16 %.sroa.2.0.extract.shift.i28.i to i8
   %62 = zext nneg i16 %.sroa.2.0.extract.shift.i28.i to i32
   %63 = load i32, ptr %0, align 8
   %64 = icmp samesign ugt i32 %63, %62
@@ -12273,7 +12273,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 59:                                               ; preds = %._crit_edge.i
-  %60 = trunc nuw i32 %.0.lcssa.i to i8
+  %60 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %61 = or disjoint i8 %60, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -12605,7 +12605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 105:                                              ; preds = %._crit_edge.i.i
-  %106 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %106 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %107 = or disjoint i8 %106, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -12789,7 +12789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i76: ;
   br label %_ZNSt7__cxx119to_stringEi.exit84
 
 181:                                              ; preds = %._crit_edge.i.i77
-  %182 = trunc nuw i32 %.0.lcssa.i.i78 to i8
+  %182 = trunc nuw nsw i32 %.0.lcssa.i.i78 to i8
   %183 = or disjoint i8 %182, 48
   br label %_ZNSt7__cxx119to_stringEi.exit84
 

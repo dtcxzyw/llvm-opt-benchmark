@@ -2823,7 +2823,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm.exit: ; preds = 
   br label %105
 
 105:                                              ; preds = %104, %102
-  %106 = trunc i64 %86 to i32
+  %106 = trunc nsw i64 %86 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %107 = load ptr, ptr %16, align 8
   %108 = getelementptr inbounds nuw i8, ptr %16, i64 16

@@ -817,7 +817,7 @@ getc_unlocked.exit.i:                             ; preds = %57, %55
   ]
 
 68:                                               ; preds = %67, %67
-  %69 = trunc i32 %.pr.i to i8
+  %69 = trunc nuw nsw i32 %.pr.i to i8
   store i32 1, ptr %17, align 4, !tbaa !26
   store i8 %69, ptr %21, align 8, !tbaa !16
   %70 = load ptr, ptr %18, align 8, !tbaa !29
@@ -878,7 +878,7 @@ test2.exit.i:                                     ; preds = %getc_unlocked.exit.
   ]
 
 96:                                               ; preds = %94, %94
-  %97 = trunc i32 %95 to i8
+  %97 = trunc nuw nsw i32 %95 to i8
   %98 = or disjoint i32 %79, 2
   store i32 %98, ptr %17, align 4, !tbaa !26
   %99 = zext nneg i32 %83 to i64
@@ -928,7 +928,7 @@ test2.exit21.thread.i:                            ; preds = %94, %test2.exit25.i
   br label %test2.exit29.thread.i
 
 120:                                              ; preds = %116
-  %121 = trunc i32 %112 to i8
+  %121 = trunc nsw i32 %112 to i8
   %122 = add nsw i32 %117, 1
   store i32 %122, ptr %17, align 4, !tbaa !26
   %123 = sext i32 %117 to i64
@@ -986,7 +986,7 @@ test2.exit29.thread.i:                            ; preds = %136, %119, %test2.e
   br i1 %152, label %readdigits.exit.i.sink.split, label %153, !prof !12
 
 153:                                              ; preds = %150
-  %154 = trunc i32 %.pre47.i to i8
+  %154 = trunc nsw i32 %.pre47.i to i8
   %155 = add nsw i32 %151, 1
   store i32 %155, ptr %17, align 4, !tbaa !26
   %156 = sext i32 %151 to i64
@@ -1029,7 +1029,7 @@ test2.exit29.thread.i:                            ; preds = %136, %119, %test2.e
   br label %test2.exit37.i
 
 175:                                              ; preds = %171
-  %176 = trunc i32 %170 to i8
+  %176 = trunc nuw nsw i32 %170 to i8
   %177 = add nsw i32 %172, 1
   store i32 %177, ptr %17, align 4, !tbaa !26
   %178 = sext i32 %172 to i64

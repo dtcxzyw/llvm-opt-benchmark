@@ -298,7 +298,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
 175:                                              ; preds = %175, %173
   %176 = phi i64 [ 0, %173 ], [ %194, %175 ]
   %177 = load ptr, ptr %174, align 8
-  %178 = trunc i64 %176 to i32
+  %178 = trunc nuw nsw i64 %176 to i32
   %179 = shl nuw nsw i32 %178, 2
   %180 = add nuw nsw i32 %179, 32844
   %181 = tail call i32 %177(ptr noundef %170, i32 %180, i1 noundef zeroext true) #6
@@ -474,7 +474,7 @@ i915_print_sseu_info.exit:                        ; preds = %13, %30
 
 292:                                              ; preds = %292, %290
   %293 = phi i64 [ 0, %290 ], [ %319, %292 ]
-  %.lhs.trunc = trunc i64 %293 to i8
+  %.lhs.trunc = trunc nuw i64 %293 to i8
   %294 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %294 to i32
   %295 = mul nuw nsw i32 %.zext, 52

@@ -351,7 +351,7 @@ define hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$ser
 
 9:                                                ; preds = %5
   %10 = lshr i32 %1, 6
-  %11 = trunc nuw i32 %10 to i8
+  %11 = trunc nuw nsw i32 %10 to i8
   %12 = or disjoint i8 %11, -64
   store i8 %12, ptr %.sroa.0.i, align 4, !alias.scope !169, !noalias !166
   %13 = trunc i32 %1 to i8
@@ -363,7 +363,7 @@ define hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$ser
 
 16:                                               ; preds = %7
   %17 = lshr i32 %1, 12
-  %18 = trunc nuw i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = or disjoint i8 %18, -32
   store i8 %19, ptr %.sroa.0.i, align 4, !alias.scope !169, !noalias !166
   %20 = lshr i32 %1, 6
@@ -431,7 +431,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i: ; preds = %9,
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h48800a8f7518ac8aE.exit.i" unwind label %57
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h48800a8f7518ac8aE.exit.i": ; preds = %51
-  %52 = trunc nuw i32 %1 to i8
+  %52 = trunc nuw nsw i32 %1 to i8
   %.pre.i.i = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !179
   %53 = load ptr, ptr %.sroa.43.0..sroa_idx, align 8, !alias.scope !179, !nonnull !14, !noundef !14
   %54 = getelementptr inbounds i8, ptr %53, i64 %.pre.i.i

@@ -348,7 +348,7 @@ define noundef ptr @export_pdu_create_tags(ptr noundef %0, ptr noundef readonly 
   store ptr %29, ptr %30, align 8
   store i32 %26, ptr %11, align 8
   store i8 0, ptr %29, align 1
-  %31 = trunc nuw i16 %2 to i8
+  %31 = trunc nuw nsw i16 %2 to i8
   %32 = getelementptr i8, ptr %29, i64 1
   store i8 %31, ptr %32, align 1
   %33 = getelementptr i8, ptr %29, i64 2

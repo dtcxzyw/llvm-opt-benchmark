@@ -19497,7 +19497,7 @@ define hidden void @"_ZN7copilot7request1_91_$LT$impl$u20$serde..de..Deserialize
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   store ptr %13, ptr %4, align 8
-  %trunc = trunc i8 %10 to i1
+  %trunc = trunc nuw i8 %10 to i1
   br i1 %trunc, label %18, label %17
 
 15:                                               ; preds = %2

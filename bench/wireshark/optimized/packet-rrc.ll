@@ -68393,7 +68393,7 @@ private_data_get_digits_strbuf.exit:              ; preds = %21, %23
   br label %45
 
 .thread:                                          ; preds = %32
-  %43 = trunc nuw i32 %33 to i8
+  %43 = trunc nuw nsw i32 %33 to i8
   %44 = or disjoint i8 %43, 48
   call void @wmem_strbuf_append_c(ptr noundef nonnull %31, i8 noundef signext %44)
   br label %48

@@ -206,7 +206,7 @@ ccm_tls_init.exit.thread:                         ; preds = %54, %62, %80
 ccm_tls_init.exit:                                ; preds = %74, %82
   %.0.i = phi i64 [ %83, %82 ], [ %75, %74 ]
   %84 = lshr i64 %.0.i, 8
-  %85 = trunc i64 %84 to i8
+  %85 = trunc nuw i64 %84 to i8
   store i8 %85, ptr %65, align 1, !tbaa !22
   %86 = trunc i64 %.0.i to i8
   store i8 %86, ptr %69, align 1, !tbaa !22

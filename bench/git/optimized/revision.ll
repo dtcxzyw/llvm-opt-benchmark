@@ -2464,9 +2464,9 @@ strtol_i.exit.thread.i:                           ; preds = %161, %157
   br label %handle_revision_arg_1.exit.thread11
 
 strtol_i.exit.i:                                  ; preds = %161
-  %166 = trunc i64 %159 to i32
+  %166 = trunc nuw nsw i64 %159 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
-  %167 = icmp slt i32 %166, 1
+  %167 = icmp slt i64 %159, 1
   br i1 %167, label %handle_revision_arg_1.exit.thread11, label %168
 
 168:                                              ; preds = %strtol_i.exit.i, %154
@@ -11225,7 +11225,7 @@ define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %0, ptr nounde
   br i1 %or.cond9, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = trunc i64 %5 to i32
+  %13 = trunc nsw i64 %5 to i32
   store i32 %13, ptr %1, align 4, !tbaa !42
   br label %14
 
@@ -11372,7 +11372,7 @@ define internal fastcc i32 @parse_count(ptr noundef %0) unnamed_addr #2 {
   unreachable
 
 12:                                               ; preds = %6
-  %13 = trunc i64 %4 to i32
+  %13 = trunc nsw i64 %4 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26
   ret i32 %13
 }

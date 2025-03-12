@@ -4396,7 +4396,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 .split:                                           ; preds = %52, %.split
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.split ], [ 0, %52 ]
   %77 = getelementptr inbounds nuw [32 x i32], ptr %7, i64 0, i64 %indvars.iv106
-  %78 = trunc i64 %indvars.iv106 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv106 to i32
   %79 = mul nuw nsw i32 %53, %78
   store i32 %79, ptr %77, align 4
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1

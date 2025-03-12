@@ -1128,7 +1128,7 @@ define internal void @set_arg0(i64 noundef %0, i64 %1, ptr readnone captures(non
   unreachable
 
 ruby_setproctitle.exit:                           ; preds = %9
-  %17 = trunc i64 %14 to i32
+  %17 = trunc nsw i64 %14 to i32
   call void (ptr, ...) @setproctitle(ptr noundef nonnull @.str.139, i32 noundef %17, ptr noundef %10) #25
   %18 = load i64, ptr %4, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -1168,7 +1168,7 @@ define internal i64 @proc_setproctitle(i64 %0, i64 noundef %1) #0 {
   unreachable
 
 ruby_setproctitle.exit:                           ; preds = %2
-  %11 = trunc i64 %8 to i32
+  %11 = trunc nsw i64 %8 to i32
   call void (ptr, ...) @setproctitle(ptr noundef nonnull @.str.139, i32 noundef %11, ptr noundef %4) #25
   %12 = load i64, ptr %3, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)

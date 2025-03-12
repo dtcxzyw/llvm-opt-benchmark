@@ -1778,7 +1778,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %27, %40
 
 118:                                              ; preds = %111
   %119 = getelementptr inbounds nuw i8, ptr %.0149, i64 %117
-  %120 = trunc i64 %117 to i32
+  %120 = trunc nuw i64 %117 to i32
   %121 = sub i32 %.0155, %120
   br label %73, !llvm.loop !88
 
@@ -1864,7 +1864,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %27, %40
   br i1 %.not198, label %157, label %.thread238
 
 157:                                              ; preds = %154
-  %158 = trunc i64 %155 to i32
+  %158 = trunc nuw i64 %155 to i32
   %159 = sub i32 %.4159296, %158
   %160 = getelementptr inbounds nuw i8, ptr %.4153297, i64 %155
   %161 = add i64 %.0148298, 1
@@ -2521,7 +2521,7 @@ _ZNK4llvm10DataLayout24isNonIntegralPointerTypeEPNS_4TypeE.exit.thread: ; preds 
   %.059.idx = select i1 %95, i64 %96, i64 0
   %.059 = getelementptr inbounds nuw i8, ptr %5, i64 %.059.idx
   %97 = tail call i64 @llvm.smin.i64(i64 %2, i64 0)
-  %98 = trunc i64 %97 to i32
+  %98 = trunc nsw i64 %97 to i32
   %.058 = add nsw i32 %71, %98
   %99 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118ReadDataFromGlobalEPN4llvm8ConstantEmPhjRKNS0_10DataLayoutE(ptr noundef nonnull %0, i64 noundef %.061, ptr noundef nonnull %.059, i32 noundef %.058, ptr noundef nonnull align 8 dereferenceable(496) %3)
   br i1 %99, label %100, label %266

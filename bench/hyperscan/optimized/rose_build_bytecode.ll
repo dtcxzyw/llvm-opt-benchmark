@@ -1297,7 +1297,7 @@ _ZN3ue210verify_u32ImEEjT_.exit65:                ; preds = %203
   br i1 %213, label %_ZN3ue210verify_u32ImEEjT_.exit67, label %.thread
 
 _ZN3ue210verify_u32ImEEjT_.exit67:                ; preds = %_ZN3ue210verify_u32ImEEjT_.exit65
-  %214 = trunc nuw i64 %207 to i32
+  %214 = trunc nuw nsw i64 %207 to i32
   %spec.select83 = call i32 @llvm.umax.i32(i32 %.5, i32 %214)
   br label %_ZN3ue210verify_u32ImEEjT_.exit69.thread
 
@@ -7167,7 +7167,7 @@ _ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i.i.i38.i: ; preds = %2294
 _ZN3ue212bytecode_ptrI3NFAEaSEOS2_.exit.i.i.i:    ; preds = %2318
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %80) #27
   %2325 = icmp ult i64 %2317, 4294967295
-  %2326 = trunc i64 %2317 to i32
+  %2326 = trunc nuw i64 %2317 to i32
   %2327 = select i1 %2325, i32 %2326, i32 0
   %2328 = getelementptr inbounds nuw i8, ptr %2308, i64 40
   store i32 %2327, ptr %2328, align 8
@@ -8954,7 +8954,7 @@ _ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i.i98.i: ; preds = %2940
 2979:                                             ; preds = %2972
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %72) #27
   %2980 = icmp ult i64 %2971, 4294967295
-  %2981 = trunc i64 %2971 to i32
+  %2981 = trunc nuw i64 %2971 to i32
   %2982 = select i1 %2980, i32 %2981, i32 0
   %2983 = getelementptr inbounds nuw i8, ptr %2953, i64 40
   store i32 %2982, ptr %2983, align 8

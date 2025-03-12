@@ -246,7 +246,7 @@ define void @_ZN6icu_7721unistr_internalConcatERKNS_13UnicodeStringESt17basic_st
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = select i1 %11, i32 %15, i32 %13
-  %17 = trunc nuw i64 %2 to i32
+  %17 = trunc nuw nsw i64 %2 to i32
   %18 = call signext i8 @uprv_add32_overflow_77(i32 noundef %16, i32 noundef %17, ptr noundef nonnull %5)
   %.not = icmp eq i8 %18, 0
   br i1 %.not, label %22, label %_ZN6icu_7713UnicodeString10setToBogusEv.exit
@@ -518,7 +518,7 @@ _ZN6icu_7713UnicodeString8allocateEi.exit63:      ; preds = %34, %.noexc62
 
 57:                                               ; preds = %._crit_edge86
   %58 = and i16 %.pre96, 31
-  %.tr.i.i = trunc nuw i32 %3 to i16
+  %.tr.i.i = trunc nuw nsw i32 %3 to i16
   %59 = shl nuw nsw i16 %.tr.i.i, 5
   %60 = or disjoint i16 %58, %59
   store i16 %60, ptr %5, align 8, !tbaa !3
@@ -649,7 +649,7 @@ _ZN6icu_7713UnicodeString8allocateEi.exit73:      ; preds = %92, %.noexc72
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %112 = select i1 %.not.i74, ptr %109, ptr %111
   %113 = lshr i32 %2, 10
-  %114 = trunc nuw i32 %113 to i16
+  %114 = trunc nuw nsw i32 %113 to i16
   %115 = add nuw nsw i16 %114, -10304
   %116 = trunc i32 %2 to i16
   %117 = and i16 %116, 1023
@@ -781,7 +781,7 @@ define void @_ZN6icu_7713UnicodeStringC2Ei(ptr noundef nonnull writeonly align 8
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
-  %11 = trunc nuw i32 %10 to i16
+  %11 = trunc nuw nsw i32 %10 to i16
   %12 = add nuw nsw i16 %11, -10304
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 %12, ptr %13, align 2, !tbaa !3
@@ -1736,7 +1736,7 @@ define void @_ZN6icu_7713UnicodeString30readOnlyAliasFromU16StringViewESt17basic
 
 7:                                                ; preds = %3
   store ptr %2, ptr %4, align 8, !tbaa !15
-  %8 = trunc nuw i64 %1 to i32
+  %8 = trunc nuw nsw i64 %1 to i32
   %9 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 noundef signext 0, ptr noundef nonnull %4, i32 noundef %8)
           to label %10 unwind label %14
 
@@ -3441,7 +3441,7 @@ _ZNK6icu_7713UnicodeString10unescapeAtERi.exit:   ; preds = %_ZN6icu_7713Unicode
 
 62:                                               ; preds = %60
   %63 = lshr i32 %52, 10
-  %64 = trunc nuw i32 %63 to i16
+  %64 = trunc nuw nsw i32 %63 to i16
   %65 = add nuw nsw i16 %64, -10304
   store i16 %65, ptr %3, align 2, !tbaa !10
   %66 = trunc i32 %52 to i16
@@ -3521,7 +3521,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
-  %11 = trunc nuw i32 %10 to i16
+  %11 = trunc nuw nsw i32 %10 to i16
   %12 = add nuw nsw i16 %11, -10304
   store i16 %12, ptr %3, align 2, !tbaa !10
   %13 = trunc i32 %1 to i16
@@ -5671,7 +5671,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
 
 11:                                               ; preds = %9
   %12 = lshr i32 %3, 10
-  %13 = trunc nuw i32 %12 to i16
+  %13 = trunc nuw nsw i32 %12 to i16
   %14 = add nuw nsw i16 %13, -10304
   store i16 %14, ptr %5, align 2, !tbaa !10
   %15 = trunc i32 %3 to i16
@@ -6146,7 +6146,7 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %11, %13, %19
   br label %27
 
 24:                                               ; preds = %9
-  %25 = trunc nuw i64 %3 to i32
+  %25 = trunc nuw nsw i64 %3 to i32
   %26 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, i32 noundef %25)
   br label %27
 
@@ -6232,7 +6232,7 @@ _ZN6icu_7713UnicodeString10setToBogusEv.exit:     ; preds = %10, %12, %18
   br label %26
 
 23:                                               ; preds = %8
-  %24 = trunc nuw i64 %1 to i32
+  %24 = trunc nuw nsw i64 %1 to i32
   %25 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %2, i32 noundef 0, i32 noundef %24)
   br label %26
 
@@ -6699,7 +6699,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7723UnicodeStringAppendable15a
 
 9:                                                ; preds = %7
   %10 = lshr i32 %1, 10
-  %11 = trunc nuw i32 %10 to i16
+  %11 = trunc nuw nsw i32 %10 to i16
   %12 = add nuw nsw i16 %11, -10304
   store i16 %12, ptr %3, align 2, !tbaa !10
   %13 = trunc i32 %1 to i16

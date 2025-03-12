@@ -82,7 +82,7 @@ _ZL18XXH32_endian_alignPKhmj13XXH_alignment.exit.thread: ; preds = %13
 
 _ZL18XXH32_endian_alignPKhmj13XXH_alignment.exit: ; preds = %5
   %49 = add i32 %2, 374761393
-  %50 = trunc nuw i64 %1 to i32
+  %50 = trunc nuw nsw i64 %1 to i32
   %51 = add i32 %49, %50
   br label %54
 

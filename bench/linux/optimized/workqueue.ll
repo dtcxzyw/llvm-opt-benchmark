@@ -8521,7 +8521,7 @@ define internal fastcc void @wq_cpu_intensive_thresh_init() unnamed_addr #12 sec
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %7
-  %.rhs.trunc = trunc nuw i64 %12 to i32
+  %.rhs.trunc = trunc nuw nsw i64 %12 to i32
   %15 = udiv i32 40000000, %.rhs.trunc
   %16 = tail call i32 @llvm.umin.i32(i32 %15, i32 1000000)
   %17 = zext nneg i32 %16 to i64

@@ -7654,7 +7654,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   %22 = lshr i64 %indvars.iv, 4
   %23 = getelementptr inbounds nuw [1 x i32], ptr %3, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !45
-  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %indvars.iv.tr = trunc nuw nsw i64 %indvars.iv to i32
   %25 = shl nuw i32 %indvars.iv.tr, 1
   %26 = and i32 %25, 30
   %27 = shl nuw nsw i32 1, %26

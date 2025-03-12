@@ -2464,7 +2464,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit: ; preds = 
 
 640:                                              ; preds = %.loopexit306
   %641 = load ptr, ptr %612, align 8
-  %642 = trunc nuw i64 %638 to i32
+  %642 = trunc nuw nsw i64 %638 to i32
   store i32 %642, ptr %641, align 4
   %643 = getelementptr inbounds nuw i8, ptr %641, i64 4
   %644 = load ptr, ptr %636, align 8
@@ -3515,7 +3515,7 @@ define void @_ZN6Assimp11SMDImporter15AddBoneChildrenEP6aiNodej(ptr noundef nonn
   br i1 %43, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %44
 
 44:                                               ; preds = %36
-  %45 = trunc nuw i64 %42 to i32
+  %45 = trunc nuw nsw i64 %42 to i32
   store i32 %45, ptr %35, align 4
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %47 = load ptr, ptr %31, align 8
@@ -5324,7 +5324,7 @@ define void @_ZN6Assimp11SMDImporter21CreateOutputAnimationEiRKNSt7__cxx1112basi
   br i1 %51, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %52
 
 52:                                               ; preds = %.lr.ph63
-  %53 = trunc nuw i64 %50 to i32
+  %53 = trunc nuw nsw i64 %50 to i32
   store i32 %53, ptr %43, align 4
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %55 = load ptr, ptr %.sroa.050.061, align 8

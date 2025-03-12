@@ -4830,7 +4830,7 @@ _ZN4llvm15SmallVectorImplIPNS_8ConstantEE6resizeEm.exit83: ; preds = %.sink.spli
   br i1 %86, label %87, label %89
 
 87:                                               ; preds = %85
-  %88 = trunc i64 %3 to i32
+  %88 = trunc nuw i64 %3 to i32
   br label %_ZN4llvm15SmallVectorImplIPNS_8ConstantEE6resizeEmS2_.exit
 
 89:                                               ; preds = %85
@@ -9597,7 +9597,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_124ConstantAggregateBuilder9
   br i1 %66, label %67, label %69
 
 67:                                               ; preds = %65
-  %68 = trunc i64 %61 to i32
+  %68 = trunc nuw i64 %61 to i32
   br label %.sink.split.i
 
 69:                                               ; preds = %65

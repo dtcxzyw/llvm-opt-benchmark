@@ -1657,7 +1657,7 @@ define hidden i32 @exr_attr_list_add(ptr noundef %0, ptr noundef captures(addres
   %72 = add nuw nsw i64 %23, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef nonnull readonly align 1 dereferenceable(1) %2, i64 %72, i1 false)
   store ptr %70, ptr %68, align 8, !tbaa !57
-  %73 = trunc i64 %23 to i8
+  %73 = trunc nuw i64 %23 to i8
   %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store i8 %73, ptr %74, align 8, !tbaa !35
   %75 = getelementptr inbounds nuw i8, ptr %70, i64 %72
@@ -1858,7 +1858,7 @@ create_attr_block.exit.thread:                    ; preds = %create_attr_block.e
   %75 = load ptr, ptr %47, align 8, !tbaa !3
   %76 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %75, ptr %76, align 8, !tbaa !56
-  %77 = trunc i64 %25 to i8
+  %77 = trunc nuw i64 %25 to i8
   %78 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store i8 %77, ptr %78, align 8, !tbaa !35
   %79 = getelementptr inbounds nuw i8, ptr %47, i64 8

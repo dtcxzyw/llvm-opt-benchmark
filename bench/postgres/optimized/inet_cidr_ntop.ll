@@ -182,7 +182,7 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr noundef read
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
-  %84 = trunc i32 %79 to i8
+  %84 = trunc nsw i32 %79 to i8
   %85 = and i8 %83, %84
   store i8 %85, ptr %82, align 1
   br label %.lr.ph.preheader.i11

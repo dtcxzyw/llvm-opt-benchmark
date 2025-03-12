@@ -3303,7 +3303,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_16match_combine_orINS0_14CastInst_mat
   br i1 %or.cond.i137, label %_ZL11isCTTZTableRKN4llvm17ConstantDataArrayEmmm.exit.thread, label %_ZN4llvm5APIntC2Ejmbb.exit.i.i139
 
 _ZN4llvm5APIntC2Ejmbb.exit.i.i139:                ; preds = %1187
-  %1195 = trunc i64 %1182 to i32
+  %1195 = trunc nuw nsw i64 %1182 to i32
   %1196 = icmp eq i32 %1177, %1195
   %reass.sub = sub nsw i32 %1195, %1177
   %1197 = add nsw i32 %reass.sub, 64
@@ -3316,7 +3316,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.i.i139:                ; preds = %1187
 ._crit_edge.i143:                                 ; preds = %1212
   %1201 = icmp eq i32 %.1.i142, %1177
   %1202 = icmp ult i32 %1177, 65
-  %or.cond = or i1 %1202, %1196
+  %or.cond = select i1 %1202, i1 true, i1 %1196
   br i1 %or.cond, label %_ZL11isCTTZTableRKN4llvm17ConstantDataArrayEmmm.exit, label %1203
 
 1203:                                             ; preds = %._crit_edge.i143
@@ -6145,7 +6145,7 @@ _ZNK4llvm5APInt3ugeEm.exit:                       ; preds = %76, %_ZNK4llvm5APIn
   br i1 %.not56, label %85, label %_ZNK4llvm5APInt3ugeEm.exit.thread
 
 85:                                               ; preds = %_ZNK4llvm5APInt3ugeEm.exit
-  %86 = trunc i64 %.0.i.i.i36 to i32
+  %86 = trunc nuw i64 %.0.i.i.i36 to i32
   br label %.thread55
 
 .thread55:                                        ; preds = %74, %85

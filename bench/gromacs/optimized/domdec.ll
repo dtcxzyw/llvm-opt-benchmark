@@ -7149,7 +7149,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21.i.i:           ; preds = %_ZNKSt7__cxx1112bas
   br i1 %618, label %_ZNSt6vectorI21InteractionListHandleSaIS0_EE9push_backEOS0_.exit.i.i.i, label %619
 
 619:                                              ; preds = %613
-  %620 = trunc nuw i64 %.024.i.i.i to i32
+  %620 = trunc nuw nsw i64 %.024.i.i.i to i32
   %.not.i.i.i.i.i = icmp eq ptr %609, %608
   br i1 %.not.i.i.i.i.i, label %623, label %621
 

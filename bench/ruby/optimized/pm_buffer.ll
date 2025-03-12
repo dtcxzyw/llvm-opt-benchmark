@@ -730,7 +730,7 @@ define hidden noundef zeroext i1 @pm_buffer_append_unicode_codepoint(ptr noundef
 
 57:                                               ; preds = %55
   %58 = lshr i32 %1, 12
-  %59 = trunc nuw i32 %58 to i8
+  %59 = trunc nuw nsw i32 %58 to i8
   %60 = or disjoint i8 %59, -32
   %61 = lshr i32 %1, 6
   %62 = trunc i32 %61 to i8

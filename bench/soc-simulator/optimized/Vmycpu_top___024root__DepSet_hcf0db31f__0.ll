@@ -7834,7 +7834,7 @@ define dso_local void @_Z42Vmycpu_top___024root___nba_sequent__TOP__0P20Vmycpu_t
   %3405 = getelementptr inbounds nuw i8, ptr %0, i64 10272
   %3406 = getelementptr inbounds nuw [64 x i8], ptr %3405, i64 0, i64 %.24922
   %3407 = load i8, ptr %3406, align 1
-  %3408 = trunc i32 %3404 to i8
+  %3408 = trunc nuw nsw i32 %3404 to i8
   %3409 = xor i8 %3408, -1
   %3410 = and i8 %3407, %3409
   store i8 %3410, ptr %3406, align 1

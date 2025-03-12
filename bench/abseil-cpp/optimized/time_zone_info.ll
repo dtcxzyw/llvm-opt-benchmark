@@ -6133,7 +6133,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4i
   %15 = add nsw i64 %14, 65137
   %16 = icmp slt i64 %14, 0
   %17 = select i1 %16, i64 %15, i64 %14
-  %.lhs.trunc = trunc i64 %17 to i16
+  %.lhs.trunc = trunc nuw i64 %17 to i16
   %18 = sdiv i16 %.lhs.trunc, 400
   %.sext = sext i16 %18 to i64
   %.neg.i = mul nsw i64 %.sext, -400
@@ -6158,7 +6158,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl13time_internal4cctz6detail4i
   %31 = add nsw i64 %30, 65137
   %32 = icmp slt i64 %30, 0
   %33 = select i1 %32, i64 %31, i64 %30
-  %.lhs.trunc36 = trunc i64 %33 to i16
+  %.lhs.trunc36 = trunc nuw i64 %33 to i16
   %34 = sdiv i16 %.lhs.trunc36, 400
   %.sext37 = sext i16 %34 to i64
   %.neg.i29 = mul nsw i64 %.sext37, -400

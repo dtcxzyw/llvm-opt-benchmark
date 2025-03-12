@@ -122,7 +122,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit61:           ; preds = %30
   store i32 0, ptr %41, align 8
   %.zext = lshr i64 %42, 6
   %45 = getelementptr inbounds nuw i64, ptr %36, i64 %.zext
-  %46 = trunc nuw i64 %42 to i32
+  %46 = trunc nuw nsw i64 %42 to i32
   %47 = and i32 %46, 63
   store ptr %45, ptr %40, align 8
   store i32 %47, ptr %39, align 8

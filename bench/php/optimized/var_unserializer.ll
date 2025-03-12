@@ -3877,7 +3877,7 @@ finish_nested_data.exit:                          ; preds = %160, %158, %153, %1
   br i1 %.not89, label %186, label %finish_nested_data.exit122
 
 186:                                              ; preds = %174
-  %187 = trunc i64 %4 to i32
+  %187 = trunc nuw i64 %4 to i32
   %188 = add i32 %183, %187
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %190 = load i32, ptr %189, align 8, !tbaa !46

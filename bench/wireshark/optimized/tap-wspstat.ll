@@ -92,7 +92,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %
 
 .lr.ph98:                                         ; preds = %.lr.ph98.preheader, %index2pdut.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph98.preheader ], [ %indvars.iv.next, %index2pdut.exit ]
-  %indvars101 = trunc i64 %indvars.iv to i32
+  %indvars101 = trunc nuw i64 %indvars.iv to i32
   %30 = getelementptr %struct._wsp_pdu_t, ptr %.pre, i64 %indvars.iv, i32 1
   store i32 0, ptr %30, align 8
   %31 = icmp slt i32 %indvars101, 10
@@ -108,7 +108,7 @@ define internal void @wspstat_init(ptr noundef %0, ptr readnone captures(none) %
 
 36:                                               ; preds = %32
   %37 = icmp samesign ult i64 %indvars.iv, 17
-  %38 = trunc i64 %indvars.iv to i32
+  %38 = trunc nuw i64 %indvars.iv to i32
   %39 = add nuw i32 %38, 81
   %spec.select.i = select i1 %37, i32 %39, i32 0
   br label %index2pdut.exit

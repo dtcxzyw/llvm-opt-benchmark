@@ -492,7 +492,7 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   br i1 %3, label %4, label %8
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %0 to i8
+  %5 = trunc nuw nsw i32 %0 to i8
   %6 = or disjoint i8 %5, 48
   store i8 %6, ptr %1, align 1, !tbaa !8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -604,7 +604,7 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %7
-  %10 = trunc nuw i32 %.0 to i8
+  %10 = trunc nuw nsw i32 %.0 to i8
   %11 = or disjoint i8 %10, 48
   store i8 %11, ptr %.07, align 1, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %.07, i64 1
@@ -709,7 +709,7 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %3
-  %7 = trunc nuw i64 %0 to i8
+  %7 = trunc nuw nsw i64 %0 to i8
   %8 = or disjoint i8 %7, 48
   store i8 %8, ptr %1, align 1, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -950,7 +950,7 @@ define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBuffe
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
-  %12 = trunc nuw i64 %.0 to i8
+  %12 = trunc nuw nsw i64 %.0 to i8
   %13 = or disjoint i8 %12, 48
   store i8 %13, ptr %.07, align 1, !tbaa !8
   %14 = getelementptr inbounds nuw i8, ptr %.07, i64 1

@@ -3190,7 +3190,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
-  %163 = trunc nuw i64 %160 to i32
+  %163 = trunc nuw nsw i64 %160 to i32
   %164 = add nuw nsw i32 %163, 1
   %165 = call i32 @setsockopt(i32 noundef %138, i32 noundef 1, i32 noundef 25, ptr noundef nonnull %152, i32 noundef %164) #13
   %166 = icmp ne i32 %165, 0

@@ -21762,7 +21762,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %65, %63, %59, %55, 
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 105:                                              ; preds = %._crit_edge.i.i
-  %106 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %106 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %107 = or disjoint i8 %106, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -22696,7 +22696,7 @@ _ZNK5clang4Decl7hasAttrINS_11MinSizeAttrEEEbv.exit226.thread: ; preds = %535, %5
   br i1 %.not74, label %554, label %549
 
 549:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_11MinSizeAttrEEEbv.exit226.thread
-  %.rhs.trunc = trunc i64 %548 to i32
+  %.rhs.trunc = trunc nuw i64 %548 to i32
   %550 = udiv i32 %539, %.rhs.trunc
   %.zext = zext i32 %550 to i64
   %551 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.zext, i1 false)

@@ -2157,7 +2157,7 @@ define dso_local ptr @io_pin_pages(i64 noundef %0, i64 noundef %1, ptr noundef w
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %30
-  %36 = trunc nsw i64 %8 to i32
+  %36 = trunc nuw nsw i64 %8 to i32
   store i32 %36, ptr %2, align 4
   br label %.thread4
 

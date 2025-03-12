@@ -4675,7 +4675,7 @@ switch.early.test:                                ; preds = %15
   ]
 
 _ZNK11z3_replayer3imp14is_double_charEv.exit.thread: ; preds = %switch.early.test, %switch.early.test, %15, %12
-  %17 = trunc i32 %.fr to i8
+  %17 = trunc nuw nsw i32 %.fr to i8
   %18 = load ptr, ptr %5, align 8, !tbaa !124
   %19 = icmp eq ptr %18, null
   br i1 %19, label %26, label %20
@@ -4882,7 +4882,7 @@ switch.early.test:                                ; preds = %15
   ]
 
 _ZNK11z3_replayer3imp14is_double_charEv.exit.thread: ; preds = %switch.early.test, %switch.early.test, %15, %12
-  %17 = trunc i32 %.fr to i8
+  %17 = trunc nuw nsw i32 %.fr to i8
   %18 = load ptr, ptr %5, align 8, !tbaa !124
   %19 = icmp eq ptr %18, null
   br i1 %19, label %26, label %20

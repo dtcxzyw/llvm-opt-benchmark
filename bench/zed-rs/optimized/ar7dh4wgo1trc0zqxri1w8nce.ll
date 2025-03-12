@@ -636,7 +636,7 @@ define hidden void @_ZN3der6reader6Reader9read_into17h459eeb46d343f193E(ptr dead
   br i1 %or.cond, label %6, label %10
 
 6:                                                ; preds = %4
-  %7 = trunc nuw i64 %3 to i32
+  %7 = trunc nuw nsw i64 %3 to i32
   call void @"_ZN71_$LT$der..reader..slice..SliceReader$u20$as$u20$der..reader..Reader$GT$10read_slice17hd2cf15bd855698deE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %7)
   %8 = load i32, ptr %5, align 8, !range !8, !noundef !4
   %9 = icmp eq i32 %8, 2
@@ -1726,14 +1726,14 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$co
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0.i, align 4, !alias.scope !174, !noalias !171
   br label %_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit.i
 
 12:                                               ; preds = %6
   %13 = lshr i32 %1, 12
-  %14 = trunc nuw i32 %13 to i8
+  %14 = trunc nuw nsw i32 %13 to i8
   %15 = or disjoint i8 %14, -32
   store i8 %15, ptr %.sroa.0.i, align 4, !alias.scope !174, !noalias !171
   %16 = lshr i32 %1, 6
@@ -4041,7 +4041,7 @@ define hidden void @"_ZN75_$LT$der..length..Length$u20$as$u20$core..convert..Try
   br label %11
 
 8:                                                ; preds = %4
-  %9 = trunc nuw i64 %1 to i32
+  %9 = trunc nuw nsw i64 %1 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
   br label %11

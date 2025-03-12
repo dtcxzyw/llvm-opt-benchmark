@@ -9488,7 +9488,7 @@ _ZL22getTypeAlignIfRequiredPKN5clang4TypeERKNS_10ASTContextE.exit: ; preds = %44
   br i1 %496, label %497, label %499
 
 497:                                              ; preds = %495
-  %.rhs.trunc = trunc nuw i32 %489 to i8
+  %.rhs.trunc = trunc nuw nsw i32 %489 to i8
   %498 = udiv i8 64, %.rhs.trunc
   %.zext = zext nneg i8 %498 to i32
   br label %_ZN4llvm15SmallVectorImplImE6appendESt16initializer_listImE.exit

@@ -4836,7 +4836,7 @@ ic_isxdigit.exit44.i.i.i:                         ; preds = %ic_isxdigit.exit.th
   br i1 %or.cond.i.i.i.i, label %79, label %82
 
 79:                                               ; preds = %.critedge.i.i.i
-  %80 = trunc nuw i32 %72 to i8
+  %80 = trunc nuw nsw i32 %72 to i8
   %81 = add nsw i8 %80, -48
   br label %from_xdigit.exit.i.i.i
 
@@ -4846,7 +4846,7 @@ ic_isxdigit.exit44.i.i.i:                         ; preds = %ic_isxdigit.exit.th
   br i1 %or.cond3.i.i.i.i, label %84, label %87
 
 84:                                               ; preds = %82
-  %85 = trunc nuw i32 %72 to i8
+  %85 = trunc nuw nsw i32 %72 to i8
   %86 = add nsw i8 %85, -55
   br label %from_xdigit.exit.i.i.i
 
@@ -4856,7 +4856,7 @@ ic_isxdigit.exit44.i.i.i:                         ; preds = %ic_isxdigit.exit.th
   br i1 %or.cond5.i.i.i.i, label %89, label %from_xdigit.exit.i.i.i
 
 89:                                               ; preds = %87
-  %90 = trunc nuw i32 %72 to i8
+  %90 = trunc nuw nsw i32 %72 to i8
   %91 = add nsw i8 %90, -87
   br label %from_xdigit.exit.i.i.i
 
@@ -4868,7 +4868,7 @@ from_xdigit.exit.i.i.i:                           ; preds = %89, %87, %84, %79
   br i1 %or.cond.i45.i.i.i, label %94, label %97
 
 94:                                               ; preds = %from_xdigit.exit.i.i.i
-  %95 = trunc nuw i32 %73 to i8
+  %95 = trunc nuw nsw i32 %73 to i8
   %96 = add nsw i8 %95, -48
   br label %sbuf_append_char.exit.i.i.i
 
@@ -4878,7 +4878,7 @@ from_xdigit.exit.i.i.i:                           ; preds = %89, %87, %84, %79
   br i1 %or.cond3.i46.i.i.i, label %99, label %102
 
 99:                                               ; preds = %97
-  %100 = trunc nuw i32 %73 to i8
+  %100 = trunc nuw nsw i32 %73 to i8
   %101 = add nsw i8 %100, -55
   br label %sbuf_append_char.exit.i.i.i
 
@@ -4888,7 +4888,7 @@ from_xdigit.exit.i.i.i:                           ; preds = %89, %87, %84, %79
   br i1 %or.cond5.i47.i.i.i, label %104, label %sbuf_append_char.exit.i.i.i
 
 104:                                              ; preds = %102
-  %105 = trunc nuw i32 %73 to i8
+  %105 = trunc nuw nsw i32 %73 to i8
   %106 = add nsw i8 %105, -87
   br label %sbuf_append_char.exit.i.i.i
 
@@ -21775,7 +21775,7 @@ define internal fastcc void @edit_insert_unicode(ptr noundef nonnull %0, ptr nou
 
 13:                                               ; preds = %11
   %14 = lshr i32 %2, 6
-  %15 = trunc nuw i32 %14 to i8
+  %15 = trunc nuw nsw i32 %14 to i8
   %16 = or disjoint i8 %15, -64
   store i8 %16, ptr %4, align 1, !tbaa !4
   %17 = trunc i32 %2 to i8
@@ -21791,7 +21791,7 @@ define internal fastcc void @edit_insert_unicode(ptr noundef nonnull %0, ptr nou
 
 23:                                               ; preds = %21
   %24 = lshr i32 %2, 12
-  %25 = trunc nuw i32 %24 to i8
+  %25 = trunc nuw nsw i32 %24 to i8
   %26 = or disjoint i8 %25, -32
   store i8 %26, ptr %4, align 1, !tbaa !4
   %27 = lshr i32 %2, 6
@@ -21823,7 +21823,7 @@ define internal fastcc void @edit_insert_unicode(ptr noundef nonnull %0, ptr nou
 
 unicode_is_raw.exit.i.i:                          ; preds = %38
   %42 = lshr i32 %2, 18
-  %43 = trunc nuw i32 %42 to i8
+  %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -16
   store i8 %44, ptr %4, align 1, !tbaa !4
   %45 = lshr i32 %2, 12

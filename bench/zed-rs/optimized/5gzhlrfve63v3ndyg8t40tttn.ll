@@ -46215,7 +46215,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !13510
   %12 = trunc i32 %1 to i8
@@ -46227,7 +46227,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h41bd6cc148f6c106E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !13510
   %19 = lshr i32 %1, 6
@@ -100316,13 +100316,13 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br i1 %224, label %234, label %245
 
 225:                                              ; preds = %219
-  %226 = trunc nuw i32 %.sroa.018.0 to i8
+  %226 = trunc nuw nsw i32 %.sroa.018.0 to i8
   store i8 %226, ptr %.sroa.0, align 4, !alias.scope !21235
   br label %262
 
 227:                                              ; preds = %221
   %228 = lshr i32 %.sroa.018.0, 6
-  %229 = trunc nuw i32 %228 to i8
+  %229 = trunc nuw nsw i32 %228 to i8
   %230 = or disjoint i8 %229, -64
   store i8 %230, ptr %.sroa.0, align 4, !alias.scope !21235
   %231 = trunc i32 %.sroa.018.0 to i8
@@ -100333,7 +100333,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 234:                                              ; preds = %223
   %235 = lshr i32 %.sroa.018.0, 12
-  %236 = trunc nuw i32 %235 to i8
+  %236 = trunc nuw nsw i32 %235 to i8
   %237 = or disjoint i8 %236, -32
   store i8 %237, ptr %.sroa.0, align 4, !alias.scope !21235
   %238 = lshr i32 %.sroa.018.0, 6
@@ -100677,13 +100677,13 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br i1 %364, label %374, label %385
 
 365:                                              ; preds = %359
-  %366 = trunc nuw i32 %.sroa.027.0 to i8
+  %366 = trunc nuw nsw i32 %.sroa.027.0 to i8
   store i8 %366, ptr %.sroa.0213, align 4, !alias.scope !21342
   br label %403
 
 367:                                              ; preds = %361
   %368 = lshr i32 %.sroa.027.0, 6
-  %369 = trunc nuw i32 %368 to i8
+  %369 = trunc nuw nsw i32 %368 to i8
   %370 = or disjoint i8 %369, -64
   store i8 %370, ptr %.sroa.0213, align 4, !alias.scope !21342
   %371 = trunc i32 %.sroa.027.0 to i8
@@ -100694,7 +100694,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 374:                                              ; preds = %363
   %375 = lshr i32 %.sroa.027.0, 12
-  %376 = trunc nuw i32 %375 to i8
+  %376 = trunc nuw nsw i32 %375 to i8
   %377 = or disjoint i8 %376, -32
   store i8 %377, ptr %.sroa.0213, align 4, !alias.scope !21342
   %378 = lshr i32 %.sroa.027.0, 6
@@ -102068,13 +102068,13 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
   br i1 %413, label %423, label %434
 
 414:                                              ; preds = %408
-  %415 = trunc nuw i32 %.sroa.025.0 to i8
+  %415 = trunc nuw nsw i32 %.sroa.025.0 to i8
   store i8 %415, ptr %.sroa.0, align 4, !alias.scope !21649
   br label %451
 
 416:                                              ; preds = %410
   %417 = lshr i32 %.sroa.025.0, 6
-  %418 = trunc nuw i32 %417 to i8
+  %418 = trunc nuw nsw i32 %417 to i8
   %419 = or disjoint i8 %418, -64
   store i8 %419, ptr %.sroa.0, align 4, !alias.scope !21649
   %420 = trunc i32 %.sroa.025.0 to i8
@@ -102085,7 +102085,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit.thread: ; preds = %
 
 423:                                              ; preds = %412
   %424 = lshr i32 %.sroa.025.0, 12
-  %425 = trunc nuw i32 %424 to i8
+  %425 = trunc nuw nsw i32 %424 to i8
   %426 = or disjoint i8 %425, -32
   store i8 %426, ptr %.sroa.0, align 4, !alias.scope !21649
   %427 = lshr i32 %.sroa.025.0, 6
@@ -102403,13 +102403,13 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
   br i1 %540, label %550, label %561
 
 541:                                              ; preds = %.critedge
-  %542 = trunc nuw i32 %493 to i8
+  %542 = trunc nuw nsw i32 %493 to i8
   store i8 %542, ptr %.sroa.0326, align 4, !alias.scope !21703
   br label %576
 
 543:                                              ; preds = %537
   %544 = lshr i32 %493, 6
-  %545 = trunc nuw i32 %544 to i8
+  %545 = trunc nuw nsw i32 %544 to i8
   %546 = or disjoint i8 %545, -64
   store i8 %546, ptr %.sroa.0326, align 4, !alias.scope !21703
   %547 = trunc i32 %493 to i8
@@ -102420,7 +102420,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
 
 550:                                              ; preds = %539
   %551 = lshr i32 %493, 12
-  %552 = trunc nuw i32 %551 to i8
+  %552 = trunc nuw nsw i32 %551 to i8
   %553 = or disjoint i8 %552, -32
   store i8 %553, ptr %.sroa.0326, align 4, !alias.scope !21703
   %554 = lshr i32 %493, 6
@@ -102677,13 +102677,13 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
   br i1 %651, label %661, label %672
 
 652:                                              ; preds = %646
-  %653 = trunc nuw i32 %.sroa.034.0 to i8
+  %653 = trunc nuw nsw i32 %.sroa.034.0 to i8
   store i8 %653, ptr %.sroa.0336, align 4, !alias.scope !21790
   br label %690
 
 654:                                              ; preds = %648
   %655 = lshr i32 %.sroa.034.0, 6
-  %656 = trunc nuw i32 %655 to i8
+  %656 = trunc nuw nsw i32 %655 to i8
   %657 = or disjoint i8 %656, -64
   store i8 %657, ptr %.sroa.0336, align 4, !alias.scope !21790
   %658 = trunc i32 %.sroa.034.0 to i8
@@ -102694,7 +102694,7 @@ _ZN5alloc6string6String4push17h41bd6cc148f6c106E.exit: ; preds = %530, %.thread2
 
 661:                                              ; preds = %650
   %662 = lshr i32 %.sroa.034.0, 12
-  %663 = trunc nuw i32 %662 to i8
+  %663 = trunc nuw nsw i32 %662 to i8
   %664 = or disjoint i8 %663, -32
   store i8 %664, ptr %.sroa.0336, align 4, !alias.scope !21790
   %665 = lshr i32 %.sroa.034.0, 6
@@ -102999,13 +102999,13 @@ _ZN5alloc6string6String6insert17h281bb881751646d7E.exit: ; preds = %.thread258
   br i1 %771, label %781, label %792
 
 772:                                              ; preds = %.critedge2
-  %773 = trunc nuw i32 %731 to i8
+  %773 = trunc nuw nsw i32 %731 to i8
   store i8 %773, ptr %.sroa.0346, align 4, !alias.scope !21855
   br label %807
 
 774:                                              ; preds = %768
   %775 = lshr i32 %731, 6
-  %776 = trunc nuw i32 %775 to i8
+  %776 = trunc nuw nsw i32 %775 to i8
   %777 = or disjoint i8 %776, -64
   store i8 %777, ptr %.sroa.0346, align 4, !alias.scope !21855
   %778 = trunc i32 %731 to i8
@@ -103016,7 +103016,7 @@ _ZN5alloc6string6String6insert17h281bb881751646d7E.exit: ; preds = %.thread258
 
 781:                                              ; preds = %770
   %782 = lshr i32 %731, 12
-  %783 = trunc nuw i32 %782 to i8
+  %783 = trunc nuw nsw i32 %782 to i8
   %784 = or disjoint i8 %783, -32
   store i8 %784, ptr %.sroa.0346, align 4, !alias.scope !21855
   %785 = lshr i32 %731, 6
@@ -103688,13 +103688,13 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37.thread: ; preds =
   br i1 %182, label %192, label %203
 
 183:                                              ; preds = %177
-  %184 = trunc nuw i32 %.sroa.09.0 to i8
+  %184 = trunc nuw nsw i32 %.sroa.09.0 to i8
   store i8 %184, ptr %.sroa.0, align 4, !alias.scope !22001
   br label %219
 
 185:                                              ; preds = %179
   %186 = lshr i32 %.sroa.09.0, 6
-  %187 = trunc nuw i32 %186 to i8
+  %187 = trunc nuw nsw i32 %186 to i8
   %188 = or disjoint i8 %187, -64
   store i8 %188, ptr %.sroa.0, align 4, !alias.scope !22001
   %189 = trunc i32 %.sroa.09.0 to i8
@@ -103705,7 +103705,7 @@ _ZN3vim6object6Object12is_multiline17h91160ed45c57a30dE.exit37.thread: ; preds =
 
 192:                                              ; preds = %181
   %193 = lshr i32 %.sroa.09.0, 12
-  %194 = trunc nuw i32 %193 to i8
+  %194 = trunc nuw nsw i32 %193 to i8
   %195 = or disjoint i8 %194, -32
   store i8 %195, ptr %.sroa.0, align 4, !alias.scope !22001
   %196 = lshr i32 %.sroa.09.0, 6

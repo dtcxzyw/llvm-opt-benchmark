@@ -491,7 +491,7 @@ define internal void @_ZL27_UTF7FromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %.not283, label %45, label %39
 
 39:                                               ; preds = %35
-  %40 = trunc nuw i16 %33 to i8
+  %40 = trunc nuw nsw i16 %33 to i8
   %41 = getelementptr inbounds nuw i8, ptr %.1226370, i64 1
   store i8 %40, ptr %.1226370, align 1, !tbaa !28
   %.not308 = icmp eq ptr %.1247368, null
@@ -1553,7 +1553,7 @@ define internal void @_ZL27_IMAPFromUnicodeWithOffsetsP25UConverterFromUnicodeAr
   br i1 %or.cond5, label %36, label %41
 
 36:                                               ; preds = %.lr.ph419
-  %37 = trunc nuw i16 %32 to i8
+  %37 = trunc nuw nsw i16 %32 to i8
   store i8 %37, ptr %.1270416, align 1, !tbaa !28
   %.not355 = icmp eq ptr %.1286414, null
   br i1 %.not355, label %70, label %38

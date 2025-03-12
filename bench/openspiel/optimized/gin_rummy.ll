@@ -3003,7 +3003,7 @@ define void @_ZN10open_spiel9gin_rummy13GinRummyState15ApplyDealActionEl(ptr nou
   br label %_ZN10open_spiel9gin_rummy13GinRummyState13StockToUpcardEl.exit
 
 _ZN10open_spiel9gin_rummy13GinRummyState13StockToUpcardEl.exit: ; preds = %51, %55
-  %.sink.i.i.i = trunc i64 %1 to i32
+  %.sink.i.i.i = trunc nuw nsw i64 %1 to i32
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 %.sink.i.i.i, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -4170,7 +4170,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %90, %_ZNSt6vectorIi
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds %"class.std::vector.31", ptr %168, i64 %20
-  %170 = trunc i64 %1 to i32
+  %170 = trunc nuw nsw i64 %1 to i32
   %171 = add nsw i32 %170, -56
   %172 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -4621,7 +4621,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %86, %_ZNSt6vectorIi
   %153 = sext i32 %152 to i64
   %154 = load ptr, ptr %150, align 8
   %155 = getelementptr inbounds %"class.std::vector.31", ptr %154, i64 %153
-  %156 = trunc i64 %1 to i32
+  %156 = trunc nuw nsw i64 %1 to i32
   %157 = add nsw i32 %156, -56
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %159 = load ptr, ptr %158, align 8
@@ -7650,7 +7650,7 @@ switch.lookup:                                    ; preds = %40
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %47 = trunc i64 %3 to i32
+  %47 = trunc nsw i64 %3 to i32
   %48 = add i32 %47, -56
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %50 = load ptr, ptr %49, align 8

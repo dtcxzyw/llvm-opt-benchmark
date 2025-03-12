@@ -56,7 +56,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   %28 = ptrtoint ptr %.0117275 to i64
   %29 = sub i64 %28, %4
   store i64 %29, ptr %2, align 8, !tbaa !7
-  %30 = trunc i64 %8 to i8
+  %30 = trunc nuw i64 %8 to i8
   %31 = xor i8 %30, -1
   %switch.tableidx = add i8 %24, %31
   %32 = icmp ult i8 %switch.tableidx, 5

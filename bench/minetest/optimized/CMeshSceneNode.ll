@@ -1014,7 +1014,7 @@ for.body:                                         ; preds = %if.end43, %for.body
   %vtable19 = load ptr, ptr %14, align 8, !tbaa !3
   %vfn20 = getelementptr inbounds nuw i8, ptr %vtable19, i64 8
   %15 = load ptr, ptr %vfn20, align 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   %call21 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %16) #19
   %tobool22.not = icmp eq ptr %call21, null
   br i1 %tobool22.not, label %if.end43, label %if.then23

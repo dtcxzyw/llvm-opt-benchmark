@@ -42,7 +42,7 @@ define dso_local void @_ZN4llvm15DwarfExpression10emitConstuEm(ptr noundef nonnu
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i64 %1 to i8
+  %5 = trunc nuw nsw i64 %1 to i8
   %6 = add nuw nsw i8 %5, 48
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = load ptr, ptr %7, align 8
@@ -211,7 +211,7 @@ define dso_local void @_ZN4llvm15DwarfExpression6addShrEj(ptr noundef nonnull al
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = add nuw nsw i8 %5, 48
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = load ptr, ptr %7, align 8
@@ -242,7 +242,7 @@ define dso_local void @_ZN4llvm15DwarfExpression6addAndEj(ptr noundef nonnull al
   br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
-  %5 = trunc nuw i32 %1 to i8
+  %5 = trunc nuw nsw i32 %1 to i8
   %6 = add nuw nsw i8 %5, 48
   %7 = load ptr, ptr %0, align 8, !tbaa !3
   %8 = load ptr, ptr %7, align 8
@@ -1498,7 +1498,7 @@ define dso_local void @_ZN4llvm15DwarfExpression19addUnsignedConstantEm(ptr noun
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i64 %1 to i8
+  %9 = trunc nuw nsw i64 %1 to i8
   %10 = add nuw nsw i8 %9, 48
   %11 = load ptr, ptr %0, align 8, !tbaa !3
   %12 = load ptr, ptr %11, align 8
@@ -1561,7 +1561,7 @@ define dso_local void @_ZN4llvm15DwarfExpression19addUnsignedConstantERKNS_5APIn
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %12
-  %19 = trunc nuw i64 %13 to i8
+  %19 = trunc nuw nsw i64 %13 to i8
   %20 = add nuw nsw i8 %19, 48
   %21 = load ptr, ptr %0, align 8, !tbaa !3
   %22 = load ptr, ptr %21, align 8
@@ -1972,7 +1972,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExp
   br i1 %77, label %78, label %83
 
 78:                                               ; preds = %71
-  %79 = trunc nuw i64 %69 to i8
+  %79 = trunc nuw nsw i64 %69 to i8
   %80 = add nuw nsw i8 %79, 80
   %81 = load ptr, ptr %0, align 8, !tbaa !3
   %82 = load ptr, ptr %81, align 8
@@ -2206,7 +2206,7 @@ _ZN4llvm15DwarfExpression6addRegElPKc.exit._crit_edge: ; preds = %_ZN4llvm15Dwar
   br i1 %.not57, label %_ZN4llvm18DIExpressionCursor7consumeEj.exit, label %199
 
 199:                                              ; preds = %196
-  %200 = trunc nuw i64 %198 to i32
+  %200 = trunc nuw nsw i64 %198 to i32
   %201 = load ptr, ptr %2, align 8, !tbaa !171
   %202 = load ptr, ptr %9, align 8, !tbaa !171
   %203 = icmp eq ptr %201, %202
@@ -2294,7 +2294,7 @@ _ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit: ; preds = %.lr.ph.i.i.i79
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
 _ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134: ; preds = %.lr.ph.i.i.i
-  %243 = trunc nuw i64 %213 to i32
+  %243 = trunc nuw nsw i64 %213 to i32
   br label %_ZN4llvm18DIExpressionCursor7consumeEj.exit
 
 _ZN4llvm18DIExpressionCursor7consumeEj.exit:      ; preds = %199, %196, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit134, %_ZN4llvm18DIExpressionCursor7consumeEj.exit.loopexit, %230, %228, %211, %186, %thread-pre-split
@@ -2430,7 +2430,7 @@ define dso_local void @_ZN4llvm15DwarfExpression15maskSubRegisterEv(ptr noundef 
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = trunc nuw i32 %5 to i8
+  %8 = trunc nuw nsw i32 %5 to i8
   %9 = add nuw nsw i8 %8, 48
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = load ptr, ptr %10, align 8
@@ -2466,7 +2466,7 @@ _ZN4llvm15DwarfExpression6addShrEj.exit:          ; preds = %7, %12
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %21
-  %29 = trunc nuw i32 %26 to i8
+  %29 = trunc nuw nsw i32 %26 to i8
   %30 = add nuw nsw i8 %29, 48
   %31 = load ptr, ptr %0, align 8, !tbaa !3
   %32 = load ptr, ptr %31, align 8
@@ -2793,7 +2793,7 @@ _ZN4llvm18DIExpressionCursor4takeEv.exit:         ; preds = %_ZN4llvm18DIExpress
 _ZN4llvm15DwarfExpression7addBRegEll.exit:        ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !87
-  %29 = trunc nuw i64 %26 to i8
+  %29 = trunc nuw nsw i64 %26 to i8
   %30 = add nuw i8 %29, 112
   %31 = load ptr, ptr %0, align 8, !tbaa !3
   %32 = load ptr, ptr %31, align 8
@@ -3040,7 +3040,7 @@ _ZN4llvm15DwarfExpression10addOpPieceEjj.exit:    ; preds = %_ZN4llvm15DwarfExpr
   br label %_ZN4llvm15DwarfExpression10emitConstuEm.exit
 
 157:                                              ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
-  %158 = trunc i64 %19 to i8
+  %158 = trunc nuw i64 %19 to i8
   %159 = load ptr, ptr %0, align 8, !tbaa !3
   %160 = load ptr, ptr %159, align 8
   call void %160(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 noundef zeroext %158, ptr noundef null) #15
@@ -3107,7 +3107,7 @@ _ZL16isMemoryLocationN4llvm18DIExpressionCursorE.exit: ; preds = %_ZN4llvm18DIEx
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %179
-  %184 = trunc nuw i64 %181 to i8
+  %184 = trunc nuw nsw i64 %181 to i8
   %185 = add nuw nsw i8 %184, 48
   %186 = load ptr, ptr %0, align 8, !tbaa !3
   %187 = load ptr, ptr %186, align 8
@@ -3197,12 +3197,12 @@ _ZL16isMemoryLocationN4llvm18DIExpressionCursorE.exit: ; preds = %_ZN4llvm18DIEx
   ]
 
 239:                                              ; preds = %238
-  %240 = trunc i64 %235 to i32
+  %240 = trunc nuw i64 %235 to i32
   call void @_ZN4llvm15DwarfExpression14emitLegacySExtEj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %240)
   br label %_ZN4llvm15DwarfExpression10emitConstuEm.exit
 
 241:                                              ; preds = %238
-  %242 = trunc i64 %235 to i32
+  %242 = trunc nuw i64 %235 to i32
   call void @_ZN4llvm15DwarfExpression14emitLegacyZExtEj(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %242)
   br label %_ZN4llvm15DwarfExpression10emitConstuEm.exit
 

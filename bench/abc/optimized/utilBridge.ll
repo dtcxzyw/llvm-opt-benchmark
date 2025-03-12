@@ -409,7 +409,7 @@ Vec_StrGrow.exit.i12:                             ; preds = %46, %44
 
 Vec_StrPush.exit13:                               ; preds = %.Vec_StrGrow.exit10_crit_edge.i7, %Vec_StrGrow.exit.i12, %58
   %60 = phi ptr [ %.pre.i9, %.Vec_StrGrow.exit10_crit_edge.i7 ], [ %59, %58 ], [ %48, %Vec_StrGrow.exit.i12 ]
-  %61 = trunc nuw i32 %.0.lcssa to i8
+  %61 = trunc nuw nsw i32 %.0.lcssa to i8
   %62 = load i32, ptr %35, align 4, !tbaa !38
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %35, align 4, !tbaa !38

@@ -2340,7 +2340,7 @@ ws_frame_flags2op.exit.thread:                    ; preds = %17, %ws_frame_flags
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 -2, ptr %64, align 1, !tbaa !84
   %65 = lshr i64 %3, 8
-  %66 = trunc i64 %65 to i8
+  %66 = trunc nuw i64 %65 to i8
   store i8 %66, ptr %.055.sroa.gep68, align 1, !tbaa !84
   %67 = trunc i64 %3 to i8
   br label %71

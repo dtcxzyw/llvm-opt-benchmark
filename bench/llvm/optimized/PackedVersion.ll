@@ -81,7 +81,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm5MachO13PackedVersion7parse32ENS_9S
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %16
-  %.tr = trunc nuw i64 %17 to i32
+  %.tr = trunc nuw nsw i64 %17 to i32
   %20 = shl nuw i32 %.tr, 16
   store i32 %20, ptr %0, align 4, !tbaa !3
   %21 = load i32, ptr %9, align 8, !tbaa !11
@@ -202,7 +202,7 @@ define dso_local range(i16 0, 258) i16 @_ZN4llvm5MachO13PackedVersion7parse64ENS
 22:                                               ; preds = %21, %19
   %23 = phi i64 [ 65535, %21 ], [ %17, %19 ]
   %.0 = phi i8 [ 1, %21 ], [ 0, %19 ]
-  %.tr = trunc nuw i64 %23 to i32
+  %.tr = trunc nuw nsw i64 %23 to i32
   %24 = shl nuw i32 %.tr, 16
   store i32 %24, ptr %0, align 4, !tbaa !3
   %25 = load i32, ptr %9, align 8, !tbaa !11

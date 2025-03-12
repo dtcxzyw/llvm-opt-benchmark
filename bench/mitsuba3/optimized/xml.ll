@@ -1593,7 +1593,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !4
-  %25 = trunc nuw i64 %12 to i8
+  %25 = trunc nuw nsw i64 %12 to i8
   %26 = shl nuw nsw i8 %25, 1
   store i8 %26, ptr %4, align 8, !alias.scope !4
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -29789,7 +29789,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_2
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ENS_24__uninitialized_size_tagEmRKS4_.exit.i: ; preds = %109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false), !alias.scope !428
-  %118 = trunc nuw i64 %106 to i8
+  %118 = trunc nuw nsw i64 %106 to i8
   %119 = shl nuw nsw i8 %118, 1
   store i8 %119, ptr %13, align 8, !alias.scope !428
   %.not.i.i16.i = icmp eq i64 %105, 0

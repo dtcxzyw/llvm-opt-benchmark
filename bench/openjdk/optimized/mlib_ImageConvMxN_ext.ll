@@ -218,7 +218,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNext_s32(ptr noundef readonly capt
   br i1 %101, label %.lr.ph28.i.us.us.us, label %._crit_edge.loopexit.i.us.us.us, !llvm.loop !11
 
 ._crit_edge.loopexit.i.us.us.us:                  ; preds = %.lr.ph28.i.us.us.us
-  %102 = trunc nsw i64 %indvars.iv.next38.i.us.us.us to i32
+  %102 = trunc nuw nsw i64 %indvars.iv.next38.i.us.us.us to i32
   br label %._crit_edge.i.us.us.us
 
 ._crit_edge.i.us.us.us:                           ; preds = %.preheader.i.us.us.us, %._crit_edge.loopexit.i.us.us.us

@@ -6096,7 +6096,7 @@ tailrecurse:                                      ; preds = %.thread103, %2
   br i1 %.not65, label %.critedge, label %29
 
 29:                                               ; preds = %28
-  %.rhs.trunc = trunc i64 %23 to i16
+  %.rhs.trunc = trunc nuw nsw i64 %23 to i16
   %30 = udiv i16 1024, %.rhs.trunc
   %.zext = zext nneg i16 %30 to i64
   %31 = tail call fastcc i64 @check_complexity(ptr noundef nonnull %.tr111, i64 noundef %.zext)

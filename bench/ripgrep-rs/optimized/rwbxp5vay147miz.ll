@@ -140,7 +140,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
 
 8:                                                ; preds = %4
   %9 = lshr i32 %1, 6
-  %10 = trunc nuw i32 %9 to i8
+  %10 = trunc nuw nsw i32 %9 to i8
   %11 = or disjoint i8 %10, -64
   store i8 %11, ptr %.sroa.0, align 4, !alias.scope !23
   %12 = trunc i32 %1 to i8
@@ -152,7 +152,7 @@ define internal fastcc void @_ZN5alloc6string6String4push17h5bf80ac19761e8d5E(pt
 
 15:                                               ; preds = %6
   %16 = lshr i32 %1, 12
-  %17 = trunc nuw i32 %16 to i8
+  %17 = trunc nuw nsw i32 %16 to i8
   %18 = or disjoint i8 %17, -32
   store i8 %18, ptr %.sroa.0, align 4, !alias.scope !23
   %19 = lshr i32 %1, 6
@@ -222,7 +222,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %8, %
   br label %69
 
 .critedge:                                        ; preds = %2
-  %57 = trunc nuw i32 %1 to i8
+  %57 = trunc nuw nsw i32 %1 to i8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i64, ptr %58, align 8, !alias.scope !36, !noundef !5
   %60 = load i64, ptr %0, align 8, !alias.scope !36, !noundef !5
@@ -1436,13 +1436,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12gre
   br i1 %8, label %18, label %29
 
 9:                                                ; preds = %2
-  %10 = trunc nuw i32 %1 to i8
+  %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %.sroa.0, align 4, !alias.scope !206
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit
 
 11:                                               ; preds = %5
   %12 = lshr i32 %1, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %.sroa.0, align 4, !alias.scope !206
   %15 = trunc i32 %1 to i8
@@ -1454,7 +1454,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN12gre
 
 18:                                               ; preds = %7
   %19 = lshr i32 %1, 12
-  %20 = trunc nuw i32 %19 to i8
+  %20 = trunc nuw nsw i32 %19 to i8
   %21 = or disjoint i8 %20, -32
   store i8 %21, ptr %.sroa.0, align 4, !alias.scope !206
   %22 = lshr i32 %1, 6

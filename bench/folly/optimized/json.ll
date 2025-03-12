@@ -15401,15 +15401,15 @@ _ZN5folly4json12_GLOBAL__N_15InputppEv.exit22:    ; preds = %"_ZZN5folly4json12_
 
 _ZN5folly4json12_GLOBAL__N_15InputppEv.exit27:    ; preds = %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit26", %67
   %70 = phi i32 [ %69, %67 ], [ -1, %"_ZZN5folly4json12_GLOBAL__N_119decodeUnicodeEscapeERNS1_5InputERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEi.exit26" ]
-  %71 = trunc nsw i32 %49 to i16
+  %71 = trunc nuw nsw i32 %49 to i16
   %72 = shl nuw nsw i16 %71, 4
-  %73 = trunc nsw i32 %34 to i16
+  %73 = trunc nuw nsw i32 %34 to i16
   %74 = shl nuw nsw i16 %73, 8
-  %75 = trunc i32 %19 to i16
+  %75 = trunc nuw nsw i32 %19 to i16
   %76 = shl nuw i16 %75, 12
   %77 = add nuw i16 %74, %76
   %78 = add nuw i16 %77, %72
-  %79 = trunc nsw i32 %64 to i16
+  %79 = trunc nuw nsw i32 %64 to i16
   %80 = add nuw i16 %78, %79
   store i32 %70, ptr %8, align 4, !tbaa !322
   ret i16 %80

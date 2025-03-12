@@ -5317,7 +5317,7 @@ if.else29.i.i:                                    ; preds = %if.else.i.i678
   br i1 %cmp6.i.i.i.i.i28.i.not.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i.i, label %for.body.preheader.i.i.i.i.i30.i.i
 
 for.body.preheader.i.i.i.i.i30.i.i:               ; preds = %if.else29.i.i
-  %sub.ptr.div10.i.i.i.i.i31.i.lhs.trunc.i = trunc nuw i64 %sub.ptr.sub.i16.i.i to i8
+  %sub.ptr.div10.i.i.i.i.i31.i.lhs.trunc.i = trunc nuw nsw i64 %sub.ptr.sub.i16.i.i to i8
   %sub.ptr.div10.i.i.i.i.i31.i262.i = udiv exact i8 %sub.ptr.div10.i.i.i.i.i31.i.lhs.trunc.i, 24
   %sub.ptr.div10.i.i.i.i.i31.i.zext.i = zext nneg i8 %sub.ptr.div10.i.i.i.i.i31.i262.i to i64
   br label %for.body.i.i.i.i.i32.i.i
@@ -5464,7 +5464,7 @@ if.else29.i134.i:                                 ; preds = %if.else.i113.i
   br i1 %cmp6.i.i.i.i.i28.i136.not.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i137.i, label %for.body.preheader.i.i.i.i.i30.i147.i
 
 for.body.preheader.i.i.i.i.i30.i147.i:            ; preds = %if.else29.i134.i
-  %sub.ptr.div10.i.i.i.i.i31.i148.lhs.trunc.i = trunc nuw i64 %sub.ptr.sub.i16.i116.i to i8
+  %sub.ptr.div10.i.i.i.i.i31.i148.lhs.trunc.i = trunc nuw nsw i64 %sub.ptr.sub.i16.i116.i to i8
   %sub.ptr.div10.i.i.i.i.i31.i148263.i = udiv exact i8 %sub.ptr.div10.i.i.i.i.i31.i148.lhs.trunc.i, 24
   %sub.ptr.div10.i.i.i.i.i31.i148.zext.i = zext nneg i8 %sub.ptr.div10.i.i.i.i.i31.i148263.i to i64
   br label %for.body.i.i.i.i.i32.i149.i
@@ -5611,7 +5611,7 @@ if.else29.i199.i:                                 ; preds = %if.else.i178.i
   br i1 %cmp6.i.i.i.i.i28.i201.not.i, label %_ZSt4copyIPKSt5tupleIJddbEEPS1_ET0_T_S6_S5_.exit44.i202.i, label %for.body.preheader.i.i.i.i.i30.i212.i
 
 for.body.preheader.i.i.i.i.i30.i212.i:            ; preds = %if.else29.i199.i
-  %sub.ptr.div10.i.i.i.i.i31.i213.lhs.trunc.i = trunc nuw i64 %sub.ptr.sub.i16.i181.i to i8
+  %sub.ptr.div10.i.i.i.i.i31.i213.lhs.trunc.i = trunc nuw nsw i64 %sub.ptr.sub.i16.i181.i to i8
   %sub.ptr.div10.i.i.i.i.i31.i213264.i = udiv exact i8 %sub.ptr.div10.i.i.i.i.i31.i213.lhs.trunc.i, 24
   %sub.ptr.div10.i.i.i.i.i31.i213.zext.i = zext nneg i8 %sub.ptr.div10.i.i.i.i.i31.i213264.i to i64
   br label %for.body.i.i.i.i.i32.i214.i

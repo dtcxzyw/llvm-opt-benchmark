@@ -49209,7 +49209,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %197, %199
-  %200 = trunc i64 %181 to i32
+  %200 = trunc nsw i64 %181 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #31
   br label %203
 
@@ -50315,7 +50315,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %63, %61, %57, %53, 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 104:                                              ; preds = %._crit_edge.i.i18
-  %105 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %105 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %106 = or disjoint i8 %105, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -51218,7 +51218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %14
   unreachable
 
 23:                                               ; preds = %1
-  %24 = trunc nuw i64 %0 to i32
+  %24 = trunc nuw nsw i64 %0 to i32
   ret i32 %24
 }
 
@@ -58945,7 +58945,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit
 
 _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; preds = %281, %283
-  %284 = trunc i64 %265 to i32
+  %284 = trunc nsw i64 %265 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #31
   br label %301
 
@@ -62166,7 +62166,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i:    ; preds = %380, %378, %374, %3
   br label %.lr.ph.i.i386.preheader
 
 416:                                              ; preds = %._crit_edge.i.i379
-  %417 = trunc nuw i64 %.0.lcssa.i.i to i8
+  %417 = trunc nuw nsw i64 %.0.lcssa.i.i to i8
   %418 = or disjoint i8 %417, 48
   br label %.lr.ph.i.i386.preheader
 
@@ -62757,7 +62757,7 @@ _ZNSt8__detail14__to_chars_lenImEEjT_i.exit.i500: ; preds = %569, %567, %563, %5
   br label %.lr.ph.i.i515.preheader
 
 605:                                              ; preds = %._crit_edge.i.i502
-  %606 = trunc nuw i64 %.0.lcssa.i.i503 to i8
+  %606 = trunc nuw nsw i64 %.0.lcssa.i.i503 to i8
   %607 = or disjoint i8 %606, 48
   br label %.lr.ph.i.i515.preheader
 
@@ -64284,7 +64284,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %204
 
 204:                                              ; preds = %203, %201
-  %205 = trunc i64 %183 to i32
+  %205 = trunc nsw i64 %183 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #31
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %205, ptr %206, align 8, !tbaa !586
@@ -64973,7 +64973,7 @@ _ZZN9__gnu_cxx6__stoaIlicJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
   br label %440
 
 440:                                              ; preds = %439, %437
-  %441 = trunc i64 %419 to i32
+  %441 = trunc nsw i64 %419 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #31
   store i32 %441, ptr %206, align 8, !tbaa !586
   %442 = load ptr, ptr %24, align 8, !tbaa !17
@@ -70819,7 +70819,7 @@ _ZN14duckdb_httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_
 
 54:                                               ; preds = %52
   %55 = lshr i32 %45, 6
-  %56 = trunc nuw i32 %55 to i8
+  %56 = trunc nuw nsw i32 %55 to i8
   %57 = or disjoint i8 %56, -64
   store i8 %57, ptr %4, align 1, !tbaa !19
   %58 = trunc i32 %45 to i8
@@ -70834,7 +70834,7 @@ _ZN14duckdb_httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_
 
 63:                                               ; preds = %61
   %64 = lshr i32 %45, 12
-  %65 = trunc nuw i32 %64 to i8
+  %65 = trunc nuw nsw i32 %64 to i8
   %66 = or disjoint i8 %65, -32
   store i8 %66, ptr %4, align 1, !tbaa !19
   %67 = lshr i32 %45, 6
@@ -70858,7 +70858,7 @@ _ZN14duckdb_httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_
 
 78:                                               ; preds = %76
   %79 = lshr i32 %45, 12
-  %80 = trunc nuw i32 %79 to i8
+  %80 = trunc nuw nsw i32 %79 to i8
   %81 = or disjoint i8 %80, -32
   store i8 %81, ptr %4, align 1, !tbaa !19
   %82 = lshr i32 %45, 6
@@ -70878,7 +70878,7 @@ _ZN14duckdb_httplib6detail13from_hex_to_iERKNSt7__cxx1112basic_stringIcSt11char_
 
 91:                                               ; preds = %89
   %92 = lshr i32 %45, 18
-  %93 = trunc nuw i32 %92 to i8
+  %93 = trunc nuw nsw i32 %92 to i8
   %94 = or disjoint i8 %93, -16
   store i8 %94, ptr %4, align 1, !tbaa !19
   %95 = lshr i32 %45, 12
@@ -77947,7 +77947,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %29, %27, %23, %19, 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 70:                                               ; preds = %._crit_edge.i.i
-  %71 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %71 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %72 = or disjoint i8 %71, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -85916,7 +85916,7 @@ define linkonce_odr noundef i32 @_ZN14duckdb_httplib6detail13create_socketIZNS0_
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit: ; preds = %35, %38
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %13, ptr %41, align 8, !tbaa !1512
-  %42 = trunc nuw i64 %31 to i32
+  %42 = trunc nuw nsw i64 %31 to i32
   %43 = add nuw nsw i32 %42, 2
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 %43, ptr %44, align 8, !tbaa !1513
@@ -86052,7 +86052,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %69, %67, %63, %59, 
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 110:                                              ; preds = %._crit_edge.i.i
-  %111 = trunc nuw i32 %.0.lcssa.i.i to i8
+  %111 = trunc nuw nsw i32 %.0.lcssa.i.i to i8
   %112 = or disjoint i8 %111, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 

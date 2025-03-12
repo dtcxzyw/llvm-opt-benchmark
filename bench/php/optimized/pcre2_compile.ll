@@ -2940,7 +2940,7 @@ define dso_local ptr @php_pcre2_compile(ptr noundef %0, i64 noundef %1, i32 noun
   %378 = trunc i32 %.7424 to i16
   %379 = getelementptr inbounds nuw i8, ptr %352, i64 128
   store i16 %378, ptr %379, align 8, !tbaa !94
-  %380 = trunc i32 %.7432 to i16
+  %380 = trunc nuw nsw i32 %.7432 to i16
   %381 = getelementptr inbounds nuw i8, ptr %352, i64 130
   store i16 %380, ptr %381, align 2, !tbaa !95
   %382 = getelementptr inbounds nuw i8, ptr %352, i64 132
@@ -3433,7 +3433,7 @@ thread-pre-split640:                              ; preds = %501
   br i1 %619, label %620, label %.thread643
 
 620:                                              ; preds = %612
-  %621 = trunc i32 %spec.store.select28 to i16
+  %621 = trunc nuw nsw i32 %spec.store.select28 to i16
   store i16 %621, ptr %383, align 2, !tbaa !113
   br label %.thread643
 
@@ -6226,9 +6226,9 @@ thread-pre-split1567.loopexit1921.split:          ; preds = %1099, %1103
   %1234 = getelementptr inbounds [15 x i8], ptr %228, i64 0, i64 %1233
   %1235 = load i8, ptr %1234, align 1, !tbaa !23
   %.not1398 = icmp eq i8 %1235, 0
-  %1236 = trunc i32 %859 to i8
+  %1236 = trunc nuw nsw i32 %859 to i8
   %.not1399 = icmp eq i8 %1235, %1236
-  %or.cond1467 = or i1 %.not1398, %.not1399
+  %or.cond1467 = select i1 %.not1398, i1 true, i1 %.not1399
   br i1 %or.cond1467, label %1238, label %1237
 
 1237:                                             ; preds = %1232
@@ -7097,7 +7097,7 @@ thread-pre-split1567.loopexit1921.split:          ; preds = %1099, %1103
 1652:                                             ; preds = %1641, %1645
   %.pre-phi2929 = phi i64 [ 0, %1645 ], [ %1643, %1641 ]
   %.35 = phi ptr [ %1651, %1645 ], [ %.33, %1641 ]
-  %1653 = trunc nuw i64 %.pre-phi2929 to i32
+  %1653 = trunc nuw nsw i64 %.pre-phi2929 to i32
   %1654 = or disjoint i32 %.0912, %1653
   %1655 = getelementptr inbounds nuw i8, ptr %.35, i64 4
   store i32 %1654, ptr %.35, align 4, !tbaa !22

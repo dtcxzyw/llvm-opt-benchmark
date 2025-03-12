@@ -1154,7 +1154,7 @@ define hidden void @_ZN5alloc4task9raw_waker11wake_by_ref17he17a59722f89a90cE(pt
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i": ; preds = %4
-  %8 = trunc i8 %5 to i1
+  %8 = trunc nuw i8 %5 to i1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !313
   br i1 %8, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17h36b0271a04a18506E.exit", label %9
 
@@ -1193,7 +1193,7 @@ define hidden void @_ZN5alloc4task9raw_waker11wake_by_ref17hef5b6f4ee902765cE(pt
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h94f388200ddd5b07E.llvm.7682112885863094546.exit.i.i": ; preds = %4
-  %8 = trunc i8 %5 to i1
+  %8 = trunc nuw i8 %5 to i1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !320
   br i1 %8, label %"_ZN63_$LT$waker_fn..Helper$LT$F$GT$$u20$as$u20$alloc..task..Wake$GT$11wake_by_ref17hf0abf134f0250e88E.exit", label %9
 

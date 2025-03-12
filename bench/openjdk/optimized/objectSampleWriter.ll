@@ -727,7 +727,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObje
   br label %_ZL18write_sample_infosR19JfrCheckpointWriter.exit
 
 _ZN9SampleSetIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i
-  %indvars.i = trunc i64 %indvars.iv.next.i.i to i32
+  %indvars.i = trunc nsw i64 %indvars.iv.next.i.i to i32
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %12, i32 noundef %indvars.i, i64 noundef %.0.i.i.i) #10
   br label %_ZL18write_sample_infosR19JfrCheckpointWriter.exit
 
@@ -859,7 +859,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI13Referen
   br label %_ZL21write_reference_infosR19JfrCheckpointWriter.exit
 
 _ZN9SampleSetIPK19ObjectSampleAuxInfoI13ReferenceDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL24__write_reference_info__P19JfrCheckpointWriterPKvEEELj211EEEEvRT_.exit.i: ; preds = %.lr.ph.i.i9
-  %indvars.i13 = trunc i64 %indvars.iv.next.i.i12 to i32
+  %indvars.i13 = trunc nsw i64 %indvars.iv.next.i.i12 to i32
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %105, i32 noundef %indvars.i13, i64 noundef %.0.i.i.i6) #10
   br label %_ZL21write_reference_infosR19JfrCheckpointWriter.exit
 
@@ -984,7 +984,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI21ObjectS
   br label %_ZL17write_array_infosR19JfrCheckpointWriter.exit
 
 _ZN9SampleSetIPK19ObjectSampleAuxInfoI21ObjectSampleArrayDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL20__write_array_info__P19JfrCheckpointWriterPKvEEELj208EEEEvRT_.exit.i: ; preds = %.lr.ph.i.i28
-  %indvars.i32 = trunc i64 %indvars.iv.next.i.i31 to i32
+  %indvars.i32 = trunc nsw i64 %indvars.iv.next.i.i31 to i32
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %169, i32 noundef %indvars.i32, i64 noundef %.0.i.i.i25) #10
   br label %_ZL17write_array_infosR19JfrCheckpointWriter.exit
 
@@ -1594,7 +1594,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   br label %_ZL22write_root_descriptorsR19JfrCheckpointWriter.exit
 
 _ZN9SampleSetIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEE7iterateI17JfrTypeWriterHostI21JfrTypeWriterImplHostIS4_XadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i
-  %indvars.i65 = trunc i64 %indvars.iv.next.i.i64 to i32
+  %indvars.i65 = trunc nsw i64 %indvars.iv.next.i.i64 to i32
   call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %432, i32 noundef %indvars.i65, i64 noundef %.0.i.i.i57) #10
   br label %_ZL22write_root_descriptorsR19JfrCheckpointWriter.exit
 

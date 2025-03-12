@@ -133,7 +133,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %.lcssa137 = phi i64 [ %56, %48 ], [ %67, %.lr.ph ]
   %69 = lshr i64 %.lcssa137, 32
   %70 = trunc nuw i64 %69 to i32
-  %71 = trunc i64 %.0106.lcssa to i32
+  %71 = trunc nsw i64 %.0106.lcssa to i32
   %72 = and i32 %71, 31
   %73 = xor i32 %72, 31
   %74 = lshr i32 %70, %73

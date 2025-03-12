@@ -1666,7 +1666,7 @@ define internal noundef i32 @usbdev_release(ptr readnone captures(none) %0, ptr 
 
 19:                                               ; preds = %.preheader7
   %20 = load ptr, ptr %5, align 8
-  %21 = trunc i64 %15 to i32
+  %21 = trunc nuw nsw i64 %15 to i32
   %22 = tail call ptr @usb_ifnum_to_if(ptr noundef %20, i32 noundef %21) #17
   %23 = icmp eq ptr %22, null
   br i1 %23, label %36, label %24

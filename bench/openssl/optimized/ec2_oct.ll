@@ -265,7 +265,7 @@ define range(i64 -536870909, 536870912) i64 @ossl_ec_GF2m_simple_point2oct(ptr n
   br i1 %.not104, label %80, label %40
 
 40:                                               ; preds = %38
-  %41 = trunc nuw i32 %2 to i8
+  %41 = trunc nuw nsw i32 %2 to i8
   store i8 %41, ptr %3, align 1, !tbaa !22
   br i1 %.not127, label %54, label %42
 

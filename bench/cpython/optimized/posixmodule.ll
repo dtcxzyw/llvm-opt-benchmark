@@ -2805,7 +2805,7 @@ define dso_local range(i32 0, 2) i32 @_Py_Uid_Converter(ptr noundef %0, ptr noun
   br i1 %.not24, label %31, label %38
 
 18:                                               ; preds = %14
-  %19 = trunc i64 %12 to i32
+  %19 = trunc nuw i64 %12 to i32
   %.not23 = icmp ult i64 %12, 4294967296
   br i1 %.not23, label %31, label %.sink.split
 
@@ -2927,7 +2927,7 @@ define dso_local range(i32 0, 2) i32 @_Py_Gid_Converter(ptr noundef %0, ptr noun
   br i1 %.not24, label %31, label %38
 
 18:                                               ; preds = %14
-  %19 = trunc i64 %12 to i32
+  %19 = trunc nuw i64 %12 to i32
   %.not23 = icmp ult i64 %12, 4294967296
   br i1 %.not23, label %31, label %.sink.split
 
@@ -24061,7 +24061,7 @@ Py_DECREF.exit85:                                 ; preds = %23, %26, %29
   br i1 %.not79, label %53, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39
-  %41 = trunc nuw i64 %24 to i32
+  %41 = trunc nuw nsw i64 %24 to i32
   %42 = add nuw nsw i32 %41, 1
   br label %43
 

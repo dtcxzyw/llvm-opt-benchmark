@@ -10341,7 +10341,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #26
   store i8 -48, ptr %5, align 1, !tbaa !40
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.sroa.0.0.extract.trunc.i = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i = trunc nsw i32 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %28, align 1, !tbaa !40
   %29 = load ptr, ptr %0, align 8, !tbaa !305
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -10355,7 +10355,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #26
-  %.sroa.0.0.extract.trunc.i16 = trunc i32 %1 to i8
+  %.sroa.0.0.extract.trunc.i16 = trunc nsw i32 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i16, ptr %6, align 1, !tbaa !40
   %35 = load ptr, ptr %0, align 8, !tbaa !305
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -10444,7 +10444,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %19 = trunc nuw i64 %9 to i8
+  %19 = trunc nuw nsw i64 %9 to i8
   %20 = or disjoint i8 %19, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
   store i8 %20, ptr %4, align 1, !tbaa !40
@@ -14554,7 +14554,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #26
   store i8 -48, ptr %6, align 1, !tbaa !40
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.sroa.0.0.extract.trunc.i = trunc i64 %1 to i8
+  %.sroa.0.0.extract.trunc.i = trunc nsw i64 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %39, align 1, !tbaa !40
   %40 = load ptr, ptr %0, align 8, !tbaa !305
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -14568,7 +14568,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
 
 45:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #26
-  %.sroa.0.0.extract.trunc.i22 = trunc i64 %1 to i8
+  %.sroa.0.0.extract.trunc.i22 = trunc nsw i64 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i22, ptr %7, align 1, !tbaa !40
   %46 = load ptr, ptr %0, align 8, !tbaa !305
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -14658,7 +14658,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v16packerINSt7__cxx1118basic_str
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #26
-  %.sroa.0.0.extract.trunc.i = trunc nuw i64 %1 to i8
+  %.sroa.0.0.extract.trunc.i = trunc nuw nsw i64 %1 to i8
   store i8 %.sroa.0.0.extract.trunc.i, ptr %3, align 1, !tbaa !40
   %12 = load ptr, ptr %0, align 8, !tbaa !305
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -14760,7 +14760,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %19 = trunc nuw i64 %9 to i8
+  %19 = trunc nuw nsw i64 %9 to i8
   %20 = or disjoint i8 %19, -96
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #26
   store i8 %20, ptr %4, align 1, !tbaa !40
@@ -15139,7 +15139,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
 
 23:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
-  %24 = trunc nuw i64 %14 to i8
+  %24 = trunc nuw nsw i64 %14 to i8
   %25 = or disjoint i8 %24, -112
   store i8 %25, ptr %5, align 1, !tbaa !40
   %26 = load ptr, ptr %1, align 8, !tbaa !305
@@ -15230,7 +15230,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %20 = trunc nuw i64 %10 to i8
+  %20 = trunc nuw nsw i64 %10 to i8
   %21 = or disjoint i8 %20, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #26
   store i8 %21, ptr %6, align 1, !tbaa !40
@@ -15329,7 +15329,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %20 = trunc nuw i64 %10 to i8
+  %20 = trunc nuw nsw i64 %10 to i8
   %21 = or disjoint i8 %20, -128
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #26
   store i8 %21, ptr %6, align 1, !tbaa !40

@@ -283,7 +283,7 @@ _ZL9schubfachim.exit:                             ; preds = %37, %149, %160
   br i1 %.not.i79, label %_ZL16printunsignedrevPcm.exit, label %200
 
 200:                                              ; preds = %._crit_edge29.i
-  %201 = trunc nuw i32 %.0.lcssa.i to i8
+  %201 = trunc nuw nsw i32 %.0.lcssa.i to i8
   %202 = or disjoint i8 %201, 48
   %203 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 -1
   store i8 %202, ptr %203, align 1, !tbaa !5

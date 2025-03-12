@@ -722,7 +722,7 @@ define dso_local void @__cfg80211_connect_result(ptr noundef %0, ptr noundef %1,
 
 154:                                              ; preds = %149
   %155 = shl nuw nsw i64 1, %indvars.iv63
-  %156 = trunc i64 %155 to i16
+  %156 = trunc nuw nsw i64 %155 to i16
   %157 = xor i16 %156, -1
   %158 = and i16 %142, %157
   store i16 %158, ptr %10, align 8

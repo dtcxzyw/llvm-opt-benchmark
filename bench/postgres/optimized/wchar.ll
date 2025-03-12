@@ -1340,7 +1340,7 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
 
 11:                                               ; preds = %9
   %12 = lshr i32 %5, 6
-  %13 = trunc nuw i32 %12 to i8
+  %13 = trunc nuw nsw i32 %12 to i8
   %14 = or disjoint i8 %13, -64
   store i8 %14, ptr %.01416, align 1
   br label %41
@@ -1351,7 +1351,7 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
 
 17:                                               ; preds = %15
   %18 = lshr i32 %5, 12
-  %19 = trunc nuw i32 %18 to i8
+  %19 = trunc nuw nsw i32 %18 to i8
   %20 = or disjoint i8 %19, -32
   store i8 %20, ptr %.01416, align 1
   %21 = lshr i32 %5, 6

@@ -3154,7 +3154,7 @@ check_for_freed_segments_locked.exit:             ; preds = %1, %27
   br label %75
 
 70:                                               ; preds = %65
-  %71 = trunc nuw i64 %.084 to i32
+  %71 = trunc nuw nsw i64 %.084 to i32
   %72 = add nsw i32 %71, -1
   %73 = shl nuw nsw i32 1, %72
   %74 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef nonnull @.str.15, i64 noundef %.084, i32 noundef %73) #11

@@ -4512,7 +4512,7 @@ define linkonce_odr hidden void @_ZN11hb_buffer_t14reverse_groupsIFbRK15hb_glyph
 15:                                               ; preds = %.lr.ph, %_ZN11hb_buffer_t13reverse_rangeEjj.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZN11hb_buffer_t13reverse_rangeEjj.exit ]
   %.01649 = phi i32 [ 0, %.lr.ph ], [ %.1, %_ZN11hb_buffer_t13reverse_rangeEjj.exit ]
-  %indvars52 = trunc i64 %indvars.iv to i32
+  %indvars52 = trunc nuw i64 %indvars.iv to i32
   %16 = load ptr, ptr %12, align 8
   %17 = getelementptr %struct.hb_glyph_info_t, ptr %16, i64 %indvars.iv
   %18 = getelementptr i8, ptr %17, i64 -20

@@ -42,7 +42,7 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
   %17 = zext i1 %.not42.i to i64
   %.531.i = lshr i64 %.430.i, %17
   %18 = zext i1 %.not42.i to i32
-  %19 = trunc i64 %.531.i to i32
+  %19 = trunc nuw nsw i64 %.531.i to i32
   %.5.i = add nsw i32 %.4.i, -1
   %20 = add nsw i32 %.5.i, %18
   %21 = add nsw i32 %20, %19
@@ -863,7 +863,7 @@ define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %0, i64 noundef 
   %17 = zext i1 %.not42.i to i64
   %.531.i = lshr i64 %.430.i, %17
   %18 = zext i1 %.not42.i to i32
-  %19 = trunc i64 %.531.i to i32
+  %19 = trunc nuw nsw i64 %.531.i to i32
   %.5.i = add nsw i32 %.4.i, -1
   %20 = add nsw i32 %.5.i, %18
   %21 = add nsw i32 %20, %19
