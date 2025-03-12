@@ -11615,45 +11615,46 @@ _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEEC2EmmS5_.exit: ; 
   br i1 %.not13.i.i, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %.lr.ph.i.i
-  %.1.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %44, %36 ]
-  %.014.i.i = phi ptr [ %55, %.lr.ph.i.i ], [ %38, %36 ]
+  %.1.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %44, %36 ]
+  %.014.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %38, %36 ]
   %45 = load i8, ptr %.014.i.i, align 8
   store i8 %45, ptr %.1.i.i, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
-  %50 = load ptr, ptr %47, align 8
-  store ptr %50, ptr %46, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
-  %52 = load ptr, ptr %51, align 8
-  store ptr %52, ptr %48, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
-  %54 = load ptr, ptr %53, align 8
-  store ptr %54, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
+  %51 = load ptr, ptr %47, align 8
+  store ptr %51, ptr %46, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
+  %53 = load ptr, ptr %52, align 8
+  store ptr %53, ptr %48, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
+  %55 = load ptr, ptr %54, align 8
+  store ptr %55, ptr %49, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 32
-  %56 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  %.not.i.i = icmp eq ptr %55, %37
+  %56 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
+  %.not.i.i = icmp eq ptr %56, %37
   br i1 %.not.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i, !llvm.loop !161
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i
-  %.06.i.i.i = phi ptr [ %61, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i ], [ %38, %.lr.ph.i.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i, label %59
+  %.06.i.i.i = phi ptr [ %62, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i ], [ %38, %.lr.ph.i.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %59, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i, label %60
 
-59:                                               ; preds = %.lr.ph.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
-  store ptr %58, ptr %60, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %58) #28
+60:                                               ; preds = %.lr.ph.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 16
+  store ptr %59, ptr %61, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %59) #28
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i
 
-_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i: ; preds = %59, %.lr.ph.i.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 32
-  %.not.i.i.i = icmp eq ptr %61, %37
+_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i: ; preds = %60, %.lr.ph.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 32
+  %.not.i.i.i = icmp eq ptr %62, %37
   br i1 %.not.i.i.i, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, label %.lr.ph.i.i.i, !llvm.loop !162
 
 _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev9VgCommandEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i
@@ -11661,18 +11662,18 @@ _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000E
   br label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
 
 _ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit, %36
-  %62 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %38, %36 ]
+  %63 = phi ptr [ %.pre, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i.loopexit ], [ %38, %36 ]
   store ptr %44, ptr %0, align 8
   store ptr %33, ptr %5, align 8
   store ptr %32, ptr %3, align 8
-  %.not.i10 = icmp eq ptr %62, null
-  br i1 %.not.i10, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit, label %63
+  %.not.i10 = icmp eq ptr %63, null
+  br i1 %.not.i10, label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit, label %64
 
-63:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %62) #28
+64:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %63) #28
   br label %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit: ; preds = %63, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, %_ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE18__construct_at_endEm.exit
+_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEED2Ev.exit: ; preds = %64, %_ZNSt3__114__split_bufferIN3tev9VgCommandERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, %_ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEE18__construct_at_endEm.exit
   ret void
 }
 

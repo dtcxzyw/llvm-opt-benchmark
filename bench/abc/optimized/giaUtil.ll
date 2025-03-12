@@ -21264,14 +21264,17 @@ Gia_ObjIsHead.exit:                               ; preds = %24
   %.05187 = phi i32 [ %33, %.preheader ], [ %39, %34 ]
   %35 = phi i32 [ %.promoted, %.preheader ], [ %36, %34 ]
   %36 = add nsw i32 %35, 1
-  store i32 %36, ptr %32, align 4, !tbaa !3
   %37 = zext nneg i32 %.05187 to i64
   %38 = getelementptr inbounds nuw i32, ptr %.val.i, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %34, label %Gia_ObjIsHead.exit.thread, !llvm.loop !300
+  br i1 %40, label %34, label %Gia_ObjIsHead.exit.thread.loopexit, !llvm.loop !300
 
-Gia_ObjIsHead.exit.thread:                        ; preds = %34, %24, %Gia_ObjIsHead.exit
+Gia_ObjIsHead.exit.thread.loopexit:               ; preds = %34
+  store i32 %36, ptr %32, align 4, !tbaa !3
+  br label %Gia_ObjIsHead.exit.thread
+
+Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.thread.loopexit, %24, %Gia_ObjIsHead.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = icmp samesign ult i64 %indvars.iv.next, %23
   br i1 %41, label %24, label %._crit_edge, !llvm.loop !301

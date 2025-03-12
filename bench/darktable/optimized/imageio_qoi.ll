@@ -665,7 +665,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
 
 6:                                                ; preds = %3
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.1, ptr noundef %1) #9
-  br label %53
+  br label %51
 
 7:                                                ; preds = %3
   %8 = tail call i32 @fseek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 2)
@@ -678,7 +678,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
 11:                                               ; preds = %7
   %12 = tail call i32 @fclose(ptr noundef nonnull %5)
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.2, ptr noundef %1) #9
-  br label %53
+  br label %51
 
 13:                                               ; preds = %7
   %14 = tail call i64 @fread(ptr noundef nonnull %10, i64 noundef 1, i64 noundef %9, ptr noundef nonnull %5)
@@ -689,7 +689,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
 16:                                               ; preds = %13
   tail call void @g_free(ptr noundef nonnull %10) #9
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.3, i64 noundef %9, ptr noundef %1) #9
-  br label %53
+  br label %51
 
 17:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #9
@@ -701,7 +701,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
 
 20:                                               ; preds = %17
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, ptr noundef %1) #9
-  br label %52
+  br label %50
 
 21:                                               ; preds = %17
   %22 = load i32, ptr %4, align 4, !tbaa !6
@@ -723,52 +723,50 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
   call void @free(ptr noundef nonnull %19) #9
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef nonnull %31) #9
-  br label %52
+  br label %50
 
 32:                                               ; preds = %21
-  %33 = load i32, ptr %4, align 4, !tbaa !6
-  %34 = zext i32 %33 to i64
-  %35 = load i32, ptr %24, align 4, !tbaa !11
-  %36 = zext i32 %35 to i64
-  %37 = shl nuw nsw i64 %34, 2
-  %38 = mul i64 %37, %36
-  %.not60 = icmp eq i64 %38, 0
+  %33 = zext i32 %22 to i64
+  %34 = zext i32 %25 to i64
+  %35 = shl nuw nsw i64 %33, 2
+  %36 = mul i64 %35, %34
+  %.not60 = icmp eq i64 %36, 0
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %39, align 16, !tbaa !35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %40, align 8, !tbaa !36
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %42 = load i32, ptr %41, align 4, !tbaa !37
-  %43 = and i32 %42, -131297
-  %44 = or disjoint i32 %43, 32
-  store i32 %44, ptr %41, align 4, !tbaa !37
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 17, ptr %45, align 16, !tbaa !38
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  store i32 2, ptr %37, align 16, !tbaa !35
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  store i32 0, ptr %38, align 8, !tbaa !36
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  %40 = load i32, ptr %39, align 4, !tbaa !37
+  %41 = and i32 %40, -131297
+  %42 = or disjoint i32 %41, 32
+  store i32 %42, ptr %39, align 4, !tbaa !37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  store i32 17, ptr %43, align 16, !tbaa !38
   call void @free(ptr noundef nonnull %19) #9
-  br label %52
+  br label %50
 
 .lr.ph:                                           ; preds = %32, %.lr.ph
-  %.059 = phi i64 [ %51, %.lr.ph ], [ 0, %32 ]
-  %46 = getelementptr inbounds nuw i8, ptr %19, i64 %.059
-  %47 = load i8, ptr %46, align 1, !tbaa !14
-  %48 = uitofp i8 %47 to float
-  %49 = fmul reassoc nsz arcp contract afn float %48, 0x3F70101020000000
-  %50 = getelementptr inbounds nuw float, ptr %29, i64 %.059
-  store float %49, ptr %50, align 4, !tbaa !39
-  %51 = add nuw i64 %.059, 1
-  %exitcond.not = icmp eq i64 %51, %38
+  %.059 = phi i64 [ %49, %.lr.ph ], [ 0, %32 ]
+  %44 = getelementptr inbounds nuw i8, ptr %19, i64 %.059
+  %45 = load i8, ptr %44, align 1, !tbaa !14
+  %46 = uitofp i8 %45 to float
+  %47 = fmul reassoc nsz arcp contract afn float %46, 0x3F70101020000000
+  %48 = getelementptr inbounds nuw float, ptr %29, i64 %.059
+  store float %47, ptr %48, align 4, !tbaa !39
+  %49 = add nuw i64 %.059, 1
+  %exitcond.not = icmp eq i64 %49, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-52:                                               ; preds = %30, %._crit_edge, %20
+50:                                               ; preds = %30, %._crit_edge, %20
   %.2 = phi i32 [ 6, %20 ], [ 0, %._crit_edge ], [ 8, %30 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #9
-  br label %53
+  br label %51
 
-53:                                               ; preds = %11, %16, %52, %6
-  %.048 = phi i32 [ 1, %6 ], [ 7, %16 ], [ %.2, %52 ], [ 2, %11 ]
+51:                                               ; preds = %11, %16, %50, %6
+  %.048 = phi i32 [ 1, %6 ], [ 7, %16 ], [ %.2, %50 ], [ 2, %11 ]
   ret i32 %.048
 }
 

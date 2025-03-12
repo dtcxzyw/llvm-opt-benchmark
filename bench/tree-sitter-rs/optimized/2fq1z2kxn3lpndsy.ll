@@ -22166,14 +22166,13 @@ define hidden void @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..
   %23 = add i64 %.0.sroa.speculated.i.i4.i, %10
   store i64 %23, ptr %6, align 8, !alias.scope !5365, !noalias !5385
   %24 = add i64 %.0.sroa.speculated.i.i4.i, %.0
-  %25 = load i64, ptr %15, align 8, !noundef !4
-  %26 = icmp ult i64 %.0.sroa.speculated.i.i4.i, %25
-  br i1 %26, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2056275f540c13a8E.exit.thread", label %9
+  %25 = icmp ult i64 %17, %16
+  br i1 %25, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2056275f540c13a8E.exit.thread", label %9
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2056275f540c13a8E.exit.thread": ; preds = %9, %22
   %.1 = phi i64 [ %24, %22 ], [ %.0, %9 ]
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.1, ptr %27, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.1, ptr %26, align 8
   store i64 0, ptr %0, align 8
   ret void
 }

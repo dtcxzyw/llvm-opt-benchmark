@@ -8529,21 +8529,11 @@ H5D__chunk_cinfo_cache_reset.exit230.thread:      ; preds = %427, %424, %H5D__ch
   br i1 %or.cond.i, label %438, label %H5D__chunk_mem_xfree.exit, !prof !267
 
 438:                                              ; preds = %H5D__chunk_cinfo_cache_reset.exit230.thread
-  %439 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %440 = load i64, ptr %439, align 8, !tbaa !192
-  %.not8.i = icmp eq i64 %440, 0
-  br i1 %.not8.i, label %443, label %441
-
-441:                                              ; preds = %438
-  %442 = call ptr @H5MM_xfree(ptr noundef nonnull %.0..0..0.211) #15
+  %439 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_chunk_blk_free_list, ptr noundef nonnull %.0..0..0.211) #15
   br label %H5D__chunk_mem_xfree.exit
 
-443:                                              ; preds = %438
-  %444 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_chunk_blk_free_list, ptr noundef nonnull %.0..0..0.211) #15
-  br label %H5D__chunk_mem_xfree.exit
-
-H5D__chunk_mem_xfree.exit:                        ; preds = %443, %441, %H5D__chunk_cinfo_cache_reset.exit230.thread, %116, %94, %58, %H5D__chunk_cinfo_cache_reset.exit, %3
-  %.0167 = phi i32 [ 0, %3 ], [ %.11, %H5D__chunk_cinfo_cache_reset.exit230.thread ], [ %.11, %441 ], [ %.11, %443 ], [ 0, %H5D__chunk_cinfo_cache_reset.exit ], [ -1, %58 ], [ -1, %94 ], [ -1, %116 ]
+H5D__chunk_mem_xfree.exit:                        ; preds = %438, %H5D__chunk_cinfo_cache_reset.exit230.thread, %116, %94, %58, %H5D__chunk_cinfo_cache_reset.exit, %3
+  %.0167 = phi i32 [ 0, %3 ], [ %.11, %H5D__chunk_cinfo_cache_reset.exit230.thread ], [ %.11, %438 ], [ 0, %H5D__chunk_cinfo_cache_reset.exit ], [ -1, %58 ], [ -1, %94 ], [ -1, %116 ]
   call void @llvm.lifetime.end.p0(i64 264, ptr nonnull %15) #15
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %14) #15
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %13) #15

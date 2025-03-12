@@ -9203,13 +9203,13 @@ _ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread: ; preds = %_ZN
 177:                                              ; preds = %171
   %178 = zext i32 %175 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %172, i64 noundef %178, i64 noundef 24) #22
-  %.pre209 = load i32, ptr %26, align 8, !tbaa !10
-  %.pre211.pre = load i32, ptr %173, align 8, !tbaa !10
+  %.pre207 = load i32, ptr %26, align 8, !tbaa !10
+  %.pre209.pre = load i32, ptr %173, align 8, !tbaa !10
   br label %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = %171, %177
-  %.pre211 = phi i32 [ 0, %171 ], [ %.pre211.pre, %177 ]
-  %179 = phi i32 [ %175, %171 ], [ %.pre209, %177 ]
+  %.pre209 = phi i32 [ 0, %171 ], [ %.pre209.pre, %177 ]
+  %179 = phi i32 [ %175, %171 ], [ %.pre207, %177 ]
   %180 = load ptr, ptr %14, align 8, !tbaa !3
   %181 = zext i32 %179 to i64
   %182 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %180, i64 %181
@@ -9217,7 +9217,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = 
   br i1 %.not200, label %._crit_edge, label %.lr.ph202
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit
-  %183 = phi i32 [ %.pre211, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ], [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
+  %183 = phi i32 [ %.pre209, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ], [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %185 = load i32, ptr %184, align 16
   %186 = lshr i32 %185, 19
@@ -9239,7 +9239,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = 
   br i1 %.not.i.i71, label %216, label %.critedge
 
 .lr.ph202:                                        ; preds = %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit
-  %194 = phi i32 [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %.pre211, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
+  %194 = phi i32 [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %.pre209, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
   %.036201 = phi ptr [ %215, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %180, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
   %195 = zext i32 %194 to i64
   %196 = add nuw nsw i64 %195, 1
@@ -19196,7 +19196,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTyp
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::SmallVector.471", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
-  store i8 0, ptr %3, align 1, !tbaa !1662
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !3
@@ -24123,7 +24122,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTyp
   %.not = icmp eq ptr %9, null
   %spec.select = select i1 %.not, ptr %1, ptr %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
-  store i8 0, ptr %3, align 1, !tbaa !1662
   %.val = load ptr, ptr %0, align 8, !tbaa !714
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4608
   %11 = load ptr, ptr %10, align 8, !tbaa !3

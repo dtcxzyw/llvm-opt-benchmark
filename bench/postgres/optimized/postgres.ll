@@ -2481,7 +2481,6 @@ define dso_local void @PostgresSingleUserMain(i32 noundef %0, ptr noundef %1, pt
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %3
-  store ptr %2, ptr %4, align 8
   %9 = icmp eq ptr %2, null
   br i1 %9, label %10, label %15
 
@@ -2495,16 +2494,17 @@ define dso_local void @PostgresSingleUserMain(i32 noundef %0, ptr noundef %1, pt
   unreachable
 
 15:                                               ; preds = %8, %3
-  %16 = load ptr, ptr @userDoption, align 8
-  %17 = load ptr, ptr @progname, align 8
-  %18 = call zeroext i1 @SelectConfigFiles(ptr noundef %16, ptr noundef %17) #22
-  br i1 %18, label %20, label %19
+  %16 = phi ptr [ %2, %8 ], [ %6, %3 ]
+  %17 = load ptr, ptr @userDoption, align 8
+  %18 = load ptr, ptr @progname, align 8
+  %19 = call zeroext i1 @SelectConfigFiles(ptr noundef %17, ptr noundef %18) #22
+  br i1 %19, label %21, label %20
 
-19:                                               ; preds = %15
+20:                                               ; preds = %15
   call void @proc_exit(i32 noundef 1) #24
   unreachable
 
-20:                                               ; preds = %15
+21:                                               ; preds = %15
   call void @checkDataDir() #22
   call void @ChangeToDataDir() #22
   call void @CreateDataDirLockFile(i1 noundef zeroext false) #22
@@ -2518,11 +2518,10 @@ define dso_local void @PostgresSingleUserMain(i32 noundef %0, ptr noundef %1, pt
   call void @InitializeWalConsistencyChecking() #22
   call void @CreateSharedMemoryAndSemaphores() #22
   call void @set_max_safe_fds() #22
-  %21 = call i64 @GetCurrentTimestamp() #22
-  store i64 %21, ptr @PgStartTime, align 8
+  %22 = call i64 @GetCurrentTimestamp() #22
+  store i64 %22, ptr @PgStartTime, align 8
   call void @InitProcess() #22
-  %22 = load ptr, ptr %4, align 8
-  call void @PostgresMain(ptr noundef %22, ptr noundef %2) #26
+  call void @PostgresMain(ptr noundef nonnull %16, ptr noundef %2) #26
   unreachable
 }
 

@@ -10676,78 +10676,70 @@ _ZN5drjit12DynamicArrayIbEC2ERKS1_.exit:          ; preds = %.lr.ph.i, %4
 .lr.ph.i5.split.us:                               ; preds = %.lr.ph.i5
   %23 = load i8, ptr %.sroa.0.0, align 1
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %.lr.ph.i5.split.us.split, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread
+  br i1 %24, label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread
 
-.lr.ph.i5.split.us.split:                         ; preds = %.lr.ph.i5.split.us, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us
-  %.032.i.us = phi i64 [ %43, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us ], [ 0, %.lr.ph.i5.split.us ]
-  %25 = load i8, ptr %.sroa.0.0, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us
-
-27:                                               ; preds = %.lr.ph.i5.split.us.split
-  %28 = load ptr, ptr %2, align 8
-  %29 = load i64, ptr %17, align 8
-  %30 = icmp eq i64 %29, 1
-  %spec.store.select2.i.us = select i1 %30, i64 0, i64 %.032.i.us
-  %31 = getelementptr inbounds i32, ptr %28, i64 %spec.store.select2.i.us
-  %32 = load ptr, ptr %1, align 8
-  %33 = load i64, ptr %15, align 8
-  %34 = icmp eq i64 %33, 1
-  %spec.store.select.i.us = select i1 %34, i64 0, i64 %.032.i.us
-  %35 = getelementptr inbounds float, ptr %32, i64 %spec.store.select.i.us
-  %36 = load float, ptr %35, align 4
-  %37 = load i32, ptr %31, align 4
-  %38 = zext i32 %37 to i64
-  %39 = load i64, ptr %21, align 8
-  %40 = icmp eq i64 %39, 1
-  %spec.store.select.i.i.us = select i1 %40, i64 0, i64 %38
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %spec.store.select.i.i.us
-  store float %36, ptr %42, align 4
-  br label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us
-
-_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us: ; preds = %.lr.ph.i5.split.us.split, %27
-  %43 = add nuw i64 %.032.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %43, %20
-  br i1 %exitcond.not.i.us, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread, label %.lr.ph.i5.split.us.split, !llvm.loop !152
+_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us: ; preds = %.lr.ph.i5.split.us, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us
+  %.032.i.us = phi i64 [ %40, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us ], [ 0, %.lr.ph.i5.split.us ]
+  %25 = load ptr, ptr %2, align 8
+  %26 = load i64, ptr %17, align 8
+  %27 = icmp eq i64 %26, 1
+  %spec.store.select2.i.us = select i1 %27, i64 0, i64 %.032.i.us
+  %28 = getelementptr inbounds i32, ptr %25, i64 %spec.store.select2.i.us
+  %29 = load ptr, ptr %1, align 8
+  %30 = load i64, ptr %15, align 8
+  %31 = icmp eq i64 %30, 1
+  %spec.store.select.i.us = select i1 %31, i64 0, i64 %.032.i.us
+  %32 = getelementptr inbounds float, ptr %29, i64 %spec.store.select.i.us
+  %33 = load float, ptr %32, align 4
+  %34 = load i32, ptr %28, align 4
+  %35 = zext i32 %34 to i64
+  %36 = load i64, ptr %21, align 8
+  %37 = icmp eq i64 %36, 1
+  %spec.store.select.i.i.us = select i1 %37, i64 0, i64 %35
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds nuw float, ptr %38, i64 %spec.store.select.i.i.us
+  store float %33, ptr %39, align 4
+  %40 = add nuw i64 %.032.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %40, %20
+  br i1 %exitcond.not.i.us, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread, label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us, !llvm.loop !152
 
 .lr.ph.i5.split:                                  ; preds = %.lr.ph.i5, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i
-  %.032.i = phi i64 [ %63, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i ], [ 0, %.lr.ph.i5 ]
-  %44 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.032.i
-  %45 = load i8, ptr %44, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i
+  %.032.i = phi i64 [ %60, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i ], [ 0, %.lr.ph.i5 ]
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.032.i
+  %42 = load i8, ptr %41, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %44, label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i
 
-47:                                               ; preds = %.lr.ph.i5.split
-  %48 = load ptr, ptr %2, align 8
-  %49 = load i64, ptr %17, align 8
-  %50 = icmp eq i64 %49, 1
-  %spec.store.select2.i = select i1 %50, i64 0, i64 %.032.i
-  %51 = getelementptr inbounds i32, ptr %48, i64 %spec.store.select2.i
-  %52 = load ptr, ptr %1, align 8
-  %53 = load i64, ptr %15, align 8
-  %54 = icmp eq i64 %53, 1
-  %spec.store.select.i = select i1 %54, i64 0, i64 %.032.i
-  %55 = getelementptr inbounds float, ptr %52, i64 %spec.store.select.i
-  %56 = load float, ptr %55, align 4
-  %57 = load i32, ptr %51, align 4
-  %58 = zext i32 %57 to i64
-  %59 = load i64, ptr %21, align 8
-  %60 = icmp eq i64 %59, 1
-  %spec.store.select.i.i = select i1 %60, i64 0, i64 %58
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %spec.store.select.i.i
-  store float %56, ptr %62, align 4
+44:                                               ; preds = %.lr.ph.i5.split
+  %45 = load ptr, ptr %2, align 8
+  %46 = load i64, ptr %17, align 8
+  %47 = icmp eq i64 %46, 1
+  %spec.store.select2.i = select i1 %47, i64 0, i64 %.032.i
+  %48 = getelementptr inbounds i32, ptr %45, i64 %spec.store.select2.i
+  %49 = load ptr, ptr %1, align 8
+  %50 = load i64, ptr %15, align 8
+  %51 = icmp eq i64 %50, 1
+  %spec.store.select.i = select i1 %51, i64 0, i64 %.032.i
+  %52 = getelementptr inbounds float, ptr %49, i64 %spec.store.select.i
+  %53 = load float, ptr %52, align 4
+  %54 = load i32, ptr %48, align 4
+  %55 = zext i32 %54 to i64
+  %56 = load i64, ptr %21, align 8
+  %57 = icmp eq i64 %56, 1
+  %spec.store.select.i.i = select i1 %57, i64 0, i64 %55
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds nuw float, ptr %58, i64 %spec.store.select.i.i
+  store float %53, ptr %59, align 4
   br label %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i
 
-_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i: ; preds = %47, %.lr.ph.i5.split
-  %63 = add nuw i64 %.032.i, 1
-  %exitcond.not.i = icmp eq i64 %63, %20
+_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i: ; preds = %44, %.lr.ph.i5.split
+  %60 = add nuw i64 %.032.i, 1
+  %exitcond.not.i = icmp eq i64 %60, %20
   br i1 %exitcond.not.i, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread, label %.lr.ph.i5.split, !llvm.loop !154
 
 _ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit: ; preds = %_ZN5drjit12DynamicArrayIbEC2ERKS1_.exit
-  %64 = icmp eq ptr %.sroa.0.0, null
-  br i1 %64, label %_ZN5drjit12DynamicArrayIbED2Ev.exit, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread
+  %61 = icmp eq ptr %.sroa.0.0, null
+  br i1 %61, label %_ZN5drjit12DynamicArrayIbED2Ev.exit, label %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread
 
 _ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit.thread: ; preds = %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i, %_ZN5drjit7scatterILb0ERNS_12DynamicArrayIfEEfjbEEvOT0_RKT1_RKT2_RKT3_.exit.i.us, %.lr.ph.i5.split.us, %_ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE8scatter_ILb0ERS2_NS1_IjEENS1_IbEEEEvOT0_RKT1_RKT2_.exit
   tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0) #31

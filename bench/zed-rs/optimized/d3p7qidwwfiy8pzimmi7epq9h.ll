@@ -3473,7 +3473,6 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h8817c9d1fa05375bE.llvm.14007
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h595351d819db2f3cE.llvm.14007566559532182414(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(address) %2, i64 noundef %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %4) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.0.i = alloca [48 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = icmp ult i64 %1, 2
   br i1 %7, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h7396ea701ee5125eE.exit, label %8
@@ -3649,8 +3648,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_wit
 _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h7396ea701ee5125eE.exit: ; preds = %62, %5
   ret void
 
-.body:                                            ; preds = %95, %76
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %76 ], [ %96, %95 ]
+.body:                                            ; preds = %93, %76
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %76 ], [ %94, %93 ]
   resume { ptr, i32 } %.pn
 
 .noexc28:                                         ; preds = %66, %_ZN4core5slice4sort6shared9smallsort11insert_tail17he0dffa0982b2b9cbE.llvm.14007566559532182414.exit
@@ -3668,54 +3667,46 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h7396ea701ee5125eE.ex
   %84 = getelementptr i8, ptr %80, i64 -8
   %.val20.i = load double, ptr %84, align 8, !noalias !817
   %85 = tail call fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val25, i64 %.val17.i, double %.val18.i, i64 %.val19.i, double %.val20.i)
-  br i1 %85, label %86, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17he0dffa0982b2b9cbE.llvm.14007566559532182414.exit
+  br i1 %85, label %.preheader, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17he0dffa0982b2b9cbE.llvm.14007566559532182414.exit
 
-86:                                               ; preds = %.noexc28
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(48) %80, i64 48, i1 false), !noalias !817
-  %.sroa.4.0.copyload.i = load i64, ptr %81, align 8, !noalias !817
-  %.sroa.532.0.copyload.i = load double, ptr %82, align 8, !noalias !817
-  br label %87
-
-87:                                               ; preds = %93, %86
-  %.sroa.5.0.i = phi ptr [ %80, %86 ], [ %.sroa.0.0.i, %93 ]
+.preheader:                                       ; preds = %.noexc28, %91
+  %.sroa.5.0.i = phi ptr [ %.sroa.0.0.i, %91 ], [ %80, %.noexc28 ]
   %.sroa.0.0.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.5.0.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.0.i, i64 64, i1 false), !noalias !817
-  %88 = icmp eq ptr %.sroa.0.0.i, %73
-  br i1 %88, label %94, label %89
+  %86 = icmp eq ptr %.sroa.0.0.i, %73
+  br i1 %86, label %92, label %87
 
-89:                                               ; preds = %87
-  %90 = getelementptr i8, ptr %.sroa.5.0.i, i64 -80
-  %.val14.i = load i64, ptr %90, align 8, !noalias !817
-  %91 = getelementptr i8, ptr %.sroa.5.0.i, i64 -72
-  %.val15.i = load double, ptr %91, align 8, !noalias !817
-  %92 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val25, i64 %.sroa.4.0.copyload.i, double %.sroa.532.0.copyload.i, i64 %.val14.i, double %.val15.i)
-          to label %93 unwind label %95, !noalias !817
+87:                                               ; preds = %.preheader
+  %88 = getelementptr i8, ptr %.sroa.5.0.i, i64 -80
+  %.val14.i = load i64, ptr %88, align 8, !noalias !817
+  %89 = getelementptr i8, ptr %.sroa.5.0.i, i64 -72
+  %.val15.i = load double, ptr %89, align 8, !noalias !817
+  %90 = invoke fastcc noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17ha68bb7a6f3e8114fE"(ptr nonnull %.val25, i64 %.val17.i, double %.val18.i, i64 %.val14.i, double %.val15.i)
+          to label %91 unwind label %93, !noalias !817
 
-93:                                               ; preds = %89
-  br i1 %92, label %87, label %94
+91:                                               ; preds = %87
+  br i1 %90, label %.preheader, label %92
 
-94:                                               ; preds = %93, %87
-  %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %93 ], [ %73, %87 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0.i.lcssa, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !820
+92:                                               ; preds = %91, %.preheader
+  %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %91 ], [ %73, %.preheader ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0.i.lcssa, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
   %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
-  store i64 %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !820
+  store i64 %.val17.i, ptr %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !820
   %.sroa.6.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -8
-  store double %.sroa.532.0.copyload.i, ptr %.sroa.6.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !820
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i)
+  store double %.val18.i, ptr %.sroa.6.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !820
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17he0dffa0982b2b9cbE.llvm.14007566559532182414.exit
 
-95:                                               ; preds = %89
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %87
+  %94 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !825
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(48) %79, i64 48, i1 false)
   %.sroa.5.0..sroa.0.0.lcssa26.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
-  store i64 %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa.0.0.lcssa26.sroa_idx.i, align 8, !noalias !825
+  store i64 %.val17.i, ptr %.sroa.5.0..sroa.0.0.lcssa26.sroa_idx.i, align 8, !noalias !825
   %.sroa.6.0..sroa.0.0.lcssa26.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -8
-  store double %.sroa.532.0.copyload.i, ptr %.sroa.6.0..sroa.0.0.lcssa26.sroa_idx.i, align 8, !noalias !825
+  store double %.val18.i, ptr %.sroa.6.0..sroa.0.0.lcssa26.sroa_idx.i, align 8, !noalias !825
   br label %.body
 
-_ZN4core5slice4sort6shared9smallsort11insert_tail17he0dffa0982b2b9cbE.llvm.14007566559532182414.exit: ; preds = %.noexc28, %94
+_ZN4core5slice4sort6shared9smallsort11insert_tail17he0dffa0982b2b9cbE.llvm.14007566559532182414.exit: ; preds = %.noexc28, %92
   %exitcond.not = icmp eq i64 %78, %.sroa.013.0
   br i1 %exitcond.not, label %.loopexit32, label %.noexc28
 }

@@ -1306,7 +1306,7 @@ define hidden ptr @X509_STORE_get1_certs(ptr noundef captures(none) %0, ptr noun
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10
   %5 = tail call ptr @sk_new_null() #10
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %59, label %7
+  br i1 %6, label %57, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8, !tbaa !45
@@ -1367,7 +1367,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
 .thread:                                          ; preds = %15, %34
   call void @sk_free(ptr noundef nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
-  br label %59
+  br label %57
 
 37:                                               ; preds = %X509_OBJECT_free_contents.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
@@ -1403,22 +1403,21 @@ X509_OBJECT_free_contents.exit:                   ; preds = %19, %21, %24
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %52) #10
   call void @X509_free(ptr noundef %47) #10
   call void @sk_pop_free(ptr noundef nonnull %5, ptr noundef nonnull @X509_free) #10
-  br label %59
+  br label %57
 
 53:                                               ; preds = %.lr.ph
   %54 = add nuw nsw i32 %.03041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = load i32, ptr %3, align 4, !tbaa !87
-  %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !89
+  %exitcond.not = icmp eq i32 %54, %39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %53, %38
-  %57 = load ptr, ptr %0, align 8, !tbaa !45
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %58) #10
-  br label %59
+  %55 = load ptr, ptr %0, align 8, !tbaa !45
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %56) #10
+  br label %57
 
-59:                                               ; preds = %.thread, %2, %._crit_edge, %50
+57:                                               ; preds = %.thread, %2, %._crit_edge, %50
   %.029 = phi ptr [ null, %50 ], [ %5, %._crit_edge ], [ null, %2 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   ret ptr %.029
@@ -1432,7 +1431,7 @@ define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   %5 = tail call ptr @sk_new_null() #10
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %47, label %7
+  br i1 %6, label %45, label %7
 
 7:                                                ; preds = %2
   %8 = call i32 @X509_STORE_get_by_subject(ptr noundef %0, i32 noundef 2, ptr noundef %1, ptr noundef nonnull %4)
@@ -1441,7 +1440,7 @@ define hidden ptr @X509_STORE_get1_crls(ptr noundef captures(none) %0, ptr nound
 
 9:                                                ; preds = %7
   tail call void @sk_free(ptr noundef nonnull %5) #10
-  br label %47
+  br label %45
 
 10:                                               ; preds = %7
   %11 = load i32, ptr %4, align 8, !tbaa !38
@@ -1487,7 +1486,7 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %30) #10
   call void @sk_free(ptr noundef nonnull %5) #10
-  br label %47
+  br label %45
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ %27, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
@@ -1509,22 +1508,21 @@ X509_OBJECT_free_contents.exit:                   ; preds = %10, %12, %15
   call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %40) #10
   call void @X509_CRL_free(ptr noundef %36) #10
   call void @sk_pop_free(ptr noundef nonnull %5, ptr noundef nonnull @X509_CRL_free) #10
-  br label %47
+  br label %45
 
 41:                                               ; preds = %.lr.ph
   %42 = add nuw nsw i32 %.02430, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %3, align 4, !tbaa !87
-  %44 = icmp slt i32 %42, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !90
+  %exitcond.not = icmp eq i32 %42, %25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %41, %.preheader
-  %45 = load ptr, ptr %0, align 8, !tbaa !45
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %46) #10
-  br label %47
+  %43 = load ptr, ptr %0, align 8, !tbaa !45
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %44) #10
+  br label %45
 
-47:                                               ; preds = %2, %._crit_edge, %38, %28, %9
+45:                                               ; preds = %2, %._crit_edge, %38, %28, %9
   %.0 = phi ptr [ null, %28 ], [ null, %38 ], [ %5, %._crit_edge ], [ null, %9 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10

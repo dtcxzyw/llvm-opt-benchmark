@@ -2033,7 +2033,11 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  br i1 %144, label %.loopexit, label %152
+  br i1 %144, label %.loopexit, label %._crit_edge48
+
+._crit_edge48:                                    ; preds = %150
+  %.pre = load i64, ptr %9, align 8
+  br label %152
 
 151:                                              ; preds = %69, %62, %59, %52, %.loopexit17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
@@ -2041,8 +2045,8 @@ define internal fastcc void @__scsi_scan_target(ptr noundef %0, i32 noundef %1, 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
   br label %152
 
-152:                                              ; preds = %151, %150
-  %153 = load i64, ptr %9, align 8
+152:                                              ; preds = %._crit_edge48, %151
+  %153 = phi i64 [ %.pre, %._crit_edge48 ], [ %36, %151 ]
   %154 = getelementptr inbounds nuw i8, ptr %25, i64 800
   %155 = load i8, ptr %154, align 8
   %156 = getelementptr inbounds nuw i8, ptr %25, i64 104

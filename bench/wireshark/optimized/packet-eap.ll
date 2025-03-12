@@ -890,7 +890,11 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   %64 = getelementptr i8, ptr %62, i64 1
   %65 = call ptr @g_strsplit_set(ptr noundef %64, ptr noundef nonnull @.str.21, i32 noundef -1)
   %66 = call fastcc zeroext i1 @realm_is_3gpp(ptr noundef %65, ptr noundef nonnull %9)
-  br i1 %66, label %158, label %.thread
+  br i1 %66, label %._crit_edge169, label %.thread
+
+._crit_edge169:                                   ; preds = %63
+  %.pre = load i32, ptr %9, align 4
+  br label %158
 
 67:                                               ; preds = %5
   %68 = tail call zeroext i1 @tvb_ascii_isprint(ptr noundef %0, i32 noundef %3, i32 noundef %4)
@@ -1024,13 +1028,13 @@ define hidden noundef zeroext i1 @dissect_eap_identity_3gpp(ptr noundef %0, ptr 
   %157 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %153, ptr noundef %0, i32 noundef %3, i32 noundef %156, i32 noundef 0)
   br label %158
 
-158:                                              ; preds = %63, %152, %143, %137, %129, %121, %113, %106
-  %.0148 = phi ptr [ %89, %106 ], [ %89, %113 ], [ %89, %121 ], [ %89, %129 ], [ %89, %137 ], [ %89, %143 ], [ %89, %152 ], [ %33, %63 ]
-  %.1147 = phi ptr [ %73, %106 ], [ %73, %113 ], [ %73, %121 ], [ %73, %129 ], [ %73, %137 ], [ %73, %143 ], [ %73, %152 ], [ %22, %63 ]
-  %.3 = phi ptr [ %78, %106 ], [ %78, %113 ], [ %78, %121 ], [ %78, %129 ], [ %78, %137 ], [ %78, %143 ], [ %78, %152 ], [ %65, %63 ]
-  %.0142 = phi i32 [ %4, %106 ], [ %4, %113 ], [ %4, %121 ], [ %4, %129 ], [ %4, %137 ], [ %4, %143 ], [ %4, %152 ], [ %16, %63 ]
-  %.0137 = phi i32 [ %3, %106 ], [ %3, %113 ], [ %3, %121 ], [ %3, %129 ], [ %3, %137 ], [ %3, %143 ], [ %3, %152 ], [ %49, %63 ]
-  %159 = load i32, ptr %9, align 4
+158:                                              ; preds = %._crit_edge169, %152, %143, %137, %129, %121, %113, %106
+  %159 = phi i32 [ %81, %106 ], [ %81, %113 ], [ %81, %121 ], [ %81, %129 ], [ %81, %137 ], [ %81, %143 ], [ %81, %152 ], [ %.pre, %._crit_edge169 ]
+  %.0148 = phi ptr [ %89, %106 ], [ %89, %113 ], [ %89, %121 ], [ %89, %129 ], [ %89, %137 ], [ %89, %143 ], [ %89, %152 ], [ %33, %._crit_edge169 ]
+  %.1147 = phi ptr [ %73, %106 ], [ %73, %113 ], [ %73, %121 ], [ %73, %129 ], [ %73, %137 ], [ %73, %143 ], [ %73, %152 ], [ %22, %._crit_edge169 ]
+  %.3 = phi ptr [ %78, %106 ], [ %78, %113 ], [ %78, %121 ], [ %78, %129 ], [ %78, %137 ], [ %78, %143 ], [ %78, %152 ], [ %65, %._crit_edge169 ]
+  %.0142 = phi i32 [ %4, %106 ], [ %4, %113 ], [ %4, %121 ], [ %4, %129 ], [ %4, %137 ], [ %4, %143 ], [ %4, %152 ], [ %16, %._crit_edge169 ]
+  %.0137 = phi i32 [ %3, %106 ], [ %3, %113 ], [ %3, %121 ], [ %3, %129 ], [ %3, %137 ], [ %3, %143 ], [ %3, %152 ], [ %49, %._crit_edge169 ]
   %160 = add i32 %159, -4
   %161 = zext i32 %160 to i64
   %162 = getelementptr ptr, ptr %.3, i64 %161

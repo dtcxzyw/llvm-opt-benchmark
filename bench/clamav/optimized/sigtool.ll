@@ -2835,7 +2835,7 @@ getdbname.exit:                                   ; preds = %49, %51
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %303
-  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %303 ], [ 0, %.critedge.i.preheader ]
+  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %303 ], [ 0, %.critedge.i.preheader ]
   %287 = phi ptr [ %305, %303 ], [ @.str.27, %.critedge.i.preheader ]
   %288 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.172, ptr noundef nonnull %17, ptr noundef nonnull %287) #24
   %289 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %287, ptr noundef nonnull dereferenceable(5) @.str.27) #30
@@ -2874,11 +2874,11 @@ getdbname.exit:                                   ; preds = %49, %51
   br label %303
 
 303:                                              ; preds = %302, %290, %.critedge.i
-  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %304 = getelementptr inbounds nuw [31 x %struct.dblist_s], ptr @dblist, i64 0, i64 %indvars.iv.next76.i
+  %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
+  %304 = getelementptr inbounds nuw [31 x %struct.dblist_s], ptr @dblist, i64 0, i64 %indvars.iv.next79.i
   %305 = load ptr, ptr %304, align 16, !tbaa !91
-  %exitcond78.i = icmp eq i64 %indvars.iv.next76.i, 30
-  br i1 %exitcond78.i, label %.loopexit.i, label %.critedge.i
+  %exitcond81.i = icmp eq i64 %indvars.iv.next79.i, 30
+  br i1 %exitcond81.i, label %.loopexit.i, label %.critedge.i
 
 .loopexit.i:                                      ; preds = %303, %283
   %306 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.157) #24
@@ -2895,9 +2895,8 @@ getdbname.exit:                                   ; preds = %49, %51
 
 .preheader.i:                                     ; preds = %309
   %311 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %262)
-  %312 = trunc i64 %311 to i32
-  store i32 %312, ptr %2, align 4, !tbaa !81
-  %.not5970.i = icmp eq i32 %312, 0
+  %312 = and i64 %311, 4294967295
+  %.not5970.i = icmp eq i64 %312, 0
   br i1 %.not5970.i, label %._crit_edge.i, label %.lr.ph.i
 
 313:                                              ; preds = %309
@@ -2909,9 +2908,8 @@ getdbname.exit:                                   ; preds = %49, %51
   %316 = and i64 %315, 4294967295
   %317 = call i32 @cl_update_hash(ptr noundef nonnull %310, ptr noundef nonnull %6, i64 noundef %316) #24
   %318 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %262)
-  %319 = trunc i64 %318 to i32
-  store i32 %319, ptr %2, align 4, !tbaa !81
-  %.not59.i = icmp eq i32 %319, 0
+  %319 = and i64 %318, 4294967295
+  %.not59.i = icmp eq i64 %319, 0
   br i1 %.not59.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i

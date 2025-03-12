@@ -198,7 +198,7 @@ intsetUpgradeAndAdd.exit:                         ; preds = %50, %52, %55, %62, 
   %77 = load i32, ptr %76, align 4, !tbaa !5
   %78 = add i32 %77, 1
   store i32 %78, ptr %76, align 4, !tbaa !5
-  br label %131
+  br label %130
 
 79:                                               ; preds = %8
   %80 = call fastcc zeroext i8 @intsetSearch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %4)
@@ -206,11 +206,11 @@ intsetUpgradeAndAdd.exit:                         ; preds = %50, %52, %55, %62, 
   br i1 %.not23, label %83, label %81
 
 81:                                               ; preds = %79
-  br i1 %.not, label %131, label %82
+  br i1 %.not, label %130, label %82
 
 82:                                               ; preds = %81
   store i8 0, ptr %2, align 1, !tbaa !9
-  br label %131
+  br label %130
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -225,7 +225,7 @@ intsetUpgradeAndAdd.exit:                         ; preds = %50, %52, %55, %62, 
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !5
   %95 = icmp ult i32 %92, %94
-  %.pre27 = load i32, ptr %91, align 4, !tbaa !5
+  %.pre = load i32, ptr %91, align 4, !tbaa !5
   br i1 %95, label %96, label %113
 
 96:                                               ; preds = %83
@@ -233,7 +233,7 @@ intsetUpgradeAndAdd.exit:                         ; preds = %50, %52, %55, %62, 
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %99 = zext i32 %92 to i64
   %100 = zext i32 %97 to i64
-  switch i32 %.pre27, label %107 [
+  switch i32 %.pre, label %107 [
     i32 8, label %101
     i32 4, label %104
   ]
@@ -261,47 +261,45 @@ intsetMoveTail.exit:                              ; preds = %101, %104, %107
   %111 = shl i32 %110, %.sink.i
   %112 = zext i32 %111 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.023.i, ptr nonnull align 1 %.0.i24, i64 %112, i1 false)
-  %.pre = load i32, ptr %4, align 4, !tbaa !5
   br label %113
 
 113:                                              ; preds = %83, %intsetMoveTail.exit
-  %114 = phi i32 [ %92, %83 ], [ %.pre, %intsetMoveTail.exit ]
-  switch i32 %.pre27, label %124 [
-    i32 8, label %115
-    i32 4, label %119
+  switch i32 %.pre, label %123 [
+    i32 8, label %114
+    i32 4, label %118
   ]
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %117 = sext i32 %114 to i64
-  %118 = getelementptr inbounds i64, ptr %116, i64 %117
-  store i64 %1, ptr %118, align 4, !tbaa !10
+114:                                              ; preds = %113
+  %115 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %116 = sext i32 %92 to i64
+  %117 = getelementptr inbounds i64, ptr %115, i64 %116
+  store i64 %1, ptr %117, align 4, !tbaa !10
   br label %_intsetSet.exit
 
-119:                                              ; preds = %113
-  %120 = trunc i64 %1 to i32
-  %121 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %122 = sext i32 %114 to i64
-  %123 = getelementptr inbounds i32, ptr %121, i64 %122
-  store i32 %120, ptr %123, align 4, !tbaa !5
-  %.pre28 = load i32, ptr %93, align 4, !tbaa !5
+118:                                              ; preds = %113
+  %119 = trunc i64 %1 to i32
+  %120 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %121 = sext i32 %92 to i64
+  %122 = getelementptr inbounds i32, ptr %120, i64 %121
+  store i32 %119, ptr %122, align 4, !tbaa !5
+  %.pre27 = load i32, ptr %93, align 4, !tbaa !5
   br label %_intsetSet.exit
 
-124:                                              ; preds = %113
-  %125 = trunc i64 %1 to i16
-  %126 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %127 = sext i32 %114 to i64
-  %128 = getelementptr inbounds i16, ptr %126, i64 %127
-  store i16 %125, ptr %128, align 2, !tbaa !12
+123:                                              ; preds = %113
+  %124 = trunc i64 %1 to i16
+  %125 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %126 = sext i32 %92 to i64
+  %127 = getelementptr inbounds i16, ptr %125, i64 %126
+  store i16 %124, ptr %127, align 2, !tbaa !12
   br label %_intsetSet.exit
 
-_intsetSet.exit:                                  ; preds = %115, %119, %124
-  %129 = phi i32 [ %94, %115 ], [ %.pre28, %119 ], [ %94, %124 ]
-  %130 = add i32 %129, 1
-  store i32 %130, ptr %93, align 4, !tbaa !5
-  br label %131
+_intsetSet.exit:                                  ; preds = %114, %118, %123
+  %128 = phi i32 [ %94, %114 ], [ %.pre27, %118 ], [ %94, %123 ]
+  %129 = add i32 %128, 1
+  store i32 %129, ptr %93, align 4, !tbaa !5
+  br label %130
 
-131:                                              ; preds = %81, %82, %_intsetSet.exit, %intsetUpgradeAndAdd.exit
+130:                                              ; preds = %81, %82, %_intsetSet.exit, %intsetUpgradeAndAdd.exit
   %.0 = phi ptr [ %23, %intsetUpgradeAndAdd.exit ], [ %91, %_intsetSet.exit ], [ %0, %82 ], [ %0, %81 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   ret ptr %.0

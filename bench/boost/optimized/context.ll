@@ -2548,36 +2548,35 @@ define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberE
   unreachable
 
 _ZN5boost7context5fiberaSEOS1_.exit.i:            ; preds = %7, %5, %2
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !68, !range !70, !noalias !180, !noundef !71
-  %14 = trunc nuw i8 %13 to i1
-  br i1 %14, label %16, label %15
+  %12 = phi ptr [ null, %7 ], [ null, %5 ], [ %0, %2 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 8
+  %14 = load i8, ptr %13, align 8, !tbaa !68, !range !70, !noalias !180, !noundef !71
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %_ZN5boost7context5fiberaSEOS1_.exit.i
+16:                                               ; preds = %_ZN5boost7context5fiberaSEOS1_.exit.i
   invoke void @_ZSt20__throw_system_errori(i32 noundef 1) #35
           to label %.noexc unwind label %25
 
-.noexc:                                           ; preds = %15
+.noexc:                                           ; preds = %16
   unreachable
 
-16:                                               ; preds = %_ZN5boost7context5fiberaSEOS1_.exit.i
-  %17 = load ptr, ptr %.sroa.5.0.copyload, align 8, !tbaa !66, !noalias !180
-  %.not.i2.i = icmp eq ptr %17, null
-  br i1 %.not.i2.i, label %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit", label %18
+17:                                               ; preds = %_ZN5boost7context5fiberaSEOS1_.exit.i
+  %18 = load ptr, ptr %.sroa.5.0.copyload, align 8, !tbaa !66, !noalias !180
+  %.not.i2.i = icmp eq ptr %18, null
+  br i1 %.not.i2.i, label %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit", label %19
 
-18:                                               ; preds = %16
-  store atomic i32 1, ptr %17 release, align 4, !noalias !180
-  store i8 0, ptr %12, align 8, !tbaa !68, !noalias !180
+19:                                               ; preds = %17
+  store atomic i32 1, ptr %18 release, align 4, !noalias !180
+  store i8 0, ptr %13, align 8, !tbaa !68, !noalias !180
   br label %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit"
 
-"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit": ; preds = %18, %16
-  %19 = load ptr, ptr %3, align 8, !tbaa !55
-  %.not.i = icmp eq ptr %19, null
+"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit": ; preds = %19, %17
+  %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %_ZN5boost7context5fiberD2Ev.exit5, label %20, !prof !56
 
 20:                                               ; preds = %"_ZZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinlock_ttasEEENK3$_0clEONS_7context5fiberE.exit"
-  store ptr null, ptr %3, align 8, !tbaa !13
-  %21 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %19, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
+  %21 = invoke { ptr, ptr } @ontop_fcontext(ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull @_ZN5boost7context6detail12fiber_unwindENS1_10transfer_tE)
           to label %_ZN5boost7context5fiberD2Ev.exit5 unwind label %22
 
 22:                                               ; preds = %20
@@ -2591,7 +2590,7 @@ _ZN5boost7context5fiberD2Ev.exit5:                ; preds = %20, %"_ZZN5boost6fi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret { ptr, ptr } zeroinitializer
 
-25:                                               ; preds = %15
+25:                                               ; preds = %16
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost7context5fiberD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8

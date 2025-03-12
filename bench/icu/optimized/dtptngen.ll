@@ -8360,7 +8360,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %0, align 8, !tbaa !15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 2, ptr %22, align 8, !tbaa !17
-  br label %140
+  br label %139
 
 23:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #35
@@ -8372,7 +8372,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 2, ptr %25, align 8, !tbaa !17
   %.not43 = icmp eq i32 %2, 0
-  br i1 %.not43, label %138, label %26
+  br i1 %.not43, label %137, label %26
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #35
@@ -8405,7 +8405,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
 39:                                               ; preds = %41, %26
   %40 = landingpad { ptr, i32 }
           cleanup
-  br label %137
+  br label %136
 
 41:                                               ; preds = %34
   %42 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %33)
@@ -8450,7 +8450,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
   %64 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13) #35
-  br label %137
+  br label %136
 
 65:                                               ; preds = %.lr.ph73.preheader
   %66 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %14) #35
@@ -8468,7 +8468,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #35
-  br label %137
+  br label %136
 
 .split:                                           ; preds = %65, %.lr.ph.lr.ph
   %.us-phi = phi ptr [ %47, %.lr.ph.lr.ph ], [ %67, %65 ]
@@ -8491,7 +8491,7 @@ define void @_ZN6icu_7724DateTimePatternGenerator16getBestAppendingEiiR10UErrorC
 80:                                               ; preds = %82, %.split
   %81 = landingpad { ptr, i32 }
           cleanup
-  br label %137
+  br label %136
 
 82:                                               ; preds = %76
   %83 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %75)
@@ -8606,7 +8606,7 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
   %129 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %15) #35
-  br label %137
+  br label %136
 
 130:                                              ; preds = %.noexc60, %.noexc, %109
   %131 = landingpad { ptr, i32 }
@@ -8629,20 +8629,19 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %131, %130 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %16) #35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16) #35
-  br label %137
+  br label %136
 
 .lr.ph73.preheader:                               ; preds = %.lr.ph.lr.ph
   %135 = or i32 %3, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #35
-  %136 = load ptr, ptr %12, align 8, !tbaa !131
-  invoke void @_ZN6icu_7724DateTimePatternGenerator16adjustFieldTypesERKNS_13UnicodeStringEPKNS_11PtnSkeletonEi28UDateTimePatternMatchOptions(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(4796) %1, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %136, i32 noundef %135, i32 noundef %5)
+  invoke void @_ZN6icu_7724DateTimePatternGenerator16adjustFieldTypesERKNS_13UnicodeStringEPKNS_11PtnSkeletonEi28UDateTimePatternMatchOptions(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %14, ptr noundef nonnull align 8 dereferenceable(4796) %1, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef %44, i32 noundef %135, i32 noundef %5)
           to label %65 unwind label %72
 
 .outer._crit_edge:                                ; preds = %65, %127, %99
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #35
-  br label %138
+  br label %137
 
-137:                                              ; preds = %80, %128, %134, %72, %63, %39
+136:                                              ; preds = %80, %128, %134, %72, %63, %39
   %.pn54 = phi { ptr, i32 } [ %40, %39 ], [ %73, %72 ], [ %64, %63 ], [ %81, %80 ], [ %129, %128 ], [ %.pn.pn, %134 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #35
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #35
@@ -8651,22 +8650,22 @@ _ZN6icu_7715SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #35
   resume { ptr, i32 } %.pn54
 
-138:                                              ; preds = %.outer._crit_edge, %23
+137:                                              ; preds = %.outer._crit_edge, %23
   call void @_ZN6icu_7713UnicodeStringC1EOS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %9) #35
-  br label %139
+  br label %138
 
 .critedge:                                        ; preds = %.thread, %37, %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #35
-  br label %139
+  br label %138
 
-139:                                              ; preds = %.critedge, %138
+138:                                              ; preds = %.critedge, %137
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %10) #35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #35
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #35
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #35
-  br label %140
+  br label %139
 
-140:                                              ; preds = %139, %21
+139:                                              ; preds = %138, %21
   ret void
 }
 

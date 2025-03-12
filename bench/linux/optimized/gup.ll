@@ -3130,7 +3130,6 @@ define dso_local i64 @fault_in_safe_writeable(ptr noundef %0, i64 noundef %1) #0
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1192
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  store i8 0, ptr %3, align 1
   %9 = icmp eq i64 %1, 0
   br i1 %9, label %34, label %10, !prof !5
 
@@ -3275,7 +3274,6 @@ define dso_local ptr @get_dump_page(i64 noundef %0) local_unnamed_addr #0 align 
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  store ptr null, ptr %2, align 8, !annotation !47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !52
   %5 = inttoptr i64 %4 to ptr
@@ -3304,6 +3302,7 @@ define dso_local ptr @get_dump_page(i64 noundef %0) local_unnamed_addr #0 align 
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %14
+  store ptr null, ptr %2, align 8, !annotation !47
   store i32 1, ptr %3, align 4
   %17 = call fastcc i64 @__get_user_pages(ptr noundef %7, i64 noundef %0, i64 noundef 1, i32 noundef 14, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.fr4 = freeze i64 %17

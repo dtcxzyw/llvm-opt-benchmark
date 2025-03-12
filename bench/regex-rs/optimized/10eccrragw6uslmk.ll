@@ -14861,13 +14861,13 @@ define void @"_ZN108_$LT$regex_automata..util..captures..GroupInfoAllNames$u20$a
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.promoted36 = load i64, ptr %9, align 8
   %.promoted37 = load i32, ptr %12, align 4
   %.promoted40 = load ptr, ptr %13, align 8
-  %14 = icmp eq i32 %.promoted, 0
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %15 = icmp eq i32 %.promoted, 0
   %.sroa.49.0..sroa_idx.promoted = load ptr, ptr %.sroa.49.0..sroa_idx, align 8
   br label %16
 
@@ -14876,7 +14876,7 @@ define void @"_ZN108_$LT$regex_automata..util..captures..GroupInfoAllNames$u20$a
   %17 = phi ptr [ %.promoted40, %.lr.ph ], [ null, %tailrecurse ]
   %.sroa.3.0.i38 = phi i32 [ %.promoted37, %.lr.ph ], [ %.sroa.3.0.i39, %tailrecurse ]
   %18 = phi i64 [ %.promoted36, %.lr.ph ], [ %24, %tailrecurse ]
-  %.not = phi i1 [ %14, %.lr.ph ], [ true, %tailrecurse ]
+  %.not = phi i1 [ %15, %.lr.ph ], [ true, %tailrecurse ]
   br i1 %.not, label %19, label %23
 
 .split:                                           ; preds = %19, %2, %.split44
@@ -14908,7 +14908,7 @@ define void @"_ZN108_$LT$regex_automata..util..captures..GroupInfoAllNames$u20$a
   br i1 %27, label %28, label %_ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.exit
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %15, align 8, !nonnull !12, !noundef !12
+  %29 = load ptr, ptr %14, align 8, !nonnull !12, !noundef !12
   %30 = getelementptr inbounds nuw { { i64, ptr }, i64 }, ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !12, !noundef !12

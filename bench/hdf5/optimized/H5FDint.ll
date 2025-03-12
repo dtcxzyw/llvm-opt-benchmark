@@ -5486,8 +5486,8 @@ define i64 @H5FD_register_driver_by_name(ptr noundef %0, i1 noundef zeroext %1) 
 ._crit_edge:                                      ; preds = %10
   %.pre = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7
   %.pre19 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre22 = trunc nuw i8 %.pre to i1
-  %.pre23 = trunc nuw i8 %.pre19 to i1
+  %.pre20 = trunc nuw i8 %.pre to i1
+  %.pre21 = trunc nuw i8 %.pre19 to i1
   br label %17
 
 13:                                               ; preds = %10
@@ -5498,9 +5498,9 @@ define i64 @H5FD_register_driver_by_name(ptr noundef %0, i1 noundef zeroext %1) 
   br label %52
 
 17:                                               ; preds = %._crit_edge, %2
-  %.pre-phi24 = phi i1 [ %.pre23, %._crit_edge ], [ %8, %2 ]
-  %.pre-phi = phi i1 [ %.pre22, %._crit_edge ], [ %6, %2 ]
-  %18 = xor i1 %.pre-phi24, true
+  %.pre-phi22 = phi i1 [ %.pre21, %._crit_edge ], [ %8, %2 ]
+  %.pre-phi = phi i1 [ %.pre20, %._crit_edge ], [ %6, %2 ]
+  %18 = xor i1 %.pre-phi22, true
   %19 = select i1 %.pre-phi, i1 true, i1 %18
   br i1 %19, label %20, label %52, !prof !9
 
@@ -5523,11 +5523,7 @@ define i64 @H5FD_register_driver_by_name(ptr noundef %0, i1 noundef zeroext %1) 
   %29 = load i64, ptr %3, align 8, !tbaa !10
   %30 = call i32 @H5I_inc_ref(i64 noundef %29, i1 noundef zeroext %1) #12
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %._crit_edge20
-
-._crit_edge20:                                    ; preds = %28
-  %.pre21 = load i64, ptr %3, align 8, !tbaa !10
-  br label %52
+  br i1 %31, label %32, label %52
 
 32:                                               ; preds = %28
   %33 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
@@ -5552,7 +5548,6 @@ define i64 @H5FD_register_driver_by_name(ptr noundef %0, i1 noundef zeroext %1) 
 
 44:                                               ; preds = %36
   %45 = call i64 @H5FD_register(ptr noundef nonnull %38, i64 noundef 336, i1 noundef zeroext %1) #12
-  store i64 %45, ptr %3, align 8, !tbaa !10
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %47, label %51
 
@@ -5570,8 +5565,8 @@ define i64 @H5FD_register_driver_by_name(ptr noundef %0, i1 noundef zeroext %1) 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   br label %52
 
-52:                                               ; preds = %51, %._crit_edge20, %.thread, %17, %32, %23, %13
-  %.013 = phi i64 [ -1, %13 ], [ -1, %23 ], [ -1, %32 ], [ -1, %17 ], [ -1, %.thread ], [ %.pre21, %._crit_edge20 ], [ %45, %51 ]
+52:                                               ; preds = %28, %51, %.thread, %17, %32, %23, %13
+  %.013 = phi i64 [ -1, %13 ], [ -1, %23 ], [ -1, %32 ], [ -1, %17 ], [ -1, %.thread ], [ %45, %51 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret i64 %.013
 }
@@ -5677,8 +5672,8 @@ define i64 @H5FD_register_driver_by_value(i32 noundef %0, i1 noundef zeroext %1)
 ._crit_edge:                                      ; preds = %10
   %.pre = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7
   %.pre19 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre22 = trunc nuw i8 %.pre to i1
-  %.pre23 = trunc nuw i8 %.pre19 to i1
+  %.pre20 = trunc nuw i8 %.pre to i1
+  %.pre21 = trunc nuw i8 %.pre19 to i1
   br label %17
 
 13:                                               ; preds = %10
@@ -5689,9 +5684,9 @@ define i64 @H5FD_register_driver_by_value(i32 noundef %0, i1 noundef zeroext %1)
   br label %52
 
 17:                                               ; preds = %._crit_edge, %2
-  %.pre-phi24 = phi i1 [ %.pre23, %._crit_edge ], [ %8, %2 ]
-  %.pre-phi = phi i1 [ %.pre22, %._crit_edge ], [ %6, %2 ]
-  %18 = xor i1 %.pre-phi24, true
+  %.pre-phi22 = phi i1 [ %.pre21, %._crit_edge ], [ %8, %2 ]
+  %.pre-phi = phi i1 [ %.pre20, %._crit_edge ], [ %6, %2 ]
+  %18 = xor i1 %.pre-phi22, true
   %19 = select i1 %.pre-phi, i1 true, i1 %18
   br i1 %19, label %20, label %52, !prof !9
 
@@ -5714,11 +5709,7 @@ define i64 @H5FD_register_driver_by_value(i32 noundef %0, i1 noundef zeroext %1)
   %29 = load i64, ptr %3, align 8, !tbaa !10
   %30 = call i32 @H5I_inc_ref(i64 noundef %29, i1 noundef zeroext %1) #12
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %._crit_edge20
-
-._crit_edge20:                                    ; preds = %28
-  %.pre21 = load i64, ptr %3, align 8, !tbaa !10
-  br label %52
+  br i1 %31, label %32, label %52
 
 32:                                               ; preds = %28
   %33 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
@@ -5743,7 +5734,6 @@ define i64 @H5FD_register_driver_by_value(i32 noundef %0, i1 noundef zeroext %1)
 
 44:                                               ; preds = %36
   %45 = call i64 @H5FD_register(ptr noundef nonnull %38, i64 noundef 336, i1 noundef zeroext %1) #12
-  store i64 %45, ptr %3, align 8, !tbaa !10
   %46 = icmp slt i64 %45, 0
   br i1 %46, label %47, label %51
 
@@ -5761,8 +5751,8 @@ define i64 @H5FD_register_driver_by_value(i32 noundef %0, i1 noundef zeroext %1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   br label %52
 
-52:                                               ; preds = %51, %._crit_edge20, %.thread, %17, %32, %23, %13
-  %.013 = phi i64 [ -1, %13 ], [ -1, %23 ], [ -1, %32 ], [ -1, %17 ], [ -1, %.thread ], [ %.pre21, %._crit_edge20 ], [ %45, %51 ]
+52:                                               ; preds = %28, %51, %.thread, %17, %32, %23, %13
+  %.013 = phi i64 [ -1, %13 ], [ -1, %23 ], [ -1, %32 ], [ -1, %17 ], [ -1, %.thread ], [ %45, %51 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret i64 %.013
 }

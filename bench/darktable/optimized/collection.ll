@@ -413,13 +413,11 @@ define noundef ptr @dt_collection_new(ptr noundef readonly captures(address_is_n
 29:                                               ; preds = %1
   store i32 3, ptr %3, align 4, !tbaa !21
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i32 3, ptr %30, align 4, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store i32 1, ptr %31, align 4, !tbaa !23
   %32 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.36) #19
-  store i32 %32, ptr %31, align 4, !tbaa !23
+  store i32 %32, ptr %31, align 4, !tbaa !22
   %33 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #19
-  store i32 %33, ptr %30, align 4, !tbaa !22
+  store i32 %33, ptr %30, align 4, !tbaa !23
   tail call void @dt_collection_update_query(ptr noundef %2, i32 noundef 1, i32 noundef 43, ptr noundef null)
   br label %34
 
@@ -550,13 +548,13 @@ define void @dt_collection_reset(ptr noundef captures(address) initializes((44, 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 3, ptr %2, align 4, !tbaa !21
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 3, ptr %3, align 4, !tbaa !22
+  store i32 3, ptr %3, align 4, !tbaa !23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 1, ptr %4, align 4, !tbaa !23
+  store i32 1, ptr %4, align 4, !tbaa !22
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.36) #19
-  store i32 %5, ptr %4, align 4, !tbaa !23
+  store i32 %5, ptr %4, align 4, !tbaa !22
   %6 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #19
-  store i32 %6, ptr %3, align 4, !tbaa !22
+  store i32 %6, ptr %3, align 4, !tbaa !23
   tail call void @dt_collection_update_query(ptr noundef %0, i32 noundef 1, i32 noundef 43, ptr noundef null)
   ret void
 }
@@ -2042,7 +2040,7 @@ define void @dt_collection_update_query(ptr noundef captures(address) %0, i32 no
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %122 = load i32, ptr %121, align 4, !tbaa !70
   %123 = and i32 %122, -2
-  store i32 %123, ptr %121, align 4, !tbaa !22
+  store i32 %123, ptr %121, align 4, !tbaa !23
   %124 = call i32 @dt_collection_update(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
   store ptr null, ptr %9, align 8, !tbaa !67
@@ -2238,7 +2236,7 @@ define i32 @dt_collection_get_filter_flags(ptr noundef readonly captures(none) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @dt_collection_set_filter_flags(ptr noundef writeonly captures(none) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %1, ptr %3, align 4, !tbaa !22
+  store i32 %1, ptr %3, align 4, !tbaa !23
   ret void
 }
 
@@ -2271,7 +2269,7 @@ define void @dt_collection_set_extended_where(ptr noundef captures(none) %0, ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @dt_collection_set_film_id(ptr noundef writeonly captures(none) initializes((52, 56)) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %1, ptr %3, align 4, !tbaa !23
+  store i32 %1, ptr %3, align 4, !tbaa !22
   ret void
 }
 
@@ -6691,8 +6689,8 @@ attributes #23 = { nounwind willreturn memory(none) }
 !19 = !{!7, !8, i64 36}
 !20 = !{!7, !8, i64 40}
 !21 = !{!14, !8, i64 0}
-!22 = !{!14, !8, i64 4}
-!23 = !{!14, !8, i64 8}
+!22 = !{!14, !8, i64 8}
+!23 = !{!14, !8, i64 4}
 !24 = !{!25, !8, i64 3128}
 !25 = !{!"darktable_t", !26, i64 0, !8, i64 4, !8, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !28, i64 48, !29, i64 56, !30, i64 64, !31, i64 72, !32, i64 80, !33, i64 88, !34, i64 96, !35, i64 104, !36, i64 112, !37, i64 120, !38, i64 128, !39, i64 136, !40, i64 144, !41, i64 152, !42, i64 160, !43, i64 168, !44, i64 176, !45, i64 184, !46, i64 192, !47, i64 200, !48, i64 208, !49, i64 216, !50, i64 224, !9, i64 232, !51, i64 2792, !51, i64 2832, !51, i64 2872, !51, i64 2912, !51, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !52, i64 3096, !27, i64 3104, !53, i64 3112, !27, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !54, i64 3328, !55, i64 3336, !56, i64 3344, !59, i64 3384, !60, i64 3416}
 !26 = !{!"dt_codepath_t", !8, i64 0}

@@ -37,8 +37,6 @@ $_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE
 
 $_ZN9LogPrefixILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = comdat any
 
-$_ZTV15AttachOperation = comdat any
-
 @_ZN19PosixAttachListener5_pathE = hidden global [108 x i8] zeroinitializer, align 16
 @_ZN19PosixAttachListener9_has_pathE = hidden local_unnamed_addr global i8 0, align 1
 @_ZN19PosixAttachListener9_listenerE = hidden global i32 -1, align 4
@@ -69,7 +67,6 @@ $_ZTV15AttachOperation = comdat any
 @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden local_unnamed_addr global i64 0, comdat($_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE), align 8
 @_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden global %class.LogTagSet zeroinitializer, comdat, align 8
 @_ZGVN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = linkonce_odr hidden local_unnamed_addr global i64 0, comdat($_ZN16LogTagSetMappingILN6LogTag4typeE7ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE), align 8
-@_ZTV15AttachOperation = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZN6Thread12_thr_currentE = external thread_local local_unnamed_addr global ptr, align 8
 @_ZN20SafepointSynchronize6_stateE = external global i32, align 4
 @_ZN14AttachListener6_stateE = external global i32, align 4
@@ -412,7 +409,6 @@ _ZN16ArgumentIterator4nextEv.exit:                ; preds = %59, %61
 
 68:                                               ; preds = %64
   %69 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 3104, i8 noundef zeroext 9, i32 noundef 0) #18
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV15AttachOperation, i64 16), ptr %69, align 8
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.1.ph) #20
   %71 = call noundef i64 @llvm.umin.i64(i64 %70, i64 16)
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -1165,8 +1161,6 @@ declare void @_ZN2os13signal_notifyEi(i32 noundef) local_unnamed_addr #2
 define hidden void @_ZN14AttachListener12pd_detachallEv() local_unnamed_addr #12 align 2 {
   ret void
 }
-
-declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define internal void @__cxx_global_var_init.17() #13 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {

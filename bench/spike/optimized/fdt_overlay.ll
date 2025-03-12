@@ -360,7 +360,7 @@ define internal fastcc i32 @overlay_symbol_update(ptr noundef %0, ptr noundef %1
   br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %17, %.thread
-  %.091125 = phi i32 [ %118, %.thread ], [ %18, %17 ]
+  %.091125 = phi i32 [ %117, %.thread ], [ %18, %17 ]
   %20 = call ptr @fdt_getprop_by_offset(ptr noundef %1, i32 noundef %.091125, ptr noundef nonnull %5, ptr noundef nonnull %4) #8
   %.not = icmp eq ptr %20, null
   %21 = load i32, ptr %4, align 4, !tbaa !3
@@ -511,62 +511,60 @@ get_path_len.exit:                                ; preds = %._crit_edge.i, %80
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %85
-  %95 = load ptr, ptr %6, align 8, !tbaa !8
-  %.not116 = icmp eq ptr %95, null
-  br i1 %.not116, label %96, label %99
+  br i1 %.not115, label %95, label %98
 
-96:                                               ; preds = %94
-  %97 = call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %55, ptr noundef nonnull %6)
-  %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.loopexit, label %99
+95:                                               ; preds = %94
+  %96 = call fastcc i32 @overlay_get_target(ptr noundef %0, ptr noundef %1, i32 noundef %55, ptr noundef nonnull %6)
+  %97 = icmp slt i32 %96, 0
+  br i1 %97, label %.loopexit, label %98
 
-99:                                               ; preds = %96, %94
-  %.092 = phi i32 [ %61, %94 ], [ %97, %96 ]
-  %100 = load ptr, ptr %7, align 8, !tbaa !17
-  br i1 %87, label %101, label %109
+98:                                               ; preds = %95, %94
+  %.092 = phi i32 [ %61, %94 ], [ %96, %95 ]
+  %99 = load ptr, ptr %7, align 8, !tbaa !17
+  br i1 %87, label %100, label %108
 
-101:                                              ; preds = %99
-  %102 = load ptr, ptr %6, align 8, !tbaa !8
-  %.not117 = icmp eq ptr %102, null
-  %103 = add nuw nsw i32 %.093, 1
-  br i1 %.not117, label %104, label %107
+100:                                              ; preds = %98
+  %101 = load ptr, ptr %6, align 8, !tbaa !8
+  %.not117 = icmp eq ptr %101, null
+  %102 = add nuw nsw i32 %.093, 1
+  br i1 %.not117, label %103, label %106
 
-104:                                              ; preds = %101
-  %105 = call i32 @fdt_get_path(ptr noundef %0, i32 noundef %.092, ptr noundef %100, i32 noundef %103) #8
-  %106 = icmp slt i32 %105, 0
-  br i1 %106, label %.loopexit, label %111
+103:                                              ; preds = %100
+  %104 = call i32 @fdt_get_path(ptr noundef %0, i32 noundef %.092, ptr noundef %99, i32 noundef %102) #8
+  %105 = icmp slt i32 %104, 0
+  br i1 %105, label %.loopexit, label %110
 
-107:                                              ; preds = %101
-  %108 = zext nneg i32 %103 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %100, ptr noundef nonnull align 1 dereferenceable(1) %102, i64 %108, i1 false)
-  br label %111
+106:                                              ; preds = %100
+  %107 = zext nneg i32 %102 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %99, ptr noundef nonnull align 1 dereferenceable(1) %101, i64 %107, i1 false)
+  br label %110
 
-109:                                              ; preds = %99
-  %110 = add nsw i32 %.093, -1
+108:                                              ; preds = %98
+  %109 = add nsw i32 %.093, -1
   %.pre = add i32 %.094, %.093
-  br label %111
+  br label %110
 
-111:                                              ; preds = %107, %104, %109
-  %.pre-phi = phi i32 [ %90, %107 ], [ %90, %104 ], [ %.pre, %109 ]
-  %.1 = phi i32 [ %.093, %107 ], [ %.093, %104 ], [ %110, %109 ]
-  %112 = sext i32 %.1 to i64
-  %113 = getelementptr inbounds i8, ptr %100, i64 %112
-  store i8 47, ptr %113, align 1, !tbaa !7
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1
-  %115 = sext i32 %.094 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 1 %.089, i64 %115, i1 false)
-  %116 = sext i32 %.pre-phi to i64
-  %117 = getelementptr inbounds i8, ptr %100, i64 %116
-  store i8 0, ptr %117, align 1, !tbaa !7
+110:                                              ; preds = %106, %103, %108
+  %.pre-phi = phi i32 [ %90, %106 ], [ %90, %103 ], [ %.pre, %108 ]
+  %.1 = phi i32 [ %.093, %106 ], [ %.093, %103 ], [ %109, %108 ]
+  %111 = sext i32 %.1 to i64
+  %112 = getelementptr inbounds i8, ptr %99, i64 %111
+  store i8 47, ptr %112, align 1, !tbaa !7
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1
+  %114 = sext i32 %.094 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr nonnull align 1 %.089, i64 %114, i1 false)
+  %115 = sext i32 %.pre-phi to i64
+  %116 = getelementptr inbounds i8, ptr %99, i64 %115
+  store i8 0, ptr %116, align 1, !tbaa !7
   br label %.thread
 
-.thread:                                          ; preds = %43, %50, %52, %31, %111
-  %118 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.091125) #8
-  %119 = icmp sgt i32 %118, -1
-  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !18
+.thread:                                          ; preds = %43, %50, %52, %31, %110
+  %117 = call i32 @fdt_next_property_offset(ptr noundef %1, i32 noundef %.091125) #8
+  %118 = icmp sgt i32 %117, -1
+  br i1 %118, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %24, %22, %29, %54, %57, %60, %get_path_len.exit, %85, %96, %104, %.thread, %.lr.ph, %17, %get_path_len.exit.thread, %15, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.090, %15 ], [ %.1.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %54 ], [ -16, %57 ], [ %61, %60 ], [ %.1.i, %get_path_len.exit ], [ %92, %85 ], [ %97, %96 ], [ %105, %104 ], [ 0, %.thread ]
+.loopexit:                                        ; preds = %24, %22, %29, %54, %57, %60, %get_path_len.exit, %85, %95, %103, %.thread, %.lr.ph, %17, %get_path_len.exit.thread, %15, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.090, %15 ], [ %.1.i.ph, %get_path_len.exit.thread ], [ 0, %17 ], [ %21, %.lr.ph ], [ -15, %24 ], [ -15, %22 ], [ -15, %29 ], [ -16, %54 ], [ -16, %57 ], [ %61, %60 ], [ %.1.i, %get_path_len.exit ], [ %92, %85 ], [ %96, %95 ], [ %104, %103 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8

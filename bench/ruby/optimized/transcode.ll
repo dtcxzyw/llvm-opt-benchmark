@@ -3749,7 +3749,7 @@ rb_check_arity.exit:                              ; preds = %5
 
 19:                                               ; preds = %16
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %236, label %20
+  br i1 %.not, label %235, label %20
 
 20:                                               ; preds = %19
   %21 = tail call i64 @rb_obj_encoding(i64 noundef %13) #22
@@ -3867,13 +3867,13 @@ str_transcode_enc_args.exit:                      ; preds = %43, %52, %54
   %70 = icmp eq i64 %69, 4
   %spec.select = select i1 %70, i64 %13, i64 %69
   store i64 %spec.select, ptr %2, align 8, !tbaa !22
-  br label %236
+  br label %235
 
 71:                                               ; preds = %60
   %72 = load i64, ptr %8, align 8, !tbaa !22
   %73 = icmp eq i64 %72, 4
   %74 = select i1 %73, i32 -1, i32 %.08.i.i
-  br label %236
+  br label %235
 
 75:                                               ; preds = %58
   %76 = icmp ne ptr %.0.i.i, null
@@ -3905,7 +3905,7 @@ rb_enc_asciicompat.exit82:                        ; preds = %80
 83:                                               ; preds = %rb_enc_asciicompat.exit82
   %84 = call i32 @rb_enc_str_coderange(i64 noundef %13) #22
   %85 = icmp eq i32 %84, 1048576
-  br i1 %85, label %236, label %rb_enc_asciicompat.exit.thread
+  br i1 %85, label %235, label %rb_enc_asciicompat.exit.thread
 
 rb_enc_asciicompat.exit.thread:                   ; preds = %80, %77, %83, %rb_enc_asciicompat.exit82, %rb_enc_asciicompat.exit, %75
   %86 = call i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef %.018.i, ptr noundef %.09.i.i) #25
@@ -3916,7 +3916,7 @@ rb_enc_asciicompat.exit.thread:                   ; preds = %80, %77, %83, %rb_e
   %89 = load i64, ptr %8, align 8, !tbaa !22
   %90 = icmp eq i64 %89, 4
   %91 = select i1 %90, i32 -1, i32 %.08.i.i
-  br label %236
+  br label %235
 
 92:                                               ; preds = %str_transcode_enc_args.exit
   %93 = icmp ne ptr %.0.i.i, null
@@ -4238,37 +4238,36 @@ RSTRING_PTR.exit103:                              ; preds = %220, %223
   %.sroa.2.0.i102 = phi ptr [ %.sroa.2.0.copyload.i101, %223 ], [ %117, %220 ]
   %224 = load ptr, ptr %9, align 8, !tbaa !26
   store i8 0, ptr %224, align 1, !tbaa !27
-  %225 = load ptr, ptr %9, align 8, !tbaa !26
-  %226 = ptrtoint ptr %225 to i64
-  %227 = ptrtoint ptr %.sroa.2.0.i102 to i64
-  %228 = sub i64 %226, %227
-  call void @rb_str_set_len(i64 noundef %113, i64 noundef %228) #22
+  %225 = ptrtoint ptr %224 to i64
+  %226 = ptrtoint ptr %.sroa.2.0.i102 to i64
+  %227 = sub i64 %225, %226
+  call void @rb_str_set_len(i64 noundef %113, i64 noundef %227) #22
   %.not73 = icmp eq ptr %.0.i.i, null
-  br i1 %.not73, label %229, label %235
+  br i1 %.not73, label %228, label %234
 
-229:                                              ; preds = %RSTRING_PTR.exit103
-  %230 = call i32 @rb_define_dummy_encoding(ptr noundef %.0121) #22
+228:                                              ; preds = %RSTRING_PTR.exit103
+  %229 = call i32 @rb_define_dummy_encoding(ptr noundef %.0121) #22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #22
   store ptr %7, ptr %11, align 8, !tbaa !123
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %11) #22, !srcloc !168
-  %231 = load ptr, ptr %11, align 8, !tbaa !123
+  %230 = load ptr, ptr %11, align 8, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  %232 = load volatile i64, ptr %231, align 8, !tbaa !22
+  %231 = load volatile i64, ptr %230, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #22
   store ptr %8, ptr %12, align 8, !tbaa !123
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %12) #22, !srcloc !169
-  %233 = load ptr, ptr %12, align 8, !tbaa !123
+  %232 = load ptr, ptr %12, align 8, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #22
-  %234 = load volatile i64, ptr %233, align 8, !tbaa !22
+  %233 = load volatile i64, ptr %232, align 8, !tbaa !22
+  br label %234
+
+234:                                              ; preds = %228, %RSTRING_PTR.exit103
+  %.062 = phi i32 [ %.08.i.i, %RSTRING_PTR.exit103 ], [ %229, %228 ]
+  store i64 %113, ptr %2, align 8, !tbaa !22
   br label %235
 
-235:                                              ; preds = %229, %RSTRING_PTR.exit103
-  %.062 = phi i32 [ %.08.i.i, %RSTRING_PTR.exit103 ], [ %230, %229 ]
-  store i64 %113, ptr %2, align 8, !tbaa !22
-  br label %236
-
-236:                                              ; preds = %83, %19, %235, %88, %71, %68
-  %.0 = phi i32 [ %.08.i.i, %68 ], [ %74, %71 ], [ %91, %88 ], [ %.062, %235 ], [ -1, %19 ], [ %.08.i.i, %83 ]
+235:                                              ; preds = %83, %19, %234, %88, %71, %68
+  %.0 = phi i32 [ %.08.i.i, %68 ], [ %74, %71 ], [ %91, %88 ], [ %.062, %234 ], [ -1, %19 ], [ %.08.i.i, %83 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22

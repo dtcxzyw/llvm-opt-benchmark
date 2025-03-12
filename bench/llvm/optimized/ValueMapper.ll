@@ -4023,17 +4023,18 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_16Mapper15mapBlockAddressERK
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117DelayedBasicBlockELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %23)
   %.val.i.i.i = load ptr, ptr %13, align 8, !tbaa !35
   %35 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %34
+  %.pre = load ptr, ptr %35, align 8, !tbaa !94
   br label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117DelayedBasicBlockELb0EE9push_backEOS2_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117DelayedBasicBlockELb0EE9push_backEOS2_.exit: ; preds = %12, %30, %31
+  %36 = phi ptr [ %15, %12 ], [ %.pre, %31 ], [ %15, %30 ]
   %.val.i = phi ptr [ %.val.pre4.i, %12 ], [ %.val.i.i.i, %31 ], [ %.val.pre.i, %30 ]
   %.016.i.i.i = phi ptr [ %4, %12 ], [ %35, %31 ], [ %4, %30 ]
   %.val3.i = load i32, ptr %20, align 8, !tbaa !41
-  %36 = zext i32 %.val3.i to i64
-  %37 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i, i64 %36
-  %38 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !94
-  store ptr %38, ptr %37, align 8, !tbaa !94
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %37 = zext i32 %.val3.i to i64
+  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i, i64 %37
+  store ptr %36, ptr %38, align 8, !tbaa !94
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !45
   store i64 %41, ptr %39, align 8, !tbaa !45

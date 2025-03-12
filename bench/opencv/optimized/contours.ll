@@ -3251,7 +3251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23) #17
-  br label %511
+  br label %510
 
 40:                                               ; preds = %8
   store ptr null, ptr %2, align 8, !tbaa !117
@@ -3303,7 +3303,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %.pn32 = phi { ptr, i32 } [ %47, %46 ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i36 ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #17
-  br label %511
+  br label %510
 
 56:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
@@ -4448,8 +4448,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i380.i: ; preds = %484, 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #17
   br label %488
 
-common.resume:                                    ; preds = %511, %488
-  %common.resume.op = phi { ptr, i32 } [ %.pn310.pn.i, %488 ], [ %.pn32.pn, %511 ]
+common.resume:                                    ; preds = %510, %488
+  %common.resume.op = phi { ptr, i32 } [ %.pn310.pn.i, %488 ], [ %.pn32.pn, %510 ]
   resume { ptr, i32 } %common.resume.op
 
 488:                                              ; preds = %.loopexit.split-lp392.i, %98, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
@@ -4468,7 +4468,7 @@ _ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit: ; preds = %_ZNSt
   %.not288.i = icmp eq ptr %.1187.lcssa.i, null
   %spec.select.i = select i1 %.not288.i, i32 -1, i32 %.1.lcssa.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
-  br label %510
+  br label %509
 
 489:                                              ; preds = %40
   %490 = invoke fastcc noundef ptr @_ZL24cvStartFindContours_ImplPvP12CvMemStorageiii7CvPointi(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6, i32 noundef %7)
@@ -4478,70 +4478,68 @@ _ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit: ; preds = %_ZNSt
   store ptr %490, ptr %22, align 8, !tbaa !114
   br label %492
 
-492:                                              ; preds = %495, %491
-  %.126 = phi i32 [ -1, %491 ], [ %496, %495 ]
-  %493 = load ptr, ptr %22, align 8, !tbaa !114
-  %494 = invoke ptr @cvFindNextContour(ptr noundef %493)
-          to label %495 unwind label %499
+492:                                              ; preds = %494, %491
+  %.126 = phi i32 [ -1, %491 ], [ %495, %494 ]
+  %493 = invoke ptr @cvFindNextContour(ptr noundef %490)
+          to label %494 unwind label %498
 
-495:                                              ; preds = %492
-  %496 = add nsw i32 %.126, 1
-  %.not31 = icmp eq ptr %494, null
-  br i1 %.not31, label %508, label %492, !llvm.loop !154
+494:                                              ; preds = %492
+  %495 = add nsw i32 %.126, 1
+  %.not31 = icmp eq ptr %493, null
+  br i1 %.not31, label %507, label %492, !llvm.loop !154
 
 .thread:                                          ; preds = %489
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  %497 = extractvalue { ptr, i32 } %lpad.loopexit.split-lp, 0
-  %498 = tail call ptr @__cxa_begin_catch(ptr %497) #17
-  br label %507
+  %496 = extractvalue { ptr, i32 } %lpad.loopexit.split-lp, 0
+  %497 = tail call ptr @__cxa_begin_catch(ptr %496) #17
+  br label %506
 
-499:                                              ; preds = %492
+498:                                              ; preds = %492
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  %.pre = load ptr, ptr %22, align 8, !tbaa !114
-  %500 = icmp eq ptr %.pre, null
-  %501 = extractvalue { ptr, i32 } %lpad.loopexit, 0
-  %502 = tail call ptr @__cxa_begin_catch(ptr %501) #17
-  br i1 %500, label %507, label %503
+  %499 = icmp eq ptr %490, null
+  %500 = extractvalue { ptr, i32 } %lpad.loopexit, 0
+  %501 = tail call ptr @__cxa_begin_catch(ptr %500) #17
+  br i1 %499, label %506, label %502
 
-503:                                              ; preds = %499
-  %504 = invoke ptr @cvEndFindContours(ptr noundef nonnull %22)
-          to label %507 unwind label %505
+502:                                              ; preds = %498
+  %503 = invoke ptr @cvEndFindContours(ptr noundef nonnull %22)
+          to label %506 unwind label %504
 
-505:                                              ; preds = %507, %503
-  %506 = landingpad { ptr, i32 }
+504:                                              ; preds = %506, %502
+  %505 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %511 unwind label %512
+          to label %510 unwind label %511
 
-507:                                              ; preds = %.thread, %503, %499
+506:                                              ; preds = %.thread, %502, %498
   invoke void @__cxa_rethrow() #18
-          to label %515 unwind label %505
+          to label %514 unwind label %504
 
-508:                                              ; preds = %495
-  %509 = call ptr @cvEndFindContours(ptr noundef nonnull %22)
-  store ptr %509, ptr %2, align 8, !tbaa !117
-  br label %510
+507:                                              ; preds = %494
+  %508 = call ptr @cvEndFindContours(ptr noundef nonnull %22)
+  store ptr %508, ptr %2, align 8, !tbaa !117
+  br label %509
 
-510:                                              ; preds = %508, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit
-  %.025 = phi i32 [ %spec.select.i, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit ], [ %496, %508 ]
+509:                                              ; preds = %507, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit
+  %.025 = phi i32 [ %spec.select.i, %_ZL25icvFindContoursInIntervalPKvP12CvMemStoragePP5CvSeqi.exit ], [ %495, %507 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   ret i32 %.025
 
-511:                                              ; preds = %505, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37 ], [ %506, %505 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+510:                                              ; preds = %504, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn32.pn = phi { ptr, i32 } [ %.pn32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37 ], [ %505, %504 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   br label %common.resume
 
-512:                                              ; preds = %505
-  %513 = landingpad { ptr, i32 }
+511:                                              ; preds = %504
+  %512 = landingpad { ptr, i32 }
           catch ptr null
-  %514 = extractvalue { ptr, i32 } %513, 0
-  call void @__clang_call_terminate(ptr %514) #20
+  %513 = extractvalue { ptr, i32 } %512, 0
+  call void @__clang_call_terminate(ptr %513) #20
   unreachable
 
-515:                                              ; preds = %507
+514:                                              ; preds = %506
   unreachable
 }
 

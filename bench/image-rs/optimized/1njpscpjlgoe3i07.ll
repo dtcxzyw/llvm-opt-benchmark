@@ -21903,14 +21903,13 @@ define hidden void @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..
   %24 = add i64 %.0.sroa.speculated.i.i4.i, %11
   store i64 %24, ptr %6, align 8, !alias.scope !4444, !noalias !4464
   %25 = add i64 %.0.sroa.speculated.i.i4.i, %.0
-  %26 = load i64, ptr %16, align 8, !noundef !5
-  %27 = icmp ult i64 %.0.sroa.speculated.i.i4.i, %26
-  br i1 %27, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5d762928b7ab6eE.exit.thread", label %10
+  %26 = icmp ult i64 %18, %17
+  br i1 %26, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5d762928b7ab6eE.exit.thread", label %10
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5d762928b7ab6eE.exit.thread": ; preds = %10, %23
   %.1 = phi i64 [ %25, %23 ], [ %.0, %10 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.1, ptr %28, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.1, ptr %27, align 8
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -21961,14 +21960,13 @@ define hidden void @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..
   %25 = add i64 %.0.sroa.speculated.i.i4.i, %12
   store i64 %25, ptr %6, align 8, !alias.scope !4465, !noalias !4485
   %26 = add i64 %.0.sroa.speculated.i.i4.i, %.0
-  %27 = load i64, ptr %17, align 8, !noundef !5
-  %28 = icmp ult i64 %.0.sroa.speculated.i.i4.i, %27
-  br i1 %28, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5d762928b7ab6eE.exit.thread", label %11
+  %27 = icmp ult i64 %19, %18
+  br i1 %27, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5d762928b7ab6eE.exit.thread", label %11
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea5d762928b7ab6eE.exit.thread": ; preds = %11, %24
   %.1 = phi i64 [ %26, %24 ], [ %.0, %11 ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.1, ptr %29, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.1, ptr %28, align 8
   store i64 0, ptr %0, align 8
   ret void
 }

@@ -9781,7 +9781,7 @@ define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages_at_ex(i64 noundef %
 
 10:                                               ; preds = %9, %5
   %11 = icmp eq i64 %0, 0
-  br i1 %11, label %33, label %12
+  br i1 %11, label %32, label %12
 
 12:                                               ; preds = %10
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 -1)
@@ -9819,27 +9819,26 @@ _mi_os_numa_node_count.exit:                      ; preds = %14, %17
 
 26:                                               ; preds = %21
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.14, i64 noundef %0)
-  br label %32
+  br label %31
 
 27:                                               ; preds = %21
   call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.15, i32 noundef %.019, i64 noundef %24, i64 noundef %0)
   %28 = load i64, ptr %6, align 8, !tbaa !99
   %29 = call fastcc zeroext i1 @mi_manage_os_memory_ex2(ptr noundef nonnull %22, i64 noundef %28, i1 noundef zeroext true, i32 noundef %.019, i1 noundef zeroext %3, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %8, ptr noundef %4)
-  br i1 %29, label %32, label %30
+  br i1 %29, label %31, label %30
 
 30:                                               ; preds = %27
-  %31 = load i64, ptr %6, align 8, !tbaa !99
-  call void @_mi_os_free_ex(ptr noundef nonnull %22, i64 noundef %31, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %8, ptr nonnull poison)
-  br label %32
+  call void @_mi_os_free_ex(ptr noundef nonnull %22, i64 noundef %28, i1 noundef zeroext true, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %8, ptr nonnull poison)
+  br label %31
 
-32:                                               ; preds = %27, %30, %26
+31:                                               ; preds = %27, %30, %26
   %.1 = phi i32 [ 12, %26 ], [ 12, %30 ], [ 0, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #55
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #55
-  br label %33
+  br label %32
 
-33:                                               ; preds = %10, %32
-  %.0 = phi i32 [ %.1, %32 ], [ 0, %10 ]
+32:                                               ; preds = %10, %31
+  %.0 = phi i32 [ %.1, %31 ], [ 0, %10 ]
   ret i32 %.0
 }
 

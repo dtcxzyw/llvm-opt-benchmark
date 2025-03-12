@@ -1532,34 +1532,35 @@ define dso_local range(i64 0, 4294967296) i64 @gin_clean_pending_list(ptr nounde
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 18
   %50 = load i8, ptr %49, align 2, !range !18, !noundef !19
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %53
+  br i1 %51, label %52, label %54
 
 52:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 9656, ptr nonnull %3) #9
   call void @initGinState(ptr noundef nonnull %3, ptr noundef nonnull %7) #9
   call void @ginInsertCleanup(ptr noundef nonnull %3, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 9656, ptr nonnull %3) #9
-  br label %60
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %.pre = load i32, ptr %.phi.trans.insert, align 4
+  %53 = zext i32 %.pre to i64
+  br label %61
 
-53:                                               ; preds = %46
-  %54 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
-  br i1 %54, label %55, label %60
+54:                                               ; preds = %46
+  %55 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
+  br i1 %55, label %56, label %61
 
-55:                                               ; preds = %53
-  %56 = tail call i32 @errcode(i32 noundef 325) #9
-  %57 = load ptr, ptr %15, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %58) #9
+56:                                               ; preds = %54
+  %57 = tail call i32 @errcode(i32 noundef 325) #9
+  %58 = load ptr, ptr %15, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %59) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1086, ptr noundef nonnull @__func__.gin_clean_pending_list) #9
-  br label %60
+  br label %61
 
-60:                                               ; preds = %53, %55, %52
+61:                                               ; preds = %54, %56, %52
+  %62 = phi i64 [ 0, %54 ], [ 0, %56 ], [ %53, %52 ]
   call void @index_close(ptr noundef nonnull %7, i32 noundef 3) #9
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %62 = load i32, ptr %61, align 4
-  %63 = zext i32 %62 to i64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #9
-  ret i64 %63
+  ret i64 %62
 }
 
 declare ptr @index_open(i32 noundef, i32 noundef) local_unnamed_addr #3

@@ -15666,11 +15666,11 @@ set_file_offset.exit:                             ; preds = %9, %23, %24, %34, %
 50:                                               ; preds = %.lr.ph, %set_file_offset.exit26
   %51 = load i32, ptr %3, align 4, !tbaa !21
   %.not16 = icmp ult i32 %51, %1
-  %.pre32 = load i8, ptr %10, align 4, !tbaa !63
+  %.pre31 = load i8, ptr %10, align 4, !tbaa !63
   br i1 %.not16, label %68, label %52
 
 52:                                               ; preds = %50
-  %.not.i17 = icmp eq i8 %.pre32, 0
+  %.not.i17 = icmp eq i8 %.pre31, 0
   br i1 %.not.i17, label %53, label %stb_vorbis_get_file_offset.exit
 
 53:                                               ; preds = %52
@@ -15700,73 +15700,71 @@ stb_vorbis_get_file_offset.exit:                  ; preds = %52, %55, %61
   br i1 %67, label %._crit_edge, label %stb_vorbis_get_file_offset.exit._crit_edge
 
 stb_vorbis_get_file_offset.exit._crit_edge:       ; preds = %stb_vorbis_get_file_offset.exit
-  %.pre30 = load i32, ptr %3, align 4, !tbaa !21
-  %.pre31 = load i8, ptr %10, align 4, !tbaa !63
+  %.pre30 = load i8, ptr %10, align 4, !tbaa !63
   br label %68
 
 68:                                               ; preds = %stb_vorbis_get_file_offset.exit._crit_edge, %50
-  %69 = phi i8 [ %.pre31, %stb_vorbis_get_file_offset.exit._crit_edge ], [ %.pre32, %50 ]
-  %70 = phi i32 [ %.pre30, %stb_vorbis_get_file_offset.exit._crit_edge ], [ %51, %50 ]
+  %69 = phi i8 [ %.pre30, %stb_vorbis_get_file_offset.exit._crit_edge ], [ %.pre31, %50 ]
   %.not.i19 = icmp eq i8 %69, 0
-  br i1 %.not.i19, label %71, label %set_file_offset.exit26
+  br i1 %.not.i19, label %70, label %set_file_offset.exit26
 
-71:                                               ; preds = %68
+70:                                               ; preds = %68
   store i32 0, ptr %48, align 8, !tbaa !61
-  %72 = load ptr, ptr %44, align 8, !tbaa !59
-  %.not31.i21 = icmp eq ptr %72, null
-  br i1 %.not31.i21, label %80, label %73
+  %71 = load ptr, ptr %44, align 8, !tbaa !59
+  %.not31.i21 = icmp eq ptr %71, null
+  br i1 %.not31.i21, label %79, label %72
 
-73:                                               ; preds = %71
-  %74 = load ptr, ptr %45, align 8, !tbaa !64
-  %75 = zext i32 %70 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
-  %77 = load ptr, ptr %49, align 8, !tbaa !60
-  %.not33.i22 = icmp ult ptr %76, %77
-  br i1 %.not33.i22, label %79, label %78
+72:                                               ; preds = %70
+  %73 = load ptr, ptr %45, align 8, !tbaa !64
+  %74 = zext i32 %51 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
+  %76 = load ptr, ptr %49, align 8, !tbaa !60
+  %.not33.i22 = icmp ult ptr %75, %76
+  br i1 %.not33.i22, label %78, label %77
 
-78:                                               ; preds = %73
-  store ptr %77, ptr %44, align 8, !tbaa !59
-  store i32 1, ptr %48, align 8, !tbaa !61
-  br label %set_file_offset.exit26
-
-79:                                               ; preds = %73
+77:                                               ; preds = %72
   store ptr %76, ptr %44, align 8, !tbaa !59
+  store i32 1, ptr %48, align 8, !tbaa !61
   br label %set_file_offset.exit26
 
-80:                                               ; preds = %71
-  %81 = load i32, ptr %47, align 8, !tbaa !65
-  %82 = add i32 %81, %70
-  %83 = icmp ult i32 %82, %70
-  %84 = icmp slt i32 %70, 0
-  %or.cond.i23 = or i1 %84, %83
-  br i1 %or.cond.i23, label %85, label %86
-
-85:                                               ; preds = %80
-  store i32 1, ptr %48, align 8, !tbaa !61
-  br label %88
-
-86:                                               ; preds = %80
-  %87 = zext i32 %82 to i64
-  br label %88
-
-88:                                               ; preds = %86, %85
-  %.0.i24 = phi i64 [ 2147483647, %85 ], [ %87, %86 ]
-  %89 = load ptr, ptr %46, align 8, !tbaa !62
-  %90 = call i32 @fseek(ptr noundef %89, i64 noundef %.0.i24, i32 noundef 0)
-  %.not32.i25 = icmp eq i32 %90, 0
-  br i1 %.not32.i25, label %set_file_offset.exit26, label %91
-
-91:                                               ; preds = %88
-  store i32 1, ptr %48, align 8, !tbaa !61
-  %92 = load ptr, ptr %46, align 8, !tbaa !62
-  %93 = load i32, ptr %47, align 8, !tbaa !65
-  %94 = zext i32 %93 to i64
-  %95 = call i32 @fseek(ptr noundef %92, i64 noundef %94, i32 noundef 2)
+78:                                               ; preds = %72
+  store ptr %75, ptr %44, align 8, !tbaa !59
   br label %set_file_offset.exit26
 
-set_file_offset.exit26:                           ; preds = %68, %78, %79, %88, %91
-  %96 = call i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null)
-  %.not15 = icmp eq i32 %96, 0
+79:                                               ; preds = %70
+  %80 = load i32, ptr %47, align 8, !tbaa !65
+  %81 = add i32 %80, %51
+  %82 = icmp ult i32 %81, %51
+  %83 = icmp slt i32 %51, 0
+  %or.cond.i23 = or i1 %83, %82
+  br i1 %or.cond.i23, label %84, label %85
+
+84:                                               ; preds = %79
+  store i32 1, ptr %48, align 8, !tbaa !61
+  br label %87
+
+85:                                               ; preds = %79
+  %86 = zext i32 %81 to i64
+  br label %87
+
+87:                                               ; preds = %85, %84
+  %.0.i24 = phi i64 [ 2147483647, %84 ], [ %86, %85 ]
+  %88 = load ptr, ptr %46, align 8, !tbaa !62
+  %89 = call i32 @fseek(ptr noundef %88, i64 noundef %.0.i24, i32 noundef 0)
+  %.not32.i25 = icmp eq i32 %89, 0
+  br i1 %.not32.i25, label %set_file_offset.exit26, label %90
+
+90:                                               ; preds = %87
+  store i32 1, ptr %48, align 8, !tbaa !61
+  %91 = load ptr, ptr %46, align 8, !tbaa !62
+  %92 = load i32, ptr %47, align 8, !tbaa !65
+  %93 = zext i32 %92 to i64
+  %94 = call i32 @fseek(ptr noundef %91, i64 noundef %93, i32 noundef 2)
+  br label %set_file_offset.exit26
+
+set_file_offset.exit26:                           ; preds = %68, %77, %78, %87, %90
+  %95 = call i32 @vorbis_find_page(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef null)
+  %.not15 = icmp eq i32 %95, 0
   br i1 %.not15, label %._crit_edge, label %50, !llvm.loop !312
 
 ._crit_edge:                                      ; preds = %stb_vorbis_get_file_offset.exit, %set_file_offset.exit26, %set_file_offset.exit

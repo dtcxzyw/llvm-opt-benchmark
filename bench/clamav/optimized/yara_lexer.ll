@@ -2971,32 +2971,26 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef c
   %50 = load i32, ptr %49, align 4, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 28
   store i32 %50, ptr %51, align 4, !tbaa !25
-  %.pre = load i32, ptr %25, align 4, !tbaa !25
-  %.pre27 = load ptr, ptr %23, align 8, !tbaa !28
-  %.pre28 = load ptr, ptr %14, align 8, !tbaa !31
   br label %52
 
 52:                                               ; preds = %38, %37
-  %53 = phi ptr [ %.pre28, %38 ], [ null, %37 ]
-  %54 = phi ptr [ %.pre27, %38 ], [ %0, %37 ]
-  %55 = phi i32 [ %.pre, %38 ], [ %20, %37 ]
-  %56 = phi i64 [ %45, %38 ], [ %33, %37 ]
-  %57 = phi ptr [ %44, %38 ], [ %31, %37 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
-  store ptr %14, ptr %58, align 8, !tbaa !23
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store i32 %55, ptr %59, align 4, !tbaa !27
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr %54, ptr %60, align 8, !tbaa !29
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store ptr %54, ptr %61, align 8, !tbaa !30
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %53, ptr %62, align 8, !tbaa !18
-  %63 = load i8, ptr %54, align 1, !tbaa !32
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i8 %63, ptr %64, align 8, !tbaa !33
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 1, ptr %65, align 8, !tbaa !58
+  %53 = phi i64 [ %45, %38 ], [ %33, %37 ]
+  %54 = phi ptr [ %44, %38 ], [ %31, %37 ]
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  store ptr %14, ptr %55, align 8, !tbaa !23
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  store i32 %20, ptr %56, align 4, !tbaa !27
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr %0, ptr %57, align 8, !tbaa !29
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  store ptr %0, ptr %58, align 8, !tbaa !30
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr null, ptr %59, align 8, !tbaa !18
+  %60 = load i8, ptr %0, align 1, !tbaa !32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store i8 %60, ptr %61, align 8, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i32 1, ptr %62, align 8, !tbaa !58
   br label %yy_switch_to_buffer.exit
 
 yy_switch_to_buffer.exit:                         ; preds = %52, %.thread.i, %3, %5, %9

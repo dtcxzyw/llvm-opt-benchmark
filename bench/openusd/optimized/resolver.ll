@@ -10769,19 +10769,22 @@ define internal noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLO
   store ptr null, ptr %3, align 8
   %5 = call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver15_GetURIResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE(ptr noundef nonnull readonly align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit
+  br i1 %.not.i, label %6, label %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge
+
+._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge: ; preds = %2
+  %.pre = load ptr, ptr %3, align 8
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val11.i = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %.val11.i, i64 88
-  store ptr %8, ptr %3, align 8
   %9 = call fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE3GetEv(ptr noundef nonnull align 8 dereferenceable(88) %.val11.i)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit: ; preds = %2, %6
-  %.0.i = phi ptr [ %9, %6 ], [ %5, %2 ]
-  %10 = load ptr, ptr %3, align 8
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit: ; preds = %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge, %6
+  %10 = phi ptr [ %8, %6 ], [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge ]
+  %.0.i = phi ptr [ %9, %6 ], [ %5, %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 49
   %12 = load i8, ptr %11, align 1
   %13 = trunc i8 %12 to i1
@@ -18217,7 +18220,11 @@ define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
   store ptr null, ptr %4, align 8
   %10 = call fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver15_GetURIResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE(ptr noundef nonnull readonly align 8 dereferenceable(320) %.0.val, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %4)
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %11, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit
+  br i1 %.not.i, label %11, label %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge
+
+._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge: ; preds = %2
+  %.pre = load ptr, ptr %4, align 8
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -18227,9 +18234,9 @@ define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N
   %14 = call fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_PluginResolverINS_10ArResolverENS_22Ar_ResolverFactoryBaseEE3GetEv(ptr noundef nonnull align 8 dereferenceable(88) %.val11.i)
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit
 
-_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit: ; preds = %2, %11
-  %.0.i = phi ptr [ %14, %11 ], [ %10, %2 ]
-  %15 = load ptr, ptr %4, align 8
+_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit: ; preds = %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge, %11
+  %15 = phi ptr [ %13, %11 ], [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge ]
+  %.0.i = phi ptr [ %14, %11 ], [ %10, %._ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver12_GetResolverERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPPKNS0_13_ResolverInfoE.exit_crit_edge ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 50
   %17 = load i8, ptr %16, align 2
   %18 = trunc i8 %17 to i1
