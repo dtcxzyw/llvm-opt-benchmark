@@ -282,12 +282,12 @@ define hidden i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   store ptr null, ptr %3, align 8, !tbaa !13
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %9, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
   %5 = call i32 @X509_PUBKEY_set(ptr noundef nonnull %3, ptr noundef nonnull %0)
   %.not5 = icmp eq i32 %5, 0
-  br i1 %.not5, label %9, label %6
+  br i1 %.not5, label %10, label %6
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %3, align 8, !tbaa !13
@@ -295,7 +295,7 @@ define hidden i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   call void @ASN1_item_free(ptr noundef %7, ptr noundef nonnull @X509_PUBKEY_it) #5
   br label %9
 
-9:                                                ; preds = %4, %2, %6
+10:                                               ; preds = %4, %2, %6
   %.0 = phi i32 [ %8, %6 ], [ 0, %2 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   ret i32 %.0
@@ -349,7 +349,7 @@ declare void @RSA_free(ptr noundef) local_unnamed_addr #1
 define hidden i32 @i2d_RSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @EVP_PKEY_new() #5
@@ -358,7 +358,7 @@ define hidden i32 @i2d_RSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 6:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 249) #5
-  br label %13
+  br label %14
 
 7:                                                ; preds = %4
   %8 = tail call i32 @EVP_PKEY_set1_RSA(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
@@ -378,9 +378,9 @@ i2d_PUBKEY.exit:                                  ; preds = %7, %10
   %.0.i = phi i32 [ %12, %10 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #5
-  br label %13
+  br label %14
 
-13:                                               ; preds = %2, %i2d_PUBKEY.exit, %6
+14:                                               ; preds = %2, %i2d_PUBKEY.exit, %6
   %.0 = phi i32 [ %.0.i, %i2d_PUBKEY.exit ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -437,7 +437,7 @@ declare void @DSA_free(ptr noundef) local_unnamed_addr #1
 define hidden i32 @i2d_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %13, label %4
+  br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @EVP_PKEY_new() #5
@@ -446,7 +446,7 @@ define hidden i32 @i2d_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 6:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 288) #5
-  br label %13
+  br label %14
 
 7:                                                ; preds = %4
   %8 = tail call i32 @EVP_PKEY_set1_DSA(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
@@ -466,9 +466,9 @@ i2d_PUBKEY.exit:                                  ; preds = %7, %10
   %.0.i = phi i32 [ %12, %10 ], [ 0, %7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #5
-  br label %13
+  br label %14
 
-13:                                               ; preds = %2, %i2d_PUBKEY.exit, %6
+14:                                               ; preds = %2, %i2d_PUBKEY.exit, %6
   %.0 = phi i32 [ %.0.i, %i2d_PUBKEY.exit ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %.0
 }
@@ -523,7 +523,7 @@ declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 define hidden i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %14, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @EVP_PKEY_new() #5
@@ -532,7 +532,7 @@ define hidden i32 @i2d_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 7:                                                ; preds = %4
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 326) #5
-  br label %14
+  br label %15
 
 8:                                                ; preds = %4
   %9 = tail call i32 @EVP_PKEY_set1_EC_KEY(ptr noundef nonnull %5, ptr noundef nonnull %0) #5
@@ -552,9 +552,9 @@ i2d_PUBKEY.exit:                                  ; preds = %8, %11
   %.0.i = phi i32 [ %13, %11 ], [ 0, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #5
   call void @EVP_PKEY_free(ptr noundef nonnull %5) #5
-  br label %14
+  br label %15
 
-14:                                               ; preds = %2, %i2d_PUBKEY.exit, %7
+15:                                               ; preds = %2, %i2d_PUBKEY.exit, %7
   %.0 = phi i32 [ 0, %7 ], [ %.0.i, %i2d_PUBKEY.exit ], [ 0, %2 ]
   ret i32 %.0
 }

@@ -247,7 +247,7 @@ sub_1:                                            ; preds = %40
   %61 = call ptr %60(ptr noundef nonnull %.079143, i64 noundef %.178145, ptr noundef %.082141, i64 noundef %.083139, ptr noundef %4, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %spec.store.select, ptr noundef %6) #14
   store ptr %61, ptr %12, align 8, !tbaa !12
   %.not100 = icmp eq ptr %61, null
-  br i1 %.not100, label %189, label %62
+  br i1 %.not100, label %190, label %62
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
@@ -434,7 +434,7 @@ php_stream_xport_bind.exit:                       ; preds = %118
 144:                                              ; preds = %php_stream_xport_bind.exit
   %145 = and i32 %3, 8
   %.not103 = icmp eq i32 %145, 0
-  br i1 %.not103, label %184, label %146
+  br i1 %.not103, label %185, label %146
 
 146:                                              ; preds = %144
   %147 = load ptr, ptr %12, align 8, !tbaa !12
@@ -478,7 +478,7 @@ zval_get_long.exit:                               ; preds = %160, %162
   %166 = load ptr, ptr %12, align 8, !tbaa !12
   %167 = call i32 @php_stream_xport_listen(ptr noundef %166, i32 noundef %.0, ptr noundef nonnull %13)
   %.not108 = icmp eq i32 %167, 0
-  br i1 %.not108, label %184, label %168
+  br i1 %.not108, label %185, label %168
 
 168:                                              ; preds = %.critedge125
   %.not109 = icmp eq ptr %7, null
@@ -496,14 +496,14 @@ zval_get_long.exit:                               ; preds = %160, %162
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %173) #14
   br i1 %.not110, label %.thread157, label %174
 
-174:                                              ; preds = %171
+174:  ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %176 = load i32, ptr %175, align 4, !tbaa !8
   %177 = and i32 %176, 64
   %.not.i = icmp eq i32 %177, 0
   br i1 %.not.i, label %178, label %.thread157
 
-178:                                              ; preds = %174
+178: ; preds = %174
   %179 = load i32, ptr %169, align 4, !tbaa !9
   %180 = icmp ne i32 %179, 0
   call void @llvm.assume(i1 %180)
@@ -512,43 +512,43 @@ zval_get_long.exit:                               ; preds = %160, %162
   %182 = icmp eq i32 %181, 0
   br i1 %182, label %183, label %.thread157
 
-183:                                              ; preds = %178
+183:; preds = %178
   call void @_efree(ptr noundef nonnull %169) #14
   br label %.thread157
 
-184:                                              ; preds = %144, %.critedge125
-  %185 = load ptr, ptr %12, align 8, !tbaa !12
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 116
-  %187 = load i32, ptr %186, align 4, !tbaa !85
-  %188 = or i32 %187, 1024
-  store i32 %188, ptr %186, align 4, !tbaa !85
+185:                                              ; preds = %144, %.critedge125
+  %186 = load ptr, ptr %12, align 8, !tbaa !12
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 116
+  %188 = load i32, ptr %187, align 4, !tbaa !85
+  %189 = or i32 %188, 1024
+  store i32 %189, ptr %187, align 4, !tbaa !85
   br label %.thread157
 
-.thread157:                                       ; preds = %62, %183, %178, %174, %143, %138, %134, %115, %110, %106, %170, %171, %130, %131, %102, %103, %php_stream_xport_connect.exit, %79, %184, %116
-  %.3 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %79 ], [ false, %184 ], [ false, %116 ], [ true, %103 ], [ true, %102 ], [ true, %131 ], [ true, %130 ], [ true, %171 ], [ true, %170 ], [ true, %106 ], [ true, %110 ], [ true, %115 ], [ true, %134 ], [ true, %138 ], [ true, %143 ], [ true, %174 ], [ true, %178 ], [ true, %183 ], [ false, %62 ]
+.thread157:                                       ; preds = %62, %183, %178, %174, %143, %138, %134, %115, %110, %106, %170, %171, %130, %131, %102, %103, %php_stream_xport_connect.exit, %79, %185, %116
+  %.3 = phi i1 [ false, %php_stream_xport_connect.exit ], [ false, %79 ], [ false, %185 ], [ false, %116 ], [ true, %103 ], [ true, %102 ], [ true, %131 ], [ true, %130 ], [ true, %171 ], [ true, %170 ], [ true, %106 ], [ true, %110 ], [ true, %115 ], [ true, %134 ], [ true, %138 ], [ true, %143 ], [ true, %174 ], [ true, %178 ], [ true, %183 ], [ false, %62 ]
   store ptr %63, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %16) #14
-  br label %189
+  br label %190
 
-189:                                              ; preds = %.thread157, %59
+190:                                              ; preds = %.thread157, %59
   %.075 = phi i1 [ %.3, %.thread157 ], [ false, %59 ]
   %.074 = phi i1 [ %65, %.thread157 ], [ false, %59 ]
   %brmerge = or i1 %.075, %.074
-  %190 = load ptr, ptr %12, align 8, !tbaa !12
-  br i1 %brmerge, label %191, label %._crit_edge
+  %191 = load ptr, ptr %12, align 8, !tbaa !12
+  br i1 %brmerge, label %192, label %._crit_edge
 
-191:                                              ; preds = %189
+192:                                              ; preds = %190
   %. = select i1 %.not, i32 3, i32 19
-  %192 = call i32 @_php_stream_free(ptr noundef %190, i32 noundef %.) #14
+  %193 = call i32 @_php_stream_free(ptr noundef %191, i32 noundef %.) #14
   store ptr null, ptr %12, align 8, !tbaa !12
-  br i1 %.074, label %193, label %._crit_edge
+  br i1 %.074, label %194, label %._crit_edge
 
-193:                                              ; preds = %191
+194:                                              ; preds = %192
   call void @_zend_bailout(ptr noundef nonnull @.str.10, i32 noundef 193) #17
   unreachable
 
-._crit_edge:                                      ; preds = %189, %22, %191, %58, %57
-  %.072 = phi ptr [ null, %57 ], [ null, %58 ], [ null, %191 ], [ %26, %22 ], [ %190, %189 ]
+._crit_edge:                                      ; preds = %190, %22, %192, %58, %57
+  %.072 = phi ptr [ null, %57 ], [ null, %58 ], [ null, %192 ], [ %26, %22 ], [ %191, %190 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14

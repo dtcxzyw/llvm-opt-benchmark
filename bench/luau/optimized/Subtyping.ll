@@ -57265,11 +57265,11 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment1
   %18 = load ptr, ptr %0, align 8, !tbaa !646
   store ptr %.sroa.0.0, ptr %0, align 8, !tbaa !646
   store i64 %spec.select, ptr %2, align 8, !tbaa !61
-  %.not.i1127 = icmp eq ptr %18, null
-  br i1 %.not.i1127, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EED2Ev.exit, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i
+  %.not.i1128 = icmp eq ptr %18, null
+  br i1 %.not.i1128, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EED2Ev.exit, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i
 
 19:                                               ; preds = %._crit_edge
-  %.not.i.i.i = icmp eq i64 %81, 0
+  %.not.i.i.i = icmp eq i64 %82, 0
   br i1 %.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %19, %_ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i
@@ -57297,7 +57297,7 @@ _ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.ex
 
 _ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i: ; preds = %25, %_ZN4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EED2Ev.exit.i.i.i.i
   %26 = add nuw i64 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %26, %81
+  %exitcond.not.i.i.i = icmp eq i64 %26, %82
   br i1 %exitcond.not.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !207
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE7destroyEv.exit.i: ; preds = %_ZN4Luau20SubtypingEnvironment13GenericBoundsD2Ev.exit.i.i.i, %._crit_edge.thread, %19
@@ -57309,8 +57309,8 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment1
   ret void
 
 28:                                               ; preds = %.lr.ph, %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit
-  %29 = phi i64 [ %15, %.lr.ph ], [ %81, %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit ]
-  %.015 = phi i64 [ 0, %.lr.ph ], [ %82, %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit ]
+  %29 = phi i64 [ %15, %.lr.ph ], [ %82, %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit ]
+  %.015 = phi i64 [ 0, %.lr.ph ], [ %83, %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit ]
   %30 = load ptr, ptr %0, align 8, !tbaa !119
   %31 = getelementptr inbounds nuw %"struct.std::pair.504", ptr %30, i64 %.015
   %32 = load ptr, ptr %31, align 8, !tbaa !96
@@ -57349,20 +57349,20 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment1
   br i1 %.not.i12, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit, label %40, !llvm.loop !647
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit: ; preds = %47, %45, %44
-  %spec.select.i = phi ptr [ %41, %44 ], [ %41, %45 ], [ null, %47 ]
+  %50 = phi ptr [ %41, %44 ], [ %41, %45 ], [ null, %47 ]
   store ptr %32, ptr %spec.select.i, align 8, !tbaa !125
   %50 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.not.i.i.i.i = icmp eq ptr %spec.select.i, %31
-  br i1 %.not.i.i.i.i, label %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit, label %52
+  br i1 %.not.i.i.i.i, label %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit, label %53
 
-52:                                               ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit
-  %53 = load ptr, ptr %51, align 8, !tbaa !84
-  %.not10.i.i.i.i = icmp eq ptr %53, null
-  br i1 %.not10.i.i.i.i, label %55, label %54
+53:                                               ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit
+  %54 = load ptr, ptr %51, align 8, !tbaa !84
+  %.not10.i.i.i.i = icmp eq ptr %54, null
+  br i1 %.not10.i.i.i.i, label %55, label %55
 
-54:                                               ; preds = %52
-  tail call void @_ZdlPv(ptr noundef nonnull %53) #29
+55:                                               ; preds = %53
+  tail call void @_ZdlPv(ptr noundef nonnull %54) #29
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %51, i8 0, i64 16, i1 false)
   br label %55
 
@@ -57393,30 +57393,30 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, i8 0, i64 16, i1 false)
   br label %70
 
-70:                                               ; preds = %69, %55
-  %71 = load ptr, ptr %67, align 8, !tbaa !84
-  store ptr %71, ptr %66, align 8, !tbaa !84
-  %72 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %73 = load i64, ptr %72, align 8, !tbaa !200
-  %74 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 56
-  store i64 %73, ptr %74, align 8, !tbaa !200
-  %75 = getelementptr inbounds nuw i8, ptr %31, i64 64
-  %76 = load i64, ptr %75, align 8, !tbaa !199
-  %77 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 64
-  store i64 %76, ptr %77, align 8, !tbaa !199
-  %78 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %79 = load ptr, ptr %78, align 8, !tbaa !648
-  %80 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 72
-  store ptr %79, ptr %80, align 8, !tbaa !648
+56:                                               ; preds = %69, %55
+  %57 = load ptr, ptr %67, align 8, !tbaa !84
+  store ptr %57, ptr %66, align 8, !tbaa !84
+  %58 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %59 = load i64, ptr %58, align 8, !tbaa !200
+  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 56
+  store i64 %59, ptr %60, align 8, !tbaa !200
+  %61 = getelementptr inbounds nuw i8, ptr %31, i64 64
+  %62 = load i64, ptr %61, align 8, !tbaa !199
+  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 64
+  store i64 %62, ptr %63, align 8, !tbaa !199
+  %64 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %65 = load ptr, ptr %64, align 8, !tbaa !648
+  %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 72
+  store ptr %65, ptr %66, align 8, !tbaa !648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, i8 0, i64 24, i1 false)
   %.pre25 = load i64, ptr %2, align 8, !tbaa !118
   br label %_ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit
 
 _ZNSt4pairIPKN4Luau4TypeENS0_20SubtypingEnvironment13GenericBoundsEEaSEOS6_.exit: ; preds = %70, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit, %28
-  %81 = phi i64 [ %.pre25, %70 ], [ %29, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit ], [ %29, %28 ]
-  %82 = add nuw i64 %.015, 1
-  %83 = icmp ult i64 %82, %81
-  br i1 %83, label %28, label %._crit_edge, !llvm.loop !649
+  %82 = phi i64 [ %.pre25, %70 ], [ %29, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_NS_20SubtypingEnvironment13GenericBoundsEES5_IKS4_S7_ENS0_16ItemInterfaceMapIS4_S7_EENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS9_.exit ], [ %29, %28 ]
+  %83 = add nuw i64 %.015, 1
+  %84 = icmp ult i64 %83, %82
+  br i1 %84, label %28, label %._crit_edge, !llvm.loop !649
 }
 
 ; Function Attrs: mustprogress uwtable

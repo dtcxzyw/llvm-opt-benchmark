@@ -5517,7 +5517,7 @@ define i32 @TraditionalEnc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   br label %.thread53
 
 .thread53:                                        ; preds = %.thread45..thread53_crit_edge, %39
-  %41 = phi i32 [ %37, %39 ], [ %.pre, %.thread45..thread53_crit_edge ]
+  %.4 = phi i32 [ %37, %39 ], [ %.pre, %.thread45..thread53_crit_edge ]
   %.4 = phi i32 [ %40, %39 ], [ %37, %.thread45..thread53_crit_edge ]
   %42 = ptrtoint ptr %32 to i64
   %43 = trunc i64 %42 to i32

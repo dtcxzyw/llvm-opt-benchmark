@@ -14867,7 +14867,7 @@ define void @"_ZN108_$LT$regex_automata..util..captures..GroupInfoAllNames$u20$a
   %.promoted36 = load i64, ptr %9, align 8
   %.promoted37 = load i32, ptr %12, align 4
   %.promoted40 = load ptr, ptr %13, align 8
-  %15 = icmp eq i32 %.promoted, 0
+  %14 = icmp eq i32 %.promoted, 0
   %.sroa.49.0..sroa_idx.promoted = load ptr, ptr %.sroa.49.0..sroa_idx, align 8
   br label %16
 
@@ -14876,7 +14876,7 @@ define void @"_ZN108_$LT$regex_automata..util..captures..GroupInfoAllNames$u20$a
   %17 = phi ptr [ %.promoted40, %.lr.ph ], [ null, %tailrecurse ]
   %.sroa.3.0.i38 = phi i32 [ %.promoted37, %.lr.ph ], [ %.sroa.3.0.i39, %tailrecurse ]
   %18 = phi i64 [ %.promoted36, %.lr.ph ], [ %24, %tailrecurse ]
-  %.not = phi i1 [ %15, %.lr.ph ], [ true, %tailrecurse ]
+  %.not = phi i1 [ %14, %.lr.ph ], [ true, %tailrecurse ]
   br i1 %.not, label %19, label %23
 
 .split:                                           ; preds = %19, %2, %.split44

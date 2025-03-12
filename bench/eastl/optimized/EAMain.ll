@@ -67,10 +67,10 @@ invoke.cont1:                                     ; preds = %if.then
   br label %_ZN2EA6EAMain11CommandLineD2Ev.exit
 
 lpad:                                             ; preds = %if.then
-  %3 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2EA6EAMain11CommandLineD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #20
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 
 _ZN2EA6EAMain11CommandLineD2Ev.exit:              ; preds = %_ZN2EA6EAMain11CommandLineC2EiPPc.exit, %invoke.cont1
   %retval.0 = phi ptr [ null, %_ZN2EA6EAMain11CommandLineC2EiPPc.exit ], [ %spec.select, %invoke.cont1 ]

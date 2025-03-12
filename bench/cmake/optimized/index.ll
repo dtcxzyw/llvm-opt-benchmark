@@ -736,7 +736,7 @@ define dso_local range(i32 0, 12) i32 @lzma_index_cat(ptr noalias noundef %0, pt
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
-  br i1 %or.cond, label %174, label %7
+  br i1 %or.cond, label %180, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -835,7 +835,7 @@ lzma_index_file_size.exit85:                      ; preds = %58, %66
   %.0.i.i84 = phi i64 [ -1, %58 ], [ %..i.i83, %66 ]
   %78 = add i64 %.0.i.i84, %.0.i.i
   %79 = icmp slt i64 %78, 0
-  br i1 %79, label %174, label %80
+  br i1 %79, label %180, label %80
 
 80:                                               ; preds = %lzma_index_file_size.exit85
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -844,7 +844,7 @@ lzma_index_file_size.exit85:                      ; preds = %58, %66
   %84 = load i64, ptr %83, align 8, !tbaa !41
   %85 = add i64 %84, %82
   %86 = icmp slt i64 %85, 0
-  br i1 %86, label %174, label %87
+  br i1 %86, label %180, label %87
 
 87:                                               ; preds = %80
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -867,7 +867,7 @@ lzma_index_file_size.exit85:                      ; preds = %58, %66
   %105 = add i64 %104, %101
   %106 = and i64 %105, -4
   %107 = icmp ult i64 %106, 17179869185
-  br i1 %107, label %108, label %174
+  br i1 %107, label %108, label %180
 
 108:                                              ; preds = %87
   %109 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -887,7 +887,7 @@ lzma_index_file_size.exit85:                      ; preds = %58, %66
   %119 = add i64 %118, 64
   %120 = tail call ptr @lzma_alloc(i64 noundef %119, ptr noundef %2) #17
   %.not81 = icmp eq ptr %120, null
-  br i1 %.not81, label %174, label %121
+  br i1 %.not81, label %180, label %121
 
 121:                                              ; preds = %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !49
@@ -962,12 +962,12 @@ lzma_index_checks.exit:                           ; preds = %.thread, %146
   store i32 %155, ptr %153, align 8, !tbaa !57
   %156 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %156, align 4
-  %157 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %0, ptr %157, align 8, !tbaa !58
+  %159 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %0, ptr %159, align 8, !tbaa !58
   %158 = load ptr, ptr %1, align 8, !tbaa !59
   call fastcc void @index_cat_helper(ptr noundef %4, ptr noundef %158)
-  %159 = load i64, ptr %81, align 8, !tbaa !41
-  %160 = add i64 %159, %84
+  %161 = load i64, ptr %81, align 8, !tbaa !41
+  %160 = add i64 %161, %84
   store i64 %160, ptr %81, align 8, !tbaa !41
   %161 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %162 = load i64, ptr %161, align 8, !tbaa !32
@@ -975,22 +975,22 @@ lzma_index_checks.exit:                           ; preds = %.thread, %146
   %164 = load i64, ptr %163, align 8, !tbaa !32
   %165 = add i64 %164, %162
   store i64 %165, ptr %163, align 8, !tbaa !32
-  %166 = load i64, ptr %88, align 8, !tbaa !30
-  %167 = add i64 %166, %96
-  store i64 %167, ptr %88, align 8, !tbaa !30
-  %168 = load i64, ptr %90, align 8, !tbaa !31
+  %168 = load i64, ptr %88, align 8, !tbaa !30
+  %169 = add i64 %168, %96
+  store i64 %169, ptr %88, align 8, !tbaa !30
+  %170 = load i64, ptr %90, align 8, !tbaa !31
   %169 = add i64 %168, %98
   store i64 %169, ptr %90, align 8, !tbaa !31
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %171 = load i32, ptr %170, align 8, !tbaa !13
-  %172 = load i32, ptr %142, align 8, !tbaa !13
-  %173 = or i32 %172, %171
+  %173 = load i32, ptr %170, align 8, !tbaa !13
+  %174 = load i32, ptr %142, align 8, !tbaa !13
+  %173 = or i32 %174, %173
   store i32 %173, ptr %142, align 8, !tbaa !13
   tail call void @lzma_free(ptr noundef nonnull %1, ptr noundef %2) #17
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
-  br label %174
+  br label %180
 
-174:                                              ; preds = %117, %lzma_index_checks.exit, %87, %80, %lzma_index_file_size.exit85, %3
+180:                                              ; preds = %117, %lzma_index_checks.exit, %87, %80, %lzma_index_file_size.exit85, %3
   %.0 = phi i32 [ 11, %3 ], [ 0, %lzma_index_checks.exit ], [ 9, %87 ], [ 9, %80 ], [ 9, %lzma_index_file_size.exit85 ], [ 5, %117 ]
   ret i32 %.0
 }

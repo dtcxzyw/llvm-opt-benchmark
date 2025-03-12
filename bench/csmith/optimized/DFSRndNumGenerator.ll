@@ -2583,7 +2583,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %4
   %10 = invoke noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 2, ptr noundef %2, ptr poison, ptr noundef nonnull %5)
           to label %18 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit27
 
-_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17: ; preds = %4
+_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17:; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #25
@@ -2593,9 +2593,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17: ; preds = %4
   store ptr %14, ptr %11, align 8, !tbaa !71
   store ptr %14, ptr %12, align 8, !tbaa !76
   %15 = invoke noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 2, ptr noundef %2, ptr poison, ptr noundef nonnull %5)
-          to label %18 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit27
+          to label %18 unwind label %21
 
-16:                                               ; preds = %4
+16:; preds = %4
   %17 = tail call noundef i32 @_ZN18DFSRndNumGenerator13random_choiceEiPK6FilterPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 2, ptr noundef %2, ptr poison, ptr noundef null)
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
@@ -2615,7 +2615,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %16, %18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
   ret i1 %23
 
-_ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
+21:                                               ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %.ph = phi ptr [ %9, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %14, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17 ]
   %.ph42 = phi ptr [ %8, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i ], [ %13, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i17 ]
   %lpad.thr_comm = landingpad { ptr, i32 }

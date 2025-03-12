@@ -11822,9 +11822,9 @@ define noundef zeroext i1 @"_ZN4just10assignment107_$LT$impl$u20$core..fmt..Disp
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN53_$LT$just..ast..Ast$u20$as$u20$core..fmt..Display$GT$3fmt17h78d80e89da84dad7E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %4 = alloca [1 x { ptr, ptr }], align 8
-  %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
-  %6 = alloca ptr, align 8
+  %2 = alloca [1 x { ptr, ptr }], align 8
+  %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
+  %4 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !12, !noundef !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11841,21 +11841,21 @@ define noundef zeroext i1 @"_ZN53_$LT$just..ast..Ast$u20$as$u20$core..fmt..Displ
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %21
 
-21:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2c18853698371e6eE.exit.thread", %2
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit.us": ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2c18853698371e6eE.exit.thread", %2
   %22 = phi ptr [ %40, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2c18853698371e6eE.exit.thread" ], [ %8, %2 ]
   %23 = phi ptr [ %41, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2c18853698371e6eE.exit.thread" ], [ undef, %2 ]
   %trunc = phi i1 [ true, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h2c18853698371e6eE.exit.thread" ], [ false, %2 ]
   br i1 %trunc, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit", label %24
 
-24:                                               ; preds = %21
+25:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit.us"
   %25 = icmp eq ptr %22, %11
   br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit.thread39", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit.thread": ; preds = %24
+44:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 272
   br label %27
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit": ; preds = %21
+.loopexit:                                        ; preds = %21
   %.not.not = icmp eq ptr %23, null
   br i1 %.not.not, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h16506116fb1e653cE.exit.thread39", label %27
 

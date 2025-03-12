@@ -2500,11 +2500,11 @@ define dso_local void @PostgresSingleUserMain(i32 noundef %0, ptr noundef %1, pt
   %19 = call zeroext i1 @SelectConfigFiles(ptr noundef %17, ptr noundef %18) #22
   br i1 %19, label %21, label %20
 
-20:                                               ; preds = %15
+19:                                               ; preds = %15
   call void @proc_exit(i32 noundef 1) #24
   unreachable
 
-21:                                               ; preds = %15
+20:                                               ; preds = %15
   call void @checkDataDir() #22
   call void @ChangeToDataDir() #22
   call void @CreateDataDirLockFile(i1 noundef zeroext false) #22
@@ -2518,8 +2518,8 @@ define dso_local void @PostgresSingleUserMain(i32 noundef %0, ptr noundef %1, pt
   call void @InitializeWalConsistencyChecking() #22
   call void @CreateSharedMemoryAndSemaphores() #22
   call void @set_max_safe_fds() #22
-  %22 = call i64 @GetCurrentTimestamp() #22
-  store i64 %22, ptr @PgStartTime, align 8
+  %21 = call i64 @GetCurrentTimestamp() #22
+  store i64 %21, ptr @PgStartTime, align 8
   call void @InitProcess() #22
   call void @PostgresMain(ptr noundef nonnull %16, ptr noundef %2) #26
   unreachable

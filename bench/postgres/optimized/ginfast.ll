@@ -1548,15 +1548,15 @@ define dso_local range(i64 0, 4294967296) i64 @gin_clean_pending_list(ptr nounde
   %55 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #9
   br i1 %55, label %56, label %61
 
-56:                                               ; preds = %54
-  %57 = tail call i32 @errcode(i32 noundef 325) #9
+56: ; preds = %54
+  %59 = tail call i32 @errcode(i32 noundef 325) #9
   %58 = load ptr, ptr %15, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8, ptr noundef nonnull %59) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1086, ptr noundef nonnull @__func__.gin_clean_pending_list) #9
-  br label %61
+  br label %60
 
-61:                                               ; preds = %54, %56, %52
+60:                                               ; preds = %54, %56, %52
   %62 = phi i64 [ 0, %54 ], [ 0, %56 ], [ %53, %52 ]
   call void @index_close(ptr noundef nonnull %7, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #9

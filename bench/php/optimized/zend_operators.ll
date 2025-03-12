@@ -392,19 +392,19 @@ define internal fastcc i64 @zendi_try_get_long(ptr noundef readonly captures(non
   store i8 0, ptr %1, align 1, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !4
-  switch i8 %8, label %83 [
-    i8 1, label %84
-    i8 2, label %84
+  switch i8 %8, label %85 [
+    i8 1, label %86
+    i8 2, label %86
     i8 3, label %9
     i8 5, label %10
     i8 6, label %29
-    i8 8, label %68
-    i8 9, label %82
-    i8 7, label %82
+    i8 8, label %70
+    i8 9, label %84
+    i8 7, label %84
   ]
 
 9:                                                ; preds = %2
-  br label %84
+  br label %86
 
 10:                                               ; preds = %2
   %11 = load double, ptr %0, align 8, !tbaa !4
@@ -434,17 +434,17 @@ zend_dval_to_lval.exit:                           ; preds = %10, %17, %22
   %.0.i = phi i64 [ %21, %17 ], [ %23, %22 ], [ 0, %10 ]
   %24 = sitofp i64 %.0.i to double
   %25 = fcmp oeq double %11, %24
-  br i1 %25, label %84, label %26
+  br i1 %25, label %86, label %26
 
 26:                                               ; preds = %zend_dval_to_lval.exit
   tail call void (i32, ptr, ...) @zend_error_unchecked(i32 noundef 8192, ptr noundef nonnull @.str.4, i32 noundef -1, double noundef %11) #28
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !42
   %.not24 = icmp eq ptr %27, null
-  br i1 %.not24, label %84, label %28, !prof !38
+  br i1 %.not24, label %86, label %28, !prof !38
 
 28:                                               ; preds = %26
   store i8 1, ptr %1, align 1, !tbaa !39
-  br label %84
+  br label %86
 
 29:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #28
@@ -535,44 +535,44 @@ zend_dval_to_lval_cap.exit:                       ; preds = %48, %55, %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  br label %84
+  br label %86
 
-68:                                               ; preds = %2
+70:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #28
-  %69 = load ptr, ptr %0, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !16
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 136
-  %73 = load ptr, ptr %72, align 8, !tbaa !21
-  %74 = call i32 %73(ptr noundef %69, ptr noundef nonnull %6, i32 noundef 4) #28
-  %75 = icmp eq i32 %74, -1
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
-  %77 = icmp ne ptr %76, null
-  %or.cond = select i1 %75, i1 true, i1 %77
-  br i1 %or.cond, label %78, label %79
+  %71 = load ptr, ptr %0, align 8, !tbaa !4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %73 = load ptr, ptr %72, align 8, !tbaa !16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 136
+  %75 = load ptr, ptr %74, align 8, !tbaa !21
+  %76 = call i32 %73(ptr noundef %71, ptr noundef nonnull %6, i32 noundef 4) #28
+  %77 = icmp eq i32 %76, -1
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8
+  %79 = icmp ne ptr %78, null
+  %or.cond = select i1 %77, i1 true, i1 %79
+  br i1 %or.cond, label %80, label %81
 
-78:                                               ; preds = %68
+80:                                               ; preds = %70
   store i8 1, ptr %1, align 1, !tbaa !39
-  br label %81
+  br label %83
 
-79:                                               ; preds = %68
-  %80 = load i64, ptr %6, align 8, !tbaa !4
-  br label %81
+81:                                               ; preds = %70
+  %82 = load i64, ptr %6, align 8, !tbaa !4
+  br label %83
 
-81:                                               ; preds = %79, %78
-  %.2 = phi i64 [ 0, %78 ], [ %80, %79 ]
+83:                                               ; preds = %81, %80
+  %.2 = phi i64 [ 0, %80 ], [ %82, %81 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #28
-  br label %84
+  br label %86
 
-82:                                               ; preds = %2, %2
+84:                                               ; preds = %2, %2
   store i8 1, ptr %1, align 1, !tbaa !39
-  br label %84
+  br label %86
 
-83:                                               ; preds = %2
+85:                                               ; preds = %2
   unreachable
 
-84:                                               ; preds = %zend_dval_to_lval.exit, %28, %26, %2, %2, %82, %81, %67, %9
-  %.0 = phi i64 [ 0, %82 ], [ %.2, %81 ], [ %.1, %67 ], [ 1, %9 ], [ 0, %2 ], [ 0, %2 ], [ %.0.i, %26 ], [ %.0.i, %28 ], [ %.0.i, %zend_dval_to_lval.exit ]
+86:                                               ; preds = %zend_dval_to_lval.exit, %28, %26, %2, %2, %84, %83, %67, %9
+  %.0 = phi i64 [ 0, %84 ], [ %.2, %83 ], [ %.1, %67 ], [ 1, %9 ], [ 0, %2 ], [ 0, %2 ], [ %.0.i, %26 ], [ %.0.i, %28 ], [ %.0.i, %zend_dval_to_lval.exit ]
   ret i64 %.0
 }
 

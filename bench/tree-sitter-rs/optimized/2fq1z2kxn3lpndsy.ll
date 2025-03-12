@@ -22171,8 +22171,8 @@ define hidden void @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2056275f540c13a8E.exit.thread": ; preds = %9, %22
   %.1 = phi i64 [ %24, %22 ], [ %.0, %9 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.1, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.1, ptr %27, align 8
   store i64 0, ptr %0, align 8
   ret void
 }

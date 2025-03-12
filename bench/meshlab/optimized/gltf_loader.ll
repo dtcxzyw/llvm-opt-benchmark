@@ -47171,7 +47171,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 
 66:                                               ; preds = %58
   %.not93 = icmp eq ptr %2, null
-  br i1 %.not93, label %192, label %67
+  br i1 %.not93, label %196, label %67
 
 67:                                               ; preds = %66
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, i32 noundef %1) #54
@@ -47204,12 +47204,12 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #54
-  br label %192
+  br label %196
 
 78:                                               ; preds = %67
   %79 = landingpad { ptr, i32 }
           cleanup
-  br label %193
+  br label %197
 
 80:                                               ; preds = %69
   %81 = landingpad { ptr, i32 }
@@ -47245,7 +47245,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 90:                                               ; preds = %89, %80
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %89 ], [ %81, %80 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #54
-  br label %193
+  br label %197
 
 .thread143:                                       ; preds = %50, %58
   %.177150 = phi ptr [ %65, %58 ], [ %57, %50 ]
@@ -47261,7 +47261,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 95:                                               ; preds = %.thread143
   call void @free(ptr noundef nonnull %.177150) #54
   %.not113 = icmp eq ptr %2, null
-  br i1 %.not113, label %192, label %96
+  br i1 %.not113, label %196, label %96
 
 96:                                               ; preds = %95
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %25, i32 noundef %1) #54
@@ -47294,12 +47294,12 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #54
-  br label %192
+  br label %196
 
 107:                                              ; preds = %96
   %108 = landingpad { ptr, i32 }
           cleanup
-  br label %193
+  br label %197
 
 109:                                              ; preds = %98
   %110 = landingpad { ptr, i32 }
@@ -47335,7 +47335,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 119:                                              ; preds = %118, %109
   %.pn114.pn.pn = phi { ptr, i32 } [ %.pn114.pn, %118 ], [ %110, %109 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #54
-  br label %193
+  br label %197
 
 120:                                              ; preds = %.thread143
   %121 = icmp slt i32 %4, 1
@@ -47346,7 +47346,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 122:                                              ; preds = %120
   call void @free(ptr noundef nonnull %.177150) #54
   %.not107 = icmp eq ptr %2, null
-  br i1 %.not107, label %192, label %123
+  br i1 %.not107, label %196, label %123
 
 123:                                              ; preds = %122
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, i32 noundef %1) #54
@@ -47379,12 +47379,12 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #54
-  br label %192
+  br label %196
 
 134:                                              ; preds = %123
   %135 = landingpad { ptr, i32 }
           cleanup
-  br label %193
+  br label %197
 
 136:                                              ; preds = %125
   %137 = landingpad { ptr, i32 }
@@ -47420,7 +47420,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 146:                                              ; preds = %145, %136
   %.pn108.pn.pn = phi { ptr, i32 } [ %.pn108.pn, %145 ], [ %137, %136 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #54
-  br label %193
+  br label %197
 
 147:                                              ; preds = %120
   %148 = icmp slt i32 %5, 1
@@ -47431,7 +47431,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 149:                                              ; preds = %147
   call void @free(ptr noundef nonnull %.177150) #54
   %.not101 = icmp eq ptr %2, null
-  br i1 %.not101, label %192, label %150
+  br i1 %.not101, label %196, label %150
 
 150:                                              ; preds = %149
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %35, i32 noundef %1) #54
@@ -47464,12 +47464,12 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #54
-  br label %192
+  br label %196
 
 161:                                              ; preds = %150
   %162 = landingpad { ptr, i32 }
           cleanup
-  br label %193
+  br label %197
 
 163:                                              ; preds = %152
   %164 = landingpad { ptr, i32 }
@@ -47505,7 +47505,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 173:                                              ; preds = %172, %163
   %.pn102.pn.pn = phi { ptr, i32 } [ %.pn102.pn, %172 ], [ %164, %163 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #54
-  br label %193
+  br label %197
 
 174:                                              ; preds = %147
   %.pre = load i32, ptr %15, align 4
@@ -47531,7 +47531,7 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
   %.not.i.i.i.i.i = icmp eq i32 %183, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit, label %188
 
-188:                                              ; preds = %174
+176:                                              ; preds = %174
   %189 = mul nsw i32 %183, %185
   %190 = sext i32 %189 to i64
   %191 = load ptr, ptr %181, align 8
@@ -47540,13 +47540,13 @@ define noundef zeroext i1 @_ZN8tinygltf13LoadImageDataEPNS_5ImageEiPNSt7__cxx111
 
 _ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit: ; preds = %174, %188
   call void @free(ptr noundef nonnull %.177150) #54
-  br label %192
+  br label %196
 
-192:                                              ; preds = %149, %160, %122, %133, %95, %106, %66, %77, %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit
+196:                                              ; preds = %149, %160, %122, %133, %95, %106, %66, %77, %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit
   %.0 = phi i1 [ true, %_ZSt4copyIPhN9__gnu_cxx17__normal_iteratorIS0_St6vectorIhSaIhEEEEET0_T_S8_S7_.exit ], [ false, %77 ], [ false, %66 ], [ false, %106 ], [ false, %95 ], [ false, %133 ], [ false, %122 ], [ false, %160 ], [ false, %149 ]
   ret i1 %.0
 
-193:                                              ; preds = %161, %173, %134, %146, %107, %119, %78, %90
+197:                                              ; preds = %161, %173, %134, %146, %107, %119, %78, %90
   %.sink = phi ptr [ %20, %90 ], [ %20, %78 ], [ %25, %119 ], [ %25, %107 ], [ %30, %146 ], [ %30, %134 ], [ %35, %173 ], [ %35, %161 ]
   %.pn114.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %90 ], [ %79, %78 ], [ %.pn114.pn.pn, %119 ], [ %108, %107 ], [ %.pn108.pn.pn, %146 ], [ %135, %134 ], [ %.pn102.pn.pn, %173 ], [ %162, %161 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #54

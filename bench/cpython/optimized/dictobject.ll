@@ -5706,32 +5706,32 @@ PyDict_Pop.exit:                                  ; preds = %15, %_PyObject_Hash
   %.1.i24.i.i = phi i64 [ %18, %_PyObject_HashFast.exit.i.i ], [ %17, %15 ]
   %20 = call i32 @_PyDict_Pop_KnownHash(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.1.i24.i.i, ptr noundef nonnull %4)
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %PyDict_Pop.exit.thread8, label %PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge
+  br i1 %21, label %22, label %PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge
 
 PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge: ; preds = %PyDict_Pop.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !64
   br label %_Py_NewRef.exit
 
-PyDict_Pop.exit.thread8:                          ; preds = %9, %PyDict_Pop.exit
+22:                                               ; preds = %9, %PyDict_Pop.exit
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %27, label %22
+  br i1 %.not, label %28, label %23
 
-22:                                               ; preds = %PyDict_Pop.exit.thread8
-  %23 = load i32, ptr %2, align 8, !tbaa !41
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %_Py_NewRef.exit, label %25
+23:                                               ; preds = %22
+  %24 = load i32, ptr %2, align 8, !tbaa !41
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %_Py_NewRef.exit, label %26
 
-25:                                               ; preds = %22
-  %26 = add nuw i32 %23, 1
-  store i32 %26, ptr %2, align 8, !tbaa !41
+26:                                               ; preds = %23
+  %27 = add nuw i32 %24, 1
+  store i32 %27, ptr %2, align 8, !tbaa !41
   br label %_Py_NewRef.exit
 
-27:                                               ; preds = %PyDict_Pop.exit.thread8
+28:                                               ; preds = %22
   call void @_PyErr_SetKeyError(ptr noundef %1) #23
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %_PyObject_HashFast.exit.i.i, %8, %PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge, %25, %22, %27
-  %.0 = phi ptr [ null, %27 ], [ %2, %22 ], [ %2, %25 ], [ %.pre, %PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge ], [ null, %8 ], [ null, %_PyObject_HashFast.exit.i.i ]
+_Py_NewRef.exit:                                  ; preds = %_PyObject_HashFast.exit.i.i, %8, %PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge, %26, %23, %28
+  %.0 = phi ptr [ null, %28 ], [ %2, %23 ], [ %2, %26 ], [ %.pre, %PyDict_Pop.exit.PyDict_Pop.exit.thread_crit_edge ], [ null, %8 ], [ null, %_PyObject_HashFast.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   ret ptr %.0
 }

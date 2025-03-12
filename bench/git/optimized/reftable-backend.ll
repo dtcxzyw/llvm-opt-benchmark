@@ -3410,7 +3410,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @queue_transaction_update(p
 10:                                               ; preds = %5
   %11 = call fastcc i32 @prepare_transaction_update(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %4)
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %43, label %13
+  br i1 %12, label %47, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %6, align 8, !tbaa !161
@@ -3449,7 +3449,7 @@ st_mult.exit:                                     ; preds = %21
   %.pre14 = load i64, ptr %15, align 8, !tbaa !167
   br label %30
 
-30:                                               ; preds = %._crit_edge, %st_mult.exit
+30:; preds = %._crit_edge, %st_mult.exit
   %31 = phi i64 [ %16, %._crit_edge ], [ %.pre14, %st_mult.exit ]
   %32 = phi ptr [ %.pre, %._crit_edge ], [ %29, %st_mult.exit ]
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -3457,7 +3457,7 @@ st_mult.exit:                                     ; preds = %21
   store ptr %2, ptr %34, align 8, !tbaa !168
   %35 = getelementptr inbounds nuw %struct.reftable_transaction_update, ptr %32, i64 %31, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %35, ptr noundef nonnull readonly align 4 dereferenceable(32) %3, i64 32, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %37 = load i32, ptr %36, align 4, !tbaa !139
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i32 %37, ptr %38, align 4, !tbaa !139
@@ -3467,9 +3467,9 @@ st_mult.exit:                                     ; preds = %21
   store i64 %41, ptr %15, align 8, !tbaa !167
   %42 = getelementptr inbounds nuw %struct.reftable_transaction_update, ptr %39, i64 %40
   store ptr %42, ptr %7, align 8, !tbaa !57
-  br label %43
+  br label %47
 
-43:                                               ; preds = %10, %30
+47:                                               ; preds = %10, %30
   %.0 = phi i32 [ 0, %30 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #20
   ret i32 %.0

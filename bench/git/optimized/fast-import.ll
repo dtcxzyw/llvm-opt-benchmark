@@ -8254,7 +8254,7 @@ oidclr.exit.i:                                    ; preds = %48, %.split.loop.ex
 
 tree_content_replace.exit:                        ; preds = %oidclr.exit.i, %57
   store ptr %37, ptr %35, align 8, !tbaa !101
-  br label %69
+  br label %70
 
 58:                                               ; preds = %31
   %59 = zext i16 %28 to i32
@@ -8275,7 +8275,7 @@ tree_content_replace.exit:                        ; preds = %oidclr.exit.i, %57
   %68 = call fastcc i32 @tree_content_set(ptr noundef nonnull %64, ptr noundef %65, ptr noundef %66, i16 noundef zeroext %28, ptr noundef %67)
   br label %69
 
-69:                                               ; preds = %63, %tree_content_replace.exit
+70:                                               ; preds = %63, %tree_content_replace.exit
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6) #24
   ret void
 }

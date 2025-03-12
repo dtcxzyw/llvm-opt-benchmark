@@ -8114,7 +8114,7 @@ define void @Gia_ManEquivFilterTest(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %1, %Vec_IntPush.exit
   %9 = phi ptr [ %4, %1 ], [ %33, %Vec_IntPush.exit ]
-  %.012 = phi i32 [ 0, %1 ], [ %41, %Vec_IntPush.exit ]
+  %.012 = phi i32 [ 0, %1 ], [ %42, %Vec_IntPush.exit ]
   %.val10 = load i32, ptr %6, align 8, !tbaa !90
   %.val11 = load ptr, ptr %7, align 8, !tbaa !47
   %10 = getelementptr i8, ptr %.val11, i64 4
@@ -8175,13 +8175,13 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %14, ptr %36, align 4, !tbaa !32
   %.val = load i32, ptr %6, align 8, !tbaa !90
   %.val9 = load ptr, ptr %7, align 8, !tbaa !47
-  %37 = getelementptr i8, ptr %.val9, i64 4
-  %.val9.val = load i32, ptr %37, align 4, !tbaa !31
-  %38 = sub i32 %12, %.val
-  %39 = add i32 %38, %.val9.val
-  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %39)
-  %41 = add nuw nsw i32 %.012, 1
-  %exitcond.not = icmp eq i32 %41, 10
+  %38 = getelementptr i8, ptr %.val9, i64 4
+  %.val9.val = load i32, ptr %38, align 4, !tbaa !31
+  %39 = sub i32 %12, %.val
+  %40 = add i32 %39, %.val9.val
+  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %40)
+  %42 = add nuw nsw i32 %.012, 1
+  %exitcond.not = icmp eq i32 %42, 10
   br i1 %exitcond.not, label %Vec_IntFree.exit, label %8, !llvm.loop !148
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntPush.exit

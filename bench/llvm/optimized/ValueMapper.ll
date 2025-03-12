@@ -4031,10 +4031,10 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_117DelayedBasicBlockELb0EE9push_
   %.val.i = phi ptr [ %.val.pre4.i, %12 ], [ %.val.i.i.i, %31 ], [ %.val.pre.i, %30 ]
   %.016.i.i.i = phi ptr [ %4, %12 ], [ %35, %31 ], [ %4, %30 ]
   %.val3.i = load i32, ptr %20, align 8, !tbaa !41
-  %37 = zext i32 %.val3.i to i64
-  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i, i64 %37
+  %36 = zext i32 %.val3.i to i64
+  %37 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DelayedBasicBlock", ptr %.val.i, i64 %36
   store ptr %36, ptr %38, align 8, !tbaa !94
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !45
   store i64 %41, ptr %39, align 8, !tbaa !45

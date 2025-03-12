@@ -767,13 +767,13 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   %11 = add i64 %1, -1
   %12 = tail call ptr @memchr(ptr noundef nonnull %10, i32 noundef 93, i64 noundef %11) #22
   %.not49 = icmp eq ptr %12, null
-  br i1 %.not49, label %66, label %13
+  br i1 %.not49, label %67, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %.not50 = icmp eq i8 %15, 58
-  br i1 %.not50, label %16, label %66
+  br i1 %.not50, label %16, label %67
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -782,7 +782,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 18:                                               ; preds = %4
   %19 = tail call ptr @memchr(ptr noundef nonnull %0, i32 noundef 58, i64 noundef %1) #22
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %66, label %20
+  br i1 %.not, label %67, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
@@ -828,7 +828,7 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
 39:                                               ; preds = %33
   %40 = call i32 @php_network_getaddresses(ptr noundef %27, i32 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %55
+  br i1 %41, label %42, label %56
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %6, align 8, !tbaa !16
@@ -857,58 +857,58 @@ define dso_local range(i32 -1, 1) i32 @php_network_parse_network_address_with_po
   call void @_efree(ptr noundef nonnull %43) #19
   br label %zend_string_release_ex.exit
 
-55:                                               ; preds = %39
-  %56 = load ptr, ptr %5, align 8, !tbaa !23
-  %57 = load ptr, ptr %56, align 8, !tbaa !4
-  %58 = load i16, ptr %57, align 2, !tbaa !39
-  switch i16 %58, label %.lr.ph.i.preheader [
-    i16 10, label %59
-    i16 2, label %60
+56:                                               ; preds = %39
+  %57 = load ptr, ptr %5, align 8, !tbaa !23
+  %58 = load ptr, ptr %57, align 8, !tbaa !4
+  %59 = load i16, ptr %58, align 2, !tbaa !39
+  switch i16 %59, label %.lr.ph.i.preheader [
+    i16 10, label %60
+    i16 2, label %61
   ]
 
-59:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %57, i64 28, i1 false), !tbaa.struct !50
+60:                                               ; preds = %56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %58, i64 28, i1 false), !tbaa.struct !50
   br label %.preheader.i
 
-60:                                               ; preds = %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !51
+61:                                               ; preds = %56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !51
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %59, %60
-  %storemerge = phi i32 [ 16, %60 ], [ 28, %59 ]
+.preheader.i:                                     ; preds = %60, %61
+  %storemerge = phi i32 [ 16, %61 ], [ 28, %60 ]
   %rev.i53 = call noundef i16 @llvm.bswap.i16(i16 %.044)
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %rev.i53, ptr %61, align 2, !tbaa !41
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  store i16 %rev.i53, ptr %62, align 2, !tbaa !41
   store i32 %storemerge, ptr %3, align 4, !tbaa !14
-  %.pr = load ptr, ptr %56, align 8, !tbaa !4
+  %.pr = load ptr, ptr %57, align 8, !tbaa !4
   %.not8.i = icmp eq ptr %.pr, null
   br i1 %.not8.i, label %php_network_freeaddresses.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %55, %.preheader.i
-  %.158 = phi i32 [ 0, %.preheader.i ], [ -1, %55 ]
-  %62 = phi ptr [ %.pr, %.preheader.i ], [ %57, %55 ]
+.lr.ph.i.preheader:                               ; preds = %56, %.preheader.i
+  %.158 = phi i32 [ 0, %.preheader.i ], [ -1, %56 ]
+  %63 = phi ptr [ %.pr, %.preheader.i ], [ %58, %56 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %63 = phi ptr [ %65, %.lr.ph.i ], [ %62, %.lr.ph.i.preheader ]
-  %.09.i = phi ptr [ %64, %.lr.ph.i ], [ %56, %.lr.ph.i.preheader ]
-  call void @_efree(ptr noundef nonnull %63) #19
-  %64 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !4
-  %.not.i55 = icmp eq ptr %65, null
+  %64 = phi ptr [ %66, %.lr.ph.i ], [ %63, %.lr.ph.i.preheader ]
+  %.09.i = phi ptr [ %65, %.lr.ph.i ], [ %57, %.lr.ph.i.preheader ]
+  call void @_efree(ptr noundef nonnull %64) #19
+  %65 = getelementptr inbounds nuw i8, ptr %.09.i, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !4
+  %.not.i55 = icmp eq ptr %66, null
   br i1 %.not.i55, label %php_network_freeaddresses.exit, label %.lr.ph.i
 
 php_network_freeaddresses.exit:                   ; preds = %.lr.ph.i, %.preheader.i
   %.159 = phi i32 [ 0, %.preheader.i ], [ %.158, %.lr.ph.i ]
-  call void @_efree(ptr noundef nonnull %56) #19
+  call void @_efree(ptr noundef nonnull %57) #19
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %54, %49, %44, %42, %php_network_freeaddresses.exit, %37, %31
   %.045 = phi i32 [ 0, %31 ], [ 0, %37 ], [ -1, %42 ], [ %.159, %php_network_freeaddresses.exit ], [ -1, %44 ], [ -1, %49 ], [ -1, %54 ]
   call void @_efree(ptr noundef %27) #19
-  br label %66
+  br label %67
 
-66:                                               ; preds = %18, %9, %13, %zend_string_release_ex.exit
+67:                                               ; preds = %18, %9, %13, %zend_string_release_ex.exit
   %.0 = phi i32 [ %.045, %zend_string_release_ex.exit ], [ -1, %13 ], [ -1, %9 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #19

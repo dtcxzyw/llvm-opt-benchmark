@@ -157,7 +157,7 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
 
 16:                                               ; preds = %8, %5
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.7) #19
-  br label %60
+  br label %63
 
 17:                                               ; preds = %8
   %.not59 = icmp eq i64 %2, 0
@@ -165,7 +165,7 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
 
 18:                                               ; preds = %17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #19
-  br label %60
+  br label %63
 
 19:                                               ; preds = %17
   %.not60 = icmp ult i64 %1, %2
@@ -173,7 +173,7 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
 
 20:                                               ; preds = %19
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.2) #19
-  br label %60
+  br label %63
 
 21:                                               ; preds = %19
   %22 = udiv i64 %2, %9
@@ -188,7 +188,7 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
 
 29:                                               ; preds = %21
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8) #19
-  br label %60
+  br label %63
 
 30:                                               ; preds = %21
   %31 = shl i64 %26, 3
@@ -200,7 +200,7 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
 
 34:                                               ; preds = %30
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8) #19
-  br label %60
+  br label %63
 
 35:                                               ; preds = %30
   %36 = icmp ne i32 %4, 0
@@ -211,61 +211,61 @@ define noundef ptr @cl_fmap_open_handle(ptr noundef %0, i64 noundef %1, i64 noun
   %39 = tail call ptr @mmap(ptr noundef null, i64 noundef %27, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #19
   %40 = icmp eq ptr %39, inttoptr (i64 -1 to ptr)
   %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #19
-  br i1 %40, label %.thread, label %43
+  br i1 %40, label %47, label %43
 
 .critedge:                                        ; preds = %35
-  %42 = tail call ptr @cli_max_malloc(i64 noundef %27) #19
+  %43 = tail call ptr @cli_max_malloc(i64 noundef %27) #19
   br label %43
 
-43:                                               ; preds = %37, %.critedge
-  %.sink = phi ptr [ %39, %37 ], [ %42, %.critedge ]
+45:                                               ; preds = %37, %.critedge
+  %46 = phi ptr [ %39, %37 ], [ %43, %.critedge ]
   %44 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %.sink, ptr %44, align 8, !tbaa !20
   %.not63 = icmp eq ptr %.sink, null
   br i1 %.not63, label %.thread, label %45
 
-.thread:                                          ; preds = %37, %43
+47:                                               ; preds = %37, %45
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #19
-  br label %60
+  br label %63
 
-45:                                               ; preds = %43
+48:                                               ; preds = %45
   store ptr %0, ptr %28, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %3, ptr %46, align 8, !tbaa !22
-  %47 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %48 = zext i1 %36 to i8
-  store i8 %48, ptr %47, align 8, !tbaa !23
-  %49 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store i64 %1, ptr %49, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw i8, ptr %28, i64 88
-  store i64 %2, ptr %50, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  store i64 %2, ptr %51, align 8, !tbaa !26
-  %52 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store i64 %26, ptr %52, align 8, !tbaa !27
-  %53 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store i64 %9, ptr %53, align 8, !tbaa !28
-  %54 = getelementptr inbounds nuw i8, ptr %28, i64 96
-  store ptr @unmap_handle, ptr %54, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw i8, ptr %28, i64 104
-  store ptr @handle_need, ptr %55, align 8, !tbaa !29
-  %56 = getelementptr inbounds nuw i8, ptr %28, i64 112
-  store ptr @handle_need_offstr, ptr %56, align 8, !tbaa !30
-  %57 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  store ptr @handle_gets, ptr %57, align 8, !tbaa !31
-  %58 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  store ptr @handle_unneed_off, ptr %58, align 8, !tbaa !32
-  %59 = getelementptr inbounds nuw i8, ptr %28, i64 58
-  store i8 1, ptr %59, align 2, !tbaa !33
-  br label %61
+  %49 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %3, ptr %49, align 8, !tbaa !22
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %51 = zext i1 %36 to i8
+  store i8 %51, ptr %50, align 8, !tbaa !23
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  store i64 %1, ptr %52, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i8, ptr %28, i64 88
+  store i64 %2, ptr %53, align 8, !tbaa !25
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  store i64 %2, ptr %54, align 8, !tbaa !26
+  %55 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store i64 %26, ptr %55, align 8, !tbaa !27
+  %56 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store i64 %9, ptr %56, align 8, !tbaa !28
+  %57 = getelementptr inbounds nuw i8, ptr %28, i64 96
+  store ptr @unmap_handle, ptr %57, align 8, !tbaa !18
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 104
+  store ptr @handle_need, ptr %58, align 8, !tbaa !29
+  %59 = getelementptr inbounds nuw i8, ptr %28, i64 112
+  store ptr @handle_need_offstr, ptr %59, align 8, !tbaa !30
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  store ptr @handle_gets, ptr %60, align 8, !tbaa !31
+  %61 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  store ptr @handle_unneed_off, ptr %61, align 8, !tbaa !32
+  %62 = getelementptr inbounds nuw i8, ptr %28, i64 58
+  store i8 1, ptr %62, align 2, !tbaa !33
+  br label %64
 
-60:                                               ; preds = %16, %20, %.thread, %34, %29, %18
-  %.054.ph = phi ptr [ null, %18 ], [ null, %29 ], [ %28, %34 ], [ %28, %.thread ], [ null, %20 ], [ null, %16 ]
+63:                                               ; preds = %16, %20, %47, %34, %29, %18
+  %.054.ph = phi ptr [ null, %18 ], [ null, %29 ], [ %28, %34 ], [ %28, %47 ], [ null, %20 ], [ null, %16 ]
   tail call void @unmap_handle(ptr noundef %.054.ph)
-  br label %61
+  br label %64
 
-61:                                               ; preds = %45, %60
-  %.1 = phi ptr [ null, %60 ], [ %28, %45 ]
+64:                                               ; preds = %48, %63
+  %.1 = phi ptr [ null, %63 ], [ %28, %48 ]
   ret ptr %.1
 }
 

@@ -33178,32 +33178,32 @@ _ZN4core5slice4sort15partition_equal17h20de3cd524762756E.exit: ; preds = %._crit
 define internal fastcc void @_ZN4core5slice4sort8heapsort17h02b28d7197bde4f3E(ptr noalias noundef nonnull align 8 %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph.preheader:
   %.sroa.0.i = alloca [6 x i64], align 8
-  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
   %3 = lshr i64 %1, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.4.038 = phi i64 [ %4, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %4 = add nsw i64 %.sroa.4.038, -1
-  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h60caecd083b648b8E"(ptr nonnull %2, ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %4)
-  %.not = icmp eq i64 %4, 0
+  %.sroa.4.038 = phi i64 [ %5, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %5 = add nsw i64 %.sroa.4.038, -1
+  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h60caecd083b648b8E"(ptr nonnull %3, ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %5)
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit", label %.lr.ph
 
-5:                                                ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit"
+6:                                                ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit"
   ret void
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit": ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit"
-  %.sroa.428.039 = phi i64 [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit" ], [ %1, %.lr.ph ]
-  %6 = add i64 %.sroa.428.039, -1
-  %7 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, [2 x i64] } }], ptr %0, i64 0, i64 %6
+  %.sroa.428.039 = phi i64 [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit" ], [ %1, %.lr.ph ]
+  %7 = add i64 %.sroa.428.039, -1
+  %8 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, [2 x i64] } }], ptr %0, i64 0, i64 %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !6814
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !alias.scope !6817, !noalias !6814
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !6814
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false), !alias.scope !6817, !noalias !6814
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !6814
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i)
-  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h60caecd083b648b8E"(ptr nonnull %2, ptr noalias noundef nonnull align 8 %0, i64 noundef %6, i64 noundef 0)
-  %8 = icmp ugt i64 %6, 1
-  br i1 %8, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit", label %5
+  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h60caecd083b648b8E"(ptr nonnull %3, ptr noalias noundef nonnull align 8 %0, i64 noundef %7, i64 noundef 0)
+  %9 = icmp ugt i64 %7, 1
+  br i1 %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha35c5432203960c4E.exit", label %6
 }
 
 ; Function Attrs: cold nonlazybind uwtable
@@ -34959,62 +34959,62 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17hbeef48fe46e6e2d0E(pt
 define internal fastcc void @_ZN4core5slice4sort8heapsort17hbf117d2fbb38aab0E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph.preheader:
   %.sroa.0.i = alloca [6 x i64], align 8
-  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
   %3 = lshr i64 %1, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.4.038 = phi i64 [ %4, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %4 = add nsw i64 %.sroa.4.038, -1
-  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h5b0b5a82a5fe073cE"(ptr nonnull %2, ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %4)
-  %.not = icmp eq i64 %4, 0
+  %.sroa.4.038 = phi i64 [ %5, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %5 = add nsw i64 %.sroa.4.038, -1
+  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h5b0b5a82a5fe073cE"(ptr nonnull %3, ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %5)
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit", label %.lr.ph
 
-5:                                                ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit"
+6:                                                ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit"
   ret void
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit": ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit"
-  %.sroa.428.039 = phi i64 [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit" ], [ %1, %.lr.ph ]
-  %6 = add i64 %.sroa.428.039, -1
-  %7 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, i64 }, i8, [7 x i8] }], ptr %0, i64 0, i64 %6
+  %.sroa.428.039 = phi i64 [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit" ], [ %1, %.lr.ph ]
+  %7 = add i64 %.sroa.428.039, -1
+  %8 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, i64 }, i8, [7 x i8] }], ptr %0, i64 0, i64 %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false), !noalias !7426
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !alias.scope !7429, !noalias !7426
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !7426
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false), !alias.scope !7429, !noalias !7426
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.i, i64 48, i1 false), !noalias !7426
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0.i)
-  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h5b0b5a82a5fe073cE"(ptr nonnull %2, ptr noalias noundef nonnull align 8 %0, i64 noundef %6, i64 noundef 0)
-  %8 = icmp ugt i64 %6, 1
-  br i1 %8, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit", label %5
+  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h5b0b5a82a5fe073cE"(ptr nonnull %3, ptr noalias noundef nonnull align 8 %0, i64 noundef %7, i64 noundef 0)
+  %9 = icmp ugt i64 %7, 1
+  br i1 %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h227bd31ef558028aE.exit", label %6
 }
 
 ; Function Attrs: cold nonlazybind uwtable
 define internal fastcc void @_ZN4core5slice4sort8heapsort17hc67418668a41e112E(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 21, 0) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
 .lr.ph.preheader:
-  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
   %3 = lshr i64 %1, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.sroa.4.038 = phi i64 [ %4, %.lr.ph ], [ %3, %.lr.ph.preheader ]
-  %4 = add nsw i64 %.sroa.4.038, -1
-  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h20bfaee162afa64bE"(ptr nonnull %2, ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %4)
-  %.not = icmp eq i64 %4, 0
+  %.sroa.4.038 = phi i64 [ %5, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %5 = add nsw i64 %.sroa.4.038, -1
+  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h20bfaee162afa64bE"(ptr nonnull %3, ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %5)
+  %.not = icmp eq i64 %5, 0
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit", label %.lr.ph
 
-5:                                                ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit"
+6:                                                ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit"
   ret void
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit": ; preds = %.lr.ph, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit"
-  %.sroa.428.039 = phi i64 [ %6, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit" ], [ %1, %.lr.ph ]
-  %6 = add i64 %.sroa.428.039, -1
-  %7 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %6
+  %.sroa.428.039 = phi i64 [ %7, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit" ], [ %1, %.lr.ph ]
+  %7 = add i64 %.sroa.428.039, -1
+  %8 = getelementptr inbounds [0 x ptr], ptr %0, i64 0, i64 %7
   %.0.copyload.i = load ptr, ptr %0, align 8, !alias.scope !7431, !noalias !7434
-  %8 = load i64, ptr %7, align 8, !alias.scope !7431, !noalias !7434
-  store i64 %8, ptr %0, align 8, !alias.scope !7431, !noalias !7434
-  store ptr %.0.copyload.i, ptr %7, align 8, !alias.scope !7431, !noalias !7434
-  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h20bfaee162afa64bE"(ptr nonnull %2, ptr noalias noundef nonnull align 8 %0, i64 noundef %6, i64 noundef 0)
-  %9 = icmp ugt i64 %6, 1
-  br i1 %9, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit", label %5
+  %9 = load i64, ptr %8, align 8, !alias.scope !7431, !noalias !7434
+  store i64 %9, ptr %0, align 8, !alias.scope !7431, !noalias !7434
+  store ptr %.0.copyload.i, ptr %8, align 8, !alias.scope !7431, !noalias !7434
+  call fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u7d$$u7d$17h20bfaee162afa64bE"(ptr nonnull %3, ptr noalias noundef nonnull align 8 %0, i64 noundef %7, i64 noundef 0)
+  %10 = icmp ugt i64 %7, 1
+  br i1 %10, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h9a853d13145a3458E.exit", label %6
 }
 
 ; Function Attrs: cold nonlazybind uwtable

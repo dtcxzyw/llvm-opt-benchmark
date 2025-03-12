@@ -6945,8 +6945,8 @@ Abc_TtNot.exit65.i:                               ; preds = %.lr.ph.i61.i, %123,
   %175 = xor i32 %169, %174
   %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %143, ptr noundef nonnull @.str.64, i32 noundef %175) #24
   %177 = add nsw i32 %.066.i, -1
-  %.not80.i = icmp eq i32 %.066.i, 0
-  br i1 %.not80.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !193
+  %.not79.i = icmp eq i32 %.066.i, 0
+  br i1 %.not79.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !193
 
 .lr.ph68.i:                                       ; preds = %.preheader.i, %192
   %.167.i = phi i32 [ %193, %192 ], [ 0, %.preheader.i ]

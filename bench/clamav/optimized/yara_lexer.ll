@@ -2987,8 +2987,8 @@ define noundef ptr @yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef c
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %59, align 8, !tbaa !18
   %60 = load i8, ptr %0, align 1, !tbaa !32
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i8 %60, ptr %61, align 8, !tbaa !33
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store i8 %60, ptr %62, align 8, !tbaa !33
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 1, ptr %62, align 8, !tbaa !58
   br label %yy_switch_to_buffer.exit

@@ -4026,7 +4026,7 @@ _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i: ; preds = %_ZN6vectorIP4so
   %20 = shl nuw nsw i64 %19, 3
   %21 = add nuw nsw i64 %20, 8
   %22 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %21)
-          to label %.noexc13 unwind label %85
+          to label %.noexc13 unwind label %86
 
 .noexc13:                                         ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i
   store i32 %18, ptr %22, align 4, !tbaa !24
@@ -4090,12 +4090,12 @@ _ZN7datalog18relation_signatureaSERKS0_.exit.i:   ; preds = %_ZN6vectorIP4sortLb
 
 _ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit: ; preds = %39, %_ZN7datalog18relation_signatureaSERKS0_.exit.i
   %55 = invoke noundef i32 @_ZN7datalog8compiler12get_registerERKNS_18relation_signatureEbj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext %5, i32 noundef %1)
-          to label %56 unwind label %85
+          to label %56 unwind label %86
 
 56:                                               ; preds = %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
   store i32 %55, ptr %4, align 4, !tbaa !24
   %57 = invoke noundef ptr @_ZN7datalog11instruction9mk_renameEjjPKjj(i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %55)
-          to label %58 unwind label %85
+          to label %58 unwind label %86
 
 58:                                               ; preds = %56
   %59 = load ptr, ptr %6, align 8, !tbaa !245
@@ -4112,7 +4112,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_rena
 
 67:                                               ; preds = %61, %58
   invoke void @_ZN6vectorIPN7datalog11instructionELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %.noexc14 unwind label %85
+          to label %.noexc14 unwind label %86
 
 .noexc14:                                         ; preds = %67
   %.pre.i.i = load ptr, ptr %6, align 8, !tbaa !245
@@ -4139,34 +4139,34 @@ _ZN6vectorIPN7datalog11instructionELb0EjE9push_backERKS2_.exit.i: ; preds = %.no
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %79 = load ptr, ptr %78, align 8
   invoke void %79(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %57)
-          to label %_ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit unwind label %85
+          to label %_ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit unwind label %86
 
 _ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit: ; preds = %_ZN6vectorIPN7datalog11instructionELb0EjE9push_backERKS2_.exit.i, %76
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %80
 
-80:                                               ; preds = %_ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit
-  %81 = getelementptr inbounds i8, ptr %32, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %81)
-          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %82
+81:                                               ; preds = %_ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit
+  %82 = getelementptr inbounds i8, ptr %32, i64 -8
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %82)
+          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %83
 
-82:                                               ; preds = %80
-  %83 = landingpad { ptr, i32 }
+83:                                               ; preds = %81
+  %84 = landingpad { ptr, i32 }
           catch ptr null
-  %84 = extractvalue { ptr, i32 } %83, 0
-  call void @__clang_call_terminate(ptr %84) #21
+  %85 = extractvalue { ptr, i32 } %84, 0
+  call void @__clang_call_terminate(ptr %85) #21
   unreachable
 
-_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit, %80
+_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %_ZN7datalog17instruction_block9push_backEPNS_11instructionE.exit, %81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
   ret void
 
-85:                                               ; preds = %76, %67, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i, %56, %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %76, %67, %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i, %56, %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6vectorIP4sortLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20
-  resume { ptr, i32 } %86
+  resume { ptr, i32 } %87
 }
 
 declare noundef ptr @_ZN7datalog11instruction9mk_renameEjjPKjj(i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0

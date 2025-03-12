@@ -13808,22 +13808,22 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i
-  %2 = load i32, ptr %add.ptr.i, align 8
+  %3 = load i32, ptr %add.ptr.i, align 8
   store i32 2, ptr %add.ptr.i, align 8
-  %cmp2.i.i.i.i = icmp eq i32 %2, 1
+  %cmp2.i.i.i.i = icmp eq i32 %3, 1
   br i1 %cmp2.i.i.i.i, label %if.then3.i.i.i.i, label %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i
 
 if.then3.i.i.i.i:                                 ; preds = %if.end.i.i.i
-  %3 = getelementptr inbounds nuw i8, ptr %args, i64 144
-  %4 = load ptr, ptr %3, align 16
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i, label %if.then.i.i.i.i.i.i
+  %4 = getelementptr inbounds nuw i8, ptr %args, i64 144
+  %5 = load ptr, ptr %4, align 16
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %5, null
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i, label %_ZN5folly6detail7TryBaseINS_4UnitEE7destroyEv.exit.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.then3.i.i.i.i
-  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #35
+_ZN5folly6detail7TryBaseINS_4UnitEE7destroyEv.exit.i.i.i: ; preds = %if.then3.i.i.i.i
+  call void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #35
   br label %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i
 
-_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i:    ; preds = %if.then.i.i.i.i.i.i, %if.then3.i.i.i.i, %if.end.i.i.i
+_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i:; preds = %_ZN5folly6detail7TryBaseINS_4UnitEE7destroyEv.exit.i.i.i, %if.then3.i.i.i.i, %if.end.i.i.i
   %5 = getelementptr inbounds nuw i8, ptr %args, i64 144
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
   store i64 %0, ptr %5, align 16, !alias.scope !166
@@ -13831,7 +13831,7 @@ _ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i:    ; preds = %if.then.i.i.i.i.i.i
   store i32 1, ptr %add.ptr.i, align 8
   br label %_ZZN5folly7futures6detail4CoreINS_4UnitEE11setCallbackIZNS1_8waitImplINS_6FutureIS3_EES3_EEvRT_EUlONS_8Executor9KeepAliveISB_EEONS_3TryIS3_EEE_EEvOS9_OSt10shared_ptrINS_14RequestContextEENS1_18InlineContinuationEENUlRNS1_8CoreBaseESE_PNS_17exception_wrapperEE_clESQ_SE_SS_.exit
 
-_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.i:           ; preds = %if.then.i
+_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.i:; preds = %if.then.i
   %tobool.not.i.i.i.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i.i.i.i, label %_ZZN5folly7futures6detail4CoreINS_4UnitEE11setCallbackIZNS1_8waitImplINS_6FutureIS3_EES3_EEvRT_EUlONS_8Executor9KeepAliveISB_EEONS_3TryIS3_EEE_EEvOS9_OSt10shared_ptrINS_14RequestContextEENS1_18InlineContinuationEENUlRNS1_8CoreBaseESE_PNS_17exception_wrapperEE_clESQ_SE_SS_.exit, label %if.then.i.i.i.i.i
 
@@ -13841,10 +13841,10 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly3TryINS_4U
 
 _ZZN5folly7futures6detail4CoreINS_4UnitEE11setCallbackIZNS1_8waitImplINS_6FutureIS3_EES3_EEvRT_EUlONS_8Executor9KeepAliveISB_EEONS_3TryIS3_EEE_EEvOS9_OSt10shared_ptrINS_14RequestContextEENS1_18InlineContinuationEENUlRNS1_8CoreBaseESE_PNS_17exception_wrapperEE_clESQ_SE_SS_.exit: ; preds = %entry, %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.thread.i, %_ZN5folly3TryINS_4UnitEEaSEOS2_.exit.i, %if.then.i.i.i.i.i
   %add.ptr2.i = getelementptr inbounds nuw i8, ptr %args, i64 136
-  %6 = getelementptr inbounds nuw i8, ptr %p, i64 8
-  call void @_ZN5folly7PromiseINS_4UnitEE6setTryEONS_3TryIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i)
-  %7 = load ptr, ptr %p, align 16
-  call void @_ZN5folly6fibers5Baton4postEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %11 = getelementptr inbounds nuw i8, ptr %p, i64 8
+  call void @_ZN5folly7PromiseINS_4UnitEE6setTryEONS_3TryIS1_EE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i)
+  %12 = load ptr, ptr %p, align 16
+  call void @_ZN5folly6fibers5Baton4postEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   ret void
 }

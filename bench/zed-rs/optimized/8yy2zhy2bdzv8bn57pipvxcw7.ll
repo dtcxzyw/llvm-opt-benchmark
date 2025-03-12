@@ -1460,7 +1460,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit
-  %.sroa.0.05 = phi ptr [ %36, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit ], [ %9, %.lr.ph.preheader ]
+  %.sroa.0.05 = phi ptr [ %38, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit ], [ %9, %.lr.ph.preheader ]
   %10 = getelementptr i8, ptr %.sroa.0.05, i64 16
   %.val.i = load ptr, ptr %10, align 8, !nonnull !4, !align !5, !noundef !4
   %11 = getelementptr i8, ptr %.sroa.0.05, i64 -16
@@ -1506,7 +1506,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   %.sroa.0.0.i.i.i.i.i15.i = select i1 %32, i1 %33, i1 %34
   br i1 %.sroa.0.0.i.i.i.i.i15.i, label %24, label %35
 
-35:                                               ; preds = %26, %24
+35:; preds = %26, %24
   %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %26 ], [ %0, %24 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !noalias !578
   %.sroa.4.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
@@ -1517,8 +1517,8 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit
 
 _ZN4core5slice4sort6shared9smallsort11insert_tail17h00a2ee71f08e14f3E.llvm.6323855140939456727.exit: ; preds = %.lr.ph, %35
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 32
-  %.not = icmp eq ptr %36, %8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 32
+  %.not = icmp eq ptr %38, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
@@ -2395,7 +2395,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h17629a238ae56871E.ex
   %.sroa.0.0.i.i.i.i.i15.i = select i1 %273, i1 %274, i1 %275
   br i1 %.sroa.0.0.i.i.i.i.i15.i, label %265, label %276
 
-276:                                              ; preds = %267, %265
+276:; preds = %267, %265
   %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %267 ], [ %242, %265 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.0.i.lcssa, ptr noundef nonnull align 8 dereferenceable(16) %249, i64 16, i1 false)
   %.sroa.4.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16

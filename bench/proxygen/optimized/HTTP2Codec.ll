@@ -14638,22 +14638,22 @@ lpad38.body:                                      ; preds = %lpad.i, %lpad38
 
 if.end54:                                         ; preds = %if.then52, %invoke.cont49
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %queue) #30
-  %27 = load ptr, ptr %allHeaders, align 8
-  %tobool.not.i.i.i = icmp eq ptr %27, null
+  %28 = load ptr, ptr %allHeaders, align 8
+  %tobool.not.i.i.i = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end54
-  call void @_ZdlPv(ptr noundef nonnull %27) #29
+  call void @_ZdlPv(ptr noundef nonnull %28) #29
   br label %return
 
 ehcleanup:                                        ; preds = %lpad38.body, %lpad19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad38.body ], [ %25, %lpad19 ]
-  %28 = load ptr, ptr %allHeaders, align 8
-  %tobool.not.i.i.i30 = icmp eq ptr %28, null
+  %29 = load ptr, ptr %allHeaders, align 8
+  %tobool.not.i.i.i30 = icmp eq ptr %29, null
   br i1 %tobool.not.i.i.i30, label %eh.resume, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %28) #29
+  call void @_ZdlPv(ptr noundef nonnull %29) #29
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i, %if.end54, %if.then

@@ -146,14 +146,14 @@ define dso_local void @InitMaterializedSRF(ptr noundef readonly captures(none) %
   unreachable
 
 50:                                               ; preds = %._crit_edge, %28
-  %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %34, %28 ]
+  %51 = phi ptr [ %.pre.pre, %._crit_edge ], [ %34, %28 ]
   %51 = phi ptr [ %40, %._crit_edge ], [ %33, %28 ]
   %52 = and i32 %1, 2
   %.not20 = icmp eq i32 %52, 0
   br i1 %.not20, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = call ptr @BlessTupleDesc(ptr noundef %.pre) #8
+  %54 = call ptr @BlessTupleDesc(ptr noundef %51) #8
   br label %55
 
 55:                                               ; preds = %53, %50
@@ -167,7 +167,7 @@ define dso_local void @InitMaterializedSRF(ptr noundef readonly captures(none) %
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %60, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %.pre, ptr %63, align 8
+  store ptr %51, ptr %63, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret void

@@ -5518,7 +5518,7 @@ reg_match_pos.exit:                               ; preds = %reg_operand.exit.i,
 
 reg_match_pos.exit.thread:                        ; preds = %rb_num2int_inline.exit.i, %18, %reg_match_pos.exit
   call void @rb_backref_set(i64 noundef 4) #29
-  br label %64
+  br label %65
 
 48:                                               ; preds = %reg_match_pos.exit
   %49 = load i64, ptr %4, align 8, !tbaa !18
@@ -5544,17 +5544,17 @@ rb_match_busy.exit:                               ; preds = %48, %RB_FL_ABLE.exi
   %59 = icmp eq i64 %49, 4
   br i1 %59, label %64, label %60
 
-60:                                               ; preds = %rb_match_busy.exit
-  %61 = call i32 @rb_block_given_p() #29
-  %.not = icmp eq i32 %61, 0
-  br i1 %.not, label %64, label %62
+61:                                               ; preds = %rb_match_busy.exit
+  %62 = call i32 @rb_block_given_p() #29
+  %.not = icmp eq i32 %62, 0
+  br i1 %.not, label %65, label %62
 
-62:                                               ; preds = %60
-  %63 = call i64 @rb_yield(i64 noundef %49) #29
-  br label %64
+63:                                               ; preds = %61
+  %64 = call i64 @rb_yield(i64 noundef %49) #29
+  br label %65
 
-64:                                               ; preds = %rb_match_busy.exit, %60, %62, %reg_match_pos.exit.thread
-  %.05 = phi i64 [ 4, %reg_match_pos.exit.thread ], [ %63, %62 ], [ %49, %60 ], [ 4, %rb_match_busy.exit ]
+65:                                               ; preds = %rb_match_busy.exit, %61, %63, %reg_match_pos.exit.thread
+  %.05 = phi i64 [ 4, %reg_match_pos.exit.thread ], [ %64, %63 ], [ %49, %61 ], [ 4, %rb_match_busy.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #29
   ret i64 %.05
 }

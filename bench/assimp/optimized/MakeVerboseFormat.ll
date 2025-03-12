@@ -901,24 +901,24 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
   %17 = zext i32 %15 to i64
   br label %19
 
-18:                                               ; preds = %19
+17:                                               ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp samesign ult i64 %indvars.iv.next, %17
   br i1 %.not, label %19, label %.critedge, !llvm.loop !28
 
-19:                                               ; preds = %.lr.ph, %18
+19:; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %20 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %.sroa.025.0, i64 %22
-  %24 = load i32, ptr %23, align 4
-  %25 = add i32 %24, 1
+  %22 = getelementptr inbounds nuw i32, ptr %.sroa.025.0, i64 %22
+  %23 = load i32, ptr %22, align 4
+  %25 = add i32 %23, 1
   store i32 %25, ptr %23, align 4
   %26 = icmp eq i32 %25, 2
   br i1 %26, label %.critedge24.thread, label %18
 
-.critedge:                                        ; preds = %18, %13
+.critedge:; preds = %17, %13
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
   br i1 %exitcond.not, label %.critedge24, label %13, !llvm.loop !29
@@ -929,9 +929,9 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc, %1
 
 .critedge24.thread:                               ; preds = %19, %.critedge24
   %.not2232 = phi i1 [ true, %.critedge24 ], [ false, %19 ]
-  %27 = ptrtoint ptr %.sroa.025.0 to i64
-  %28 = sub i64 %.sroa.11.0, %27
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0, i64 noundef %28) #14
+  %29 = ptrtoint ptr %.sroa.025.0 to i64
+  %30 = sub i64 %.sroa.11.0, %29
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0, i64 noundef %30) #14
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.critedge24, %.critedge24.thread
@@ -953,7 +953,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp24MakeVerboseFormatProcess15IsVerbos
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread
-  %7 = phi i32 [ %3, %.lr.ph ], [ %40, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread ]
+  %7 = phi i32 [ %3, %.lr.ph ], [ %42, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread ]
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
@@ -999,24 +999,24 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i, %6
   %26 = zext i32 %24 to i64
   br label %28
 
-27:                                               ; preds = %28
+26:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %26
   br i1 %exitcond.not, label %.critedge.i, label %28, !llvm.loop !28
 
-28:                                               ; preds = %27, %.lr.ph.i
+28:  ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
   %29 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %.sroa.025.0.i, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = add i32 %33, 1
+  %31 = getelementptr inbounds nuw i32, ptr %.sroa.025.0.i, i64 %31
+  %32 = load i32, ptr %31, align 4
+  %34 = add i32 %32, 1
   store i32 %34, ptr %32, align 4
   %35 = icmp eq i32 %34, 2
   br i1 %35, label %_Z21IsMeshInVerboseFormatPK6aiMesh.exit, label %27
 
-.critedge.i:                                      ; preds = %27, %22
+.critedge.i:; preds = %26, %22
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge24.i, label %22, !llvm.loop !29
@@ -1026,28 +1026,28 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit.i:          ; preds = %.noexc.i, %6
   br i1 %.not.i.i.i.i, label %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread, label %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread9
 
 _Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread9:  ; preds = %.critedge24.i
-  %36 = ptrtoint ptr %.sroa.025.0.i to i64
-  %37 = sub i64 %.sroa.11.0.i, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i, i64 noundef %37) #14
+  %38 = ptrtoint ptr %.sroa.025.0.i to i64
+  %39 = sub i64 %.sroa.11.0.i, %38
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i, i64 noundef %39) #14
   %.pre = load i32, ptr %2, align 8
   br label %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread
 
 _Z21IsMeshInVerboseFormatPK6aiMesh.exit:          ; preds = %28
-  %38 = ptrtoint ptr %.sroa.025.0.i to i64
-  %39 = sub i64 %.sroa.11.0.i, %38
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i, i64 noundef %39) #14
+  %40 = ptrtoint ptr %.sroa.025.0.i to i64
+  %41 = sub i64 %.sroa.11.0.i, %40
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i, i64 noundef %41) #14
   br label %.loopexit
 
 _Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread:   ; preds = %.critedge24.i, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread9
-  %40 = phi i32 [ %7, %.critedge24.i ], [ %.pre, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread9 ]
+  %42 = phi i32 [ %7, %.critedge24.i ], [ %.pre, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = zext i32 %40 to i64
-  %.not = icmp samesign ult i64 %indvars.iv.next, %41
+  %43 = zext i32 %42 to i64
+  %.not = icmp samesign ult i64 %indvars.iv.next, %43
   br i1 %.not, label %6, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread, %1, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit
-  %42 = phi i1 [ false, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit ], [ true, %1 ], [ true, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread ]
-  ret i1 %42
+  %44 = phi i1 [ false, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit ], [ true, %1 ], [ true, %_Z21IsMeshInVerboseFormatPK6aiMesh.exit.thread ]
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

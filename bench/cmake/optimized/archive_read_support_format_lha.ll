@@ -437,8 +437,8 @@ thread-pre-split:                                 ; preds = %57, %64, %90
   %117 = getelementptr inbounds nuw i8, ptr %43, i64 43
   store i8 %116, ptr %117, align 1, !tbaa !4
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %111, ptr noundef nonnull dereferenceable(3) @.str.6, i64 3)
-  %.not291 = icmp eq i32 %bcmp, 0
-  %spec.select = zext i1 %.not291 to i8
+  %.not290 = icmp eq i32 %bcmp, 0
+  %spec.select = zext i1 %.not290 to i8
   %118 = getelementptr inbounds nuw i8, ptr %43, i64 298
   store i8 %spec.select, ptr %118, align 2, !tbaa !53
   %bcmp170 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %111, ptr noundef nonnull dereferenceable(3) @.str.7, i64 3)
@@ -448,11 +448,11 @@ thread-pre-split:                                 ; preds = %57, %64, %90
 120:                                              ; preds = %104
   %bcmp171 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %111, ptr noundef nonnull dereferenceable(3) @.str.8, i64 3)
   %121 = icmp ne i32 %bcmp171, 0
-  %spec.select310 = zext i1 %121 to i8
+  %spec.select309 = zext i1 %121 to i8
   br label %122
 
 122:                                              ; preds = %120, %104
-  %.sink = phi i8 [ 0, %104 ], [ %spec.select310, %120 ]
+  %.sink = phi i8 [ 0, %104 ], [ %spec.select309, %120 ]
   %123 = getelementptr inbounds nuw i8, ptr %43, i64 302
   store i8 %.sink, ptr %123, align 2, !tbaa !54
   %124 = getelementptr inbounds nuw i8, ptr %43, i64 48
@@ -464,7 +464,7 @@ thread-pre-split:                                 ; preds = %57, %64, %90
   %130 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %131 = getelementptr inbounds nuw i8, ptr %43, i64 104
   %132 = getelementptr inbounds nuw i8, ptr %43, i64 112
-  %133 = select i1 %.not291, i32 511, i32 438
+  %133 = select i1 %.not290, i32 511, i32 438
   %134 = getelementptr inbounds nuw i8, ptr %43, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %124, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %127, i8 0, i64 48, i1 false)
@@ -669,7 +669,7 @@ lha_calcsum.exit.i:                               ; preds = %.lr.ph.i.i, %218
 245:                                              ; preds = %233, %227, %lha_calcsum.exit.i
   %246 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %219) #18
   %.not.i192 = icmp eq i8 %.08.lcssa.i.i, %156
-  br i1 %.not.i192, label %lha_read_file_header_0.exit.thread249, label %247
+  br i1 %.not.i192, label %lha_read_file_header_0.exit.thread248, label %247
 
 247:                                              ; preds = %245
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.17) #18
@@ -1031,8 +1031,8 @@ lha_crc16.exit.i:                                 ; preds = %.lr.ph73.i.i, %.pre
   %448 = phi i16 [ %.pre.i, %._crit_edge.i222 ], [ %445, %443 ]
   %449 = getelementptr inbounds nuw i8, ptr %43, i64 192
   %450 = load i16, ptr %449, align 8, !tbaa !80
-  %.not.i223 = icmp eq i16 %448, %450
-  br i1 %.not.i223, label %lha_read_file_header_2.exit, label %lha_read_file_header_2.exit.sink.split
+  %.not.i222 = icmp eq i16 %448, %450
+  br i1 %.not.i222, label %lha_read_file_header_2.exit, label %lha_read_file_header_2.exit.sink.split
 
 lha_read_file_header_2.exit.sink.split:           ; preds = %447, %439, %337, %334
   %.str.14.sink = phi ptr [ @.str.14, %334 ], [ @.str.22, %337 ], [ @.str.14, %439 ], [ @.str.23, %447 ]
@@ -1040,7 +1040,7 @@ lha_read_file_header_2.exit.sink.split:           ; preds = %447, %439, %337, %3
   br label %lha_read_file_header_2.exit
 
 lha_read_file_header_2.exit:                      ; preds = %lha_read_file_header_2.exit.sink.split, %lha_crc16.exit.i, %447
-  %.0.i224 = phi i32 [ %430, %lha_crc16.exit.i ], [ %430, %447 ], [ -30, %lha_read_file_header_2.exit.sink.split ]
+  %.0.i223 = phi i32 [ %430, %lha_crc16.exit.i ], [ %430, %447 ], [ -30, %lha_read_file_header_2.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   br label %lha_read_file_header_0.exit
@@ -1053,10 +1053,10 @@ lha_read_file_header_2.exit:                      ; preds = %lha_read_file_heade
   br i1 %453, label %lha_read_file_header_3.exit.sink.split, label %454
 
 454:                                              ; preds = %451
-  %.val.i225 = load i16, ptr %452, align 1
+  %.val.i224 = load i16, ptr %452, align 1
   %455 = getelementptr i8, ptr %452, i64 1
-  %.not.i226 = icmp eq i16 %.val.i225, 4
-  br i1 %.not.i226, label %456, label %lha_read_file_header_3.exit.sink.split
+  %.not.i225 = icmp eq i16 %.val.i224, 4
+  br i1 %.not.i225, label %456, label %lha_read_file_header_3.exit.sink.split
 
 456:                                              ; preds = %454
   %457 = getelementptr inbounds nuw i8, ptr %452, i64 24
@@ -1088,35 +1088,35 @@ lha_read_file_header_2.exit:                      ; preds = %lha_read_file_heade
 474:                                              ; preds = %456
   %475 = ptrtoint ptr %452 to i64
   %476 = and i64 %475, 1
-  %.not.i.i228 = icmp eq i64 %476, 0
-  br i1 %.not.i.i228, label %.lr.ph.i.i232.preheader, label %477
+  %.not.i.i227 = icmp eq i64 %476, 0
+  br i1 %.not.i.i227, label %.lr.ph.i.i231.preheader, label %477
 
-.lr.ph.i.i232.preheader:                          ; preds = %477, %474
-  %.04966.i.i233.ph = phi ptr [ %452, %474 ], [ %455, %477 ]
-  %.15365.i.i234.ph = phi i64 [ 28, %474 ], [ 27, %477 ]
-  %.15664.i.i235.ph = phi i16 [ 0, %474 ], [ %481, %477 ]
-  br label %.lr.ph.i.i232
+.lr.ph.i.i231.preheader:                          ; preds = %477, %474
+  %.04966.i.i232.ph = phi ptr [ %452, %474 ], [ %455, %477 ]
+  %.15365.i.i233.ph = phi i64 [ 28, %474 ], [ 27, %477 ]
+  %.15664.i.i234.ph = phi i16 [ 0, %474 ], [ %481, %477 ]
+  br label %.lr.ph.i.i231
 
 477:                                              ; preds = %474
   %478 = load i8, ptr %452, align 1, !tbaa !4
   %479 = zext i8 %478 to i64
   %480 = getelementptr inbounds nuw [256 x i16], ptr @crc16tbl, i64 0, i64 %479
   %481 = load i16, ptr %480, align 2, !tbaa !40
-  br label %.lr.ph.i.i232.preheader
+  br label %.lr.ph.i.i231.preheader
 
-.preheader.i.i236:                                ; preds = %.lr.ph.i.i232
-  %.not6169.i.i237 = icmp eq i64 %534, 0
-  br i1 %.not6169.i.i237, label %lha_crc16.exit.i245, label %.lr.ph73.i.i238
+.preheader.i.i235:                                ; preds = %.lr.ph.i.i231
+  %.not6169.i.i236 = icmp eq i64 %534, 0
+  br i1 %.not6169.i.i236, label %lha_crc16.exit.i244, label %.lr.ph73.i.i237
 
-.lr.ph.i.i232:                                    ; preds = %.lr.ph.i.i232.preheader, %.lr.ph.i.i232
-  %.04966.i.i233 = phi ptr [ %523, %.lr.ph.i.i232 ], [ %.04966.i.i233.ph, %.lr.ph.i.i232.preheader ]
-  %.15365.i.i234 = phi i64 [ %534, %.lr.ph.i.i232 ], [ %.15365.i.i234.ph, %.lr.ph.i.i232.preheader ]
-  %.15664.i.i235 = phi i16 [ %533, %.lr.ph.i.i232 ], [ %.15664.i.i235.ph, %.lr.ph.i.i232.preheader ]
-  %482 = getelementptr inbounds nuw i8, ptr %.04966.i.i233, i64 2
-  %483 = getelementptr inbounds nuw i8, ptr %.04966.i.i233, i64 4
-  %484 = getelementptr inbounds nuw i8, ptr %.04966.i.i233, i64 6
-  %485 = load i16, ptr %.04966.i.i233, align 2, !tbaa !40
-  %486 = xor i16 %485, %.15664.i.i235
+.lr.ph.i.i231:                                    ; preds = %.lr.ph.i.i231.preheader, %.lr.ph.i.i231
+  %.04966.i.i232 = phi ptr [ %523, %.lr.ph.i.i231 ], [ %.04966.i.i232.ph, %.lr.ph.i.i231.preheader ]
+  %.15365.i.i233 = phi i64 [ %534, %.lr.ph.i.i231 ], [ %.15365.i.i233.ph, %.lr.ph.i.i231.preheader ]
+  %.15664.i.i234 = phi i16 [ %533, %.lr.ph.i.i231 ], [ %.15664.i.i234.ph, %.lr.ph.i.i231.preheader ]
+  %482 = getelementptr inbounds nuw i8, ptr %.04966.i.i232, i64 2
+  %483 = getelementptr inbounds nuw i8, ptr %.04966.i.i232, i64 4
+  %484 = getelementptr inbounds nuw i8, ptr %.04966.i.i232, i64 6
+  %485 = load i16, ptr %.04966.i.i232, align 2, !tbaa !40
+  %486 = xor i16 %485, %.15664.i.i234
   %487 = zext i16 %486 to i32
   %488 = and i32 %487, 255
   %489 = zext nneg i32 %488 to i64
@@ -1153,7 +1153,7 @@ lha_read_file_header_2.exit:                      ; preds = %lha_read_file_heade
   %520 = xor i16 %519, %515
   %521 = load i16, ptr %484, align 2, !tbaa !40
   %522 = xor i16 %520, %521
-  %523 = getelementptr inbounds nuw i8, ptr %.04966.i.i233, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %.04966.i.i232, i64 8
   %524 = zext i16 %522 to i32
   %525 = and i32 %524, 255
   %526 = zext nneg i32 %525 to i64
@@ -1164,30 +1164,30 @@ lha_read_file_header_2.exit:                      ; preds = %lha_read_file_heade
   %531 = getelementptr inbounds nuw [256 x i16], ptr @crc16tbl, i64 0, i64 %530
   %532 = load i16, ptr %531, align 2, !tbaa !40
   %533 = xor i16 %532, %528
-  %534 = add nsw i64 %.15365.i.i234, -8
+  %534 = add nsw i64 %.15365.i.i233, -8
   %535 = icmp ugt i64 %534, 7
-  br i1 %535, label %.lr.ph.i.i232, label %.preheader.i.i236, !llvm.loop !78
+  br i1 %535, label %.lr.ph.i.i231, label %.preheader.i.i235, !llvm.loop !78
 
-.lr.ph73.i.i238:                                  ; preds = %.preheader.i.i236, %.lr.ph73.i.i238
-  %.15172.i.i239 = phi ptr [ %537, %.lr.ph73.i.i238 ], [ %523, %.preheader.i.i236 ]
-  %.25471.i.i240 = phi i64 [ %543, %.lr.ph73.i.i238 ], [ %534, %.preheader.i.i236 ]
-  %.670.i.i241 = phi i16 [ %542, %.lr.ph73.i.i238 ], [ %533, %.preheader.i.i236 ]
-  %536 = lshr i16 %.670.i.i241, 8
-  %537 = getelementptr inbounds nuw i8, ptr %.15172.i.i239, i64 1
-  %538 = load i8, ptr %.15172.i.i239, align 1, !tbaa !4
-  %.tr62.i.i242 = trunc i16 %.670.i.i241 to i8
-  %.narrow63.i.i243 = xor i8 %538, %.tr62.i.i242
-  %539 = zext i8 %.narrow63.i.i243 to i64
+.lr.ph73.i.i237:                                  ; preds = %.preheader.i.i235, %.lr.ph73.i.i237
+  %.15172.i.i238 = phi ptr [ %537, %.lr.ph73.i.i237 ], [ %523, %.preheader.i.i235 ]
+  %.25471.i.i239 = phi i64 [ %543, %.lr.ph73.i.i237 ], [ %534, %.preheader.i.i235 ]
+  %.670.i.i240 = phi i16 [ %542, %.lr.ph73.i.i237 ], [ %533, %.preheader.i.i235 ]
+  %536 = lshr i16 %.670.i.i240, 8
+  %537 = getelementptr inbounds nuw i8, ptr %.15172.i.i238, i64 1
+  %538 = load i8, ptr %.15172.i.i238, align 1, !tbaa !4
+  %.tr62.i.i241 = trunc i16 %.670.i.i240 to i8
+  %.narrow63.i.i242 = xor i8 %538, %.tr62.i.i241
+  %539 = zext i8 %.narrow63.i.i242 to i64
   %540 = getelementptr inbounds nuw [256 x i16], ptr @crc16tbl, i64 0, i64 %539
   %541 = load i16, ptr %540, align 2, !tbaa !40
   %542 = xor i16 %541, %536
-  %543 = add nsw i64 %.25471.i.i240, -1
-  %.not61.i.i244 = icmp eq i64 %543, 0
-  br i1 %.not61.i.i244, label %lha_crc16.exit.i245, label %.lr.ph73.i.i238, !llvm.loop !79
+  %543 = add nsw i64 %.25471.i.i239, -1
+  %.not61.i.i243 = icmp eq i64 %543, 0
+  br i1 %.not61.i.i243, label %lha_crc16.exit.i244, label %.lr.ph73.i.i237, !llvm.loop !79
 
-lha_crc16.exit.i245:                              ; preds = %.lr.ph73.i.i238, %.preheader.i.i236
-  %.0.i.i246 = phi i16 [ %533, %.preheader.i.i236 ], [ %542, %.lr.ph73.i.i238 ]
-  store i16 %.0.i.i246, ptr %4, align 2, !tbaa !40
+lha_crc16.exit.i244:                              ; preds = %.lr.ph73.i.i237, %.preheader.i.i235
+  %.0.i.i245 = phi i16 [ %533, %.preheader.i.i235 ], [ %542, %.lr.ph73.i.i237 ]
+  store i16 %.0.i.i245, ptr %4, align 2, !tbaa !40
   %544 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 28) #18
   %545 = load i64, ptr %105, align 8, !tbaa !51
   %546 = add i64 %545, -28
@@ -1195,7 +1195,7 @@ lha_crc16.exit.i245:                              ; preds = %.lr.ph73.i.i238, %.
   %548 = icmp slt i32 %547, -20
   br i1 %548, label %lha_read_file_header_3.exit, label %549
 
-549:                                              ; preds = %lha_crc16.exit.i245
+549:                                              ; preds = %lha_crc16.exit.i244
   %550 = load i16, ptr %4, align 2, !tbaa !40
   %551 = getelementptr inbounds nuw i8, ptr %43, i64 192
   %552 = load i16, ptr %551, align 8, !tbaa !80
@@ -1203,12 +1203,12 @@ lha_crc16.exit.i245:                              ; preds = %.lr.ph73.i.i238, %.
   br i1 %.not28.i, label %lha_read_file_header_3.exit, label %lha_read_file_header_3.exit.sink.split
 
 lha_read_file_header_3.exit.sink.split:           ; preds = %454, %456, %549, %451
-  %.str.14.sink309 = phi ptr [ @.str.14, %451 ], [ @.str.23, %549 ], [ @.str.16, %456 ], [ @.str.16, %454 ]
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull %.str.14.sink309) #18
+  %.str.14.sink308 = phi ptr [ @.str.14, %451 ], [ @.str.23, %549 ], [ @.str.16, %456 ], [ @.str.16, %454 ]
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull %.str.14.sink308) #18
   br label %lha_read_file_header_3.exit
 
-lha_read_file_header_3.exit:                      ; preds = %lha_read_file_header_3.exit.sink.split, %lha_crc16.exit.i245, %549
-  %.0.i227 = phi i32 [ %547, %lha_crc16.exit.i245 ], [ %547, %549 ], [ -30, %lha_read_file_header_3.exit.sink.split ]
+lha_read_file_header_3.exit:                      ; preds = %lha_read_file_header_3.exit.sink.split, %lha_crc16.exit.i244, %549
+  %.0.i226 = phi i32 [ %547, %lha_crc16.exit.i244 ], [ %547, %549 ], [ -30, %lha_read_file_header_3.exit.sink.split ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   br label %lha_read_file_header_0.exit
@@ -1219,17 +1219,17 @@ lha_read_file_header_3.exit:                      ; preds = %lha_read_file_heade
   br label %lha_read_file_header_0.exit.thread
 
 lha_read_file_header_0.exit:                      ; preds = %lha_read_file_header_3.exit, %lha_read_file_header_2.exit, %lha_read_file_header_1.exit
-  %.0 = phi i32 [ %.0.i227, %lha_read_file_header_3.exit ], [ %.0.i224, %lha_read_file_header_2.exit ], [ %.0.i217, %lha_read_file_header_1.exit ]
+  %.0 = phi i32 [ %.0.i226, %lha_read_file_header_3.exit ], [ %.0.i223, %lha_read_file_header_2.exit ], [ %.0.i217, %lha_read_file_header_1.exit ]
   %555 = icmp slt i32 %.0, -20
-  br i1 %555, label %lha_read_file_header_0.exit.thread, label %lha_read_file_header_0.exit.thread249
+  br i1 %555, label %lha_read_file_header_0.exit.thread, label %lha_read_file_header_0.exit.thread248
 
-lha_read_file_header_0.exit.thread249:            ; preds = %245, %lha_read_file_header_0.exit
-  %.0251 = phi i32 [ %.0, %lha_read_file_header_0.exit ], [ 0, %245 ]
+lha_read_file_header_0.exit.thread248:            ; preds = %245, %lha_read_file_header_0.exit
+  %.0250 = phi i32 [ %.0, %lha_read_file_header_0.exit ], [ 0, %245 ]
   %556 = load i8, ptr %118, align 2, !tbaa !53
   %.not174 = icmp eq i8 %556, 0
   br i1 %.not174, label %557, label %561
 
-557:                                              ; preds = %lha_read_file_header_0.exit.thread249
+557:                                              ; preds = %lha_read_file_header_0.exit.thread248
   %558 = load i64, ptr %140, align 8, !tbaa !57
   %559 = icmp eq i64 %558, 0
   br i1 %559, label %560, label %561
@@ -1238,7 +1238,7 @@ lha_read_file_header_0.exit.thread249:            ; preds = %245, %lha_read_file
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.14) #18
   br label %lha_read_file_header_0.exit.thread
 
-561:                                              ; preds = %lha_read_file_header_0.exit.thread249, %557
+561:                                              ; preds = %lha_read_file_header_0.exit.thread248, %557
   %562 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   %563 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1503,7 +1503,7 @@ lha_read_file_header_0.exit.thread249:            ; preds = %245, %lha_read_file
   br label %lha_read_file_header_0.exit.thread
 
 lha_read_file_header_0.exit.thread:               ; preds = %247, %207, %203, %150, %553, %lha_skip_sfx.exit.thread, %lha_read_file_header_0.exit, %98, %50, %53, %672, %666, %596, %589, %578, %560, %103, %97, %56
-  %.0164 = phi i32 [ -30, %56 ], [ -30, %97 ], [ -30, %103 ], [ -30, %578 ], [ -30, %589 ], [ -30, %666 ], [ %.0251, %672 ], [ -25, %596 ], [ -30, %560 ], [ 1, %53 ], [ 1, %50 ], [ 1, %98 ], [ %.0, %lha_read_file_header_0.exit ], [ -30, %lha_skip_sfx.exit.thread ], [ -30, %553 ], [ -30, %150 ], [ -30, %203 ], [ -30, %207 ], [ -30, %247 ]
+  %.0164 = phi i32 [ -30, %56 ], [ -30, %97 ], [ -30, %103 ], [ -30, %578 ], [ -30, %589 ], [ -30, %666 ], [ %.0250, %672 ], [ -25, %596 ], [ -30, %560 ], [ 1, %53 ], [ 1, %50 ], [ 1, %98 ], [ %.0, %lha_read_file_header_0.exit ], [ -30, %lha_skip_sfx.exit.thread ], [ -30, %553 ], [ -30, %150 ], [ -30, %203 ], [ -30, %207 ], [ -30, %247 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #18
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %13) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #18

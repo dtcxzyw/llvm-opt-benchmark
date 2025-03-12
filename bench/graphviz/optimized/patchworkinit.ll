@@ -378,7 +378,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
   %66 = load ptr, ptr %3, align 8, !tbaa !53
   %67 = load i64, ptr %.0.sroa.gep3, align 8, !tbaa !55
   %.not1213.i.i = icmp eq i64 %67, 0
-  br i1 %.not1213.i.i, label %clist_sync.exit.i, label %.lr.ph.i.i
+  br i1 %.not1213.i.i, label %._crit_edge19.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph18.i.i, %._crit_edge.i.i28
   %68 = phi i64 [ %70, %._crit_edge.i.i28 ], [ %.promoted.i.i, %.lr.ph18.i.i ]
@@ -388,7 +388,7 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
 ._crit_edge.i.i28:                                ; preds = %71
   %70 = add i64 %68, -1
   %.not.i.i = icmp eq i64 %70, 0
-  br i1 %.not.i.i, label %clist_sync.exit.i, label %.lr.ph.i.i, !llvm.loop !60
+  br i1 %.not.i.i, label %._crit_edge19.i.i, label %.lr.ph.i.i, !llvm.loop !60
 
 71:                                               ; preds = %71, %.lr.ph.i.i
   %.015.i.i = phi ptr [ %69, %.lr.ph.i.i ], [ %73, %71 ]
@@ -400,12 +400,12 @@ clist_append.exit27:                              ; preds = %._crit_edge.i.i20, 
   %.not12.i.i = icmp eq i64 %.011.i.i, 0
   br i1 %.not12.i.i, label %._crit_edge.i.i28, label %71, !llvm.loop !61
 
-clist_sync.exit.i:                                ; preds = %._crit_edge.i.i28, %.lr.ph18.i.i, %.clist_sync.exit_crit_edge.i
+._crit_edge19.i.i:                                ; preds = %._crit_edge.i.i28, %.lr.ph18.i.i, %.clist_sync.exit_crit_edge.i
   %74 = phi i64 [ %.pre.i, %.clist_sync.exit_crit_edge.i ], [ %67, %.lr.ph18.i.i ], [ %67, %._crit_edge.i.i28 ]
   %75 = icmp ugt i64 %74, %.val
-  br i1 %75, label %76, label %clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge
+  br i1 %75, label %76, label %clist_shrink_to_fit.exit.thread
 
-clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge: ; preds = %clist_sync.exit.i
+clist_shrink_to_fit.exit.thread:                  ; preds = %clist_sync.exit.i
   %.pre.i31.pre = load ptr, ptr %3, align 8, !tbaa !53
   br label %clist_detach.exit
 
@@ -435,27 +435,27 @@ clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge: ; preds = %clist_sync.exit
 
 90:                                               ; preds = %81
   %91 = icmp ugt i64 %84, %83
-  br i1 %91, label %92, label %clist_detach.exit
+  br i1 %91, label %92, label %clist_shrink_to_fit.exit
 
 92:                                               ; preds = %90
   %93 = getelementptr inbounds nuw i8, ptr %85, i64 %83
   %94 = sub nuw i64 %84, %83
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %93, i8 0, i64 %94, i1 false)
-  br label %clist_detach.exit
+  br label %clist_shrink_to_fit.exit
 
-clist_detach.exit:                                ; preds = %90, %92, %clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge
-  %.pre.i31 = phi ptr [ %.pre.i31.pre, %clist_sync.exit.i.clist_shrink_to_fit.exit_crit_edge ], [ %85, %92 ], [ %85, %90 ]
-  %95 = load ptr, ptr %61, align 8, !tbaa !8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 240
+clist_shrink_to_fit.exit:                         ; preds = %90, %92, %clist_shrink_to_fit.exit.thread
+  %.pre.i31 = phi ptr [ %.pre.i31.pre, %clist_shrink_to_fit.exit.thread ], [ %85, %92 ], [ %85, %90 ]
+  %.promoted.i.i29.pre = load ptr, ptr %61, align 8, !tbaa !8
+  %96 = getelementptr inbounds nuw i8, ptr %.promoted.i.i29.pre, i64 240
   store ptr %.pre.i31, ptr %96, align 8, !tbaa !52
-  br label %99
+  br label %._crit_edge.i.i39
 
 97:                                               ; preds = %58
   %98 = load ptr, ptr %3, align 8, !tbaa !53
   call void @free(ptr noundef %98) #13
   br label %99
 
-99:                                               ; preds = %clist_detach.exit, %97, %._crit_edge
+._crit_edge.i.i39:                                ; preds = %clist_detach.exit, %97, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #13
   ret void
 }

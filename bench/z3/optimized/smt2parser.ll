@@ -30340,7 +30340,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit6
   store ptr null, ptr %210, align 8, !tbaa !257
   %211 = load ptr, ptr %143, align 8, !tbaa !140
   %.not.i.i66 = icmp eq ptr %211, %205
-  br i1 %.not.i.i66, label %_ZN4smt26parser10sort_stackEv.exit70, label %212
+  br i1 %.not.i.i66, label %_ZN4smt26parser10sort_stackEv.exit75, label %212
 
 212:                                              ; preds = %.noexc68
   invoke void @_Z7deallocI10ref_vectorI4sort11ast_managerEEvPT_(ptr noundef %211)
@@ -30350,7 +30350,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit6
   store ptr %205, ptr %143, align 8, !tbaa !140
   br label %_ZN4smt26parser10sort_stackEv.exit75
 
-_ZN4smt26parser10sort_stackEv.exit70:             ; preds = %.noexc68
+_ZN4smt26parser10sort_stackEv.exit75:             ; preds = %.noexc68
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !257
   br label %_ZN4smt26parser10sort_stackEv.exit75

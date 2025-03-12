@@ -2672,7 +2672,7 @@ mi_segment_get_reclaim_tries.exit.i:              ; preds = %26, %23
   %35 = icmp sgt i64 %.033.i.ph, 0
   br label %36
 
-36:                                               ; preds = %.outer, %91
+36:                                               ; preds = %.outer, %92
   %37 = call i64 @mi_option_get_clamp(i32 noundef 35, i64 noundef 0, i64 noundef 1024) #8
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %segment_count_is_within_target.exit.thread.i, label %segment_count_is_within_target.exit.i13
@@ -2680,18 +2680,18 @@ mi_segment_get_reclaim_tries.exit.i:              ; preds = %26, %23
 segment_count_is_within_target.exit.i13:          ; preds = %36
   %39 = load i64, ptr %34, align 8, !tbaa !58
   %40 = icmp ult i64 %39, %37
-  %.not33 = xor i1 %40, true
-  %.not34 = xor i1 %35, true
-  %brmerge = select i1 %.not33, i1 true, i1 %.not34
-  br i1 %brmerge, label %mi_segment_try_reclaim.exit.thread18, label %41
+  %.not28 = xor i1 %40, true
+  %.not29 = xor i1 %35, true
+  %brmerge = select i1 %.not28, i1 true, i1 %.not29
+  br i1 %brmerge, label %mi_segment_try_reclaim.exit, label %41
 
 segment_count_is_within_target.exit.thread.i:     ; preds = %36
-  br i1 %35, label %41, label %mi_segment_try_reclaim.exit.thread18
+  br i1 %35, label %41, label %mi_segment_try_reclaim.exit
 
 41:                                               ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i
   %42 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef nonnull %6) #8
   %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %mi_segment_try_reclaim.exit.thread18, label %43
+  br i1 %.not.i, label %mi_segment_try_reclaim.exit, label %43
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 80
@@ -2772,8 +2772,8 @@ mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_fr
   %78 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %42, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %4) #7
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %mi_segment_check_free.exit.thread.i, %88
-  %79 = phi i64 [ %77, %mi_segment_check_free.exit.thread.i ], [ %89, %88 ]
+.outer.backedge:                                  ; preds = %mi_segment_check_free.exit.thread.i, %89
+  %79 = phi i64 [ %77, %mi_segment_check_free.exit.thread.i ], [ %90, %89 ]
   br label %.outer
 
 80:                                               ; preds = %mi_segment_check_free.exit.i
@@ -2786,22 +2786,22 @@ mi_segment_check_free.exit.thread.i:              ; preds = %mi_segment_check_fr
   %brmerge.not.i = select i1 %84, i1 %47, i1 false
   br i1 %brmerge.not.i, label %mi_segment_try_reclaim.exit, label %85
 
-85:                                               ; preds = %81, %80
+.thread.i:                                        ; preds = %81, %80
   %86 = load i64, ptr %44, align 8, !tbaa !66
   %87 = icmp ugt i64 %86, 3
   %brmerge44.not.i = select i1 %87, i1 %47, i1 false
   br i1 %brmerge44.not.i, label %88, label %91
 
-88:                                               ; preds = %85
-  %89 = add nsw i64 %.033.i.ph, -1
-  %90 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %42, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %4) #7
+89:                                               ; preds = %85
+  %90 = add nsw i64 %.033.i.ph, -1
+  %91 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %42, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %4) #7
   br label %.outer.backedge
 
-91:                                               ; preds = %85
+92:                                               ; preds = %85
   call void @_mi_arena_segment_mark_abandoned(ptr noundef nonnull %42) #8
   br label %36
 
-mi_segment_try_reclaim.exit.thread18:             ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i, %41
+mi_segment_try_reclaim.exit:                      ; preds = %segment_count_is_within_target.exit.i13, %segment_count_is_within_target.exit.thread.i, %41
   call void @_mi_arena_field_cursor_done(ptr noundef nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   br label %.thread
@@ -2818,7 +2818,7 @@ mi_segment_try_reclaim.exit:                      ; preds = %81
   %.not = icmp eq ptr %92, null
   br i1 %.not, label %.thread, label %98
 
-.thread:                                          ; preds = %16, %mi_segments_try_abandon.exit, %mi_segment_try_reclaim.exit.thread18, %94
+.thread:                                          ; preds = %16, %mi_segments_try_abandon.exit, %mi_segment_try_reclaim.exit, %94
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %96 = load i32, ptr %95, align 8, !tbaa !93
   %97 = call fastcc ptr @mi_segment_alloc(i64 noundef 0, i32 noundef %2, i64 noundef %3, i64 noundef 0, i32 noundef %96, ptr noundef %4) #7

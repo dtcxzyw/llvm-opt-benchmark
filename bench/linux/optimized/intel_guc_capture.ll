@@ -776,7 +776,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
 212:                                              ; preds = %208
   %213 = load ptr, ptr %210, align 8
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %.thread54.thread131, label %.preheader65.preheader
+  br i1 %214, label %.thread54.thread130, label %.preheader65.preheader
 
 .preheader65.preheader:                           ; preds = %212
   %215 = icmp eq i32 %2, 0
@@ -872,9 +872,9 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
 .thread54:                                        ; preds = %230, %262, %244, %238, %271, %269, %236
   %275 = phi i32 [ 0, %236 ], [ %274, %271 ], [ %240, %269 ], [ %240, %238 ], [ %240, %244 ], [ %240, %262 ], [ 0, %230 ]
   %276 = and i32 %275, 65535
-  br label %.thread54.thread131
+  br label %.thread54.thread130
 
-.thread54.thread131:                              ; preds = %212, %.thread54
+.thread54.thread130:                              ; preds = %212, %.thread54
   %storemerge = phi i32 [ %276, %.thread54 ], [ 0, %212 ]
   store i32 %storemerge, ptr %195, align 8
   %277 = getelementptr i8, ptr %195, i64 4
@@ -884,7 +884,7 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %280 = icmp eq ptr %279, null
   br i1 %280, label %.thread58, label %.preheader62.preheader
 
-.preheader62.preheader:                           ; preds = %.thread54.thread131
+.preheader62.preheader:                           ; preds = %.thread54.thread130
   %281 = icmp eq i32 %2, 0
   br label %.preheader62
 
@@ -1079,11 +1079,11 @@ define dso_local i32 @intel_guc_capture_getlist(ptr noundef readonly captures(no
   %.pre130 = load i64, ptr %7, align 8
   br label %.thread58
 
-.thread58:                                        ; preds = %297, %376, %.thread54.thread, %.thread54.thread131, %401, %.thread60, %303
+.thread58:                                        ; preds = %297, %376, %.thread54.thread, %.thread54.thread130, %401, %.thread60, %303
   %405 = phi i64 [ %194, %.thread54.thread131 ], [ %.pre130, %401 ], [ %194, %.thread60 ], [ %194, %303 ], [ %194, %.thread54.thread ], [ %194, %376 ], [ %194, %297 ]
   store i8 1, ptr %14, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %195, ptr %406, align 8
+  %405 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr %195, ptr %405, align 8
   %407 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %405, ptr %407, align 8
   %408 = getelementptr inbounds nuw i8, ptr %14, i64 24

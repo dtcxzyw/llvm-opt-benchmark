@@ -3096,16 +3096,16 @@ OSSL_PARAM_locate_const.exit.thread:              ; preds = %14, %4, %.preheader
   %24 = call fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef nonnull %.0913.i.i, ptr noundef nonnull %6, ptr noundef %5, ptr noundef nonnull %7, i32 noundef 5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not12 = icmp eq i32 %24, 0
-  br i1 %.not12, label %30, label %._crit_edge
+  br i1 %.not12, label %30, label %25
 
-._crit_edge:                                      ; preds = %23
-  %.pre = load ptr, ptr %6, align 8, !tbaa !63
-  %.pre16 = load i64, ptr %7, align 8, !tbaa !19
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %6, align 8, !tbaa !63
+  %27 = load i64, ptr %7, align 8, !tbaa !19
   br label %25
 
-25:                                               ; preds = %._crit_edge, %20, %17
-  %26 = phi i64 [ %.pre16, %._crit_edge ], [ 0, %20 ], [ 0, %17 ]
-  %27 = phi ptr [ %.pre, %._crit_edge ], [ null, %20 ], [ null, %17 ]
+25:; preds = %25, %20, %17
+  %26 = phi i64 [ %27, %._crit_edge ], [ 0, %20 ], [ 0, %17 ]
+  %27 = phi ptr [ %26, %._crit_edge ], [ null, %20 ], [ null, %17 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !62
   %29 = load i64, ptr %3, align 8, !tbaa !19
   call void @CRYPTO_clear_free(ptr noundef %28, i64 noundef %29, ptr noundef nonnull @.str, i32 noundef 1573) #13

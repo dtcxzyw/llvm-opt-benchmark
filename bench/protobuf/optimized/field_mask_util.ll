@@ -3146,9 +3146,9 @@ invoke.cont9:                                     ; preds = %.noexc
 
 if.end.i:                                         ; preds = %invoke.cont9
   invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree12MergeMessageEPKNS3_4NodeERKNS0_7MessageERKNS1_13FieldMaskUtil12MergeOptionsEPS7_(ptr noundef nonnull readonly align 8 dereferenceable(24) %tree, ptr noundef nonnull align 8 dereferenceable(16) %source, ptr noundef nonnull readonly align 1 dereferenceable(2) %options, ptr noundef nonnull %destination)
-          to label %if.then.i.i.i.i unwind label %lpad8.thread
+          to label %invoke.cont10 unwind label %lpad8.loopexit
 
-if.then.i.i.i.i:                                  ; preds = %if.end.i
+invoke.cont10:                                    ; preds = %if.end.i
   %this.val1.i.i.i.i = load ptr, ptr %tree, align 8
   call fastcc void @_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree4NodeESt14default_deleteISG_EESt4lessIS9_ESaISt4pairIKS9_SJ_EELi256ELb0EEEE16clear_and_deleteEPSR_PSP_(ptr noundef %this.val1.i.i.i.i)
   br label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit
@@ -3156,7 +3156,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
 _ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit: ; preds = %cleanup.done, %invoke.cont9, %if.then.i.i.i.i
   ret void
 
-lpad8.thread:                                     ; preds = %if.end.i
+lpad8.loopexit:                                   ; preds = %if.end.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %if.then.i.i.i.i10
@@ -3246,7 +3246,7 @@ invoke.cont1:                                     ; preds = %invoke.cont
 
 if.end.i:                                         ; preds = %invoke.cont1
   %call3.i34 = invoke fastcc noundef zeroext i1 @_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTree11TrimMessageEPKNS3_4NodeEPNS0_7MessageE(ptr noundef nonnull readonly align 8 dereferenceable(24) %tree, ptr noundef nonnull %message)
-          to label %if.then.i.i.i.i unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 if.then.i.i.i.i:                                  ; preds = %if.end.i
   %this.val1.i.i.i.i = load ptr, ptr %tree, align 8
@@ -3254,21 +3254,21 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i
   br label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit
 
 _ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit: ; preds = %invoke.cont1, %if.then.i.i.i.i
-  %retval.0.i14 = phi i1 [ %call3.i34, %if.then.i.i.i.i ], [ false, %invoke.cont1 ]
-  ret i1 %retval.0.i14
+  %retval.0.i16 = phi i1 [ %call3.i34, %if.then.i.i.i.i ], [ false, %invoke.cont1 ]
+  ret i1 %retval.0.i16
 
 lpad.loopexit:                                    ; preds = %for.body.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i, %if.end.i
-  %lpad.loopexit.split-lp16 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit15, %lpad.loopexit ], [ %lpad.loopexit.split-lp16, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit17, %lpad.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp ]
   %this.val.i.i.i.i6 = load i64, ptr %size_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i7 = icmp eq i64 %this.val.i.i.i.i6, 0
   br i1 %cmp.i.i.i7, label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit11, label %if.then.i.i.i.i8
@@ -3361,17 +3361,17 @@ if.end.i:                                         ; preds = %invoke.cont4
           to label %invoke.cont7 unwind label %lpad.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %for.body.i
-  %lpad.loopexit28 = landingpad { ptr, i32 }
+  %lpad.loopexit30 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.invoke, %if.then, %if.end.i, %if.end.i12
-  %lpad.loopexit.split-lp29 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp31 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit28, %lpad.loopexit ], [ %lpad.loopexit.split-lp29, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit30, %lpad.loopexit ], [ %lpad.loopexit.split-lp31, %lpad.loopexit.split-lp ]
   %this.val.i.i.i.i = load i64, ptr %size_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i5 = icmp eq i64 %this.val.i.i.i.i, 0
   br i1 %cmp.i.i.i5, label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit, label %if.then.i.i.i.i
@@ -3403,8 +3403,8 @@ if.then.i.i.i.i17:                                ; preds = %if.end.i12
   br label %_ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit20
 
 _ZN6google8protobuf4util12_GLOBAL__N_113FieldMaskTreeD2Ev.exit20: ; preds = %invoke.cont4, %invoke.cont7, %if.then.i.i.i.i17
-  %retval.0.i25 = phi i1 [ %call3.i1314, %if.then.i.i.i.i17 ], [ false, %invoke.cont7 ], [ false, %invoke.cont4 ]
-  ret i1 %retval.0.i25
+  %retval.0.i27 = phi i1 [ %call3.i1314, %if.then.i.i.i.i17 ], [ false, %invoke.cont7 ], [ false, %invoke.cont4 ]
+  ret i1 %retval.0.i27
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0

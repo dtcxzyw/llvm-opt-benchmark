@@ -948,7 +948,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit.i:     ; preds = %.thread, %_ZN4absl1
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
-  br label %44
+  br label %46
 
 .thread14:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -977,7 +977,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread14, %26, %27
 33:                                               ; preds = %35, %3
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %44
+  br label %46
 
 35:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit
   %36 = invoke ptr @gpr_strdup(ptr noundef nonnull %7)
@@ -990,23 +990,23 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread14, %26, %27
 38:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit, %37
   br i1 %.not.i.i, label %39, label %_ZN4absl12lts_202407226StatusD2Ev.exit13
 
-39:                                               ; preds = %38
+39:; preds = %38
   %40 = inttoptr i64 %9 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %40)
           to label %_ZN4absl12lts_202407226StatusD2Ev.exit13 unwind label %41
 
-41:                                               ; preds = %39
+41:; preds = %39
   %42 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #20
+  %45 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %45) #20
   unreachable
 
 _ZN4absl12lts_202407226StatusD2Ev.exit13:         ; preds = %38, %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   ret i1 %32
 
-44:                                               ; preds = %.body, %33
+46:                                               ; preds = %.body, %33
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %25, %.body ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18

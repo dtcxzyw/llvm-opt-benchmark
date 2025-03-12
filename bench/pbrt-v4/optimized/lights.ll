@@ -7280,8 +7280,8 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit: ; preds = %_ZN
   %.sroa.9.0.extract.shift.i149.pre-phi = phi i64 [ %.sroa.9.0.extract.shift.i, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ], [ %.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %.sroa.9.0.extract.shift.i, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %.sroa.9.0.extract.shift.i, %242 ]
   %253 = phi i32 [ %177, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ], [ %213, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %177, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %177, %242 ]
   %.sroa.04.0.copyload.i106 = phi i64 [ %.sroa.0.0.copyload.i103364, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ], [ %.sroa.04.0.copyload.i106.pre, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %.sroa.0.0.copyload.i103364, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %.sroa.0.0.copyload.i103364, %242 ]
-  %.0.i = phi float [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ], [ %212, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %241, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %251, %242 ]
-  store float %.0.i, ptr %6, align 4, !tbaa !77
+  %.pre.i.i = phi float [ 0.000000e+00, %_ZN4pbrt16RemapPixelCoordsEPNS_6Point2IiEES1_NS_10WrapMode2DE.exit ], [ %212, %_ZNK4pbrt13ColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE.exit.i ], [ %241, %_ZNK4pbrt4HalfcvfEv.exit.i ], [ %251, %242 ]
+  store float %.pre.i.i, ptr %6, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0308)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.4309)
   store i32 1, ptr %.sroa.0308, align 4
@@ -7635,7 +7635,7 @@ _ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit146: ; preds = %
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit146
-  %410 = phi float [ %413, %.lr.ph.i.i ], [ %.0.i, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit146 ]
+  %410 = phi float [ %413, %.lr.ph.i.i ], [ %.pre.i.i, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit146 ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 4, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit146 ]
   %.018.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %6, %_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE.exit146 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
@@ -54381,9 +54381,9 @@ _ZN4pbrt8Point3fiC2ENS_6Point3IfEENS_7Vector3IfEE.exit: ; preds = %186, %_ZN4pbr
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
   store <2 x float> %.sroa.0.4.vec.insert.i374, ptr %.sroa.9.0..sroa_idx, align 4
   %.sroa.10.sroa.3.0..sroa.10.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.sroa.3.0..sroa.10.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
-  store float %242, ptr %244, align 8, !tbaa !409
+  store float %242, ptr %262, align 8, !tbaa !409
   ret void
 }
 
